@@ -35,31 +35,47 @@
             />
           </div>
           <div class="form-content">
-            <input class="form-input" type="number" placeholder="Username" />
+            <input
+              class="form-input"
+              type="number"
+              placeholder="Username"
+              required
+            />
           </div>
           <div class="form-content">
-            <input class="form-input" type="password" placeholder="Password" />
+            <input
+              class="form-input"
+              type="password"
+              placeholder="Password"
+              required
+            />
           </div>
           <div class="form-button">
             <span class="btn-rememberme">
               <input type="checkbox" name="Remember" id="btnRememberMe" />
               <label for="btnRememberMe">Remember me</label>
             </span>
-            <span class="btn-forgotpass">
-              <button id="btnForgotPass" type="button">
-                Forgot Password ?
-              </button>
+            <span class="btn-forgotpass desktop-view">
+              <a id="btnForgotPass" type="button"> Forgot Password ? </a>
             </span>
           </div>
           <div class="form-signin">
             <span class="btn-signin">
-              <button id="btnSignIn" type="button">Sign In</button>
+              <button id="btnSignIn" type="submit">Sign In</button>
             </span>
             <span class="btn-outlook">
               <button id="btnOutlook" type="button">
+                <span class="mobile-view">Continue with </span>
                 <img src="../assets/images/outlook.png" alt="Outlook Login" />
               </button>
             </span>
+          </div>
+          <div class="mobile-view">
+            <div class="form-button">
+              <span class="btn-forgotpass">
+                <a id="btnForgotPass" type="button"> Forgot Password ? </a>
+              </span>
+            </div>
           </div>
           <div class="form-info">
             <p>
