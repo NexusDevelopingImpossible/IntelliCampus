@@ -1,0 +1,71 @@
+
+
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/bg.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    /* background-position: center; */
+    overflow-x:hidden;
+    
+}
+
+.container-main{
+    display: flex;
+}
+
+
+/*---------------------Left Section--------------------------------------*/
+
+.container-left{
+    width: 50vw;
+    height: auto;
+    
+    
+}
+
+.logo-title{
+    height: auto;
+    width: 100vw;
+}
+
+.logo-title img{
+    margin: 3vh 2vw;
+    
+}
+
+
+.logo-smit{
+    width: 38vw;
+    opacity: 0.15;
+    display: block;
+    margin: auto auto;
+    
+}
+
+
+
+/*--------------------Right Section---------------------------------*/
+
+.container-right{
+    width: 50vw;
+    display: flex;
+}
+
+.login-smit {
+    display: block;
+    margin: auto auto;
+    width: 33vw;
+    height: 70vh;
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.196);
+    backdrop-filter: blur(6.5px);
+    background:linear-gradient(107.63deg, rgba(255, 255, 255, 0.304) -16.26%, rgba(255, 255, 255, 0) 100.97%);
+    filter: drop-shadow(0px 4px 74px rgba(0, 0, 0, 0.18));
+    border-radius: 40px;
+    /* align-content: center; */
+}
+
+
+
