@@ -1,3 +1,10 @@
+:root{
+    --scheme-color:#FD6D08;
+    --invalid:red;
+    --valid:hsl(130 52% 46%);
+    --border-color:transparent;
+}
+
 body {
     height: 100vh;
     margin: 0;
@@ -12,6 +19,7 @@ body {
 
 .container-main {
     display: flex;
+    margin-bottom:3rem;
 }
 
 
@@ -67,7 +75,7 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
 
-    padding: 3rem 3rem 0 3rem;
+    padding: 2.5rem 3rem 0 3rem;
 
     font-family: 'Montserrat', sans-serif;
 }
@@ -83,7 +91,6 @@ body {
 .login-form .form-input {
     width: 100%;
     height: 3rem;
-    border: none;
     outline: none;
     background: #FFFFFF;
     box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.05);
@@ -94,9 +101,44 @@ body {
     font-weight: 600;
     font-size: .9rem;
     text-align: left;
-    padding: .4rem .8rem;
+    padding: .1rem .8rem;
+    margin:0.75rem 0;
     color: #7B6E6E;
 }
+
+#form-input-user{
+    border: 2px solid var(--border-color);
+}
+
+#form-input-password{
+    border: 2px solid transparent;
+}
+
+#form-input-user:invalid {
+    --border-color: var(--invalid);
+  }
+#form-input-user:placeholder-shown{
+    --border-color: transform;
+}
+#form-input-user:valid{
+    --border-color:var(--valid);
+}
+
+#form-input-user:invalid:not(:focus):not(:placeholder-shown) {
+    animation: shake 0.2s;
+}
+
+@keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    } 
+    20%, 40%, 60%, 80% {
+      transform: translateX(-2%);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: translateX(2%);
+    }
+  }
 
 .login-form .form-input::-webkit-inner-spin-button,
 .login-form .form-input::-webkit-outer-spin-button {
@@ -151,6 +193,8 @@ body {
     color: #FFFFFF;
     cursor: pointer;
     transition-duration: .4s;
+
+    text-decoration: none;
 }
 
 #btnForgotPass:hover {
@@ -339,6 +383,7 @@ body {
     .login-form .form-button {
         align-items: center;
         justify-content: center;
+        padding-top:2vh;
     }
 
 
@@ -347,6 +392,7 @@ body {
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        padding-top:0.75rem;
     }
 
     .btn-signin,
