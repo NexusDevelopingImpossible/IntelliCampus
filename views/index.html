@@ -1,31 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <title>eCampus Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <title>E-Campus</title>
-</head>
-
-<body>
+  <body>
     <div class="logo-title">
-        <img src="../assets/images/smit-logo.png" alt="">
+      <img src="../assets/images/smit-logo.png" alt="" />
     </div>
     <section class="container-main">
-
-        <div class="container-left">
-           
-
-            
-                <img class="logo-smit"src="../assets/images/manipal-vector.png" alt="">
-        </div>
-        <div class="container-right">
-            <div class="login-smit">
-                 
-            </div>
-        </div>
+      <div class="container-left">
+        <img
+          class="logo-smit"
+          src="../assets/images/manipal-vector.png"
+          alt=""
+        />
+      </div>
+      <div class="container-right">
+        <form class="login-form">
+          <div class="ecampus-logo">
+            <img
+              src="../assets/images/ecmanager.png"
+              alt="Ecampus Manager Logo SMIT"
+            />
+          </div>
+          <div class="form-content">
+            <input class="form-input" type="number" placeholder="Username" />
+          </div>
+          <div class="form-content">
+            <input class="form-input" type="password" placeholder="Password" />
+          </div>
+          <div class="form-button">
+            <span class="btn-rememberme">
+              <input type="checkbox" name="Remember" id="btnRememberMe" />
+              <label for="btnRememberMe">Remember me</label>
+            </span>
+            <span class="btn-forgotpass">
+              <button id="btnForgotPass" type="button">
+                Forgot Password ?
+              </button>
+            </span>
+          </div>
+          <div class="form-signin">
+            <span class="btn-signin">
+              <button id="btnSignIn" type="button">Sign In</button>
+            </span>
+            <span class="btn-outlook">
+              <button id="btnOutlook" type="button">
+                <img src="../assets/images/outlook.png" alt="Outlook Login" />
+              </button>
+            </span>
+          </div>
+          <div class="form-info">
+            <p>
+              Note: For student, use registration number as Username and 123 as
+              password if it is not change!
+            </p>
+          </div>
+        </form>
+      </div>
     </section>
-</body>
+  </body>
 </html>

@@ -1,71 +1,224 @@
-
-
 body {
     height: 100vh;
     margin: 0;
     padding: 0;
     background-image: url("../images/bg.png");
     background-repeat: no-repeat;
-    background-size:cover;
-    /* background-position: center; */
-    overflow-x:hidden;
-    
+    background-size: cover;
+    overflow-x: hidden;
+
 }
 
-.container-main{
+.container-main {
     display: flex;
 }
 
 
 /*---------------------Left Section--------------------------------------*/
 
-.container-left{
+.container-left {
     width: 50vw;
     height: auto;
-    
-    
+
+
 }
 
-.logo-title{
-    height: auto;
+.logo-title {
     width: 100vw;
+    height: auto;
 }
 
-.logo-title img{
+.logo-title img {
+    width: 16rem;
     margin: 3vh 2vw;
-    
+
 }
 
 
-.logo-smit{
+.logo-smit {
     width: 38vw;
     opacity: 0.15;
     display: block;
     margin: auto auto;
-    
+
 }
 
 
 
 /*--------------------Right Section---------------------------------*/
 
-.container-right{
+.container-right {
     width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    width: 22rem;
+    height: 70vh;
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.196);
+    background: linear-gradient(107.63deg, rgba(255, 255, 255, 0.304) -16.26%, rgba(255, 255, 255, 0) 100.97%);
+    filter: drop-shadow(0px 4px 74px rgba(0, 0, 0, 0.18));
+    backdrop-filter: blur(6.5px);
+    border-radius: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    padding: 3rem 3rem 0 3rem;
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+.login-form .ecampus-logo img {
+    width: 17rem;
+}
+
+.form-content {
     display: flex;
 }
 
-.login-smit {
-    display: block;
-    margin: auto auto;
-    width: 33vw;
-    height: 70vh;
-    box-shadow: 0 0 40px rgba(8, 7, 16, 0.196);
-    backdrop-filter: blur(6.5px);
-    background:linear-gradient(107.63deg, rgba(255, 255, 255, 0.304) -16.26%, rgba(255, 255, 255, 0) 100.97%);
-    filter: drop-shadow(0px 4px 74px rgba(0, 0, 0, 0.18));
-    border-radius: 40px;
-    /* align-content: center; */
+.login-form .form-input {
+    width: 100%;
+    height: 3rem;
+    border: none;
+    outline: none;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.05);
+    border-radius: 1rem;
+
+    letter-spacing: 0.05em;
+    font-style: normal;
+    font-weight: 600;
+    font-size: .9rem;
+    text-align: left;
+    padding: .4rem .8rem;
+    color: #7B6E6E;
+}
+
+.login-form .form-input::-webkit-inner-spin-button,
+.login-form .form-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.login-form .form-button {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#btnRememberMe {
+    width: .7rem;
+    height: .7rem;
+    appearance: none;
+    -webkit-appearance: none;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 1.5px solid #fff;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#btnRememberMe:checked {
+    background-color: #FD6D08;
+
+}
+
+.login-form .btn-rememberme {
+    font-style: normal;
+    font-weight: 500;
+    font-size: .9rem;
+    color: #FFFFFF;
+}
+
+.login-form .btn-rememberme label {
+    cursor: pointer;
+}
+
+.login-form #btnForgotPass {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: .9rem;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition-duration: .4s;
+}
+
+#btnForgotPass:hover {
+    color: #FD6D08;
 }
 
 
 
+.login-form .form-signin {
+    display: grid;
+    grid-template-columns: 3.2fr 0.8fr;
+}
+
+.login-form .btn-signin {
+    padding: .2rem .5rem;
+}
+
+.login-form #btnSignIn {
+    width: 100%;
+    height: 2.9rem;
+    border: none;
+    outline: none;
+    background: #515151;
+    border-radius: 1rem;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+
+
+#btnSignIn:hover {
+    background-color: #FD6D08;
+}
+
+.login-form .btn-outlook {
+    margin: auto;
+}
+
+.login-form #btnOutlook {
+    margin: 100;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 100px;
+    padding: .5rem;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.login-form #btnOutlook img {
+    width: 1.8rem;
+    height: auto;
+}
+
+.form-info {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: .8rem;
+    text-align: center;
+    color: #FFFFFF;
+}
