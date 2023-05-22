@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/login.css" />
     <title>eCampus Manager</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,7 +16,7 @@
 
   <body>
     <div class="logo-title">
-      <img src="../assets/images/smit-logo.png" alt="" />
+      <img src="../assets/images/smit-logo.png" alt="SMIT Logo" />
     </div>
     <section class="container-main">
       <div class="container-left">
@@ -37,14 +37,18 @@
           <div class="form-content">
             <input
               class="form-input"
-              type="number"
+              id="form-input-user"
+              type="text"
               placeholder="Username"
+              pattern="\d{4}|\d{9}"
+              title ="Please Enter a valid username"
               required
             />
           </div>
           <div class="form-content">
             <input
               class="form-input"
+              id="form-input-password"
               type="password"
               placeholder="Password"
               required
@@ -56,7 +60,7 @@
               <label for="btnRememberMe">Remember me</label>
             </span>
             <span class="btn-forgotpass desktop-view">
-              <a id="btnForgotPass" type="button"> Forgot Password ? </a>
+              <a href="#" id="btnForgotPass" type="button"> Forgot Password ? </a>
             </span>
           </div>
           <div class="form-signin">
@@ -86,5 +90,6 @@
         </form>
       </div>
     </section>
+    <script type="text/javascript" src="../assets/js/login.js"></script>
   </body>
 </html>
