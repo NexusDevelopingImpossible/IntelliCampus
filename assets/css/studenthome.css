@@ -1,0 +1,123 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    margin:0;
+    padding:0;
+
+}
+.border{
+    position: fixed;
+    top:0;
+    left: 0;
+    border: 1px solid whitesmoke;
+    width: 100%;
+    height: 100%;
+    /* border-radius: 55px; */
+    background-color: #390300;
+    display: flex;
+    flex-direction: row;
+}
+.nav{
+    height: 100%;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+.Logo img{
+    width: 230px;
+    margin: 25px 0 0 25px ;
+}
+.options{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.options ul li{
+    list-style: none;
+
+}
+.options li a{
+    display: flex;
+    align-items: center;
+    height: 51px;
+    width: 199px;
+    margin: 0 0 0 0px;
+    padding-left: 15px;
+    text-decoration: none;
+
+}
+.title{
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-weight: 600px;
+    font-size: 20px;
+    font-style: normal;
+    width: 131px;
+    height: 28px;
+    align-items: center;
+}
+.icon {
+    min-width: 32px;
+    min-height: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+ }
+ .icon img{
+    width: 20px;
+ }
+
+
+ .options li a:hover{
+    background-color: rgba(255,255,255,0.2);
+    border-top-left-radius: 50px; 
+    border-bottom-left-radius: 50px;
+
+ }
+ .main-page{
+    margin: 15px 15px 15px 0;
+    width: 1500px;
+    background-image: url("../images/bg-blur.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 55px;
+ }
+.heading{
+    display: flex;
+    justify-content: space-between;
+}
+.dash-heading{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.ecampus img{
+    margin-top: 25px;
+    width: 225px;
+    margin-right: 50px;
+}
+.head1{
+    font-family: 'Montserrat', sans-serif;
+    height: 10px;
+    margin-left: 50px;
+    margin-top: 25px;
+    font-size: 75px;
+    font-weight: 700px;
+    color: #ffffff;
+}
+.head2{
+    font-family: 'Montserrat', sans-serif;
+    height: 10px;
+    margin-left: 54px;
+    margin-top: 35px;
+    font-size: 23px;
+    font-weight:initial;
+    color: #ffffff;
+}
+#name{
+    font-size: 23px;
+    font-weight: bolder;
+}
