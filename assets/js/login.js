@@ -1,6 +1,4 @@
 let timeout;
-
- 
 let strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/;
 let mediumPassword = /^(?=.*[a-zA-Z])(?=.*\d).{6,}/;
 let password = document.getElementById('form-input-password');

@@ -1,0 +1,207 @@
+.cards {
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  padding: 1rem 3rem;
+}
+.card {
+  background-color: #f8d57b1e;
+  border: 1px solid #ffffff9a;
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+}
+
+.card1 {
+  height: 6rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 0rem 2rem;
+  gap: 3rem;
+}
+.card2 {
+  height: 14rem;
+  margin-bottom: 1rem;
+}
+.card3 {
+  height: 16rem;
+  /* margin-bottom: 1rem; */
+}
+.card4 {
+  height: 16rem;
+  margin-bottom: 1rem;
+}
+.card5 {
+  height: 21rem;
+  /* padding: 5px; */
+  /* margin-bottom: 1rem; */
+}
+
+.card-hed {
+  padding-top: 0.7rem;
+  padding-left: 1rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #f8d0b4;
+}
+
+/* - - - - - - - - - - - - - - - - */
+/*  - - - STUDENT PROFILE - - -  */
+/* - - - - - - - - - - - - - - - - */
+.img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 3px solid #febb8c;
+  margin-right: 0.5rem;
+}
+
+.b1,
+.b2,
+.b3 {
+  display: flex;
+  padding-top: 0.8rem;
+  /* align-items: center; */
+}
+.std-name {
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+.reg {
+  font-weight: 100;
+  font-size: 1.1rem;
+}
+
+.b2 h1 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.b2 h1 span {
+  font-weight: 100;
+}
+.b3 h1 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.b3 h1 span {
+  font-weight: 100;
+}
+
+/* - - - - - - - - - - - - - - */
+/* - - - NOTIFICATION - - - */
+/* - - - - - - - - - - - - - - */
+.notification {
+  padding: 0.7rem;
+  padding-left: 1rem;
+  padding-right: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.pdf a:hover {
+  cursor: pointer;
+  color: #8a8787;
+}
+.pdf a {
+  color: #fff;
+}
+.text {
+  font-size: 0.9rem;
+}
+.new {
+  color: #fff;
+}
+.old {
+  color: #ffffff74;
+}
+.time {
+  color: #ffffff63;
+  padding-top: 0.4rem;
+  font-weight: 100;
+  font-size: 0.6rem;
+}
+/* vertical scrolling */
+.content {
+  height: 12.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+}
+.content::-webkit-scrollbar {
+    display: none; }
+
+/* - - - - - - - - - - - - */
+/* - - - ATTENDENCE - - - */
+/* - - - - - - - - - - - - */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.circle-progress {
+  position: relative;
+  height: 4.5rem;
+  width: 4.5rem;
+  border-radius: 50%;
+  background: conic-gradient(#ffbd01 0deg, #00000068 0deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 3px solid #00000068; */
+}
+
+.circle-progress::before {
+  content: "";
+  position: absolute;
+  height: 4rem;
+  width: 4rem;
+  background-color: #877b6f;
+  border-radius: 50%;
+  /* border: 2px solid #00000068; */
+}
+
+.progress-val {
+  position: relative;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.sub-info {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-top: 1rem;
+}
+.sub-code {
+  font-size: 0.8rem;
+  font-weight: 100;
+}
+.sub-name{
+    font-size: 1.2rem;
+}
+
+.attendence-percent {
+  display: flex;
+  gap: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+/* Horizontal scrolling */
+.attendence-container {
+  padding-left: 1rem;
+  width: 44rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+}
+.attendence-container::-webkit-scrollbar {
+  display: none; 
+}
