@@ -35,6 +35,7 @@
 }
 .card5 {
   height: 21rem;
+  padding: 5px;
   /* margin-bottom: 1rem; */
 }
 
@@ -198,6 +199,9 @@
   padding-left: 1rem;
   width: 44rem;
   overflow-x: auto;
-  overflow-y: hidden;
   white-space: nowrap;
+  -ms-overflow-style: none;
+}
+.attendence-container::-webkit-scrollbar {
+  display: none; 
 }
