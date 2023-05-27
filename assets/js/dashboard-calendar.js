@@ -1,5 +1,6 @@
 const daysTag = document.querySelector(".days"),
 currentDate = document.querySelector(".current-date"),
+currentYear = document.querySelector(".current-year"),
 prevNextIcon = document.querySelectorAll(".icons img");
 
 // getting new date, current year and month
@@ -31,7 +32,8 @@ const renderCalendar = () => {
     for (let i = lastDayofMonth; i < 6; i++) { 
         liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
     }
-    currentDate.innerText = `${months[currMonth]} ${currYear}`; 
+    currentDate.innerText = `${months[currMonth]}`; 
+    currentYear.innerText = `${currYear}`; 
     daysTag.innerHTML = liTag;
 }
 renderCalendar();
