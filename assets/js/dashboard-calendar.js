@@ -1,7 +1,7 @@
 const daysTag = document.querySelector(".days"),
 currentDate = document.querySelector(".current-date"),
 currentYear = document.querySelector(".current-year"),
-prevNextIcon = document.querySelectorAll(".icons img");
+prevNextIcon = document.querySelectorAll(".icons span");
 
 // getting new date, current year and month
 let date = new Date(),
