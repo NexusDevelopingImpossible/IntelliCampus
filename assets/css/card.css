@@ -147,7 +147,7 @@
   height: 4.5rem;
   width: 4.5rem;
   border-radius: 50%;
-  background: conic-gradient(#ffbd01 206deg, #00000068 0deg);
+  background: conic-gradient(#ffbd01 0deg, #00000068 0deg);
   display: flex;
   align-items: center;
   justify-content: center;
