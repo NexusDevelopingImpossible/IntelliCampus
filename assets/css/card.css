@@ -35,7 +35,7 @@
 }
 .card5 {
   height: 21rem;
-  padding: 5px;
+  /* padding: 5px; */
   /* margin-bottom: 1rem; */
 }
 
@@ -158,8 +158,8 @@
 .circle-progress::before {
   content: "";
   position: absolute;
-  height: 3.5rem;
-  width: 3.5rem;
+  height: 4rem;
+  width: 4rem;
   background-color: #877b6f;
   border-radius: 50%;
   /* border: 2px solid #00000068; */
