@@ -13,7 +13,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  overflow-x: hidden;
+  overflow-x: hidden; /* for desktop  */
+  overflow-y: hidden; /* for desktop  */
   font-family: "Montserrat", sans-serif;
 }
 
