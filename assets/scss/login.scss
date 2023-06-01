@@ -1,0 +1,429 @@
+:root {
+    --scheme-color: #fd6d08;
+    --invalid: red;
+    --valid: hsl(130 52% 46%);
+    --border-color: transparent;
+  }
+  
+  body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden; /* for desktop  */
+    overflow-y: hidden; /* for desktop  */
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .container-main {
+    display: flex;
+    margin-bottom: 3rem;
+  }
+  
+  /*---------------------Left Section--------------------------------------*/
+  
+  .container-left {
+    width: 50vw;
+    height: auto;
+  }
+  
+  .logo-title {
+    width: 100vw;
+    height: auto;
+  }
+  
+  .logo-title img {
+    width: 16rem;
+    margin: 1.5rem 4rem;
+  }
+  
+  .logo-smit {
+    width: 38vw;
+    opacity: 0.15;
+    display: block;
+    margin: auto auto;
+  }
+  
+  /*--------------------Right Section---------------------------------*/
+  
+  .container-right {
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-form {
+    width: 22rem;
+    height: 70vh;
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.196);
+    background: linear-gradient(
+      107.63deg,
+      rgba(255, 255, 255, 0.304) -16.26%,
+      rgba(255, 255, 255, 0) 100.97%
+    );
+    filter: drop-shadow(0px 4px 74px rgba(0, 0, 0, 0.18));
+    backdrop-filter: blur(6.5px);
+    border-radius: 40px;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  
+    padding: 2.5rem 3rem 0 3rem;
+  
+  }
+  
+  .login-form .ecampus-logo img {
+    width: 17rem;
+  }
+  
+  .form-content {
+    display: flex;
+  }
+  
+  .login-form .form-input {
+    width: 100%;
+    height: 3rem;
+    outline: none;
+    background: #ffffff;
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.05);
+    border-radius: 1rem;
+  
+    letter-spacing: 0.05em;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: left;
+    padding: 0.1rem 0.8rem;
+    margin: 0.75rem 0;
+    color: #7b6e6e;
+  }
+  
+  #form-input-user {
+    border: 2px solid var(--border-color);
+  }
+  
+  #form-input-password {
+    border: 2px solid transparent;
+  }
+  
+  #form-input-user:invalid {
+    --border-color: var(--invalid);
+  }
+  #form-input-user:placeholder-shown {
+    --border-color: transform;
+  }
+  #form-input-user:valid {
+    --border-color: var(--valid);
+  }
+  
+  #form-input-user:invalid:not(:focus):not(:placeholder-shown) {
+    animation: shake 0.2s;
+  }
+  
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+      transform: translateX(-2%);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      transform: translateX(2%);
+    }
+  }
+  
+  .login-form .form-input::-webkit-inner-spin-button,
+  .login-form .form-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  .login-form .form-button {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #btnRememberMe {
+    width: 0.7rem;
+    height: 0.7rem;
+    appearance: none;
+    -webkit-appearance: none;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 1.5px solid #fff;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  #btnRememberMe:checked {
+    background-color: #fd6d08;
+  }
+  
+  .login-form .btn-rememberme {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #ffffff;
+  }
+  
+  .login-form .btn-rememberme label {
+    cursor: pointer;
+  }
+  
+  .login-form #btnForgotPass {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+  
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition-duration: 0.4s;
+  
+    text-decoration: none;
+  }
+  
+  #btnForgotPass:hover {
+    color: #fd6d08;
+  }
+  
+  .login-form .form-signin {
+    display: grid;
+    grid-template-columns: 3.2fr 0.8fr;
+  }
+  
+  .login-form .btn-signin {
+    padding: 0.2rem 0.5rem;
+  }
+  
+  .login-form #btnSignIn {
+    width: 100%;
+    height: 2.9rem;
+    border: none;
+    outline: none;
+    background: #515151;
+    border-radius: 1rem;
+  
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition-duration: 0.4s;
+  }
+  
+  #btnSignIn:hover {
+    background-color: #fd6d08;
+  }
+  
+  .login-form .btn-outlook {
+    margin: auto;
+  }
+  
+  .login-form #btnOutlook {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 100px;
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    cursor: pointer;
+  }
+  
+  .login-form #btnOutlook img {
+    width: 1.8rem;
+    height: auto;
+  }
+  
+  .form-info {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.8rem;
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  /* Mobile View Items */
+  .mobile-view {
+    display: none;
+  }
+  
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .logo-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .container-left {
+      display: none;
+    }
+  
+    .container-right {
+      width: 100vw;
+    }
+  
+    .login-form {
+      width: 60vw;
+    }
+  
+    .logo-title img {
+      margin: 3rem 0;
+    }
+  
+    .login-form {
+      width: 65vw;
+    }
+  }
+  
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    .logo-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .container-left {
+      display: none;
+    }
+  
+    .container-right {
+      width: 100vw;
+    }
+  
+    .login-form {
+      width: 60vw;
+    }
+  
+    .logo-title img {
+      margin: 3rem 0;
+    }
+  
+    .login-form {
+      width: 65vw;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .mobile-view {
+      display: block;
+    }
+  
+    body {
+      background-image: url("../images/bg_phone.png");
+    }
+  
+    .logo-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .container-left {
+      display: none;
+    }
+  
+    .container-right {
+      width: 100vw;
+    }
+  
+    .login-form {
+      width: 60vw;
+    }
+  
+    .logo-title img {
+      margin: 3rem 0;
+    }
+  
+    .login-form {
+      width: 65vw;
+    }
+  
+    .login-form {
+      width: 65vw;
+    }
+  
+    .login-form .ecampus-logo img {
+      width: 14.5rem;
+    }
+  
+    .form-input {
+      height: 2rem;
+    }
+  
+    .login-form .form-button {
+      align-items: center;
+      justify-content: center;
+      padding-top: 2vh;
+    }
+  
+    .login-form .form-signin {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding-top: 0.75rem;
+    }
+  
+    .btn-signin,
+    .btn-outlook {
+      padding: 0;
+      display: block;
+      width: 100%;
+    }
+  
+    #btnSignIn {
+      height: 3rem;
+    }
+  
+    .btn-outlook span {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #ffffff;
+  
+      padding-right: 0.8rem;
+    }
+  
+    #btnOutlook {
+      margin-top: 1rem;
+      width: 100%;
+      padding: 0;
+      border-radius: 1rem !important;
+      height: 3rem;
+    }
+  
+    .desktop-view {
+      display: none !important;
+    }
+  }
+  
+  @media screen and (max-width: 376px) {
+    body {
+      height: 120vh;
+    }
+  
+    .login-form {
+      height: 80vh;
+    }
+  }
+  

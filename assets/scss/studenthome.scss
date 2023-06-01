@@ -3,15 +3,16 @@
 *::after {
   padding: 0;
   margin: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 body {
   width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 0;
-  font-family: "Montserrat", sans-serif; }
-
+  font-family: "Montserrat", sans-serif;
+}
 .border {
   position: fixed;
   top: 0;
@@ -21,22 +22,23 @@ body {
   background-color: #390300;
   display: flex;
   flex-direction: row;
+
   /* - - NO NEED - - - */
   /* border: 1px solid whitesmoke; */
-  /* border-radius: 55px; */ }
-
+  /* border-radius: 55px; */
+}
 .nav {
   height: 100%;
   width: auto;
   display: flex;
-  flex-direction: column; }
-
+  flex-direction: column;
+}
 .Logo img {
   width: 13.5rem;
   padding-bottom: 1.5rem;
   padding-left: 1rem;
-  padding-top: 2rem; }
-
+  padding-top: 2rem;
+}
 /*- - - NO NEED - - -  */
 /* .options {
   display: flex;
@@ -45,8 +47,8 @@ body {
   justify-content: space-between;
 } */
 .options ul li {
-  list-style: none; }
-
+  list-style: none;
+}
 .options li a {
   padding: 1rem 2.3rem;
   /* padding: 0 2.5rem; */
@@ -55,13 +57,13 @@ body {
   /* display: flex;
     align-items: center; */
   /* height: 51px; */
-  /* width: 199px; */ }
-
+  /* width: 199px; */
+}
 .tab {
   display: flex;
   align-items: center;
-  gap: 1rem; }
-
+  gap: 1rem;
+}
 .title {
   color: #ffffff;
   font-weight: 500;
@@ -71,7 +73,8 @@ body {
   /* width: 131px; */
   /* height: 28px; */
   /* align-items: center; */
-  /* display: flex; */ }
+  /* display: flex; */
+}
 
 /* - - - NO NEED - - - */
 /* .icon {
@@ -83,13 +86,14 @@ body {
     justify-content: space-between;
  } */
 .icon img {
-  width: 1.2rem; }
+  width: 1.2rem;
+}
 
 .options li a:hover {
   background-color: rgba(255, 255, 255, 0.2);
   border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px; }
-
+  border-bottom-left-radius: 50px;
+}
 .main-page {
   margin: 0.9rem;
   margin-left: 0rem;
@@ -97,35 +101,37 @@ body {
   background-image: url("../images/bg-blur.png");
   background-size: cover;
   background-position: center;
-  border-radius: 2.5rem; }
-
+  border-radius: 2.5rem;
+}
 .heading {
   display: flex;
-  justify-content: space-between; }
-
+  justify-content: space-between;
+}
 .ecampus img {
   margin-top: 1.5rem;
   width: 10rem;
-  margin-right: 3rem; }
-
+  margin-right: 3rem;
+}
 .dash-heading {
-  padding-top: 1rem; }
-
+  padding-top: 1rem;
+}
 .head {
   padding-left: 3rem;
-  color: #ffffff; }
+  color: #ffffff;
+}
 
 .head1 {
   font-size: 3rem;
   font-weight: 700;
-  color: #ffffff; }
-
+  color: #ffffff;
+}
 .welcome-msg {
   font-size: 1.5rem;
-  font-weight: 300; }
-
+  font-weight: 300;
+}
 .welcome-msg span {
-  font-weight: 600; }
+  font-weight: 600;
+}
 
 .logomanipal img {
   position: absolute;
@@ -134,7 +140,8 @@ body {
   left: -100px;
   top: 450px;
   opacity: 0.03;
-  z-index: -1; }
+  z-index: -1;
+}
 
 .dash-manipal-vec {
   position: absolute;
@@ -142,4 +149,5 @@ body {
   width: 25rem;
   height: 27rem;
   left: 801px;
-  top: 0px; }
+  top: 0px;
+}

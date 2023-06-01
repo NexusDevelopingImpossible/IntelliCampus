@@ -1,0 +1,29 @@
+{
+  "name": "intellicampus",
+  "version": "1.0.0",
+  "description": "eCampus 3.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Campus",
+    "Manager"
+  ],
+  "author": "Nexus",
+  "license": "ISC",
+  "dependencies": {
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.4.5",
+    "node-sass": "^8.0.0",
+    "node-sass-middleware": "^1.0.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
+  }
+}
