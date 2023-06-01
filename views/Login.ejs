@@ -18,16 +18,16 @@
     <img class="logo-smit" src="/images/manipal-vector.png" alt="" />
   </div>
   <div class="container-right">
-    <form class="login-form" method="POST" action="">
+    <form class="login-form" method="POST" action="/users/create-session">
       <div class="ecampus-logo">
         <img src="/images/ecmanager.png" alt="Ecampus Manager Logo SMIT" />
       </div>
       <div class="form-content">
-        <input class="form-input" id="form-input-user" type="text" placeholder="Username" pattern="\d{4}|\d{9}"
+        <input name="username" class="form-input" id="form-input-user" type="text" placeholder="Username" pattern="\d{4}|\d{9}"
           title="Please Enter a valid username" required />
       </div>
       <div class="form-content">
-        <input class="form-input" id="form-input-password" type="password" placeholder="Password" required />
+        <input class="form-input" name="password" id="form-input-password" type="password" placeholder="Password" required />
       </div>
       <div class="form-button">
         <span class="btn-rememberme">
