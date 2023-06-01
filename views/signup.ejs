@@ -1,0 +1,13 @@
+<h1>Sign Up</h1>
+
+<form action="/users/create" method="post">
+    <input type="number" name="username" placeholder="regn" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+    <select name="position">
+        <option value="student">Student</option>
+        <option value="teacher">Teacher</option>
+        <option value="admin">Admin</option>
+      </select>
+    <input type="Submit" value="Sign Up">
+</form>
