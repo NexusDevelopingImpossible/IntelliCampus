@@ -78,9 +78,10 @@ body {
   border-bottom-left-radius: 50px;
 }
 .main-background {
+  height: 96vh;
   margin: 0.9rem;
   margin-left: 0rem;
-  width: 82rem;
+  width: 96vw;
   background-image: url("../images/bg-blur.png");
   background-size: cover;
   background-position: center;
@@ -108,3 +109,5 @@ body {
   left: 801px;
   top: 0px;
 }
+
+
