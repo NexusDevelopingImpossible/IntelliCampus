@@ -33,31 +33,31 @@
   border-radius: 20px;
 }*/
 
-.adm-card {
-  /* padding-left: 14rem; */
+.admin-info {
   display: flex;
   color: #ffffff;
+  align-items: center;
 }
 
 .img {
-  width: 5.5rem;
-  height: 5.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
   border-radius: 50%;
   border: 3px solid #fd6d08;
   margin-right: 0.5rem;
 }
 
 .adm {
-  padding-top: 0.5rem;
+  /* padding-top: 0.5rem; */
 }
 
 .adm-name {
-  font-weight: 500;
-  font-size: 1.8rem;
+  font-weight: 400;
+  font-size: 1.6rem;
 }
 
 .adm-info {
-  font-weight: 300;
+  font-weight: 200;
   font-size: 1rem;
 }
 
@@ -66,6 +66,7 @@
   padding: 0.8rem 2rem 0 2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .search-input {
@@ -96,26 +97,33 @@
 }*/
 
 .add-button {
-  display: inline-flex;
-  width: 20.5rem;
-  height: 3rem;
-  margin-left: 0.5rem;
+  /* margin-left: 0.5rem; */
   padding: 10px 20px;
-  align-items: center;
-  justify-content: center;
   background: rgba(253, 109, 8, 0.3);
   border: 1px solid #fd6d08;
   backdrop-filter: blur(12px);
   color: #fff;
   border-radius: 20px;
-  font-weight: 500;
-  font-size: 1.3rem;
+  font-weight: 400;
+  font-size: 1.1rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
 }
+.add-button:hover{
+  background: #e66203;
+  border: 1px solid #fd6d08;
+}
+
 
 .add-button img {
   margin-left: 0.5rem;
   width: 1.5rem;
+}
+.add{
+  display: flex;
+  gap: 1.3rem;
 }
 
 
@@ -126,8 +134,13 @@
   color: #ffffff;
 }
 
-.teachers h1 {
-  padding-left: 1rem;
+.hed{
+  padding-left: 1.5rem;
+  font-weight: 400;
+
+}
+.teacher h1{
+  font-weight: 500;
 }
 
 .main-carousel-container{
@@ -136,11 +149,7 @@
 }
 
 .carousel-container {
-  /* height: 11rem; */
   width: 78rem;
-  /* overflow: hidden; */
-  /* padding-left: 1rem; */
-  /* width: 44rem; */
   overflow-x: auto;
   white-space: nowrap;
   -ms-overflow-style: none;
@@ -173,6 +182,9 @@
 
 .slide {
   /* flex: 0 0 calc((78rem - 14rem) / 3); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 500px;
   height: 10rem;
   display: flex;
@@ -205,36 +217,45 @@
 .teacher {
   display: flex;
   font-size: 14px;
+  align-items: center;
+  gap: 0.75rem;
 
 }
 
 .teacher img {
-  width: 5rem;
-  height: 5rem;
+  width: 4.5rem;
+  height: 4.5rem;
   border-radius: 50%;
   border: 3px solid #fd6d08;
   margin-right: 0.5rem;
 }
 
 .btn {
-  display: inline-flex;
-  /* padding-top: 0.5rem; */
-  align-items: center;
-  width: 9.5rem;
+  width: 8.5rem;
   height: 2.2rem;
   border-radius: 100px;
   text-align: center;
-  justify-content: center;
   margin: 1rem auto;
   cursor: pointer;
   color: #ffffff;
   border: 1px solid #fd6d08;
   font-size: 16px;
 }
-
+.slide-btn{
+  display: flex;
+  gap: 0.5rem;
+}
 
 .btn-profile {
   background: #fd6d08;
+  transition: all 0.2s;
+}
+.btn-profile:hover{
+  background: #e66203;
+  
+}
+.btn-msg:hover{
+  background: #00000011;
 }
 
 .btn-msg {

@@ -1,0 +1,44 @@
+.error-msg img {
+    padding-top: 2rem;
+  width: 13rem;
+}
+
+.error-msg h1 {
+  color: #ffffff1c;
+  position: absolute;
+  width: 1297px;
+  height: 768px;
+  left: calc(50% - 1297px / 2 - 0.5px);
+  top: calc(50% - 1568px / 2 - 76.5px);
+  font-weight: 700;
+  font-size: 530px;
+  line-height: 768px;
+}
+.error-msg {
+  text-align: center;
+}
+
+.oops{
+    color: #fff;
+    font-weight: 700;
+font-size: 180px;
+line-height: 0;
+}
+
+.pnf{
+    color: #fff;
+    font-weight: 100;
+font-size: 4rem;
+line-height: 0;
+margin-bottom: 10rem;
+margin-top: -3rem;
+}
+
+a{
+    text-decoration: none;
+    border: 2px solid #A8B610;
+    border-radius: 40px;
+    padding: 1rem 3rem;
+    font-weight: 500;
+    color: #fff;
+}
