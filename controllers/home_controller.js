@@ -1,16 +1,20 @@
 const User = require('../models/user');
+const checkurlfunct = require('./server-function')
 
 module.exports.home = function(req, res){
     return res.redirect('/Login');
-    // return res.render('Login', {
-    //     title: "Login"
-    // });
 }
 
-
 module.exports.Login = function(req, res){
+    console.log(res.locals.user);
     return res.render('Login', {
         title: "Login"
+    });
+}
+module.exports.error = function(req, res){
+    console.log(res.locals.user);
+    return res.render('error', {
+        title: "error"
     });
 }
 

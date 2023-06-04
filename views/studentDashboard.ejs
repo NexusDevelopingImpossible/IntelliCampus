@@ -110,7 +110,7 @@
             <div class="dash-heading">
                 <h1 class="head head1">Dashboard</h1>
                 <h4 class="head welcome-msg">
-                Welcome back,<span id="name"> Chong!</span>
+                Welcome back,<span id="name"> <%=student[0].name%></span>
                 </h4>
             </div>
             <div class="ecampus">
@@ -133,8 +133,8 @@
                 <div class="b1">
                     <img class="img" src="/images/AG.jpg" alt="" />
                     <div>
-                    <h1 class="std-name">Om Singh</h1>
-                    <p class="reg">202100423</p>
+                    <h1 class="std-name"><%=student[0].name%></h1>
+                    <p class="reg"><%= student[0].username %></p>
                     </div>
                 </div>
                 <div class="b2">
