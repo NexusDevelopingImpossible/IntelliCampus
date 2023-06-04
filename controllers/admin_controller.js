@@ -22,7 +22,7 @@ module.exports.addteacher = (req, res) => {
     })
 }
 module.exports.createstudent = function (req, res) {
-    checkurlfunct.checkurl(req, res);
+    checkurlfunct.checkurladmin(req, res);
     var count = req.body.counter;
     var obj = req.body;
     var key = Object.keys(obj);
@@ -63,7 +63,7 @@ module.exports.createstudent = function (req, res) {
 
 }
 module.exports.createteacher = function (req, res) {
-    checkurlfunct.checkurl(req, res);
+    checkurlfunct.checkurladmin(req, res);
     var count = req.body.counter;
     var obj = req.body;
     // console.log(obj);
