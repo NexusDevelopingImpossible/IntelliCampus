@@ -93,7 +93,8 @@ body {
 .main-page {
   margin: 0.9rem;
   margin-left: 0rem;
-  width: 90rem;
+  width: 84vw;
+  height: 96vh;
   background-image: url("../images/bg-blur.png");
   background-size: cover;
   background-position: center;

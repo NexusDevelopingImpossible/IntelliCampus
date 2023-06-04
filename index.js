@@ -31,7 +31,7 @@ app.set('layout extractScript', true);
 app.use(expressLayouts);
 
 app.use(session({
-  name: 'quiklink',
+  name: 'newUSer',
   //TODO change secretbefore deployment 
   secret: 'blahsomething',
   saveUninitialized: false,
@@ -43,7 +43,7 @@ app.use(session({
       mongooseConnection: db,
       autoRemove: "disabled",
       // Added next line from stackoverflow to remove the (session) parameter from line 13
-      mongoUrl: 'mongodb://localhost/quiklink'
+      mongoUrl: 'mongodb://localhost/newECM'
     }),function(error){
       console.log(error || 'connect-mongodb setup okay');
     }
