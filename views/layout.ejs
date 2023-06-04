@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title><%=title%></title>
+    <title>
+        <%=title%>
+    </title>
     <%- style %>
 </head>
-<body>
-    <% if(!title == "Login") {%>
-     <!-- TODO later after sigin is working -->
-    <%}%>
 
+<body>
+    
+        <% if(!(title=="Login") ) {%>
+            <%console.log(locals.user.position)%>
+            <% if(locals.user.position=== "student"){%>
+                <%- include('navbar/student'); %>
+            <% } %>
+            <% if(locals.user.position==="teacher" ){%>
+                <%- include('navbar/teacher'); %>
+            <% } %>
+            <% if(locals.user.position==="admin" ){%>
+                <%- include('navbar/admin'); %>
+            <% } %>
+        <%}%>
         <%- body %>
 
-        
+
 </body>
+
 </html>
