@@ -1,0 +1,287 @@
+/*-------------------------------------------Admin Dashboard CSS--------------------------------------------------*/
+
+/*---------------------------------Admin Header-----------------------------------*/
+.heading {
+  /* position: absolute; */
+  /* padding-top: 1rem; */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.head {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.welcome-msg {
+  color: #ffffff;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.welcome-msg span {
+  font-weight: 600;
+}
+
+/*.cards{
+  background-color: #f8d57b1e;
+  border: 1px solid #ffffff9a;
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+}*/
+
+.admin-info {
+  display: flex;
+  color: #ffffff;
+  align-items: center;
+}
+
+.img {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  border: 3px solid #fd6d08;
+  margin-right: 0.5rem;
+}
+
+.adm {
+  /* padding-top: 0.5rem; */
+}
+
+.adm-name {
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+
+.adm-info {
+  font-weight: 200;
+  font-size: 1rem;
+}
+
+
+.search-box {
+  padding: 0.8rem 2rem 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-input {
+  width: 35rem;
+  height: 3rem;
+  padding: 10px 30px 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  font-size: 1.3rem;
+  color: #ffffff;
+  backdrop-filter: blur(12px);
+}
+
+.search-input:focus{
+  outline: none;
+  border: 1px solid #fadb0e;
+}
+
+.search-input::placeholder{
+  color: #ffffff7c;
+}
+
+/*.adm-add{
+  position: absolute;
+  padding-top: 11rem;
+  padding-left: 50rem;
+}*/
+
+.add-button {
+  /* margin-left: 0.5rem; */
+  padding: 10px 20px;
+  background: rgba(253, 109, 8, 0.3);
+  border: 1px solid #fd6d08;
+  backdrop-filter: blur(12px);
+  color: #fff;
+  border-radius: 20px;
+  font-weight: 400;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+.add-button:hover{
+  background: #e66203;
+  border: 1px solid #fd6d08;
+}
+
+
+.add-button img {
+  margin-left: 0.5rem;
+  width: 1.5rem;
+}
+.add{
+  display: flex;
+  gap: 1.3rem;
+}
+
+
+.teachers {
+  padding: 1rem 1rem 0 1rem;
+  font-weight: 300;
+  font-size: 0.7rem;
+  color: #ffffff;
+}
+
+.hed{
+  padding-left: 1.5rem;
+  font-weight: 400;
+
+}
+.teacher h1{
+  font-weight: 500;
+}
+
+.main-carousel-container{
+  display: flex;
+
+}
+
+.carousel-container {
+  width: 78.5vw;
+  overflow-x: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  mask-image: linear-gradient(transparent,
+          black 5%,
+          black 95%,
+          transparent 100%);
+      -webkit-mask-image: linear-gradient( to right,transparent,
+          black 5%,
+          black 95%,
+          transparent 100%);
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none; 
+}
+
+.carousel {
+  /* display: flex;
+  width: 78rem;
+  height: 15rem;
+  overflow-x: auto; */
+  display: flex;
+  gap: 0.8rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  /* transition: transform 0.5s ease-in-out;
+  transform: translateX(-50%); */
+}
+
+.slide {
+  /* flex: 0 0 calc((78rem - 14rem) / 3); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 0.5rem; */
+  /* margin-right: 1rem; */
+  background-color: #f8d57b1e;
+  border: 1px solid #ffffff9a;
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+/*.sl {
+    background-color: #fd6d08;
+  }*/
+
+.controller {
+  vertical-align: middle;
+  cursor: pointer;
+  margin: auto;
+}
+
+
+.right-control {
+  right: 0rem;
+}
+
+.teacher {
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+  gap: 0.75rem;
+
+}
+
+.teacher img {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  border: 3px solid #fd6d08;
+  margin-right: 0.5rem;
+}
+
+.btn {
+  width: 8.5rem;
+  height: 2.2rem;
+  border-radius: 100px;
+  text-align: center;
+  margin: 1rem auto;
+  cursor: pointer;
+  color: #ffffff;
+  border: 1px solid #fd6d08;
+  font-size: 16px;
+}
+.slide-btn{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-profile {
+  background: #fd6d08;
+  transition: all 0.2s;
+}
+.btn-profile:hover{
+  background: #e66203;
+  
+}
+.btn-msg:hover{
+  background: #e6620349;
+}
+
+.btn-msg {
+  background: none;
+}
+
+.footer {
+  display: grid;
+  padding: 0 2rem;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+}
+
+.pichart {
+  height: 21rem;
+  background-color: #f8d57b1e;
+  border: 1px solid #ffffff9a;
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+}
+
+.adm-calendar{
+  height: 21rem;
+  background-color: #f8d57b1e;
+  border: 1px solid #ffffff9a;
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+}

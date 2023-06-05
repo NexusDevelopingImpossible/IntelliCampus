@@ -1,1 +1,364 @@
-student
+
+    <title><%= title%></title>
+    <link rel="stylesheet" href="/css/studenthome.css" />
+    <link rel="stylesheet" href="/css/card.css" />
+    <link rel="stylesheet" href="/css/dashboard-calendar.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+ 
+  <body>
+    <div class="main-page">
+      <div class="heading">
+        <div class="dash-heading">
+          <h1 class="head head1">Dashboard</h1>
+          <h4 class="head welcome-msg">
+            Welcome back,<span id="name"> <%=student[0].name%></span>
+          </h4>
+        </div>
+        <div class="ecampus">
+          <img src="/images/MANAGER LOGO 3 white 3.png" alt="" />
+        </div>
+      </div>
+      <div>
+        <img class="dash-manipal-vec" src="/images/manipal-vector.png" alt="" />
+      </div>
+      <!-- - - - - -  -->
+      <!-- cards -->
+      <!-- - - - - - -  -->
+      <section class="cards">
+        <div>
+          <div class="card card1">
+            <div class="b1">
+              <img class="img" src="/images/AG.jpg" alt="" />
+              <div>
+                <h1 class="std-name"><%=student[0].name%></h1>
+                <p class="reg"><%= student[0].username %></p>
+              </div>
+            </div>
+            <div class="b2">
+              <div>
+                <h1>Course : <span> B.Tech (CSE)</span></h1>
+                <h1>Semester : <span> 4th</span></h1>
+                <h1>Section : <span> B</span></h1>
+              </div>
+            </div>
+            <div class="b3">
+              <h1>
+                TG :
+                <span
+                  >Palash Ghosal (449) <br />
+                  7076321457
+                </span>
+              </h1>
+            </div>
+          </div>
+          <div class="card card2">
+            <div class="card-hed">
+              <p>Attendence</p>
+            </div>
+            <div class="attendence-container">
+              <div class="attendence-percent">
+                <div class="container">
+                  <div class="circle-progress">
+                    <span class="progress-val">75%</span>
+                  </div>
+                  <div class="sub-info">
+                    <p class="sub-code">IT-1402</p>
+                    <p class="sub-name">COA</p>
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="circle-progress">
+                    <span class="progress-val">68%</span>
+                  </div>
+                  <div class="sub-info">
+                    <p class="sub-code">IT-1402</p>
+                    <p class="sub-name">OOPs</p>
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="circle-progress">
+                    <span class="progress-val">90%</span>
+                  </div>
+                  <div class="sub-info">
+                    <p class="sub-code">IT-1402</p>
+                    <p class="sub-name">DAA</p>
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="circle-progress">
+                    <span class="progress-val">76%</span>
+                  </div>
+                  <div class="sub-info">
+                    <p class="sub-code">IT-1402</p>
+                    <p class="sub-name">DBMS</p>
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="circle-progress">
+                    <span class="progress-val">97%</span>
+                  </div>
+                  <div class="sub-info">
+                    <p class="sub-code">IT-1402</p>
+                    <p class="sub-name">Maths</p>
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="circle-progress">
+                    <span class="progress-val">100%</span>
+                  </div>
+                  <div class="sub-info">
+                    <p class="sub-code">IT-1402</p>
+                    <p class="sub-name">LAB Phy</p>
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="circle-progress">
+                    <span class="progress-val">85%</span>
+                  </div>
+                  <div class="sub-info">
+                    <p class="sub-code">IT-1402</p>
+                    <p class="sub-name">COA</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card card3">
+            <div class="card-hed">
+              <p>Visual Highlights</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card card4">
+            <div class="card-hed">
+              <p>Notifications</p>
+            </div>
+            <div class="content">
+              <div class="notification">
+                <div class="text">
+                  <p class="new">Ecampus manager version 3 updated</p>
+                  <p class="time">29 mins ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="new">Tommorrow holdiy for blah blah</p>
+                  <p class="time">1 hour age</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    Independence day celebration cancelled due to heavy rainfall
+                  </p>
+                  <p class="time">1 day ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    For sit amet consectetur adipisicing elit. Nequent cumqs
+                    veniaupti.
+                  </p>
+                  <p class="time">1 day ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    Beatae aliquid iste, iusto totam, expedita atque voluptatem
+                    te quasi
+                  </p>
+                  <p class="time">2 days ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    Independence day celebration cancelled due to heavy rainfall
+                  </p>
+                  <p class="time">1 day ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    For sit amet consectetur adipisicing elit. Nequent cumqs
+                    veniaupti.
+                  </p>
+                  <p class="time">1 day ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    Beatae aliquid iste, iusto totam, expedita atque voluptatem
+                    te quasi
+                  </p>
+                  <p class="time">2 days ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    Independence day celebration cancelled due to heavy rainfall
+                  </p>
+                  <p class="time">1 day ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    For sit amet consectetur adipisicing elit. Nequent cumqs
+                    veniaupti.
+                  </p>
+                  <p class="time">1 day ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    Beatae aliquid iste, iusto totam, expedita atque voluptatem
+                    te quasi
+                  </p>
+                  <p class="time">2 days ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    Independence day celebration cancelled due to heavy rainfall
+                  </p>
+                  <p class="time">1 day ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    For sit amet consectetur adipisicing elit. Nequent cumqs
+                    veniaupti.
+                  </p>
+                  <p class="time">1 day ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    Beatae aliquid iste, iusto totam, expedita atque voluptatem
+                    te quasi
+                  </p>
+                  <p class="time">2 days ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card card5">
+            <!-- <div class="card-hed">
+                    <p>Calender</p>
+                </div> -->
+            <div class="wrapper">
+              <header>
+                <div class="icons calendar-hed">
+                  <!-- <span id="prev" class="material-symbols-rounded">chevron_left</span> -->
+                  <!-- <img src="/images/back.png" id="prev" class="icon-fp" alt="" srcset=""> -->
+                  <div>
+                    <span id="prev" class="icon-fp"
+                      ><ion-icon name="chevron-back-outline"></ion-icon
+                    ></span>
+                  </div>
+                  <div class="current-DATE">
+                    <p class="current-date"></p>
+                    <p class="current-year"></p>
+                  </div>
+                  <div>
+                    <span id="next" class="icon-fp"
+                      ><ion-icon name="chevron-forward-outline"></ion-icon
+                    ></span>
+                  </div>
+                  <!-- <span id="next" class="material-symbols-rounded">chevron_right</span> -->
+                  <!-- <img src="/images/forward.png" id="next" class="icon-fp" alt="" srcset=""> -->
+                </div>
+              </header>
+              <div class="calendar">
+                <ul class="weeks">
+                  <li>Sun</li>
+                  <li>Mon</li>
+                  <li>Tue</li>
+                  <li>Wed</li>
+                  <li>Thu</li>
+                  <li>Fri</li>
+                  <li>Sat</li>
+                </ul>
+                <ul class="days"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/js/progress.js"></script>
+    <script src="/js/dashboard-calendar.js"></script>
+  </body>
+</html>

@@ -5,8 +5,8 @@ const checkurlfunct = require('./server-function')
 
 module.exports.dashboard = (req, res) => {
     checkurlfunct.checkurladmmin(req, res);
-    return res.render('adminDashboard', {
-        title: "Test Admin"
+    return res.render('admin/dashboard', {
+        title: "Dashboard"
     })
 }
 module.exports.addstudent = (req, res) => {
@@ -17,10 +17,16 @@ module.exports.addstudent = (req, res) => {
 }
 module.exports.addteacher = (req, res) => {
     checkurlfunct.checkurladmmin(req, res);
-    return res.render('addteacher', {
+    return res.render('admin/addteacher', {
         title: "Test"
     })
 }
+// module.exports.demo = (req, res) => {
+//     checkurlfunct.checkurladmmin(req, res);
+//     return res.render('admin/dashboard', {
+//         title: "demo"
+//     })
+// }
 module.exports.createstudent = function (req, res) {
     checkurlfunct.checkurladmin(req, res);
     var count = req.body.counter;
