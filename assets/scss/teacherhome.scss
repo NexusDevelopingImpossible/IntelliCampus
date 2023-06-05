@@ -3,6 +3,10 @@
 /******************************************************************************************************************/
 
 /*---------------------------------Admin Header CSS-----------------------------------*/
+
+body{
+    font-family: "Montserrat", sans-serif !important;
+}
 .heading {
     padding: 1rem 2rem;
     display: flex;
@@ -79,6 +83,7 @@
 
 .search-input::placeholder {
     color: #ffffff7c;
+    font-family: "Montserrat", sans-serif !important;
 }
 
 /*------------------------Teacher Subjects CSS------------------------*/
@@ -103,7 +108,7 @@
 }
 
 .carousel-container {
-    width: 78rem;
+    width: 75vw;
     overflow-x: auto;
     white-space: nowrap;
     -ms-overflow-style: none;
@@ -142,7 +147,6 @@
 
 .slide {
     height: 10rem;
-    display: flex;
     background-color: #f8d57b1e;
     border: 1px solid #ffffff9a;
     backdrop-filter: blur(12px);
@@ -160,8 +164,8 @@
 }
 
 .sbj-nm {
-    width: 18rem;
-    height: 3.8rem;
+    // height: 3.8rem;
+    padding-top: 0.3rem;
 }
 
 .sl h1 {
@@ -170,6 +174,7 @@
 }
 
 .sbj-info {
+    padding-top: 0.5rem;
     display: flex;
     justify-content: space-between;
 }
@@ -206,7 +211,7 @@
 
 .sbj-ctr {
     text-align: right;
-    padding-top: 0.3rem;
+    padding-top: 1rem;
 }
 
 .sbj-ctr img {
@@ -215,10 +220,7 @@
     padding-top: 0.1rem;
 }
 
-.sl {
-    overflow: hidden;
-    position: relative;
-}
+
 
 .cont-hover {
     display: none;

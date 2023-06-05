@@ -1,21 +1,21 @@
 body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 1rem;
     font-family: "Montserrat", sans-serif;
-    background-color: #390300;
-    overflow-y: hidden;
-    overflow-x: hidden;
+    // background-color: #390300;
     color: white;
 }
 
 .input-page{
     padding: 1rem;
-    margin-top: 7rem;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    position: absolute;
+    justify-content: center;
+    margin: auto;
+//    text-align: center;
+//    margin: auto;
+//    vertical-align: middle;
+    // position: absolute;
+    // z-index: 2;
 }
 
 .input-heading-1{
@@ -50,9 +50,9 @@ body {
     margin: 0 1rem;
 }
 .input-submit{
-    text-align: center;
+    // text-align: center;
     margin: auto;
-    width: 200px;
+    width: 10rem;
     height: 50px;
     border-radius: 20px;
     border: 1px solid white;
@@ -61,9 +61,9 @@ body {
     color: white;
     font-size: 18px;
     font-weight: 500;
-    vertical-align: middle;
+    // vertical-align: middle;
     margin: 2rem 0;
-    margin-left: 33rem;
+    // margin-left: 33rem;
 }
 .input-button{
     text-align: center;
@@ -77,12 +77,6 @@ body {
     font-size: 18px;
     font-weight: 500;
 }
-.bt-left{
-    margin: 1rem auto 1rem 5rem;
-}
-.bt-right{
-    margin: 1rem 1rem 1rem 40rem;
-}
 
 .input-name {
     width: 260px;
@@ -94,7 +88,7 @@ body {
     color: white;
     font-size: 18px;
     font-weight: 500;
-    vertical-align: middle;
+    // vertical-align: middle;
 }
 
 .input-name:focus {
@@ -121,44 +115,17 @@ body {
 .form-text{
     margin: 1rem 0;
 }
-#form-list{
-    /* position: absolute; */
-    height: 65vh;
-    overflow-y: scroll;
-}
-#form-list::-webkit-scrollbar {
-    display: none; 
-}
+// #form-list{
+//     position: absolute; 
+//     height: 65vh;
+//     overflow-y: scroll;
+// }
+// #form-list::-webkit-scrollbar {
+//     display: none; 
+// }
 
 
 
 
 
-
-
-select:-moz-focusring {
-    color: transparent;
-    text-shadow: 0 0 0 #000;
-}
-
-select {
-
-    /* styling */
-    background-color: white;
-    border: thin solid blue;
-    border-radius: 4px;
-    display: inline-block;
-    font: inherit;
-    line-height: 1.5em;
-    padding: 0.5em 3.5em 0.5em 1em;
-
-    /* reset */
-
-    margin: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-}
 

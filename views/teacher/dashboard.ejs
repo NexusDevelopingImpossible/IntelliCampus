@@ -1,1 +1,605 @@
-teacher
+
+    <title><%= title%></title>
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/teacherhome.css" />
+    <link rel="stylesheet" href="/css/dashboard-calendar.css" />
+    <link rel="stylesheet" href="/css/card.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+  <body>
+     
+      <div class="main-page">
+      
+
+        <!------------------------------------------------------------------------------------------------------>
+        <!---------------------------------------Teacher Dashboard---------------------------------------------->
+        <!------------------------------------------------------------------------------------------------------>
+
+        <!--.......................Welocme Message......................-->
+
+        <div class="heading">
+          <div>
+            <h1 class="head">Dashboard</h1>
+            <h4 class="welcome-msg">
+              Welcome back, <span id="name">Dr AmnUllh !</span>
+            </h4>
+          </div>
+
+          <!--..........................Teacher Profile....................-->
+
+          <div class="teacher-info">
+            <div>
+              <img class="tch-img" src="/images/AG.jpg" alt="" />
+            </div>
+            <div>
+              <h1 class="tch-name">Md Amanullah</h1>
+              <p class="tch-info">Associate Professor <br />Department of IT</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <img
+            class="dash-manipal-vec"
+            src="/images/manipal-vector.png"
+            alt=""
+          />
+        </div>
+
+        <!--..........................Search Bar......................-->
+
+        <div class="search-box">
+          <div>
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Search Students"
+            />
+          </div>
+        </div>
+
+        <!--.........................Teacher Subjects......................-->
+
+        <div class="subjects">
+          <h1 class="hed">My Subjects</h1>
+          <div class="main-carousel-container">
+            <div class="controller left-control">
+              <img
+                class="control-img"
+                src="/images/left-arrow.png"
+                alt=""
+              />
+            </div>
+            <div class="carousel-container">
+              <div class="carousel">
+                <div class="slide">
+                  <div
+                    class="sl"
+                    onmouseover="changeContent(this)"
+                    onmouseout="restoreContent(this)"
+                  >
+                    <div class="cont-def">
+                      <div class="sbj-cd">
+                        <h2>CSE-1401</h2>
+                      </div>
+                      <div class="sbj-nm">
+                        <h1>Mathematics</h1>
+                      </div>
+                      <div class="sbj-info">
+                        <h1><span>Year: </span>2nd</h1>
+                        <h1><span>Department: </span>CSE</h1>
+                        <h1><span>Section: </span>A</h1>
+                      </div>
+                      <div class="sbj-ctr">
+                        <img src="/images/right-arrow.png" alt="" />
+                      </div>
+                    </div>
+
+                    <div class="cont-hover">
+                      <div class="sbj-info">
+                        <h1><span id="sp">CSE-1401</span>Mathematics</h1>
+                      </div>
+                      <div class="sbj-info dt">
+                        <h1>MON : <span> 10:00 - 11:00 AM</span></h1>
+                        <h1>THU : <span> 10:00 - 11:00 AM</span></h1>
+                        <h1>FRI : <span> 10:00 - 11:00 AM</span></h1>
+                      </div>
+                      <div class="sbj-ctr">
+                        <img src="/images/right-arrow.png" alt="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="slide">
+                  <div
+                    class="sl"
+                    onmouseover="changeContent(this)"
+                    onmouseout="restoreContent(this)"
+                  >
+                    <div class="cont-def">
+                      <div class="sbj-cd">
+                        <h2>CSE-1402</h2>
+                      </div>
+                      <div class="sbj-nm">
+                        <h1>DAA</h1>
+                      </div>
+                      <div class="sbj-info">
+                        <h1><span>Year: </span>2nd</h1>
+                        <h1><span>Department: </span>CSE</h1>
+                        <h1><span>Section: </span>A</h1>
+                      </div>
+                      <div class="sbj-ctr">
+                        <img src="/images/right-arrow.png" alt="" />
+                      </div>
+                    </div>
+
+                    <div class="cont-hover">
+                      <div class="sbj-info">
+                        <h1><span id="sp">CSE-1402</span>DAA</h1>
+                      </div>
+                      <div class="sbj-info dt">
+                        <h1>MON : <span> 10:00 - 11:00 AM</span></h1>
+                        <h1>THU : <span> 10:00 - 11:00 AM</span></h1>
+                        <h1>FRI : <span> 10:00 - 11:00 AM</span></h1>
+                      </div>
+                      <div class="sbj-ctr">
+                        <img src="/images/right-arrow.png" alt="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="slide">
+                  <div
+                    class="sl"
+                    onmouseover="changeContent(this)"
+                    onmouseout="restoreContent(this)"
+                  >
+                    <div class="cont-def">
+                      <div class="sbj-cd">
+                        <h2>IT-1403</h2>
+                      </div>
+                      <div class="sbj-nm">
+                        <h1>Algorith Lab</h1>
+                      </div>
+                      <div class="sbj-info">
+                        <h1><span>Year: </span>2nd</h1>
+                        <h1><span>Department: </span>IT</h1>
+                        <h1><span>Section: </span>A</h1>
+                      </div>
+                      <div class="sbj-ctr">
+                        <img src="/images/right-arrow.png" alt="" />
+                      </div>
+                    </div>
+
+                    <div class="cont-hover">
+                      <div class="sbj-info">
+                        <h1><span id="sp">IT-1403</span>Algorithm Lab</h1>
+                      </div>
+                      <div class="sbj-info dt">
+                        <h1>MON : <span> 10:00 - 11:00 AM</span></h1>
+                        <h1>THU : <span> 10:00 - 11:00 AM</span></h1>
+                        <h1>FRI : <span> 10:00 - 11:00 AM</span></h1>
+                      </div>
+                      <div class="sbj-ctr">
+                        <img src="/images/right-arrow.png" alt="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="slide">
+                  <div
+                    class="sl"
+                    onmouseover="changeContent(this)"
+                    onmouseout="restoreContent(this)"
+                  >
+                    <div class="cont-def">
+                      <div class="sbj-cd">
+                        <h2>IT-1404</h2>
+                      </div>
+                      <div class="sbj-nm">
+                        <h1>DBMS</h1>
+                      </div>
+                      <div class="sbj-info">
+                        <h1><span>Year: </span>2nd</h1>
+                        <h1><span>Department: </span>IT</h1>
+                        <h1><span>Section: </span>A</h1>
+                      </div>
+                      <div class="sbj-ctr">
+                        <img src="/images/right-arrow.png" alt="" />
+                      </div>
+                    </div>
+
+                    <div class="cont-hover">
+                      <div class="sbj-info">
+                        <h1><span id="sp">IT-1404</span>DBMS</h1>
+                      </div>
+                      <div class="sbj-info dt">
+                        <h1>MON : <span> 10:00 - 11:00 AM</span></h1>
+                        <h1>THU : <span> 10:00 - 11:00 AM</span></h1>
+                        <h1>FRI : <span> 10:00 - 11:00 AM</span></h1>
+                      </div>
+                      <div class="sbj-ctr">
+                        <img src="/images/right-arrow.png" alt="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="slide">
+                  <div
+                    class="sl"
+                    onmouseover="changeContent(this)"
+                    onmouseout="restoreContent(this)"
+                  >
+                    <div class="cont-def">
+                      <div class="sbj-cd">
+                        <h2>IT-1405</h2>
+                      </div>
+                      <div class="sbj-nm">
+                        <h1>Web Technology</h1>
+                      </div>
+                      <div class="sbj-info">
+                        <h1><span>Year: </span>2nd</h1>
+                        <h1><span>Department: </span>IT</h1>
+                        <h1><span>Section: </span>A</h1>
+                      </div>
+                      <div class="sbj-ctr">
+                        <img src="/images/right-arrow.png" alt="" />
+                      </div>
+                    </div>
+
+                    <div class="cont-hover">
+                      <div class="sbj-info">
+                        <h1><span id="sp">IT-1405</span>Web Technology</h1>
+                      </div>
+                      <div class="sbj-info dt">
+                        <h1>MON : <span> 10:00 - 11:00 AM</span></h1>
+                        <h1>THU : <span> 10:00 - 11:00 AM</span></h1>
+                        <h1>FRI : <span> 10:00 - 11:00 AM</span></h1>
+                      </div>
+                      <div class="sbj-ctr">
+                        <img src="/images/right-arrow.png" alt="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="slide">
+                  <div
+                    class="sl"
+                    onmouseover="changeContent(this)"
+                    onmouseout="restoreContent(this)"
+                  >
+                    <div class="cont-def">
+                      <div class="sbj-cd">
+                        <h2>CSE-1406</h2>
+                      </div>
+                      <div class="sbj-nm">
+                        <h1>Python</h1>
+                      </div>
+                      <div class="sbj-info">
+                        <h1><span>Year: </span>2nd</h1>
+                        <h1><span>Department: </span>CSE</h1>
+                        <h1><span>Section: </span>A</h1>
+                      </div>
+                      <div class="sbj-ctr">
+                        <img src="/images/right-arrow.png" alt="" />
+                      </div>
+                    </div>
+
+                    <div class="cont-hover">
+                      <div class="sbj-info">
+                        <h1><span id="sp">CSE-1406</span>Python</h1>
+                      </div>
+                      <div class="sbj-info dt">
+                        <h1>MON : <span> 10:00 - 11:00 AM</span></h1>
+                        <h1>THU : <span> 10:00 - 11:00 AM</span></h1>
+                        <h1>FRI : <span> 10:00 - 11:00 AM</span></h1>
+                      </div>
+                      <div class="sbj-ctr">
+                        <img src="/images/right-arrow.png" alt="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="slide">
+                  <div
+                    class="sl"
+                    onmouseover="changeContent(this)"
+                    onmouseout="restoreContent(this)"
+                  >
+                    <div class="cont-def">
+                      <div class="sbj-cd">
+                        <h2>IT-1407</h2>
+                      </div>
+                      <div class="sbj-nm">
+                        <h1>JAVA</h1>
+                      </div>
+                      <div class="sbj-info">
+                        <h1><span>Year: </span>3rd</h1>
+                        <h1><span>Department: </span>IT</h1>
+                        <h1><span>Section: </span>A</h1>
+                      </div>
+                      <div class="sbj-ctr">
+                        <img src="/images/right-arrow.png" alt="" />
+                      </div>
+                    </div>
+
+                    <div class="cont-hover">
+                      <div class="sbj-info">
+                        <h1><span id="sp">IT-1407</span>JAVA</h1>
+                      </div>
+                      <div class="sbj-info dt">
+                        <h1>MON : <span> 10:00 - 11:00 AM</span></h1>
+                        <h1>THU : <span> 10:00 - 11:00 AM</span></h1>
+                        <h1>FRI : <span> 10:00 - 11:00 AM</span></h1>
+                      </div>
+                      <div class="sbj-ctr">
+                        <img src="/images/right-arrow.png" alt="" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="controller right-control">
+              <img src="/images/right-arrow.png" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <!--.......................Notification, Today's Schedule & Calendar......................-->
+
+        <div class="footer">
+
+          <!--....................Notifications....................-->
+
+          <div class="card card4 tch-container">
+            <div class="card-hed">
+              <p>Notifications</p>
+            </div>
+            <div class="content tch-content">
+              <div class="notification">
+                <div class="text">
+                  <p class="new">Ecampus manager version 3 updated</p>
+                  <p class="time">29 mins ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="new">Tommorrow holdiy for blah blah</p>
+                  <p class="time">1 hour age</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    Independence day celebration cancelled due to heavy rainfall
+                  </p>
+                  <p class="time">1 day ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    For sit amet consectetur adipisicing elit. Nequent cumqs
+                    veniaupti.
+                  </p>
+                  <p class="time">1 day ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    Beatae aliquid iste, iusto totam, expedita atque voluptatem
+                    te quasi
+                  </p>
+                  <p class="time">2 days ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    Independence day celebration cancelled due to heavy rainfall
+                  </p>
+                  <p class="time">1 day ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    For sit amet consectetur adipisicing elit. Nequent cumqs
+                    veniaupti.
+                  </p>
+                  <p class="time">1 day ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    Beatae aliquid iste, iusto totam, expedita atque voluptatem
+                    te quasi
+                  </p>
+                  <p class="time">2 days ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    Independence day celebration cancelled due to heavy rainfall
+                  </p>
+                  <p class="time">1 day ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    For sit amet consectetur adipisicing elit. Nequent cumqs
+                    veniaupti.
+                  </p>
+                  <p class="time">1 day ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    Beatae aliquid iste, iusto totam, expedita atque voluptatem
+                    te quasi
+                  </p>
+                  <p class="time">2 days ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    Independence day celebration cancelled due to heavy rainfall
+                  </p>
+                  <p class="time">1 day ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    For sit amet consectetur adipisicing elit. Nequent cumqs
+                    veniaupti.
+                  </p>
+                  <p class="time">1 day ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+
+              <div class="notification">
+                <div class="text">
+                  <p class="old">
+                    Beatae aliquid iste, iusto totam, expedita atque voluptatem
+                    te quasi
+                  </p>
+                  <p class="time">2 days ago</p>
+                </div>
+                <div class="pdf">
+                  <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--..............Teacher Today's Schedule..................-->
+
+          <div class="card tch-container">
+            <div class="card-hed">
+              <p>Your Today's Schedule</p>
+            </div>
+          </div>
+
+          <!--..................Calendar.....................-->
+
+          <div class="card card5 tch-container">
+            <!-- <div class="card-hed">
+                    <p>Calender</p>
+                  </div> -->
+            <div class="wrapper">
+              <header>
+                <div class="icons calendar-hed">
+                  <!-- <span id="prev" class="material-symbols-rounded">chevron_left</span> -->
+                  <!-- <img src="../assets/images/back.png" id="prev" class="icon-fp" alt="" srcset=""> -->
+                  <div>
+                    <span id="prev" class="icon-fp"
+                      ><ion-icon name="chevron-back-outline"></ion-icon
+                    ></span>
+                  </div>
+                  <div class="current-DATE">
+                    <p class="current-date"></p>
+                    <p class="current-year"></p>
+                  </div>
+                  <div>
+                    <span id="next" class="icon-fp"
+                      ><ion-icon name="chevron-forward-outline"></ion-icon
+                    ></span>
+                  </div>
+                  <!-- <span id="next" class="material-symbols-rounded">chevron_right</span> -->
+                  <!-- <img src="../assets/images/forward.png" id="next" class="icon-fp" alt="" srcset=""> -->
+                </div>
+              </header>
+              <div class="calendar">
+                <ul class="weeks">
+                  <li>Sun</li>
+                  <li>Mon</li>
+                  <li>Tue</li>
+                  <li>Wed</li>
+                  <li>Thu</li>
+                  <li>Fri</li>
+                  <li>Sat</li>
+                </ul>
+                <ul class="days"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script src="/js/dashboard-calendar.js"></script>
+
+    <script src="/js/teacher-subject-timetable.js"></script>
+
+  </body>
+</html>

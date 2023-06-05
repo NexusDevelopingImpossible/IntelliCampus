@@ -1,45 +1,50 @@
-.error-msg img {
-    padding-top: 2rem;
-  width: 13rem;
+body {
+  color: #fff;
 }
-
-.error-msg h1 {
-  color: #ffffff1c;
-  position: absolute;
-  width: 1297px;
-  height: 768px;
-  left: calc(50% - 1297px / 2 - 0.5px);
-  top: calc(50% - 1568px / 2 - 76.5px);
-  font-weight: 700;
-  font-size: 530px;
-  line-height: 768px;
+.error-msg img {
+  padding-top: 2rem;
+  width: 10rem;
 }
 .error-msg {
   text-align: center;
 }
 
-.oops{
-    color: #fff;
-    font-weight: 700;
-font-size: 180px;
-line-height: 0;
+// .center-container {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-self: center;
+// }
+
+.center-container h1 {
+  font-size: 20rem;
+  line-height: 0;
+  margin-top: 13rem;
+  color: #ffffff2b;
 }
 
-.pnf{
-    color: #fff;
-    font-weight: 100;
-font-size: 4rem;
-line-height: 0;
-margin-bottom: 10rem;
-margin-top: -3rem;
+.center-container p {
+  margin-top: -5rem;
+  font-size: 3rem;
+  font-weight: 100;
+  line-height: 0;
+  margin-bottom: 7rem;
+}
+.center-container p span {
+  font-weight: 500;
 }
 
-a{
-    text-decoration: none;
-    border: 2px solid #A8B610;
-    border-radius: 40px;
-    padding: 1rem 3rem;
-    font-weight: 500;
-    color: #fff;
-    position: absolute;
+a {
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid #a8b610;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  padding: 0.8rem 2.4rem;
+  transition: all 0.3s;
+}
+
+
+a:hover{
+  background-color: #a8b6104f;
 }

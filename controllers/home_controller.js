@@ -13,7 +13,7 @@ module.exports.Login = function(req, res){
 }
 module.exports.error = function(req, res){
     console.log(res.locals.user);
-    return res.render('error', {
+    return res.render('components/error404', {
         title: "error"
     });
 }
