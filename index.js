@@ -33,7 +33,7 @@ app.use(expressLayouts);
 app.use(session({
   name: 'newUSer',
   //TODO change secretbefore deployment 
-  secret: 'blahsomething',
+  secret: 'fuckyouRanjit',
   saveUninitialized: false,
   resave: false,
   cookie: {

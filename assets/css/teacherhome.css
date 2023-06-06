@@ -102,6 +102,9 @@ body {
   padding-top: 1rem;
   padding-bottom: 1rem; }
 
+.carousel:first-of-type {
+  margin-left: 2rem; }
+
 .controller {
   vertical-align: middle;
   cursor: pointer;

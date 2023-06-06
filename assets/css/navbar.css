@@ -79,7 +79,7 @@ body {
 .main-page {
   margin: 0.9rem;
   margin-left: 0rem;
-  width: auto;
+  width: 85%;
   height: auto;
   background-image: url("../images/bg-blur.png");
   background-size: cover;

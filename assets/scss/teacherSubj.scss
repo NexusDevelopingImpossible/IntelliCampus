@@ -20,7 +20,7 @@
 
 /* ALLOT-1 */
 .allot__1{
-    display: none;
+    // display: none;
 }
 .reg__section{
     padding: 2rem 0;
@@ -47,11 +47,10 @@
     border-radius: 10px;
     border: none;
     color: #fff;
-    padding: 0.3rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     cursor: pointer;
 }
 .notification{
-    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,11 +59,13 @@
     color: #ffffff76;
     font-size: 3.2rem;
     font-weight: 500;
+    vertical-align: middle;
+    margin: auto;
 }
 
 /* ALLOT-2 */
 .allot__2{
-    /* display: none; */
+    //  display: none; 
 }
 .teacher__and__btn{
     display: flex;
@@ -112,6 +113,8 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    height: 55vh;
+    overflow-y: auto;
 }
 .description__titles ul{
     background: rgba(0, 0, 0, 0.12);
@@ -156,10 +159,10 @@
 
 /* Modal */
 .modal{
-    /* display: none; */
+    display: none; 
     position: fixed;
-    top: 65%;
-    left: 50%;
+    top: 50%;
+    left: 55%;
     transform: translate(-50%, -50%);
     width: 360px;
     background: rgba(248, 213, 123, 0.15);

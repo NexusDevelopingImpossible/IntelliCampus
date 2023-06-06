@@ -18,7 +18,8 @@ function create_input() {
     var c = eval(end - start);
     countid.innerHTML = eval(end - start);
     div1.style.display = "none";
-    div2.style.visibility = "visible";
+    div2.style.display = "flex";
+    // div2.style.visibility = "visible";
     var counter = start;
 
     for (var i = 0; i < c; i++) {

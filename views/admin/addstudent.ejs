@@ -1,5 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
 
-  <title><%= title%></title>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Form</title>
   <link rel="stylesheet" href="/css/addteacher.css">
   <link rel="stylesheet" href="/css/navbar.css">
   <link
@@ -8,11 +14,10 @@
 </head>
 
 <body>
-
     <div class="main-page">
       <div class="input-page" id="input-pageid">
         <div class="input-heading-1">Administrator Protal</div>
-        <div class="input-heading-2">Add Teacher</div>
+        <div class="input-heading-2">Add Student</div>
         <div class="input-div">
           <div class="form-set">
             <div class="form-text">Registration start</div>
@@ -26,24 +31,19 @@
         <button class="input-submit" onclick="create_input()">Submit</button>
       </div>
       <div class="input-page2" id="input-pageid2">
-        <div class="input-heading-3">Add Teacher</div>
-        <form action="/admin/createteacher" method="post">
+        <div class="input-heading-3">Add Student</div>
+        <form action="/admin/createstudent" method="post">
           <div class="input-heading-4">Count: <span id="count"></span></div>
           <div id="form-list">
           </div>
           <div class="btn-div">
             <button class="input-button bt-left">Cancel</button>
             <button class="input-button bt-right" type="submit">Submit</button>
-
           </div>
-          
         </form>
       </div>
-
     </div>
-
-
-
+  </section>
   <script src="/js/addteacher.js"></script>
 </body>
 

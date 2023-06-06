@@ -68,13 +68,14 @@
           </div>
           <div class="carousel-container">
             <div class="carousel">
+              <% for(let i = 0; i<teacher.length; i++){%>
               <div class="slide sl">
                 <div>
                   <div class="teacher">
                     <img class="img" src="/images/AG.jpg" alt="" />
                     <div>
-                      <h1>Srijan</h1>
-                      <p>Associate Professor<br />202100205</p>
+                      <h1><%= teacher[i].name %></h1>
+                      <p>Associate Professor<br /><%= teacher[i].username %></p>
                     </div>
                   </div>
                   <div class="slide-btn">
@@ -83,8 +84,9 @@
                   </div>
                 </div>
               </div>
+              <% }%>
 
-              <div class="slide sl">
+              <!-- <div class="slide sl">
                 <div>
                   <div class="teacher">
                     <img class="img" src="/images/AG.jpg" alt="" />
@@ -178,7 +180,7 @@
                     <button class="btn btn-msg">Message</button>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="controller right-control">

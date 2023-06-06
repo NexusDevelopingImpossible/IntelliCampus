@@ -28,7 +28,7 @@
           <div>
             <h1 class="head">Dashboard</h1>
             <h4 class="welcome-msg">
-              Welcome back, <span id="name">Dr AmnUllh !</span>
+              Welcome back, <span id="name"><%= teacher.name%></span>
             </h4>
           </div>
 
@@ -39,7 +39,7 @@
               <img class="tch-img" src="/images/AG.jpg" alt="" />
             </div>
             <div>
-              <h1 class="tch-name">Md Amanullah</h1>
+              <h1 class="tch-name"><%= teacher.name%></h1>
               <p class="tch-info">Associate Professor <br />Department of IT</p>
             </div>
           </div>
@@ -78,6 +78,7 @@
             </div>
             <div class="carousel-container">
               <div class="carousel">
+                <% for(let i = 0; i<timetable.length; i++) {%>
                 <div class="slide">
                   <div
                     class="sl"
@@ -86,15 +87,15 @@
                   >
                     <div class="cont-def">
                       <div class="sbj-cd">
-                        <h2>CSE-1401</h2>
+                        <h2><%=timetable[i].subjectcode%></h2>
                       </div>
                       <div class="sbj-nm">
                         <h1>Mathematics</h1>
                       </div>
                       <div class="sbj-info">
-                        <h1><span>Year: </span>2nd</h1>
-                        <h1><span>Department: </span>CSE</h1>
-                        <h1><span>Section: </span>A</h1>
+                        <h1><span>Year: </span><%=timetable[i].year%></h1>
+                        <h1><span>Department: </span><%=timetable[i].department%></h1>
+                        <h1><span>Section: </span><%=timetable[i].section%></h1>
                       </div>
                       <div class="sbj-ctr">
                         <img src="/images/right-arrow.png" alt="" />
@@ -103,7 +104,7 @@
 
                     <div class="cont-hover">
                       <div class="sbj-info">
-                        <h1><span id="sp">CSE-1401</span>Mathematics</h1>
+                        <h1><span id="sp"><%=timetable[i].subjectcode%></span>Mathematics</h1>
                       </div>
                       <div class="sbj-info dt">
                         <h1>MON : <span> 10:00 - 11:00 AM</span></h1>
@@ -116,240 +117,9 @@
                     </div>
                   </div>
                 </div>
+                <%}%>
 
-                <div class="slide">
-                  <div
-                    class="sl"
-                    onmouseover="changeContent(this)"
-                    onmouseout="restoreContent(this)"
-                  >
-                    <div class="cont-def">
-                      <div class="sbj-cd">
-                        <h2>CSE-1402</h2>
-                      </div>
-                      <div class="sbj-nm">
-                        <h1>DAA</h1>
-                      </div>
-                      <div class="sbj-info">
-                        <h1><span>Year: </span>2nd</h1>
-                        <h1><span>Department: </span>CSE</h1>
-                        <h1><span>Section: </span>A</h1>
-                      </div>
-                      <div class="sbj-ctr">
-                        <img src="/images/right-arrow.png" alt="" />
-                      </div>
-                    </div>
-
-                    <div class="cont-hover">
-                      <div class="sbj-info">
-                        <h1><span id="sp">CSE-1402</span>DAA</h1>
-                      </div>
-                      <div class="sbj-info dt">
-                        <h1>MON : <span> 10:00 - 11:00 AM</span></h1>
-                        <h1>THU : <span> 10:00 - 11:00 AM</span></h1>
-                        <h1>FRI : <span> 10:00 - 11:00 AM</span></h1>
-                      </div>
-                      <div class="sbj-ctr">
-                        <img src="/images/right-arrow.png" alt="" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="slide">
-                  <div
-                    class="sl"
-                    onmouseover="changeContent(this)"
-                    onmouseout="restoreContent(this)"
-                  >
-                    <div class="cont-def">
-                      <div class="sbj-cd">
-                        <h2>IT-1403</h2>
-                      </div>
-                      <div class="sbj-nm">
-                        <h1>Algorith Lab</h1>
-                      </div>
-                      <div class="sbj-info">
-                        <h1><span>Year: </span>2nd</h1>
-                        <h1><span>Department: </span>IT</h1>
-                        <h1><span>Section: </span>A</h1>
-                      </div>
-                      <div class="sbj-ctr">
-                        <img src="/images/right-arrow.png" alt="" />
-                      </div>
-                    </div>
-
-                    <div class="cont-hover">
-                      <div class="sbj-info">
-                        <h1><span id="sp">IT-1403</span>Algorithm Lab</h1>
-                      </div>
-                      <div class="sbj-info dt">
-                        <h1>MON : <span> 10:00 - 11:00 AM</span></h1>
-                        <h1>THU : <span> 10:00 - 11:00 AM</span></h1>
-                        <h1>FRI : <span> 10:00 - 11:00 AM</span></h1>
-                      </div>
-                      <div class="sbj-ctr">
-                        <img src="/images/right-arrow.png" alt="" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="slide">
-                  <div
-                    class="sl"
-                    onmouseover="changeContent(this)"
-                    onmouseout="restoreContent(this)"
-                  >
-                    <div class="cont-def">
-                      <div class="sbj-cd">
-                        <h2>IT-1404</h2>
-                      </div>
-                      <div class="sbj-nm">
-                        <h1>DBMS</h1>
-                      </div>
-                      <div class="sbj-info">
-                        <h1><span>Year: </span>2nd</h1>
-                        <h1><span>Department: </span>IT</h1>
-                        <h1><span>Section: </span>A</h1>
-                      </div>
-                      <div class="sbj-ctr">
-                        <img src="/images/right-arrow.png" alt="" />
-                      </div>
-                    </div>
-
-                    <div class="cont-hover">
-                      <div class="sbj-info">
-                        <h1><span id="sp">IT-1404</span>DBMS</h1>
-                      </div>
-                      <div class="sbj-info dt">
-                        <h1>MON : <span> 10:00 - 11:00 AM</span></h1>
-                        <h1>THU : <span> 10:00 - 11:00 AM</span></h1>
-                        <h1>FRI : <span> 10:00 - 11:00 AM</span></h1>
-                      </div>
-                      <div class="sbj-ctr">
-                        <img src="/images/right-arrow.png" alt="" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="slide">
-                  <div
-                    class="sl"
-                    onmouseover="changeContent(this)"
-                    onmouseout="restoreContent(this)"
-                  >
-                    <div class="cont-def">
-                      <div class="sbj-cd">
-                        <h2>IT-1405</h2>
-                      </div>
-                      <div class="sbj-nm">
-                        <h1>Web Technology</h1>
-                      </div>
-                      <div class="sbj-info">
-                        <h1><span>Year: </span>2nd</h1>
-                        <h1><span>Department: </span>IT</h1>
-                        <h1><span>Section: </span>A</h1>
-                      </div>
-                      <div class="sbj-ctr">
-                        <img src="/images/right-arrow.png" alt="" />
-                      </div>
-                    </div>
-
-                    <div class="cont-hover">
-                      <div class="sbj-info">
-                        <h1><span id="sp">IT-1405</span>Web Technology</h1>
-                      </div>
-                      <div class="sbj-info dt">
-                        <h1>MON : <span> 10:00 - 11:00 AM</span></h1>
-                        <h1>THU : <span> 10:00 - 11:00 AM</span></h1>
-                        <h1>FRI : <span> 10:00 - 11:00 AM</span></h1>
-                      </div>
-                      <div class="sbj-ctr">
-                        <img src="/images/right-arrow.png" alt="" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="slide">
-                  <div
-                    class="sl"
-                    onmouseover="changeContent(this)"
-                    onmouseout="restoreContent(this)"
-                  >
-                    <div class="cont-def">
-                      <div class="sbj-cd">
-                        <h2>CSE-1406</h2>
-                      </div>
-                      <div class="sbj-nm">
-                        <h1>Python</h1>
-                      </div>
-                      <div class="sbj-info">
-                        <h1><span>Year: </span>2nd</h1>
-                        <h1><span>Department: </span>CSE</h1>
-                        <h1><span>Section: </span>A</h1>
-                      </div>
-                      <div class="sbj-ctr">
-                        <img src="/images/right-arrow.png" alt="" />
-                      </div>
-                    </div>
-
-                    <div class="cont-hover">
-                      <div class="sbj-info">
-                        <h1><span id="sp">CSE-1406</span>Python</h1>
-                      </div>
-                      <div class="sbj-info dt">
-                        <h1>MON : <span> 10:00 - 11:00 AM</span></h1>
-                        <h1>THU : <span> 10:00 - 11:00 AM</span></h1>
-                        <h1>FRI : <span> 10:00 - 11:00 AM</span></h1>
-                      </div>
-                      <div class="sbj-ctr">
-                        <img src="/images/right-arrow.png" alt="" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="slide">
-                  <div
-                    class="sl"
-                    onmouseover="changeContent(this)"
-                    onmouseout="restoreContent(this)"
-                  >
-                    <div class="cont-def">
-                      <div class="sbj-cd">
-                        <h2>IT-1407</h2>
-                      </div>
-                      <div class="sbj-nm">
-                        <h1>JAVA</h1>
-                      </div>
-                      <div class="sbj-info">
-                        <h1><span>Year: </span>3rd</h1>
-                        <h1><span>Department: </span>IT</h1>
-                        <h1><span>Section: </span>A</h1>
-                      </div>
-                      <div class="sbj-ctr">
-                        <img src="/images/right-arrow.png" alt="" />
-                      </div>
-                    </div>
-
-                    <div class="cont-hover">
-                      <div class="sbj-info">
-                        <h1><span id="sp">IT-1407</span>JAVA</h1>
-                      </div>
-                      <div class="sbj-info dt">
-                        <h1>MON : <span> 10:00 - 11:00 AM</span></h1>
-                        <h1>THU : <span> 10:00 - 11:00 AM</span></h1>
-                        <h1>FRI : <span> 10:00 - 11:00 AM</span></h1>
-                      </div>
-                      <div class="sbj-ctr">
-                        <img src="/images/right-arrow.png" alt="" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                
               </div>
             </div>
             <div class="controller right-control">
