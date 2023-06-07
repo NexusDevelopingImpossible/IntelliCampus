@@ -145,6 +145,9 @@
   /* transition: transform 0.5s ease-in-out;
   transform: translateX(-50%); */ }
 
+.carousel:first-of-type {
+  margin-left: 2rem; }
+
 .slide {
   /* flex: 0 0 calc((78rem - 14rem) / 3); */
   display: flex;
