@@ -7,7 +7,6 @@
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
-
 }
 
 .head {
@@ -61,7 +60,6 @@
   font-size: 1rem;
 }
 
-
 .search-box {
   padding: 0.8rem 2rem 0 2rem;
   display: flex;
@@ -81,12 +79,12 @@
   backdrop-filter: blur(12px);
 }
 
-.search-input:focus{
+.search-input:focus {
   outline: none;
   border: 1px solid #fadb0e;
 }
 
-.search-input::placeholder{
+.search-input::placeholder {
   color: #ffffff7c;
 }
 
@@ -112,21 +110,19 @@
   transition: all 0.3s;
   text-decoration: none;
 }
-.add-button:hover{
+.add-button:hover {
   background: #e66203;
   border: 1px solid #fd6d08;
 }
-
 
 .add-button img {
   margin-left: 0.5rem;
   width: 1.5rem;
 }
-.add{
+.add {
   display: flex;
   gap: 1.3rem;
 }
-
 
 .teachers {
   padding: 1rem 1rem 0 1rem;
@@ -135,18 +131,16 @@
   color: #ffffff;
 }
 
-.hed{
+.hed {
   padding-left: 1.5rem;
   font-weight: 400;
-
 }
-.teacher h1{
+.teacher h1 {
   font-weight: 500;
 }
 
-.main-carousel-container{
+.main-carousel-container {
   display: flex;
-
 }
 
 .carousel-container {
@@ -154,18 +148,23 @@
   overflow-x: auto;
   white-space: nowrap;
   -ms-overflow-style: none;
-  mask-image: linear-gradient(transparent,
-          black 5%,
-          black 95%,
-          transparent 100%);
-      -webkit-mask-image: linear-gradient( to right,transparent,
-          black 5%,
-          black 95%,
-          transparent 100%);
+  mask-image: linear-gradient(
+    transparent,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
 }
 
 .carousel-container::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
 .carousel {
@@ -179,6 +178,9 @@
   padding-bottom: 1rem;
   /* transition: transform 0.5s ease-in-out;
   transform: translateX(-50%); */
+}
+.carousel:first-of-type {
+  margin-left: 2rem;
 }
 
 .slide {
@@ -210,7 +212,6 @@
   margin: auto;
 }
 
-
 .right-control {
   right: 0rem;
 }
@@ -220,7 +221,6 @@
   font-size: 14px;
   align-items: center;
   gap: 0.75rem;
-
 }
 
 .teacher img {
@@ -242,7 +242,7 @@
   border: 1px solid #fd6d08;
   font-size: 16px;
 }
-.slide-btn{
+.slide-btn {
   display: flex;
   gap: 0.5rem;
 }
@@ -251,11 +251,11 @@
   background: #fd6d08;
   transition: all 0.2s;
 }
-.btn-profile:hover{
+.btn-profile:hover {
   background: #e66203;
-  
 }
-.btn-msg:hover{
+
+.btn-msg:hover {
   background: #e6620349;
 }
 
@@ -278,7 +278,7 @@
   border-radius: 20px;
 }
 
-.adm-calendar{
+.adm-calendar {
   height: 21rem;
   background-color: #f8d57b1e;
   border: 1px solid #ffffff9a;

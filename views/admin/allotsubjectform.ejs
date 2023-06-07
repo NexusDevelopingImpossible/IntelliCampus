@@ -26,11 +26,8 @@
             <div class="main__title">
                 <button>
                     <a href="/admin/allotsubject" class="back__btn">
-                        <svg width="40" height="40" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M21.25 30L14.25 23M14.25 23L21.25 16M14.25 23L31.75 23M2 23C2 34.598 11.402 44 23 44C34.598 44 44 34.598 44 23C44 11.402 34.598 2 23 2C11.402 2 2 11.402 2 23Z"
-                                stroke="white" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+                       
+                        <ion-icon class="back_btn_icon" name="chevron-back-circle-outline"></ion-icon> 
                     </a>
                 </button>
                 <h2 class="main__title__name">
@@ -54,8 +51,8 @@
                         </div>
                     </div>
                     <button onclick="addsub()">
-                        <span class="text">Add Subjects</span>
                         <span class="icon">+</span>
+                        <span class="text">Add Subjects</span>
                     </button>
                 </div>
 
@@ -70,6 +67,7 @@
                             <li>Sec</li>
                         </ul>
                     </div>
+                    <div class="description-scroll">
                     <% console.log(timetable)%>
                     <% for(let i = 0; i<timetable.length; i++){%>
                         <div class="description__list">
@@ -80,9 +78,11 @@
                                 <li><%= timetable[i].department%></li>
                                 <li><%= timetable[i].semester%></li>
                                 <li><%= timetable[i].section%></li>
+                                <span><ion-icon class="delete-sub" name="trash-outline"></ion-icon></span>
                             </ul>
                         </div>
                     <%}%>
+                </div>
                 </div>
             </div>
             <div class="modal" id="section3">
@@ -91,23 +91,19 @@
                         Add new subject
                     </h3>
                     <button class="close__btn" onclick="closemodal()">
-                        <svg width="20" height="20" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M27.4546 8.13101C32.8882 13.352 33.0612 22.0211 27.8403 27.4547C22.6193 32.8884 13.9502 33.0614 8.51652 27.8404C3.08288 22.6195 2.90984 13.9504 8.13082 8.51671C13.3518 3.08306 22.0209 2.91003 27.4546 8.13101ZM29.8218 5.66733C23.0184 -0.869845 12.2043 -0.653998 5.66714 6.14945C-0.870031 12.9529 -0.654184 23.767 6.14927 30.3041C12.9527 36.8413 23.7668 36.6255 30.3039 29.822C36.8411 23.0186 36.6253 12.2045 29.8218 5.66733ZM25.3284 22.672L20.401 17.9375L25.1355 13.0102L22.6718 10.6429L17.9373 15.5703L13.01 10.8357L10.6427 13.2994L15.5701 18.0339L10.8356 22.9613L13.2992 25.3286L18.0338 20.4012L22.9611 25.1357L25.3284 22.672Z"
-                                fill="white" />
-                        </svg>
+                        <ion-icon class="close_btn_icon" name="close-circle-outline"></ion-icon>
                     </button>
                 </div>
                 <div class="modal__bottom">
                     <form action="/admin/addsubject" method="post">
                         <div class="input__field">
-                            <div class="row2">
+                            <div class="row1">
                                 <input type="text" name="branch" id="course" placeholder="Course">
                                 <input type="text" name="department" id="dept" placeholder="Dept">
                                 <input type="number" name="semester" id="sem" placeholder="Semester">
                                 <input type="text" name="section" id="sec" placeholder="Section">
                             </div>
-                            <div class="row1">
+                            <div class="row2">
                                 <input type="text" value="<%= teacher.username %>" style="display: none" name="registration">
                                 <input type="text" name="code" id="code" placeholder="Code">
                                 <input type="text" name="subject" id="subject" placeholder="Subject Name">

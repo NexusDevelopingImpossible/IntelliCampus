@@ -27,7 +27,8 @@ function create_input() {
         let div = document.createElement('div');
         div.classList.add('form-row');
         div.innerHTML = `<div class="form-row">
-        <input type="checkbox" checked>
+        <div>
+        <input type="checkbox" checked></div>
         <div class="form-set">
           <div class="form-text">Registration No.</div>
           <input type="text" class="input-name" value=`+ eval(counter) + ` name="registration`+i+`">
