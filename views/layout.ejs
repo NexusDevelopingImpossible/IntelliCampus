@@ -6,7 +6,7 @@
   </head>
 
   <body>
-    <% if(!((title=="Login") || (title=="error")) ) {%>
+    <% if(!((title=="Login") || (title=="error") || (title=="Sign Up")) ) {%>
     <%console.log(locals.user.position)%> <% if(locals.user.position===
     "student"){%> <%- include('navbar/student'); %> <% } %> <%
     if(locals.user.position==="teacher" ){%> <%- include('navbar/teacher'); %>
