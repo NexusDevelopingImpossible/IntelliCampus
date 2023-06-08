@@ -1,0 +1,84 @@
+.main-page{
+    color: white;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.subject{
+    font-size: 2rem;
+}
+
+.Alphabet{
+    float: left;
+    padding-top: 1rem;
+}
+
+.serial_naming{
+    display:flex
+}
+
+.stu_list{
+    float: left;
+    padding-left: 3rem;
+}
+
+.postcard{
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 10rem;
+    height: 10rem;
+    border-radius: 10px;
+    text-align: center;
+    margin : 0 1.5rem 1.5rem 0;
+    overflow: auto;
+}
+
+.order{
+    font-size: 2rem;
+    font-weight: lighter;
+    display: inline-block;
+}
+
+.stu_name_cards{
+    list-style-type: none;
+    display: flex; 
+    flex-wrap: wrap;
+}
+
+.mark{
+    padding: 0;
+    margin-left: 8.5rem;
+    margin-top: 0.6rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100%;
+}
+
+.present{
+    background-color: #24FF00;
+}
+
+.absent{
+    background-color: #FF0000;
+}
+
+#list{
+    padding-left: 1.2rem;
+}
+
+#sub_code{
+    font-weight: lighter;
+    margin : 0 1.5rem;
+}
+
+#sub_title{
+    margin: 0 2rem;
+}
+
+#back_arrow{
+    width: 2rem;
+}
+
+#title{
+    margin: 5rem 1rem;
+    display: flex;
+}
