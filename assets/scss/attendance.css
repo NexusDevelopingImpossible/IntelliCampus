@@ -1,12 +1,175 @@
-.main-page{
-    color: white;
+
+
+body {
+    color: #fff;
+  }
+  .att-navbar {
+    border-right: none;
+    margin: 0 auto;
+  }
+  
+  .att-navbar .container {
+    border-bottom: 1px solid #ffffff81;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    width: 50rem;
+  }
+  
+  .att-navbar .container > div {
+    padding: 0.3rem 0;
+  }
+  
+  .att-navbar .container > div:hover {
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .tab-border {
+    background-color: #39030050;
+    border-radius: 30px 30px 0px 0px;
+  }
+  
+  /* Hide initial content */
+  #tab-1-content,
+  #tab-2-content,
+  #tab-3-content {
+    display: none;
+    opacity: 0;
+  }
+  
+  .show {
+    display: block !important;
+    opacity: 1 !important;
+    transition: all 1000 ease-in;
+  }
+  .att-chose {
+    appearance: none;
+    border: none;
+    padding: 0.3rem 1rem;
+    backdrop-filter: blur(12px);
+    background: #00000014;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .att-chose:focus {
+    border: 1px solid #fada0e8f;
+  }
+  
+  #sub_code {
+    font-weight: lighter;
+    margin: 0 1.5rem;
+  }
+  
+  #back_arrow {
+    width: 2rem;
+  }
+  
+  #title {
+    margin: 2rem 1rem;
+    display: flex;
+  }
+  select {
+    background-color: white;
+    border: thin solid blue;
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+  
+    /* reset */
+  
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  select.minimal:focus {
+    outline: 0;
+  }
+  
+  .search-input {
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    backdrop-filter: blur(12px);
+  }
+  .search-btn{
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: #fd6d08;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
+  }
+  a{
+    text-decoration: none;
+    color: #fff;
+  }
+  .search-input input {
+    border-radius: 20px;
+    background: transparent;
+    border: none;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: #ffffff;
+    width: 25rem;
+  }
+  
+  .search-input input:focus {
+    outline: none;
+  }
+  
+  .search-input::placeholder {
+    color: #ffffff7c;
+  }
+  
+  .export-btn a {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: #fd6d08;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .tab-header {
+    padding: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+
+
+  /* - - - - - - - - - - - - - - - -  */
+  /*  student's attendance profile */
+  /* - - - - - - - - - - - - - - - -  */
+.student-profile{
     overflow-y: auto;
-    max-height: 100vh;
+    max-height: 65vh;
 }
 
-.subject{
-    font-size: 2rem;
-}
 
 .Alphabet{
     float: left;
@@ -43,7 +206,12 @@
     display: flex; 
     flex-wrap: wrap;
 }
-
+.stu_name{
+    font-weight: 500;
+}
+.stu_reg_no{
+    font-weight: 100;
+}
 .mark{
     padding: 0;
     margin-left: 8.5rem;
@@ -63,22 +231,4 @@
 
 #list{
     padding-left: 1.2rem;
-}
-
-#sub_code{
-    font-weight: lighter;
-    margin : 0 1.5rem;
-}
-
-#sub_title{
-    margin: 0 2rem;
-}
-
-#back_arrow{
-    width: 2rem;
-}
-
-#title{
-    margin: 5rem 1rem;
-    display: flex;
 }
