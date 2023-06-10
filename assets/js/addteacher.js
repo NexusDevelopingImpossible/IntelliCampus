@@ -18,7 +18,8 @@ function create_input() {
     var c = eval(end - start);
     countid.innerHTML = eval(end - start);
     div1.style.display = "none";
-    div2.style.visibility = "visible";
+    div2.style.display = "flex";
+    // div2.style.visibility = "visible";
     var counter = start;
 
     for (var i = 0; i < c; i++) {
@@ -26,7 +27,8 @@ function create_input() {
         let div = document.createElement('div');
         div.classList.add('form-row');
         div.innerHTML = `<div class="form-row">
-        <input type="checkbox" checked>
+        <div>
+        <input type="checkbox" checked></div>
         <div class="form-set">
           <div class="form-text">Registration No.</div>
           <input type="text" class="input-name" value=`+ eval(counter) + ` name="registration`+i+`">

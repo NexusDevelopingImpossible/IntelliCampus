@@ -7,19 +7,19 @@ module.exports.home = function(req, res){
 
 module.exports.Login = function(req, res){
     console.log(res.locals.user);
-    return res.render('Login', {
+    return res.render('login-signup/Login', {
         title: "Login"
     });
 }
 module.exports.error = function(req, res){
     console.log(res.locals.user);
-    return res.render('error', {
+    return res.render('components/error404', {
         title: "error"
     });
 }
 
 module.exports.signUp=(req,res)=>{
-    return res.render('signup',{
+    return res.render('login-signup/signup',{
         title:"Sign Up"
     })
 }
@@ -72,7 +72,7 @@ module.exports.createSession = (req, res) => {
         } else if (user.position === 'admin') {
             return res.redirect('/admin/dashboard');
         } else {
-            return res.redirect('/signup');
+            return res.redirect('login-signup/signup');
         }
     });
 };

@@ -7,21 +7,18 @@
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
+  display: flex;
   margin: 0;
   padding: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif !important;
+  background-color: #390300;
 }
 .main-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #390300;
-  display: flex;
-  flex-direction: row;
+  width: auto;
+  height: auto;
+ 
+  // display: flex;
+  // flex-direction: row;
 }
 .navbar {
   height: 100vh;
@@ -32,7 +29,8 @@ body {
 .nav-smit-logo img {
   width: 13.5rem;
   padding-bottom: 1.5rem;
-  padding-left: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   padding-top: 2rem;
 }
 .manager-logo-div{
@@ -77,18 +75,6 @@ body {
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
 }
-.main-background {
-  height: 96vh;
-  margin: 0.9rem;
-  margin-left: 0rem;
-  width: 84vw;
-  background-image: url("../images/bg-blur.png");
-  background-size: cover;
-  background-position: center;
-  border-radius: 2.5rem;
-}
-
-
 
 
 .nav-manipal-vector img {
@@ -101,7 +87,18 @@ body {
   z-index: -1;
 }
 
-.main-background-manipal-vector {
+.main-page {
+  margin: 0.9rem;
+  margin-left: 0rem;
+  width: 85%;
+  height: auto;
+  background-image: url("../images/bg-blur.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 2.5rem;
+  // overflow: auto;
+}
+.dash-manipal-vec {
   position: absolute;
   opacity: 0.05;
   width: 25rem;
@@ -109,5 +106,3 @@ body {
   left: 801px;
   top: 0px;
 }
-
-
