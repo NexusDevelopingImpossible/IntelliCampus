@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../../assets/css/navbar.css">
+    <link rel="stylesheet" href="../../assets/scss/internalMarks.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <section class="main-container">
+        <div class="navbar">
+            <div class="nav-smit-logo">
+                <img src="../../assets/images/SMIT HIGH RES LOGO WHITE 1.png" alt="" />
+            </div>
+            <div class="tabs">
+                <ul>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/dashboard.png" alt="" /></span>
+                            <span class="tab-name">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/PROFILE ICON.png" alt="" /></span>
+                            <span class="tab-name">Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/Edit-ID.png" alt="" /></span>
+                            <span class="tab-name">Edit ID</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/Allot-subject.png" alt="" /></span>
+                            <span class="tab-name">Allot Subject</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/timetable.png" alt="" /></span>
+                            <span class="tab-name">Timetable</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/Change-semester.png" alt="" /></span>
+                            <span class="tab-name">Semester</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/Feedback.png" alt="" /></span>
+                            <span class="tab-name">Feedback</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/Report.png" alt="" /></span>
+                            <span class="tab-name">Report</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/setting.png" alt="" /></span>
+                            <span class="tab-name">Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/signout.png" alt="" /></span>
+                            <span class="tab-name" id="1">Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nav-manipal-vector">
+                <img src="../../assets/images/manipal-vector.png" alt="" />
+            </div>
+        </div>
+
+        <div class="main-background">
+            <!-- <div>
+                <img class="main-background-manipal-vector" src="../../assets/images/manipal-vector.png" alt="" />
+            </div> -->
+
+            <div class="main__content">
+                <div class="main__title">
+                    <button>
+                        <a href="#" class="back__btn">
+                            <svg width="40" height="40" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21.25 30L14.25 23M14.25 23L21.25 16M14.25 23L31.75 23M2 23C2 34.598 11.402 44 23 44C34.598 44 44 34.598 44 23C44 11.402 34.598 2 23 2C11.402 2 2 11.402 2 23Z" stroke="white" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>                            
+                        </a>
+                    </button>
+                    <h2 class="main__title__name">
+                        <span>IT-1403</span> Computer Organization Architecture
+                    </h2>
+                </div>
+
+                <div class="year__sem__sec">
+                    <span>Year : <strong>2nd</strong></span>
+                    <span>Semester : <strong>4th</strong></span>
+                    <span>Section : <strong>IT</strong></span>
+                </div>
+
+                <div class="attendence__marks__notes">
+                    <button>
+                        <h4 >Attendence</h4>
+                    </button>
+                    <button>
+                        <h4 class="select">Internal Marks</h4>
+                    </button>
+                    <button>
+                        <h4>Notes</h4>
+                    </button>
+                </div>
+                
+                <div class="mode__and__button">
+                    <div class="left">
+                        <div class="selection__mode" id="selection__mode">
+                            Select Mode
+                            <div class="items">
+                                <span>QUIZ I</span>
+                                <span>QUIZ II</span>
+                                <span>SESS I</span>
+                                <span>SESS II</span>
+                            </div>
+                        </div>
+
+                        <button class="reset">Reset Max Marks</button>
+
+                    </div>
+
+                    <div class="right">
+                        <button class="reset">Reset</button>
+                        <button class="save">Save</button>
+                    </div>
+                </div>
+                
+                <div class="list__main">
+                    <div class="list__main__title">
+                        <ul>
+                            <li>S.No</li>
+                            <li>Name</li>
+                            <li>Registration No.</li>
+                            <li>Marks (10)</li>
+                            <li>Marks(5)</li>
+                        </ul>
+                    </div>
+
+                    <div class="list__items">
+                        <ul>
+                            <li>01</li>
+                            <li>Srijan Dev</li>
+                            <li>202100423</li>
+                            <li>
+                                <input type="text" name="" id="marks">
+                            </li>
+                            <li>5</li>
+                        </ul>
+                    </div>
+
+                    <div class="list__items">
+                        <ul>
+                            <li>01</li>
+                            <li>Srijan Dev</li>
+                            <li>202100423</li>
+                            <li>
+                                <input type="text" name="" id="marks">
+                            </li>
+                            <li>5</li>
+                        </ul>
+                    </div><div class="list__items">
+                        <ul>
+                            <li>01</li>
+                            <li>Srijan Dev</li>
+                            <li>202100423</li>
+                            <li>
+                                <input type="text" name="" id="marks">
+                            </li>
+                            <li>5</li>
+                        </ul>
+                    </div><div class="list__items">
+                        <ul>
+                            <li>01</li>
+                            <li>Srijan Dev</li>
+                            <li>202100423</li>
+                            <li>
+                                <input type="text" name="" id="marks">
+                            </li>
+                            <li>5</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <script src="../../assets/js/internalMarks.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
