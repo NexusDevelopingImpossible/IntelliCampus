@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "648afa536899f9e998b69b96"
+  },
+  "username": 1000,
+  "name": "T1",
+  "department": "CSE",
+  "position place": "Assitiant Professor 1",
+  "position": "teacher"
+},
+{
+  "_id": {
+    "$oid": "648afa536899f9e998b69b97"
+  },
+  "username": 1001,
+  "name": "T2",
+  "department": "CSE",
+  "position place": "Assitiant Professor 1",
+  "position": "teacher"
+},
+{
+  "_id": {
+    "$oid": "648afa536899f9e998b69b98"
+  },
+  "username": 1002,
+  "name": "T3",
+  "department": "CSE",
+  "position place": "Assitiant Professor 2",
+  "position": "teacher"
+},
+{
+  "_id": {
+    "$oid": "648afa536899f9e998b69b99"
+  },
+  "username": 1003,
+  "name": "T4",
+  "department": "CSE",
+  "position place": "Assitiant Professor ",
+  "position": "teacher"
+}]

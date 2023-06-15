@@ -1,0 +1,150 @@
+[{
+  "_id": {
+    "$oid": "648afabf6899f9e998b69bfd"
+  },
+  "code": "MA10107A",
+  "name": "Discrete Mathematics",
+  "credit": 3,
+  "numberofclasses": 3,
+  "type": "Theory"
+},
+{
+  "_id": {
+    "$oid": "648afabf6899f9e998b69bfe"
+  },
+  "code": "CS10101A",
+  "name": "Data Structure",
+  "credit": 4,
+  "numberofclasses": 4,
+  "type": "Theory"
+},
+{
+  "_id": {
+    "$oid": "648afabf6899f9e998b69bff"
+  },
+  "code": "CS10102A",
+  "name": "Digital Circuit & Logic design",
+  "credit": 4,
+  "numberofclasses": 4,
+  "type": "Theory"
+},
+{
+  "_id": {
+    "$oid": "648afabf6899f9e998b69c00"
+  },
+  "code": "CS10103A",
+  "name": "Computer Oraganization and Architecture",
+  "credit": 3,
+  "numberofclasses": 3,
+  "type": "Theory"
+},
+{
+  "_id": {
+    "$oid": "648afabf6899f9e998b69c01"
+  },
+  "code": "CS10104A",
+  "name": "Professional and Software Ethics",
+  "credit": 3,
+  "numberofclasses": 3,
+  "type": "Lab"
+},
+{
+  "_id": {
+    "$oid": "648afabf6899f9e998b69c02"
+  },
+  "code": "CS10404A",
+  "name": "Algorithm Lab",
+  "credit": 1,
+  "numberofclasses": 1,
+  "type": "Theory"
+},
+{
+  "_id": {
+    "$oid": "648afabf6899f9e998b69c03"
+  },
+  "code": "CS10502A",
+  "name": "Project Based Learnning -I",
+  "credit": 1,
+  "numberofclasses": 1,
+  "type": "Theory"
+},
+{
+  "_id": {
+    "$oid": "648afabf6899f9e998b69c04"
+  },
+  "code": "CS10107A",
+  "name": "Computer Network-I",
+  "credit": 3,
+  "numberofclasses": 3,
+  "type": "Theory"
+},
+{
+  "_id": {
+    "$oid": "648afabf6899f9e998b69c05"
+  },
+  "code": "IT10130A",
+  "name": "Data Structure",
+  "credit": 4,
+  "numberofclasses": 4,
+  "type": "Theory"
+},
+{
+  "_id": {
+    "$oid": "648afabf6899f9e998b69c06"
+  },
+  "code": "IT10132A",
+  "name": "Python Programming",
+  "credit": 3,
+  "numberofclasses": 3,
+  "type": "Theory"
+},
+{
+  "_id": {
+    "$oid": "648afabf6899f9e998b69c07"
+  },
+  "code": "IT10430A",
+  "name": "Data Structure lab",
+  "credit": 1,
+  "numberofclasses": 1,
+  "type": "Lab"
+},
+{
+  "_id": {
+    "$oid": "648afabf6899f9e998b69c08"
+  },
+  "code": "IT10140A",
+  "name": "Object Oriented Programming With C++",
+  "credit": 4,
+  "numberofclasses": 4,
+  "type": "Theory"
+},
+{
+  "_id": {
+    "$oid": "648afabf6899f9e998b69c09"
+  },
+  "code": "IT10440A",
+  "name": "OOP with C++ Laboratory",
+  "credit": 1,
+  "numberofclasses": 1,
+  "type": "Lab"
+},
+{
+  "_id": {
+    "$oid": "648afabf6899f9e998b69c0a"
+  },
+  "code": "IT10441A",
+  "name": "Database Management System Lab",
+  "credit": 1,
+  "numberofclasses": 1,
+  "type": "Lab"
+},
+{
+  "_id": {
+    "$oid": "648afabf6899f9e998b69c0b"
+  },
+  "code": "GN10101A",
+  "name": "UHV-II",
+  "credit": 3,
+  "numberofclasses": 3,
+  "type": "Theory"
+}]
