@@ -13,7 +13,12 @@ const teacherSchema = new mongoose.Schema({
     department: {
         type: String,
         required: true
+    },
+    position: {
+        type: String,
+        required: true
     }
+
 }, {
     timestamps: true
 });

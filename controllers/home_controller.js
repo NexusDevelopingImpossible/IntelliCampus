@@ -50,7 +50,6 @@ module.exports.create = (req, res) => {
 };
 
 module.exports.createSession = (req, res) => {
-    console.log(req.body);
     const { username, password } = req.body;
 
     // Find the user in the database based on the provided username

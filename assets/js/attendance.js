@@ -34,3 +34,43 @@ function removeShow() {
 tabItems.forEach(item => {
 	item.addEventListener('click', selectItem);
 });
+
+
+function view_update(value) {
+	var view = document.getElementById('view-tab');
+	var add = document.getElementById('add-tab');
+	var update = document.getElementById('update-tab');
+	if (value === "view") {
+		console.log(value);
+		update.style.display = "none";
+		add.style.display = "none";
+		view.style.display = "contents";
+	}
+	if(value === "add") {
+		console.log(value);
+		add.style.display = "contents";
+		view.style.display = "none";
+		update.style.display = "none";
+	}
+	if(value === "update") {
+		console.log(value);
+		update.style.display = "contents";
+		view.style.display = "none";
+		add.style.display = "none";
+	}
+}
+let resetmax = document.getElementById('reset-max');
+function addsub(){
+    resetmax.style.display = "flex";
+}
+function closemodal(){
+    resetmax.style.display = "none";
+}
+let resetall = document.getElementById('reset-all');
+function resetmodel(){
+    resetall.style.display = "flex";
+}
+function closeresetmodal(){
+    resetall.style.display = "none";
+}
+

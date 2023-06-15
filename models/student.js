@@ -14,18 +14,14 @@ const studentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    semester: {
+        type: Number,
+        required: true
+    },
     section: {
         type: String,
         required: true
-    },
-    subjects:[{
-        subject1: String,
-        required: false
-    },
-    {
-        subject2: String,
-        required: false
-    }]
+    }
 }, {
     timestamps: true
 });

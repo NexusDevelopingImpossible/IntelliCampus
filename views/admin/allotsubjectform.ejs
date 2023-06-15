@@ -65,24 +65,29 @@
                             <li>Dept</li>
                             <li>Sem</li>
                             <li>Sec</li>
+                            <li></li>
+
+                            <!-- <li>Delete</li> -->
                         </ul>
                     </div>
                     <div class="description-scroll">
-                    <% console.log(timetable)%>
+
                     <% for(let i = 0; i<timetable.length; i++){%>
                         <div class="description__list">
+                            <% console.log(timetable[i])%>
                             <ul>
-                                <li><%= timetable[i].subjectcode%></li>
-                                <li><%= timetable[i].code%></li>
+                                <li><%= timetable[i].subjectcode.code%></li>
+                                <li><%= timetable[i].subjectcode.name%></li>
                                 <li><%= timetable[i].branch%></li>
                                 <li><%= timetable[i].department%></li>
                                 <li><%= timetable[i].semester%></li>
                                 <li><%= timetable[i].section%></li>
-                                <span><ion-icon class="delete-sub" name="trash-outline"></ion-icon></span>
+                                <li><a href="/admin/deletesubject/?id=<%= timetable[i]._id %>&teacherid=<%= teacher._id %>">
+                                    <ion-icon class="delete-sub" name="trash-outline"></ion-icon></a></li>
                             </ul>
                         </div>
                     <%}%>
-                </div>
+                    </div>
                 </div>
             </div>
             <div class="modal" id="section3">

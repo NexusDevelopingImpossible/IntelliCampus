@@ -132,6 +132,17 @@ body{
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
+.carousel-container .noinformationtext{
+    height: 10rem;
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 3rem;
+    color: #ffffff56;
+    //@srijan check this, if required change it
+}
 .carousel:first-of-type{
     margin-left: 2rem;
 }
@@ -159,16 +170,19 @@ body{
 
 .sl {
     width: 18rem;
+    color: #ffffff;
 }
 
 .sl h2 {
     font-size: 1.1rem;
     font-weight: 300;
+    text-align: left !important;
 }
 
 .sbj-nm {
     // height: 3.8rem;
     padding-top: 0.3rem;
+    text-align: left !important;
 }
 
 .sl h1 {
@@ -210,11 +224,12 @@ body{
 
 .sl .dt h1 span {
     color: #ffffff;
+
 }
 
 .sbj-ctr {
     text-align: right;
-    padding-top: 1rem;
+
 }
 
 .sbj-ctr img {
@@ -256,4 +271,8 @@ body{
 
 .tch-content {
     height: 17.5rem !important;
+}
+.carousel-container button{
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px;
 }

@@ -102,6 +102,16 @@ body {
   padding-top: 1rem;
   padding-bottom: 1rem; }
 
+.carousel-container .noinformationtext {
+  height: 10rem;
+  text-align: center;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 3rem;
+  color: #ffffff56; }
+
 .carousel:first-of-type {
   margin-left: 2rem; }
 
@@ -123,14 +133,17 @@ body {
   padding: 1rem; }
 
 .sl {
-  width: 18rem; }
+  width: 18rem;
+  color: #ffffff; }
 
 .sl h2 {
   font-size: 1.1rem;
-  font-weight: 300; }
+  font-weight: 300;
+  text-align: left !important; }
 
 .sbj-nm {
-  padding-top: 0.3rem; }
+  padding-top: 0.3rem;
+  text-align: left !important; }
 
 .sl h1 {
   font-size: 1.5rem;
@@ -166,8 +179,7 @@ body {
   color: #ffffff; }
 
 .sbj-ctr {
-  text-align: right;
-  padding-top: 1rem; }
+  text-align: right; }
 
 .sbj-ctr img {
   height: 1.3rem;
@@ -199,3 +211,7 @@ body {
 
 .tch-content {
   height: 17.5rem !important; }
+
+.carousel-container button {
+  background-color: rgba(255, 255, 255, 0);
+  border: 0px; }

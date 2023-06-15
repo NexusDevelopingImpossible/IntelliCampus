@@ -15,5 +15,7 @@ router.post('/createteacher', adminController.createteacher);
 router.get("/allotsubject", adminController.allotsubject);
 router.post('/searchteacherid', adminController.searchteacherid);
 router.post('/addsubject', adminController.addsubject); 
+router.get('/deletesubject', adminController.deletesubject); 
+
 
 module.exports = router;

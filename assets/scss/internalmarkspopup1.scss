@@ -1,0 +1,84 @@
+.popup{
+    display: none;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+
+ .flex-container{
+   display: flex;
+   flex-direction: column;
+   background-color: rgba(248, 213, 123, 0.15);
+   height:  250px;
+   width: 430px;
+   border-radius: 20px 20px 20px 20px;
+} 
+.test-type{
+    width: auto;
+    height: 80px;
+    border-radius: 20px 20px 0px 0px;
+    background-color: black;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    text-align: center;
+}
+.test-type p{
+    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400px;
+    font-size: 60px;
+    line-height: 135.5%;
+    color: white;
+}
+.popup-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: auto;
+    height: 170px;
+    border-radius: 0px 0px 20px 20px;
+    align-items: center;
+
+}
+#maximum-marks{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 30px;
+    color: white;
+}
+.popup-content input{
+    width: 320px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 44px;
+    position: relative;
+}
+.popup-content button{
+    padding: 10px;
+    height: 40px;
+    width: 100px;
+    background: rgba(255, 112, 12, 0.8);
+    border-radius: 30px;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+    margin-left: -100px;
+    position:absolute;
+}
+#NB-part{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 12px;
+    line-height: 13px;
+    text-align: center;
+    color: #FFFFFF;
+}
