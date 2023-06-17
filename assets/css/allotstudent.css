@@ -1,0 +1,109 @@
+.allot-student {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; }
+
+.sub-heading {
+  margin-top: 35px;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: row; }
+
+#plus-button > a > img {
+  width: 30px;
+  margin-top: 5px;
+  height: auto;
+  /* margin-bottom: 5px; */ }
+
+#allot-head {
+  /* margin-top: 0px ; */
+  margin-left: 28%;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  color: white; }
+
+.main-content {
+  /* align-self: center; */
+  /* margin-top: 50px; */
+  align-self: center;
+  margin-top: 25px;
+  /* margin-left: px; */
+  display: flex;
+  flex-direction: column; }
+
+.main-content > ul {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  width: 47rem;
+  /* height: 20px; */
+  list-style: none; }
+
+.main-content > ul > li {
+  border: solid;
+  border-width: thin;
+  border-color: aliceblue;
+  padding: 5px 0 5px 12px;
+  margin: 9px 0 9px 0;
+  border-radius: 25px;
+  background-color: #F8D57B26;
+  /* height: 80px; */ }
+
+.main-content > ul > li > form {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* margin-right: 50px; */ }
+
+.anchor-content {
+  margin: 0 80px 0 0px;
+  display: flex;
+  flex-direction: column; }
+
+.main-content > ul > li > form > button {
+  width: 150px;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #FD6D08;
+  color: aliceblue; }
+
+.main-content > ul > li > form > button > img {
+  width: 10px;
+  margin-right: 15px;
+  /* color: black; */
+  /* background-color: black; */ }
+
+.row1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+
+.sub-code {
+  font-style: normal;
+  font-weight: 275;
+  font-size: 20px;
+  color: white; }
+
+.sub-name {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: white; }
+
+.row2 {
+  display: flex;
+  flex-direction: row;
+  color: aliceblue;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 17px; }
+
+.bold-part {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px; }

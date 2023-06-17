@@ -51,7 +51,7 @@
     background-color: #F8D57B26;
     /* height: 80px; */
 }
-.main-content > ul > li > a{
+.main-content > ul > li > form{
     display: flex;
     flex-direction: row;
     text-decoration: none;
@@ -66,7 +66,7 @@
     flex-direction: column;
     
 }
-.main-content > ul > li > a > button{
+.main-content > ul > li > form > button{
     width: 150px;
     padding: 10px;
     border-radius: 20px;
@@ -74,7 +74,7 @@
     background-color:#FD6D08;
     color: aliceblue;
 }
-.main-content > ul > li > a > button > img{
+.main-content > ul > li > form > button > img{
     width: 10px;
     margin-right: 15px;
     /* color: black; */

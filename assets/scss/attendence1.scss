@@ -105,7 +105,6 @@
     padding: 0.5rem 1rem;
     cursor: pointer;
 }
-
 .selection__mode::after{
     content: '\25BC';
     position: absolute;
@@ -118,49 +117,33 @@
     font-size: 14px;
     margin: 0 1rem;
 }
-.left button{
-    padding: 0 1.5rem;
+/* Handle with js */
+.items {
+    display: none;
+    /* display: flex; */
+    position: absolute;
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+    background: rgba(253, 109, 8, 0.2);
+    width: 100%;
+    top: 37px;
+    left: 0;
+    border-radius: 30px;
+}
+.items span{
+    padding-bottom: 0.3rem;
+}
+
+.date input{
+    width: 166px;
     color: #fff;
     background: rgba(253, 109, 8, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius: 30px;
+    padding: 0.5rem 1rem;
     cursor: pointer;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-}
-/* Handle with js to open and closed the dropdown menu */
-.items {
-    display: none;
-    position: absolute;
-    flex-direction: column;
-    padding: 0 1rem;
-    background: rgb(93 57 55);
-    width: 100%;
-    top: 37px;
-    left: 0;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.7);
-}
-/* Adding the active class */
-.selection__mode.active .items{
-    display: flex;
-}
-.selection__mode.active::after{
-    content: '\25BC';
-    transform: rotate(180deg);
-}
-.items span {
-    padding: 0.3rem 0;
-    border-bottom: 1px solid #ffffff76;
-}
-.items span:hover {
-    color: #FD6D08;
-}
-
-.items span:last-child{
-    border: none;
-}
-
+    outline: none;
+} 
 .right button{
     background: none;
     border: 3px solid #FD6D08;
@@ -182,8 +165,8 @@
     display: flex;
     gap: 1rem;
     background: rgba(0, 0, 0, 0.12);
-    border-radius: 15px;
-    padding: 0.8rem 1rem;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
     color: #fff;
     margin-bottom: 1rem;
 }
@@ -192,7 +175,10 @@
     border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 .list__main__title ul li:nth-child(1),
-.list__main__title ul li:nth-child(4){
+.list__main__title ul li:nth-child(4),
+.list__main__title ul li:nth-child(5),
+.list__main__title ul li:nth-child(6)
+{
     flex:1;
 }
 .list__main__title ul li:nth-child(2){
@@ -202,13 +188,35 @@
     flex:3;
 }
 
-.list__main__title ul li:nth-child(5){
+.list__main__title ul li:nth-child(7){
     flex: 1;
     border: none;
     display: flex;
     justify-content: center;
 }
-
+input[type="checkbox"]{
+    position: relative;
+    appearance: none;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    color: #FD6D08;
+    cursor: pointer;
+}
+input[type="checkbox"]::before {
+    content: "\25CF";
+    border-radius: 50%;
+    position: absolute;
+    font-size: 1.9rem;
+    right: 0px;
+    top: -10px;
+    color: #FD6D08;
+    visibility: hidden;
+}
+input[type="checkbox"]:checked::before{
+    visibility: visible;
+}
 /* list-items */
 .list__items{
     padding-bottom: 0.5rem;
@@ -219,20 +227,14 @@
     align-items: center;
     gap: 1rem;
     background: rgba(248, 213, 123, 0.15);    
-    border-radius: 10px;
-    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
     color: #fff;
 }
-.list__items ul li input{
-    background: rgba(0, 0, 0, 0.09);        
-    border-radius: 5px;
-    padding: 0.6rem 0.8rem;
-    border: none;
-    outline: none;
-    width: 40px;
-    color: #fff;
-}
-.list__items ul li:nth-child(1){
+.list__items ul li:nth-child(1),
+.list__items ul li:nth-child(4),
+.list__items ul li:nth-child(5),
+.list__items ul li:nth-child(6){
     flex:1;
 }
 .list__items ul li:nth-child(2){
@@ -241,9 +243,24 @@
 .list__items ul li:nth-child(3){
     flex:3;
 }
-.list__items ul li:nth-child(5),
-.list__items ul li:nth-child(4){
+.list__items ul li:nth-child(7){
     flex: 1;
     display: flex;
     justify-content: center;
+}
+
+
+#view-tab{
+    display: none;
+}
+.stu_name_cards button{
+    background-color: #ffffff00;
+    border: 0px;
+}
+#update-tab{
+    display: none;
+}
+select option{
+    background-color: #FD6D08;
+    // @Srijan change this
 }

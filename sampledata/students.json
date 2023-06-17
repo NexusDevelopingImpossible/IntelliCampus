@@ -1,0 +1,910 @@
+[{
+  "_id": {
+    "$oid": "648afa976899f9e998b69ba1"
+  },
+  "username": 202000000,
+  "name": "S0",
+  "department": "CSE",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69ba2"
+  },
+  "username": 202000001,
+  "name": "S1",
+  "department": "CSE",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69ba3"
+  },
+  "username": 202000002,
+  "name": "S2",
+  "department": "CSE",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69ba4"
+  },
+  "username": 202000003,
+  "name": "S3",
+  "department": "CSE",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69ba5"
+  },
+  "username": 202000004,
+  "name": "S4",
+  "department": "CSE",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69ba6"
+  },
+  "username": 202000005,
+  "name": "S5",
+  "department": "CSE",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69ba7"
+  },
+  "username": 202000006,
+  "name": "S6",
+  "department": "CSE",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69ba8"
+  },
+  "username": 202000007,
+  "name": "S7",
+  "department": "CSE",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69ba9"
+  },
+  "username": 202000008,
+  "name": "S8",
+  "department": "CSE",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69baa"
+  },
+  "username": 202000009,
+  "name": "S9",
+  "department": "CSE",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bab"
+  },
+  "username": 202000010,
+  "name": "S10",
+  "department": "CSE",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bac"
+  },
+  "username": 202000011,
+  "name": "S11",
+  "department": "CSE",
+  "semester": 7,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bad"
+  },
+  "username": 202000012,
+  "name": "S12",
+  "department": "CSE",
+  "semester": 7,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bae"
+  },
+  "username": 202000013,
+  "name": "S13",
+  "department": "CSE",
+  "semester": 7,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69baf"
+  },
+  "username": 202000014,
+  "name": "S14",
+  "department": "CSE",
+  "semester": 7,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bb0"
+  },
+  "username": 202000015,
+  "name": "S15",
+  "department": "CSE",
+  "semester": 7,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bb1"
+  },
+  "username": 202000016,
+  "name": "S16",
+  "department": "CSE",
+  "semester": 7,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bb2"
+  },
+  "username": 202000017,
+  "name": "S17",
+  "department": "CSE",
+  "semester": 7,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bb3"
+  },
+  "username": 202000018,
+  "name": "S18",
+  "department": "CSE",
+  "semester": 7,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bb4"
+  },
+  "username": 202000019,
+  "name": "S19",
+  "department": "CSE",
+  "semester": 7,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bb5"
+  },
+  "username": 202000020,
+  "name": "S20",
+  "department": "CSE",
+  "semester": 7,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bb6"
+  },
+  "username": 202000021,
+  "name": "S21",
+  "department": "IT",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bb7"
+  },
+  "username": 202000022,
+  "name": "S22",
+  "department": "IT",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bb8"
+  },
+  "username": 202000023,
+  "name": "S23",
+  "department": "IT",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bb9"
+  },
+  "username": 202000024,
+  "name": "S24",
+  "department": "IT",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bba"
+  },
+  "username": 202000025,
+  "name": "S25",
+  "department": "IT",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bbb"
+  },
+  "username": 202000026,
+  "name": "S26",
+  "department": "IT",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bbc"
+  },
+  "username": 202000027,
+  "name": "S27",
+  "department": "IT",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bbd"
+  },
+  "username": 202000028,
+  "name": "S28",
+  "department": "IT",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bbe"
+  },
+  "username": 202000029,
+  "name": "S29",
+  "department": "IT",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bbf"
+  },
+  "username": 202000030,
+  "name": "S30",
+  "department": "IT",
+  "semester": 7,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bc0"
+  },
+  "username": 202100001,
+  "name": "S31",
+  "department": "CSE",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bc1"
+  },
+  "username": 202100002,
+  "name": "S32",
+  "department": "CSE",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bc2"
+  },
+  "username": 202100003,
+  "name": "S33",
+  "department": "CSE",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bc3"
+  },
+  "username": 202100004,
+  "name": "S34",
+  "department": "CSE",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bc4"
+  },
+  "username": 202100005,
+  "name": "S35",
+  "department": "CSE",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bc5"
+  },
+  "username": 202100006,
+  "name": "S36",
+  "department": "CSE",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bc6"
+  },
+  "username": 202100007,
+  "name": "S37",
+  "department": "CSE",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bc7"
+  },
+  "username": 202100008,
+  "name": "S38",
+  "department": "CSE",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bc8"
+  },
+  "username": 202100009,
+  "name": "S39",
+  "department": "CSE",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bc9"
+  },
+  "username": 202100010,
+  "name": "S40",
+  "department": "CSE",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bca"
+  },
+  "username": 202100011,
+  "name": "S41",
+  "department": "CSE",
+  "semester": 5,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bcb"
+  },
+  "username": 202100012,
+  "name": "S42",
+  "department": "CSE",
+  "semester": 5,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bcc"
+  },
+  "username": 202100013,
+  "name": "S43",
+  "department": "CSE",
+  "semester": 5,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bcd"
+  },
+  "username": 202100014,
+  "name": "S44",
+  "department": "CSE",
+  "semester": 5,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bce"
+  },
+  "username": 202100015,
+  "name": "S45",
+  "department": "CSE",
+  "semester": 5,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bcf"
+  },
+  "username": 202100016,
+  "name": "S46",
+  "department": "CSE",
+  "semester": 5,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bd0"
+  },
+  "username": 202100017,
+  "name": "S47",
+  "department": "CSE",
+  "semester": 5,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bd1"
+  },
+  "username": 202100018,
+  "name": "S48",
+  "department": "CSE",
+  "semester": 5,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bd2"
+  },
+  "username": 202100019,
+  "name": "S49",
+  "department": "CSE",
+  "semester": 5,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bd3"
+  },
+  "username": 202100020,
+  "name": "S50",
+  "department": "CSE",
+  "semester": 5,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bd4"
+  },
+  "username": 202100021,
+  "name": "S51",
+  "department": "IT",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bd5"
+  },
+  "username": 202100022,
+  "name": "S52",
+  "department": "IT",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bd6"
+  },
+  "username": 202100023,
+  "name": "S53",
+  "department": "IT",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bd7"
+  },
+  "username": 202100024,
+  "name": "S54",
+  "department": "IT",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bd8"
+  },
+  "username": 202100025,
+  "name": "S55",
+  "department": "IT",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bd9"
+  },
+  "username": 202100026,
+  "name": "S56",
+  "department": "IT",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bda"
+  },
+  "username": 202100027,
+  "name": "S57",
+  "department": "IT",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bdb"
+  },
+  "username": 202100028,
+  "name": "S58",
+  "department": "IT",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bdc"
+  },
+  "username": 202100029,
+  "name": "S59",
+  "department": "IT",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bdd"
+  },
+  "username": 202100030,
+  "name": "S60",
+  "department": "IT",
+  "semester": 5,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bde"
+  },
+  "username": 202200001,
+  "name": "S61",
+  "department": "CSE",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bdf"
+  },
+  "username": 202200002,
+  "name": "S62",
+  "department": "CSE",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69be0"
+  },
+  "username": 202200003,
+  "name": "S63",
+  "department": "CSE",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69be1"
+  },
+  "username": 202200004,
+  "name": "S64",
+  "department": "CSE",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69be2"
+  },
+  "username": 202200005,
+  "name": "S65",
+  "department": "CSE",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69be3"
+  },
+  "username": 202200006,
+  "name": "S66",
+  "department": "CSE",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69be4"
+  },
+  "username": 202200007,
+  "name": "S67",
+  "department": "CSE",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69be5"
+  },
+  "username": 202200008,
+  "name": "S68",
+  "department": "CSE",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69be6"
+  },
+  "username": 202200009,
+  "name": "S69",
+  "department": "CSE",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69be7"
+  },
+  "username": 202200010,
+  "name": "S70",
+  "department": "CSE",
+  "semester": 3,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69be8"
+  },
+  "username": 202200011,
+  "name": "S71",
+  "department": "CSE",
+  "semester": 3,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69be9"
+  },
+  "username": 202200012,
+  "name": "S72",
+  "department": "CSE",
+  "semester": 3,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bea"
+  },
+  "username": 202200013,
+  "name": "S73",
+  "department": "CSE",
+  "semester": 3,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69beb"
+  },
+  "username": 202200014,
+  "name": "S74",
+  "department": "CSE",
+  "semester": 3,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bec"
+  },
+  "username": 202200015,
+  "name": "S75",
+  "department": "CSE",
+  "semester": 3,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bed"
+  },
+  "username": 202200016,
+  "name": "S76",
+  "department": "CSE",
+  "semester": 3,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bee"
+  },
+  "username": 202200017,
+  "name": "S77",
+  "department": "CSE",
+  "semester": 3,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bef"
+  },
+  "username": 202200018,
+  "name": "S78",
+  "department": "CSE",
+  "semester": 3,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bf0"
+  },
+  "username": 202200019,
+  "name": "S79",
+  "department": "CSE",
+  "semester": 3,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bf1"
+  },
+  "username": 202200020,
+  "name": "S80",
+  "department": "CSE",
+  "semester": 3,
+  "section": "B"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bf2"
+  },
+  "username": 202200021,
+  "name": "S81",
+  "department": "IT",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bf3"
+  },
+  "username": 202200022,
+  "name": "S82",
+  "department": "IT",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bf4"
+  },
+  "username": 202200023,
+  "name": "S83",
+  "department": "IT",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bf5"
+  },
+  "username": 202200024,
+  "name": "S84",
+  "department": "IT",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bf6"
+  },
+  "username": 202200025,
+  "name": "S85",
+  "department": "IT",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bf7"
+  },
+  "username": 202200026,
+  "name": "S86",
+  "department": "IT",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bf8"
+  },
+  "username": 202200027,
+  "name": "S87",
+  "department": "IT",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bf9"
+  },
+  "username": 202200028,
+  "name": "S88",
+  "department": "IT",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bfa"
+  },
+  "username": 202200029,
+  "name": "S89",
+  "department": "IT",
+  "semester": 3,
+  "section": "A"
+},
+{
+  "_id": {
+    "$oid": "648afa976899f9e998b69bfb"
+  },
+  "username": 202200030,
+  "name": "S90",
+  "department": "IT",
+  "semester": 3,
+  "section": "A"
+}]

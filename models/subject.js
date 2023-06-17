@@ -1,38 +1,31 @@
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-// const SubjectSchema = new mongoose.Schema({
-//     code: {
-//         type: String,
-//         required: true,
-//     },
-//     name: {
-//         type: String,
-//         required: true
-//     },
-//     credit: {
-//         type: Number,
-//         required: true
-//     },
-//     semester: {
-//         type: Number,
-//         required: true
-//     },
-//     section: {
-//         type: String,
-//         required: true
-//     },
-//     teacherid: {
-//         type: Number,
-//         required: true
-//     },
-//     subjectcode: {
-//         type: String,
-//         required: true
-//     },
+const subjectSchema = new mongoose.Schema({
+    code: {
+        type: String,
+        required: true,
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    credit: {
+        type: Number,
+        required: true
+    },
+    numberofclasses: {
+        type: Number,
+        required: true
+    },
+    type: {
+        type: String,
+        required: true
+    }
+    
 
-// }, {
-//     timestamps: true
-// });
+}, {
+    timestamps: true
+});
 
-// const Timetable = mongoose.model('Timetable', timetableSchema);
-// module.exports = Timetable;
+const Subject = mongoose.model('Subject', subjectSchema);
+module.exports = Subject;

@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="/css/internalmarkspopup1.css" />
+
+<div class="popup" id="reset-max">
+  <div class="flex-container">
+    <div class="test-type">
+      <p>QUIZ 1</p>
+    </div>
+    <div class="popup-content">
+      <div id="maximum-marks">
+        <p>Enter maximum marks</p>
+      </div>
+      <div id="input-part">
+        <form action="/timetable/setMaxMarks" method="post" id="MaxMarksForm">
+          <input
+            type="number"
+            name="maxMarks"
+            class="reset"
+            onclick="addsub()"
+            min="0"
+            max="200"
+            list="defaultNumbers"
+            id="marks-input"
+          />
+          <input type="hidden" name="examType" id="examType-MaxMarks" />
+          <input
+            type="hidden"
+            name="timeTableCode"
+            id="timeTableCode"
+            value="<%=timeTableCode%> "
+          />
+          <datalist id="defaultNumbers">
+            <option value="5"></option>
+            <option value="10"></option>
+            <option value="50"></option>
+            <option value="100"></option>
+          </datalist>
+          <button id="MaxMarksBtn" onclick="closemodal();validation();">
+            Save
+          </button>
+        </form>
+      </div>
+      <div id="text-part">
+        <p id="NB-part">
+          N.B. Enter the maximum marks of the quiz test you <br />
+          have conducted
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  let extractExamType = () => {
+    let examType = document.getElementById("selection__mode");
+    let examTypeInput = document.getElementById("examType-MaxMarks");
+    examTypeInput.value = examType.value;
+  };
+  let validation = () => {
+    new resetMaxMarks();
+  };
+</script>
+<script src="/js/resetMaxMarks.js"></script>

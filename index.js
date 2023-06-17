@@ -10,12 +10,13 @@ const cookieParser = require('cookie-parser');
 const MongoStore = require("connect-mongo");
 const db = require('./config/mongoose');
 
+
 app.use(cookieParser());
 
 app.use(sassMiddleware({
     src: './assets/scss',
     dest: './assets/css',
-    debug: true,
+    debug: false, //true for console message
     outputStyle: 'extended',
     prefix: '/css'
 }));
@@ -43,7 +44,7 @@ app.use(session({
       mongooseConnection: db,
       autoRemove: "disabled",
       // Added next line from stackoverflow to remove the (session) parameter from line 13
-      mongoUrl: 'mongodb://localhost/newECM'
+      mongoUrl: 'mongodb://localhost/newECM' //change database name 
     }),function(error){
       console.log(error || 'connect-mongodb setup okay');
     }

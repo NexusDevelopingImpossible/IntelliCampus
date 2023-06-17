@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="main__content" onload="arr=[0,0,0,0]" >
+      <div class="mode__and__button">
+        <div class="left">
+          <select
+            name="examType"
+            onchange="extractExamType();setMaxMarks('<%=marksData%>')"
+            class="selection__mode"
+            id="selection__mode"
+            required
+          >
+            <option disabled selected value>Select an option</option>
+            <option value="quiz1">Quiz1</option>
+            <option value="quiz2">Quiz2</option>
+            <option value="sess1">Sess1</option>
+            <option value="sess2">Sess2</option>
+          </select>
+          <button class="reset" onclick="addsub()">Reset Max Marks</button>
+        </div>
+
+        <div class="right">
+          <button class="reset" onclick="resetmodel()">Reset</button>
+          <button class="save">Save</button>
+        </div>
+      </div>
+      <form id="student-marks" action="" method="post">
+        <div class="list__main">
+          <div class="list__main__title">
+            <ul>
+              <li>S.No</li>
+              <li>Name</li>
+              <li>Registration No.</li>
+              <li id="maxMarksField"></li>
+              <li>Marks(5)</li>
+            </ul>
+          </div>
+          <div class="list__items">
+            <ul>
+              <li>01</li>
+              <li>Srijan Dev</li>
+              <li>202100423</li>
+              <li>
+                <input class="input-tag" type="text" name="" id="marks" />
+              </li>
+              <li>5</li>
+            </ul>
+          </div>
+          <div class="list__items">
+            <ul>
+              <li>01</li>
+              <li>Srijan Dev</li>
+              <li>202100423</li>
+              <li>
+                <input class="input-tag" type="text" name="" id="marks" />
+              </li>
+              <li>5</li>
+            </ul>
+          </div>
+          <div class="list__items">
+            <ul>
+              <li>01</li>
+              <li>Srijan Dev</li>
+              <li>202100423</li>
+              <li>
+                <input class="input-tag" type="text" name="" id="marks" />
+              </li>
+              <li>5</li>
+            </ul>
+          </div>
+          <div class="list__items">
+            <ul>
+              <li>01</li>
+              <li>Srijan Dev</li>
+              <li>202100423</li>
+              <li>
+                <input class="input-tag" type="text" name="" id="marks" />
+              </li>
+              <li>5</li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
+<script>
+  let arr = localStorage.getItem("arr");
+  if (!arr) {
+    arr = [0, 0, 0, 0];
+  } else {
+    arr = JSON.parse(arr);
+  }
+  let setTempMarks = (key, value) => {
+    console.log("value: ", value);
+    arr[key] = value;
+    let maxMarksField = document.getElementById("maxMarksField");
+    maxMarksField.innerHTML = "Marks(" + arr[key] + ")";
+  };
+  let setMaxMarks = (marksData) => {
+    marksData = JSON.parse(marksData);
+    let examTypeId = document.getElementById("selection__mode");
+    let maxMarksField = document.getElementById("maxMarksField");
+    let tempMarks;
+    if (examTypeId.value == "quiz1") {
+      tempMarks = marksData.examMaxMarks.quiz1;
+      if (arr[0] != 0) {
+        maxMarksField.innerHTML = "Marks(" + arr[0] + ")";
+      } else if (tempMarks) {
+        maxMarksField.innerHTML = "Marks(" + tempMarks + ")";
+      } else {
+        maxMarksField.innerHTML = "Unassigned";
+      }
+    } else if (examTypeId.value == "quiz2") {
+      tempMarks = marksData.examMaxMarks.quiz2;
+      if (arr[1] != 0) {
+        maxMarksField.innerHTML = "Marks(" + arr[1] + ")";
+      } else if (tempMarks) {
+        maxMarksField.innerHTML = "Marks(" + tempMarks + ")";
+      } else {
+        maxMarksField.innerHTML = "Unassigned";
+      }
+    } else if (examTypeId.value == "sess1") {
+      tempMarks = marksData.examMaxMarks.sess1;
+      if (arr[2] != 0) {
+        maxMarksField.innerHTML = "Marks(" + arr[2] + ")";
+      } else if (tempMarks) {
+        maxMarksField.innerHTML = "Marks(" + tempMarks + ")";
+      } else {
+        maxMarksField.innerHTML = "Unassigned";
+      }
+    } else if (examTypeId.value == "sess2") {
+      tempMarks = marksData.examMaxMarks.sess2;
+      if (arr[3] != 0) {
+        maxMarksField.innerHTML = "Marks(" + arr[3] + ")";
+      } else if (tempMarks) {
+        maxMarksField.innerHTML = "Marks(" + tempMarks + ")";
+      } else {
+        maxMarksField.innerHTML = "Unassigned";
+      }
+    }
+  };
+</script>

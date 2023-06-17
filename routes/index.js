@@ -2,7 +2,7 @@ const express = require('express');
 const passport = require('passport');
 
 const router = express.Router();
-// console.log('router loaded');
+
 
 const homeController = require('../controllers/home_controller');
 
@@ -15,6 +15,7 @@ router.get('/error', homeController.error);
 router.use('/admin', require("./admins"))
 router.use('/teacher', require("./teachers"))
 router.use('/student', require("./students"))
+router.use('/timetable', require("./timetables"))
 
 router.post('/create-session', passport.authenticate(
     'local',

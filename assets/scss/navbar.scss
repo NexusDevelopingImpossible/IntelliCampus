@@ -91,11 +91,12 @@ body {
   margin: 0.9rem;
   margin-left: 0rem;
   width: 85%;
-  height: auto;
+  height: 96vh;
   background-image: url("../images/bg-blur.png");
   background-size: cover;
   background-position: center;
   border-radius: 2.5rem;
+  padding-bottom: 1rem;
   // overflow: auto;
 }
 .dash-manipal-vec {
@@ -105,4 +106,7 @@ body {
   height: 27rem;
   left: 801px;
   top: 0px;
+}
+a{
+  text-decoration: none;
 }
