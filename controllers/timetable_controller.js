@@ -25,7 +25,7 @@ module.exports.setMaxMarks = async (req, res) => {
         },
         { new: true }
       );
-      updatedMarks.save();
+      await updatedMarks.save();
       return res.redirect("back");
     }
 
