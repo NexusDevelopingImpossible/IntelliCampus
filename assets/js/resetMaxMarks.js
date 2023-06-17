@@ -33,7 +33,23 @@ class resetMaxMarks {
           type: "post",
           url: "/timetable/setMaxMarks",
           data: $(self).serialize(),
-          success: function (data) {
+          success: function () {
+            
+            let keyRaw=$(`#examType-MaxMarks`).val();
+            let valueRaw=$(`#marks-input`).val();
+            if(keyRaw=='quiz1'){
+              setTempMarks(0,valueRaw);
+            }
+            else if(keyRaw=='quiz2'){
+              setTempMarks(1,valueRaw);
+            }
+            else if(keyRaw=='sess1'){
+              setTempMarks(2,valueRaw);
+            }
+            else if(keyRaw=='sess2'){
+              setTempMarks(3,valueRaw);
+            }
+
             new Noty({
               theme: "relax",
               text: "Marks Updated",
@@ -55,5 +71,12 @@ class resetMaxMarks {
         });
       }
     });
+  }
+}
+let marksSet=false;
+let setMaxMarksHelper=(check,examType="",maxMarks=0)=>{
+  marksSet=false;
+  if(examType=="" || maxMarks==0){
+
   }
 }
