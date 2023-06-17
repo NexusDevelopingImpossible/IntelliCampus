@@ -61,12 +61,14 @@ module.exports.searchstudent = (req, res) => {
         (err, studentdata) => {
           if (timetabledata.subjectcode.type === "Theory") {
             for (let i = 0; i < studentdata.length; i++) {
+              console.log(timetabledata._id)
               Attendance.create(
                 {
-                  subjectid: timetabledata.subjectcode._id,
+                  timetableid: timetabledata._id,
                   studentid: studentdata[i]._id,
                   present: [],
                   totalpresent: 0,
+                  examMarks: []
                 },
                 function (err, newAttendance) {
                   if (err) {
@@ -90,24 +92,17 @@ module.exports.getsubject = async (req, res) => {
   let timeTableCode = req.query.id;
   try {
     const timetables = await Timetable.findOne({ _id: req.query.id }).populate("subjectcode").exec();
-    const data = await Attendance.find({ subjectid: timetables.subjectcode._id }).populate("subjectid studentid").exec();
-    const filterdata = data.filter(
-      (student) =>
-        student.studentid.department === timetables.department &&
-        student.studentid.semester === timetables.semester &&
-        student.studentid.section === timetables.section
-    );
-    filterdata.sort();
+    const data = await Attendance.find({ timetableid: timetables._id }).populate("timetableid studentid").exec();
+    data.sort();
 
     let marksData = await MarksScheme.findOne({
       timeTableId: timeTableCode,
     });
     marksData=JSON.stringify(marksData)
-
     return res.render("teacher/subject", {
       title: "Attendance",
       timetable: timetables,
-      student: filterdata,
+      student: data,
       timeTableCode: timeTableCode,
       marksData: marksData,
     });
@@ -151,14 +146,8 @@ module.exports.addattendance = async (req, res) => {
 
     let attendancedata = await Attendance.find({
       subjectid: timetables.subjectcode._id,
-    }).populate("subjectid studentid");
-    const filterdata = attendancedata.filter(
-      (student) =>
-        student.studentid.department === timetables.department &&
-        student.studentid.semester === timetables.semester &&
-        student.studentid.section === timetables.section
-    );
-    filterdata.sort();
+    }).populate("timetableid studentid");
+    attendancedata.sort();
     return res.redirect("back");
   } catch (err) {
     console.log(err);
@@ -169,7 +158,7 @@ module.exports.addattendance = async (req, res) => {
 //view attendance of single student
 module.exports.viewstudentattendance = (req, res) => {
   Attendance.findOne({ _id: req.query.id })
-    .populate("subjectid studentid")
+    .populate("timetableid studentid")
     .exec((err, data) => {
       data.present.sort();
       return res.render("teacher/attendanceviewsingle", {

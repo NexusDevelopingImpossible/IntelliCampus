@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const attendanceSchema = new mongoose.Schema({
-    subjectid: {
+    timetableid: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Subject',
+        ref: 'Timetable',
         required: true,
     },
     studentid: {
