@@ -15,6 +15,7 @@ router.get('/error', homeController.error);
 router.use('/admin', require("./admins"))
 router.use('/teacher', require("./teachers"))
 router.use('/student', require("./students"))
+router.use('/timetable', require("./timetables"))
 
 router.post('/create-session', passport.authenticate(
     'local',

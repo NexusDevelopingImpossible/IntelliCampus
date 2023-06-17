@@ -14,6 +14,7 @@ router.get("/getsubject", teacherController.getsubject);
 router.post('/searchstudent', teacherController.searchstudent);
 router.post("/addattendance", teacherController.addattendance);
 
+
 router.get("/viewstudentattendance", teacherController.viewstudentattendance);
 
 module.exports = router;

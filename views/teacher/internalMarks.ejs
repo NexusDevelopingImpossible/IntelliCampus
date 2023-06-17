@@ -19,20 +19,17 @@
 
 
 
-            <div class="main__content">
+            <div class="main__content" >
                 <div class="mode__and__button">
                     <div class="left">
-                        <div class="selection__mode" id="selection__mode">
-                            Select Mode
-                            <div class="items">
-                                <span>QUIZ I</span>
-                                <span>QUIZ II</span>
-                                <span>SESS I</span>
-                                <span>SESS II</span>
-                            </div>
-                        </div>
-
-                        <button class="reset" onclick="addsub()">Reset Max Marks</button>
+                            <select name="examType" onchange="extractExamType();setMaxMarks('<%=marksData%>')" class="selection__mode" id="selection__mode" required>
+                                <option disabled selected value>Select an option</option>
+                                <option value="quiz1">Quiz1</option>
+                                <option value="quiz2">Quiz2</option>
+                                <option value="sess1">Sess1</option>
+                                <option value="sess2">Sess2</option>
+                              </select>
+                            <button class="reset" onclick="addsub()">Reset Max Marks</button>
 
                     </div>
 
@@ -41,65 +38,66 @@
                         <button class="save">Save</button>
                     </div>
                 </div>
-                
-                <div class="list__main">
-                    <div class="list__main__title">
-                        <ul>
-                            <li>S.No</li>
-                            <li>Name</li>
-                            <li>Registration No.</li>
-                            <li>Marks (10)</li>
-                            <li>Marks(5)</li>
-                        </ul>
+                <form id="student-marks" action="" method="post">
+                    <div class="list__main">
+                        <div class="list__main__title">
+                            <ul>
+                                <li>S.No</li>
+                                <li>Name</li>
+                                <li>Registration No.</li>
+                                <li id="maxMarksField">
+                                </li>
+                                <li>Marks(5)</li>
+                            </ul>
+                        </div>
+                        <div class="list__items">
+                            <ul>
+                                <li>01</li>
+                                <li>Srijan Dev</li>
+                                <li>202100423</li>
+                                <li>
+                                    <input class="input-tag" type="text" name="" id="marks">
+                                </li>
+                                <li>5</li>
+                            </ul>
+                        </div>
+                        <div class="list__items">
+                            <ul>
+                                <li>01</li>
+                                <li>Srijan Dev</li>
+                                <li>202100423</li>
+                                <li>
+                                    <input class="input-tag" type="text" name="" id="marks">
+                                </li>
+                                <li>5</li>
+                            </ul>
+                        </div>
+                        <div class="list__items">
+                            <ul>
+                                <li>01</li>
+                                <li>Srijan Dev</li>
+                                <li>202100423</li>
+                                <li>
+                                    <input class="input-tag" type="text" name="" id="marks">
+                                </li>
+                                <li>5</li>
+                            </ul>
+                        </div>
+                        <div class="list__items">
+                            <ul>
+                                <li>01</li>
+                                <li>Srijan Dev</li>
+                                <li>202100423</li>
+                                <li>
+                                    <input class="input-tag" type="text" name="" id="marks">
+                                </li>
+                                <li>5</li>
+                            </ul>
+                        </div>
+    
+                        
                     </div>
-
-                    <div class="list__items">
-                        <ul>
-                            <li>01</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>
-                                <input class="input-tag" type="text" name="" id="marks">
-                            </li>
-                            <li>5</li>
-                        </ul>
-                    </div>
-
-                    <div class="list__items">
-                        <ul>
-                            <li>01</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>
-                                <input class="input-tag" type="text" name="" id="marks">
-                            </li>
-                            <li>5</li>
-                        </ul>
-                    </div>
-                    <div class="list__items">
-                        <ul>
-                            <li>01</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>
-                                <input class="input-tag" type="text" name="" id="marks">
-                            </li>
-                            <li>5</li>
-                        </ul>
-                    </div>
-                    <div class="list__items">
-                        <ul>
-                            <li>01</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>
-                                <input class="input-tag" type="text" name="" id="marks">
-                            </li>
-                            <li>5</li>
-                        </ul>
-                    </div>
-                    
-                </div>
+                </form>
             </div>
 
 
@@ -109,3 +107,43 @@
 </body>
 
 </html>
+<script>
+    let setMaxMarks=(marksData)=>{
+        marksData=JSON.parse(marksData)
+        let examTypeId = document.getElementById("selection__mode");
+        let maxMarksField=document.getElementById("maxMarksField");
+        let tempMarks
+        if(examTypeId.value=='quiz1'){
+            tempMarks=marksData.examMaxMarks.quiz1
+            if(tempMarks){
+                maxMarksField.innerHTML="Marks("+tempMarks+")";
+            }else{
+                maxMarksField.innerHTML="Unassigned";
+            }
+        }
+        else if(examTypeId.value=='quiz2'){
+            tempMarks=marksData.examMaxMarks.quiz2
+            if(tempMarks){
+                maxMarksField.innerHTML="Marks("+tempMarks+")";
+            }else{
+                maxMarksField.innerHTML="Unassigned";
+            }
+        }
+        else if(examTypeId.value=='sess1'){
+            tempMarks=marksData.examMaxMarks.sess1
+            if(tempMarks){
+                maxMarksField.innerHTML="Marks("+tempMarks+")";
+            }else{
+                maxMarksField.innerHTML="Unassigned";
+            }
+        }
+        else if(examTypeId.value=='sess2'){
+            tempMarks=marksData.examMaxMarks.sess2
+            if(tempMarks){
+                maxMarksField.innerHTML="Marks("+tempMarks+")";
+            }else{
+                maxMarksField.innerHTML="Unassigned";
+            }
+        }
+    }
+</script>

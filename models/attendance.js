@@ -21,11 +21,25 @@ const attendanceSchema = new mongoose.Schema({
             required: true
         }
     }],
+    examMarks: [{
+        quiz1: {
+            type: Number,
+        },
+        quiz2: {
+            type: Number,
+        },
+        sessiona1: {
+            type: Number,
+        },
+        sessional2: {
+            type: Number,
+        },
+
+    }],
     totalpresent: {
         type: Number,
         required: true,
     }
-
 }, {
     timestamps: true
 });
