@@ -99,12 +99,17 @@ module.exports.getsubject = async (req, res) => {
       timeTableId: timeTableCode,
     });
     marksData=JSON.stringify(marksData)
+
+    let attendanceInfo=await Attendance.find({});
+    let studentInfo=await Student.find({}).sort();
     return res.render("teacher/subject", {
       title: "Attendance",
       timetable: timetables,
       student: data,
       timeTableCode: timeTableCode,
       marksData: marksData,
+      attendanceInfo:attendanceInfo,
+      studentInfo:studentInfo,
     });
   } catch (err) {
     console.log(err);
@@ -167,3 +172,61 @@ module.exports.viewstudentattendance = (req, res) => {
       });
     });
 };
+
+
+module.exports.updateMarks=async(req,res)=>{
+  let marksInfo=req.body
+  const examType = marksInfo.examType;
+  delete marksInfo.examType;
+  if(examType=='quiz1'){
+    for(let i=0;i<marksInfo.setMarks.length;i++){
+      let marks=marksInfo.setMarks[i]
+      let marksDefault=marksInfo.setDefaultMarks[i]
+      let attendanceId=marksInfo.attendanceIdInfo[i]
+      let attendanceUserInfo=await Attendance.findByIdAndUpdate(attendanceId,{
+        $set:{
+          'examMarks.quiz1': [marks, marksDefault]
+        }
+      })
+    }
+  }
+  else if(examType=='quiz2'){
+    for(let i=0;i<marksInfo.setMarks.length;i++){
+      let marks=marksInfo.setMarks[i]
+      let marksDefault=marksInfo.setDefaultMarks[i]
+      let attendanceId=marksInfo.attendanceIdInfo[i]
+      let attendanceUserInfo=await Attendance.findByIdAndUpdate(attendanceId,{
+        $set:{
+          'examMarks.quiz2': [marks, marksDefault]
+        }
+      })
+    }
+  }
+  else if(examType=='sess1'){
+    for(let i=0;i<marksInfo.setMarks.length;i++){
+      let marks=marksInfo.setMarks[i]
+      let marksDefault=marksInfo.setDefaultMarks[i]
+      let attendanceId=marksInfo.attendanceIdInfo[i]
+      let attendanceUserInfo=await Attendance.findByIdAndUpdate(attendanceId,{
+        $set:{
+          'examMarks.sess1': [marks, marksDefault]
+        }
+      })
+    }
+  }
+  else if(examType=='sess2'){
+    for(let i=0;i<marksInfo.setMarks.length;i++){
+      let marks=marksInfo.setMarks[i]
+      let marksDefault=marksInfo.setDefaultMarks[i]
+      let attendanceId=marksInfo.attendanceIdInfo[i]
+      let attendanceUserInfo=await Attendance.findByIdAndUpdate(attendanceId,{
+        $set:{
+          'examMarks.sess2': [marks, marksDefault]
+        }
+      })
+    }
+  }
+  res.redirect('back');
+
+
+}
