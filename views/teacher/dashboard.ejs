@@ -73,7 +73,7 @@
           <%}%>
           <div class="carousel">
             <% for(let i=0; i<timetable.length; i++) {%>
-                <a href="/teacher/getsubject/?id=<%= timetable[i]._id %>">
+                <a href="/teacher/getsubject/<%= timetable[i]._id %>">
                   <div class="slide">
                   <div class="sl" onmouseover="changeContent(this)" onmouseout="restoreContent(this)">
                     <div class="cont-def">

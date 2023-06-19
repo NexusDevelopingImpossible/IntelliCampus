@@ -1,0 +1,51 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+.heading {
+  display: flex;
+  justify-content: space-between; }
+
+.ecampus img {
+  margin-top: 1.5rem;
+  width: 10rem;
+  margin-right: 3rem; }
+
+.dash-heading {
+  padding-top: 1rem; }
+
+.head {
+  padding-left: 3rem;
+  color: #ffffff; }
+
+.head1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff; }
+
+.welcome-msg {
+  font-size: 1.5rem;
+  font-weight: 300; }
+
+.welcome-msg span {
+  font-weight: 600; }
+
+.logomanipal img {
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  left: -100px;
+  top: 450px;
+  opacity: 0.03;
+  z-index: -1; }
+
+.dash-manipal-vec {
+  position: absolute;
+  opacity: 0.05;
+  width: 25rem;
+  height: 27rem;
+  left: 801px;
+  top: 0px; }

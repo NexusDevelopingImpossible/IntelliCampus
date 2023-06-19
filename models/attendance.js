@@ -1,48 +1,61 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const attendanceSchema = new mongoose.Schema({
+const attendanceSchema = new mongoose.Schema(
+  {
     timetableid: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Timetable',
-        required: true,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Timetable",
+      required: true,
     },
     studentid: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Student',
-        required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Student",
+      required: true,
     },
-    present: [{
+    present: [
+      {
         date: {
-            type: String,
-            required: true
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Timetable",
+          required: true,
         },
         att: {
-            type: Boolean,
-            required: true
-        }
-    }],
+          type: Boolean,
+          required: true,
+        },
+      },
+    ],
     examMarks: {
-        quiz1: [{
-            type: Number,
-        }],
-        quiz2: [{
-            type: Number,
-        }],
-        sess1: [{
-            type: Number,
-        }],
-        sess2: [{
-            type: Number,
-        }],
-
+      quiz1: [
+        {
+          type: Number,
+        },
+      ],
+      quiz2: [
+        {
+          type: Number,
+        },
+      ],
+      sess1: [
+        {
+          type: Number,
+        },
+      ],
+      sess2: [
+        {
+          type: Number,
+        },
+      ],
     },
     totalpresent: {
-        type: Number,
-        required: true,
-    }
-}, {
-    timestamps: true
-});
+      type: Number,
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const Attendance = mongoose.model('Attendance', attendanceSchema);
+const Attendance = mongoose.model("Attendance", attendanceSchema);
 module.exports = Attendance;

@@ -9,6 +9,9 @@ const passportLocal=require('./config/passport-local-strategy');
 const cookieParser = require('cookie-parser');
 const MongoStore = require("connect-mongo");
 const db = require('./config/mongoose');
+const flash = require('connect-flash');
+const customMware = require('./config/middleware');
+
 
 
 app.use(cookieParser());
@@ -55,6 +58,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
+app.use(flash());
+app.use(customMware.setFlash);
 
 app.use('/', require('./routes'));
 

@@ -145,6 +145,9 @@ a {
   overflow-y: auto;
   max-height: 65vh; }
 
+.student-profile::-webkit-scrollbar {
+  display: none; }
+
 .Alphabet {
   float: left;
   padding-top: 1rem; }

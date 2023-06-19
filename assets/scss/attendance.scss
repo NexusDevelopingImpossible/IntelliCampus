@@ -185,6 +185,9 @@ body {
     overflow-y: auto;
     max-height: 65vh;
 }
+.student-profile::-webkit-scrollbar{
+  display: none;
+}
 
 
 .Alphabet{
@@ -200,6 +203,7 @@ body {
     float: left;
     padding: 0rem 4rem 0rem 7rem;
 }
+
 
 .postcard{
     background-color: rgba(255, 255, 255, 0.1);

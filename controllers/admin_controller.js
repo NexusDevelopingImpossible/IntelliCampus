@@ -3,15 +3,21 @@ const Student = require('../models/student');
 const Teacher = require('../models/teacher');
 const Timetable = require('../models/timetable');
 const Subject = require('../models/subject');
+const Admin = require('../models/admin');
 const checkurlfunct = require('./server-function');
 
 
 //Dashboard 
-module.exports.dashboard = (req, res) => {
-    checkurlfunct.checkurladmmin(req, res);
-    Teacher.find({}, function (err, teacherdata) {
+module.exports.dashboard = async (req, res) => {
+    try {
+        checkurlfunct.checkurladmmin(req, res);
+        let admindata = await Admin.findOne({ username: res.locals.user.username })
+        let teacherdata = await Teacher.find({ department: admindata.department });
         res.render("admin/dashboard", { title: "Dashboard", teacher: teacherdata });
-    });
+    }
+    catch (err) {
+        console.log(err)
+    }
 }
 //Add Student Page
 module.exports.addstudent = (req, res) => {
@@ -115,77 +121,57 @@ module.exports.createteacher = function (req, res) {
 //Allot Subject Page
 module.exports.allotsubject = (req, res) => {
     checkurlfunct.checkurladmmin(req, res);
-    Teacher.find({}, function (err, teacherdata) {
-        return res.render("admin/allotsubject", { title: "Allot Subject" });
-    });
+    return res.render("admin/allotsubject", { title: "Allot Subject" });
 }
 //Searching teacher id from the teacher database for alloting subject used in allot subject page
-module.exports.searchteacherid = function (req, res) {
-    Teacher.findOne({ username: req.body.registration })
-        .exec((err, teacherdata) => {
-            if (err) {
-                console.log(err);
-                return res.status(500).send("Error retrieving teacher data");
-            }
-            if (!teacherdata) {
-                return res.redirect('back')
-            }
-            Timetable.find({ teacherid: req.body.registration })
-                .populate('subjectcode')
-                .exec((err, timetables) => {
-                    if (err) {
-                        console.log(err);
-                        return res.status(500).send("Error retrieving timetable data");
-                    }
-
-                    return res.render("admin/allotsubjectform", { title: "Allot Subject data", teacher: teacherdata, timetable: timetables });
-                });
-        });
+module.exports.searchteacherid = async function (req, res) {
+    try {
+        let teacherdata = await Teacher.findOne({ username: req.body.registration })
+        let timetables = await Timetable.find({ teacherid: req.body.registration }).populate('subjectcode')
+        return res.render("admin/allotsubjectform", { title: "Allot Subject data", teacher: teacherdata, timetable: timetables });
+    }
+    catch (err) {
+        console.log(err);
+    }
 }
 //Allot Subject to teachers used in allot subject page
-module.exports.addsubject = function (req, res) {
-    let year;
-    switch (parseInt(req.body.semester)) {
-        case 1:
-            year = 1;
-            break;
-        case 2:
-            year = 1;
-            break;
-        case 3:
-            year = 2;
-            break;
-        case 4:
-            year = 2;
-            break;
-        case 5:
-            year = 3;
-            break;
-        case 6:
-            year = 3;
-            break;
-        case 7:
-            year = 4;
-            break;
-        case 8:
-            year = 4;
-            break;
-        default:
-            console.log('Incorrect semester value.')
-        //error to changed later @RAJ
-    }
-    const subjectCode = req.body.code;
-    var subjectName;
-    Subject.findOne({ code: subjectCode }, (err, subject) => {
-        if (err) {
-            console.log("ERROR")
+module.exports.addsubject = async function (req, res) {
+    try {
+        let year;
+        switch (parseInt(req.body.semester)) {
+            case 1:
+                year = 1;
+                break;
+            case 2:
+                year = 1;
+                break;
+            case 3:
+                year = 2;
+                break;
+            case 4:
+                year = 2;
+                break;
+            case 5:
+                year = 3;
+                break;
+            case 6:
+                year = 3;
+                break;
+            case 7:
+                year = 4;
+                break;
+            case 8:
+                year = 4;
+                break;
+            default:
+                console.log('Incorrect semester value.')
+            //error to changed later @RAJ
         }
-        if (!subject) {
-            console.log("Subject not found")
-            // Subject not found for the provided subject code
-        }
+        const subjectCode = req.body.code;
+        var subjectName;
+        let subject = await Subject.findOne({ code: subjectCode })
         subjectName = subject._id;
-        Timetable.create({
+        await Timetable.create({
             branch: req.body.branch,
             department: req.body.department,
             year: year,
@@ -194,46 +180,30 @@ module.exports.addsubject = function (req, res) {
             teacherid: req.body.registration,
             subjectcode: subjectName,
             classes: []
-        }
-            , function (err, newTeacher) {
-                if (err) {
-                    console.log('Error in alloting subject!')
-                    return;
-                }
-                console.log('******', newTeacher);
-            })
-    });
-    // return res.redirect('back');
-    Teacher.findOne({ username: req.body.registration }, (err, teacherdata) => {
-        Timetable.find({teacherid: req.body.registration})
-            .populate('subjectcode')
-            .exec((err, timetables) => {
-                if (err) {
-                    console.log(err)
-                }
-                return res.render("admin/allotsubjectform", { title: "Allot Subject data", teacher: teacherdata, timetable: timetables });
-            });
-    });
+        })
+        // return res.redirect('back');
+        let teacherdata = await Teacher.findOne({ username: req.body.registration });
+        let timetables = await Timetable.find({ teacherid: req.body.registration }).populate('subjectcode');
+        req.flash('success', 'Subject allot successfully');
+        return res.render("admin/allotsubjectform", { title: "Allot Subject data", teacher: teacherdata, timetable: timetables });
+    }
+    catch (err) {
+        console.log(err);
+    }
 }
 //Deleting assigned subject from teacher used in allot subject page
-module.exports.deletesubject = function (req, res) {
-    let id = req.query.id;
-    Timetable.findByIdAndDelete(id, function (err) {
-        if (err) {
-            console.log('error in deleting an object from  database');
-            return;
-        }
-    });
-    Teacher.findOne({ _id: req.query.teacherid }, (err, teacherdata) => {
-        Timetable.find({username: teacherdata.username})
-            .populate('subjectcode')
-            .exec((err, timetables) => {
-                if (err) {
-                    console.log(err)
-                }
-                return res.render("admin/allotsubjectform", { title: "Allot Subject data", teacher: teacherdata, timetable: timetables });
-            });
-    });
+module.exports.deletesubject = async function (req, res) {
+    try {
+        let id = req.query.id;
+        await Timetable.findByIdAndDelete(id);
+        let teacherdata = await Teacher.findOne({ _id: req.query.teacherid});
+        let timetables = await Timetable.find({ username: teacherdata.username }).populate('subjectcode');
+        req.flash('success', 'Subject deleted successfully');
+        return res.render("admin/allotsubjectform", { title: "Allot Subject data", teacher: teacherdata, timetable: timetables });
+    }
+    catch (err) {
+        console.log(err);
+    }
 };
 
 
