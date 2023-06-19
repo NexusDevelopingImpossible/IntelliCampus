@@ -180,13 +180,26 @@ body{
 }
 
 .sbj-nm {
-    // height: 3.8rem;
-    padding-top: 0.3rem;
+    height: auto;
+    // padding-top: 0.2rem;
     text-align: left !important;
+    white-space: pre-line;
+}
+.sbj-nm p{
+//    padding: 0rem !important;
+//    line-height: -1% !important;
+   font-size: 1.2rem;
+   font-weight: 500;
 }
 
+button{
+    font-family: "Montserrat", sans-serif
+}
+.slide:hover{
+    background-color: #00000000;
+}
 .sl h1 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
 }
 
@@ -240,17 +253,17 @@ body{
 
 
 
-.cont-hover {
-    display: none;
-}
+// .cont-hover {
+//     display: none;
+// }
 
-.sl:hover .cont-def {
-    display: none;
-}
+// .sl:hover .cont-def {
+//     display: none;
+// }
 
-.sl:hover .cont-hover {
-    display: block;
-}
+// .sl:hover .cont-hover {
+//     display: block;
+// }
 
 /*-----------------------------------Teacher Interaction CSS------------------------------*/
 

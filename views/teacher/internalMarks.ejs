@@ -58,6 +58,7 @@
               <li>Marks(5)</li>
             </ul>
           </div>
+          <div class="list-sroll">
           <% let counter=1 %> <% for (attendance of attendanceInfo) { %> <%
           const student = studentInfo.find(student =>
           attendance.studentid.toString() === student._id.toString()); %> <% if
@@ -82,6 +83,7 @@
             </ul>
           </div>
           <% counter++; %> <% } %> <% } %>
+        </div>
         </div>
       </form>
     </div>

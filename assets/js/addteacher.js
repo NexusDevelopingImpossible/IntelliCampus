@@ -31,27 +31,27 @@ function create_input_student() {
         <input type="checkbox" checked></div>
         <div class="form-set">
           <div class="form-text">Registration No.</div>
-          <input type="text" class="input-name" value=`+ eval(counter) + ` name="registration` + i + `">
+          <input type="text" class="input-name std-input" value=`+ eval(counter) + ` name="registration` + i + `">
         </div>
         <div class="form-set">
           <div class="form-text">Name</div>
-          <input type="text" class="input-name" name="name`+ i + `">
+          <input type="text" class="input-name std-input" name="name`+ i + `">
         </div>
         <div class="form-set">
       <div class="form-text">Department</div>
-      <input type="text" class="input-name" name="department`+ i + `">
+      <input type="text" class="input-name std-input" name="department`+ i + `">
       </div>
       <div class="form-set">
       <div class="form-text">Section</div>
-      <input type="text" class="input-name" name="section`+i+`">
+      <input type="text" class="input-name std-input" name="section`+i+`">
       </div>
       <div class="form-set">
       <div class="form-text">Semester</div>
-      <input type="number" class="input-name" name="semester`+i+`">
+      <input type="number" class="input-name std-input" name="semester`+i+`">
       </div>
         <div class="form-set">
           <div class="form-text">Password</div>
-          <input type="password" class="input-name" value=`+ genPassword() + ` name="password` + i + `">
+          <input type="password" class="input-name std-input" value=`+ genPassword() + ` name="password` + i + `">
         </div>
       </div>`;
     document.getElementById('form-list').appendChild(div);

@@ -11,7 +11,7 @@ router.get("/dashboard", teacherController.dashboard); //Delete this
 
 router.get("/allotsubject", teacherController.allotsubject);
 router.get("/getsubject", teacherController.getsubject);
-router.post('/searchstudent', teacherController.searchstudent);
+router.get('/searchstudent/:id', teacherController.searchstudent);
 router.post("/addattendance", teacherController.addattendance);
 router.post("/updateMarks", teacherController.updateMarks);
 
