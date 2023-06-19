@@ -1,11 +1,28 @@
 <form action="/teacher/updateattendance" method="post" id="MyForm">
     <div class="mode__and__button">
         <div class="left">
-            <select id="att-choose" class="att-chose minimal" name="" onclick="view_update(this.value)">
+            <!-- <select id="att-choose" class="att-chose minimal" name="" onclick="view_update(this.value)">
                 <option value="update" >Update</option>
                 <option value="add" >Add</option>
                 <option value="view">View</option>
-            </select>
+            </select> -->
+            <div class="select-menu">
+                <div class="select-btn">
+                    <span class="sBtn-text">Select</span>
+                    <ion-icon name="caret-down-outline"></ion-icon>
+                </div>
+                <ul class="options" id="att-choose" name=""onclick="view_update(this.value)">
+                    <li class="option">
+                        <span class="option-text">Add</span>
+                    </li>
+                    <li class="option">
+                        <span class="option-text">Update</span>
+                    </li>
+                    <li class="option">
+                        <span class="option-text">View</span>
+                    </li>
+                </ul>
+            </div>
             <select id="attchoose" class="att-chose minimal">
                 <option value="">Select date</option>
                 <%for(let j = 0; j<timetable.classes.length; j++){%>

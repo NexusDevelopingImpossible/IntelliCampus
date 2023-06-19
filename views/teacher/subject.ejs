@@ -19,6 +19,7 @@
 
     <div class="main-page" onload="resetfun()">
         <div id="title">
+            <div class="sub-name">
             <img src="/images/left-arrow.png" alt="" id="back_arrow" />
             <h1 class="subject" id="sub_code">
                 <%=timetable.subjectcode.code%>
@@ -26,10 +27,11 @@
             <h1 class="subject" id="sub_title">
                 <%=timetable.subjectcode.name%>
             </h1>
+        </div>
             <div class="year__sem__sec">
-                <span>Year : <strong>2nd</strong></span>
-                <span>Semester : <strong>4th</strong></span>
-                <span>Section : <strong>IT</strong></span>
+                <span>Year : <strong><%=timetable.year%></strong></span>
+                <span>Semester : <strong><%=timetable.semester%></strong></span>
+                <span>Section : <strong><%=timetable.department%></strong></span>
             </div>
         </div>
         
@@ -66,7 +68,6 @@
                 <div id="tab-2-content" class="tab-content-item">
                     <%- include('internalMarks')%>
                     <%- include('internalmarkspopup1')%>
-                    <%- include('internalmarkspopup2')%>
                 </div>
 
                 <!-- Tab Content 3 -->
@@ -85,3 +86,8 @@
 </body>
 
 </html>
+
+
+
+
+

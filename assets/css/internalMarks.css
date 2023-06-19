@@ -1,37 +1,4 @@
-.main-container {
-  display: flex;
-  width: 100%; }
-
 /* Main content */
-.main__content {
-  padding: 2rem 4rem; }
-
-.main__title {
-  display: flex;
-  gap: 2rem;
-  align-items: center; }
-
-.main__title button {
-  background: none;
-  border: none; }
-
-.main__title__name {
-  font-size: 1.8rem;
-  color: #fff;
-  font-weight: 500; }
-
-.main__title__name span {
-  font-size: 1.8rem;
-  color: #fff;
-  font-weight: 400; }
-
-/* year-sem-sec */
-.year__sem__sec {
-  padding: 0.8rem 4.5rem;
-  color: #fff;
-  display: flex;
-  gap: 1.5rem; }
-
 /* attendence-marks-notes */
 .attendence__marks__notes {
   border-bottom: 1px solid #ededed;
@@ -133,7 +100,7 @@
 
 .right button {
   background: none;
-  border: 3px solid #FD6D08;
+  border: 2px solid #FD6D08;
   border-radius: 20px;
   cursor: pointer;
   padding: 0 1.5rem;
@@ -146,19 +113,27 @@
 .list__main {
   padding: 1rem 8rem; }
 
+.list-sroll {
+  height: 30rem;
+  overflow-y: auto; }
+
+.list-sroll::-webkit-scrollbar {
+  display: none; }
+
 .list__main__title ul {
   list-style-type: none;
   display: flex;
   gap: 1rem;
   background: rgba(0, 0, 0, 0.12);
   border-radius: 15px;
-  padding: 0.8rem 1rem;
+  padding: 0.3rem 1rem;
   color: #fff;
   margin-bottom: 1rem; }
 
 .list__main__title ul li {
   font-size: 0.9rem;
-  border-right: 1px solid rgba(255, 255, 255, 0.2); }
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.2rem 0; }
 
 .list__main__title ul li:nth-child(1),
 .list__main__title ul li:nth-child(4) {
@@ -187,16 +162,18 @@
   gap: 1rem;
   background: rgba(248, 213, 123, 0.15);
   border-radius: 10px;
-  padding: 0.4rem 1rem;
+  height: 40px;
   color: #fff; }
 
 .list__items ul li .input-tag {
   background: rgba(0, 0, 0, 0.09);
   border-radius: 5px;
   padding: 0.6rem 0.8rem;
+  display: flex;
   border: none;
   outline: none;
   width: 40px;
+  height: 35px;
   color: #fff; }
 
 .list__items ul li:nth-child(1) {

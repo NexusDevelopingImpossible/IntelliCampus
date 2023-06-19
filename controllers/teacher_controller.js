@@ -46,7 +46,7 @@ module.exports.allotsubject = (req, res) => {
 //Searching the student in the student database to allot subject
 module.exports.searchstudent = (req, res) => {
   checkurlfunct.checkurlteacher(req, res);
-  Timetable.findOne({ _id: req.body.id })
+  Timetable.findOne({ _id: req.params.id })
     .populate("subjectcode")
     .exec((err, timetabledata) => {
       if (err) {

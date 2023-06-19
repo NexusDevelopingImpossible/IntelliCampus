@@ -15,7 +15,7 @@ body {
   flex-direction: column; }
 
 .input-heading-1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 600;
   margin-bottom: 3rem; }
 
@@ -32,7 +32,8 @@ body {
   /* text-align: center; */ }
 
 .input-div {
-  display: flex; }
+  display: flex;
+  gap: 1rem; }
 
 .form-set {
   margin: 0 1rem;
@@ -45,6 +46,7 @@ body {
 .form-row {
   display: flex;
   flex-direction: row;
+  margin-top: 0.3rem;
   align-items: center; }
 
 .input-submit {
@@ -58,22 +60,36 @@ body {
   margin: 2rem 0;
   cursor: pointer; }
 
+.import {
+  background-color: #fd6e0800;
+  border: 1px solid #fd6d08; }
+
 .input-submit:hover {
   background: #e66910; }
 
+.import:hover {
+  background: #e669102e; }
+
 .input-name {
-  width: 160px;
-  border-radius: 20px;
-  border: 1px solid white;
+  width: 180px;
+  border-radius: 10px;
+  border: 0.5px solid white;
   background-color: #f8d57b30;
   padding: 0.7rem 1rem;
   color: white;
   font-size: 18px;
   font-weight: 500; }
 
+.reg-input {
+  width: 230px;
+  border-radius: 15px; }
+
+.std-input {
+  width: 160px; }
+
 .input-name:focus {
   outline: none;
-  border: 1px solid #fadb0e; }
+  border: 0.5px solid #fadb0e; }
 
 .input-name::placeholder {
   color: rgba(255, 255, 255, 0.315);
