@@ -6,8 +6,6 @@ class resetMaxMarks {
 
     let self = this;
     this.sendMaxMarks();
-    console.log(this.MarksInput);
-    console.log(this.ExamType);
   }
 
   sendMaxMarks() {
@@ -52,7 +50,7 @@ class resetMaxMarks {
 
             new Noty({
               theme: "relax",
-              text: "Marks Updated",
+              text: "Max Marks Updated",
               type: "success",
               layout: "topRight",
               timeout: 1500,

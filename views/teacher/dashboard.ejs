@@ -73,7 +73,7 @@
           <%}%>
           <div class="carousel">
             <% for(let i=0; i<timetable.length; i++) {%>
-                <a href="/teacher/getsubject/?id=<%= timetable[i]._id %>">
+                <a href="/teacher/getsubject/<%= timetable[i]._id %>">
                   <div class="slide">
                   <div class="sl" onmouseover="changeContent(this)" onmouseout="restoreContent(this)">
                     <div class="cont-def">
@@ -83,7 +83,7 @@
                         </h2>
                       </div>
                       <div class="sbj-nm">
-                        <h1><%= timetable[i].subjectcode.name%></h1>
+                        <p><%= timetable[i].subjectcode.name%></>
                       </div>
                       <div class="sbj-info">
                         <h1><span>Semester: </span>
@@ -98,7 +98,7 @@
                       </div>
                       
                     </div>
-                    <div class="cont-hover">
+                    <!-- <div class="cont-hover">
                       <div class="sbj-info">
                         <h1><span id="sp">
                             <%=timetable[i].subjectcode.code%>
@@ -110,7 +110,7 @@
                         <h1>FRI : <span> 10:00 - 11:00 AM</span></h1>
                       </div>
                       
-                    </div>
+                    </div> -->
                   </div>
                 </div></a>
               <%}%>

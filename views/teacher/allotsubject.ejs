@@ -24,13 +24,11 @@
             </div>
         </div>
         <div class="main-content">
-            <%console.log(timetable)%>
-
                 <ul>
                     <%for(let i=0; i<timetable.length; i++){%>
                         <li>
-                                <form action="/teacher/searchstudent" method="post">
-                                    <input type="text" name="id" value=<%=timetable[i]._id%> style="display: none">
+                                <a href="/teacher/searchstudent/<%=timetable[i]._id%>">
+
                                     <div class="anchor-content">
                                         <div class="row1">
                                             <span class="sub-code" name="subjectcode" value="hi">
@@ -50,13 +48,13 @@
                                                 </span></span>
                                         </div>
                                     </div>
-                                    <button>
-                                        <img src="/images/plusallot.png">
-                                        <span>
-                                            Add Students
-                                        </span>
+                                    <div class="btn-div">
+                                    <button class="btn full"> + Add Students
                                     </button>
-                                </form>
+                                    <button class="btn outline"> Import
+                                    </button>
+                                </div>
+                                </a>
                         </li>
                         <%}%>
                 </ul>

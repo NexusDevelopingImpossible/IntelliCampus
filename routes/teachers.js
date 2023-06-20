@@ -10,9 +10,15 @@ const teacherController = require('../controllers/teacher_controller');
 router.get("/dashboard", teacherController.dashboard); //Delete this
 
 router.get("/allotsubject", teacherController.allotsubject);
-router.get("/getsubject", teacherController.getsubject);
-router.post('/searchstudent', teacherController.searchstudent);
+router.get("/getsubject/:id", teacherController.getsubject);
+router.get("/attendance_view/:id", teacherController.attendance_view);
+router.get("/attendance_update/:id", teacherController.attendance_update);
+router.get("/viewstudentattendance/:id", teacherController.viewstudentattendance);
+router.get("/internalmarks/:id", teacherController.internalmarkspage);
+router.get("/attendaceedit/:id", teacherController.attendaceedit);
+router.get('/searchstudent/:id', teacherController.searchstudent);
 router.post("/addattendance", teacherController.addattendance);
+router.post("/updateMarks", teacherController.updateMarks);
 
 
 router.get("/viewstudentattendance", teacherController.viewstudentattendance);

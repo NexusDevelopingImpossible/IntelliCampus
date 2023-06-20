@@ -1,9 +1,9 @@
-function changeContent(sl) {
+function changeContent(slide) {
   card.getElementsByClassName("cont-def")[0].style.display = "none";
   card.getElementsByClassName("cont-hover")[0].style.display = "block";
 }
 
-function restoreContent(sl) {
+function restoreContent(slide) {
   card.getElementsByClassName("cont-hover")[0].style.display = "none";
   card.getElementsByClassName("cont-def")[0].style.display = "block";
 }

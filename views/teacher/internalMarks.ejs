@@ -17,31 +17,37 @@
   </head>
 
   <body>
-    <div class="main__content" onload="arr=[0,0,0,0]" >
-      <div class="mode__and__button">
-        <div class="left">
-          <select
-            name="examType"
-            onchange="extractExamType();setMaxMarks('<%=marksData%>')"
-            class="selection__mode"
-            id="selection__mode"
-            required
-          >
-            <option disabled selected value>Select an option</option>
-            <option value="quiz1">Quiz1</option>
-            <option value="quiz2">Quiz2</option>
-            <option value="sess1">Sess1</option>
-            <option value="sess2">Sess2</option>
-          </select>
-          <button class="reset" onclick="addsub()">Reset Max Marks</button>
-        </div>
+    <div class="main__content" onload="arr=[0,0,0,0]">
+      <form id="marks-all" action="/teacher/updateMarks" method="post">
+        <div class="mode__and__button">
+          <div class="left">
+            <select
+              name="examType"
+              onchange="extractExamType();setMaxMarks('<%=marksData%>')"
+              class="selection__mode"
+              id="selection__mode"
+              required
+            >
+              <option disabled selected value>Select an option</option>
+              <option value="quiz1">Quiz1</option>
+              <option value="quiz2">Quiz2</option>
+              <option value="sess1">Sess1</option>
+              <option value="sess2">Sess2</option>
+            </select>
+            <button class="reset" onclick="addsub()">Reset Max Marks</button>
+          </div>
 
-        <div class="right">
-          <button class="reset" onclick="resetmodel()">Reset</button>
-          <button class="save">Save</button>
+          <div class="right">
+            <button class="reset" onclick="resetmodel()">Reset</button>
+            <button
+              class="save"
+              onclick="setMarksAJAX()"
+              id="submitButtonMarks"
+            >
+              Save
+            </button>
+          </div>
         </div>
-      </div>
-      <form id="student-marks" action="" method="post">
         <div class="list__main">
           <div class="list__main__title">
             <ul>
@@ -52,50 +58,32 @@
               <li>Marks(5)</li>
             </ul>
           </div>
+          <div class="list-sroll">
+          <% let counter=1 %> <% for (attendance of attendanceInfo) { %> <%
+          const student = studentInfo.find(student =>
+          attendance.studentid.toString() === student._id.toString()); %> <% if
+          (student) { %>
           <div class="list__items">
             <ul>
-              <li>01</li>
-              <li>Srijan Dev</li>
-              <li>202100423</li>
+              <li><%= counter %></li>
+              <li><%= student.name %></li>
+              <li><%= student.username %></li>
               <li>
-                <input class="input-tag" type="text" name="" id="marks" />
+                <input
+                  class="input-tag"
+                  type="text"
+                  name="setMarks"
+                  id="marks-<%=attendance._id%>"
+                  oninput="setMarksDefault('<%=attendance._id%>','<%=marksData%>')"
+                />
               </li>
-              <li>5</li>
+              <input type="hidden" value="<%=attendance._id%>" name="attendanceIdInfo" />
+              <input type="hidden" id="setDefaultMarks-<%=attendance._id%>" name="setDefaultMarks" />
+              <li id="setDisplayMarks-<%=attendance._id%>"></li>
             </ul>
           </div>
-          <div class="list__items">
-            <ul>
-              <li>01</li>
-              <li>Srijan Dev</li>
-              <li>202100423</li>
-              <li>
-                <input class="input-tag" type="text" name="" id="marks" />
-              </li>
-              <li>5</li>
-            </ul>
-          </div>
-          <div class="list__items">
-            <ul>
-              <li>01</li>
-              <li>Srijan Dev</li>
-              <li>202100423</li>
-              <li>
-                <input class="input-tag" type="text" name="" id="marks" />
-              </li>
-              <li>5</li>
-            </ul>
-          </div>
-          <div class="list__items">
-            <ul>
-              <li>01</li>
-              <li>Srijan Dev</li>
-              <li>202100423</li>
-              <li>
-                <input class="input-tag" type="text" name="" id="marks" />
-              </li>
-              <li>5</li>
-            </ul>
-          </div>
+          <% counter++; %> <% } %> <% } %>
+        </div>
         </div>
       </form>
     </div>
@@ -166,4 +154,32 @@
       }
     }
   };
+
+
+  let setMarksAJAX = () => {
+    new updateInternalMarks();
+  };
+
+  let setMarksDefault=(attentionId)=>{
+    let MarksSet=document.getElementById("marks-"+attentionId);
+    let gotMarksRaw=MarksSet.value;
+    let maxMarksField = document.getElementById("maxMarksField");
+    let maxMarksRaw=maxMarksField.innerHTML;
+    let maxMarks=parseInt(maxMarksRaw.replace(/[^0-9\.]/g, ''),10);
+    let examType=document.getElementById("selection__mode");
+    let DefaultMaxMarks
+    examType=examType.value;
+    if(examType=='quiz1'  ||  examType=='quiz2'){
+      DefaultMaxMarks=5;
+    }else if( examType=='sess1'  ||  examType=='sess2' ){
+      DefaultMaxMarks=15;
+    }
+    let finalDefaultMarks=gotMarksRaw/maxMarks*DefaultMaxMarks;
+    finalDefaultMarks=finalDefaultMarks.toFixed(2)
+    let finalDefaultMarksInput=document.getElementById("setDefaultMarks-"+attentionId);
+    let finalDefaultMarksDisplay=document.getElementById("setDisplayMarks-"+attentionId);
+    finalDefaultMarksInput.value=finalDefaultMarks;
+    finalDefaultMarksDisplay.innerHTML=finalDefaultMarks;
+
+  }
 </script>

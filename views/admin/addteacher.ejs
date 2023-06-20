@@ -15,14 +15,17 @@
         <div class="input-div">
           <div class="form-set">
             <div class="form-text">Registration start</div>
-            <input type="text" class="input-name" name="start" id="start">
+            <input type="text" class="input-name reg-input" name="start" required id="start">
           </div>
           <div class="form-set">
             <div class="form-text">Registration end</div>
-            <input type="text" class="input-name" name="end" id="end">
+            <input type="text" class="input-name reg-input" name="end" required id="end">
           </div>
         </div>
         <button class="input-submit" onclick="create_input_teacher()">Submit</button>
+        <p>OR</p>
+        <button class=" input-submit import" onclick="create_input_teacher()">Import</button>
+
       </div>
       <div class="input-page2" id="input-pageid2">
         <div class="input-heading-3">Add Teacher</div>

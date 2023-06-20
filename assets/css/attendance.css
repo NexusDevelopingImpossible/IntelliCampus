@@ -1,9 +1,42 @@
 body {
   color: #fff; }
 
+#sub_code {
+  font-weight: 100;
+  font-size: 1.5rem;
+  margin: 0 1.5rem; }
+
+.sub-name {
+  display: flex;
+  align-items: center;
+  flex: 7; }
+
+.year__sem__sec {
+  flex: 3; }
+
+#back_arrow {
+  width: 2.5rem;
+  height: 2.5rem; }
+
+#sub_title {
+  font-size: 1.75rem;
+  font-weight: 600; }
+
+#title {
+  margin: 2rem 1rem;
+  display: flex;
+  align-items: center; }
+
+.year__sem__sec {
+  padding: 0.8rem 4.5rem;
+  color: #fff;
+  display: flex;
+  gap: 1.5rem; }
+
 .att-navbar {
   border-right: none;
-  margin: 0 auto; }
+  margin: 0 auto;
+  margin-bottom: 1rem; }
 
 .att-navbar .container {
   border-bottom: 1px solid #ffffff81;
@@ -15,7 +48,7 @@ body {
   justify-content: center;
   text-align: center;
   color: #fff;
-  width: 65rem; }
+  width: 60rem; }
 
 .att-navbar .container > div {
   padding: 0.3rem 0; }
@@ -28,6 +61,7 @@ body {
   background-color: #39030050;
   border-radius: 30px 30px 0px 0px; }
 
+/* Tab Content */
 /* Hide initial content */
 #tab-1-content,
 #tab-2-content,
@@ -55,36 +89,6 @@ body {
 
 .att-chose:focus {
   border: 1px solid #fada0e8f; }
-
-#sub_code {
-  font-weight: lighter;
-  margin: 0 1.5rem; }
-
-#back_arrow {
-  width: 2.5rem; }
-
-#title {
-  margin: 2rem 1rem;
-  display: flex; }
-
-select {
-  background-color: white;
-  border: thin solid blue;
-  border-radius: 4px;
-  display: inline-block;
-  font: inherit;
-  line-height: 1.5em;
-  padding: 0.5em 3.5em 0.5em 1em;
-  /* reset */
-  margin: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-appearance: none;
-  -moz-appearance: none; }
-
-select.minimal:focus {
-  outline: 0; }
 
 .search-input {
   display: flex;
@@ -134,19 +138,15 @@ a {
   text-align: center;
   font-size: 1rem; }
 
-.tab-header {
-  padding: 1.5rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2.5rem; }
-
 /* - - - - - - - - - - - - - - - -  */
 /*  student's attendance profile */
 /* - - - - - - - - - - - - - - - -  */
 .student-profile {
   overflow-y: auto;
   max-height: 65vh; }
+
+.student-profile::-webkit-scrollbar {
+  display: none; }
 
 .Alphabet {
   float: left;
