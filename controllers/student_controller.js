@@ -59,26 +59,26 @@ module.exports.feedback = async (req, res) => {
 
   }
 }
-// module.exports.attendance = async (req, res) => {
-//   try {
-//     checkurlfunct.checkurlstudent(req, res);
-//     const studentdata = await Student.findOne({
-//       username: res.locals.user.username,
-//     });
-//     const attendance = await Attendance.find({
-//       studentid: studentdata._id,
-//     }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
-//     let subject;
-//     console.log(subject);
-//     return res.render("student/student_attendance_view", {
-//       title: "Attendance",
-//       attendance,
-//       subject: subject
-//     });
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+module.exports.attendance = async (req, res) => {
+  try {
+    checkurlfunct.checkurlstudent(req, res);
+    const studentdata = await Student.findOne({
+      username: res.locals.user.username,
+    });
+    const attendance = await Attendance.find({
+      studentid: studentdata._id,
+    }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
+    let subject;
+    console.log(subject);
+    return res.render("student/attendance_view", {
+      title: "Attendance",
+      attendance,
+      subject: subject
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 // module.exports.attendancesingle = async (req, res) => {
 //   try {

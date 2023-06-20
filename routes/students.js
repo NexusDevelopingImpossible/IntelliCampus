@@ -10,7 +10,7 @@ const studentController = require('../controllers/student_controller');
 router.get("/dashboard", studentController.dashboard);
 router.get("/internalmark", studentController.internalmarks);
 router.get("/feedback", studentController.feedback);
-// router.get("/attendance", studentController.attendance);
+router.get("/attendance", studentController.attendance);
 // router.get("/attendancesingle/:id", studentController.attendancesingle);
 
 
