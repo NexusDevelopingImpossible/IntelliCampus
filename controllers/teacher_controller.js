@@ -13,7 +13,7 @@ module.exports.dashboard = async (req, res) => {
       username: res.locals.user.username,
     });
     let timetabledata = await Timetable.find({
-      teacherid: res.locals.user.username,
+      teacherid: teacherdata._id,
     }).populate("subjectcode");
     return res.render("teacher/dashboard", {
       title: "Dashboard",
@@ -29,8 +29,11 @@ module.exports.dashboard = async (req, res) => {
 module.exports.allotsubject = async (req, res) => {
   try {
     checkurlfunct.checkurlteacher(req, res);
+    let teacherdata = await Teacher.findOne({
+      username: res.locals.user.username,
+    });
     let timetabledata = await Timetable.find({
-      teacherid: res.locals.user.username,
+      teacherid: teacherdata._id,
     }).populate("subjectcode");
     return res.render("teacher/allotsubject", {
       title: "Allot Subject",

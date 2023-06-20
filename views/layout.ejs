@@ -1,55 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title><%=title%></title>
-    <%- style %>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"
-      integrity="sha512-0p3K0H3S6Q4bEWZ/WmC94Tgit2ular2/n0ESdfEX8l172YyQj8re1Wu9s/HT9T/T2osUw5Gx/6pAZNk3UKbESw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"
-      integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" 
-      integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" 
-      crossorigin="anonymous" 
-      referrerpolicy="no-referrer">
+<title>
+  <%=title%>
+</title>
+<%- style %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"
+    integrity="sha512-0p3K0H3S6Q4bEWZ/WmC94Tgit2ular2/n0ESdfEX8l172YyQj8re1Wu9s/HT9T/T2osUw5Gx/6pAZNk3UKbESw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"
+    integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+    integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
-  </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap"
+    rel="stylesheet" />
 
   <body>
-    <% if(!((title=="Login") || (title=="error") || (title=="Sign Up")) ) {%> <%
-    if(locals.user.position==="student"){%> <%- include('navbar/student'); %> <%
-    } %> <% if(locals.user.position==="teacher" ){%> <%-
-    include('navbar/teacher'); %> <% } %> <% if(locals.user.position==="admin"
-    ){%> <%- include('navbar/admin'); %> <% } %> <%}%> <%- body %>
+    <% if(!((title=="Login" ) || (title=="error" ) || (title=="Sign Up" )) ) {%>
+      <% if(locals.user.position==="student" ){%> 
+        <%- include('navbar/student'); %>
+      <% } %>
+      <% if(locals.user.position==="teacher" ){%>
+        <%- include('navbar/teacher'); %>
+      <% } %>
+      <% if(locals.user.position==="admin" ){%> 
+        <%- include('navbar/admin'); %>
+      <% } %>
+    <%}%> 
+    <%- body %>
   </body>
-</html>
-<script src="/js/updateInternalMarks.js"></script>
-<script>
-  <% if(flash.success && flash.success.length>0){ %>
-            new Noty({
-                theme: 'relax',
-                text: "<%= flash.success %>",
-                type: 'success',
-                layout: 'topRight',
-                timeout: 1500
-            }).show();
+
+  <script>
+  <% if (flash.success && flash.success.length > 0) { %>
+      new Noty({
+        theme: 'relax',
+        text: "<%= flash.success %>",
+        type: 'success',
+        layout: 'topRight',
+        timeout: 1500
+      }).show();
   <% } %>
-  <% if(flash.error && flash.error.length>0){ %>
-            new Noty({
-                theme: 'relax',
-                text: "<%= flash.error %>",
-                type: 'error',
-                layout: 'topRight',
-                timeout: 1500
-            }).show();
+  <% if (flash.error && flash.error.length > 0) { %>
+      new Noty({
+        theme: 'relax',
+        text: "<%= flash.error %>",
+        type: 'error',
+        layout: 'topRight',
+        timeout: 1500
+      }).show();
   <% } %>
-</script>
+  </script>
+      <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>

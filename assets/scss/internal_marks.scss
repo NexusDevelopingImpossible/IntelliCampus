@@ -13,10 +13,11 @@
 }
 
 .subject{
-    text-align: center;
+    text-align: left;
     height: 8vh;
     background-color: #F8D57B1A;
     width: 30vw;
+    padding-left: 10px;
 }
 
 .sub-code{
@@ -49,6 +50,9 @@
     overflow: auto;
     height: 76vh;
 }
+#marks-display::-webkit-scrollbar{
+    display: none;
+}
 
 #back_buttn{
     margin-right: 3.5vh;
@@ -60,6 +64,16 @@
     width: 82vw;
     text-align: center;
     font-size: larger;
+    border-collapse: collapse;
+    color: white;
+}
+#marks th{
+    border: 0.01px solid rgba(255, 255, 255, 0.2);
+}
+#marks td{
+    border: 0.5px solid rgba(255, 255, 255, 0.4);
+    margin: 0;
+    
 }
 
 #tb-header{

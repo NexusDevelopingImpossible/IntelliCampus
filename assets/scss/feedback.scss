@@ -26,6 +26,11 @@ body {
 
 .feedback {
     display: grid;
+    height: 75  vh;
+    overflow-y: auto;
+}
+.feedback::-webkit-scrollbar{
+    display: none;
 }
 
 .feed {
@@ -43,8 +48,9 @@ body {
     align-items: center;
     justify-content: center;
     padding: 0.5rem 1rem;
-    width: 50%;
+    width: 35rem;
     gap: 0.5rem;
+    height: 6.5rem;
 }
 
 .tch-pic img {
@@ -65,11 +71,16 @@ body {
 }
 
 .feed-btn {
-    margin-left: 8rem;
+    // margin-left: 3rem;
+    margin: auto;
+    margin-right: 0.1rem;
+
 }
 
 .feed-btn button {
     padding: 0.7rem 2rem;
+    width: 12rem;
+    height: auto;
     background: #e66203;
     border: 1px solid #fd6d08;
     backdrop-filter: blur(12px);

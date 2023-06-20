@@ -1,0 +1,133 @@
+<title>
+  <%=title%>>
+</title>
+<link rel="stylesheet" href="../../assets/scss/templatenavbar.css" />
+<link rel="stylesheet" href="/css/student_attendance_view.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap"
+  rel="stylesheet" />
+</head>
+
+<body>
+
+
+  <div class="main-page">
+    <div id="title">
+      <a href=""><img src="/images/allotarrow.png" alt="" id="back_arrow" /></a>
+
+      <h1 id="sub_title">Attendance</h1>
+    </div>
+
+    <div id="sub-attendance">
+      <div class="select-menu">
+        <div class="select-btn">
+          <span class="sBtn-text">
+            
+            <%if(attendance.length>0){%>
+              <%if(subject == undefined){%>
+                <span>Select Subject</span>
+              <%}else{%>
+                <span><%=subject.code%> <%=subject.name%></span>
+              <%}%>
+            <%}%>
+          </span>
+          <ion-icon name="caret-down-outline"></ion-icon>
+        </div>
+        <ul class="options" id="att-choose">
+          <%for(let i=0; i<attendance.length; i++){%>
+            <a href="/student/attendancesingle/<%=attendance[i].id%>">
+              <li class="option" value="view">
+                <span class="option-text"><%=attendance[i].timetableid.subjectcode.code%> <%=attendance[i].timetableid.subjectcode.name%></span>
+              </li>
+            </a>
+            <%}%>
+        </ul>
+      </div>
+      <div id="att-info">
+        <div id="att-conduct">
+          <h2><span>CLC: </span>20</h2>
+          <h2><span>CLA: </span> 6</h2>
+        </div>
+        <h2><span>Attendance Percentage: </span>77%</h2>
+      </div>
+    </div>
+
+    <section class="attendance-list">
+      <main class="main-row">
+        <div class="col1">
+          <div class="att-date">
+            <p id="no-class">01</p>
+            <p>29-Feb-2023</p>
+            <div id="clc">
+              <div id="clp"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col1">
+          <div class="att-date">
+            <p id="no-class">02</p>
+            <p>01-Mar-2023</p>
+            <div id="clc">
+              <div id="clp"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col1">
+          <div class="att-date">
+            <p id="no-class">03</p>
+            <p>02-Mar-2023</p>
+            <div id="clc">
+              <!-- <div id="clp"></div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col1">
+          <div class="att-date">
+            <p id="no-class">04</p>
+            <p>03-Mar-2023</p>
+            <div id="clc">
+              <div id="clp"></div>
+            </div>
+          </div>
+        </div>
+
+
+      </main>
+      
+    </section>
+    
+    
+
+    <section id="cl-info">
+      <div id="cl-conduct">
+        <h2>CLC : <span>Classes Conducted</span></h2>
+        <h2>CLA : <span>Classes Attended</span></h2>
+      </div>
+    </section>
+  </div>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script>
+    const optionMenu = document.querySelector(".select-menu"),
+      selectBtn = optionMenu.querySelector(".select-btn"),
+      options = optionMenu.querySelectorAll(".option"),
+      sBtn_text = optionMenu.querySelector(".sBtn-text");
+    selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));
+    options.forEach(option => {
+      option.addEventListener("click", () => {
+        let selectedOption = option.querySelector(".option-text").innerText;
+        sBtn_text.innerText = selectedOption;
+        optionMenu.classList.remove("active");
+      });
+    });
+  </script>
+</body>
+
+</html>

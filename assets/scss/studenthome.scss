@@ -5,8 +5,6 @@
   margin: 0;
   box-sizing: border-box;
 }
-
-
 .heading {
   display: flex;
   justify-content: space-between;
@@ -23,7 +21,6 @@
   padding-left: 3rem;
   color: #ffffff;
 }
-
 .head1 {
   font-size: 3rem;
   font-weight: 700;
@@ -37,21 +34,3 @@
   font-weight: 600;
 }
 
-.logomanipal img {
-  position: absolute;
-  width: 20rem;
-  height: 20rem;
-  left: -100px;
-  top: 450px;
-  opacity: 0.03;
-  z-index: -1;
-}
-
-.dash-manipal-vec {
-  position: absolute;
-  opacity: 0.05;
-  width: 25rem;
-  height: 27rem;
-  left: 801px;
-  top: 0px;
-}

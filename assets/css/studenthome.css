@@ -32,20 +32,3 @@
 
 .welcome-msg span {
   font-weight: 600; }
-
-.logomanipal img {
-  position: absolute;
-  width: 20rem;
-  height: 20rem;
-  left: -100px;
-  top: 450px;
-  opacity: 0.03;
-  z-index: -1; }
-
-.dash-manipal-vec {
-  position: absolute;
-  opacity: 0.05;
-  width: 25rem;
-  height: 27rem;
-  left: 801px;
-  top: 0px; }
