@@ -129,6 +129,7 @@ module.exports.addattendance = async (req, res) => {
       const newpresent = {
         date: newdateId,
         att: attvalue,
+        datevalue: req.body.date
       };
       data.present.push(newpresent);
       data.save();
@@ -200,7 +201,7 @@ module.exports.viewstudentattendance = async (req, res) => {
   try {
     console.log(req.params.id);
     let data = await Attendance.findById(req.params.id).populate(
-      "present.date"
+      "timetableid studentid"
     );
     console.log(data);
     data.present.sort();

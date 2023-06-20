@@ -23,6 +23,9 @@ const attendanceSchema = new mongoose.Schema(
           type: Boolean,
           required: true,
         },
+        datevalue: {
+          type: String
+        }
       },
     ],
     examMarks: {

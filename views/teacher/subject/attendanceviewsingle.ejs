@@ -80,11 +80,10 @@
                  <%for(let i = 0; i<student.present.length; i++){%>
                   <%if(i>=10){break;}%>
                   <div class="att-date">
-                    <p><%=student.present[i].date %></p>
+                    <p><%=student.present[i].datevalue %></p>
                     <input type="checkbox" checked>
                   </div>
                   <%}%>
-                  
                 </div>
                 <div class="col1">
                   <%for(let i = 10; i<student.present.length; i++){%>
