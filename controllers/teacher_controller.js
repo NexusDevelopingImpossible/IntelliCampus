@@ -76,8 +76,9 @@ module.exports.getsubject = async (req, res) => {
   try {
     checkurlfunct.checkurlteacher(req, res);
     let timeTableCode = req.params.id;
-    const timetables = await Timetable.findOne({ _id: req.params.id })
-      .populate("subjectcode")
+    const timetables = await Timetable.findOne({ _id: req.params.id }).populate(
+      "subjectcode"
+    );
     const data = await Attendance.find({
       timetableid: timetables._id,
     }).populate("timetableid studentid");
@@ -113,8 +114,8 @@ module.exports.addattendance = async (req, res) => {
     const newdate = { date: req.body.date };
     dateadd.classes.push(newdate);
     dateadd.save();
-    // const date = dateadd.classes.find(classObj => classObj.date.equals(req.params.id));
-    // console.log(date);
+    const newdateId = dateadd.classes[dateadd.classes.length - 1]._id;
+    console.log(newdateId);
     for (let i = 0; i < req.body.studentlist.length; i++) {
       let data = await Attendance.findById(req.body.studentlist[i]);
       let attvalue = false;
@@ -126,7 +127,7 @@ module.exports.addattendance = async (req, res) => {
         }
       }
       const newpresent = {
-        date: req.body.date,
+        date: newdateId,
         att: attvalue,
       };
       data.present.push(newpresent);
@@ -140,8 +141,9 @@ module.exports.addattendance = async (req, res) => {
   }
 };
 module.exports.attendance_view = async (req, res) => {
-  const timetables = await Timetable.findById(req.params.id)
-    .populate("subjectcode")
+  const timetables = await Timetable.findById(req.params.id).populate(
+    "subjectcode"
+  );
   const data = await Attendance.find({ timetableid: timetables._id }).populate(
     "timetableid studentid"
   );
@@ -154,35 +156,42 @@ module.exports.attendance_view = async (req, res) => {
 };
 
 module.exports.attendance_update = async (req, res) => {
-  const timetables = await Timetable.findById(req.params.id)
-    .populate("subjectcode")
-    .exec();
+  const timetables = await Timetable.findById(req.params.id).populate(
+    "subjectcode"
+  );
   const data = await Attendance.find({ timetableid: timetables._id }).populate(
     "timetableid studentid"
   );
   data.sort();
+  const date = false
   return res.render("teacher/subject/attendance-update", {
     title: "Attendance",
     timetable: timetables,
     student: data,
+    date: date
   });
 };
 
 module.exports.attendaceedit = async (req, res) => {
-  // console.log(req.params)
-  const timetables = await Timetable.findOne({'classes._id':req.params.id})
-    .populate("subjectcode")
-  const date = timetables.classes.find(classObj => classObj._id.equals(req.params.id));
-  console.log(date);
+  const timetables = await Timetable.findOne({
+    "classes._id": req.params.id,
+  }).populate("subjectcode");
   const data = await Attendance.find({ timetableid: timetables._id }).populate(
     "timetableid studentid"
   );
-  // console.log(timetables);
+  const date = timetables.classes.find((number) => number._id == req.params.id)
+
+  for(let i = 0; i<data.length; i++){
+    const askeddate = data[i].present.find((number) => number.date == req.params.id);
+    data[i].present = [];
+    data[i].present.push(askeddate);
+  }
   data.sort();
   return res.render("teacher/subject/attendance-update", {
     title: "Attendance",
     timetable: timetables,
     student: data,
+    date: date
   });
 };
 
@@ -191,7 +200,7 @@ module.exports.viewstudentattendance = async (req, res) => {
   try {
     console.log(req.params.id);
     let data = await Attendance.findById(req.params.id).populate(
-      "timetableid studentid"
+      "present.date"
     );
     console.log(data);
     data.present.sort();
@@ -222,7 +231,7 @@ module.exports.internalmarkspage = async (req, res) => {
 };
 
 module.exports.updateMarks = async (req, res) => {
-  console.log(req.body)
+  console.log(req.body);
   let marksInfo = req.body;
   const examType = marksInfo.examType;
   delete marksInfo.examType;

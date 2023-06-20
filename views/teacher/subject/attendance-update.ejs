@@ -74,8 +74,8 @@
                             </ul>
                         </div>
                         <div class="select-menu1">
-                            <div class="select-btn1">
-                                <span class="sBtn-text">Select Date</span>
+                            <div class="select-btn1"><%console.log(date)%>
+                                <span class="sBtn-text"><%if(timetable.classes.length>0){%><%if(date){%><%=date.date%><%}else{%>Select date<%}%><%}else{%>No date<%}%></span>
                                 <ion-icon name="caret-down-outline"></ion-icon>
                             </div>
                             <ul class="options" id="att-choose">
@@ -108,6 +108,7 @@
                         </ul>
                     </div>
                     <div class="student-list-scroll">
+                        <%if(date){%>
                         <%for(let i=0; i<student.length; i++){%>
                             <div class="list__items">
                                 <ul>
@@ -131,13 +132,14 @@
                                             /(student[i].present.length))*100)%>%
                                     </li>
                                     
-                                    <li><input type="checkbox" name="check" id="" value="<%=i%>" checked>
+                                    <li><input type="checkbox" name="check" id="" value="<%=i%>" <%if(student[i].present.length>0){%><%if(student[i].present[0].att){%>checked<%}%><%}%>>
                                     </li>
                                     
                                     <input type="text" value=<%=student[i]._id%> name="studentlist"
                                     style="display: none">
                                 </ul>
                             </div>
+                        <%}%>
                         <%}%>
                     </div>
                 </div>
