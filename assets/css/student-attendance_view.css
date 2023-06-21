@@ -28,28 +28,25 @@ body {
 
 .sel-subject {
   display: flex;
+  align-items: center;
   padding-bottom: 2rem;
-  /* gap: 4rem; */ }
-
-.sel-subject div {
-  width: 50%; }
+  gap: 4rem; }
 
 /* - - - - - - - - - - - - - -  */
 /* select option */
 /* - - - - - - - - - - - - - -  */
 .select-menu .select-btn {
   display: flex;
-  width: 32rem;
+  justify-content: space-between;
+  width: 30rem;
   height: 2.5rem;
-  padding-left: 1rem;
+  padding: 0 1rem;
   align-items: center;
   background: #00000024;
   border: 0.5px solid #fff;
-  padding-right: rem;
   font-size: 1rem;
   font-weight: 400;
   border-radius: 15px;
-  align-items: center;
   cursor: pointer;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); }
 
@@ -65,9 +62,11 @@ body {
   z-index: 1;
   border-radius: 0px 0px 10px 10px;
   overflow: hidden;
-  background: #000000;
+  background: #0000004b;
+  backdrop-filter: blur(12px);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-  display: none; }
+  display: none;
+  margin: 0 0.5rem; }
 
 .select-menu.active .options {
   display: block; }
@@ -77,9 +76,8 @@ body {
   cursor: pointer;
   padding: 0.4rem 0rem;
   align-items: center;
-  justify-content: center;
-  width: 32rem;
-  background: #ff6b01; }
+  padding-left: 1rem;
+  width: 29rem; }
 
 .options .option:hover {
   background: #282727; }
@@ -113,11 +111,10 @@ body {
 
 .att-day {
   display: flex;
+  justify-content: space-around;
   width: 30%;
   padding: 0.5rem 0;
-  gap: 2rem;
   align-items: center;
-  justify-content: center;
   background-color: #f8d57b30;
   backdrop-filter: blur(12px);
   border-radius: 10px; }
@@ -126,8 +123,7 @@ body {
   font-weight: 200; }
 
 .att-date {
-  font-weight: 500;
-  padding-left: 1rem; }
+  font-weight: 500; }
 
 #clc {
   background: none;

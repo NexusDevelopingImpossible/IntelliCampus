@@ -99,6 +99,7 @@ body {
   padding-bottom: 1rem;
   // overflow: auto;
 }
+
 .dash-manipal-vec {
   position: absolute;
   opacity: 0.05;
@@ -108,5 +109,11 @@ body {
   top: 0px;
 }
 a{
+  font-family: "Montserrat", sans-serif !important;
   text-decoration: none;
+}
+
+button, input, select{
+  font-family: "Montserrat", sans-serif !important;
+  color: #ffffff;
 }

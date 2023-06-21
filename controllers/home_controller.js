@@ -59,7 +59,6 @@ module.exports.createSession = (req, res) => {
             return res.redirect('/');
         }
         // Redirect to different routes based on the user's type
-        req.flash('success', 'Logged in successfully');
         if (user.position === 'student') {
             return res.redirect('/student/dashboard');
         } else if (user.position === 'teacher') {

@@ -1,104 +1,156 @@
-.main-page{
-    color: white;
+.main-page {
+  color: white;
 }
 
-.page-heading{
-    display: flex;
-    margin: 2.5vh 0 0 2.5vh;
+.page-heading {
+  display: flex;
+  margin: 2.5vh 0 0 2.5vh;
 }
 
-.heading{
-    display: inline-block;
-    font-size: xx-large;
+.heading {
+  display: inline-block;
+  font-size: xx-large;
 }
 
-.subject{
-    text-align: left;
-    height: 8vh;
-    background-color: #F8D57B1A;
-    width: 30vw;
-    padding-left: 10px;
+.subject {
+  text-align: left;
+  height: 5vh;
+  padding: 5px 0;
+  background-color: #f8d57b1a;
+  width: 17vw;
+  padding-left: 10px;
 }
 
-.sub-code{
-    font-weight: lighter;
+.sub-code {
+  font-weight: 100;
+  padding-right: 1rem;
+  width: 6vw;
+  font-size: 1rem;
+}
+.sub-title {
+  text-align: left;
+  font-size: 1rem;
 }
 
-.total-marks{
-    background-color: #B78F301A;
+.sub-inf {
+  display: flex;
+  align-items: center;
+}
+.total-marks {
+  background-color: #b78f301a;
 }
 
 #footnote{
-    margin-top: 2.5vh;
-    margin-left: 1.5vw;
-    width: 80vw;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+}
+#footnote > div{
+  margin-top: 2.5vh;
+  width: 75vw;
+  display: flex;
+  justify-content: space-between;
 }
 
-.note{
-    display: inline;
+.note {
+  display: inline;
+  font-size: 0.85rem;
 }
 
-.note-tit{
-    font-weight: bold;
+.note-tit {
+  font-weight: 500;
+}
+.note-data{
+    font-weight: 100;
 
 }
 
-#marks-display{
-    margin-left: 1vw;
-    overflow: auto;
-    height: 76vh;
+#marks-display {
+  overflow: auto;
+  height: 76vh;
 }
-#marks-display::-webkit-scrollbar{
-    display: none;
-}
-
-#back_buttn{
-    margin-right: 3.5vh;
-    height: 5vh;
-    width: 5vh;
+#marks-display::-webkit-scrollbar {
+  display: none;
 }
 
-#marks{
-    width: 82vw;
-    text-align: center;
-    font-size: larger;
-    border-collapse: collapse;
-    color: white;
-}
-#marks th{
-    border: 0.01px solid rgba(255, 255, 255, 0.2);
-}
-#marks td{
-    border: 0.5px solid rgba(255, 255, 255, 0.4);
-    margin: 0;
-    
+#back_buttn {
+  margin-right: 3.5vh;
+  height: 5vh;
+  width: 5vh;
 }
 
-#tb-header{
-    background-color: #390300;
-    opacity: 50%;
-    height: 10vh;
+#marks {
+  width: 75vw;
+  text-align: center;
+  font-size: larger;
+  border-collapse: collapse;
+  color: white;
 }
 
-#markers{
-    display: flex;
-    margin-left: 32vw;
-    text-align: center;
+#marks th {
+  font-size: 0.85rem;
+  font-weight: 300;
+  border-right: 0.01px solid rgba(255, 255, 255, 0.2);
+}
+#marks th:last-child {
+  border: none;
+}
+#marks th:first-child {
+  border-top-left-radius: 10px;
+}
+#marks th:last-child {
+  border-top-right-radius: 10px;
 }
 
-#atten-marker{
-    display: inline;
-    background-color:#FFFFFF1A;
-    width: 9vw;
-    height: 3vh;
-    text-align: center;
-    margin-right: 2vw;
+#marks td {
+  border: 0.5px solid rgba(255, 255, 255, 0.4);
+  font-size: 1rem;
 }
 
-#inter-marker{
-    display: inline;
-    background-color:#FFFFFF1A;
-    width: 38vw;
+#tb-header {
+  background-color: #390300d6;
+  opacity: 50%;
+  height: 6vh;
 }
+
+#tb-header th {
+  width: 3rem;
+}
+
+#markers {
+  display: flex;
+  margin-left: 25.5vw;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+#atten-marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff1a;
+  width: 14vw;
+  height: 4vh;
+  text-align: center;
+  margin-right: 1.55vw;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+#inter-marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff1a;
+  width: 28vw;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  height: 4vh;
+}
+
+.main-table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
