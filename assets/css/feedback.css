@@ -64,18 +64,3 @@ a {
 .feed-btn {
   margin: auto;
   margin-right: 0.1rem; }
-
-.feed-btn button {
-  padding: 0.7rem 2rem;
-  width: 12rem;
-  height: auto;
-  background: #FD6D08;
-  border: none;
-  backdrop-filter: blur(12px);
-  color: #fff;
-  border-radius: 10px;
-  font-size: 1rem;
-  cursor: pointer; }
-
-.feed-btn button:hover {
-  background: #ea6404; }

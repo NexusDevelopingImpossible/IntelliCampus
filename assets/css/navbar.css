@@ -94,11 +94,3 @@ body {
   height: 27rem;
   left: 801px;
   top: 0px; }
-
-a {
-  font-family: "Montserrat", sans-serif !important;
-  text-decoration: none; }
-
-button, input, select {
-  font-family: "Montserrat", sans-serif !important;
-  color: #ffffff; }

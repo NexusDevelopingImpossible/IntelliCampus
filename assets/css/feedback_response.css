@@ -81,19 +81,4 @@
   display: none; }
 
 #submit-bttn {
-  margin-left: 70vw;
-  width: 10vw;
-  height: 5vh;
-  background-color: #FD6D08;
-  border: none;
-  cursor: pointer;
-  border-radius: 30px;
-  padding: 1vh 0;
-  text-align: center;
-  font-size: larger; }
-
-#submit-bttn:hover {
-  background-color: #dc5c00; }
-
-#submit-bttn:active {
-  transform: translateY(2px); }
+  margin-left: 70vw; }
