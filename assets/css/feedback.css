@@ -4,6 +4,10 @@
 body {
   color: #fff; }
 
+a {
+  text-decoration: none;
+  color: #fff; }
+
 /************************* Title Section ***************************/
 #title {
   margin: 3rem 2rem;

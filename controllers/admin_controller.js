@@ -211,4 +211,12 @@ module.exports.deletesubject = async function (req, res) {
     }
 };
 
+module.exports.calendar = async function (req, res) {
+    try {
+        return res.render('admin/calendar', {title: "Add Holidays"});
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 

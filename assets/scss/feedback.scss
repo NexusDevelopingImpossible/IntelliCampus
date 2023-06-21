@@ -5,6 +5,10 @@
 body {
     color: #fff;
 }
+a{
+    text-decoration: none;
+    color: #fff;
+}
 
 /************************* Title Section ***************************/
 
@@ -26,7 +30,7 @@ body {
 
 .feedback {
     display: grid;
-    height: 75  vh;
+    height: 75vh;
     overflow-y: auto;
 }
 .feedback::-webkit-scrollbar{

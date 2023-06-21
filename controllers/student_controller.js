@@ -4,7 +4,6 @@ const Attendance = require("../models/attendance");
 const Teacher = require("../models/teacher");
 const Timetable = require("../models/timetable");
 
-
 module.exports.dashboard = async (req, res) => {
   try {
     checkurlfunct.checkurlstudent(req, res);
@@ -46,19 +45,22 @@ module.exports.internalmarks = async (req, res) => {
 };
 
 module.exports.feedback = async (req, res) => {
-  try{
+  try {
     checkurlfunct.checkurlstudent(req, res);
     const studentdata = await Student.findOne({
       username: res.locals.user.username,
     });
-    const teacherdata = await Timetable.find({}).populate('teacherid subjectcode');
+    const teacherdata = await Timetable.find({}).populate(
+      "teacherid subjectcode"
+    );
     console.log(teacherdata);
-    return res.render('student/feedback', {title: 'Feedback', student: studentdata, teacherdata});
-  }
-  catch(err){
-
-  }
-}
+    return res.render("student/feedback", {
+      title: "Feedback",
+      student: studentdata,
+      teacherdata,
+    });
+  } catch (err) {}
+};
 module.exports.attendance = async (req, res) => {
   try {
     checkurlfunct.checkurlstudent(req, res);
@@ -73,7 +75,7 @@ module.exports.attendance = async (req, res) => {
     return res.render("student/attendance_view", {
       title: "Attendance",
       attendance,
-      subject: subject
+      subject: subject,
     });
   } catch (err) {
     console.log(err);
@@ -106,10 +108,10 @@ module.exports.attendance = async (req, res) => {
 // };
 
 module.exports.enter_feedback = async (req, res) => {
-  try{
-    return res.render("student/feedback_response", {title: "GIVE FEEDBACK"});
-  }
-  catch(Error){
+  try {
+    
+    return res.render("student/feedback_response", { title: "GIVE FEEDBACK" });
+  } catch (Error) {
     console.log(Error);
   }
-}
+};

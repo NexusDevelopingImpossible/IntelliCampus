@@ -154,16 +154,13 @@
     font-weight: light;
 }
 .inp-part{
+    margin: auto;
     margin-right: 3rem;
     margin-left: 2rem;
-    /* width: 180px; */
-    /* color: aliceblue; */
-    /* font-weight: light; */
 }
 .inp-part input{
-    margin-top: -40px;
+    margin: auto;
     width: 180px;
-    /* text-align: center; */
     height: 35px;
     font-size: 15px;
     background: rgba(0, 0, 0, 0.12);
@@ -177,7 +174,7 @@
     width: 190px;
 }
 .name-holi input{
-    margin-top: -40px;
+    // margin-top: -40px;
     width: 180px;
     /* text-align: center; */
     height: 35px;
