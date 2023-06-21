@@ -66,29 +66,10 @@ body {
   align-items: center;
 }
 .input-submit {
-  border-radius: 20px;
-  border: none;
-  background-color: #fd6d08;
-  padding: 0.7rem 3rem;
-  color: white;
-  font-size: 18px;
-  font-weight: 500;
-  margin: 2rem 0;
-  cursor: pointer;
-  // margin-left: 33rem;
-}
-.import{
-  background-color: #fd6e0800;
-  border: 1px solid #fd6d08;
+  margin: 1.5rem 0;
+  height: 2.5rem;
 }
 
-.input-submit:hover {
-  background: #e66910;
-}
-
-.import:hover {
-  background: #e669102e;
-}
 
 .input-name {
   width: 180px;
@@ -161,28 +142,4 @@ input[type="checkbox"]:checked {
   justify-content: space-between;
   padding-top: 1rem;
 }
-.input-button {
-  text-align: center;
-  border: none;
-  border-radius: 20px;
-  padding: 0.7rem 3rem;
-  color: white;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
 
-.bt-right {
-  background-color: #fd6d08;
-}
-.bt-right:hover {
-  background: #e66910;
-}
-.bt-left {
-  border: 1.5px solid #e66910;
-  background-color: #fd6e0844;
-}
-
-.bt-left:hover {
-  background: #fd6e085f;
-}

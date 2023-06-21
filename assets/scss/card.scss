@@ -1,7 +1,6 @@
 .cards {
     border-radius: 20px;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+    display: flex;
     gap: 2rem;
     padding: 1rem 3rem;
   }
@@ -13,7 +12,7 @@
   }
   
   .card1 {
-    height: 6rem;
+    height: 12vh;
     margin-bottom: 1rem;
     color: #fff;
     display: flex;
@@ -21,20 +20,20 @@
     padding: 0rem 1rem;
   }
   .card2 {
-    height: 14rem;
+    height: 25vh;
     margin-bottom: 1rem;
     padding: 0 1rem;
   }
   .card3 {
-    height: 16rem;
+    height: 37vh;
     /* margin-bottom: 1rem; */
   }
   .card4 {
-    height: 16rem;
+    height: 34vh;
     margin-bottom: 1rem;
   }
   .card5 {
-    height: 21rem;
+    height: 42vh;
     /* padding: 5px; */
     /* margin-bottom: 1rem; */
   }
