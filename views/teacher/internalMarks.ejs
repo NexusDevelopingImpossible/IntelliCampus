@@ -113,6 +113,8 @@
   };
   let setMaxMarks = (marksData) => {
     marksData = JSON.parse(marksData);
+    console.log(marksData)
+    console.log(typeof(marksData))
     let examTypeId = document.getElementById("selection__mode");
     let maxMarksField = document.getElementById("maxMarksField");
     let tempMarks;
