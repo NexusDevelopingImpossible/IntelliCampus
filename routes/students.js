@@ -11,6 +11,7 @@ router.get("/dashboard", studentController.dashboard);
 router.get("/internalmark", studentController.internalmarks);
 router.get("/feedback", studentController.feedback);
 router.get("/attendance", studentController.attendance);
+router.get("/response", studentController.enter_feedback);
 // router.get("/attendancesingle/:id", studentController.attendancesingle);
 
 
