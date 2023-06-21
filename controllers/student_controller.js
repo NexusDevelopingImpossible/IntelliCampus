@@ -104,3 +104,12 @@ module.exports.attendance = async (req, res) => {
 //     console.log(err);
 //   }
 // };
+
+module.exports.enter_feedback = async (req, res) => {
+  try{
+    return res.render("student/feedback_response", {title: "GIVE FEEDBACK"});
+  }
+  catch(Error){
+    console.log(Error);
+  }
+}
