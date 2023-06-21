@@ -7,14 +7,6 @@
 <link rel="stylesheet" href="/css/internalMarks.css">
 <link rel="stylesheet" href="/css/internalmarkspopup1.css" />
 <link rel="stylesheet" href="/css/internalmarkspopup2.css">
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap"
-    rel="stylesheet" />
-</head>
 
 <body>
     <div class="main-page">
@@ -42,10 +34,12 @@
         </div>
         <section class="att-navbar">
             <div class="container">
-                <div id="tab-1" class="tab-item tab-border">
+                <a href="/teacher/getsubject/<%=timetable._id%>">
+                <div id="tab-1" class="tab-item">
                     <p class="hed-day">Attendance</p>
                 </div>
-                <div id="tab-2" class="tab-item">
+                </a>
+                <div id="tab-2" class="tab-item tab-border">
                     <p class="hed-day">Internal Marks</p>
                 </div>
                 <div id="tab-3" class="tab-item">
@@ -88,30 +82,30 @@
                     <div class="list-sroll">
                         <% let counter=1 %>
                             <% for (attendance of student) { %>
-                                    <div class="list__items">
-                                        <ul>
-                                            <li>
-                                                <%= counter %>
-                                            </li>
-                                            <li>
-                                                <%= attendance.studentid.name %>
-                                            </li>
-                                            <li>
-                                                <%= attendance.studentid.username %>
-                                            </li>
-                                            <li>
-                                                <input class="input-tag" type="text" name="setMarks"
-                                                    id="marks-<%=attendance._id%>"
-                                                    oninput="setMarksDefault('<%=attendance._id%>','<%=marksData%>')" />
-                                            </li>
-                                            <input type="hidden" value="<%=attendance._id%>" name="attendanceIdInfo" />
-                                            <input type="hidden" id="setDefaultMarks-<%=attendance._id%>"
-                                                name="setDefaultMarks" />
-                                            <li id="setDisplayMarks-<%=attendance._id%>"></li>
-                                        </ul>
-                                    </div>
-                                    <% counter++; %>
-                                        <% } %>
+                                <div class="list__items">
+                                    <ul>
+                                        <li>
+                                            <%= counter %>
+                                        </li>
+                                        <li>
+                                            <%= attendance.studentid.name %>
+                                        </li>
+                                        <li>
+                                            <%= attendance.studentid.username %>
+                                        </li>
+                                        <li>
+                                            <input class="input-tag" type="text" name="setMarks"
+                                                id="marks-<%=attendance._id%>"
+                                                oninput="setMarksDefault('<%=attendance._id%>','<%=marksData%>')" />
+                                        </li>
+                                        <input type="hidden" value="<%=attendance._id%>" name="attendanceIdInfo" />
+                                        <input type="hidden" id="setDefaultMarks-<%=attendance._id%>"
+                                            name="setDefaultMarks" />
+                                        <li id="setDisplayMarks-<%=attendance._id%>"></li>
+                                    </ul>
+                                </div>
+                                <% counter++; %>
+                                    <% } %>
                     </div>
                 </div>
             </form>
@@ -169,15 +163,30 @@
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="/js/internalMarks.js"></script>
-    <script src="/js/resetMaxMarks.js"></script>
-    <script src="/js/updateInternalMarks.js"></script>
 
-    <script src="/js/attendance.js"></script>
+    <script src="/js/resetMaxMarks.js"></script>
+
+
 </body>
 
 </html>
+<script>
+    let resetmax = document.getElementById('reset-max');
+    function addsub() {
+        resetmax.style.display = "flex";
+    }
+    function closemodal() {
+        resetmax.style.display = "none";
+    }
+    let resetall = document.getElementById('reset-all');
+    function resetmodel() {
+        resetall.style.display = "flex";
+    }
+    function closeresetmodal() {
+        resetall.style.display = "none";
+    }
 
+</script>
 <script>
     let extractExamType = () => {
         let examType = document.getElementById("selection__mode");
@@ -270,6 +279,5 @@
         let finalDefaultMarksDisplay = document.getElementById("setDisplayMarks-" + attentionId);
         finalDefaultMarksInput.value = finalDefaultMarks;
         finalDefaultMarksDisplay.innerHTML = finalDefaultMarks;
-
     }
 </script>

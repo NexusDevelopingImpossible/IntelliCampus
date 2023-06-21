@@ -44,7 +44,9 @@
                     <p class="hed-day">Attendance</p>
                 </div>
                 <div id="tab-2" class="tab-item">
+                    <a href="/teacher/internalmarks/<%=timetable._id%>">
                     <p class="hed-day">Internal Marks</p>
+                </a>
                 </div>
                 <div id="tab-3" class="tab-item">
                     <p class="hed-day">Notes</p>
@@ -52,7 +54,7 @@
             </div>
         </section>
         <section class="tab-content">
-            <form action="" method="post" id="MyForm">
+            <form action="/teacher/change_attendance" method="post" id="MyForm">
                 <div class="mode__and__button">
                     <div class="left">
                         <div class="select-menu">
@@ -93,6 +95,7 @@
                         <button class="reset" type="reset">Reset</button>
                         <button class="save" type="submit">Save</button>
                         <input type="text" value=<%=timetable._id%> name="id" style="display: none">
+                        <input type="hidden" name="date" value="<%=date._id%>">
                     </div>
                 </div>
                 <div class="list__main">
@@ -125,13 +128,13 @@
                                         <%=student[i].present.length%>
                                     </li>
                                     <li>
-                                        <%=student[i].totalpresent%>
+                                        <%if(student[i].present[0].att){student[i].totalpresent=1%>1<%}else{student[i].totalpresent=0%>0<%}%>
                                     </li>
                                     <li>
                                         <%=parseInt(((student[i].totalpresent)
                                             /(student[i].present.length))*100)%>%
                                     </li>
-                                    
+
                                     <li><input type="checkbox" name="check" id="" value="<%=i%>" <%if(student[i].present.length>0){%><%if(student[i].present[0].att){%>checked<%}%><%}%>>
                                     </li>
                                     

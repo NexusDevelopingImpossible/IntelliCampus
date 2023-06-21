@@ -118,7 +118,7 @@ module.exports.addattendance = async (req, res) => {
     dateadd.classes.push(newdate);
     dateadd.save();
     const newdateId = dateadd.classes[dateadd.classes.length - 1]._id;
-    console.log(newdateId);
+    // console.log(newdateId);
     for (let i = 0; i < req.body.studentlist.length; i++) {
       let data = await Attendance.findById(req.body.studentlist[i]);
       let attvalue = false;
@@ -132,7 +132,7 @@ module.exports.addattendance = async (req, res) => {
       const newpresent = {
         date: newdateId,
         att: attvalue,
-        datevalue: req.body.date
+        datevalue: req.body.date,
       };
       data.present.push(newpresent);
       data.save();
@@ -167,12 +167,12 @@ module.exports.attendance_update = async (req, res) => {
     "timetableid studentid"
   );
   data.sort();
-  const date = false
+  const date = false;
   return res.render("teacher/subject/attendance-update", {
     title: "Attendance",
     timetable: timetables,
     student: data,
-    date: date
+    date: date,
   });
 };
 
@@ -183,10 +183,12 @@ module.exports.attendaceedit = async (req, res) => {
   const data = await Attendance.find({ timetableid: timetables._id }).populate(
     "timetableid studentid"
   );
-  const date = timetables.classes.find((number) => number._id == req.params.id)
+  const date = timetables.classes.find((number) => number._id == req.params.id);
 
-  for(let i = 0; i<data.length; i++){
-    const askeddate = data[i].present.find((number) => number.date == req.params.id);
+  for (let i = 0; i < data.length; i++) {
+    const askeddate = data[i].present.find(
+      (number) => number.date == req.params.id
+    );
     data[i].present = [];
     data[i].present.push(askeddate);
   }
@@ -195,7 +197,7 @@ module.exports.attendaceedit = async (req, res) => {
     title: "Attendance",
     timetable: timetables,
     student: data,
-    date: date
+    date: date,
   });
 };
 
@@ -212,6 +214,43 @@ module.exports.viewstudentattendance = async (req, res) => {
       title: "Attendance",
       student: data,
     });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+module.exports.change_attendance = async (req, res) => {
+  try {
+    let check = req.body.check;
+    for (let i = 0; i < req.body.studentlist.length; i++) {
+      let attvalue = false;
+      let tp = 0;
+      for (let j = 0; j < check.length; j++) {
+        if (check[j] == i) {
+          attvalue = true;
+          break;
+        }
+      }
+      let pastdata = await Attendance.findOne({_id: req.body.studentlist[i]});
+      const date = pastdata.present.find((number) => number.date == req.body.date);
+      if(!date.att && attvalue){
+        tp = 1;
+      }
+      if(date.att && !attvalue){
+        tp = -1;
+      }
+      tp = tp + pastdata.totalpresent;
+      await Attendance.updateOne(
+        { _id: req.body.studentlist[i], "present.date": req.body.date },
+        {
+          $set: {
+            "present.$.att": attvalue,
+            totalpresent: tp
+          },
+        }
+      );
+    }
+    return res.redirect("back");
   } catch (err) {
     console.log(err);
   }

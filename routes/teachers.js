@@ -18,6 +18,7 @@ router.get("/internalmarks/:id", teacherController.internalmarkspage);
 router.get("/attendaceedit/:id", teacherController.attendaceedit);
 router.get('/searchstudent/:id', teacherController.searchstudent);
 router.post("/addattendance", teacherController.addattendance);
+router.post("/change_attendance", teacherController.change_attendance);
 router.post("/updateMarks", teacherController.updateMarks);
 
 
