@@ -2,7 +2,7 @@
 
 <div class="main-page">
   <div id="title">
-    <a href=""><img src="/images/allotarrow.png" alt="" id="back_arrow" /></a>
+    <a href="/student/dashboard"><img src="/images/allotarrow.png" alt="" id="back_arrow" /></a>
 
     <h1 id="sub_title">Feedback</h1>
   </div>
@@ -13,7 +13,7 @@
         <%for(let i=0; i<teacherdata.length/2; i++){%>
           <div class="feed">
             <%for(let j=0; (j<2 && g<c); j++){%>
-              <a href="/student/response/<%=teacherdata[g].teacherid._id%>">
+           
                 <div class="feed-card">
                   <div class="tch-pic">
                     <img src="/images/AG.jpg" alt="" />
@@ -30,10 +30,11 @@
                     </div>
                   </div>
                   <div class="feed-btn">
+                    <a href="/student/response/<%=teacherdata[g].teacherid._id%>">
                     <button>Give Feedback</button>
+                  </a>
                   </div>
                 </div>
-              </a>
               <%g++%>
            <%}%>
           </div>

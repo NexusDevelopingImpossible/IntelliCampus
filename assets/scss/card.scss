@@ -16,14 +16,14 @@
     height: 6rem;
     margin-bottom: 1rem;
     color: #fff;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 0rem 2rem;
-    gap: 3rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 1rem;
   }
   .card2 {
     height: 14rem;
     margin-bottom: 1rem;
+    padding: 0 1rem;
   }
   .card3 {
     height: 16rem;
@@ -67,6 +67,7 @@
   }
   .std-name {
     font-size: 1.3rem;
+    font-weight: 600;
     line-height: 1.5;
   }
   .reg {
@@ -196,7 +197,6 @@
   
   /* Horizontal scrolling */
   .attendence-container {
-    padding-left: 1rem;
     width: 44rem;
     overflow-x: auto;
     white-space: nowrap;

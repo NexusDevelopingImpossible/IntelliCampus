@@ -11,6 +11,7 @@ a {
 /************************* Title Section ***************************/
 #title {
   margin: 3rem 2rem;
+  margin-bottom: 1.5rem;
   display: flex; }
 
 #back_arrow {
@@ -22,7 +23,6 @@ a {
 
 /*********************** Teacher's Feedback ***************************/
 .feedback {
-  display: grid;
   height: 75vh;
   overflow-y: auto; }
 
@@ -32,6 +32,7 @@ a {
 .feed {
   padding: 0.8rem 5rem;
   display: flex;
+  justify-content: space-between;
   gap: 2rem; }
 
 .feed-card {
@@ -43,18 +44,17 @@ a {
   align-items: center;
   justify-content: center;
   padding: 0.5rem 1rem;
-  width: 35rem;
+  width: 35vw;
   gap: 0.5rem;
   height: 6.5rem; }
 
 .tch-pic img {
   width: 4.5rem;
   border-radius: 100%;
-  border: 3px solid #fd6d08;
-  margin-right: 1rem; }
+  border: 3px solid #fd6d08; }
 
 .tch-name {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 500; }
 
 .tch-dtl {
@@ -69,14 +69,13 @@ a {
   padding: 0.7rem 2rem;
   width: 12rem;
   height: auto;
-  background: #e66203;
-  border: 1px solid #fd6d08;
+  background: #FD6D08;
+  border: none;
   backdrop-filter: blur(12px);
   color: #fff;
   border-radius: 10px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   cursor: pointer; }
 
 .feed-btn button:hover {
-  background: rgba(253, 109, 8, 0.3);
-  border: 1px solid #fd6d08; }
+  background: #ea6404; }

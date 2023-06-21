@@ -63,15 +63,15 @@
   gap: 0.75rem; }
 
 .btn {
-  width: 150px;
+  width: 160px;
   padding: 0.4rem 1rem;
   border-radius: 20px;
   border: none;
   background-color: #FD6D08;
   color: #fff;
   height: 50px;
-  font-weight: 300;
   font-size: 1rem;
+  font-weight: 400;
   cursor: pointer; }
 
 .outline {
