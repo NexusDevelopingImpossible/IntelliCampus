@@ -260,7 +260,7 @@ module.exports.internalmarkspage = async (req, res) => {
   let timetabledata = await Timetable.findById(req.params.id).populate(
     "subjectcode"
   );
-  let marksData = await MarksScheme.find({ timeTableId: req.params.id });
+  let marksData = await MarksScheme.findOne({ timeTableId: req.params.id });
   let data = await Attendance.find({ timetableid: req.params.id }).populate(
     "timetableid studentid"
   );

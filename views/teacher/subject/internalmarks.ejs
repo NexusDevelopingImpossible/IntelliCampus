@@ -252,7 +252,15 @@
                 maxMarksField.innerHTML = "Unassigned";
             }
         }
+        checkUnassigned()
     };
+
+    let checkUnassigned=()=>{
+        let maxMarksField = document.getElementById("maxMarksField");
+        if(maxMarksField.innerHTML=="Unassigned"){
+            addsub()
+        }
+    }
 
 
     let setMarksAJAX = () => {
