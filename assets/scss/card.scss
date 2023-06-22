@@ -1,7 +1,6 @@
 .cards {
     border-radius: 20px;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+    display: flex;
     gap: 2rem;
     padding: 1rem 3rem;
   }
@@ -13,28 +12,31 @@
   }
   
   .card1 {
-    height: 6rem;
+    height: 12vh;
     margin-bottom: 1rem;
     color: #fff;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 0rem 2rem;
-    gap: 3rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 1rem;
+    width: 53vw;
   }
   .card2 {
-    height: 14rem;
+    height: 25vh;
     margin-bottom: 1rem;
+    padding: 0 1rem;
+    width: 53vw;
   }
   .card3 {
-    height: 16rem;
+    height: 37vh;
+    width: 53vw;
     /* margin-bottom: 1rem; */
   }
   .card4 {
-    height: 16rem;
+    height: 34vh;
     margin-bottom: 1rem;
   }
   .card5 {
-    height: 21rem;
+    height: 42vh;
     /* padding: 5px; */
     /* margin-bottom: 1rem; */
   }
@@ -67,6 +69,7 @@
   }
   .std-name {
     font-size: 1.3rem;
+    font-weight: 600;
     line-height: 1.5;
   }
   .reg {
@@ -196,7 +199,6 @@
   
   /* Horizontal scrolling */
   .attendence-container {
-    padding-left: 1rem;
     width: 44rem;
     overflow-x: auto;
     white-space: nowrap;

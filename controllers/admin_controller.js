@@ -127,7 +127,11 @@ module.exports.allotsubject = (req, res) => {
 module.exports.searchteacherid = async function (req, res) {
     try {
         let teacherdata = await Teacher.findOne({ username: req.body.registration })
-        let timetables = await Timetable.find({ teacherid: req.body.registration }).populate('subjectcode')
+        if(!teacherdata){
+            req.flash("error", "Teacher does not exist.");
+            res.redirect('back');
+        }
+        let timetables = await Timetable.find({ teacherid: teacherdata._id }).populate('subjectcode')
         return res.render("admin/allotsubjectform", { title: "Allot Subject data", teacher: teacherdata, timetable: timetables });
     }
     catch (err) {
@@ -171,19 +175,20 @@ module.exports.addsubject = async function (req, res) {
         var subjectName;
         let subject = await Subject.findOne({ code: subjectCode })
         subjectName = subject._id;
+        let teacherdata = await Teacher.findOne({ username: req.body.registration });
         await Timetable.create({
             branch: req.body.branch,
             department: req.body.department,
             year: year,
             semester: req.body.semester,
             section: req.body.section,
-            teacherid: req.body.registration,
+            teacherid: teacherdata._id,
             subjectcode: subjectName,
             classes: []
         })
         // return res.redirect('back');
-        let teacherdata = await Teacher.findOne({ username: req.body.registration });
-        let timetables = await Timetable.find({ teacherid: req.body.registration }).populate('subjectcode');
+        
+        let timetables = await Timetable.find({ teacherid: teacherdata._id }).populate('subjectcode');
         req.flash('success', 'Subject allot successfully');
         return res.render("admin/allotsubjectform", { title: "Allot Subject data", teacher: teacherdata, timetable: timetables });
     }
@@ -205,5 +210,13 @@ module.exports.deletesubject = async function (req, res) {
         console.log(err);
     }
 };
+
+module.exports.calendar = async function (req, res) {
+    try {
+        return res.render('admin/calendar', {title: "Add Holidays"});
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 

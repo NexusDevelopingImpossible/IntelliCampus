@@ -1,49 +1,52 @@
+<title>
+  <%= title%>
+</title>
+<link rel="stylesheet" href="/css/templatenavbar.css" />
 
-    <title><%= title%></title>
-    <link rel="stylesheet" href="/css/templatenavbar.css" />
+<link rel="stylesheet" href="/css/attendance-view.css" />
+<link rel="stylesheet" href="/css/attendence1.css">
+<link rel="stylesheet" href="/css/attendance.css">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap"
+  rel="stylesheet" />
+</head>
+<div class="main-page">
 
-    <link rel="stylesheet" href="/css/attendance-view.css" />
-    <link rel="stylesheet" href="/css/attendence1.css">
-    <link rel="stylesheet" href="/css/attendance.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-      <div class="main-page">
+  <div id="title">
+    <a href="/teacher/attendance_view/<%=student.timetableid._id%>"><img src="/images/left-arrow.png" alt=""
+        id="back_arrow" /></a>
 
-        <div id="title">
-          <a href="/teacher/attendance_view/<%=student.timetableid._id%>"><img src="/images/left-arrow.png" alt="" id="back_arrow" /></a>
-          
-          <h1 class="subject" id="sub_code">IT-1403</h1>
-          <h1 class="subject" id="sub_title">
-            Computer Organization and Architechture
-          </h1>
-        </div>
+    <h1 class="subject" id="sub_code">IT-1403</h1>
+    <h1 class="subject" id="sub_title">
+      Computer Organization and Architechture
+    </h1>
+  </div>
 
-        <section class="att-navbar">
-          <div class="container">
-            <div id="tab-1" class="tab-item tab-border">
-              <p class="hed-day">Attendance</p>
-            </div>
-            <div id="tab-2" class="tab-item">
-              <p class="hed-day">Internal Marks</p>
-            </div>
-            <div id="tab-3" class="tab-item">
-              <p class="hed-day">Notes</p>
-            </div>
-          </div>
-        </section>
-        <section class="tab-content">
-          <div class="container">
-            <!-- Tab Content 1 -->
-            <div id="tab-1-content" class="tab-content-item show">
-              <div class="tab-header">
-                <!-- <div class="search-input">
+  <section class="att-navbar">
+    <div class="container">
+      <div id="tab-1" class="tab-item tab-border">
+        <p class="hed-day">Attendance</p>
+      </div>
+      <div id="tab-2" class="tab-item">
+        <a href="/teacher/internalmarks/">
+          <p class="hed-day">Internal Marks</p>
+        </a>
+      </div>
+      <div id="tab-3" class="tab-item">
+        <p class="hed-day">Notes</p>
+      </div>
+    </div>
+  </section>
+  <section class="tab-content">
+    <div class="container">
+      <!-- Tab Content 1 -->
+      <div id="tab-1-content" class="tab-content-item show">
+        <div class="tab-header">
+          <!-- <div class="search-input">
                   <input type="text" placeholder="Search" />
                   <div class="search-btn">
                     <a href="#">Search</a>
@@ -52,112 +55,125 @@
                 <div class="export-btn">
                   <a href="#">Export to excel</a>
                 </div> -->
-              </div>
-              <section class="student-info">
-                <div class="profile-info">
-                  <div class="image">
-                    <img
-                      src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
-                      alt=""
-                    />
-                  </div>
-                  <div class="student__details">
-                    <h3 class="name"><%= student.studentid.name%></h3>
-                    <p class="registration"><%= student.studentid.username%></p>
-                  </div>
-                </div>
-                <div class="attendance-info">
-                  <p>Attendance Percentage: <span><%=(parseInt(((student.totalpresent) /(student.present.length))*100))%>%</span></p>
-                  <div>
-                    <p>Present:<span><%=student.totalpresent%></span></p>
-                    <p>Absent:<span><%=student.present.length-student.totalpresent%></span></p>
-                  </div>
-                </div>
-              </section>
-              <section class="attendance-list">
-                <main class="main-row">
-                <div class="col1">
-                 <%for(let i = 0; i<student.present.length; i++){%>
-                  <%if(i>=10){break;}%>
-                  <div class="att-date">
-                    <p><%=student.present[i].date %></p>
-                    <input type="checkbox" checked>
-                  </div>
-                  <%}%>
-                  
-                </div>
-                <div class="col1">
-                  <%for(let i = 10; i<student.present.length; i++){%>
-                    <%if(i>=20){break;}%>
-                    <div class="att-date">
-                      <p><%=student.present[i].date %></p>
-                      <input type="checkbox" checked>
-                    </div>
-                    <%}%>
-                </div>
-                <div class="col1">
-                  <%for(let i = 20; i<student.present.length; i++){%>
-                    <%if(i>=30){break;}%>
-                    <div class="att-date">
-                      <p><%=student.present[i].date %></p>
-                      <input type="checkbox" checked>
-                    </div>
-                    <%}%>
-                  
-                </div>
-                <div class="col1">
-                  <%for(let i = 30; i<student.present.length; i++){%>
-                    <%if(i>=40){break;}%>
-                    <div class="att-date">
-                      <p><%=student.present[i].date %></p>
-                      <input type="checkbox" checked>
-                    </div>
-                    <%}%>
-                  
-                </div>
-                <div class="col1">
-                  <%for(let i = 40; i<student.present.length; i++){%>
-                    <%if(i>=50){break;}%>
-                    <div class="att-date">
-                      <p><%=student.present[i].date %></p>
-                      <input type="checkbox" checked>
-                    </div>
-                    <%}%>
-                  
-                </div>
-                <div class="col1">
-                  <%for(let i = 50; i<student.present.length; i++){%>
-                    <%if(i>=60){break;}%>
-                    <div class="att-date">
-                      <p><%=student.present[i].date %></p>
-                      <input type="checkbox" checked>
-                    </div>
-                    <%}%>
-                </div>
-              </main>
-
-
-            <!-- Tab Content 2 -->
-            <div id="tab-2-content" class="tab-content-item">
-              <h1>internal marks</h1>
+        </div>
+        <section class="student-info">
+          <div class="profile-info">
+            <div class="image">
+              <img
+                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                alt="" />
             </div>
-
-            <!-- Tab Content 3 -->
-            <div id="tab-3-content" class="tab-content-item">
-              <h1>notes</h1>
+            <div class="student__details">
+              <h3 class="name">
+                <%= student.studentid.name%>
+              </h3>
+              <p class="registration">
+                <%= student.studentid.username%>
+              </p>
+            </div>
+          </div>
+          <div class="attendance-info">
+            <p>Attendance Percentage: <span>
+                <%=(parseInt(((student.totalpresent) /(student.present.length))*100))%>%
+              </span></p>
+            <div>
+              <p>Present:<span>
+                  <%=student.totalpresent%>
+                </span></p>
+              <p>Absent:<span><%=student.present.length-student.totalpresent%></span></p>
             </div>
           </div>
         </section>
+        <section class="attendance-list">
+          <main class="main-row">
+            <div class="col1">
+              <%for(let i=0; i<student.present.length; i++){%>
+                <%if(i>=10){break;}%>
+                  <div class="att-date">
+                    <p>
+                      <%=student.present[i].datevalue %>
+                    </p>
+                    <input type="checkbox" checked>
+                  </div>
+                  <%}%>
+            </div>
+            <div class="col1">
+              <%for(let i=10; i<student.present.length; i++){%>
+                <%if(i>=20){break;}%>
+                  <div class="att-date">
+                    <p>
+                      <%=student.present[i].date %>
+                    </p>
+                    <input type="checkbox" checked>
+                  </div>
+                  <%}%>
+            </div>
+            <div class="col1">
+              <%for(let i=20; i<student.present.length; i++){%>
+                <%if(i>=30){break;}%>
+                  <div class="att-date">
+                    <p>
+                      <%=student.present[i].date %>
+                    </p>
+                    <input type="checkbox" checked>
+                  </div>
+                  <%}%>
+
+            </div>
+            <div class="col1">
+              <%for(let i=30; i<student.present.length; i++){%>
+                <%if(i>=40){break;}%>
+                  <div class="att-date">
+                    <p>
+                      <%=student.present[i].date %>
+                    </p>
+                    <input type="checkbox" checked>
+                  </div>
+                  <%}%>
+
+            </div>
+            <div class="col1">
+              <%for(let i=40; i<student.present.length; i++){%>
+                <%if(i>=50){break;}%>
+                  <div class="att-date">
+                    <p>
+                      <%=student.present[i].date %>
+                    </p>
+                    <input type="checkbox" checked>
+                  </div>
+                  <%}%>
+
+            </div>
+            <div class="col1">
+              <%for(let i=50; i<student.present.length; i++){%>
+                <%if(i>=60){break;}%>
+                  <div class="att-date">
+                    <p>
+                      <%=student.present[i].date %>
+                    </p>
+                    <input type="checkbox" checked>
+                  </div>
+                  <%}%>
+            </div>
+          </main>
+
+
+          <!-- Tab Content 2 -->
+          <div id="tab-2-content" class="tab-content-item">
+            <h1>internal marks</h1>
+          </div>
+
+          <!-- Tab Content 3 -->
+          <div id="tab-3-content" class="tab-content-item">
+            <h1>notes</h1>
+          </div>
       </div>
-    </section>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-    <script src="/js/attendance.js"></script>
-  </body>
+  </section>
+</div>
+</section>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="/js/attendance.js"></script>
+</body>
+
 </html>

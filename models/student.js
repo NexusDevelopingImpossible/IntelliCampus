@@ -25,6 +25,6 @@ const studentSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
-
+//add B.TEch, Phd, TG name @OM/@Raj
 const Student = mongoose.model('Student', studentSchema);
 module.exports = Student;

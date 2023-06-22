@@ -53,19 +53,6 @@
   color: #ffffff78;
 }
 
-.reg__section button {
-  background: #fd6d08;
-  border-radius: 15px;
-  border: none;
-  color: #fff;
-  padding: 0.7rem 3rem;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.reg__section button:hover {
-  background: #e66910;
-}
 .notification {
   padding-top: 4rem;
   display: flex;
@@ -121,21 +108,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fd6d08;
-  border-radius: 15px;
-  border: none;
-  color: #fff;
-  padding: 0.5rem 2rem;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: all 0.3s;
 }
 .teacher__and__btn button > .icon {
   font-size: 1.5rem;
   margin-right: 0.4rem;
-}
-.teacher__and__btn button:hover {
-  background: #e66910;
 }
 
 /* Description */
@@ -294,17 +270,6 @@
 }
 
 .modal__bottom button {
-  background: #fd6d08;
-  border-radius: 10px;
-  border: none;
-  color: #fff;
-  padding: 0.7rem 1.5rem;
-  font-size: 1.2rem;
-  cursor: pointer;
   width: 100%;
-  transition: all 0.3s;
 }
 
-.modal__bottom button:hover {
-  background: #e66910;
-}

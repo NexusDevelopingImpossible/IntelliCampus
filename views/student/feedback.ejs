@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="/css/feedback.css" />
+
+<div class="main-page">
+  <div id="title">
+    <a href="/student/dashboard"><img src="/images/allotarrow.png" alt="" id="back_arrow" /></a>
+
+    <h1 id="sub_title">Feedback</h1>
+  </div>
+
+  <section class="feedback">
+    <%let c=teacherdata.length%>
+      <%let g=0%>
+        <%for(let i=0; i<teacherdata.length/2; i++){%>
+          <div class="feed">
+            <%for(let j=0; (j<2 && g<c); j++){%>
+           
+                <div class="feed-card">
+                  <div class="tch-pic">
+                    <img src="/images/AG.jpg" alt="" />
+                  </div>
+                  <div>
+                    <div class="tch-name">
+                      <%=teacherdata[g].teacherid.name%>
+                    </div>
+                    <div class="tch-dtl">
+                      <%=teacherdata[g].teacherid.position%>
+                    </div>
+                    <div class="tch-dtl">
+                      <%=teacherdata[g].subjectcode.name%>
+                    </div>
+                  </div>
+                  <div class="feed-btn">
+                    <a href="/student/response/<%=teacherdata[g].teacherid._id%>">
+                    <button class="btn btn-full btn-large">Give Feedback</button>
+                  </a>
+                  </div>
+                </div>
+              <%g++%>
+           <%}%>
+          </div>
+        <%}%>
+  </section>
+</div>

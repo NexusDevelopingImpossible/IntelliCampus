@@ -1,0 +1,157 @@
+/************************************************************************************************/
+/*****************************************Student Attendance View CSS***********************************/
+/************************************************************************************************/
+body {
+  color: #fff; }
+
+/************************************* Title Section **************************************/
+#title {
+  margin: 3rem 2rem;
+  display: flex; }
+
+#back_arrow {
+  width: 2rem; }
+
+#sub_title {
+  font-size: 1.8rem;
+  padding-left: 1.5rem; }
+
+/*********************************** Subjects's Attendance **********************************/
+#sub-attendance {
+  padding: 1rem 6rem;
+  display: flex;
+  gap: 5rem; }
+
+/*------------------- Subject Select Option ---------------------*/
+.select-menu {
+  width: 400px; }
+
+.select-menu .select-btn {
+  display: flex;
+  justify-content: center;
+  background: #00000024;
+  border: 0.5px solid #fff;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  border-radius: 15px;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); }
+
+.select-btn i {
+  font-size: 25px;
+  transition: 0.3s; }
+
+.select-menu.active .select-btn i {
+  transform: rotate(-180deg); }
+
+.select-menu .options {
+  position: relative;
+  border-radius: 0px 0px 10px 10px;
+  overflow: hidden;
+  background: #000000;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  display: none; }
+
+.select-menu.active .options {
+  display: block; }
+
+.options .option {
+  display: flex;
+  cursor: pointer;
+  padding: 0.4rem 0rem;
+  align-items: center;
+  width: 400px; }
+
+.options .option:hover {
+  background: #282727; }
+
+.option i {
+  font-size: 25px; }
+
+.option .option-text {
+  font-size: 1rem;
+  color: #fff; }
+
+/*-------------------- Attendance Details ----------------------*/
+#att-info {
+  font-size: 0.7rem; }
+
+#att-info h2 {
+  font-weight: 600; }
+
+#att-info h2 span {
+  font-weight: 400; }
+
+#att-conduct {
+  display: flex;
+  gap: 3rem;
+  padding-bottom: 0.3rem; }
+
+/*********************************** Attendance Lists *************************************/
+.attendance-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0; }
+
+.main-row {
+  display: flex;
+  gap: 1rem; }
+
+/*----------------- Attendance of a day ------------------*/
+.col1 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 15rem; }
+
+.att-date {
+  border-radius: 5px;
+  padding: 0.4rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8d57b30;
+  backdrop-filter: blur(12px);
+  width: 15rem; }
+
+.att-date p {
+  font-weight: 500; }
+
+#no-class {
+  font-weight: 100 !important; }
+
+#clc {
+  background: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  display: flex; }
+
+#clp {
+  background: #fd6d08;
+  border: 2px solid #fd6d08;
+  width: 1.4rem;
+  height: 1.3rem;
+  border-radius: 100%; }
+
+/******************************** Attendance Abbreviations **********************************/
+#cl-info {
+  font-size: 0.7rem;
+  padding-left: 6rem;
+  margin-top: 25rem; }
+
+#cl-info h2 {
+  font-weight: 600; }
+
+#cl-info h2 span {
+  font-weight: 400; }
+
+#cl-conduct {
+  display: flex;
+  gap: 3rem;
+  /* padding-bottom: 0.3rem; */ }

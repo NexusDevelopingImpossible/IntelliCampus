@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const autopopulate = require('mongoose-autopopulate');
 
 const timetableSchema = new mongoose.Schema({
     branch: {
@@ -23,7 +22,8 @@ const timetableSchema = new mongoose.Schema({
         required: true
     },
     teacherid: {
-        type: Number,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Teacher',
         required: true
     },
     subjectcode: {
@@ -44,7 +44,6 @@ const timetableSchema = new mongoose.Schema({
     timestamps: true
 });
 
-// timetableSchema.plugin(autopopulate);
 
 const Timetable = mongoose.model('Timetable', timetableSchema);
 module.exports = Timetable;

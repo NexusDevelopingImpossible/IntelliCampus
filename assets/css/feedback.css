@@ -1,0 +1,66 @@
+/************************************************************************************************/
+/*****************************************Student Feedback CSS***********************************/
+/************************************************************************************************/
+body {
+  color: #fff; }
+
+a {
+  text-decoration: none;
+  color: #fff; }
+
+/************************* Title Section ***************************/
+#title {
+  margin: 3rem 2rem;
+  margin-bottom: 1.5rem;
+  display: flex; }
+
+#back_arrow {
+  width: 2rem; }
+
+#sub_title {
+  font-size: 1.8rem;
+  padding-left: 1.5rem; }
+
+/*********************** Teacher's Feedback ***************************/
+.feedback {
+  height: 75vh;
+  overflow-y: auto; }
+
+.feedback::-webkit-scrollbar {
+  display: none; }
+
+.feed {
+  padding: 0.8rem 5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem; }
+
+.feed-card {
+  display: flex;
+  background-color: #f8d57b1e;
+  border: 1px solid #ffffff9a;
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  width: 35vw;
+  gap: 0.5rem;
+  height: 6.5rem; }
+
+.tch-pic img {
+  width: 4.5rem;
+  border-radius: 100%;
+  border: 3px solid #fd6d08; }
+
+.tch-name {
+  font-size: 1.2rem;
+  font-weight: 500; }
+
+.tch-dtl {
+  font-size: 0.9rem;
+  font-weight: 100; }
+
+.feed-btn {
+  margin: auto;
+  margin-right: 0.1rem; }

@@ -59,20 +59,6 @@ function view_update(value) {
 		add.style.display = "none";
 	}
 }
-let resetmax = document.getElementById('reset-max');
-function addsub(){
-    resetmax.style.display = "flex";
-}
-function closemodal(){
-    resetmax.style.display = "none";
-}
-let resetall = document.getElementById('reset-all');
-function resetmodel(){
-    resetall.style.display = "flex";
-}
-function closeresetmodal(){
-    resetall.style.display = "none";
-}
 
 const optionMenu = document.querySelector(".select-menu"),
        selectBtn = optionMenu.querySelector(".select-btn"),

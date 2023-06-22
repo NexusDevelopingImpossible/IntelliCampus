@@ -1,0 +1,102 @@
+.main-page{
+    color: white;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+$btn-color: #FD6D08;
+$btn-color-hover: #dc5c00;
+.queries{
+    margin-top: 3vh;
+}
+
+.question{
+    font-size: 1.2rem;
+}
+
+.question-number{
+    margin-right: 3vw;
+}
+
+.rating{
+    display: flex;
+    margin-left: 4vw;
+    margin-top: 3vh;
+    width: 30vw;
+    justify-content: space-between;
+}
+
+.rank{
+    width: 4rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: larger;
+    background-color: rgba(255, 255, 255, .15);
+    border: 1px solid white;
+    border-radius: 15px;
+    color: #fff;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.rank:hover{
+    background-color: $btn-color;
+}
+
+.marker{
+    display: flex;
+    width: 30vw;
+    justify-content: space-between;
+    margin-left: 4vw;
+    margin-top: 0.5vh;
+    font-weight: 400;
+    font-size: smaller;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#main-title{
+    display: flex;
+    margin-left: 2vw;
+    margin-top: 5vh;
+}
+
+#left-arrow{
+    height: 5vh;
+    width: 5vh;
+    margin-top: 1vh;
+}
+
+#profile-photo{
+    height: 8vh;
+    width: 8vh;
+    border: 3px solid $btn-color;
+    border-radius: 100%;
+    margin: 0 0.5vw 0 2vw;
+}
+
+#teacher-details{
+    font-size: smaller;
+    font-weight: lighter;
+}
+
+#teacher-name{
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+#feedback-query-list{
+    margin: 3vh 0 0 3vw;
+    height: 72vh;
+    overflow-y: auto;
+}
+#feedback-query-list::-webkit-scrollbar{
+    display: none;
+}
+
+#submit-bttn{
+    margin-left: 70vw;
+    // width: 10vw;
+}

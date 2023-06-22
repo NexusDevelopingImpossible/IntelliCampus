@@ -2,7 +2,13 @@
 /*****************************************Student Feedback CSS***********************************/
 /************************************************************************************************/
 
+$btn-color: #FD6D08;
+$btn-color-hover: #ea6404;
 body {
+    color: #fff;
+}
+a{
+    text-decoration: none;
     color: #fff;
 }
 
@@ -10,6 +16,7 @@ body {
 
 #title {
     margin: 3rem 2rem;
+    margin-bottom: 1.5rem;
     display: flex;
 }
 
@@ -25,12 +32,18 @@ body {
 /*********************** Teacher's Feedback ***************************/
 
 .feedback {
-    display: grid;
+    height: 75vh;
+    overflow-y: auto;
+}
+.feedback::-webkit-scrollbar{
+    display: none;
 }
 
 .feed {
     padding: 0.8rem 5rem;
     display: flex;
+    justify-content: space-between;
+
     gap: 2rem;
 }
 
@@ -43,19 +56,19 @@ body {
     align-items: center;
     justify-content: center;
     padding: 0.5rem 1rem;
-    width: 50%;
+    width: 35vw;
     gap: 0.5rem;
+    height: 6.5rem;
 }
 
 .tch-pic img {
     width: 4.5rem;
     border-radius: 100%;
     border: 3px solid #fd6d08;
-    margin-right: 1rem;
 }
 
 .tch-name {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 500;
 }
 
@@ -65,21 +78,8 @@ body {
 }
 
 .feed-btn {
-    margin-left: 8rem;
+    margin: auto;
+    margin-right: 0.1rem;
+
 }
 
-.feed-btn button {
-    padding: 0.7rem 2rem;
-    background: #e66203;
-    border: 1px solid #fd6d08;
-    backdrop-filter: blur(12px);
-    color: #fff;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    cursor: pointer;
-}
-
-.feed-btn button:hover {
-    background: rgba(253, 109, 8, 0.3);
-    border: 1px solid #fd6d08;
-}
