@@ -16,15 +16,18 @@
   color: #fff;
   display: flex;
   justify-content: space-between;
-  padding: 0rem 1rem; }
+  padding: 0rem 1rem;
+  width: 53vw; }
 
 .card2 {
   height: 25vh;
   margin-bottom: 1rem;
-  padding: 0 1rem; }
+  padding: 0 1rem;
+  width: 53vw; }
 
 .card3 {
   height: 37vh;
+  width: 53vw;
   /* margin-bottom: 1rem; */ }
 
 .card4 {
