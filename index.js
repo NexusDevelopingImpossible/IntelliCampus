@@ -12,8 +12,6 @@ const db = require('./config/mongoose');
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 
-
-
 app.use(cookieParser());
 
 app.use(sassMiddleware({
@@ -36,7 +34,7 @@ app.use(expressLayouts);
 
 app.use(session({
   name: 'newUSer',
-  //TODO change secretbefore deployment 
+  //TODO change secret before deployment 
   secret: 'fuckyouRanjit',
   saveUninitialized: false,
   resave: false,

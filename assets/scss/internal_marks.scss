@@ -4,13 +4,12 @@
 
 .page-heading {
   display: flex;
-  align-items: center;
   margin: 2.5vh 0 0 2.5vh;
 }
 
 .heading {
   display: inline-block;
-  font-size: 4vh;
+  font-size: xx-large;
 }
 
 .subject {
@@ -19,18 +18,18 @@
   padding: 5px 0;
   background-color: #f8d57b1a;
   width: 17vw;
-  padding-left: 1vw;
+  padding-left: 10px;
 }
 
 .sub-code {
   font-weight: 100;
-  padding-right: 1vw;
+  padding-right: 1rem;
   width: 6vw;
-  font-size: 2vh;
+  font-size: 1rem;
 }
 .sub-title {
   text-align: left;
-  font-size: 2vh;
+  font-size: 1rem;
 }
 
 .sub-inf {
@@ -41,11 +40,11 @@
   background-color: #b78f301a;
 }
 
-#footnote {
-  display: flex;
-  justify-content: center;
+#footnote{
+    display: flex;
+    justify-content: center;
 }
-#footnote > div {
+#footnote > div{
   margin-top: 2.5vh;
   width: 75vw;
   display: flex;
@@ -54,19 +53,20 @@
 
 .note {
   display: inline;
-  font-size: 1.75vh;
+  font-size: 0.85rem;
 }
 
 .note-tit {
   font-weight: 500;
 }
-.note-data {
-  font-weight: 100;
+.note-data{
+    font-weight: 100;
+
 }
 
 #marks-display {
   overflow: auto;
-  height: 73vh;
+  height: 76vh;
 }
 #marks-display::-webkit-scrollbar {
   display: none;
@@ -87,7 +87,7 @@
 }
 
 #marks th {
-  font-size: 1.75vh;
+  font-size: 0.85rem;
   font-weight: 300;
   border-right: 0.01px solid rgba(255, 255, 255, 0.2);
 }
@@ -103,7 +103,7 @@
 
 #marks td {
   border: 0.5px solid rgba(255, 255, 255, 0.4);
-  font-size: 2vh;
+  font-size: 1rem;
 }
 
 #tb-header {
@@ -113,72 +113,43 @@
 }
 
 #tb-header th {
-  width: 3vw;
+  width: 3rem;
 }
 
-// #markers {
-//   display: flex;
-//   margin-left: 27vw;
-//   text-align: center;
-//   margin-bottom: 0;
-// }
-
-// #atten-marker {
-//   font-size: 2vh;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: #ffffff1a;
-//   width: 13vw;
-//   height: 4vh;
-//   text-align: center;
-//   margin-right: 1.5vw;
-//   border-top-left-radius: 7px;
-//   border-top-right-radius: 7px;
-// }
-
-// #inter-marker {
-//   font-size: 2vh;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: #ffffff1a;
-//   width: 28vw;
-//   border-top-left-radius: 7px;
-//   border-top-right-radius: 7px;
-//   height: 4vh;
-// }
-
-.main-table {
-  margin-top: 3vh;
+#markers {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-left: 25.5vw;
+  text-align: center;
+  margin-bottom: 0;
 }
 
-.mark-td {
-  border: none !important;
-  // background-color: #ffffff1a;
+#atten-marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff1a;
+  width: 14vw;
+  height: 4vh;
+  text-align: center;
+  margin-right: 1.55vw;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
 }
-.mark-td div{
+
+#inter-marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ffffff1a;
-  padding: 0.75vh 0;
-  margin: auto;
+  width: 28vw;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  height: 4vh;
 }
 
-.mark-att div{
-  border-right: 0.5px solid #ffffff38 !important;
-  border-top-left-radius: 10px;
-  
-}
-.mark-int div{
-  border-top-right-radius: 10px;
-  
-}
-
-#markers > td{
-  border: none !important;
+.main-table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 

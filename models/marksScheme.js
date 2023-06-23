@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const marksSchemeSchema = new mongoose.Schema({
     timeTableId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Subject',
+        ref: 'Timetable',
         required: true,
     },
     examMaxMarks: {

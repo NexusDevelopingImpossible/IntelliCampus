@@ -117,10 +117,10 @@
   margin: auto; }
 
 .mark-att div {
-  border-right: 0.5px solid #ffffff38 !important;
   border-top-left-radius: 10px; }
 
 .mark-int div {
+  border-left: 0.5px solid #ffffff38 !important;
   border-top-right-radius: 10px; }
 
 #markers > td {

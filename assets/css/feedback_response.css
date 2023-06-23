@@ -37,6 +37,9 @@
 .rank:hover {
   background-color: #FD6D08; }
 
+.rank:active {
+  background-color: #FD6D08; }
+
 .marker {
   display: flex;
   width: 30vw;

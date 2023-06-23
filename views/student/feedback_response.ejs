@@ -3,7 +3,6 @@
 <div class="main-page">
   <div id="main-title">
     <a href="/student/dashboard"><img src="/images/allotarrow.png" alt="" id="back_arrow" /></a>
-
     <img src="/images/AG.jpg" alt="" id="profile-photo" />
     <div id="teacher-details">
       <div id="teacher-name">Diganta Baruah</div>
@@ -11,130 +10,207 @@
       <div id="teacher-number">343464574</div>
     </div>
   </div>
+  <form action="/student/feedbackdata" method="post">
+    <!-- <input type="hidden" value=""> -->
+    <div id="feedback-query-list">
+      <div class="queries">
+        <div class="question">
+          <span class="question-number">1</span>
+          <span class="question-title">How satisfied are you with the quality of notes provided during
+            lectures?
+          </span>
+        </div>
+        <div class="rating">
+          <div id="1" onclick="onclicked(this.id)" class="rank row1">1</div>
+          <div id="2" onclick="onclicked(this.id)" class="rank row1">2</div>
+          <div id="3" onclick="onclicked(this.id)" class="rank row1">3</div>
+          <div id="4" onclick="onclicked(this.id)" class="rank row1">4</div>
+          <div id="5" onclick="onclicked(this.id)" class="rank row1">5</div>
+          <input id="row1" type="hidden" name="row1">
+        </div>
+        <div class="marker">
+          <div>Least Satisfied</div>
+          <div>Very Satisfied</div>
+        </div>
+      </div>
+      <div class="queries">
+        <div class="question">
+          <span class="question-number">1</span>
+          <span class="question-title">How satisfied are you with the quality of notes provided during
+            lectures?
+          </span>
+        </div>
+        <div class="rating">
+          <div id="6" onclick="onclicked(this.id)" name="row2" class="rank row2">1</div>
+          <div id="7" onclick="onclicked(this.id)" name="row2" class="rank row2">2</div>
+          <div id="8" onclick="onclicked(this.id)" name="row2" class="rank row2">3</div>
+          <div id="9" onclick="onclicked(this.id)" name="row2" class="rank row2">4</div>
+          <div id="10" onclick="onclicked(this.id)" name="row2" class="rank row2">5</div>
+          <input id="row2" type="hidden" name="row2">
+        </div>
+        <div class="marker">
+          <div>Least Satisfied</div>
+          <div>Very Satisfied</div>
+        </div>
+      </div>
+      <div class="queries">
+        <div class="question">
+          <span class="question-number">1</span>
+          <span class="question-title">How satisfied are you with the quality of notes provided during
+            lectures?
+          </span>
+        </div>
+        <div class="rating">
+          <div id="11" onclick="onclicked(this.id)" name="row3" class="rank row3">1</div>
+          <div id="12" onclick="onclicked(this.id)" name="row3" class="rank row3">2</div>
+          <div id="13" onclick="onclicked(this.id)" name="row3" class="rank row3">3</div>
+          <div id="14" onclick="onclicked(this.id)" name="row3" class="rank row3">4</div>
+          <div id="15" onclick="onclicked(this.id)" name="row3" class="rank row3">5</div>
+          <input id="row3" type="hidden" name="row3">
+        </div>
+        <div class="marker">
+          <div>Least Satisfied</div>
+          <div>Very Satisfied</div>
+        </div>
+      </div>
+      <div class="queries">
+        <div class="question">
+          <span class="question-number">1</span>
+          <span class="question-title">How satisfied are you with the quality of notes provided during
+            lectures?
+          </span>
+        </div>
+        <div class="rating">
+          <div id="16" onclick="onclicked(this.id)" name="row4" value="1" class="rank row4">1</div>
+          <div id="17" onclick="onclicked(this.id)" name="row4" value="2" class="rank row4">2</div>
+          <div id="18" onclick="onclicked(this.id)" name="row4" value="3" class="rank row4">3</div>
+          <div id="19" onclick="onclicked(this.id)" name="row4" value="4" class="rank row4">4</div>
+          <div id="20" onclick="onclicked(this.id)" name="row4" value="5" class="rank row4">5</div>
+          <input id="row4" type="hidden" name="row4">
+        </div>
+        <div class="marker">
+          <div>Least Satisfied</div>
+          <div>Very Satisfied</div>
+        </div>
+      </div>
+      <div class="queries">
+        <div class="question">
+          <span class="question-number">1</span>
+          <span class="question-title">How satisfied are you with the quality of notes provided during
+            lectures?
+          </span>
+        </div>
+        <div class="rating">
+          <div id="21" onclick="onclicked(this.id)" name="row5" value="1" class="rank row5">1</div>
+          <div id="22" onclick="onclicked(this.id)" name="row5" value="2" class="rank row5">2</div>
+          <div id="23" onclick="onclicked(this.id)" name="row5" value="3" class="rank row5">3</div>
+          <div id="24" onclick="onclicked(this.id)" name="row5" value="4" class="rank row5">4</div>
+          <div id="25" onclick="onclicked(this.id)" name="row5" value="5" class="rank row5">5</div>
+          <input id="row5" type="hidden" name="row5">
+        </div>
+        <div class="marker">
+          <div>Least Satisfied</div>
+          <div>Very Satisfied</div>
+        </div>
+      </div>
+      <div class="queries">
+        <div class="question">
+          <span class="question-number">1</span>
+          <span class="question-title">How satisfied are you with the quality of notes provided during
+            lectures?
+          </span>
+        </div>
+        <div class="rating">
+          <div id="26" onclick="onclicked(this.id)" name="row6" value="1" class="rank row6">1</div>
+          <div id="27" onclick="onclicked(this.id)" name="row6" value="2" class="rank row6">2</div>
+          <div id="28" onclick="onclicked(this.id)" name="row6" value="3" class="rank row6">3</div>
+          <div id="29" onclick="onclicked(this.id)" name="row6" value="4" class="rank row6">4</div>
+          <div id="30" onclick="onclicked(this.id)" name="row6" value="5" class="rank row6">5</div>
+          <input id="row6" type="hidden" name="row6">
+        </div>
+        <div class="marker">
+          <div>Least Satisfied</div>
+          <div>Very Satisfied</div>
+        </div>
+      </div>
 
-  <div id="feedback-query-list">
-    <div class="queries">
-      <div class="question">
-        <span class="question-number">1</span>
-        <span class="question-title"
-          >How satisfied are you with the quality of notes provided during
-          lectures?
-        </span>
-      </div>
-      <div class="rating">
-        <button class="rank">1</button>
-        <button class="rank">2</button>
-        <button class="rank">3</button>
-        <button class="rank">4</button>
-        <button class="rank">5</button>
-      </div>
-      <div class="marker">
-        <div>Least Satisfied</div>
-        <div>Very Satisfied</div>
-      </div>
     </div>
-    <div class="queries">
-      <div class="question">
-        <span class="question-number">1</span>
-        <span class="question-title"
-          >How satisfied are you with the quality of notes provided during
-          lectures?
-        </span>
-      </div>
-      <div class="rating">
-        <button class="rank">1</button>
-        <button class="rank">2</button>
-        <button class="rank">3</button>
-        <button class="rank">4</button>
-        <button class="rank">5</button>
-      </div>
-      <div class="marker">
-        <div>Least Satisfied</div>
-        <div>Very Satisfied</div>
-      </div>
-    </div>
-    <div class="queries">
-      <div class="question">
-        <span class="question-number">1</span>
-        <span class="question-title"
-          >How satisfied are you with the quality of notes provided during
-          lectures?
-        </span>
-      </div>
-      <div class="rating">
-        <button class="rank">1</button>
-        <button class="rank">2</button>
-        <button class="rank">3</button>
-        <button class="rank">4</button>
-        <button class="rank">5</button>
-      </div>
-      <div class="marker">
-        <div>Least Satisfied</div>
-        <div>Very Satisfied</div>
-      </div>
-    </div>
-    <div class="queries">
-      <div class="question">
-        <span class="question-number">1</span>
-        <span class="question-title"
-          >How satisfied are you with the quality of notes provided during
-          lectures?
-        </span>
-      </div>
-      <div class="rating">
-        <button class="rank">1</button>
-        <button class="rank">2</button>
-        <button class="rank">3</button>
-        <button class="rank">4</button>
-        <button class="rank">5</button>
-      </div>
-      <div class="marker">
-        <div>Least Satisfied</div>
-        <div>Very Satisfied</div>
-      </div>
-    </div>
-    <div class="queries">
-      <div class="question">
-        <span class="question-number">1</span>
-        <span class="question-title"
-          >How satisfied are you with the quality of notes provided during
-          lectures?
-        </span>
-      </div>
-      <div class="rating">
-        <button class="rank">1</button>
-        <button class="rank">2</button>
-        <button class="rank">3</button>
-        <button class="rank">4</button>
-        <button class="rank">5</button>
-      </div>
-      <div class="marker">
-        <div>Least Satisfied</div>
-        <div>Very Satisfied</div>
-      </div>
-    </div>
-    <div class="queries">
-      <div class="question">
-        <span class="question-number">1</span>
-        <span class="question-title"
-          >How satisfied are you with the quality of notes provided during
-          lectures?
-        </span>
-      </div>
-      <div class="rating">
-        <button class="rank">1</button>
-        <button class="rank">2</button>
-        <button class="rank">3</button>
-        <button class="rank">4</button>
-        <button class="rank">5</button>
-      </div>
-      <div class="marker">
-        <div>Least Satisfied</div>
-        <div>Very Satisfied</div>
-      </div>
-    </div>
-  </div>
-  <button class="btn btn-full btn-medium" id="submit-bttn">
-    Submit
-  </button>
+    <button class="btn btn-full btn-medium" id="submit-bttn" type="submit">
+      Submit
+    </button>
+  </form>
 </div>
+<script>
+  function onclicked(id) {
+    check(id);
+  }
+  function check(stringid) {
+    let id = parseInt(stringid);
+    if (0 < id && id < 6) {
+      let selected = document.getElementById(id);
+      let section = document.getElementsByClassName('row1');
+      let data = document.getElementById('row1');
+      for (let i = 0; i < 5; i++) {
+        section[i].style.background = "rgba(255, 255, 255, .15)";
+      }
+      selected.style.background = "#FD6D08";
+      id = id % 5;
+      data.value = id;
+    }
+    if (5 < id && id < 11) {
+      let selected = document.getElementById(id);
+      let section = document.getElementsByClassName('row2');
+      let data = document.getElementById('row2');
+      for (let i = 0; i < 5; i++) {
+        section[i].style.background = "rgba(255, 255, 255, .15)";
+      }
+      selected.style.background = "#FD6D08";
+      id = id % 5;
+      data.value = id;
+    }
+    if (10 < id && id < 16) {
+      let selected = document.getElementById(id);
+      let section = document.getElementsByClassName('row3');
+      let data = document.getElementById('row3');
+      for (let i = 0; i < 5; i++) {
+        section[i].style.background = "rgba(255, 255, 255, .15)";
+      }
+      selected.style.background = "#FD6D08";
+      id = id % 5;
+      data.value = id;
+    }
+    if (15 < id && id < 21) {
+      let selected = document.getElementById(id);
+      let section = document.getElementsByClassName('row4');
+      let data = document.getElementById('row4');
+      for (let i = 0; i < 5; i++) {
+        section[i].style.background = "rgba(255, 255, 255, .15)";
+      }
+      selected.style.background = "#FD6D08";
+      id = id % 5;
+      data.value = id;
+    }
+    if (20 < id && id < 26) {
+      let selected = document.getElementById(id);
+      let section = document.getElementsByClassName('row5');
+      let data = document.getElementById('row5');
+      for (let i = 0; i < 5; i++) {
+        section[i].style.background = "rgba(255, 255, 255, .15)";
+      }
+      selected.style.background = "#FD6D08";
+      id = id % 5;
+      data.value = id;
+    }
+    if (25 < id && id < 31) {
+      let selected = document.getElementById(id);
+      let section = document.getElementsByClassName('row6');
+      let data = document.getElementById('row6');
+      for (let i = 0; i < 5; i++) {
+        section[i].style.background = "rgba(255, 255, 255, .15)";
+      }
+      selected.style.background = "#FD6D08";
+      id = id % 5;
+      data.value = id;
+    }
+  }
+</script>

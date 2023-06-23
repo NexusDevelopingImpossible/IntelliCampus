@@ -86,3 +86,8 @@ body {
   height: auto;
   left: 801px;
   top: 0px; }
+
+@media (aspect-ratio: 1.77778) {
+  div {
+    background: #9af;
+    /* blue */ } }
