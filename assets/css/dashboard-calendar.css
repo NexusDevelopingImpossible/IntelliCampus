@@ -22,9 +22,6 @@ header .icons span {
   border-radius: 50%;
   background-color: #ffffff2e; }
 
-/* .icons span:last-child{
-    margin-right: -0.5rem;
-  } */
 header .icons span:hover {
   background-color: #0000002e; }
 
@@ -52,7 +49,7 @@ header .current-DATE {
 
 .calendar li {
   color: white;
-  width: calc(100% / 7);
+  width: 14.28%;
   font-size: 1.9vh; }
 
 .calendar .weeks {

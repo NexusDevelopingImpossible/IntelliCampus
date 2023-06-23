@@ -10,27 +10,26 @@ body {
   flex-direction: column; }
 
 #title {
-  margin: 3rem 2rem;
-  display: flex; }
+  margin: 4vh 2vw;
+  display: flex;
+  align-items: center; }
 
 #back_arrow {
-  width: 2rem; }
+  width: 2vw; }
 
 #sub_title {
-  font-size: 1.8rem;
-  padding-left: 1.5rem; }
+  font-size: 4vh;
+  padding-left: 1.5vw; }
 
 /*********************************** Subjects's Attendance **********************************/
 .sub-attendance {
-  display: grid;
-  margin: 0rem 7rem 2rem;
-  gap: 1rem; }
+  margin: 0rem 6vw 4vh; }
 
 .sel-subject {
   display: flex;
   align-items: center;
-  padding-bottom: 2rem;
-  gap: 4rem; }
+  padding-bottom: 4vh;
+  justify-content: space-between; }
 
 /* - - - - - - - - - - - - - -  */
 /* select option */
@@ -38,20 +37,19 @@ body {
 .select-menu .select-btn {
   display: flex;
   justify-content: space-between;
-  width: 30rem;
-  height: 2.5rem;
-  padding: 0 1rem;
+  width: 34vw;
+  padding: 1.5vh 1vw;
   align-items: center;
   background: #00000024;
   border: 0.5px solid #fff;
-  font-size: 1rem;
+  font-size: 2vh;
   font-weight: 400;
-  border-radius: 15px;
+  border-radius: 1vw;
   cursor: pointer;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); }
 
 .select-btn i {
-  font-size: 25px;
+  font-size: 2vh;
   transition: 0.3s; }
 
 .select-menu.active .select-btn i {
@@ -66,7 +64,7 @@ body {
   backdrop-filter: blur(12px);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   display: none;
-  margin: 0 0.5rem; }
+  margin: 0 0.5vw; }
 
 .select-menu.active .options {
   display: block; }
@@ -74,24 +72,22 @@ body {
 .options .option {
   display: flex;
   cursor: pointer;
-  padding: 0.4rem 0rem;
+  padding: 1vh 0rem;
   align-items: center;
-  padding-left: 1rem;
-  width: 29rem; }
+  padding-left: 1vw;
+  width: 33vw; }
 
 .options .option:hover {
   background: #282727; }
 
-.option i {
-  font-size: 25px; }
-
 .option .option-text {
-  font-size: 1rem;
+  font-size: 2vh;
   color: #fff; }
 
 .att-info {
+  font-size: 2vh;
   display: flex;
-  gap: 3rem; }
+  gap: 3vw; }
 
 .abb span {
   font-weight: 600; }
@@ -107,30 +103,32 @@ body {
 
 .att-list {
   display: flex;
-  gap: 3rem; }
+  gap: 3vw; }
 
 .att-day {
   display: flex;
   justify-content: space-around;
   width: 30%;
-  padding: 0.5rem 0;
+  padding: 1vh 0;
   align-items: center;
   background-color: #f8d57b30;
   backdrop-filter: blur(12px);
-  border-radius: 10px; }
+  border-radius: 0.75vw; }
 
 .att-no {
-  font-weight: 200; }
+  font-weight: 200;
+  font-size: 2vh; }
 
 .att-date {
-  font-weight: 500; }
+  font-weight: 500;
+  font-size: 2vh; }
 
 #clc {
   background: none;
   align-items: center;
   justify-content: center;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.6vw;
+  height: 1.6vw;
   border: 2px solid #fff;
   border-radius: 100%;
   display: flex; }
@@ -138,10 +136,10 @@ body {
 #clp {
   background: #fd6d08;
   border: 2px solid #fd6d08;
-  width: 1.3rem;
-  height: 1.3rem;
+  width: 1.4vw;
+  height: 1.4vw;
   border-radius: 100%; }
 
 .foot {
-  margin: auto 7rem;
-  margin-bottom: 3rem; }
+  margin: auto 7vw;
+  margin-bottom: 6vh; }
