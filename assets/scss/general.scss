@@ -21,11 +21,11 @@ select {
 }
 
 .btn {
-  padding: 0.5rem 1.5rem;
+  padding: 1.5vh 1.5vw;
   border: none;
   cursor: pointer;
   border-radius: 15px;
-  font-size: 1rem;
+  font-size: 2vh;
   font-weight: 400;
   transition: all 0.3s;
 }
@@ -53,8 +53,8 @@ select {
 }
 
 .btn-large{
-    width: 12rem;
-    height: 2.75rem;
+    width: 13vw;
+    height: 5.75vh;
 }
 
 .btn-medium{
