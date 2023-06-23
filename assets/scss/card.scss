@@ -1,8 +1,8 @@
 .cards {
-    border-radius: 20px;
     display: flex;
-    gap: 2rem;
-    padding: 1rem 3rem;
+    height: 80vh;
+    justify-content: space-between;
+    padding: 1vh 3vw;
   }
   .card {
     background-color: #f8d57b1e;
@@ -10,42 +10,43 @@
     backdrop-filter: blur(12px);
     border-radius: 20px;
   }
-  
+  .card-col1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   .card1 {
     height: 12vh;
-    margin-bottom: 1rem;
+    width: 53vw;
+    padding: 0 1vw;
     color: #fff;
     display: flex;
     justify-content: space-between;
-    padding: 0rem 1rem;
-    width: 53vw;
+    align-items: center;
   }
   .card2 {
     height: 25vh;
-    margin-bottom: 1rem;
-    padding: 0 1rem;
+    padding: 0 1vw;
     width: 53vw;
   }
   .card3 {
     height: 37vh;
     width: 53vw;
-    /* margin-bottom: 1rem; */
+    padding: 0 1vw;
   }
   .card4 {
     height: 34vh;
-    margin-bottom: 1rem;
+    width: 24vw;
+    padding: 0 1vw;
   }
   .card5 {
+    width: 24vw;
     height: 42vh;
-    /* padding: 5px; */
-    /* margin-bottom: 1rem; */
   }
   
   .card-hed {
-    padding-top: 0.7rem;
-    padding-left: 1rem;
-    padding-bottom: 0.5rem;
-    font-size: 1.1rem;
+    padding-top: 1vh;
+    font-size: 2.65vh;
     color: #f8d0b4;
   }
   
@@ -53,32 +54,30 @@
   /*  - - - STUDENT PROFILE - - -  */
   /* - - - - - - - - - - - - - - - - */
   .img {
-    width: 4rem;
-    height: 4rem;
+    width: 4.5vw;
+    height: 4.5vw;
     border-radius: 50%;
     border: 3px solid #febb8c;
-    margin-right: 0.5rem;
+    margin-right: 0.8vw;
   }
   
   .b1,
   .b2,
   .b3 {
     display: flex;
-    padding-top: 0.8rem;
-    /* align-items: center; */
   }
   .std-name {
-    font-size: 1.3rem;
+    font-size: 2.5vh;
     font-weight: 600;
     line-height: 1.5;
   }
   .reg {
     font-weight: 100;
-    font-size: 1.1rem;
+    font-size: 2.2vh;
   }
   
   .b2 h1 {
-    font-size: 0.9rem;
+    font-size: 1.9vh;
     font-weight: 500;
     line-height: 1.5;
   }
@@ -86,7 +85,7 @@
     font-weight: 100;
   }
   .b3 h1 {
-    font-size: 0.9rem;
+    font-size: 1.9vh;
     font-weight: 500;
     line-height: 1.5;
   }
@@ -98,10 +97,9 @@
   /* - - - NOTIFICATION - - - */
   /* - - - - - - - - - - - - - - */
   .notification {
-    padding: 0.7rem;
-    padding-left: 1rem;
-    padding-right: 1.1rem;
+    padding: 1.7vh;
     display: flex;
+    gap: 0.5vw;
     justify-content: space-between;
   }
   .pdf a:hover {
@@ -112,7 +110,7 @@
     color: #fff;
   }
   .text {
-    font-size: 0.9rem;
+    font-size: 1.8vh;
   }
   .new {
     color: #fff;
@@ -122,13 +120,13 @@
   }
   .time {
     color: #ffffff63;
-    padding-top: 0.4rem;
+    padding-top: 1.4vh;
     font-weight: 100;
-    font-size: 0.6rem;
+    font-size: 1.5vh;
   }
   /* vertical scrolling */
   .content {
-    height: 12.5rem;
+    height: 28vh;
     overflow-x: hidden;
     overflow-y: auto;
     scrollbar-width: none;
@@ -148,8 +146,8 @@
   }
   .circle-progress {
     position: relative;
-    height: 4.5rem;
-    width: 4.5rem;
+    width: 5vw;
+    height: 5vw;
     border-radius: 50%;
     background: conic-gradient(#ffbd01 0deg, #00000068 0deg);
     display: flex;
@@ -161,8 +159,8 @@
   .circle-progress::before {
     content: "";
     position: absolute;
-    height: 4rem;
-    width: 4rem;
+    width: 4.5vw;
+    height: 4.5vw;
     background-color: #877b6f;
     border-radius: 50%;
     /* border: 2px solid #00000068; */
@@ -170,36 +168,35 @@
   
   .progress-val {
     position: relative;
-    font-size: 1.3rem;
+    font-size: 2.3vh;
     font-weight: 600;
     color: #ffffff;
   }
   
   .sub-info {
     text-align: center;
-    font-size: 1.5rem;
     font-weight: 500;
     color: #ffffff;
-    margin-top: 1rem;
+    margin-top: 1.5vh;
   }
   .sub-code {
-    font-size: 0.8rem;
+    font-size: 1.7vh;
     font-weight: 100;
   }
   .sub-name{
-      font-size: 1.2rem;
+      font-size: 2.3vh;
   }
   
   .attendence-percent {
     display: flex;
-    gap: 3rem;
-    padding-top: 1rem;
-    padding-bottom: 2rem;
+    gap: 3vw;
+    padding-top: 2vh;
+    padding-bottom: 3vh;
   }
   
   /* Horizontal scrolling */
   .attendence-container {
-    width: 44rem;
+    width: 50.75vw;
     overflow-x: auto;
     white-space: nowrap;
     -ms-overflow-style: none;
@@ -207,3 +204,6 @@
   .attendence-container::-webkit-scrollbar {
     display: none; 
   }
+
+
+
