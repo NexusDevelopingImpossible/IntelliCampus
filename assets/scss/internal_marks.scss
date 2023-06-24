@@ -1,17 +1,17 @@
-.main-page {
-  color: white;
-}
+// .main-page {
+//   color: white;
+// }
 
-.page-heading {
-  display: flex;
-  align-items: center;
-  margin: 2.5vh 0 0 2.5vh;
-}
+// .page-heading {
+//   display: flex;
+//   align-items: center;
+//   margin: 2.5vh 0 0 2.5vh;
+// }
 
-.heading {
-  display: inline-block;
-  font-size: 4vh;
-}
+// .heading {
+//   display: inline-block;
+//   font-size: 4vh;
+// }
 
 .subject {
   text-align: left;
@@ -70,12 +70,6 @@
 }
 #marks-display::-webkit-scrollbar {
   display: none;
-}
-
-#back_buttn {
-  margin-right: 3.5vh;
-  height: 5vh;
-  width: 5vh;
 }
 
 #marks {
@@ -169,8 +163,8 @@
 }
 
 .mark-att div{
-  border-right: 0.5px solid #ffffff38 !important;
   border-top-left-radius: 10px;
+  border-right: 0.5px solid #ffffff38 !important;
   
 }
 .mark-int div{

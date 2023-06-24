@@ -1,11 +1,12 @@
-*,
-*::before,
+*, *::before,
 *::after {
   padding: 0;
   margin: 0;
   box-sizing: border-box; }
 
 body {
+  max-width: 100%;
+  max-height: 100%;
   display: flex;
   margin: 0;
   padding: 0;
@@ -13,54 +14,46 @@ body {
   background-color: #390300; }
 
 .main-container {
-  width: 15vw;
-  height: auto; }
+  width: auto;
+  height: 100vh; }
 
 .navbar {
   height: 100vh;
-  width: auto;
+  width: 15vw;
   display: flex;
   flex-direction: column; }
 
 .nav-smit-logo img {
-  width: 13.5rem;
-  padding-bottom: 1.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 2rem; }
+  width: 13vw;
+  padding-bottom: 2.5vh;
+  padding-top: 2.5vh;
+  display: flex;
+  margin: auto; }
 
-.manager-logo-div {
-  margin: auto;
-  vertical-align: bottom;
-  margin-bottom: 1rem; }
-
-.manager-logo {
-  width: 12.5rem;
-  /* margin-bottom: 1rem; */
-  padding-bottom: 2rem;
-  padding-left: 1rem;
-  padding-top: 2rem; }
+.tabs ul {
+  display: flex;
+  flex-direction: column; }
 
 .tabs ul li {
   list-style: none; }
 
 .tabs li a {
-  padding: 1rem 1.5rem 1rem 2.3rem;
+  padding: 2.5vh 2vw 2.5vh 2.75vw;
   text-decoration: none; }
 
 .tab {
   display: flex;
   align-items: center;
-  gap: 1rem; }
+  gap: 1.25vw; }
 
 .tab-name {
   color: #ffffff;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 2.1vh;
   /* width: 10rem; */ }
 
 .tab-icon img {
-  width: 1.2rem; }
+  width: 1.2vw; }
 
 .tabs li a:hover {
   background-color: rgba(255, 255, 255, 0.2);
@@ -69,29 +62,28 @@ body {
 
 .nav-manipal-vector img {
   position: absolute;
-  width: 20rem;
-  height: 20rem;
-  left: -100px;
-  top: 450px;
+  width: 24vw;
+  height: 45vh;
+  left: -8vw;
+  top: 55vh;
   opacity: 0.03;
   z-index: -1; }
 
 .main-page {
-  margin: auto 0;
-  vertical-align: middle;
-  margin-right: 1rem;
+  margin: 2vh 1vw;
+  margin-left: 0rem;
   width: 85vw;
   height: 96vh;
   background-image: url("../images/bg-blur.png");
   background-size: cover;
   background-position: center;
-  border-radius: 2.5rem;
-  padding-bottom: 1rem; }
+  border-radius: 2.75vw;
+  padding: 2vh 0; }
 
 .dash-manipal-vec {
   position: absolute;
   opacity: 0.05;
-  width: 25rem;
-  height: 27rem;
+  max-width: 100%;
+  height: auto;
   left: 801px;
   top: 0px; }

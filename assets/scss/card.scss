@@ -10,7 +10,7 @@
   backdrop-filter: blur(12px);
   border-radius: 20px;
 }
-.card-col1{
+.card-col1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -61,9 +61,7 @@
   margin-right: 0.8vw;
 }
 
-.b1,
-.b2,
-.b3 {
+.b1 {
   display: flex;
 }
 .std-name {
@@ -96,8 +94,11 @@
 /* - - - - - - - - - - - - - - */
 /* - - - NOTIFICATION - - - */
 /* - - - - - - - - - - - - - - */
+.card4 .card-hed {
+  padding-bottom: 1.5vh;
+}
 .notification {
-  padding: 1.7vh;
+  padding-bottom: 2vh;
   display: flex;
   gap: 0.5vw;
   justify-content: space-between;
@@ -110,7 +111,7 @@
   color: #fff;
 }
 .text {
-  font-size: 1.8vh;
+  font-size: 1.9vh;
 }
 .new {
   color: #fff;
@@ -120,21 +121,21 @@
 }
 .time {
   color: #ffffff63;
-  padding-top: 1.4vh;
-  font-weight: 100;
+  padding-top: 0.5vh;
+  font-weight: 400;
   font-size: 1.5vh;
 }
 /* vertical scrolling */
 .content {
-  height: 28vh;
+  height: 26vh;
   overflow-x: hidden;
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-
 }
 .content::-webkit-scrollbar {
-    display: none; }
+  display: none;
+}
 
 /* - - - - - - - - - - - - */
 /* - - - ATTENDENCE - - - */
@@ -183,8 +184,8 @@
   font-size: 1.7vh;
   font-weight: 100;
 }
-.sub-name{
-    font-size: 2.3vh;
+.sub-name {
+  font-size: 2.3vh;
 }
 
 .attendence-percent {
@@ -202,7 +203,5 @@
   -ms-overflow-style: none;
 }
 .attendence-container::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
-
-

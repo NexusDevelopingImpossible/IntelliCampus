@@ -8,29 +8,19 @@ a {
   text-decoration: none;
   color: #fff; }
 
-/************************* Title Section ***************************/
-#title {
-  margin: 6vh 2vw;
-  margin-bottom: 2.5vh;
-  display: flex; }
-
-#back_arrow {
-  width: 2vw; }
-
-#sub_title {
-  font-size: 2.8vh;
-  padding-left: 1.5vw; }
-
 /*********************** Teacher's Feedback ***************************/
 .feedback {
   height: 75vh;
-  overflow-y: auto; }
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh; }
 
 .feedback::-webkit-scrollbar {
   display: none; }
 
 .feed {
-  padding: 1.8vh 5vw;
+  padding: 0 5vw;
   display: flex;
   justify-content: space-between; }
 

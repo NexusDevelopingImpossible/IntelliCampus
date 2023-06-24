@@ -1,26 +1,6 @@
 /************************************************************************************************/
 /*****************************************Student Attendance View CSS***********************************/
 /************************************************************************************************/
-body {
-  color: #fff; }
-
-/************************************* Title Section **************************************/
-.main-page {
-  display: flex;
-  flex-direction: column; }
-
-#title {
-  margin: 4vh 2vw;
-  display: flex;
-  align-items: center; }
-
-#back_arrow {
-  width: 2vw; }
-
-#sub_title {
-  font-size: 4vh;
-  padding-left: 1.5vw; }
-
 /*********************************** Subjects's Attendance **********************************/
 .sub-attendance {
   margin: 0rem 6vw 4vh; }
@@ -96,7 +76,7 @@ body {
   display: grid;
   gap: 1rem;
   overflow-y: auto;
-  height: 55vh; }
+  height: 60vh; }
 
 .date-list::-webkit-scrollbar {
   display: none; }
