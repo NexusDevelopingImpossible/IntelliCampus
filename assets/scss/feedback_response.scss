@@ -1,12 +1,11 @@
-$btn-color: #FD6D08;
-$btn-color-hover: #dc5c00;
-
 .main-page{
     color: white;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
+$btn-color: #FD6D08;
+$btn-color-hover: #dc5c00;
 .queries{
     margin-top: 3vh;
 }
@@ -46,7 +45,6 @@ $btn-color-hover: #dc5c00;
 .rank:hover{
     background-color: $btn-color;
 }
-
 
 .marker{
     display: flex;
