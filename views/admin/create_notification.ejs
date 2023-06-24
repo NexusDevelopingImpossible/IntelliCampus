@@ -1,101 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="../../assets/css/navbar.css">
-    <link rel="stylesheet" href="../../assets/scss/create_notification.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet" />
-</head>
+    <link rel="stylesheet" href="/css/create_notification.css">
+ 
 
-<body>
-    <section class="main-container">
-        <div class="navbar">
-            <div class="nav-smit-logo">
-                <img src="../../assets/images/SMIT HIGH RES LOGO WHITE 1.png" alt="" />
-            </div>
-            <div class="tabs">
-                <ul>
-                    <li>
-                        <a class="tab" href="#">
-                            <span class="tab-icon"><img src="../../assets/images/dashboard.png" alt="" /></span>
-                            <span class="tab-name">Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tab" href="#">
-                            <span class="tab-icon"><img src="../../assets/images/PROFILE ICON.png" alt="" /></span>
-                            <span class="tab-name">Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tab" href="#">
-                            <span class="tab-icon"><img src="../../assets/images/Edit-ID.png" alt="" /></span>
-                            <span class="tab-name">Edit ID</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tab" href="#">
-                            <span class="tab-icon"><img src="../../assets/images/Allot-subject.png" alt="" /></span>
-                            <span class="tab-name">Allot Subject</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tab" href="#">
-                            <span class="tab-icon"><img src="../../assets/images/timetable.png" alt="" /></span>
-                            <span class="tab-name">Timetable</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tab" href="#">
-                            <span class="tab-icon"><img src="../../assets/images/Change-semester.png" alt="" /></span>
-                            <span class="tab-name">Semester</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tab" href="#">
-                            <span class="tab-icon"><img src="../../assets/images/Feedback.png" alt="" /></span>
-                            <span class="tab-name">Feedback</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tab" href="#">
-                            <span class="tab-icon"><img src="../../assets/images/Report.png" alt="" /></span>
-                            <span class="tab-name">Report</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tab" href="#">
-                            <span class="tab-icon"><img src="../../assets/images/setting.png" alt="" /></span>
-                            <span class="tab-name">Settings</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tab" href="#">
-                            <span class="tab-icon"><img src="../../assets/images/signout.png" alt="" /></span>
-                            <span class="tab-name" id="1">Sign Out</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="nav-manipal-vector">
-                <img src="../../assets/images/manipal-vector.png" alt="" />
-            </div>
-        </div>
-
-        <div class="main-background">
-            <!-- <div>
-                <img class="main-background-manipal-vector" src="../../assets/images/manipal-vector.png" alt="" />
-            </div> -->
-
+        <div class="main-page">
+           
             <!-- overlay -->
             <div class="overlay" id="overlay"></div>
             <div class="modal " id="modal">
@@ -115,9 +23,10 @@
                     </button>
                 </div>
                 <div class="bottom">
+                    <form action="/admin/createnoti" method="post">
                     <div class="row1">
-                        <input type="text" name="" id="" placeholder="Notification Title">
-                        <button class="create__second">Create</button>
+                        <input type="text" name="title" id="" placeholder="Notification Title">
+                        <button type="submit" class="create__second">Create</button>
                     </div>
                     <div class="row2">
                         <button class="btn">Upload 
@@ -134,9 +43,10 @@
                                 </svg>
                             </span>
                         </button>
-                        <input type="file" name="myfile" />
-                        <input type="date" name="" id="">
+                        <input type="file" name="notifile" />
+                        <!-- <input type="date" name="" id=""> -->
                     </div>
+                </form>
                 </div>
             </div>
 
@@ -238,10 +148,4 @@
             </div>
 
         </div>
-    </section>
-    <script src="../../assets/js/create_notif.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
-
-</html>
+   <script src="/js/create_notif.js"></script>

@@ -5,6 +5,10 @@ const Timetable = require('../models/timetable');
 const Subject = require('../models/subject');
 const Admin = require('../models/admin');
 const checkurlfunct = require('./server-function');
+const Calendar = require('../models/calendar');
+const Noti = require('../models/notification')
+const fs = require('fs');
+const path = require('path');
 
 
 //Dashboard 
@@ -213,10 +217,65 @@ module.exports.deletesubject = async function (req, res) {
 
 module.exports.calendar = async function (req, res) {
     try {
-        return res.render('admin/calendar', {title: "Add Holidays"});
+        let calendardata = await Calendar.find({});
+        // console.log(typeof(calendardata));
+        // console.log(calendardata);
+        for(let i =0; i<calendardata.length; i++){
+            let datestring = String(calendardata[i].date);
+            datestring =  datestring.slice(0, 11);
+            calendardata[i].date = datestring;
+            // console.log(datestring);
+        }
+        return res.render('admin/calendar', {title: "Add Holidays",calendardata});
     } catch (error) {
         console.log(error);
     }
 }
 
+module.exports.addholiday = async function (req, res) {
+    try {
+        await Calendar.create(req.body);
+
+        return res.redirect("back")
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+module.exports.notification = async function (req, res) {
+    try {
+
+
+        return res.render("admin/create_notification", {title: "Create Notification"})
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+module.exports.createnoti = async function (req, res) {
+    try {
+        Noti.uploadfile(req,res,function(error){
+            if(error){
+                console.log("** Multer error :",error);
+            }
+            // title: req.body.title;
+            if(req.body.notifile){
+                req.body.notiflie = Noti.uploadpath + "/" + req.body.notifile;
+                // fs.unlinkSync(path.join(__dirname,req.body.notifile));
+                // this is saving the path of an uploaded file into the avatar field of the user
+                //   user.avatar = User.avatarPath + "/" + req.file.filename;
+                // console.log("high");
+            }
+          
+
+            console.log(req.body.notifile);
+            Noti.create(req.body);
+            // Noti.save();
+        });
+        console.log(req.body);
+        return res.redirect("back")
+    } catch (error) {
+        console.log(error);
+    }
+}
 
