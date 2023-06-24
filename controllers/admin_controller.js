@@ -186,7 +186,7 @@ module.exports.addsubject = async function (req, res) {
             subjectcode: subjectName,
             classes: []
         })
-        // return res.redirect('back');
+        // return res.redirect('back'); DONT UNCOMMENT THIS
         
         let timetables = await Timetable.find({ teacherid: teacherdata._id }).populate('subjectcode');
         req.flash('success', 'Subject allot successfully');

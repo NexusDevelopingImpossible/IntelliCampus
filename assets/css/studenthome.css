@@ -9,20 +9,25 @@
   display: flex;
   justify-content: space-between; }
 
+.ecampus img {
+  margin-top: 1.5rem;
+  width: 10rem;
+  margin-right: 3rem; }
+
 .dash-heading {
-  padding-top: 2vh; }
+  padding-top: 1rem; }
 
 .head {
-  padding-left: 3vw;
+  padding-left: 3rem;
   color: #ffffff; }
 
 .head1 {
-  font-size: 7vh;
+  font-size: 3rem;
   font-weight: 700;
   color: #ffffff; }
 
 .welcome-msg {
-  font-size: 3vh;
+  font-size: 1.5rem;
   font-weight: 300; }
 
 .welcome-msg span {

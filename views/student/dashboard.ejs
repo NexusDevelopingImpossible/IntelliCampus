@@ -61,6 +61,9 @@
           <p>Attendence</p>
         </div>
         <div class="attendence-container">
+          <% if(internal.length==0){ %>
+            <div id="no-subject">No subjects</div>
+          <% } %>
           <div class="attendence-percent">
             <%for(let i=0; i<internal.length; i++){%>
               <% function extractCapitalLetters(str) { const capitalLetters=str.match(/[A-Z]/g); return capitalLetters ?
@@ -94,7 +97,7 @@
         </div>
       </div>
     </div>
-    <div class="card-col1">
+    <div class="card-col2">
       <div class="card card4">
         <div class="card-hed">
           <p>Notifications</p>

@@ -177,6 +177,7 @@ module.exports.attendance_update = async (req, res) => {
 };
 
 module.exports.attendaceedit = async (req, res) => {
+  
   const timetables = await Timetable.findOne({
     "classes._id": req.params.id,
   }).populate("subjectcode");

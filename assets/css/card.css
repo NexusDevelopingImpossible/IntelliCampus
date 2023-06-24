@@ -1,8 +1,9 @@
 .cards {
-  display: flex;
+  border-radius: 20px;
   height: 80vh;
-  justify-content: space-between;
-  padding: 1vh 3vw; }
+  display: flex;
+  gap: 1.25rem;
+  padding: 1rem 3rem; }
 
 .card {
   background-color: #f8d57b1e;
@@ -11,69 +12,71 @@
   border-radius: 20px; }
 
 .card-col1 {
+  width: 52vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
 
+.card-col2 {
+  width: 26vw;
+  display: flex;
+  flex-direction: column; }
+
 .card1 {
-  height: 12vh;
-  width: 53vw;
-  padding: 0 1vw;
+  margin-bottom: 1rem;
   color: #fff;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center; }
+  padding: 0.75rem 1rem; }
 
 .card2 {
-  height: 25vh;
-  padding: 0 1vw;
-  width: 53vw; }
+  height: 13rem;
+  margin-bottom: 1rem; }
 
 .card3 {
-  height: 37vh;
-  width: 53vw;
-  padding: 0 1vw; }
+  height: 34vh; }
 
 .card4 {
   height: 34vh;
-  width: 24vw;
-  padding: 0 1vw; }
+  margin-bottom: 1rem; }
 
 .card5 {
-  width: 24vw;
-  height: 42vh; }
+  height: 20rem;
+  padding: 0.1rem;
+  /* margin-bottom: 1rem; */ }
 
 .card-hed {
-  padding-top: 1vh;
-  font-size: 2.65vh;
+  padding-top: 0.7rem;
+  padding-left: 1rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.1rem;
   color: #f8d0b4; }
 
 /* - - - - - - - - - - - - - - - - */
 /*  - - - STUDENT PROFILE - - -  */
 /* - - - - - - - - - - - - - - - - */
 .img {
-  width: 4.5vw;
-  height: 4.5vw;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   border: 3px solid #febb8c;
-  margin-right: 0.8vw; }
+  margin-right: 0.5rem; }
 
-.b1,
-.b2,
-.b3 {
+.b1 {
   display: flex; }
 
 .std-name {
-  font-size: 2.5vh;
+  font-size: 1.3rem;
   font-weight: 600;
   line-height: 1.5; }
 
 .reg {
   font-weight: 100;
-  font-size: 2.2vh; }
+  font-size: 1.1rem; }
 
 .b2 h1 {
-  font-size: 1.9vh;
+  font-size: 0.9rem;
   font-weight: 500;
   line-height: 1.5; }
 
@@ -81,7 +84,7 @@
   font-weight: 100; }
 
 .b3 h1 {
-  font-size: 1.9vh;
+  font-size: 0.9rem;
   font-weight: 500;
   line-height: 1.5; }
 
@@ -92,9 +95,10 @@
 /* - - - NOTIFICATION - - - */
 /* - - - - - - - - - - - - - - */
 .notification {
-  padding: 1.7vh;
+  padding: 0.7rem;
+  padding-left: 1rem;
+  padding-right: 1.1rem;
   display: flex;
-  gap: 0.5vw;
   justify-content: space-between; }
 
 .pdf a:hover {
@@ -105,7 +109,7 @@
   color: #fff; }
 
 .text {
-  font-size: 1.8vh; }
+  font-size: 0.9rem; }
 
 .new {
   color: #fff; }
@@ -115,13 +119,13 @@
 
 .time {
   color: #ffffff63;
-  padding-top: 1.4vh;
+  padding-top: 0.4rem;
   font-weight: 100;
-  font-size: 1.5vh; }
+  font-size: 0.6rem; }
 
 /* vertical scrolling */
 .content {
-  height: 28vh;
+  height: 25vh;
   overflow-x: hidden;
   overflow-y: auto;
   scrollbar-width: none;
@@ -140,8 +144,8 @@
 
 .circle-progress {
   position: relative;
-  width: 5vw;
-  height: 5vw;
+  height: 4.5rem;
+  width: 4.5rem;
   border-radius: 50%;
   background: conic-gradient(#ffbd01 0deg, #00000068 0deg);
   display: flex;
@@ -152,43 +156,51 @@
 .circle-progress::before {
   content: "";
   position: absolute;
-  width: 4.5vw;
-  height: 4.5vw;
+  height: 4rem;
+  width: 4rem;
   background-color: #877b6f;
   border-radius: 50%;
   /* border: 2px solid #00000068; */ }
 
 .progress-val {
   position: relative;
-  font-size: 2.3vh;
+  font-size: 1.3rem;
   font-weight: 600;
   color: #ffffff; }
 
 .sub-info {
   text-align: center;
+  font-size: 1.5rem;
   font-weight: 500;
   color: #ffffff;
-  margin-top: 1.5vh; }
+  margin-top: 1rem; }
 
 .sub-code {
-  font-size: 1.7vh;
+  font-size: 0.8rem;
   font-weight: 100; }
 
 .sub-name {
-  font-size: 2.3vh; }
+  font-size: 1.2rem; }
 
 .attendence-percent {
   display: flex;
-  gap: 3vw;
-  padding-top: 2vh;
-  padding-bottom: 3vh; }
+  gap: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem; }
 
 /* Horizontal scrolling */
 .attendence-container {
-  width: 50.75vw;
+  margin: 0 1rem;
   overflow-x: auto;
   white-space: nowrap;
   -ms-overflow-style: none; }
 
 .attendence-container::-webkit-scrollbar {
   display: none; }
+
+#no-subject {
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  vertical-align: middle; }

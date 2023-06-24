@@ -14,7 +14,7 @@ class updateInternalMarks{
                 url:"/teacher/updateMarks",
                 data: $(self).serialize(),
                 success: function(){
-                    console.log("Success");
+                    // console.log("Success");
                     new Noty({
                         theme: "relax",
                         text: "Marks Updated",
@@ -24,7 +24,7 @@ class updateInternalMarks{
                       }).show();
                 },
                 error: function (error) {
-                    console.log(error.responseText);
+                    // console.log(error.responseText);
                     new Noty({
                       theme: "relax",
                       text: "Error in updating marks",

@@ -114,7 +114,7 @@
   padding: 1rem 8rem; }
 
 .list-sroll {
-  height: 30rem;
+  height: 50vh;
   overflow-y: auto; }
 
 .list-sroll::-webkit-scrollbar {
