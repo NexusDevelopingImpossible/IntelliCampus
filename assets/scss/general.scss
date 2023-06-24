@@ -58,5 +58,20 @@ select {
 }
 
 .btn-medium{
-    width: 8.5rem;
+    width: 8.6vw;
+}
+
+
+// Page Heading
+
+.page-heading{
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  margin: 3vh 0;
+  margin-left: 5vh;
+}
+
+#back_buttn{
+  width: 2.5vw;
 }

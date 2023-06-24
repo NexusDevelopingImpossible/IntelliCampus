@@ -21,9 +21,6 @@
   text-align: center; }
 
 .test-type p {
-  font-family: 'Inter', sans-serif;
-  font-family: 'Montserrat', sans-serif;
-  font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 400px;
   font-size: 60px;
@@ -40,7 +37,6 @@
   align-items: center; }
 
 #maximum-marks {
-  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 200;
   font-size: 20px;
@@ -63,7 +59,6 @@
   border-radius: 30px;
   border: 1px solid #FFFFFF;
   color: #FFFFFF;
-  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 300;
   font-size: 15px;
@@ -71,7 +66,6 @@
   position: absolute; }
 
 #NB-part {
-  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 200;
   font-size: 12px;
