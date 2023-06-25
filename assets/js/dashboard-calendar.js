@@ -26,7 +26,8 @@ const renderCalendar = () => {
     for (let i = 1; i <= lastDateofMonth; i++) { // creating li of all days of current month
         let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
                      && currYear === new Date().getFullYear() ? "active" : "";
-        liTag += `<li class="${isToday}">${i}</li>`;
+        liTag += `<li class="${isToday} main-div"><div>${i}</div> <div class="hidden-div"></div></li> 
+        </div>` ;
     }
 
     for (let i = lastDayofMonth; i < 6; i++) { 
@@ -52,4 +53,35 @@ prevNextIcon.forEach(icon => {
         }
         renderCalendar(); 
     });
+
+
+
 });
+
+
+
+// hover
+
+const mainDiv = document.querySelectorAll('.main-div');
+const hiddenDiv = document.querySelector('.hidden-div');
+// console.log(mainDiv);
+
+mainDiv.forEach(md=>{
+
+    md.addEventListener('mousemove', function(event) {
+        // console.log(event.clientX);
+        // console.log(event.clientY);
+      hiddenDiv.style.left = event.clientX-1408 + 'px';
+      hiddenDiv.style.top = event.clientY-563 + 'px';
+    //   hiddenDiv.style.left = '25px';
+    //   hiddenDiv.style.top = '25px';
+    });
+    
+    md.addEventListener('mouseenter', function() {
+      hiddenDiv.style.display = 'block';
+    });
+    
+    md.addEventListener('mouseleave', function() {
+      hiddenDiv.style.display = 'none';
+    });
+})
