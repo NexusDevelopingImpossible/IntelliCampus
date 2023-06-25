@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path");
-const Notifile = path.join("/uploads/noti");
+const Notifile = path.join("/upload/noti");
 
 const notificationSchema = new mongoose.Schema(
   {
@@ -23,13 +23,11 @@ let storage = multer.diskStorage({
     cb(null, path.join(__dirname, "..", Notifile));
   },
   filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    const uniqueSuffix = Date.now();
     cb(null, file.fieldname + "-" + uniqueSuffix);
   },
 });
 
-// static methods
-// single means just one file will be uploaded
 notificationSchema.statics.uploadfile = multer({ storage: storage }).single(
   "notifile"
 );

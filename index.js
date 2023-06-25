@@ -11,26 +11,35 @@ const MongoStore = require("connect-mongo");
 const db = require('./config/mongoose');
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
+const bodyParser = require("body-parser");
+const path = require("path");
 
-app.use(cookieParser());
 
 app.use(sassMiddleware({
-    src: './assets/scss',
-    dest: './assets/css',
-    debug: false, //true for console message
-    outputStyle: 'extended',
-    prefix: '/css'
+  src: './assets/scss',
+  dest: './assets/css',
+  debug: false, //true for console message
+  outputStyle: 'extended',
+  prefix: '/css'
 }));
 
-app.set('view engine', 'ejs');
-app.set('views', './views');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+app.use(expressLayouts);
+
 app.use(express.urlencoded());
 app.use(express.static('./assets'));
 
 app.set('layout extractStyles', true);
 app.set('layout extractScript', true);
 
-app.use(expressLayouts);
+
+app.set('view engine', 'ejs');
+app.set('views', './views');
+
+
+
 
 app.use(session({
   name: 'newUSer',

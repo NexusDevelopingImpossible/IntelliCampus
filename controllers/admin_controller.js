@@ -254,25 +254,18 @@ module.exports.notification = async function (req, res) {
 
 module.exports.createnoti = async function (req, res) {
     try {
-        Noti.uploadfile(req,res,function(error){
-            if(error){
-                console.log("** Multer error :",error);
-            }
-            // title: req.body.title;
-            if(req.body.notifile){
-                req.body.notiflie = Noti.uploadpath + "/" + req.body.notifile;
-                // fs.unlinkSync(path.join(__dirname,req.body.notifile));
-                // this is saving the path of an uploaded file into the avatar field of the user
-                //   user.avatar = User.avatarPath + "/" + req.file.filename;
-                // console.log("high");
-            }
-          
-
-            console.log(req.body.notifile);
-            Noti.create(req.body);
-            // Noti.save();
-        });
         console.log(req.body);
+        console.log(req.file);
+        // Noti.uploadfile(req,res,function(error){
+        //     if(error){
+        //         console.log("** Multer error :",error);
+        //         // Noti.save();
+        //     }
+        //     if(req.body.notifile){
+        //         Noti.create(req.body);
+        //             req.body.notiflie = Noti.uploadpath + "/" + req.body.notifile;
+        //     }
+        // });
         return res.redirect("back")
     } catch (error) {
         console.log(error);
