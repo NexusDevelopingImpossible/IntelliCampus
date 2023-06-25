@@ -109,7 +109,8 @@
   font-size: 1.9vh; }
 
 .new {
-  color: #fff; }
+  color: #fff;
+  font-weight: 400; }
 
 .old {
   color: #ffffff74; }

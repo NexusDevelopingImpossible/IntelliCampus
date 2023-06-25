@@ -4,6 +4,8 @@ const Attendance = require("../models/attendance");
 const Teacher = require("../models/teacher");
 const Timetable = require("../models/timetable");
 const Calendar = require("../models/calendar");
+const Notification = require("../models/notification");
+const prettydate = require("pretty-date");
 
 module.exports.dashboard = async (req, res) => {
   try {
@@ -12,14 +14,20 @@ module.exports.dashboard = async (req, res) => {
       username: res.locals.user.username,
     });
     const internal = await Attendance.find({
-      studentid: studentdata._id,
+      studentid: studentdata._id
     }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
     let calendardata = await Calendar.find({});
     calendardata = JSON.stringify(calendardata);
+    let notidata = await Notification.find({}).sort({updatedAt: -1});
+    let arr = [];
+    for(let i = 0; i<notidata.length; i++){
+      const dd = prettydate.format(notidata[i].updatedAt);
+      arr.push(dd);
+    }
     return res.render("Student/dashboard", {
       title: "Dashboard",
       student: studentdata,
-      internal, calendardata
+      internal, calendardata, notidata, arr
     });
   } catch (err) {
     console.log(err);

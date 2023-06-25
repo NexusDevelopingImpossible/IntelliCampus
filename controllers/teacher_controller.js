@@ -4,6 +4,9 @@ const Timetable = require("../models/timetable");
 const Student = require("../models/student");
 const Attendance = require("../models/attendance");
 const MarksScheme = require("../models/marksScheme");
+const Notification = require("../models/notification");
+const prettydate = require("pretty-date");
+
 
 //Dashboard
 module.exports.dashboard = async (req, res) => {
@@ -15,10 +18,17 @@ module.exports.dashboard = async (req, res) => {
     let timetabledata = await Timetable.find({
       teacherid: teacherdata._id,
     }).populate("subjectcode");
+    let notidata = await Notification.find({}).sort({updatedAt: -1});
+    let arr = [];
+    for(let i = 0; i<notidata.length; i++){
+      const dd = prettydate.format(notidata[i].updatedAt);
+      arr.push(dd);
+    }
+    // console.log(arr);
     return res.render("teacher/dashboard", {
       title: "Dashboard",
       teacher: teacherdata,
-      timetable: timetabledata,
+      timetable: timetabledata, notidata, arr
     });
   } catch (err) {
     console.log(err);

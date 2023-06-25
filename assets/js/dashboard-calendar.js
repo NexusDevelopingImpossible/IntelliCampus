@@ -62,26 +62,26 @@ prevNextIcon.forEach(icon => {
 
 // hover
 
-const mainDiv = document.querySelectorAll('.main-div');
-const hiddenDiv = document.querySelector('.hidden-div');
-// console.log(mainDiv);
+// const mainDiv = document.querySelectorAll('.main-div');
+// const hiddenDiv = document.querySelector('.hidden-div');
+// // console.log(mainDiv);
 
-mainDiv.forEach(md=>{
+// mainDiv.forEach(md=>{
 
-    md.addEventListener('mousemove', function(event) {
-        // console.log(event.clientX);
-        // console.log(event.clientY);
-      hiddenDiv.style.left = event.clientX-1408 + 'px';
-      hiddenDiv.style.top = event.clientY-563 + 'px';
-    //   hiddenDiv.style.left = '25px';
-    //   hiddenDiv.style.top = '25px';
-    });
+//     md.addEventListener('mousemove', function(event) {
+//         // console.log(event.clientX);
+//         // console.log(event.clientY);
+//       hiddenDiv.style.left = event.clientX-1408 + 'px';
+//       hiddenDiv.style.top = event.clientY-563 + 'px';
+//     //   hiddenDiv.style.left = '25px';
+//     //   hiddenDiv.style.top = '25px';
+//     });
     
-    md.addEventListener('mouseenter', function() {
-      hiddenDiv.style.display = 'block';
-    });
+//     md.addEventListener('mouseenter', function() {
+//       hiddenDiv.style.display = 'block';
+//     });
     
-    md.addEventListener('mouseleave', function() {
-      hiddenDiv.style.display = 'none';
-    });
-})
+//     md.addEventListener('mouseleave', function() {
+//       hiddenDiv.style.display = 'none';
+//     });
+// })

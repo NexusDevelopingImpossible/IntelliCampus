@@ -12,7 +12,7 @@ const notificationSchema = new mongoose.Schema(
     notiflie: {
       type: String,
       // required: true,
-    },
+    }
   },
   {
     timestamps: true,
@@ -24,7 +24,7 @@ let storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now();
-    cb(null, file.fieldname + "-" + uniqueSuffix);
+    cb(null, file.fieldname + "-" + uniqueSuffix + file.originalname);
   },
 });
 

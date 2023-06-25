@@ -303,135 +303,105 @@ button {
 
   /*------------------------Teacher Personal Info CSS----------------------*/
 
-  .teacher-info {
-    display: flex;
-    color: #ffffff;
-    align-items: center;
-  }
+  // .teacher-info {
+  //   display: flex;
+  //   color: #ffffff;
+  //   align-items: center;
+  // }
 
-  .tch-img {
-    width: 4.5rem;
-    height: 4.5rem;
-    border-radius: 50%;
-    border: 3px solid #fd6d08;
-    margin-right: 0.5rem;
-  }
+  // .tch-img {
+  //   width: 4.5rem;
+  //   height: 4.5rem;
+  //   border-radius: 50%;
+  //   border: 3px solid #fd6d08;
+  //   margin-right: 0.5rem;
+  // }
 
-  .tch-name {
-    font-weight: 400;
-    font-size: 1.6rem;
-  }
+  // .tch-name {
+  //   font-weight: 400;
+  //   font-size: 1.6rem;
+  // }
 
-  .tch-info {
-    font-weight: 200;
-    font-size: 1rem;
-  }
+  // .tch-info {
+  //   font-weight: 200;
+  //   font-size: 1rem;
+  // }
 
-  /*--------------------------Search Box CSS-------------------------*/
-
-  .search-box {
-    padding: 0.8rem 2rem 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .search-input {
-    width: 35rem;
-    height: 3rem;
-    padding: 10px 30px 10px 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    border-radius: 20px;
-    font-size: 1.3rem;
-    color: #ffffff;
-    backdrop-filter: blur(12px);
-  }
-
-  .search-input:focus {
-    outline: none;
-    border: 1px solid #fadb0e;
-  }
-
-  .search-input::placeholder {
-    color: #ffffff7c;
-    font-family: "Montserrat", sans-serif !important;
-  }
-
+  
   /*------------------------Teacher Subjects CSS------------------------*/
 
-  .subjects {
-    padding: 1rem 1rem 0 1rem;
-    font-weight: 300;
-    font-size: 0.7rem;
-    color: #ffffff;
-  }
+  // .subjects {
+  //   padding: 1rem 1rem 0 1rem;
+  //   font-weight: 300;
+  //   font-size: 0.7rem;
+  //   color: #ffffff;
+  // }
 
-  .hed {
-    padding-left: 1.5rem;
-    font-weight: 400;
-  }
+  // .hed {
+  //   padding-left: 1.5rem;
+  //   font-weight: 400;
+  // }
 
   /*---------------Carousel Slider CSS----------------*/
 
-  .main-carousel-container {
-    display: flex;
-  }
+  // .main-carousel-container {
+  //   display: flex;
+  // }
 
-  .carousel-container {
-    width: 75vw;
-    overflow-x: auto;
-    white-space: nowrap;
-    -ms-overflow-style: none;
-    mask-image: linear-gradient(
-      transparent,
-      black 5%,
-      black 95%,
-      transparent 100%
-    );
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent,
-      black 5%,
-      black 95%,
-      transparent 100%
-    );
-  }
+  // .carousel-container {
+  //   width: 75vw;
+  //   overflow-x: auto;
+  //   white-space: nowrap;
+  //   -ms-overflow-style: none;
+  //   mask-image: linear-gradient(
+  //     transparent,
+  //     black 5%,
+  //     black 95%,
+  //     transparent 100%
+  //   );
+  //   -webkit-mask-image: linear-gradient(
+  //     to right,
+  //     transparent,
+  //     black 5%,
+  //     black 95%,
+  //     transparent 100%
+  //   );
+  // }
 
-  .carousel-container::-webkit-scrollbar {
-    display: none;
-  }
+  // .carousel-container::-webkit-scrollbar {
+  //   display: none;
+  // }
 
-  .carousel {
-    display: flex;
-    gap: 0.8rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-  .carousel-container .noinformationtext {
-    height: 10rem;
-    text-align: center;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    font-size: 3rem;
-    color: #ffffff56;
-    //@srijan check this, if required change it
-  }
-  .carousel:first-of-type {
-    margin-left: 2rem;
-  }
+  // .carousel {
+  //   display: flex;
+  //   gap: 0.8rem;
+  //   padding-top: 1rem;
+  //   padding-bottom: 1rem;
+  // }
+  // .carousel-container .noinformationtext {
+  //   height: 10rem;
+  //   text-align: center;
+  //   margin: auto;
+  //   justify-content: center;
+  //   align-items: center;
+  //   display: flex;
+  //   font-size: 3rem;
+  //   color: #ffffff56;
+  //   //@srijan check this, if required change it
+  // }
+  // .carousel:first-of-type {
+  //   margin-left: 2rem;
+  // }
 
-  .controller {
-    vertical-align: middle;
-    cursor: pointer;
-    margin: auto;
-  }
+  // .controller {
+  //   vertical-align: middle;
+  //   cursor: pointer;
+  //   margin: auto;
+  // }
 
-  .right-control {
-    right: 0rem;
-  }
+  // .right-control {
+  //   right: 0rem;
+  // }
 
   /*--------------Subject CSS---------------*/
 
@@ -551,10 +521,3 @@ button {
   }
 }
 
-@media screen and (min-width: 1367px) and (max-width: 1600px) {
-  /* Styles for medium laptops */
-}
-
-@media screen and (min-width: 1601px) {
-  /* Styles for large laptops */
-}

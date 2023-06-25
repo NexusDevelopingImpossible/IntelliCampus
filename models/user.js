@@ -13,6 +13,9 @@ const userSchema = new mongoose.Schema({
     position: {
         type: String,
         required: true
+    },
+    exittime: {
+        type: Date
     }
 }, {
     timestamps: true

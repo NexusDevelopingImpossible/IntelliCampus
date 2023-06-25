@@ -28,7 +28,7 @@ module.exports.create = async (req, res) => {
         if (req.body.password != req.body.confirm_password) {
             return res.redirect('back');
         }
-        let user = await User.findOne({ username: req.body.username })
+        let user = await User.findOne({ username: req.body.username });
         await User.create(req.body);
         await Admin.create(req.body);
         return res.redirect('/Login');
@@ -65,7 +65,14 @@ module.exports.createSession = (req, res) => {
     });
 };
 
-module.exports.destroySession = function (req, res) {
+module.exports.destroySession = async function (req, res) {
+
+    // console.log(res.locals)
+    await User.findByIdAndUpdate(res.locals.user._id,{
+        $set: {
+            exittime: Date.now()
+        },
+      })
     // logout has been upgraded as an asynchronous function so it requires a callback function to handle error now
     req.logout(function (error) {
         if (error) {

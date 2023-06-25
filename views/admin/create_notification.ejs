@@ -24,11 +24,10 @@
             </button>
         </div>
         <div class="bottom">
-            <form action="/admin/createnoti" method="POST">
+            <form action="/admin/createnoti" method="POST" enctype="multipart/form-data">
                 <div class="row1">
-                    <input type="text" name="title" placeholder="Notification Title">
-                    <button type="submit" class="create__second">Create</button>
-
+                    <input type="text" name="title" placeholder="Notification Title" maxlength="100">
+                    <button type="submit" class="create__second">Create</button> 
                 </div>
                 <div class="row2">
                     <button class="btn">Upload
@@ -48,8 +47,7 @@
                             </svg>
                         </span>
                     </button>
-                    <input type="file" name="file" />
-
+                    <input type="file" name="notifile"/>
                     <!-- <input type="date" name="" id=""> -->
                 </div>
             </form>
@@ -90,7 +88,7 @@
 
             <div class="list__items">
                 <ul>
-                    <li>01</li>
+                    <li>Hi</li>
                     <li>Notification Title</li>
                     <li>16 June 2023</li>
                     <li>

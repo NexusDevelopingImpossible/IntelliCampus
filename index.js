@@ -13,6 +13,7 @@ const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 const bodyParser = require("body-parser");
 const path = require("path");
+const prettydate = require("pretty-date"); // 
 
 
 app.use(sassMiddleware({
@@ -30,6 +31,8 @@ app.use(expressLayouts);
 
 app.use(express.urlencoded());
 app.use(express.static('./assets'));
+
+app.use('/upload', express.static(__dirname + '/upload'));
 
 app.set('layout extractStyles', true);
 app.set('layout extractScript', true);

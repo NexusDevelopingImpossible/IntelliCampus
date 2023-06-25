@@ -135,168 +135,22 @@
           <p>Notifications</p>
         </div>
         <div class="content tch-content">
+          <% for(let i=0; i<notidata.length; i++) {%>
+            <% let t = "old";
+              if(locals.user.exittime<notidata[i].updatedAt){
+                t = "new";
+            }
+              %>
           <div class="notification">
             <div class="text">
-              <p class="new">Ecampus manager version 3 updated</p>
-              <p class="time">29 mins ago</p>
+              <p class="<%=t%>"><%=notidata[i].title%></p>
+              <p class="time"><%=arr[i]%></p>
             </div>
             <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
+              <a href="<%=notidata[i].notiflie%>" target="_blank"><ion-icon name="download-outline"></ion-icon></a>
             </div>
           </div>
-          <div class="notification">
-            <div class="text">
-              <p class="new">Tommorrow holdiy for blah blah</p>
-              <p class="time">1 hour age</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
-          <div class="notification">
-            <div class="text">
-              <p class="old">
-                Independence day celebration cancelled due to heavy rainfall
-              </p>
-              <p class="time">1 day ago</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
-          <div class="notification">
-            <div class="text">
-              <p class="old">
-                For sit amet consectetur adipisicing elit. Nequent cumqs
-                veniaupti.
-              </p>
-              <p class="time">1 day ago</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
-
-          <div class="notification">
-            <div class="text">
-              <p class="old">
-                Beatae aliquid iste, iusto totam, expedita atque voluptatem
-                te quasi
-              </p>
-              <p class="time">2 days ago</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
-          <div class="notification">
-            <div class="text">
-              <p class="old">
-                Independence day celebration cancelled due to heavy rainfall
-              </p>
-              <p class="time">1 day ago</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
-          <div class="notification">
-            <div class="text">
-              <p class="old">
-                For sit amet consectetur adipisicing elit. Nequent cumqs
-                veniaupti.
-              </p>
-              <p class="time">1 day ago</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
-
-          <div class="notification">
-            <div class="text">
-              <p class="old">
-                Beatae aliquid iste, iusto totam, expedita atque voluptatem
-                te quasi
-              </p>
-              <p class="time">2 days ago</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
-          <div class="notification">
-            <div class="text">
-              <p class="old">
-                Independence day celebration cancelled due to heavy rainfall
-              </p>
-              <p class="time">1 day ago</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
-          <div class="notification">
-            <div class="text">
-              <p class="old">
-                For sit amet consectetur adipisicing elit. Nequent cumqs
-                veniaupti.
-              </p>
-              <p class="time">1 day ago</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
-
-          <div class="notification">
-            <div class="text">
-              <p class="old">
-                Beatae aliquid iste, iusto totam, expedita atque voluptatem
-                te quasi
-              </p>
-              <p class="time">2 days ago</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
-          <div class="notification">
-            <div class="text">
-              <p class="old">
-                Independence day celebration cancelled due to heavy rainfall
-              </p>
-              <p class="time">1 day ago</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
-          <div class="notification">
-            <div class="text">
-              <p class="old">
-                For sit amet consectetur adipisicing elit. Nequent cumqs
-                veniaupti.
-              </p>
-              <p class="time">1 day ago</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
-
-          <div class="notification">
-            <div class="text">
-              <p class="old">
-                Beatae aliquid iste, iusto totam, expedita atque voluptatem
-                te quasi
-              </p>
-              <p class="time">2 days ago</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
+          <%}%>
         </div>
       </div>
 
