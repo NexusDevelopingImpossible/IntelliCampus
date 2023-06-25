@@ -3,6 +3,7 @@ const Student = require("../models/student");
 const Attendance = require("../models/attendance");
 const Teacher = require("../models/teacher");
 const Timetable = require("../models/timetable");
+const Calendar = require("../models/calendar");
 
 module.exports.dashboard = async (req, res) => {
   try {
@@ -13,10 +14,12 @@ module.exports.dashboard = async (req, res) => {
     const internal = await Attendance.find({
       studentid: studentdata._id,
     }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
+    let calendardata = await Calendar.find({});
+    calendardata = JSON.stringify(calendardata);
     return res.render("Student/dashboard", {
       title: "Dashboard",
       student: studentdata,
-      internal,
+      internal, calendardata
     });
   } catch (err) {
     console.log(err);
