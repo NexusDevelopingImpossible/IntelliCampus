@@ -1,5 +1,10 @@
 <link rel="stylesheet" href="/css/navbar.css" />
 
+<%
+let dp = "";
+
+%>
+
 <section class="main-container">
   <div class="navbar">
     <div class="nav-smit-logo">
@@ -8,19 +13,25 @@
     <div class="tabs">
       <ul>
         <li>
-          <a class="tab" href="/student/dashboard">
+          <a class="tab <%if(title == "Dashboard"){%>
+            dynamic-hover
+          <%}%>" href="/student/dashboard">
             <span class="tab-icon"><img src="/images/dashboard.png" alt="" /></span>
             <span class="tab-name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a class="tab" href="/student/attendance">
+          <a class="tab <%if(title == "Attendance"){%>
+            dynamic-hover
+          <%}%>" href="/student/attendance">
             <span class="tab-icon"><img src="/images/attendance.png" alt="" /></span>
             <span class="tab-name">Attendance</span>
           </a>
         </li>
         <li>
-          <a class="tab" href="/student/internalmark">
+          <a class="tab <%if(title == "Internal Marks"){%>
+            dynamic-hover
+          <%}%>" href="/student/internalmark">
             <span class="tab-icon"><img src="/images/internals.png" alt="" /></span>
             <span class="tab-name">Internals</span>
           </a>
@@ -38,7 +49,9 @@
           </a>
         </li> -->
         <li>
-          <a class="tab" href="/student/feedback">
+          <a class="tab <%if(title == "Feedback"){%>
+            dynamic-hover
+          <%}%>" href="/student/feedback">
             <span class="tab-icon"><img src="/images/Feedback.png" alt="" /></span>
             <span class="tab-name">Feedback</span>
           </a>

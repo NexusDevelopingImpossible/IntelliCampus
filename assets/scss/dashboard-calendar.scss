@@ -67,14 +67,14 @@ header .current-DATE {
   text-align: center;
 }
 .calendar .days li {
-  z-index: 1;
+  // z-index: 1;
   cursor: pointer;
-  position: relative;
+  // position: relative;
   padding: 1.3vh;
 }
-.calendar .days li:hover{
-  background-color: #0000002e;
-}
+// .calendar .days li:hover{
+//   background-color: #0000002e;
+// }
 .days li.inactive {
   color: #aaa;
 }
@@ -95,3 +95,23 @@ header .current-DATE {
 .days li.active::before {
   background: #00000043;
 }
+
+.main-div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+
+.hidden-div {
+  width: 150px;
+  height: 50px;
+  background-color: #000000;
+  backdrop-filter: blur(62px);
+  border-radius: 10px;
+  color: #000;
+  position: absolute;
+  display: none;
+  z-index: 1;
+}
+
