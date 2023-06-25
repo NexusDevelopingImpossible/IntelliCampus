@@ -72,6 +72,9 @@ header .current-DATE {
   position: relative;
   padding: 1.3vh;
 }
+.calendar .days li:hover{
+  background-color: #0000002e;
+}
 .days li.inactive {
   color: #aaa;
 }

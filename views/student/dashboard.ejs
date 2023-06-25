@@ -1,9 +1,9 @@
-<title>
-  <%= title%>
-</title>
+
 <link rel="stylesheet" href="/css/studenthome.css" />
 <link rel="stylesheet" href="/css/card.css" />
 <link rel="stylesheet" href="/css/dashboard-calendar.css" />
+
+
 
 <div class="main-page">
   <div class="heading">
@@ -232,6 +232,7 @@
       <div class="card card5">
         <div class="wrapper">
           <header>
+            <input id="cal" type="hidden" value="<%=calendardata%>">
             <div class="icons calendar-hed">
               <div>
                 <span id="prev" class="icon-fp"><ion-icon name="chevron-back-outline"></ion-icon></span>
@@ -264,3 +265,12 @@
 </div>
 <script src="/js/progress.js"></script>
 <script src="/js/dashboard-calendar.js"></script>
+
+
+<script>
+  let cal = document.getElementById("cal");
+  let data = cal.value;
+  data = JSON.parse(data);
+  console.log(data);
+
+</script>
