@@ -177,6 +177,7 @@ module.exports.attendance_update = async (req, res) => {
 };
 
 module.exports.attendaceedit = async (req, res) => {
+  
   const timetables = await Timetable.findOne({
     "classes._id": req.params.id,
   }).populate("subjectcode");
@@ -204,11 +205,9 @@ module.exports.attendaceedit = async (req, res) => {
 //view attendance of single student
 module.exports.viewstudentattendance = async (req, res) => {
   try {
-    console.log(req.params.id);
     let data = await Attendance.findById(req.params.id).populate(
       "timetableid studentid"
     );
-    console.log(data);
     data.present.sort();
     return res.render("teacher/subject/attendanceviewsingle", {
       title: "Attendance",
@@ -265,6 +264,7 @@ module.exports.internalmarkspage = async (req, res) => {
     "timetableid studentid"
   );
   marksData = JSON.stringify(marksData);
+  // console.log(window.screen.height);
   return res.render("teacher/subject/internalmarks", {
     title: "Internal marks",
     timetable: timetabledata,

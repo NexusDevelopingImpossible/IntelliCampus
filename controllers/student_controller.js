@@ -7,7 +7,6 @@ const Timetable = require("../models/timetable");
 module.exports.dashboard = async (req, res) => {
   try {
     checkurlfunct.checkurlstudent(req, res);
-    console.log(res.locals.user._id);
     const studentdata = await Student.findOne({
       username: res.locals.user.username,
     });
@@ -50,14 +49,22 @@ module.exports.feedback = async (req, res) => {
     const studentdata = await Student.findOne({
       username: res.locals.user.username,
     });
-    const teacherdata = await Timetable.find({}).populate(
-      "teacherid subjectcode"
-    );
+    const attendance = await Attendance.find({
+      studentid: studentdata._id,
+    }).select('timetableid -_id');
+    var teacherdata = [];
+    for(let i = 0; i<attendance.length; i++){
+      const teacher = await Timetable.findOne({_id: attendance[i].timetableid}).populate(
+        "teacherid subjectcode"
+      );
+      // console.log(teacher);
+      teacherdata.push(teacher);
+    }
     console.log(teacherdata);
     return res.render("student/feedback", {
       title: "Feedback",
       student: studentdata,
-      teacherdata,
+      teacherdata
     });
   } catch (err) {}
 };
@@ -109,9 +116,18 @@ module.exports.attendance = async (req, res) => {
 
 module.exports.enter_feedback = async (req, res) => {
   try {
-    
+
     return res.render("student/feedback_response", { title: "GIVE FEEDBACK" });
   } catch (Error) {
     console.log(Error);
+  }
+};
+
+module.exports.feedbackdata = async (req, res) => {
+  try {
+    req.flash("success", "Feedback submitted.");
+    return res.redirect("feedback");
+  } catch (error) {
+    console.log(error);
   }
 };

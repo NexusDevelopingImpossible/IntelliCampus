@@ -23,12 +23,6 @@ module.exports.signUp = (req, res) => {
     })
 }
 
-module.exports.temp = (req, res) => {
-    return res.render('tempView', {
-        title: "Test"
-    })
-}
-
 module.exports.create = async (req, res) => {
     try {
         if (req.body.password != req.body.confirm_password) {

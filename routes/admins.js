@@ -2,8 +2,6 @@ const express = require('express');
 const passport = require('passport');
 
 const router = express.Router();
-// console.log('router loaded');
-const homeController = require('../controllers/home_controller');
 
 const adminController = require('../controllers/admin_controller');
 
@@ -17,6 +15,10 @@ router.post('/searchteacherid', adminController.searchteacherid);
 router.post('/addsubject', adminController.addsubject); 
 router.get('/deletesubject', adminController.deletesubject); 
 router.get('/calendar', adminController.calendar); 
+router.post('/addholiday', adminController.addholiday);
+router.get("/notification", adminController.notification);
+router.post("/createnoti", adminController.createnoti);
+
 
 
 module.exports = router;

@@ -12,39 +12,25 @@ a{
     color: #fff;
 }
 
-/************************* Title Section ***************************/
 
-#title {
-    margin: 3rem 2rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-}
-
-#back_arrow {
-    width: 2rem;
-}
-
-#sub_title {
-    font-size: 1.8rem;
-    padding-left: 1.5rem;
-}
 
 /*********************** Teacher's Feedback ***************************/
 
 .feedback {
     height: 75vh;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
 }
 .feedback::-webkit-scrollbar{
     display: none;
 }
 
 .feed {
-    padding: 0.8rem 5rem;
+    padding: 0 5vw;
     display: flex;
     justify-content: space-between;
-
-    gap: 2rem;
 }
 
 .feed-card {
@@ -55,31 +41,30 @@ a{
     border-radius: 20px;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem 1rem;
+    padding: 1.5vh 1vw;
     width: 35vw;
-    gap: 0.5rem;
-    height: 6.5rem;
+    gap: 0.5vw;
+    height: 12.5vh;
 }
 
 .tch-pic img {
-    width: 4.5rem;
+    width: 4.5vw;
     border-radius: 100%;
     border: 3px solid #fd6d08;
 }
 
 .tch-name {
-    font-size: 1.2rem;
+    font-size: 2.2vh;
     font-weight: 500;
 }
 
 .tch-dtl {
-    font-size: 0.9rem;
+    font-size: 1.9vh;
     font-weight: 100;
 }
 
 .feed-btn {
     margin: auto;
-    margin-right: 0.1rem;
+    margin-right: 0.1vw;
 
 }
-

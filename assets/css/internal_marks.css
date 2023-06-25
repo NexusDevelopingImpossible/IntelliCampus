@@ -1,31 +1,20 @@
-.main-page {
-  color: white; }
-
-.page-heading {
-  display: flex;
-  margin: 2.5vh 0 0 2.5vh; }
-
-.heading {
-  display: inline-block;
-  font-size: xx-large; }
-
 .subject {
   text-align: left;
   height: 5vh;
   padding: 5px 0;
   background-color: #f8d57b1a;
   width: 17vw;
-  padding-left: 10px; }
+  padding-left: 1vw; }
 
 .sub-code {
   font-weight: 100;
-  padding-right: 1rem;
+  padding-right: 1vw;
   width: 6vw;
-  font-size: 1rem; }
+  font-size: 2vh; }
 
 .sub-title {
   text-align: left;
-  font-size: 1rem; }
+  font-size: 2vh; }
 
 .sub-inf {
   display: flex;
@@ -46,7 +35,7 @@
 
 .note {
   display: inline;
-  font-size: 0.85rem; }
+  font-size: 1.75vh; }
 
 .note-tit {
   font-weight: 500; }
@@ -56,15 +45,10 @@
 
 #marks-display {
   overflow: auto;
-  height: 76vh; }
+  height: 73vh; }
 
 #marks-display::-webkit-scrollbar {
   display: none; }
-
-#back_buttn {
-  margin-right: 3.5vh;
-  height: 5vh;
-  width: 5vh; }
 
 #marks {
   width: 75vw;
@@ -74,7 +58,7 @@
   color: white; }
 
 #marks th {
-  font-size: 0.85rem;
+  font-size: 1.75vh;
   font-weight: 300;
   border-right: 0.01px solid rgba(255, 255, 255, 0.2); }
 
@@ -89,7 +73,7 @@
 
 #marks td {
   border: 0.5px solid rgba(255, 255, 255, 0.4);
-  font-size: 1rem; }
+  font-size: 2vh; }
 
 #tb-header {
   background-color: #390300d6;
@@ -97,37 +81,30 @@
   height: 6vh; }
 
 #tb-header th {
-  width: 3rem; }
-
-#markers {
-  display: flex;
-  margin-left: 25.5vw;
-  text-align: center;
-  margin-bottom: 0; }
-
-#atten-marker {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff1a;
-  width: 14vw;
-  height: 4vh;
-  text-align: center;
-  margin-right: 1.55vw;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px; }
-
-#inter-marker {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff1a;
-  width: 28vw;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-  height: 4vh; }
+  width: 3vw; }
 
 .main-table {
+  margin-top: 3vh;
   display: flex;
   align-items: center;
   justify-content: center; }
+
+.mark-td {
+  border: none !important;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px; }
+
+.mark-td div {
+  background-color: #ffffff1a;
+  padding: 0.75vh 0;
+  margin: auto; }
+
+.mark-att div {
+  border-top-left-radius: 10px;
+  border-right: 0.5px solid #ffffff38 !important; }
+
+.mark-int div {
+  border-top-right-radius: 10px; }
+
+#markers > td {
+  border: none !important; }

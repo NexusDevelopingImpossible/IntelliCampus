@@ -21,7 +21,7 @@
   <!-- cards -->
   <!-- - - - - - -  -->
   <section class="cards">
-    <div>
+    <div class="card-col1">
       <div class="card card1">
         <div class="b1">
           <img class="img" src="/images/AG.jpg" alt="" />
@@ -50,8 +50,19 @@
         <div class="b3">
           <h1>
             TG :
-            <span>Palash Ghosal (449) <br />
+            <span>Palash Ghosal (449)
+            </span>
+          </h1>
+          <h1>
+            No :
+            <span>
               7076321457
+            </span>
+          </h1>
+          <h1>
+            Chamber :
+            <span>
+              E-301
             </span>
           </h1>
         </div>
@@ -61,13 +72,25 @@
           <p>Attendence</p>
         </div>
         <div class="attendence-container">
+          <% if(internal.length==0){ %>
+            <div id="no-subject">No subjects</div>
+          <% } %>
           <div class="attendence-percent">
             <%for(let i=0; i<internal.length; i++){%>
               <% function extractCapitalLetters(str) { const capitalLetters=str.match(/[A-Z]/g); return capitalLetters ?
                 capitalLetters.join('') : '' ; }
                 internal[i].timetableid.subjectcode.name=extractCapitalLetters(internal[i].timetableid.subjectcode.name);
                 let percent=parseInt(((internal[i].totalpresent) /(internal[i].present.length))*100);
-                if(isNaN(percent)){ percent=0; } %>
+                if(isNaN(percent)){ percent=0; } 
+                var type = "";
+                if(internal[i].timetableid.subjectcode.type == "Theory"){
+                    type = "(T)";
+                }
+                if(internal[i].timetableid.subjectcode.type == "Lab"){
+                    type = "(L)";
+                }
+                %>
+
                 <div class="container">
                   <div class="circle-progress">
                     <span class="progress-val">
@@ -79,7 +102,7 @@
                       <%=internal[i].timetableid.subjectcode.code%>
                     </p>
                     <p class="sub-name">
-                      <%=internal[i].timetableid.subjectcode.name%>
+                      <%=internal[i].timetableid.subjectcode.name%> <%=type%>
                     </p>
                   </div>
                 </div>
@@ -94,7 +117,7 @@
         </div>
       </div>
     </div>
-    <div>
+    <div class="card-col1">
       <div class="card card4">
         <div class="card-hed">
           <p>Notifications</p>
@@ -118,65 +141,7 @@
               <a href="#"><ion-icon name="download-outline"></ion-icon></a>
             </div>
           </div>
-          <div class="notification">
-            <div class="text">
-              <p class="old">
-                Independence day celebration cancelled due to heavy rainfall
-              </p>
-              <p class="time">1 day ago</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
-          <div class="notification">
-            <div class="text">
-              <p class="old">
-                For sit amet consectetur adipisicing elit. Nequent cumqs
-                veniaupti.
-              </p>
-              <p class="time">1 day ago</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
-
-          <div class="notification">
-            <div class="text">
-              <p class="old">
-                Beatae aliquid iste, iusto totam, expedita atque voluptatem
-                te quasi
-              </p>
-              <p class="time">2 days ago</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
-          <div class="notification">
-            <div class="text">
-              <p class="old">
-                Independence day celebration cancelled due to heavy rainfall
-              </p>
-              <p class="time">1 day ago</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
-          <div class="notification">
-            <div class="text">
-              <p class="old">
-                For sit amet consectetur adipisicing elit. Nequent cumqs
-                veniaupti.
-              </p>
-              <p class="time">1 day ago</p>
-            </div>
-            <div class="pdf">
-              <a href="#"><ion-icon name="download-outline"></ion-icon></a>
-            </div>
-          </div>
+      
 
           <div class="notification">
             <div class="text">
