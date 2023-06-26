@@ -103,7 +103,7 @@
   gap: 0.5vw;
   justify-content: space-between;
 }
-.pdf a:hover {
+.pdf a .download-outline:hover, .pin-outline:hover{
   cursor: pointer;
   color: #8a8787;
 }

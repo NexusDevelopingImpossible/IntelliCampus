@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/student-attendance_view.css" />
+<link rel="stylesheet" type="text/css" href="/css/student-attendance_view.css" />
 
 
 <div class="main-page">
@@ -11,381 +11,53 @@
     <div class="sel-subject">
       <div class="select-menu">
         <div class="select-btn">
-          <span class="sBtn-text">Select Subject</span>
+          <span class="sBtn-text"><%if(attendance.length>0){%><%if(subject){%><%=subject.name%><%}else{%>Select Subject<%}%><%}else{%>No Subject<%}%></span>
           <ion-icon name="caret-down-outline"></ion-icon>
         </div>
         <ul class="options" id="att-choose">
-          <a href="">
+          <%for(let i = 0; i<attendance.length; i++){%>
+          <a href="/student/attendancesingle/<%=attendance[i]._id%>">
             <li class="option" value="view">
-              <span class="option-text">IT-1402 Database Managment System</span>
+              <span class="option-text"><%=attendance[i].timetableid.subjectcode.code%> <%=attendance[i].timetableid.subjectcode.name%></span>
             </li>
           </a>
-          <a href="">
-            <li class="option" value="view">
-              <span class="option-text">IT-1403 Design and Analysis of Algorithm</span>
-            </li>
-          </a>
-          <a href="">
-            <li class="option" value="view">
-              <span class="option-text">IT-1404 Discrete Mathematics</span>
-            </li>
-          </a>
+          <%}%>
         </ul>
       </div>
-
-
+      <%if(attendancesingle){%>
+      <% let percent=parseInt(((attendancesingle.totalpresent) /(attendancesingle.present.length))*100);
+      if(isNaN(percent)){ percent=0; }  %>
       <div class="att-info">
-        <div class="abb">CLC: <span>20</span></div>
-        <div class="abb">CLA: <span>6</span></div>
-        <div class="abb">Attendance Percentage: <span>77%</span></div>
+        <div class="abb">CLC: <span><%=attendancesingle.present.length%></span></div>
+        <div class="abb">CLA: <span><%=attendancesingle.totalpresent%></span></div>
+        <div class="abb">Attendance Percentage: <span><%=percent%>%</span></div>
       </div>
-
+      <%}%>
     </div>
 
+    <%if(attendancesingle){%>
+    <% let t = attendancesingle.present.length %>
+    <% let c = 0; %>
     <div class="date-list">
-
+      <%for(let i = 0; i<((attendancesingle.present.length/8)+1); i++){%>
       <div class="att-list">
-        <div class="att-day">
-          <div class="att-no">01</div>
-          <div class="att-date">29-Feb-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
+        <%for(let j = 0; (j<8 && c<t); j++){%>
+          <div class="att-day">
+            <div class="att-no">01</div>
+            <div class="att-date"><%=attendancesingle.present[c].datevalue%></div>
+            <div id="clc">
+              <%if(attendancesingle.present[c].att){%>
+              <div id="clp"></div>
+              <%}%>
+            </div>
           </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">03</div>
-          <div class="att-date">01-Apr-2023</div>
-          <div id="clc">
-            <!-- <div id="clp"></div> -->
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
+          <%c++%>
+          <%}%>
       </div>
-
-      <div class="att-list">
-        <div class="att-day">
-          <div class="att-no">01</div>
-          <div class="att-date">29-Feb-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">03</div>
-          <div class="att-date">01-Apr-2023</div>
-          <div id="clc">
-            <!-- <div id="clp"></div> -->
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="att-list">
-        <div class="att-day">
-          <div class="att-no">01</div>
-          <div class="att-date">29-Feb-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">03</div>
-          <div class="att-date">01-Apr-2023</div>
-          <div id="clc">
-            <!-- <div id="clp"></div> -->
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="att-list">
-        <div class="att-day">
-          <div class="att-no">01</div>
-          <div class="att-date">29-Feb-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">03</div>
-          <div class="att-date">01-Apr-2023</div>
-          <div id="clc">
-            <!-- <div id="clp"></div> -->
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="att-list">
-        <div class="att-day">
-          <div class="att-no">01</div>
-          <div class="att-date">29-Feb-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">03</div>
-          <div class="att-date">01-Apr-2023</div>
-          <div id="clc">
-            <!-- <div id="clp"></div> -->
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="att-list">
-        <div class="att-day">
-          <div class="att-no">01</div>
-          <div class="att-date">29-Feb-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">03</div>
-          <div class="att-date">01-Apr-2023</div>
-          <div id="clc">
-            <!-- <div id="clp"></div> -->
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="att-list">
-        <div class="att-day">
-          <div class="att-no">01</div>
-          <div class="att-date">29-Feb-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">03</div>
-          <div class="att-date">01-Apr-2023</div>
-          <div id="clc">
-            <!-- <div id="clp"></div> -->
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="att-list">
-        <div class="att-day">
-          <div class="att-no">01</div>
-          <div class="att-date">29-Feb-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">03</div>
-          <div class="att-date">01-Apr-2023</div>
-          <div id="clc">
-            <!-- <div id="clp"></div> -->
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="att-list">
-        <div class="att-day">
-          <div class="att-no">01</div>
-          <div class="att-date">29-Feb-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">03</div>
-          <div class="att-date">01-Apr-2023</div>
-          <div id="clc">
-            <!-- <div id="clp"></div> -->
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="att-list">
-        <div class="att-day">
-          <div class="att-no">01</div>
-          <div class="att-date">29-Feb-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">03</div>
-          <div class="att-date">01-Apr-2023</div>
-          <div id="clc">
-            <!-- <div id="clp"></div> -->
-          </div>
-        </div>
-
-        <div class="att-day">
-          <div class="att-no">02</div>
-          <div class="att-date">01-Mar-2023</div>
-          <div id="clc">
-            <div id="clp"></div>
-          </div>
-        </div>
-      </div>
+      <%}%>
 
     </div>
-
+    <%}%>
   </section>
 
   <div class="att-info foot">

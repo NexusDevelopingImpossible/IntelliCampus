@@ -123,6 +123,16 @@
           <p>Notifications</p>
         </div>
         <div class="content">
+          <% for(let i=0; i<student.pinned.length; i++) {%>
+          <div class="notification">
+            <div class="text">
+              <p class="old"><%=student.pinned[i].noti.title%></p>
+            </div>
+            <div class="pdf">
+              <a href="<%=student.pinned[i].noti.notiflie%>" target="_blank"><ion-icon class="download-outline" name="download-outline"></ion-icon></a><a href="/student/unpinnoti/<%=student.pinned[i]._id%>"><ion-icon class="pin-outline" name="navigate-circle"></ion-icon></a>
+            </div>
+          </div>
+          <%}%>
           <% for(let i=0; i<notidata.length; i++) {%>
             <% let t = "old";
               if(locals.user.exittime<notidata[i].updatedAt){
@@ -135,7 +145,7 @@
               <p class="time"><%=arr[i]%></p>
             </div>
             <div class="pdf">
-              <a href="<%=notidata[i].notiflie%>" target="_blank"><ion-icon name="download-outline"></ion-icon></a>
+              <a href="<%=notidata[i].notiflie%>" target="_blank"><ion-icon class="download-outline" name="download-outline"></ion-icon></a><a href="/student/pinnoti/<%=notidata[i]._id%>"><ion-icon class="pin-outline" name="navigate"></ion-icon></a>
             </div>
           </div>
           <%}%>

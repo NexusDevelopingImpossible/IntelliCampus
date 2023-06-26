@@ -258,7 +258,7 @@ select option{
 
 
 .select-menu1{
-    width: 100px;
+    width: 140px;
 }
 .select-menu1 .select-btn1{
     display: flex;
@@ -285,12 +285,15 @@ select option{
     // padding: 20px;
     // margin-top: 10px;
     border-radius: 0px 0px 10px 10px;
-    overflow: hidden;
+    overflow-y: auto;
+    height: 18rem;
     background: #000000;
     box-shadow: 0 0 3px rgba(0,0,0,0.1);
     display: none;
-   
 }
+// .select-menu1 .options::-webkit-scrollbar{
+   
+// }
 .select-menu1.active .options{
     display: block;
 }
@@ -300,7 +303,7 @@ select option{
     padding: 0.4rem 0rem;
     align-items: center;
     justify-content: center;
-    width: 100px;
+    width: 140px;
     // background: #fd6e084c;
 }
 .options .option:hover{

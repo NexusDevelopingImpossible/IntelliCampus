@@ -73,22 +73,20 @@
   font-weight: 600; }
 
 .date-list {
-  display: grid;
-  gap: 1rem;
-  overflow-y: auto;
-  height: 60vh; }
-
-.date-list::-webkit-scrollbar {
-  display: none; }
+  display: flex;
+  gap: 4vw;
+  overflow-x: auto;
+  width: 70vw; }
 
 .att-list {
   display: flex;
-  gap: 3vw; }
+  flex-direction: column;
+  gap: 1vw; }
 
 .att-day {
   display: flex;
   justify-content: space-around;
-  width: 30%;
+  width: 15vw;
   padding: 1vh 0;
   align-items: center;
   background-color: #f8d57b30;
@@ -121,5 +119,4 @@
   border-radius: 100%; }
 
 .foot {
-  margin: auto 7vw;
-  margin-bottom: 6vh; }
+  margin: auto 7vw; }
