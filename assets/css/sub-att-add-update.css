@@ -1,30 +1,8 @@
-/* attendence-marks-notes */
-.attendence__marks__notes {
-  border-bottom: 1px solid #ededed;
-  display: grid;
-  margin: 2rem 8rem;
-  grid-template-columns: 1fr 1fr 1fr; }
-
-.attendence__marks__notes button {
-  color: #fff;
-  background: none;
-  border: none;
-  cursor: pointer; }
-
-.attendence__marks__notes button h4 {
-  font-weight: 400;
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-  padding: 0.5rem 2.5rem; }
-
-/* add this class by js to change the select */
-.attendence__marks__notes .select {
-  background: rgba(57, 3, 0, 0.6);
-  border-radius: 20px 20px 0px 0px; }
-
 /* mode-and-button */
 .mode__and__button {
   padding: 0 8rem;
+  height: 6vh;
+  align-items: center;
   display: flex;
   justify-content: space-between; }
 
@@ -33,53 +11,19 @@
   display: flex;
   gap: 1.5rem; }
 
-.selection__mode {
-  position: relative;
-  width: 166px;
-  color: #fff;
-  background: rgba(253, 109, 8, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  cursor: pointer; }
-
-.selection__mode::after {
-  content: '\25BC';
-  position: absolute;
-  top: 8px;
-  right: 0;
-  color: #ffffff;
-  cursor: pointer;
-  pointer-events: none;
-  transition: .25s all ease;
-  font-size: 14px;
-  margin: 0 1rem; }
-
-/* Handle with js */
-.items {
-  display: none;
-  /* display: flex; */
-  position: absolute;
-  flex-direction: column;
-  padding: 0.5rem 1rem;
-  background: rgba(253, 109, 8, 0.2);
-  width: 100%;
-  top: 37px;
-  left: 0;
-  border-radius: 30px; }
-
-.items span {
-  padding-bottom: 0.3rem; }
-
 .date input {
   width: 166px;
   color: #fff;
-  background: rgba(253, 109, 8, 0.2);
+  background: #fd6e082d;
   border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
+  border-radius: 1vw;
+  padding: 1.1vh 1vw;
   cursor: pointer;
-  outline: none; }
+  outline: none;
+  color-scheme: #fff; }
+
+.date input::-webkit-calendar-picker-indicator {
+  filter: invert(100%); }
 
 /* List */
 .list__main {
@@ -90,7 +34,7 @@
   display: flex;
   gap: 1rem;
   background: rgba(0, 0, 0, 0.12);
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 0.5rem 1rem;
   color: #fff;
   margin-bottom: 1rem; }
@@ -142,7 +86,7 @@ input[type="checkbox"]:checked::before {
 
 /* list-items */
 .list__items {
-  padding-bottom: 0.5rem; }
+  padding-bottom: 0.4rem; }
 
 .list__items ul {
   list-style-type: none;
@@ -150,7 +94,7 @@ input[type="checkbox"]:checked::before {
   align-items: center;
   gap: 1rem;
   background: rgba(248, 213, 123, 0.15);
-  border-radius: 20px;
+  border-radius: 7px;
   padding: 0.5rem 1rem;
   color: #fff; }
 
@@ -190,3 +134,57 @@ select option {
 
 .student-list-scroll::-webkit-scrollbar {
   display: none; }
+
+.select-menu1 {
+  width: 140px; }
+
+.select-menu1 .select-btn1 {
+  display: flex;
+  justify-content: space-between;
+  background: #fd6e082d;
+  border: 0.5px solid #fff;
+  padding: 1.1vh 1vw;
+  font-size: 1rem;
+  font-weight: 400;
+  border-radius: 15px;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); }
+
+.select-btn1 i {
+  font-size: 25px;
+  transition: 0.3s; }
+
+.select-menu1.active .select-btn1 i {
+  transform: rotate(-180deg); }
+
+.select-menu1 .options {
+  position: absolute;
+  border-radius: 0px 0px 10px 10px;
+  overflow-y: auto;
+  height: 18rem;
+  backdrop-filter: blur(12px);
+  background: #0000004b;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  display: none; }
+
+.select-menu1.active .options {
+  display: block; }
+
+.options .option1 {
+  display: flex;
+  cursor: pointer;
+  padding: 0.4rem 0rem;
+  align-items: center;
+  justify-content: center;
+  width: 140px; }
+
+.options .option1:hover {
+  background: #282727; }
+
+.option1 i {
+  font-size: 25px; }
+
+.option1 .option-text {
+  font-size: 1rem;
+  color: #fff; }
