@@ -25,7 +25,7 @@ let dp = "";
             dynamic-hover
           <%}%>" href="/student/attendance">
             <span class="tab-icon"><img src="/images/attendance.png" alt="" /></span>
-            <span class="tab-name">Attendance</span>
+            <span class="tab-set"><span class="tab-name">Attendance</span><span class="noti-circle"></span></span>
           </a>
         </li>
         <li>
@@ -49,7 +49,7 @@ let dp = "";
           </a>
         </li> -->
         <li>
-          <a class="tab <%if(title == "Feedback"){%>
+          <a class="tab <%if(title == "Feedback" || title == "Submit Feedback"){%>
             dynamic-hover
           <%}%>" href="/student/feedback">
             <span class="tab-icon"><img src="/images/Feedback.png" alt="" /></span>

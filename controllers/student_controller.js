@@ -178,7 +178,7 @@ module.exports.attendancesingle = async (req, res) => {
 module.exports.enter_feedback = async (req, res) => {
   try {
 
-    return res.render("student/feedback_response", { title: "GIVE FEEDBACK" });
+    return res.render("student/feedback_response", { title: "Submit Feedback" });
   } catch (Error) {
     console.log(Error);
   }
