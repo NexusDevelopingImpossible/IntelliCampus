@@ -218,13 +218,20 @@ module.exports.attendaceedit = async (req, res) => {
 //view attendance of single student
 module.exports.viewstudentattendance = async (req, res) => {
   try {
+   
     let data = await Attendance.findById(req.params.id).populate(
       "timetableid studentid"
     );
+    const timetables = await Timetable.findById(data.timetableid._id).populate(
+      "subjectcode"
+    );
+
     data.present.sort();
+    console.log(timetables);
     return res.render("teacher/subject/attendanceviewsingle", {
       title: "Attendance",
       student: data,
+      timetable: timetables,
     });
   } catch (err) {
     console.log(err);
