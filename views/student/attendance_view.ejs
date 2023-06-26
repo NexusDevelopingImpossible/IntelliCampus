@@ -11,14 +11,14 @@
     <div class="sel-subject">
       <div class="select-menu">
         <div class="select-btn">
-          <span class="sBtn-text"><%if(attendance.length>0){%><%if(subject){%><%=subject.name%><%}else{%>Select Subject<%}%><%}else{%>No Subject<%}%></span>
+          <span class="sBtn-text"><%if(attendance.length>0){%><%if(subject){%><span class="sub-code"><%=subject.code%> </span><%=subject.name%><%}else{%>Select Subject<%}%><%}else{%>No Subject<%}%></span>
           <ion-icon name="caret-down-outline"></ion-icon>
         </div>
         <ul class="options" id="att-choose">
           <%for(let i = 0; i<attendance.length; i++){%>
           <a href="/student/attendancesingle/<%=attendance[i]._id%>">
             <li class="option" value="view">
-              <span class="option-text"><%=attendance[i].timetableid.subjectcode.code%> <%=attendance[i].timetableid.subjectcode.name%></span>
+              <span class="option-text"><span class="sub-code"><%=attendance[i].timetableid.subjectcode.code%></span> <%=attendance[i].timetableid.subjectcode.name%></span>
             </li>
           </a>
           <%}%>
@@ -34,6 +34,7 @@
       </div>
       <%}%>
     </div>
+
 
     <%if(attendancesingle){%>
     <% let t = attendancesingle.present.length %>
@@ -57,7 +58,10 @@
       <%}%>
 
     </div>
+    <%} else{%>
+      <div class="att-cont"></div>
     <%}%>
+    
   </section>
 
   <div class="att-info foot">

@@ -2,9 +2,6 @@
 /*****************************************Student Attendance View CSS***********************************/
 /************************************************************************************************/
 
-body {
-  // color: #fff;
-}
 
 
 /*********************************** Subjects's Attendance **********************************/
@@ -91,6 +88,10 @@ body {
   gap: 3vw;
 }
 
+.sub-code{
+  font-weight: 100;
+}
+
 .abb span {
   font-weight: 600;
 }
@@ -98,10 +99,9 @@ body {
 .date-list {
   display: flex;
   gap: 4vw;
-
+  height: 60vh;
   overflow-x: auto;
   width: 70vw;
-  // height: 60vh;
 }
 // .date-list::-webkit-scrollbar-thumb {
 //   color: #fd6d08;
@@ -158,4 +158,8 @@ body {
 .foot {
   margin: auto 7vw;
   // margin-bottom: 3vh;
+}
+
+.att-cont{
+  height: 60vh;
 }
