@@ -74,6 +74,8 @@ module.exports.searchstudent = async (req, res) => {
           present: [],
           totalpresent: 0,
           examMarks: [],
+          updateattendance: Date.now(),
+          updateinternal: Date.now()
         });
       }
     }
@@ -145,6 +147,7 @@ module.exports.addattendance = async (req, res) => {
         datevalue: req.body.date,
       };
       data.present.push(newpresent);
+      data.updateattendance = Date.now();
       data.save();
     }
     req.flash("success", "Attendance added successfully");
@@ -254,7 +257,8 @@ module.exports.change_attendance = async (req, res) => {
         {
           $set: {
             "present.$.att": attvalue,
-            totalpresent: tp
+            totalpresent: tp,
+            updateattendance: Date.now()
           },
         }
       );

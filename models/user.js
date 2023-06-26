@@ -14,6 +14,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    logintime: {
+        type: Date
+    },
     exittime: {
         type: Date
     }

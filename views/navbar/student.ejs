@@ -1,9 +1,11 @@
 <link rel="stylesheet" href="/css/navbar.css" />
 
-<%
-let dp = "";
 
-%>
+<% var noticircleatt=""; %>
+<% var noticircleint=""; %>
+
+
+
 
 <section class="main-container">
   <div class="navbar">
@@ -13,27 +15,31 @@ let dp = "";
     <div class="tabs">
       <ul>
         <li>
-          <a class="tab <%if(title == "Dashboard"){%>
+          <a class="tab <%if(title == " Dashboard"){%>
             dynamic-hover
-          <%}%>" href="/student/dashboard">
-            <span class="tab-icon"><img src="/images/dashboard.png" alt="" /></span>
-            <span class="tab-name">Dashboard</span>
+            <%}%>" href="/student/dashboard">
+              <span class="tab-icon"><img src="/images/dashboard.png" alt="" /></span>
+              <span class="tab-name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a class="tab <%if(title == "Attendance"){%>
+          <a class="tab <%if(title == " Attendance"){%>
             dynamic-hover
-          <%}%>" href="/student/attendance">
-            <span class="tab-icon"><img src="/images/attendance.png" alt="" /></span>
-            <span class="tab-set"><span class="tab-name">Attendance</span><span class="noti-circle"></span></span>
+            <%}%>" href="/student/attendance">
+              <span class="tab-icon"><img src="/images/attendance.png" alt="" /></span>
+              <span class="tab-set"><span class="tab-name">Attendance</span>
+                <%=noticircleatt%>
+              </span>
           </a>
         </li>
         <li>
-          <a class="tab <%if(title == "Internal Marks"){%>
+          <a class="tab <%if(title == " Internal Marks"){%>
             dynamic-hover
-          <%}%>" href="/student/internalmark">
-            <span class="tab-icon"><img src="/images/internals.png" alt="" /></span>
-            <span class="tab-name">Internals</span>
+            <%}%>" href="/student/internalmark">
+              <span class="tab-icon"><img src="/images/internals.png" alt="" /></span>
+              <span class="tab-set"><span class="tab-name">Attendance</span>
+                <%=noticircleint%>
+              </span>
           </a>
         </li>
         <!-- <li>
@@ -49,11 +55,11 @@ let dp = "";
           </a>
         </li> -->
         <li>
-          <a class="tab <%if(title == "Feedback" || title == "Submit Feedback"){%>
+          <a class="tab <%if(title == " Feedback" || title=="Submit Feedback" ){%>
             dynamic-hover
-          <%}%>" href="/student/feedback">
-            <span class="tab-icon"><img src="/images/Feedback.png" alt="" /></span>
-            <span class="tab-name">Feedback</span>
+            <%}%>" href="/student/feedback">
+              <span class="tab-icon"><img src="/images/Feedback.png" alt="" /></span>
+              <span class="tab-name">Feedback</span>
           </a>
         </li>
         <!-- <li>

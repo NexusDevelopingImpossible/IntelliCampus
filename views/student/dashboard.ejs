@@ -3,7 +3,11 @@
 <link rel="stylesheet" href="/css/card.css" />
 <link rel="stylesheet" href="/css/dashboard-calendar.css" />
 
-
+<% for(let i=0; i<internal.length; i++){ %>
+  <% if(internal[i].updateattendance> locals.user.exittime){ %>
+    <% noticircleatt="<span class=" noti-circle"></span>"; %>
+  <%}if(internal[i].updateinternal> locals.user.exittime){ %>
+    <% noticircleint="<span class=" noti-circle"></span>"; }}%>
 
 <div class="main-page">
   <div class="heading">

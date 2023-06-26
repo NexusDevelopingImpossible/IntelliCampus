@@ -15,10 +15,10 @@ module.exports.dashboard = async (req, res) => {
     const studentdata = await Student.findOne({
       username: res.locals.user.username,
     }).populate({ path: "pinned", populate: { path: "noti" } });
-    console.log(studentdata.pinned);
     const internal = await Attendance.find({
       studentid: studentdata._id
     }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
+    console.log(internal);
     let calendardata = await Calendar.find({});
     calendardata = JSON.stringify(calendardata);
     let notidata = await Notification.find({}).sort({updatedAt: -1});
@@ -27,6 +27,8 @@ module.exports.dashboard = async (req, res) => {
       const dd = prettydate.format(notidata[i].updatedAt);
       arr.push(dd);
     }
+    // req.locals.int = internal;
+
     return res.render("Student/dashboard", {
       title: "Dashboard",
       student: studentdata,

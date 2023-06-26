@@ -6,110 +6,11 @@ body {
 // - - - - - - - - - - - - - - 
 
 
-#sub_code {
-  font-weight: 100;
-  font-size: 1.5rem;
-  margin: 0 1.5rem;
-}
-.sub-name{
-  display: flex;
-  align-items: center;
-  flex: 7;
-}
-.year__sem__sec{
-  flex: 3;
-}
-#back_arrow {
-  width: 2.5rem;
-  height: 2.5rem;
-}
-
-#sub_title{
-  font-size: 1.75rem;
-  font-weight: 600;
-} 
-#title {
-  margin: 2rem 1rem;
-  display: flex;
-  align-items: center;
-}
-
-.year__sem__sec{
-  padding: 0.8rem 4.5rem;
-  color: #fff;
-  display: flex;
-  gap: 1.5rem;
-}
-
 
 // - - - - - - - - - - - - - - 
 // Navigation BAR
 // - - - - - - - - - - - - - - 
 
-.att-navbar {
-  border-right: none;
-  margin: 0 auto;
-  margin-bottom: 1rem;
-}
-.att-navbar .container {
-  border-bottom: 1px solid #ffffff81;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  width: 60rem;
-}
-
-
-.att-navbar .container > div {
-  padding: 0.3rem 0;
-}
-
-.att-navbar .container > div:hover {
-  color: #fff;
-  cursor: pointer;
-}
-
-.tab-border {
-  background-color: #39030050;
-  border-radius: 30px 30px 0px 0px;
-}
-
-/* Tab Content */
-
-/* Hide initial content */
-#tab-1-content,
-#tab-2-content,
-#tab-3-content {
-  display: none;
-  opacity: 0;
-}
-
-.show {
-  display: block !important;
-  opacity: 1 !important;
-  transition: all 1000 ease-in;
-}
-.att-chose {
-  appearance: none;
-  border: none;
-  padding: 0.3rem 1rem;
-  backdrop-filter: blur(12px);
-  background: #00000014;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  color: #fff;
-  border-radius: 20px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 1rem;
-}
-.att-chose:focus {
-  border: 1px solid #fada0e8f;
-}
 
 
 // - - - - - - - - - - - - - - 

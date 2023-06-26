@@ -54,6 +54,12 @@ const attendanceSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    updateattendance: {
+      type: Date
+    },
+    updateinternal: {
+      type: Date
+    }
   },
   {
     timestamps: true,
