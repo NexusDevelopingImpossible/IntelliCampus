@@ -7,73 +7,59 @@
     <h1 class="heading">Create Calendar</h1>
   </div>
   <div class="import-button">
-    <button class="btn btn-outline btn-medium">Import</button>
+      <button class="btn btn-outline btn-medium">Import</button>
   </div>
   <div class="rest-part">
-    <div class="calen-part">
-      <div class="title">
-        <h3 class="sno">S.no</h3>
-        <span class="bar">| </span>
-        <h3 class="Date">&nbsp;Date</h3>
-        <span class="bar">| </span>
-        <h3 class="Day">&nbsp;Day</h3>
-        <span class="bar">| </span>
-        <h3 class="Holiday">&nbsp;Holiday</h3>
-      </div>
-      <form action="/admin/addholiday" method="post">
-      <div class="not-updated">
-          <div class="sl">1</div>
-          <div class="inp-part">
-            <input name="date" type="date" placeholder="dd-mm-yy" />
-          </div>
-          <div class="calen-day">Wednesday</div>
-          <div class="calen-holi">
-            <div class="name-holi">
-              <input
-                name="holidaytitle"
-                type="text"
-              />
-            </div>
-            <div class="save-butt">
-              <button type="submit">save</button>
-            </div>
-            <div class="cross-symbol">
-              <button><img src="/images/cross2.png" alt="*" /></button>
-            </div>
-          </div>
-        </div>
-        </form>
+    <ul>
+      <li> Sno </li>
+      <li> Date </li>
+      <li> Day </li>
+      <li> Holiday</li>
+    </ul>
+  </div>
+  <form action="/admin/addholiday" method="post"> 
+      <div class="notupdated">
+     
+        <ul>
+          <li>
+            1
+          </li>
+          <li>
+            <input class="inputbox" type="date" placeholder="dd-mm-yy">
+          </li>
+          <li>
+            Saturday
+          </li>
+          <li>
+            <input type="text" class="inputbox" id="" placeholder="blah blah blah day">
+            <button class="btn-save">Save</button>
+            <button class="del-btn">
+              <img src="/images/cross2.png" alt="">
+            </button>
+          </li>
+        </ul>
+      </div>  
+      </form>
         
       <div class="updated">
-        <div class="sl">1</div>
-        <div class="inp-part">
-          <p>26/10/2002</p>
-        </div>
-        <div class="calen-day">Monday</div>
-        <div class="calen-holi" id="part2">
-          <div class="name-holi">Blah Blah blah Day</div>
-          <div class="cross-symbol">
-            <button><img src="/images/dustbin.png" alt="*" /></button>
-          </div>
-        </div>
+        <ul>
+          <li>
+            1
+          </li>
+          <li>
+            26/10/2002
+          </li>
+          <li>
+            Saturday
+          </li>
+          <li>
+            <p>Blah Blah Blah Day</p>
+            <button class="updated-btn"><img src="/images/dustbin.png" alt="*" /></button>
+          </li>
+        </ul>
       </div>
-      <div class="updated">
-        <div class="sl">1</div>
-        <div class="inp-part">
-          <p>26/10/2002</p>
-        </div>
-        <div class="calen-day">Monday</div>
-        <div class="calen-holi" id="part2">
-          <div class="name-holi">Blah Blah blah Day</div>
-          <div class="cross-symbol">
-            <button><img src="/images/dustbin.png" alt="*" /></button>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="add-button">
-      <button><img src="/images/plus.png" alt="" /></button>
+      <button class="add-btn"><img src="/images/plus.png" alt="" /></button>
     </div>
   </div>
 </div>
