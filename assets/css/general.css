@@ -15,10 +15,10 @@ select {
   color: #ffffff; }
 
 .btn {
-  padding: 1.5vh 1.5vw;
+  padding: 1vh 1.5vw;
   border: none;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 20px;
   font-size: 2vh;
   font-weight: 400;
   transition: all 0.3s; }
@@ -31,7 +31,7 @@ select {
 
 .btn-outline {
   background: none;
-  border: 2px solid #fd6d08; }
+  border: 1.5px solid #fd6d08; }
 
 .btn-outline:hover {
   background: #fd6d08; }
