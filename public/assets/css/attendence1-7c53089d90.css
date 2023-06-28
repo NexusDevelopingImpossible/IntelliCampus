@@ -1,0 +1,192 @@
+/* attendence-marks-notes */
+.attendence__marks__notes {
+  border-bottom: 1px solid #ededed;
+  display: grid;
+  margin: 2rem 8rem;
+  grid-template-columns: 1fr 1fr 1fr; }
+
+.attendence__marks__notes button {
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer; }
+
+.attendence__marks__notes button h4 {
+  font-weight: 400;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  padding: 0.5rem 2.5rem; }
+
+/* add this class by js to change the select */
+.attendence__marks__notes .select {
+  background: rgba(57, 3, 0, 0.6);
+  border-radius: 20px 20px 0px 0px; }
+
+/* mode-and-button */
+.mode__and__button {
+  padding: 0 8rem;
+  display: flex;
+  justify-content: space-between; }
+
+.left,
+.right {
+  display: flex;
+  gap: 1.5rem; }
+
+.selection__mode {
+  position: relative;
+  width: 166px;
+  color: #fff;
+  background: rgba(253, 109, 8, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  cursor: pointer; }
+
+.selection__mode::after {
+  content: '\25BC';
+  position: absolute;
+  top: 8px;
+  right: 0;
+  color: #ffffff;
+  cursor: pointer;
+  pointer-events: none;
+  transition: .25s all ease;
+  font-size: 14px;
+  margin: 0 1rem; }
+
+/* Handle with js */
+.items {
+  display: none;
+  /* display: flex; */
+  position: absolute;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+  background: rgba(253, 109, 8, 0.2);
+  width: 100%;
+  top: 37px;
+  left: 0;
+  border-radius: 30px; }
+
+.items span {
+  padding-bottom: 0.3rem; }
+
+.date input {
+  width: 166px;
+  color: #fff;
+  background: rgba(253, 109, 8, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  outline: none; }
+
+/* List */
+.list__main {
+  padding: 1rem 8rem; }
+
+.list__main__title ul {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  margin-bottom: 1rem; }
+
+.list__main__title ul li {
+  font-size: 0.9rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.2); }
+
+.list__main__title ul li:nth-child(1),
+.list__main__title ul li:nth-child(4),
+.list__main__title ul li:nth-child(5),
+.list__main__title ul li:nth-child(6) {
+  flex: 1; }
+
+.list__main__title ul li:nth-child(2) {
+  flex: 4; }
+
+.list__main__title ul li:nth-child(3) {
+  flex: 3; }
+
+.list__main__title ul li:nth-child(7) {
+  flex: 1;
+  border: none;
+  display: flex;
+  justify-content: center; }
+
+input[type="checkbox"] {
+  position: relative;
+  appearance: none;
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  color: #FD6D08;
+  cursor: pointer; }
+
+input[type="checkbox"]::before {
+  content: "\25CF";
+  border-radius: 50%;
+  position: absolute;
+  font-size: 1.9rem;
+  right: 0px;
+  top: -10px;
+  color: #FD6D08;
+  visibility: hidden; }
+
+input[type="checkbox"]:checked::before {
+  visibility: visible; }
+
+/* list-items */
+.list__items {
+  padding-bottom: 0.5rem; }
+
+.list__items ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(248, 213, 123, 0.15);
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  color: #fff; }
+
+.list__items ul li:nth-child(1),
+.list__items ul li:nth-child(4),
+.list__items ul li:nth-child(5),
+.list__items ul li:nth-child(6) {
+  flex: 1; }
+
+.list__items ul li:nth-child(2) {
+  flex: 4; }
+
+.list__items ul li:nth-child(3) {
+  flex: 3; }
+
+.list__items ul li:nth-child(7) {
+  flex: 1;
+  display: flex;
+  justify-content: center; }
+
+#view-tab {
+  display: none; }
+
+.stu_name_cards button {
+  background-color: #ffffff00;
+  border: 0px; }
+
+#update-tab {
+  display: none; }
+
+select option {
+  background-color: #fd6e084c; }
+
+.student-list-scroll {
+  height: 57vh;
+  overflow-y: auto; }
+
+.student-list-scroll::-webkit-scrollbar {
+  display: none; }

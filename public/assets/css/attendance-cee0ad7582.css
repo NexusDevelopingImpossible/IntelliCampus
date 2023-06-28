@@ -1,0 +1,120 @@
+body {
+  color: #fff; }
+
+.search-input {
+  display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  font-size: 1rem;
+  color: #ffffff;
+  backdrop-filter: blur(12px); }
+
+.search-btn {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background: #fd6d08;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem; }
+
+a {
+  text-decoration: none;
+  color: #fff; }
+
+.search-input input {
+  border-radius: 20px;
+  background: transparent;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: #ffffff;
+  width: 25rem; }
+
+.search-input input:focus {
+  outline: none; }
+
+.search-input::placeholder {
+  color: #ffffff7c; }
+
+.export-btn a {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background: #fd6d08;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem; }
+
+/* - - - - - - - - - - - - - - - -  */
+/*  student's attendance profile */
+/* - - - - - - - - - - - - - - - -  */
+.student-profile {
+  overflow-y: auto;
+  max-height: 65vh; }
+
+.student-profile::-webkit-scrollbar {
+  display: none; }
+
+.Alphabet {
+  float: left;
+  padding-top: 1rem; }
+
+.serial_naming {
+  display: flex; }
+
+.stu_list {
+  float: left;
+  padding: 0rem 4rem 0rem 7rem; }
+
+.postcard {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 10rem;
+  height: 10rem;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 1.5rem 1.5rem 0;
+  overflow: auto; }
+
+.order {
+  font-size: 2rem;
+  font-weight: lighter;
+  display: inline-block; }
+
+.stu_name_cards {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap; }
+
+.stu_name {
+  font-weight: 500; }
+
+.stu_reg_no {
+  font-weight: 100; }
+
+.mark {
+  padding: 0;
+  margin-left: 8.5rem;
+  margin-top: 0.6rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%; }
+
+.present {
+  background-color: #24FF00; }
+
+.absent {
+  background-color: #FF0000; }
+
+#list {
+  padding-left: 1.2rem; }
+
+.student-list-scroll {
+  height: 60vh;
+  overflow-y: auto; }
+
+.student-list-scroll::-webkit-scrollbar {
+  display: none; }

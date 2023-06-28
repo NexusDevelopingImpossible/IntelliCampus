@@ -1,5 +1,8 @@
 const express = require('express');
+const env = require('./config/environment');
+const logger = require('morgan') 
 const app = express();
+require('./config/view-helpers')(app)
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 const sassMiddleware = require('node-sass-middleware');
@@ -12,27 +15,33 @@ const db = require('./config/mongoose');
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 const bodyParser = require("body-parser");
-const path = require("path");
-const prettydate = require("pretty-date"); // 
+const path = require('path');
+const prettydate = require("pretty-date"); //
 
+if(env.name == "development"){
+  app.use(sassMiddleware({
+    src: path.join(__dirname, env.asset_path, 'scss'),
+    dest: path.join(__dirname, env.asset_path, 'css'),
+    debug: true, //true for console message
+    outputStyle: 'extended',
+    prefix: '/css'
+  }));
+}
 
-app.use(sassMiddleware({
-  src: './assets/scss',
-  dest: './assets/css',
-  debug: false, //true for console message
-  outputStyle: 'extended',
-  prefix: '/css'
-}));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(expressLayouts);
 
 app.use(express.urlencoded());
-app.use(express.static('./assets'));
+console.log(__dirname + '\\public\\assets\\')
+app.use(express.static(__dirname + '\\public\\assets\\'));
 
 app.use('/upload', express.static(__dirname + '/upload'));
+
+app.use(logger(env.morgan.mode, env.morgan.options));
+
+app.use(expressLayouts);
 
 app.set('layout extractStyles', true);
 app.set('layout extractScript', true);
@@ -47,7 +56,7 @@ app.set('views', './views');
 app.use(session({
   name: 'newUSer',
   //TODO change secret before deployment 
-  secret: 'fuckyouRanjit',
+  secret: env.session_cookie_key,
   saveUninitialized: false,
   resave: false,
   cookie: {

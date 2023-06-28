@@ -1,17 +1,5 @@
-<title>
-    <%= title%>
-</title>
-<link rel="stylesheet" href="/css/templatenavbar.css">
-<link rel="stylesheet" href="/css/allotstudent.css">
-<link rel="stylesheet" href="/css/teacherSubj.css">
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-<link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap"
-    rel="stylesheet" />
+<link rel="stylesheet" href="<%= assetPath('css/allotstudent.css') %>">
+<link rel="stylesheet" href="<%= assetPath('css/teacherSubj.css') %>">
 
 <div class="main-page">
 
@@ -38,27 +26,27 @@
                     </div>
                     <div class="description-scroll">
 
-                    <% for(let i = 0; i<student.length; i++){%>
-                        <div class="description__list">
-                            <% console.log(student[i])%>
-                            <ul>
-                                <li><%= i+1 %></li>
-                                
-                                <li><%= student[i].name %></li>
-                                <li><%= student[i].username %></li>
-                                <li><input type="checkbox"></li>
-                        </div>
-                    <%}%>
+                        <% for(let i=0; i<student.length; i++){%>
+                            <div class="description__list">
+                                <% console.log(student[i])%>
+                                    <ul>
+                                        <li>
+                                            <%= i+1 %>
+                                        </li>
+
+                                        <li>
+                                            <%= student[i].name %>
+                                        </li>
+                                        <li>
+                                            <%= student[i].username %>
+                                        </li>
+                                        <li><input type="checkbox"></li>
+                            </div>
+                            <%}%>
                     </div>
                 </div>
             </form>
 
-                
+
         </div>
     </div>
-
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    </body>
-
-    </html>
