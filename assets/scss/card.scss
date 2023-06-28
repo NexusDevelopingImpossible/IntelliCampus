@@ -103,7 +103,7 @@
   gap: 0.5vw;
   justify-content: space-between;
 }
-.pdf a:hover {
+.pdf a .download-outline:hover, .pin-outline:hover{
   cursor: pointer;
   color: #8a8787;
 }
@@ -115,6 +115,7 @@
 }
 .new {
   color: #fff;
+  font-weight: 400;
 }
 .old {
   color: #ffffff74;
@@ -128,9 +129,8 @@
 /* vertical scrolling */
 .content {
   height: 26vh;
-  overflow-x: hidden;
+  overflow-x: auto;
   overflow-y: auto;
-  scrollbar-width: none;
   -ms-overflow-style: none;
 }
 .content::-webkit-scrollbar {

@@ -13,6 +13,12 @@ const userSchema = new mongoose.Schema({
     position: {
         type: String,
         required: true
+    },
+    logintime: {
+        type: Date
+    },
+    exittime: {
+        type: Date
     }
 }, {
     timestamps: true

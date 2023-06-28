@@ -3,25 +3,79 @@ const Student = require("../models/student");
 const Attendance = require("../models/attendance");
 const Teacher = require("../models/teacher");
 const Timetable = require("../models/timetable");
+const Calendar = require("../models/calendar");
+const Notification = require("../models/notification");
+const prettydate = require("pretty-date");
+const { ConnectionStates } = require("mongoose");
+
 
 module.exports.dashboard = async (req, res) => {
   try {
     checkurlfunct.checkurlstudent(req, res);
     const studentdata = await Student.findOne({
       username: res.locals.user.username,
-    });
+    }).populate({ path: "pinned", populate: { path: "noti" } });
     const internal = await Attendance.find({
-      studentid: studentdata._id,
+      studentid: studentdata._id
     }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
+    console.log(internal);
+    let calendardata = await Calendar.find({});
+    calendardata = JSON.stringify(calendardata);
+    let notidata = await Notification.find({}).sort({updatedAt: -1});
+    let arr = [];
+    for(let i = 0; i<notidata.length; i++){
+      const dd = prettydate.format(notidata[i].updatedAt);
+      arr.push(dd);
+    }
+    // req.locals.int = internal;
+
     return res.render("Student/dashboard", {
       title: "Dashboard",
       student: studentdata,
-      internal,
+      internal, calendardata, notidata, arr
     });
   } catch (err) {
     console.log(err);
   }
 };
+module.exports.pinnoti = async (req, res) => {
+  try {
+    // console.log(req.params.id);
+    let notiarray = await Student.findOne({
+      username: res.locals.user.username,
+    }).populate({ path: "pinned", populate: { path: "noti" } });;
+    const index = notiarray.pinned.findIndex(obj => obj.noti._id == req.params.id);
+    if(index == -1){
+      const newnoti = {
+        noti: req.params.id
+      }
+      notiarray.pinned.push(newnoti);
+      notiarray.save();
+    }
+    return res.redirect('back');
+  } catch (error) {
+    
+  }
+}
+
+module.exports.unpinnoti = async (req, res) => {
+  try {
+    let student = await Student.findOne({
+      username: res.locals.user.username,
+    }).populate({ path: "pinned", populate: { path: "noti" } });
+    console.log(req.params.id)
+    const index = student.pinned.findIndex(obj => obj._id == req.params.id);
+    console.log(index)
+    if (index !== -1) {
+      // Remove the object from the array
+      student.pinned.splice(index, 1);
+      await student.save();
+    }
+    return res.redirect('back');
+  } catch (error) {
+    
+  }
+}
 
 module.exports.internalmarks = async (req, res) => {
   try {
@@ -77,11 +131,12 @@ module.exports.attendance = async (req, res) => {
     const attendance = await Attendance.find({
       studentid: studentdata._id,
     }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
-    let subject;
-    console.log(subject);
+    let subject
+    let attendancesingle;
+    console.log(attendance);
     return res.render("student/attendance_view", {
       title: "Attendance",
-      attendance,
+      attendance, attendancesingle,
       subject: subject,
     });
   } catch (err) {
@@ -89,35 +144,43 @@ module.exports.attendance = async (req, res) => {
   }
 };
 
-// module.exports.attendancesingle = async (req, res) => {
-//   try {
-//     checkurlfunct.checkurlstudent(req, res);
-//     const studentdata = await Student.findOne({
-//       username: res.locals.user.username,
-//     });
-//     const attendance = await Attendance.find({
-//       studentid: studentdata._id,
-//     }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
-//     const attendancesingle = await Attendance.findById(req.params.id).populate({
-//       path: "timetableid",
-//       populate: { path: "subjectcode" },
-//     });
-//     console.log("Att: ",attendance);
-//     let subject = attendancesingle.timetableid.subjectcode;
-//     return res.render("student/student_attendance_view", {
-//       title: "Attendance",
-//       attendance, attendancesingle,
-//       subject: subject
-//     });
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+module.exports.attendancesingle = async (req, res) => {
+  try {
+    checkurlfunct.checkurlstudent(req, res);
+    const studentdata = await Student.findOne({
+      username: res.locals.user.username,
+    });
+    const attendance = await Attendance.find({
+      studentid: studentdata._id,
+    }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
+    const attendancesingle = await Attendance.findById(req.params.id).populate({
+      path: "timetableid",
+      populate: { path: "subjectcode" },
+    });
+    console.log("Att: ",attendancesingle);
+    console.log(attendancesingle.present.length)
+    attendancesingle.present.sort((a, b) => {
+      const dateA = new Date(a.datevalue);
+      const dateB = new Date(b.datevalue);
+      return dateA.getTime() - dateB.getTime();
+    });
+    
+    console.log(attendancesingle.present);
+    let subject = attendancesingle.timetableid.subjectcode;
+    return res.render("student/attendance_view", {
+      title: "Attendance",
+      attendance, attendancesingle,
+      subject: subject
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 module.exports.enter_feedback = async (req, res) => {
   try {
 
-    return res.render("student/feedback_response", { title: "GIVE FEEDBACK" });
+    return res.render("student/feedback_response", { title: "Submit Feedback" });
   } catch (Error) {
     console.log(Error);
   }

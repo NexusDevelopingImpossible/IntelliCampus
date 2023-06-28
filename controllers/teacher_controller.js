@@ -4,6 +4,9 @@ const Timetable = require("../models/timetable");
 const Student = require("../models/student");
 const Attendance = require("../models/attendance");
 const MarksScheme = require("../models/marksScheme");
+const Notification = require("../models/notification");
+const prettydate = require("pretty-date");
+
 
 //Dashboard
 module.exports.dashboard = async (req, res) => {
@@ -15,10 +18,17 @@ module.exports.dashboard = async (req, res) => {
     let timetabledata = await Timetable.find({
       teacherid: teacherdata._id,
     }).populate("subjectcode");
+    let notidata = await Notification.find({}).sort({updatedAt: -1});
+    let arr = [];
+    for(let i = 0; i<notidata.length; i++){
+      const dd = prettydate.format(notidata[i].updatedAt);
+      arr.push(dd);
+    }
+    // console.log(arr);
     return res.render("teacher/dashboard", {
       title: "Dashboard",
       teacher: teacherdata,
-      timetable: timetabledata,
+      timetable: timetabledata, notidata, arr
     });
   } catch (err) {
     console.log(err);
@@ -64,6 +74,8 @@ module.exports.searchstudent = async (req, res) => {
           present: [],
           totalpresent: 0,
           examMarks: [],
+          updateattendance: Date.now(),
+          updateinternal: Date.now()
         });
       }
     }
@@ -135,6 +147,7 @@ module.exports.addattendance = async (req, res) => {
         datevalue: req.body.date,
       };
       data.present.push(newpresent);
+      data.updateattendance = Date.now();
       data.save();
     }
     req.flash("success", "Attendance added successfully");
@@ -205,13 +218,20 @@ module.exports.attendaceedit = async (req, res) => {
 //view attendance of single student
 module.exports.viewstudentattendance = async (req, res) => {
   try {
+   
     let data = await Attendance.findById(req.params.id).populate(
       "timetableid studentid"
     );
+    const timetables = await Timetable.findById(data.timetableid._id).populate(
+      "subjectcode"
+    );
+
     data.present.sort();
+    console.log(timetables);
     return res.render("teacher/subject/attendanceviewsingle", {
       title: "Attendance",
       student: data,
+      timetable: timetables,
     });
   } catch (err) {
     console.log(err);
@@ -244,7 +264,8 @@ module.exports.change_attendance = async (req, res) => {
         {
           $set: {
             "present.$.att": attvalue,
-            totalpresent: tp
+            totalpresent: tp,
+            updateattendance: Date.now()
           },
         }
       );

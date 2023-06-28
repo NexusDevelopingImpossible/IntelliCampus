@@ -1,18 +1,13 @@
-<title>
-    <%= title%>
-</title>
-<link rel="stylesheet" href="/css/attendance.css">
-<link rel="stylesheet" href="/css/attendance-view.css" />
-<link rel="stylesheet" href="/css/attendence1.css">
-<link rel="stylesheet" href="/css/internalMarks.css">
-<link rel="stylesheet" href="/css/internalmarkspopup1.css" />
-<link rel="stylesheet" href="/css/internalmarkspopup2.css">
+
+<link rel="stylesheet" href="<%= assetPath('css/general-att.css') %>">
+<link rel="stylesheet" href="<%= assetPath('css/sub-att-add-update.css') %>">
+<link rel="stylesheet" href="<%= assetPath('css/internalMarks.css') %>">
 
 <body>
     <div class="main-page">
         <div id="title">
             <div class="sub-name">
-                <a href="/teacher/dashboard"><img src="/images/left-arrow.png" alt="" id="back_arrow" /></a>
+                <a href="/teacher/dashboard"><img src="/images/allotarrow.png" alt="" id="back_buttn"/></a>
                 <h1 class="subject" id="sub_code">
                     <%=timetable.subjectcode.code%>
                 </h1>
@@ -59,12 +54,12 @@
                             <option value="sess1">Sess1</option>
                             <option value="sess2">Sess2</option>
                         </select>
-                        <button class="reset" onclick="addsub()">Reset Max Marks</button>
+                        <button class="reset btn-outline btn btn-sm" onclick="addsub()">Reset Max Marks</button>
                     </div>
 
                     <div class="right">
-                        <button class="reset" onclick="resetmodel()">Reset</button>
-                        <button class="save" onclick="setMarksAJAX()" id="submitButtonMarks">
+                        <button class="reset btn-outline btn btn-sm" onclick="resetmodel()">Reset</button>
+                        <button class="save btn-full btn btn-sm" onclick="setMarksAJAX()" id="submitButtonMarks">
                             Save
                         </button>
                     </div>
@@ -148,8 +143,8 @@
             </div>
         </div>
     </div>
-    <div class="popup2" id="reset-all">
-        <div class="flex-container2">
+    <div class="popup" id="reset-all">
+        <div class="flex-container">
             <div class="confirm-text">
                 <p>Confirm Reset?</p>
             </div>

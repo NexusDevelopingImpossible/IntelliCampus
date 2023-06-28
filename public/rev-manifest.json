@@ -1,0 +1,16 @@
+{
+  "js/addteacher.js": "js/addteacher-3b2ded6372.js",
+  "js/allotsubject.js": "js/allotsubject-1f46b355e2.js",
+  "js/attendance.js": "js/attendance-0c1fa30264.js",
+  "js/create_notif.js": "js/create_notif-7791793c66.js",
+  "js/dashboard-calendar.js": "js/dashboard-calendar-b7807677ee.js",
+  "js/feedback.js": "js/feedback-09ea8f1c46.js",
+  "js/internalMarks.js": "js/internalMarks-502f89acb7.js",
+  "js/login.js": "js/login-0ee640d222.js",
+  "js/notification_form.js": "js/notification_form-d41d8cd98f.js",
+  "js/progress.js": "js/progress-d6a5469c94.js",
+  "js/resetMaxMarks.js": "js/resetMaxMarks-03b2408ba8.js",
+  "js/student-attendance.js": "js/student-attendance-e77a1f4598.js",
+  "js/teacher-subject-timetable.js": "js/teacher-subject-timetable-3f42b216da.js",
+  "js/updateInternalMarks.js": "js/updateInternalMarks-942e5b161d.js"
+}

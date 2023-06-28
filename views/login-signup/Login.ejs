@@ -1,11 +1,11 @@
-<link rel="stylesheet" href="/css/login.css" />
+<link rel="stylesheet" href="<%= assetPath('css/login.css') %>" />
 
 <div class="logo-title">
   <img src="/images/smit-logo.png" alt="SMIT Logo" />
 </div>
 <section class="container-main">
   <div class="container-left">
-    <img class="logo-smit" src="/images/manipal-vector.png" alt="" />
+    <img class="logo-smit" src="images/manipal-vector.png" alt="" />
   </div>
   <div class="container-right">
     <form class="login-form" method="POST" action="/create-session">
@@ -22,7 +22,7 @@
       </div>
       <div class="form-button">
         <span class="btn-rememberme">
-          <input type="checkbox" name="Remember" id="btnRememberMe" />
+          <input type="checkbox" name="Remember" id="btnRememberMe"/>
           <label for="btnRememberMe">Remember me</label>
         </span>
         <span class="btn-forgotpass desktop-view">
@@ -58,4 +58,4 @@
     </form>
   </div>
 </section>
-<script type="text/javascript" src="/js/login.js"></script>
+<script type="text/javascript" src="<%= assetPath('js/login.js') %>"></script>

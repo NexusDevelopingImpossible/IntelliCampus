@@ -40,15 +40,17 @@ body {
   display: flex;
   flex-direction: column;
   // padding: 1rem 0;
-  // padding-left: 2.3rem;
+  padding-left: 1vw;
 }
 
 .tabs ul li {
   list-style: none;
+  
 }
 .tabs li a {
-  padding: 2.5vh 2vw 2.5vh 2.75vw;
+  padding: 2.5vh 0vw 2.5vh 1.75vw;
   text-decoration: none;
+  transition: all 0.3s;
 
 }
 .tab {
@@ -59,9 +61,7 @@ body {
 .tab-name {
   color: #ffffff;
   font-weight: 500;
-  // font-size: 1rem;
   font-size: 2.1vh;
-  /* width: 10rem; */
 }
 
 
@@ -69,12 +69,19 @@ body {
   width: 1.2vw;
 }
 
-.tabs li a:hover {
+.tab:hover {
+  padding-left: 2.5vw;
+}
+
+.dynamic-hover{
   background-color: rgba(255, 255, 255, 0.2);
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
 }
 
+.dynamic-hover:hover{
+  padding: 2.5vh 2vw 2.5vh 1.75vw !important;
+}
 
 
 .nav-manipal-vector img {
@@ -133,3 +140,16 @@ body {
   
 //   }
 // }```
+
+
+.noti-circle{
+  width: 10px;
+  height: 10px;
+  background-color: #fd6d08;
+  border-radius: 50%;
+}
+.tab-set{
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
