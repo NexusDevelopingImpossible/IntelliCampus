@@ -11,10 +11,18 @@
 .year__sem__sec {
   flex: 3;
 }
-#back_arrow {
-  width: 2.5rem;
-  height: 2.5rem;
+
+.sub-name a svg{
+  width: 1.65vw;
+  fill: #fff;
+  transition: all 0.3s;
 }
+.sub-name a svg:hover{
+  width: 2.3vw;
+  fill: #ffffffc7;
+}
+
+
 
 #sub_title {
   font-size: 1.75rem;
@@ -64,7 +72,7 @@
 }
 
 .tab-border {
-  background-color: #39030050;
+  background-color: #3903005c;
   border-radius: 30px 30px 0px 0px;
 }
 
@@ -87,7 +95,7 @@
   appearance: none;
   border: none;
   padding: 0.3rem 1rem;
-  backdrop-filter: blur(12px);
+  // backdrop-filter: blur(12px);
   background: #00000014;
   border: 1px solid rgba(255, 255, 255, 0.7);
   color: #fff;
@@ -111,7 +119,7 @@
     width: 8vw;
     padding: 1.1vh 1vw;
     align-items: center;
-    background: #00000024;
+    background: #0000004d;
     border: 0.5px solid #fff;
     font-size: 2vh;
     font-weight: 400;
@@ -133,13 +141,14 @@
     z-index: 1;
     border-radius: 0px 0px 10px 10px;
     overflow: hidden;
-    background: #0000004b;
-    backdrop-filter: blur(12px);
+    background: #0000006c;
+    // backdrop-filter: blur(602px);
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     display: none;
     margin: 0 0.5vw;
   }
-  
+
+
   .select-menu.active .options {
     display: block;
   }

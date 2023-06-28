@@ -7,7 +7,7 @@
 .card {
   background-color: #f8d57b1e;
   border: 1px solid #ffffff9a;
-  backdrop-filter: blur(12px);
+  // backdrop-filter: blur(12px);
   border-radius: 20px;
 }
 .card-col1 {
@@ -89,6 +89,9 @@
 }
 .b3 h1 span {
   font-weight: 100;
+}
+.b3{
+  width: 14vw;
 }
 
 /* - - - - - - - - - - - - - - */

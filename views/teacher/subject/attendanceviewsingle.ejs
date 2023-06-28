@@ -3,9 +3,10 @@
 <link rel="stylesheet" href="<%= assetPath('css/sub-att-view.css') %>" />
 
 <div class="main-page">
+  <div class="blur">
   <div id="title">
     <div class="sub-name">
-      <a href="/teacher/dashboard"><img src="/images/allotarrow.png" alt="" id="back_buttn"/></a>
+      <a href="/teacher/dashboard"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
         <h1 class="subject" id="sub_code">
             <%=timetable.subjectcode.code%>
         </h1>
@@ -54,8 +55,9 @@
         <section class="student-info">
           <div class="std-info">
             <div class="profile-info">
-              <div class="back-btn">
-            <a href="/teacher/attendance_view/<%=timetable._id%>"><img src="/images/back.png" alt="" id="back_buttn"/></a></div>
+              <div class="sub-name">
+            <!-- <a href="/teacher/attendance_view/<%=timetable._id%>"><img src="/images/back.png" alt="" id="back_buttn"/></a></div> -->
+            <a href="/teacher/attendance_view/<%=timetable._id%>"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a></div>
             <div class="image">
               <img
                 src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
@@ -172,6 +174,7 @@
           </div>
       </div>
   </section>
+ </div>
 </div>
 </section>
 <script src="<%= assetPath('js/attendance.js') %>"></script>

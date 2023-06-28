@@ -75,12 +75,18 @@ select {
   margin-left: 5vh;
 }
 
-#back_buttn{
-  width: 2.5vw;
-}
+// #back_buttn{
+//   width: 2.5vw;
+// }
 
 
-.tab-icon svg{
+.tab-icon, .page-heading svg{
   width: 1.65vw;
   fill: #fff;
+  transition: all 0.3s;
 }
+.page-heading svg:hover{
+  width: 2.3vw;
+  fill: #ffffffc7;
+}
+

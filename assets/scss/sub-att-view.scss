@@ -13,13 +13,10 @@
   border-radius: 10px;
 }
 
-.back-btn a img{
-  height: 26px;
+.back-btn a svg:hover{
+  fill: #ffffff76;
+  
 }
-// .back-btn:hover{
-//   background-color: #ffffff24;
-//   border-radius: 50%;
-// }
 .profile-info {
   display: flex;
   align-items: center;
@@ -90,7 +87,6 @@
   align-items: center;
   justify-content: center;
   background-color: #f8d57b30;
-  backdrop-filter: blur(12px);
   width: 10rem;
 }
 .att-date p {
@@ -118,7 +114,6 @@
   border-radius: 20px;
   font-size: 1rem;
   color: #ffffff;
-  backdrop-filter: blur(12px);
 }
 .search-btn {
   padding: 0.75rem 1rem;

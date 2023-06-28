@@ -139,7 +139,7 @@ select option{
 }
 
 // - - - - - - - - - - - - - - 
-// select option
+// student olist
 // - - - - - - - - - - - - - - 
 
 
@@ -186,8 +186,9 @@ select option{
     // margin-top: 10px;
     border-radius: 0px 0px 10px 10px;
     overflow-y: auto;
-    height: 18rem;
-    backdrop-filter: blur(12px);
+    height: auto;
+    max-height: 15rem;
+    // backdrop-filter: blur(12px);
     background: #0000004b;
     box-shadow: 0 0 3px rgba(0,0,0,0.1);
     display: none;
