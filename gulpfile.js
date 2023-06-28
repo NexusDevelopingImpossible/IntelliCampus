@@ -5,7 +5,6 @@ const rev = require('gulp-rev');
 const uglify = require('gulp-uglify-es').default;
 const imagemin = require('gulp-imagemin');
 const del = require('del');
-const plugins = require('gulp-load-plugins');
 
 gulp.task("css",function(done){
     console.log("Minifying CSS");
@@ -15,7 +14,6 @@ gulp.task("css",function(done){
     .pipe(sass())
     .pipe(cssnano())
     .pipe(gulp.dest("./assets/css"))
-    .pipe(plugins.replace('url("../images/', 'url("' + yourDirectory));
 
     // console.log("Minified CSS");
     gulp.src("./assets/**/*.css")
