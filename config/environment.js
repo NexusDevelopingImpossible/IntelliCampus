@@ -35,7 +35,7 @@ const production = {
 }
 
 
-// module.exports = production;
-module.exports = development;
+module.exports = production;
+// module.exports = development;
 
 // module.exports = eval(process.env.INTELLICAMPUS_ENVIRONMENT == undefined ? development : eval(process.env.INTELLICAMPUS_ENVIRONMENT));

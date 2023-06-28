@@ -37,7 +37,7 @@ app.use(express.urlencoded());
 console.log(__dirname + '\\public\\assets\\')
 app.use(express.static(__dirname + '\\public\\assets\\'));
 // app.use(express.static(__dirname + './assets'));
-app.use(express.static('./assets'));
+// app.use(express.static('./assets'));
 
 
 app.use('/upload', express.static(__dirname + '/upload'));
