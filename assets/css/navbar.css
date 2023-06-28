@@ -1,1 +1,107 @@
-*,:after,:before{padding:0;margin:0;box-sizing:border-box}body{max-width:100%;max-height:100%;display:flex;margin:0;padding:0;font-family:Montserrat,sans-serif!important;background-color:#390300}.main-container{width:auto;height:100vh}.navbar{height:100vh;width:15vw;display:flex;flex-direction:column}.nav-smit-logo img{width:12vw;padding-bottom:2.5vh;padding-top:2.5vh;display:flex;margin:auto}.tabs ul{display:flex;flex-direction:column;padding-left:1vw}.tabs ul li{list-style:none}.tabs li a{padding:2.5vh 0 2.5vh 1.75vw;text-decoration:none;transition:all .3s}.tab{display:flex;align-items:center;gap:1.25vw}.tab-name{color:#fff;font-weight:500;font-size:2.1vh}.tab-icon img{width:1.2vw}.tab:hover{padding-left:2.5vw}.dynamic-hover{background-color:hsla(0,0%,100%,.2);border-top-left-radius:50px;border-bottom-left-radius:50px}.dynamic-hover:hover{padding:2.5vh 2vw 2.5vh 1.75vw!important}.nav-manipal-vector img{position:absolute;width:24vw;height:45vh;left:-8vw;top:55vh;opacity:.03;z-index:-1}.main-page{margin:2vh 1vw;margin-left:0;width:85vw;height:96vh;background-image:url(../images/bg-blur.png);background-size:cover;background-position:50%;border-radius:2.75vw;padding:2vh 0}.dash-manipal-vec{position:absolute;opacity:.05;max-width:100%;height:auto;left:801px;top:0}.noti-circle{width:10px;height:10px;background-color:#fd6d08;border-radius:50%}.tab-set{display:flex;align-items:center;gap:.4rem}
+*, *::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+body {
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif !important;
+  background-color: #390300; }
+
+.main-container {
+  width: auto;
+  height: 100vh; }
+
+.navbar {
+  height: 100vh;
+  width: 15vw;
+  display: flex;
+  flex-direction: column; }
+
+.nav-smit-logo img {
+  width: 12vw;
+  padding-bottom: 2.5vh;
+  padding-top: 2.5vh;
+  display: flex;
+  margin: auto; }
+
+.tabs ul {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1vw; }
+
+.tabs ul li {
+  list-style: none; }
+
+.tabs li a {
+  padding: 2.5vh 0vw 2.5vh 1.75vw;
+  text-decoration: none;
+  transition: all 0.3s; }
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 1.25vw; }
+
+.tab-name {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 2.1vh; }
+
+.tab-icon img {
+  width: 1.2vw; }
+
+.tab:hover {
+  padding-left: 2.5vw; }
+
+.dynamic-hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px; }
+
+.dynamic-hover:hover {
+  padding: 2.5vh 2vw 2.5vh 1.75vw !important; }
+
+.nav-manipal-vector img {
+  position: absolute;
+  width: 24vw;
+  height: 45vh;
+  left: -8vw;
+  top: 55vh;
+  opacity: 0.03;
+  z-index: -1; }
+
+.main-page {
+  margin: 2vh 1vw;
+  margin-left: 0rem;
+  width: 85vw;
+  height: 96vh;
+  background-image: url("../images/bg-blur.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 2.75vw;
+  padding: 2vh 0; }
+
+.dash-manipal-vec {
+  position: absolute;
+  opacity: 0.05;
+  max-width: 100%;
+  height: auto;
+  left: 801px;
+  top: 0px; }
+
+.noti-circle {
+  width: 10px;
+  height: 10px;
+  background-color: #fd6d08;
+  border-radius: 50%; }
+
+.tab-set {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem; }

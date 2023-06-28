@@ -11,10 +11,18 @@
 .year__sem__sec {
   flex: 3;
 }
-#back_arrow {
-  width: 2.5rem;
-  height: 2.5rem;
+
+.sub-name a svg{
+  width: 1.65vw;
+  fill: #fff;
+  transition: all 0.3s;
 }
+.sub-name a svg:hover{
+  width: 2.3vw;
+  fill: #ffffffc7;
+}
+
+
 
 #sub_title {
   font-size: 1.75rem;

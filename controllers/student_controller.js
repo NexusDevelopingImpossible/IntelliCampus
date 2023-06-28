@@ -179,8 +179,9 @@ module.exports.attendancesingle = async (req, res) => {
 
 module.exports.enter_feedback = async (req, res) => {
   try {
+    const teacherdata = await Teacher.findById(req.params.id);
 
-    return res.render("student/feedback_response", { title: "Submit Feedback" });
+    return res.render("student/feedback_response", { title: "Submit Feedback", teacherdata });
   } catch (Error) {
     console.log(Error);
   }

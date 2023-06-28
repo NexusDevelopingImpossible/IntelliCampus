@@ -1,1 +1,77 @@
-.allot-student{display:flex;flex-direction:column;justify-content:space-evenly}.sub-heading{margin-top:35px;margin-left:5%;display:flex;flex-direction:row}#plus-button>a>img{width:30px;margin-top:5px;height:auto}#allot-head{margin-left:28%;font-size:28px;font-style:normal;font-weight:600;color:#fff}.main-content{align-self:center;margin-top:25px}.main-content>ul{display:flex;flex-direction:column;text-decoration:none;list-style:none}.main-content>ul>li{border:solid;border-width:thin;border-color:#f0f8ff;padding:5px 0 5px 12px;margin:9px 0;border-radius:25px;background-color:#F8D57B26}.main-content>ul>li>a{display:flex;flex-direction:row;justify-content:space-between;align-items:center;text-decoration:none;padding:.5rem .75rem}.anchor-content{display:flex;flex-direction:column;gap:.5rem}.btn-div{display:flex;gap:.75rem}.row1{display:flex;flex-direction:row;justify-content:space-around}.sub-code{font-style:normal;font-weight:275}.sub-code,.sub-name{font-size:20px;color:#fff}.sub-name{width:450px;font-weight:500}.row2{display:flex;flex-direction:row;color:#f0f8ff;font-weight:300;font-size:17px}.bold-part,.row2{font-style:normal}.bold-part{font-weight:700;font-size:15px}
+.allot-student {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; }
+
+.main-content {
+  align-self: center;
+  height: 78vh;
+  overflow: auto; }
+
+.main-content::-webkit-scrollbar {
+  display: none; }
+
+.main-content > ul {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  /* height: 20px; */
+  list-style: none; }
+
+.main-content > ul > li {
+  border: solid;
+  border-width: thin;
+  border-color: aliceblue;
+  padding: 5px 0 5px 12px;
+  margin: 9px 0 9px 0;
+  border-radius: 25px;
+  background-color: #F8D57B26;
+  /* height: 80px; */ }
+
+.main-content > ul > li > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  /* margin-right: 50px; */ }
+
+.anchor-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; }
+
+.btn-div {
+  display: flex;
+  gap: 0.75rem; }
+
+.row1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+
+.sub-code {
+  font-style: normal;
+  font-weight: 275;
+  font-size: 20px;
+  color: white; }
+
+.sub-name {
+  width: 450px;
+  font-weight: 500;
+  font-size: 20px;
+  color: white; }
+
+.row2 {
+  display: flex;
+  flex-direction: row;
+  color: aliceblue;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 17px; }
+
+.bold-part {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px; }

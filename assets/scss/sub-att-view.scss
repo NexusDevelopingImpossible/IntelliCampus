@@ -13,13 +13,10 @@
   border-radius: 10px;
 }
 
-.back-btn a img{
-  height: 26px;
+.back-btn a svg:hover{
+  fill: #ffffff76;
+  
 }
-// .back-btn:hover{
-//   background-color: #ffffff24;
-//   border-radius: 50%;
-// }
 .profile-info {
   display: flex;
   align-items: center;
