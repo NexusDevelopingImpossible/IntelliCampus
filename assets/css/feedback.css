@@ -1,1 +1,55 @@
-a,body{color:#fff}a{text-decoration:none}.feedback{height:75vh;overflow-y:auto;display:flex;flex-direction:column;gap:3vh}.feedback::-webkit-scrollbar{display:none}.feed{padding:0 5vw;display:flex;justify-content:space-between}.feed-card{display:flex;background-color:#f8d57b1e;border:1px solid #ffffff9a;backdrop-filter:blur(12px);border-radius:20px;align-items:center;justify-content:center;padding:1.5vh 1vw;width:35vw;gap:.5vw;height:12.5vh}.tch-pic img{width:4.5vw;border-radius:100%;border:3px solid #fd6d08}.tch-name{font-size:2.2vh;font-weight:500}.tch-dtl{font-size:1.9vh;font-weight:100}.feed-btn{margin:auto;margin-right:.1vw}
+/************************************************************************************************/
+/*****************************************Student Feedback CSS***********************************/
+/************************************************************************************************/
+body {
+  color: #fff; }
+
+a {
+  text-decoration: none;
+  color: #fff; }
+
+/*********************** Teacher's Feedback ***************************/
+.feedback {
+  height: 75vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh; }
+
+.feedback::-webkit-scrollbar {
+  display: none; }
+
+.feed {
+  padding: 0 5vw;
+  display: flex;
+  justify-content: space-between; }
+
+.feed-card {
+  display: flex;
+  background-color: #f8d57b1e;
+  border: 1px solid #ffffff9a;
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5vh 1vw;
+  width: 35vw;
+  gap: 0.5vw;
+  height: 12.5vh; }
+
+.tch-pic img {
+  width: 4.5vw;
+  border-radius: 100%;
+  border: 3px solid #fd6d08; }
+
+.tch-name {
+  font-size: 2.2vh;
+  font-weight: 500; }
+
+.tch-dtl {
+  font-size: 1.9vh;
+  font-weight: 100; }
+
+.feed-btn {
+  margin: auto;
+  margin-right: 0.1vw; }
