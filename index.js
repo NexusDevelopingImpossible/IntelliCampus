@@ -35,7 +35,7 @@ app.use(cookieParser());
 
 app.use(express.urlencoded());
 console.log(__dirname + '\\public\\assets\\')
-app.use(express.static(__dirname + '\\public\\assets\\'));
+app.use(express.static(__dirname + '/public/assets/'));
 // app.use(express.static(__dirname + './assets'));
 // app.use(express.static('./assets'));
 
