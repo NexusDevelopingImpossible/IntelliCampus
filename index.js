@@ -35,9 +35,9 @@ app.use(cookieParser());
 
 app.use(express.urlencoded());
 console.log(__dirname + '\\public\\assets\\')
-app.use(express.static(__dirname + '/public/assets/'));  //production using public
+// app.use(express.static(__dirname + '/public/assets/'));  //production using public
 // app.use(express.static(__dirname + './assets'));   //production using assets
-// app.use(express.static('./assets'));    //depolyment using assets
+app.use(express.static('./assets'));    //depolyment using assets
 
 
 app.use('/upload', express.static(__dirname + '/upload'));

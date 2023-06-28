@@ -81,11 +81,18 @@ body {
   margin-left: 0rem;
   width: 85vw;
   height: 96vh;
-  background-image: url("../images/bg-blur.png");
+  background-image: url("../images/bg-img.png");
   background-size: cover;
   background-position: center;
-  border-radius: 2.75vw;
-  padding: 2vh 0; }
+  border-radius: 2.75vw; }
+
+.blur {
+  background: linear-gradient(136deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+  backdrop-filter: blur(12px);
+  width: auto;
+  height: 100%;
+  padding: 2vh 0;
+  border-radius: 2.75vw; }
 
 .dash-manipal-vec {
   position: absolute;

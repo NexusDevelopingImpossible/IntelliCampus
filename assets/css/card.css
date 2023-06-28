@@ -7,7 +7,6 @@
 .card {
   background-color: #f8d57b1e;
   border: 1px solid #ffffff9a;
-  backdrop-filter: blur(12px);
   border-radius: 20px; }
 
 .card-col1 {

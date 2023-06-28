@@ -6,7 +6,8 @@ body {
   font-family: "Montserrat", sans-serif !important; }
 
 .heading {
-  padding: 1rem 2rem;
+  padding: 0 2rem;
+  padding-bottom: 0.5rem;
   display: flex;
   justify-content: space-between; }
 
@@ -55,12 +56,11 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 20px;
   font-size: 1rem;
-  color: #ffffff;
-  backdrop-filter: blur(12px); }
+  color: #ffffff; }
 
 .search-btn {
   padding: 0.75rem 1.5rem;
-  background: #00000037;
+  background: #0000003c;
   color: #fff;
   border-radius: 19px;
   cursor: pointer;
@@ -149,7 +149,6 @@ body {
   height: 10rem;
   background-color: #f8d57b1e;
   border: 1px solid #ffffff9a;
-  backdrop-filter: blur(12px);
   border-radius: 20px;
   padding: 1rem; }
 
@@ -229,7 +228,6 @@ button {
   height: 21rem !important;
   background-color: #f8d57b1e;
   border: 1px solid #ffffff9a;
-  backdrop-filter: blur(12px);
   border-radius: 20px; }
 
 .tch-content {
@@ -238,96 +236,3 @@ button {
 .carousel-container button {
   background-color: rgba(255, 255, 255, 0);
   border: 0px; }
-
-@media screen and (min-width: 1366px) {
-  .heading {
-    padding: 0.75rem 1.75rem;
-    display: flex;
-    justify-content: space-between; }
-  .head {
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 2.75rem; }
-  .welcome-msg {
-    color: #ffffff;
-    font-weight: 300;
-    font-size: 1.25rem; }
-  .welcome-msg span {
-    font-weight: 600; }
-  /*------------------------Teacher Personal Info CSS----------------------*/
-  /*------------------------Teacher Subjects CSS------------------------*/
-  /*---------------Carousel Slider CSS----------------*/
-  /*--------------Subject CSS---------------*/
-  .slide {
-    height: 10rem;
-    background-color: #f8d57b1e;
-    border: 1px solid #ffffff9a;
-    backdrop-filter: blur(12px);
-    border-radius: 20px;
-    padding: 1rem; }
-  .sl {
-    width: 18rem;
-    color: #ffffff; }
-  .sl h2 {
-    font-size: 1.1rem;
-    font-weight: 300;
-    text-align: left !important; }
-  .sbj-nm {
-    height: auto;
-    text-align: left !important;
-    white-space: pre-line; }
-  .sbj-nm p {
-    font-size: 1.2rem;
-    font-weight: 500; }
-  button {
-    font-family: "Montserrat", sans-serif; }
-  .slide:hover {
-    background-color: #00000000; }
-  .sl h1 {
-    font-size: 1.3rem;
-    font-weight: 600; }
-  .sbj-info {
-    padding-top: 0.5rem;
-    display: flex;
-    justify-content: space-between; }
-  .sl .sbj-info h1 {
-    font-size: 0.9rem;
-    font-weight: 500; }
-  .sl .sbj-info h1 span {
-    font-weight: 250; }
-  #sp {
-    padding-right: 1rem; }
-  .dt {
-    display: grid;
-    text-align: center;
-    justify-content: center;
-    padding-top: 1rem; }
-  .sl .dt h1 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #febb8c; }
-  .sl .dt h1 span {
-    color: #ffffff; }
-  .sbj-ctr {
-    text-align: right; }
-  .sbj-ctr img {
-    height: 1.3rem;
-    opacity: 0.6;
-    padding-top: 0.1rem; }
-  /*-----------------------------------Teacher Interaction CSS------------------------------*/
-  .footer {
-    display: grid;
-    padding: 0 2rem;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem; }
-  .tch-container {
-    height: 21rem !important;
-    background-color: #f8d57b1e;
-    border: 1px solid #ffffff9a;
-    backdrop-filter: blur(12px);
-    border-radius: 20px; }
-  .tch-content {
-    height: 17.5rem !important; }
-  .carousel-container button {
-    background-color: rgba(255, 255, 255, 0);
-    border: 0px; } }
