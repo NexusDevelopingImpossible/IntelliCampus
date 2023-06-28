@@ -18,7 +18,7 @@
           <a class="tab <%if(title == "Dashboard"){%>
             dynamic-hover
             <%}%>" href="/student/dashboard">
-              <span class="tab-icon"><img src="/images/dashboard.png" alt="" /></span>
+              <span class="tab-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M540-570q-12.75 0-21.375-8.625T510-600v-210q0-12.75 8.625-21.375T540-840h270q12.75 0 21.375 8.625T840-810v210q0 12.75-8.625 21.375T810-570H540ZM150-450q-12.75 0-21.375-8.625T120-480v-330q0-12.75 8.625-21.375T150-840h270q12.75 0 21.375 8.625T450-810v330q0 12.75-8.625 21.375T420-450H150Zm390 330q-12.75 0-21.375-8.625T510-150v-330q0-12.75 8.625-21.375T540-510h270q12.75 0 21.375 8.625T840-480v330q0 12.75-8.625 21.375T810-120H540Zm-390 0q-12.75 0-21.375-8.625T120-150v-210q0-12.75 8.625-21.375T150-390h270q12.75 0 21.375 8.625T450-360v210q0 12.75-8.625 21.375T420-120H150Z"/></svg></span>
               <span class="tab-name">Dashboard</span>
           </a>
         </li>
@@ -26,7 +26,7 @@
           <a class="tab <%if(title == "Attendance"){%>
             dynamic-hover
             <%}%>" href="/student/attendance">
-              <span class="tab-icon"><img src="/images/attendance.png" alt="" /></span>
+              <span class="tab-icon"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M30-240q-12.75 0-21.375-8.625T0-270v-23q0-39.464 41.25-63.232T150-380q12 0 23.5.75T196-377q-8 17-12 34.889-4 17.889-4 38.111v64H30Zm240 0q-12.75 0-21.375-8.625T240-270v-34q0-65 66.5-105.5T480-450q108 0 174 40.5T720-304v34q0 12.75-8.625 21.375T690-240H270Zm510 0v-64q0-20.222-4-38.111-4-17.889-12-35.162 11-1.727 22.5-2.227 11.5-.5 23.582-.5Q877-380 918.5-356.232T960-293v23q0 12.75-8.625 21.375T930-240H780ZM149.911-410Q121-410 100.5-430.589 80-451.177 80-480.089 80-509 100.589-529.5q20.588-20.5 49.5-20.5Q179-550 199.5-529.411q20.5 20.588 20.5 49.5Q220-451 199.411-430.5q-20.588 20.5-49.5 20.5Zm660 0Q781-410 760.5-430.589q-20.5-20.588-20.5-49.5Q740-509 760.589-529.5q20.588-20.5 49.5-20.5Q839-550 859.5-529.411q20.5 20.588 20.5 49.5Q880-451 859.411-430.5q-20.588 20.5-49.5 20.5ZM480-480q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35Z"/></svg></span>
               <span class="tab-set"><span class="tab-name">Attendance</span>
                 <%=noticircleatt%>
               </span>
@@ -36,7 +36,7 @@
           <a class="tab <%if(title == "Internal Marks"){%>
             dynamic-hover
             <%}%>" href="/student/internalmark">
-              <span class="tab-icon"><img src="/images/internals.png" alt="" /></span>
+              <span class="tab-icon"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" ><path d="m480-362 122 93q9 7 17.5.5T625-286l-49-151 121-86q9-7 6-17t-14-10H541l-47-156q-3-11-13.5-11T466-706l-48 156H270q-11 0-14 10t6 17l121 86-48 152q-3 11 5.5 17t17.5-1l122-93Zm0 282q-85 0-158-30.5T195-195q-54-54-84.5-127T80-480q0-84 30.5-157T195-764q54-54 127-85t158-31q84 0 157 31t127 85q54 54 85 127t31 157q0 85-31 158t-85 127q-54 54-127 84.5T480-80Z"/></svg></span>
               <span class="tab-set"><span class="tab-name">Internals</span>
                 <%=noticircleint%>
               </span>
@@ -58,7 +58,8 @@
           <a class="tab <%if(title == "Feedback" || title=="Submit Feedback" ){%>
             dynamic-hover
             <%}%>" href="/student/feedback">
-              <span class="tab-icon"><img src="/images/Feedback.png" alt="" /></span>
+              <span class="tab-icon"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" ><path d="M240-240 106-106q-7 7-16.5 3.5T80-116v-704q0-24 18-42t42-18h680q24 0 42 18t18 42v520q0 24-18 42t-42 18H240Zm240-221 87 53q8 5 16-1t6-16l-23-98 77-67q8-7 4.5-16T634-616l-101-8-39-93q-4-9-14-9t-14 9l-39 93-101 8q-10 1-13.5 10t4.5 16l77 67-23 98q-2 10 6 16t16 1l87-53Z"/></svg></span>
+             
               <span class="tab-name">Feedback</span>
           </a>
         </li>
@@ -70,15 +71,15 @@
         </li> -->
         <li>
           <a class="tab" href="/sign-out">
-            <span class="tab-icon"><img src="/images/signout.png" alt="" /></span>
+            <span class="tab-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M645-327q-9-9-9-21.75t9-21.25l80-80H405q-12.75 0-21.375-8.675-8.625-8.676-8.625-21.5 0-12.825 8.625-21.325T405-510h318l-81-81q-8-8-8-20.447 0-12.448 9.214-21.5Q651.661-642 664.33-642q12.67 0 21.67 9l133 133q5 5 7 10.133 2 5.134 2 11Q828-473 826-468q-2 5-7 10L687-326q-8 8-20.5 8t-21.5-9ZM180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h261q12.75 0 21.375 8.675 8.625 8.676 8.625 21.5 0 12.825-8.625 21.325T441-780H180v600h261q12.75 0 21.375 8.675 8.625 8.676 8.625 21.5 0 12.825-8.625 21.325T441-120H180Z"/></svg></span>
             <span class="tab-name">Sign Out</span>
           </a>
         </li>
       </ul>
     </div>
-    <!-- <div class="nav-manipal-vector">
+    <div class="nav-manipal-vector">
       <img src="/images/manipal-vector.png" alt="" />
-    </div> -->
+    </div>
   </div>
 
 
