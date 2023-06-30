@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="<%= assetPath('css/studenthome.css') %>" />
 <link rel="stylesheet" href="<%= assetPath('css/card.css') %>" />
 <link rel="stylesheet" href="<%= assetPath('css/dashboard-calendar.css') %>" />
@@ -6,77 +5,77 @@
 
 <div class="main-page">
   <div class="blur">
-  <div class="heading">
-    <div class="dash-heading">
-      <h1 class="head head1">Dashboard</h1>
-      <h4 class="head welcome-msg">
-        Welcome back,<span id="name">
-          <%=student.name%>
-        </span>
-      </h4>
-    </div>
- 
-  </div>
-  <!-- - - - - -  -->
-  <!-- cards -->
-  <!-- - - - - - -  -->
-  <section class="cards">
-    <div class="card-col1">
-      <div class="card card1">
-        <div class="b1">
-          <img class="img" src="/images/AG.jpg" alt="" />
-          <div>
-            <h1 class="std-name">
-              <%=student.name%>
-            </h1>
-            <p class="reg">
-              <%= student.username %>
-            </p>
-          </div>
-        </div>
-        <div class="b2">
-          <div>
-            <h1>Course : <span>
-                <%= student.department %>
-              </span></h1>
-            <h1>Semester : <span>
-                <%= student.semester %>
-              </span></h1>
-            <h1>Section : <span>
-                <%= student.section %>
-              </span></h1>
-          </div>
-        </div>
-        <div class="b3">
-          <h1>
-            TG :
-            <span>
-            </span>
-          </h1>
-          <h1>
-            No :
-            <span>
-              
-            </span>
-          </h1>
-          <h1>
-            Chamber :
-            <span>
-              
-            </span>
-          </h1>
-        </div>
+    <div class="heading">
+      <div class="dash-heading">
+        <h1 class="head head1">Dashboard</h1>
+        <h4 class="head welcome-msg">
+          Welcome back,<span id="name">
+            <%=student.name%>
+          </span>
+        </h4>
       </div>
-      <div class="card card2">
-        <div class="card-hed">
-          <p>Attendence</p>
+
+    </div>
+    <!-- - - - - -  -->
+    <!-- cards -->
+    <!-- - - - - - -  -->
+    <section class="cards">
+      <div class="card-col1">
+        <div class="card card1">
+          <div class="b1">
+            <img class="img" src="/images/AG.jpg" alt="" />
+            <div>
+              <h1 class="std-name">
+                <%=student.name%>
+              </h1>
+              <p class="reg">
+                <%= student.username %>
+              </p>
+            </div>
+          </div>
+          <div class="b2">
+            <div>
+              <h1>Course : <span>
+                  <%= student.department %>
+                </span></h1>
+              <h1>Semester : <span>
+                  <%= student.semester %>
+                </span></h1>
+              <h1>Section : <span>
+                  <%= student.section %>
+                </span></h1>
+            </div>
+          </div>
+          <div class="b3">
+            <h1>
+              TG :
+              <span>
+              </span>
+            </h1>
+            <h1>
+              No :
+              <span>
+
+              </span>
+            </h1>
+            <h1>
+              Chamber :
+              <span>
+
+              </span>
+            </h1>
+          </div>
         </div>
-        <div class="attendence-container">
-          <% if(internal.length==0){ %>
+        <div class="card card2">
+          <div class="card-hed">
+            <p>Attendence</p>
+          </div>
+          <div class="attendence-container">
+            <% if(internal.length==0){ %>
             <div id="no-subject">No subjects</div>
-          <% } %>
-          <div class="attendence-percent">
-            <%for(let i=0; i<internal.length; i++){%>
+            <% } %>
+            <div class="attendence-percent">
+              <%for(let i=0; i<internal.length; i++){%>
               <% function extractCapitalLetters(str) { const capitalLetters=str.match(/[A-Z]/g); return capitalLetters ?
                 capitalLetters.join('') : '' ; }
                 internal[i].timetableid.subjectcode.name=extractCapitalLetters(internal[i].timetableid.subjectcode.name);
@@ -91,22 +90,22 @@
                 }
                 %>
 
-                <div class="container">
-                  <div class="circle-progress">
-                    <span class="progress-val">
-                      <%=percent%>%
-                    </span>
-                  </div>
-                  <div class="sub-info">
-                    <p class="sub-code">
-                      <%=internal[i].timetableid.subjectcode.code%>
-                    </p>
-                    <p class="sub-name">
-                      <%=internal[i].timetableid.subjectcode.name%> <%=type%>
-                    </p>
-                  </div>
+              <div class="container">
+                <div class="circle-progress">
+                  <span class="progress-val">
+                    <%=percent%>%
+                  </span>
                 </div>
-                <%}%>
+                <div class="sub-info">
+                  <p class="sub-code">
+                    <%=internal[i].timetableid.subjectcode.code%>
+                  </p>
+                  <p class="sub-name">
+                    <%=internal[i].timetableid.subjectcode.name%> <%=type%>
+                  </p>
+                </div>
+              </div>
+              <%}%>
 
           </div>
         </div>
@@ -124,31 +123,41 @@
         </div>
         <div class="content">
           <% for(let i=0; i<student.pinned.length; i++) {%>
-          <div class="notification">
-            <div class="text">
-              <p class="old"><%=student.pinned[i].noti.title%></p>
-            </div>
-            <div class="pdf">
-              <a href="<%=student.pinned[i].noti.notiflie%>" target="_blank"><ion-icon class="download-outline" name="download-outline"></ion-icon></a><a href="/student/unpinnoti/<%=student.pinned[i]._id%>"><ion-icon class="pin-outline" name="navigate-circle"></ion-icon></a>
-            </div>
-          </div>
-          <%}%>
+              <div class="notification">
+                <div class="text">
+                  <p class="old"><%=student.pinned[i].noti.title%></p>
+                </div>
+                <div class="pdf">
+                  <a href="<%=student.pinned[i].noti.notiflie%>" target="_blank">
+                    <ion-icon class="download-outline" name="download-outline"></ion-icon>
+                  </a><a href="/student/unpinnoti/<%=student.pinned[i]._id%>">
+                    <ion-icon class="pin-outline" name="navigate-circle"></ion-icon>
+                  </a>
+                </div>
+              </div>
+              <%}%>
           <% for(let i=0; i<notidata.length; i++) {%>
-            <% let t = "old";
+              <% let t = "old";
               if(locals.user.exittime<notidata[i].updatedAt){
                 t = "new";
             }
               %>
-          <div class="notification">
-            <div class="text">
-              <p class="<%=t%>"><%=notidata[i].title%></p>
-              <p class="time"><%=arr[i]%></p>
-            </div>
-            <div class="pdf">
-              <a href="<%=notidata[i].notiflie%>" target="_blank"><ion-icon class="download-outline" name="download-outline"></ion-icon></a><a href="/student/pinnoti/<%=notidata[i]._id%>"><ion-icon class="pin-outline" name="navigate"></ion-icon></a>
-            </div>
-          </div>
-          <%}%>
+              <div class="notification">
+                <div class="text">
+                  <p class="<%=t%>"><%=notidata[i].title%></p>
+                  <p class="time"><%=arr[i]%></p>
+                </div>
+                <div class="pdf">
+                  <a href="<%=notidata[i].notiflie%>" target="_blank">
+                    <ion-icon class="download-outline" name="download-outline"></ion-icon>
+                  </a><a class="createStudentNotiBtn" href="/student/pinnoti/<%=notidata[i]._id%>">
+                    <ion-icon class="pin-outline" name="navigate"></ion-icon>
+                  </a>
+                  <input type="hidden" id="/student/pinnoti/<%=notidata[i]._id%>-title" value="<%=notidata[i].title%>" />
+                  <input type="hidden" id="/student/pinnoti/<%=notidata[i]._id%>-file" value="<%=notidata[i].notiflie%>" />
+                </div>
+              </div>
+              <%}%>
         </div>
       </div>
       <div class="card card5">
@@ -156,36 +165,40 @@
           <header>
             <!-- holiday data -->
             <input id="cal" type="hidden" value="<%=calendardata%>">
-            <div class="icons calendar-hed">
-              <div>
-                <span id="prev" class="icon-fp"><ion-icon name="chevron-back-outline"></ion-icon></span>
+              <div class="icons calendar-hed">
+                <div>
+                  <span id="prev" class="icon-fp">
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                  </span>
+                </div>
+                <div class="current-DATE">
+                  <p class="current-date"></p>
+                  <p class="current-year"></p>
+                </div>
+                <div>
+                  <span id="next" class="icon-fp">
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                  </span>
+                </div>
               </div>
-              <div class="current-DATE">
-                <p class="current-date"></p>
-                <p class="current-year"></p>
-              </div>
-              <div>
-                <span id="next" class="icon-fp"><ion-icon name="chevron-forward-outline"></ion-icon></span>
+              </header>
+              <div class="calendar">
+                <ul class="weeks">
+                  <li>Sun</li>
+                  <li>Mon</li>
+                  <li>Tue</li>
+                  <li>Wed</li>
+                  <li>Thu</li>
+                  <li>Fri</li>
+                  <li>Sat</li>
+                </ul>
+                <ul class="days"></ul>
               </div>
             </div>
-          </header>
-          <div class="calendar">
-            <ul class="weeks">
-              <li>Sun</li>
-              <li>Mon</li>
-              <li>Tue</li>
-              <li>Wed</li>
-              <li>Thu</li>
-              <li>Fri</li>
-              <li>Sat</li>
-            </ul>
-            <ul class="days"></ul>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
 </div>
 <script src="<%= assetPath('js/progress.js') %>"></script>
 <script src="<%= assetPath('js/dashboard-calendar.js') %>"></script>
@@ -196,5 +209,13 @@
   let data = cal.value;
   data = JSON.parse(data);
   console.log(data);
+</script>
 
+<script src="<%= assetPath('js/studentNoti.js') %>"></script>
+
+<script>
+  $('.createStudentNotiBtn').each(function(){
+    let self=this;
+    let createStudentNotis=new createStudentNoti(self);
+  })
 </script>
