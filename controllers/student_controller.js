@@ -40,7 +40,6 @@ module.exports.dashboard = async (req, res) => {
 };
 module.exports.pinnoti = async (req, res) => {
   try {
-    // console.log(req.params.id);
     let notiarray = await Student.findOne({
       username: res.locals.user.username,
     }).populate({ path: "pinned", populate: { path: "noti" } });;
@@ -51,10 +50,15 @@ module.exports.pinnoti = async (req, res) => {
       }
       notiarray.pinned.push(newnoti);
       notiarray.save();
+      let notiLength=notiarray.pinned.length;
+      const newNotiId = notiarray.pinned[notiLength-1]._id;
+
+      return res.status(200).json({ newNotiId });
     }
     return res.redirect('back');
   } catch (error) {
-    
+    console.error(error);
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 }
 
@@ -67,7 +71,6 @@ module.exports.unpinnoti = async (req, res) => {
     const index = student.pinned.findIndex(obj => obj._id == req.params.id);
     console.log(index)
     if (index !== -1) {
-      // Remove the object from the array
       student.pinned.splice(index, 1);
       await student.save();
     }
