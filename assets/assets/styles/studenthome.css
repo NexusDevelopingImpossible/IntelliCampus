@@ -1,0 +1,28 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.main-page .blur .heading {
+  display: flex;
+  justify-content: space-between;
+}
+.main-page .blur .heading .dash-heading .head {
+  padding-left: 3vw;
+  color: #ffffff;
+}
+.main-page .blur .heading .dash-heading .head1 {
+  font-size: 7vh;
+  font-weight: 700;
+  color: #ffffff;
+}
+.main-page .blur .heading .dash-heading .welcome-msg {
+  font-size: 3vh;
+  font-weight: 300;
+}
+.main-page .blur .heading .dash-heading .welcome-msg span {
+  font-weight: 600;
+}
