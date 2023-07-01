@@ -219,3 +219,16 @@
     let createStudentNotis=new createStudentNoti(self);
   })
 </script>
+<script>
+  window.locals = [];
+  let u = <%- JSON.stringify(locals.internal) %>
+  window.locals.push(u);
+  for (let i = 0; i < locals[0].length; i++) {
+    if (locals[0][i].exitattendance < locals[0][i].updateattendance) {
+      let id = document.getElementById('attendance');
+      console.log(id.style)
+      id.style.display = "flex";
+      console.log("adasda");
+    }
+  }
+</script>

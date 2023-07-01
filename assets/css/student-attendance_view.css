@@ -55,7 +55,11 @@
   padding: 1vh 0rem;
   align-items: center;
   padding-left: 1vw;
-  width: 33vw; }
+  width: 33vw;
+  justify-content: space-between; }
+
+.option div {
+  margin-right: 1vw; }
 
 .options .option:hover {
   background: #282727; }
@@ -94,7 +98,6 @@
   padding: 1vh 0;
   align-items: center;
   background-color: #f8d57b30;
-  backdrop-filter: blur(12px);
   border-radius: 0.75vw; }
 
 .att-no {

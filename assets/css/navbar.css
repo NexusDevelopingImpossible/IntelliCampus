@@ -106,7 +106,8 @@ body {
   width: 10px;
   height: 10px;
   background-color: #fd6d08;
-  border-radius: 50%; }
+  border-radius: 50%;
+  display: none; }
 
 .tab-set {
   display: flex;

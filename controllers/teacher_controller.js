@@ -75,7 +75,9 @@ module.exports.searchstudent = async (req, res) => {
           totalpresent: 0,
           examMarks: [],
           updateattendance: Date.now(),
-          updateinternal: Date.now()
+          updateinternal: Date.now(),
+          exitattendance: Date.now(),
+          exitinternal: Date.now()
         });
       }
     }

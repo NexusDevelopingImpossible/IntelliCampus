@@ -20,7 +20,7 @@
           <%for(let i = 0; i<attendance.length; i++){%>
           <a href="/student/attendancesingle/<%=attendance[i]._id%>">
             <li class="option" value="view">
-              <span class="option-text"><span class="sub-code"><%=attendance[i].timetableid.subjectcode.code%></span> <%=attendance[i].timetableid.subjectcode.name%></span>
+              <span class="option-text"><span class="sub-code"><%=attendance[i].timetableid.subjectcode.code%></span> <%=attendance[i].timetableid.subjectcode.name%></span><div class="noti-circle" id="<%=i%>"></div>
             </li>
           </a>
           <%}%>
@@ -74,6 +74,21 @@
 
 </div>
 </div>
+<script>
+  window.locals = [];
+  let u = <%- JSON.stringify(locals.attendance) %>
+  window.locals.push(u);
+  for (let i = 0; i < locals[0].length; i++) {
+    if (locals[0][i].exitattendance < locals[0][i].updateattendance) {
+      let id = document.getElementById('attendance');
+      let id2 = document.getElementById(i);
+      console.log(id.style)
+      id.style.display = "flex";
+      id2.style.display = "flex";
+      console.log("adasda");
+    }
+  }
+</script>
 
 
 

@@ -36,7 +36,7 @@ module.exports.dashboard = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-  }
+  } 
 };
 module.exports.pinnoti = async (req, res) => {
   try {
@@ -153,22 +153,20 @@ module.exports.attendancesingle = async (req, res) => {
     const studentdata = await Student.findOne({
       username: res.locals.user.username,
     });
-    const attendance = await Attendance.find({
-      studentid: studentdata._id,
-    }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
-    const attendancesingle = await Attendance.findById(req.params.id).populate({
+    const attendancesingle = await Attendance.findByIdAndUpdate(req.params.id).populate({
       path: "timetableid",
       populate: { path: "subjectcode" },
     });
-    console.log("Att: ",attendancesingle);
-    console.log(attendancesingle.present.length)
+    attendancesingle.exitattendance = Date.now();
+    await attendancesingle.save();
+    const attendance = await Attendance.find({
+      studentid: studentdata._id,
+    }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
     attendancesingle.present.sort((a, b) => {
       const dateA = new Date(a.datevalue);
       const dateB = new Date(b.datevalue);
       return dateA.getTime() - dateB.getTime();
     });
-    
-    console.log(attendancesingle.present);
     let subject = attendancesingle.timetableid.subjectcode;
     return res.render("student/attendance_view", {
       title: "Attendance",
