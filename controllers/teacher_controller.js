@@ -92,22 +92,18 @@ module.exports.searchstudent = async (req, res) => {
 module.exports.getsubject = async (req, res) => {
   try {
     checkurlfunct.checkurlteacher(req, res);
-    let timeTableCode = req.params.id;
     const timetables = await Timetable.findOne({ _id: req.params.id }).populate(
       "subjectcode"
     );
     const data = await Attendance.find({
       timetableid: timetables._id,
     }).populate("timetableid studentid");
-    data.sort();
-
-    // let marksData = await MarksScheme.findOne({
-    //   timeTableId: timeTableCode,
-    // });
-    // marksData = JSON.stringify(marksData)
-
-    // let attendanceInfo = await Attendance.find({});
-    // let studentInfo = await Student.find({}).sort();
+    data.sort((a, b) => {
+      const studentIdA = a.studentid.username;
+      const studentIdB = b.studentid.username;
+    
+      return studentIdA - studentIdB;
+    });
     return res.render("teacher/subject/attendance-add", {
       title: "Attendance",
       timetable: timetables,
@@ -121,39 +117,60 @@ module.exports.getsubject = async (req, res) => {
     console.log(err);
   }
 };
-
-//Add new attendance
 module.exports.addattendance = async (req, res) => {
   try {
     checkurlfunct.checkurlteacher(req, res);
-    const check = req.body.check;
-    let dateadd = await Timetable.findById(req.body.id);
-    const newdate = { date: req.body.date };
-    dateadd.classes.push(newdate);
-    dateadd.save();
-    const newdateId = dateadd.classes[dateadd.classes.length - 1]._id;
-    // console.log(newdateId);
-    for (let i = 0; i < req.body.studentlist.length; i++) {
-      let data = await Attendance.findById(req.body.studentlist[i]);
-      let attvalue = false;
-      for (let j = 0; j < check.length; j++) {
-        if (check[j] == i) {
-          attvalue = true;
-          data.totalpresent++;
-          break;
-        }
-      }
-      const newpresent = {
-        date: newdateId,
+    const check = new Set(req.body.check);
+    const timetableId = req.body.id;
+    const newDate = { date: req.body.date };
+
+    // Update timetable with new date
+    await Timetable.findByIdAndUpdate(timetableId, { $push: { classes: newDate } });
+
+    const updatedTimetable = await Timetable.findById(timetableId).populate('subjectcode');
+    const newDateId = updatedTimetable.classes[updatedTimetable.classes.length - 1]._id;
+
+    const bulkUpdates = [];
+
+    for (const studentId of req.body.studentlist) {
+      const data = await Attendance.findById(studentId);
+      const attvalue = check.has(studentId);
+
+      const newPresent = {
+        date: newDateId,
         att: attvalue,
         datevalue: req.body.date,
       };
-      data.present.push(newpresent);
+
+      data.present.push(newPresent);
       data.updateattendance = Date.now();
-      data.save();
+
+      bulkUpdates.push({
+        updateOne: {
+          filter: { _id: studentId },
+          update: {
+            $push: { present: newPresent },
+            $set: { updateattendance: data.updateattendance },
+          },
+        },
+      });
     }
-    req.flash("success", "Attendance added successfully");
-    return res.redirect("back");
+
+    await Attendance.bulkWrite(bulkUpdates);
+
+    const timetables = await Timetable.findOne({ _id: timetableId }).populate('subjectcode');
+    const dataA = await Attendance.find({ timetableid: timetableId }).populate('timetableid studentid');
+    
+    if (req.xhr) {
+      console.log('yih');
+      return res.status(200).json({
+        data: {
+          student: dataA,
+          timetable: timetables,
+        },
+      });
+    }
+    return res.redirect('back');
   } catch (err) {
     console.log(err);
     return;

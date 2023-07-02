@@ -62,6 +62,7 @@ module.exports.pinnoti = async (req, res) => {
   }
 }
 
+
 module.exports.unpinnoti = async (req, res) => {
   try {
     let student = await Student.findOne({

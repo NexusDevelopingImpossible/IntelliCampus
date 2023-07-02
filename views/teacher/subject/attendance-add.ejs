@@ -1,11 +1,14 @@
 <link rel="stylesheet" href="<%= assetPath('css/general-att.css') %>">
 <link rel="stylesheet" href="<%= assetPath('css/sub-att-add-update.css') %>">
 
-    <div class="main-page">
-        <div class="blur">
+<div class="main-page">
+    <div class="blur">
         <div id="title">
             <div class="sub-name">
-                <a href="/teacher/dashboard"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
+                <a href="/teacher/dashboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                        <path
+                            d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z" />
+                    </svg></a>
                 <h1 class="subject" id="sub_code">
                     <%=timetable.subjectcode.code%>
                 </h1>
@@ -41,7 +44,7 @@
             </div>
         </section>
         <section class="tab-content">
-            <form action="/teacher/addattendance" method="post" id="MyForm">
+            <form action="/teacher/addattendance" method="post" id="att-form">
                 <div class="mode__and__button">
                     <div class="left">
                         <div class="select-menu">
@@ -79,7 +82,7 @@
                             <li>Name</li>
                             <li>Registration No.</li>
                             <li>CLC</li>
-                            <li>CLA</li>
+                            <li>CLP</li>
                             <li>PER</li>
                             <li><input type="checkbox" name="" id=""></li>
                         </ul>
@@ -106,7 +109,7 @@
                                     <li>
                                         <%=parseInt(((student[i].totalpresent) /(student[i].present.length))*100)%>%
                                     </li>
-                                    <li><input type="checkbox" name="check" id="" value="<%=i%>" checked>
+                                    <li><input type="checkbox" name="check" id="" value="<%=student._id%>" checked>
                                     </li>
                                     <input type="text" value=<%=student[i]._id%> name="studentlist"
                                     style="display: none">
@@ -119,7 +122,109 @@
         </section>
     </div>
 
-    </div>
+</div>
 
-    <script src="<%= assetPath('js/attendance.js') %>"></script>
-    <script src="<%= assetPath('js/internalMarks.js') %>"></script>
+<script src="<%= assetPath('js/attendance.js') %>"></script>
+<script src="<%= assetPath('js/internalMarks.js') %>"></script>
+
+<script>
+let createform = function () {
+  const newattform = $('#att-form');
+
+  $(document).on('submit', '#att-form', function (e) {
+    e.preventDefault();
+    $.ajax({
+      type: 'post',
+      url: '/teacher/addattendance',
+      data: newattform.serialize(),
+      success: function (data) {
+        const nAtt = newattDom(data.data);
+        $('#att-form').html(nAtt);
+        new Noty({
+          theme: 'relax',
+          text: 'Attendance added',
+          type: 'success',
+          layout: 'topRight',
+          timeout: 1500,
+        }).show();
+      },
+      error: function (error) {
+        console.log(error.responseText);
+      }
+    });
+  });
+};
+
+let newattDom = function (data) {
+  const interpolatedString = data.student
+    .map((student, index) => `
+      <div class="list__items">
+        <ul>
+          <li>${index + 1}</li>
+          <li>${student.studentid.name}</li>
+          <li>${student.studentid.username}</li>
+          <li>${student.present.length}</li>
+          <li>${student.totalpresent}</li>
+          <li>${parseInt((student.totalpresent / student.present.length) * 100)}%</li>
+          <li><input type="checkbox" name="check" value="${student._id}" checked></li>
+          <input type="text" value="${student._id}" name="studentlist" style="display: none">
+        </ul>
+      </div>
+    `)
+    .join('');
+
+  const p1 = $(`
+    <div class="mode__and__button">
+      <div class="left">
+        <div class="select-menu">
+          <div class="select-btn">
+            <span class="sBtn-text">Add</span>
+            <ion-icon name="caret-down-outline"></ion-icon>
+          </div>
+          <ul class="options" id="att-choose">
+            <a href="/teacher/attendance_update/${data.timetable._id}">
+              <li class="option" value="view">
+                <span class="option-text">Update</span>
+              </li>
+            </a>
+            <a href="/teacher/attendance_view/${data.timetable._id}">
+              <li class="option" value="view">
+                <span class="option-text">View</span>
+              </li>
+            </a>
+          </ul>
+        </div>
+        <div class="date">
+          <input type="date" name="date" id="date" required>
+        </div>
+      </div>
+      <div class="right">
+        <button class="reset btn-outline btn btn-sm" type="reset">Reset</button>
+        <button class="save btn-full btn btn-sm" type="submit">Save</button>
+        <input type="text" value="${data.timetable._id}" name="id" style="display: none">
+      </div>
+    </div>
+    <div class="list__main">
+      <div class="list__main__title">
+        <ul>
+          <li>S.No</li>
+          <li>Name</li>
+          <li>Registration No.</li>
+          <li>CLC</li>
+          <li>CLP</li>
+          <li>PER</li>
+          <li><input type="checkbox" name="" id=""></li>
+        </ul>
+      </div>
+      <div class="student-list-scroll">
+        ${interpolatedString}
+      </div>
+    </div>
+  `);
+
+  return p1;
+};
+
+createform();
+
+</script>
