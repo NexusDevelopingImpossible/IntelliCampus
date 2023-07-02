@@ -120,57 +120,43 @@ module.exports.getsubject = async (req, res) => {
 module.exports.addattendance = async (req, res) => {
   try {
     checkurlfunct.checkurlteacher(req, res);
-    const check = new Set(req.body.check);
-    const timetableId = req.body.id;
-    const newDate = { date: req.body.date };
-
-    // Update timetable with new date
-    await Timetable.findByIdAndUpdate(timetableId, { $push: { classes: newDate } });
-
-    const updatedTimetable = await Timetable.findById(timetableId).populate('subjectcode');
-    const newDateId = updatedTimetable.classes[updatedTimetable.classes.length - 1]._id;
-
-    const bulkUpdates = [];
-
-    for (const studentId of req.body.studentlist) {
-      const data = await Attendance.findById(studentId);
-      const attvalue = check.has(studentId);
-
-      const newPresent = {
-        date: newDateId,
+    const check = req.body.check;
+    let dateadd = await Timetable.findById(req.body.id);
+    const newdate = { date: req.body.date };
+    dateadd.classes.push(newdate);
+    dateadd.save();
+    const newdateId = dateadd.classes[dateadd.classes.length - 1]._id;
+    // console.log(newdateId);
+    let dataA = await Attendance.find({ timetableid: req.body.id }).populate('studentid');
+    for (let i = 0; i < req.body.studentlist.length; i++) {
+      let data = dataA.find(item => item._id==(req.body.studentlist[i]));
+      let attvalue = false;
+      for (let j = 0; j < check.length; j++) {
+        if (check[j] == i) {
+          attvalue = true;
+          data.totalpresent++;
+          break;
+        }
+      }
+      const newpresent = {
+        date: newdateId,
         att: attvalue,
         datevalue: req.body.date,
       };
-
-      data.present.push(newPresent);
+      data.present.push(newpresent);
       data.updateattendance = Date.now();
-
-      bulkUpdates.push({
-        updateOne: {
-          filter: { _id: studentId },
-          update: {
-            $push: { present: newPresent },
-            $set: { updateattendance: data.updateattendance },
-          },
-        },
-      });
+      data.save();
     }
-
-    await Attendance.bulkWrite(bulkUpdates);
-
-    const timetables = await Timetable.findOne({ _id: timetableId }).populate('subjectcode');
-    const dataA = await Attendance.find({ timetableid: timetableId }).populate('timetableid studentid');
-    
+    // const dataA = await Attendance.find({ timetableid: req.body.id }).populate('studentid');
     if (req.xhr) {
-      console.log('yih');
       return res.status(200).json({
         data: {
-          student: dataA,
-          timetable: timetables,
+          student: dataA
         },
       });
     }
-    return res.redirect('back');
+    // req.flash("success", "Attendance added successfully");
+    // return res.redirect("back");
   } catch (err) {
     console.log(err);
     return;

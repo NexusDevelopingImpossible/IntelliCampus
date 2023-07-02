@@ -1,122 +1,117 @@
-.cards {
-  .card-col1 {
-    .card5 {
-      .wrapper {
-        border-radius: 10%;
-        padding-top: 1.75vh;
+.card5 {
+  .wrapper {
+    border-radius: 10%;
+    padding-top: 1.75vh;
 
-        header {
-          .calendar-hed {
-            display: flex;
-            justify-content: space-between;
-            padding: 0 1.5vw;
+    header {
+      .calendar-hed {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1.5vw;
 
-            .current-DATE {
-              font-size: 2.45vh;
-              font-weight: 500;
-              margin: auto;
-              color: #fff;
+        .current-DATE {
+          font-size: 2.45vh;
+          font-weight: 500;
+          margin: auto;
+          color: #fff;
 
-              .current-year {
-                text-align: center;
-                font-weight: 300;
-              }
-              .current-date {
-                text-align: center;
-              }
-            }
+          .current-year {
+            text-align: center;
+            font-weight: 300;
           }
-
-          .icons {
-            span {
-              height: 2.2vw;
-              width: 2.2vw;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              cursor: pointer;
-              color: #ffffff;
-              text-align: center;
-              font-size: 2.5vh;
-              user-select: none;
-              border-radius: 50%;
-              background-color: #ffffff2e;
-            }
-
-            span:hover {
-              background-color: #0000002e;
-            }
+          .current-date {
+            text-align: center;
           }
         }
+      }
 
-        .calendar {
-          padding: 0 0.75vw;
+      .icons {
+        span {
+          height: 2.2vw;
+          width: 2.2vw;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          color: #ffffff;
+          text-align: center;
+          font-size: 2.5vh;
+          user-select: none;
+          border-radius: 50%;
+          background-color: #ffffff2e;
+        }
 
-          ul {
-            display: flex;
-            flex-wrap: wrap;
-            list-style: none;
-            text-align: center;
+        span:hover {
+          background-color: #0000002e;
+        }
+      }
+    }
 
-            li {
-              color: white;
-              // width:  -webkit-calc(100% / 7);
-              width: 14.28%;
-              // width: calc(100vh / 7);
-              font-size: 1.9vh;
-            }
-          }
+    .calendar {
+      padding: 0 0.75vw;
 
-          .weeks {
-            padding-top: 2.4vh;
-            padding-bottom: 1.5vh;
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        text-align: center;
 
-            li {
-              font-weight: 400;
-              color: #f5c8a78e;
-              font-size: 1.9vh;
-              cursor: default;
-              text-align: center;
-            }
-          }
+        li {
+          color: white;
+          // width:  -webkit-calc(100% / 7);
+          width: 14.28%;
+          // width: calc(100vh / 7);
+          font-size: 1.9vh;
+        }
+      }
 
-          .days {
-            li {
-              cursor: pointer;
-              padding: 1.3vh;
-            }
+      .weeks {
+        padding-top: 2.4vh;
+        padding-bottom: 1.5vh;
 
-            li.inactive{
-              color: #aaa;
-            }
+        li {
+          font-weight: 400;
+          color: #f5c8a78e;
+          font-size: 1.9vh;
+          cursor: default;
+          text-align: center;
+        }
+      }
 
-            li.active{
-              color: #fff;
-            }
+      .days {
+        li {
+          cursor: pointer;
+          padding: 1.3vh;
+        }
 
-            li.active::before{
-              background: #00000043;
-            }
+        li.inactive {
+          color: #aaa;
+        }
 
-            li::before{
-              position: absolute;
-              content: "";
-              left: 50%;
-              top: 50%;
-              height: 2.5vw;
-              width: 2.5vw;
-              z-index: -1;
-              transform: translate(-50%, -50%);
-            }
-          }
+        li.active {
+          color: #fff;
+        }
+
+        li.active::before {
+          background: #00000043;
+        }
+
+        li::before {
+          position: absolute;
+          content: "";
+          left: 50%;
+          top: 50%;
+          height: 2.5vw;
+          width: 2.5vw;
+          z-index: -1;
+          transform: translate(-50%, -50%);
         }
       }
     }
   }
 }
 
-
-.main-div {  
+.main-div {
   width: 100%;
   height: 100%;
   position: relative;

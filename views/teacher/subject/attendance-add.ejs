@@ -100,16 +100,16 @@
                                     <li>
                                         <%=student[i].studentid.username%>
                                     </li>
-                                    <li>
+                                    <li id="len<%=i%>">
                                         <%=student[i].present.length%>
                                     </li>
-                                    <li>
+                                    <li id="tp<%=i%>">
                                         <%=student[i].totalpresent%>
                                     </li>
-                                    <li>
+                                    <li id="per<%=i%>">
                                         <%=parseInt(((student[i].totalpresent) /(student[i].present.length))*100)%>%
                                     </li>
-                                    <li><input type="checkbox" name="check" id="" value="<%=student._id%>" checked>
+                                    <li><input type="checkbox" name="check" id="cb<%=i%>" value="<%=i%>" checked>
                                     </li>
                                     <input type="text" value=<%=student[i]._id%> name="studentlist"
                                     style="display: none">
@@ -139,7 +139,6 @@ let createform = function () {
       data: newattform.serialize(),
       success: function (data) {
         const nAtt = newattDom(data.data);
-        $('#att-form').html(nAtt);
         new Noty({
           theme: 'relax',
           text: 'Attendance added',
@@ -156,73 +155,20 @@ let createform = function () {
 };
 
 let newattDom = function (data) {
-  const interpolatedString = data.student
-    .map((student, index) => `
-      <div class="list__items">
-        <ul>
-          <li>${index + 1}</li>
-          <li>${student.studentid.name}</li>
-          <li>${student.studentid.username}</li>
-          <li>${student.present.length}</li>
-          <li>${student.totalpresent}</li>
-          <li>${parseInt((student.totalpresent / student.present.length) * 100)}%</li>
-          <li><input type="checkbox" name="check" value="${student._id}" checked></li>
-          <input type="text" value="${student._id}" name="studentlist" style="display: none">
-        </ul>
-      </div>
-    `)
-    .join('');
-
-  const p1 = $(`
-    <div class="mode__and__button">
-      <div class="left">
-        <div class="select-menu">
-          <div class="select-btn">
-            <span class="sBtn-text">Add</span>
-            <ion-icon name="caret-down-outline"></ion-icon>
-          </div>
-          <ul class="options" id="att-choose">
-            <a href="/teacher/attendance_update/${data.timetable._id}">
-              <li class="option" value="view">
-                <span class="option-text">Update</span>
-              </li>
-            </a>
-            <a href="/teacher/attendance_view/${data.timetable._id}">
-              <li class="option" value="view">
-                <span class="option-text">View</span>
-              </li>
-            </a>
-          </ul>
-        </div>
-        <div class="date">
-          <input type="date" name="date" id="date" required>
-        </div>
-      </div>
-      <div class="right">
-        <button class="reset btn-outline btn btn-sm" type="reset">Reset</button>
-        <button class="save btn-full btn btn-sm" type="submit">Save</button>
-        <input type="text" value="${data.timetable._id}" name="id" style="display: none">
-      </div>
-    </div>
-    <div class="list__main">
-      <div class="list__main__title">
-        <ul>
-          <li>S.No</li>
-          <li>Name</li>
-          <li>Registration No.</li>
-          <li>CLC</li>
-          <li>CLP</li>
-          <li>PER</li>
-          <li><input type="checkbox" name="" id=""></li>
-        </ul>
-      </div>
-      <div class="student-list-scroll">
-        ${interpolatedString}
-      </div>
-    </div>
-  `);
-
-  return p1;
+    date.value = null;
+    console.log(data);
+    for(let i = 0; i<data.student.length; i++){
+        let l = "len" + i;
+        document.getElementById("len"+i).innerHTML = data.student[i].present.length;
+        document.getElementById("tp"+i).innerHTML = data.student[i].totalpresent;
+        document.getElementById("per"+i).innerHTML = parseInt(((data.student[i].totalpresent) /(data.student[i].present.length))*100)+"%";
+    }
+//   const p1 = $(`
+//       <div class="student-list-scroll">
+//         ${interpolatedString}
+//       </div>
+//   `);
+    return
 };
 
 createform();

@@ -1,21 +1,21 @@
-.cards .card-col1 .card5 .wrapper {
+.card5 .wrapper {
   border-radius: 10%;
   padding-top: 1.75vh; }
-  .cards .card-col1 .card5 .wrapper header .calendar-hed {
+  .card5 .wrapper header .calendar-hed {
     display: flex;
     justify-content: space-between;
     padding: 0 1.5vw; }
-    .cards .card-col1 .card5 .wrapper header .calendar-hed .current-DATE {
+    .card5 .wrapper header .calendar-hed .current-DATE {
       font-size: 2.45vh;
       font-weight: 500;
       margin: auto;
       color: #fff; }
-      .cards .card-col1 .card5 .wrapper header .calendar-hed .current-DATE .current-year {
+      .card5 .wrapper header .calendar-hed .current-DATE .current-year {
         text-align: center;
         font-weight: 300; }
-      .cards .card-col1 .card5 .wrapper header .calendar-hed .current-DATE .current-date {
+      .card5 .wrapper header .calendar-hed .current-DATE .current-date {
         text-align: center; }
-  .cards .card-col1 .card5 .wrapper header .icons span {
+  .card5 .wrapper header .icons span {
     height: 2.2vw;
     width: 2.2vw;
     display: flex;
@@ -28,38 +28,38 @@
     user-select: none;
     border-radius: 50%;
     background-color: #ffffff2e; }
-  .cards .card-col1 .card5 .wrapper header .icons span:hover {
+  .card5 .wrapper header .icons span:hover {
     background-color: #0000002e; }
-  .cards .card-col1 .card5 .wrapper .calendar {
+  .card5 .wrapper .calendar {
     padding: 0 0.75vw; }
-    .cards .card-col1 .card5 .wrapper .calendar ul {
+    .card5 .wrapper .calendar ul {
       display: flex;
       flex-wrap: wrap;
       list-style: none;
       text-align: center; }
-      .cards .card-col1 .card5 .wrapper .calendar ul li {
+      .card5 .wrapper .calendar ul li {
         color: white;
         width: 14.28%;
         font-size: 1.9vh; }
-    .cards .card-col1 .card5 .wrapper .calendar .weeks {
+    .card5 .wrapper .calendar .weeks {
       padding-top: 2.4vh;
       padding-bottom: 1.5vh; }
-      .cards .card-col1 .card5 .wrapper .calendar .weeks li {
+      .card5 .wrapper .calendar .weeks li {
         font-weight: 400;
         color: #f5c8a78e;
         font-size: 1.9vh;
         cursor: default;
         text-align: center; }
-    .cards .card-col1 .card5 .wrapper .calendar .days li {
+    .card5 .wrapper .calendar .days li {
       cursor: pointer;
       padding: 1.3vh; }
-    .cards .card-col1 .card5 .wrapper .calendar .days li.inactive {
+    .card5 .wrapper .calendar .days li.inactive {
       color: #aaa; }
-    .cards .card-col1 .card5 .wrapper .calendar .days li.active {
+    .card5 .wrapper .calendar .days li.active {
       color: #fff; }
-    .cards .card-col1 .card5 .wrapper .calendar .days li.active::before {
+    .card5 .wrapper .calendar .days li.active::before {
       background: #00000043; }
-    .cards .card-col1 .card5 .wrapper .calendar .days li::before {
+    .card5 .wrapper .calendar .days li::before {
       position: absolute;
       content: "";
       left: 50%;
