@@ -1,87 +1,94 @@
-.allot-student{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-.main-content{
-    align-self: center;
-    height: 78vh;
-    overflow: auto;
-    
-}
-.main-content::-webkit-scrollbar{
-    display: none;
-}
-.main-content > ul{
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    /* height: 20px; */
-    list-style: none;
-}
+@import './variables.scss';
 
-.main-content > ul > li{
-    border: solid;
-    border-width:thin;
-    border-color: aliceblue;
-    padding:5px 0 5px 12px;
-    margin: 9px 0 9px 0;
-    border-radius: 25px;
-    background-color: #F8D57B26;
-    /* height: 80px; */
-}
-.main-content > ul > li > a{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    text-decoration: none;
-    padding: 0.5rem 0.75rem;
-    
-    // justify-content: center;
-    /* margin-right: 50px; */
-}
-.anchor-content{
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    
-}
+.main-page{
+  .blur{
+      .allot-student{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
 
-.btn-div{
-    display: flex;
-    gap: 0.75rem;
-}
+        .main-content{
+          align-self: center;
+          height: 78vh;
+          overflow: auto;
 
+          ul{
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            /* height: 20px; */
+            list-style: none;
 
+            li{
+              border: solid;
+              border-width:thin;
+              border-color: $aliceblue;
+              padding:5px 0 5px 12px;
+              margin: 9px 0 9px 0;
+              border-radius: 25px;
+              background-color: $allot-sub-bgcolor;
 
-.row1{
-    display: flex;
-    flex-direction: row ;
-    justify-content: space-around;
-}
-.sub-code{
-    font-style: normal;
-    font-weight: 275;
-    font-size: 20px;
-    color: white;
-}
-.sub-name{
-width: 450px;
-    font-weight: 500;
-    font-size: 20px;
-    color: white;
-}
-.row2{
-    display: flex;
-    flex-direction: row;
-    color: aliceblue;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 17px;
-}
-.bold-part{
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
+              a{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                text-decoration: none;
+                padding: 0.5rem 0.75rem;
+
+                .anchor-content{
+                  display: flex;
+                  flex-direction: column;
+                  gap: 0.5rem;
+
+                  .row1{
+                    display: flex;
+                    flex-direction: row ;
+                    justify-content: space-around;
+
+                    .sub-code{
+                      font-style: normal;
+                      font-weight: 275;
+                      font-size: 20px;
+                      color: $white-color;
+                    }
+
+                    .sub-name{
+                      width: 450px;
+                      font-weight: 500;
+                      font-size: 20px;
+                      color: $white-color;
+                    }
+                  }
+
+                  .row2{
+                    display: flex;
+                    flex-direction: row;
+                    color: $aliceblue;
+                    font-style: normal;
+                    font-weight: 300;
+                    font-size: 17px;
+
+                    .bold-part{
+                      font-style: normal;
+                      font-weight: 700;
+                      font-size: 15px;
+                    }
+                  }
+                }
+                .btn-div{
+                  display: flex;
+                  gap: 0.75rem;
+                }
+              }
+
+            }
+          }
+
+        }
+        .main-content::-webkit-scrollbar{
+          display: none;
+      }
+      }
+  }
 }

@@ -2,11 +2,13 @@
 /*****************************************Student Feedback CSS***********************************/
 /************************************************************************************************/
 body {
-  color: #fff; }
+  color: #fff;
+}
 
 a {
   text-decoration: none;
-  color: #fff; }
+  color: #fff;
+}
 
 /*********************** Teacher's Feedback ***************************/
 .feedback {
@@ -14,41 +16,43 @@ a {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 3vh; }
-
-.feedback::-webkit-scrollbar {
-  display: none; }
-
-.feed {
+  gap: 3vh;
+}
+.feedback .feed {
   padding: 0 5vw;
   display: flex;
-  justify-content: space-between; }
-
-.feed-card {
+  justify-content: space-between;
+}
+.feedback .feed .feed-card {
   display: flex;
-  background-color: #f8d57b1e;
-  border: 1px solid #ffffff9a;
+  background-color: rgba(248, 213, 123, 0.1176470588);
+  border: 1px solid rgba(255, 255, 255, 0.6039215686);
   border-radius: 20px;
   align-items: center;
   justify-content: center;
   padding: 1.5vh 1vw;
   width: 35vw;
   gap: 0.5vw;
-  height: 12.5vh; }
-
-.tch-pic img {
+  height: 12.5vh;
+}
+.feedback .feed .feed-card .tch-pic img {
   width: 4.5vw;
   border-radius: 100%;
-  border: 3px solid #fd6d08; }
-
-.tch-name {
+  border: 3px solid #FD6D08;
+}
+.feedback .feed .feed-card div .tch-name {
   font-size: 2.2vh;
-  font-weight: 500; }
-
-.tch-dtl {
+  font-weight: 500;
+}
+.feedback .feed .feed-card div .tch-dtl {
   font-size: 1.9vh;
-  font-weight: 100; }
-
-.feed-btn {
+  font-weight: 100;
+}
+.feedback .feed .feed-card .feed-btn {
   margin: auto;
-  margin-right: 0.1vw; }
+  margin-right: 0.1vw;
+}
+
+.feedback::-webkit-scrollbar {
+  display: none;
+}
