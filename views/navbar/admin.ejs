@@ -1,80 +1,160 @@
-    <link rel="stylesheet" href="<%= assetPath('css/navbar.css') %>">
+<link rel="stylesheet" href="<%= assetPath('css/navbar.css') %>" />
 
-    <section class="main-container">
-        
-        <div class="navbar">
-            <div class="nav-smit-logo">
-               <a href="/admin/dashboard"> <img src="/images/MANAGER LOGO 3 white 3.png" alt="" /></a>
-            </div>
-            <div class="tabs">
-                <ul>
-                    <li>
-                        <a class="tab" href="/admin/dashboard">
-                            <span class="tab-icon"><img src="/images/dashboard.png" alt="" /></span>
-                            <span class="tab-name">Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tab" href="/admin/notification">
-                            <span class="tab-icon"><img src="/images/Edit-ID.png" alt="" /></span>
-                            <span class="tab-name">Notification</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tab" href="/admin/allotsubject">
-                            <span class="tab-icon"><img src="/images/Allot-subject.png" alt="" /></span>
-                            <span class="tab-name">Allot Subject</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tab" href="#">
-                            <span class="tab-icon"><img src="/images/Feedback.png" alt="" /></span>
-                            <span class="tab-name">Feedback</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tab" href="#">
-                            <span class="tab-icon"><img src="/images/timetable.png" alt="" /></span>
-                            <span class="tab-name">Timetable</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tab" href="/admin/calendar">
-                            <span class="tab-icon"><img src="/images/cal.png" alt="" /></span>
-                            <span class="tab-name">Calender</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tab" href="#">
-                            <span class="tab-icon"><img src="/images/Change-semester.png" alt="" /></span>
-                            <span class="tab-name">Semester</span>
-                        </a>
-                    </li>
-                 
-                    <li>
-                        <a class="tab" href="#">
-                            <span class="tab-icon"><img src="/images/Report.png" alt="" /></span>
-                            <span class="tab-name">Report</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tab" href="#">
-                            <span class="tab-icon"><img src="/images/setting.png" alt="" /></span>
-                            <span class="tab-name">Settings</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tab" href="/sign-out">
-                            <span class="tab-icon"><img src="/images/signout.png" alt="" /></span>
-                            <span class="tab-name" id="1">Sign Out</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="nav-manipal-vector">
-                <img src="/images/manipal-vector.png" alt="" />
-            </div>
-        </div>
-  
-    </section>
+<section class="main-container">
+  <div class="navbar">
+    <div class="nav-smit-logo">
+      <a href="/admin/dashboard">
+        <img src="/images/MANAGER LOGO 3 white 3.png" alt=""
+      /></a>
+    </div>
+    <div class="tabs">
+      <ul>
+        <li>
+          <a class="tab <%if(title == "Dashboard"){%>
+            dynamic-hover
+            <%}%>"  href="/admin/dashboard">
+            <span class="tab-icon"
+              ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path
+                  d="M540-570q-12.75 0-21.375-8.625T510-600v-210q0-12.75 8.625-21.375T540-840h270q12.75 0 21.375 8.625T840-810v210q0 12.75-8.625 21.375T810-570H540ZM150-450q-12.75 0-21.375-8.625T120-480v-330q0-12.75 8.625-21.375T150-840h270q12.75 0 21.375 8.625T450-810v330q0 12.75-8.625 21.375T420-450H150Zm390 330q-12.75 0-21.375-8.625T510-150v-330q0-12.75 8.625-21.375T540-510h270q12.75 0 21.375 8.625T840-480v330q0 12.75-8.625 21.375T810-120H540Zm-390 0q-12.75 0-21.375-8.625T120-150v-210q0-12.75 8.625-21.375T150-390h270q12.75 0 21.375 8.625T450-360v210q0 12.75-8.625 21.375T420-120H150Z"
+                /></svg
+            ></span>
+            <span class="tab-name">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a class="tab <%if(title == "Create Notification"){%>
+            dynamic-hover
+            <%}%>" href="/admin/notification">
+            <span class="tab-icon"
+              ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path
+                  d="M480-80q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80Zm290-360v-130H640v-60h130v-130h60v130h130v60H830v130h-60ZM160-200v-60h84v-306q0-82 49.5-148.5T424-798v-29q0-23 16.5-38t39.5-15q23 0 39.5 15t16.5 38v29q22 4 46 15.5t38 23.5q-29 35-44 73.5T561-600q0 82 42 138t114 87v115h83v60H160Z"
+                /></svg
+            ></span>
+            <span class="tab-name">Notification</span>
+          </a>
+        </li>
+        <li>
+          <a class="tab <%if(title == "Allot Subject"){%>
+            dynamic-hover
+            <%}%>" href="/admin/allotsubject">
+            <span class="tab-icon"
+              ><span class="tab-icon"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M565.783-404.333q14.216 0 23.716-9.583 9.5-9.583 9.5-23.75v-94.667h94.667q14.167 0 23.75-9.617Q727-551.567 727-565.783q0-14.216-9.584-23.716-9.583-9.5-23.75-9.5h-94.667v-94.667q0-14.167-9.617-23.75Q579.765-727 565.549-727q-14.216 0-23.716 9.584-9.5 9.583-9.5 23.75v94.667h-94.667q-14.167 0-23.75 9.617t-9.583 23.833q0 14.216 9.583 23.716 9.583 9.5 23.75 9.5h94.667v94.667q0 14.167 9.617 23.75t23.833 9.583Zm-256.784 200q-43.7 0-74.183-30.483-30.483-30.483-30.483-74.183v-513.335q0-43.974 30.483-74.653 30.483-30.679 74.183-30.679h513.335q43.974 0 74.653 30.679 30.679 30.679 30.679 74.653v513.335q0 43.7-30.679 74.183-30.679 30.483-74.653 30.483H308.999Zm-171.333 172q-43.974 0-74.653-30.68-30.68-30.679-30.68-74.653v-565.668q0-21.834 15.284-37.083 15.284-15.25 37.5-15.25t37.383 15.25q15.166 15.249 15.166 37.083v565.668h565.668q21.834 0 37.083 15.283 15.25 15.284 15.25 37.5T740.417-47.5q-15.249 15.166-37.083 15.166H137.666Z"
+                  /></svg></span
+            ></span>
+            <span class="tab-name">Allot Subject</span>
+          </a>
+        </li>
+        <li>
+          <a class="tab <%if(title == "Feedback"){%>
+            dynamic-hover
+            <%}%>" href="#">
+            <span class="tab-icon"
+              ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path
+                  d="M240-240 106-106q-7 7-16.5 3.5T80-116v-704q0-24 18-42t42-18h680q24 0 42 18t18 42v520q0 24-18 42t-42 18H240Zm240-221 87 53q8 5 16-1t6-16l-23-98 77-67q8-7 4.5-16T634-616l-101-8-39-93q-4-9-14-9t-14 9l-39 93-101 8q-10 1-13.5 10t4.5 16l77 67-23 98q-2 10 6 16t16 1l87-53Z"
+                /></svg
+            ></span>
+            <span class="tab-name">Feedback</span>
+          </a>
+        </li>
+        <li>
+          <a class="tab <%if(title == "Timetable"){%>
+            dynamic-hover
+            <%}%>" href="#">
+            <span class="tab-icon"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                enable-background="new 0 0 24 24"
+                viewBox="0 0 24 24"
+              >
+                <g>
+                  <rect fill="none" height="24" width="24" />
+                  <path
+                    d="M17,12c-2.76,0-5,2.24-5,5s2.24,5,5,5c2.76,0,5-2.24,5-5S19.76,12,17,12z M18.65,19.35l-2.15-2.15V14h1v2.79l1.85,1.85 L18.65,19.35z M18,3h-3.18C14.4,1.84,13.3,1,12,1S9.6,1.84,9.18,3H6C4.9,3,4,3.9,4,5v15c0,1.1,0.9,2,2,2h6.11 c-0.59-0.57-1.07-1.25-1.42-2H6V5h2v3h8V5h2v5.08c0.71,0.1,1.38,0.31,2,0.6V5C20,3.9,19.1,3,18,3z M12,5c-0.55,0-1-0.45-1-1 c0-0.55,0.45-1,1-1c0.55,0,1,0.45,1,1C13,4.55,12.55,5,12,5z"
+                  />
+                </g></svg
+            ></span>
+            <span class="tab-name">Timetable</span>
+          </a>
+        </li>
+        <li>
+          <a class="tab <%if(title == "Add Holidays"){%>
+            dynamic-hover
+            <%}%>" href="/admin/calendar">
+            <span class="tab-icon"
+              ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path
+                  d="M480-400q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240ZM180-80q-24 0-42-18t-18-42v-620q0-24 18-42t42-18h65v-60h65v60h340v-60h65v60h65q24 0 42 18t18 42v620q0 24-18 42t-42 18H180Zm0-60h600v-430H180v430Z"
+                /></svg
+            ></span>
+            <span class="tab-name">Calender</span>
+          </a>
+        </li>
+        <li>
+          <a class="tab <%if(title == "Semester"){%>
+            dynamic-hover
+            <%}%>" href="#">
+            <span class="tab-icon"
+              ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3 1 9l11 6 9-4.91V17h2V9L12 3z"
+                /></svg
+            ></span>
+            <span class="tab-name">Semester</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="tab <%if(title == "Report"){%>
+            dynamic-hover
+            <%}%>" href="#">
+            <span class="tab-icon"
+              ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path
+                  d="M180-120q-25 0-42.5-17.5T120-180v-600q0-25 17.5-42.5T180-840h205q5-35 32-57.5t63-22.5q36 0 63 22.5t32 57.5h205q25 0 42.5 17.5T840-780v600q0 25-17.5 42.5T780-120H180Zm100-160h273v-60H280v60Zm0-170h400v-60H280v60Zm0-170h400v-60H280v60Zm200-177q14 0 24.5-10.5T515-832q0-14-10.5-24.5T480-867q-14 0-24.5 10.5T445-832q0 14 10.5 24.5T480-797Z"
+                /></svg
+            ></span>
+            <span class="tab-name">Report</span>
+          </a>
+        </li>
+        <li>
+          <a class="tab <%if(title == "Settings"){%>
+            dynamic-hover
+            <%}%>" href="#">
+            <span class="tab-icon"
+              ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path
+                  d="m388-80-20-126q-19-7-40-19t-37-25l-118 54-93-164 108-79q-2-9-2.5-20.5T185-480q0-9 .5-20.5T188-521L80-600l93-164 118 54q16-13 37-25t40-18l20-127h184l20 126q19 7 40.5 18.5T669-710l118-54 93 164-108 77q2 10 2.5 21.5t.5 21.5q0 10-.5 21t-2.5 21l108 78-93 164-118-54q-16 13-36.5 25.5T592-206L572-80H388Zm92-270q54 0 92-38t38-92q0-54-38-92t-92-38q-54 0-92 38t-38 92q0 54 38 92t92 38Z"
+                /></svg
+            ></span>
+            <span class="tab-name">Settings</span>
+          </a>
+        </li>
+        <li>
+          <a class="tab" href="/sign-out">
+            <span class="tab-icon"
+              ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path
+                  d="M798.001-427.667H392q-21.834 0-37.083-15.284-15.25-15.283-15.25-37.166 0-21.883 15.25-37.049 15.249-15.167 37.083-15.167h406.001l-44.667-45.334Q738-592.334 738-613.834q0-21.499 15.406-37.166 15.594-14.667 37.261-14.667 21.666 0 37.179 15.513L961-517.666q15.667 15.909 15.667 37.787 0 21.879-15.667 37.545L827.846-309.18q-15.379 15.513-36.613 15.68-21.233.167-37.16-15.69-15.184-14.858-15.295-37Q738.667-368.333 754-383l44.001-44.667ZM186.666-130q-44.199 0-74.433-30.429Q82-190.858 82-235.333v-490.001q0-43.5 30.233-74.083Q142.467-830 186.666-830h381.001q43.5 0 74.083 30.583t30.583 74.083v73.335q0 22.5-15.283 37.75-15.284 15.25-37.167 15.25-21.883 0-37.049-15.25-15.167-15.25-15.167-37.75v-73.335H186.666v490.001h381.001v-73.335q0-21.833 15.284-37.083 15.283-15.25 37.166-15.25 21.883 0 37.05 15.25 15.166 15.25 15.166 37.083v73.335q0 44.475-30.583 74.904Q611.167-130 567.667-130H186.666Z"
+                /></svg
+            ></span>
+            <span class="tab-name" id="1">Sign Out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="nav-manipal-vector">
+      <img src="/images/manipal-vector.png" alt="" />
+    </div>
+  </div>
+</section>

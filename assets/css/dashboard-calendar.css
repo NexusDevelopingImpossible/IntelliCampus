@@ -22,7 +22,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: #ffffff;
+    color: #fff;
     text-align: center;
     font-size: 2.5vh;
     user-select: none;
@@ -38,7 +38,7 @@
       list-style: none;
       text-align: center; }
       .card5 .wrapper .calendar ul li {
-        color: white;
+        color: #fff;
         width: 14.28%;
         font-size: 1.9vh; }
     .card5 .wrapper .calendar .weeks {
@@ -77,7 +77,7 @@
 .hidden-div {
   width: 150px;
   height: 50px;
-  background-color: #000000;
+  background-color: #000;
   backdrop-filter: blur(62px);
   border-radius: 10px;
   color: #000;
