@@ -197,3 +197,32 @@ module.exports.feedbackdata = async (req, res) => {
     console.log(error);
   }
 };
+
+module.exports.fetchnoti = async (req, res) => {
+  try {
+    function isUpdatedTimeWithin30Seconds(updatedTime) {
+      const currentTime = new Date();
+      const timeDifference = (currentTime.getTime() - updatedTime.getTime()) / 1000; // Convert to seconds
+    
+      return timeDifference >= 0 && timeDifference <= 10;
+    }
+    const notidata = await Notification.find();
+    let newnoti, notitime;
+    // console.log("G:",notidata);
+    const isWithin30Seconds = isUpdatedTimeWithin30Seconds(notidata[notidata.length-1].updatedAt);
+    if (isWithin30Seconds) {
+      newnoti = notidata[notidata.length-1];
+      notitime = prettydate.format(newnoti.updatedAt);
+    } else {
+      newnoti = 0;
+      notitime = 0;
+    }
+    // console.log(newnoti.updatedAt);
+    
+    return res.status(200).json({newnoti, notitime});
+    
+    return res.redirect('back');
+  } catch (error) {
+    console.log(error);
+  }
+};

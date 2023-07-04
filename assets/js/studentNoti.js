@@ -1,7 +1,7 @@
 class createStudentNoti {
   constructor(notiElement) {
     this.notiElement = notiElement;
-    console.log("Running for " + this.notiElement);
+    // console.log("Running for " + this.notiElement);
     this.createNoti();
   }
 
