@@ -38,20 +38,17 @@
         </a>
       </div>
       <div id="tab-3" class="tab-item">
+        <p class="hed-day">Assignment</p>
+    </div>
+    <div id="tab-4" class="tab-item">
         <p class="hed-day">Notes</p>
-      </div>
+    </div>
     </div>
   </section>
   <section class="tab-content">
-    <div class="container">
       <!-- Tab Content 1 -->
       <div id="tab-1-content" class="tab-content-item show">
-        <!-- <div class="tab-header">
-         
-                <div class="export-btn">
-                  <a href="#">Export to excel</a>
-                </div>
-        </div> -->
+      
         <section class="student-info">
           <div class="std-info">
             <div class="profile-info">
@@ -94,6 +91,7 @@
             <div class="col1">
               <%for(let i=0; i<student.present.length; i++){%>
                 <%if(i>=10){break;}%>
+                
                   <div class="att-date">
                     <p>
                       <%=student.present[i].datevalue %>

@@ -37,6 +37,9 @@
                 </a>
                 </div>
                 <div id="tab-3" class="tab-item">
+                    <p class="hed-day">Assignment</p>
+                </div>
+                <div id="tab-4" class="tab-item">
                     <p class="hed-day">Notes</p>
                 </div>
             </div>
@@ -92,6 +95,7 @@
                                                     <div class="mark <%if(parseInt(((student[i].totalpresent) /(student[i].present.length))*100)>=  74){%>
                                                 present <%}else{%>absent<%}%>
                                                 "></div>
+                                                <div>
                                                     <div><img
                                                             src="/images/290120_account_avatar_man_profile_user_icon 1.png"
                                                             alt="" class="profile_photo"></div>
@@ -105,6 +109,7 @@
                                                             <%= student[i].studentid.username%>
                                                         </p>
                                                     </div>
+                                                </div>
                                                 </div>
                                             </li>
                                         </a>

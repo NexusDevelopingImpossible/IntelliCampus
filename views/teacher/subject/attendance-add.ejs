@@ -39,6 +39,9 @@
                     </a>
                 </div>
                 <div id="tab-3" class="tab-item">
+                    <p class="hed-day">Assignment</p>
+                </div>
+                <div id="tab-4" class="tab-item">
                     <p class="hed-day">Notes</p>
                 </div>
             </div>
@@ -84,7 +87,7 @@
                             <li>CLC</li>
                             <li>CLP</li>
                             <li>PER</li>
-                            <li><input type="checkbox" name="" id=""></li>
+                            <li><input type="checkbox" name="" id="checkall" checked></li>
                         </ul>
                     </div>
                     <div class="student-list-scroll">
@@ -109,7 +112,7 @@
                                     <li id="per<%=i%>">
                                         <%=parseInt(((student[i].totalpresent) /(student[i].present.length))*100)%>%
                                     </li>
-                                    <li><input type="checkbox" name="check" id="cb<%=i%>" value="<%=i%>" checked>
+                                    <li><input type="checkbox" name="check" class="radios" id="cb<%=i%>" value="<%=i%>" checked>
                                     </li>
                                     <input type="text" value=<%=student[i]._id%> name="studentlist"
                                     style="display: none">

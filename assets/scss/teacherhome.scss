@@ -1,12 +1,7 @@
-/******************************************************************************************************************/
-/****************************************************Admin Dashboard CSS*******************************************/
-/******************************************************************************************************************/
 
-/*---------------------------------Admin Header CSS-----------------------------------*/
+/*---------------------------------Teacher Dashboard Header CSS-----------------------------------*/
 
-body {
-  font-family: "Montserrat", sans-serif !important;
-}
+
 .heading {
   padding: 0 2rem;
   padding-bottom: 0.5rem;
@@ -193,9 +188,10 @@ body {
   height: 10rem;
   background-color: #f8d57b1e;
   border: 1px solid #ffffff9a;
-  // backdrop-filter: blur(12px);
   border-radius: 20px;
   padding: 1rem;
+  display: flex;
+  place-items: center;
 }
 
 .sl {
@@ -203,28 +199,21 @@ body {
   color: #ffffff;
 }
 
-.sl h2 {
-  font-size: 1.1rem;
-  font-weight: 300;
-  text-align: left !important;
+.sbj-cd h2{
+  font-size: 1.3rem;
+  font-weight: 100;
+  margin-bottom: 0.75vh;
 }
 
 .sbj-nm {
-  height: auto;
-  // padding-top: 0.2rem;
-  text-align: left !important;
-  white-space: pre-line;
-}
-.sbj-nm p {
-  //    padding: 0rem !important;
-  //    line-height: -1% !important;
+  white-space: normal;
   font-size: 1.2rem;
   font-weight: 500;
+  height: 7vh;
+
 }
 
-button {
-  font-family: "Montserrat", sans-serif;
-}
+
 .slide:hover {
   background-color: #00000000;
 }
