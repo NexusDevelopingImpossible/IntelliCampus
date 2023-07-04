@@ -363,3 +363,19 @@ module.exports.updateMarks = async (req, res) => {
   }
   res.redirect("back");
 };
+
+// notes
+module.exports.viewnotes = async (req, res) => {
+  try {
+    checkurlfunct.checkurlteacher(req, res);
+    const timetables = await Timetable.findOne({ _id: req.params.id }).populate(
+      "subjectcode"
+    );
+    return res.render("teacher/notes", {
+      title: "Notes",
+      timetable: timetables
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};

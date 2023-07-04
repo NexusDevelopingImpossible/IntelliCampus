@@ -3,7 +3,10 @@
 // attenddance view profile after clicked
 // - - - - - - - - -- - - - - - --
 .student-info {
-  padding: 0 8rem 2rem;
+  // padding: 0 8rem 2rem;
+  width: 65vw;
+  margin: auto;
+  padding-bottom: 2rem;
 }
 
 .std-info {
@@ -80,10 +83,11 @@
 .date-list {
   display: flex;
   gap: 4vw;
-  height: 60vh;
+  height: 55vh;
   overflow-x: auto;
-  // width: 70vw;
-  padding: 0 8rem 2rem;
+  width: 65vw;
+  margin: auto;
+  
 
   .att-list {
     display: flex;
