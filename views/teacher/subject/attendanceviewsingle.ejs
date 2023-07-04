@@ -15,14 +15,14 @@
         </h1>
     </div>
     <div class="year__sem__sec">
-        <span>Year : <strong>
-                <%=timetable.year%>
-            </strong></span>
+      <span>Department : <strong>
+        <%=timetable.department%>
+    </strong></span>
         <span>Semester : <strong>
                 <%=timetable.semester%>
             </strong></span>
         <span>Section : <strong>
-                <%=timetable.department%>
+                <%=timetable.section%>
             </strong></span>
     </div>
 </div>
@@ -87,78 +87,32 @@
         </div>
         </section>
         <section class="attendance-list">
-          <main class="main-row">
-            <div class="col1">
-              <%for(let i=0; i<student.present.length; i++){%>
-                <%if(i>=10){break;}%>
-                
-                  <div class="att-date">
-                    <p>
-                      <%=student.present[i].datevalue %>
-                    </p>
-                    <input type="checkbox" checked>
-                  </div>
-                  <%}%>
+          
+    <%if(student.present.length>0){%>
+      <% let t = student.present.length %>
+      <% let c = 0; %>
+      <div class="date-list">
+        <%for(let i = 0; i<((student.present.length/8)+1); i++){%>
+        <div class="att-list">
+          <%for(let j = 0; (j<8 && c<t); j++){%>
+            <div class="att-day">
+              <div class="att-no">01</div>
+              <div class="att-date"><%=student.present[c].datevalue%></div>
+              <div id="clc">
+                <%if(student.present[c].att){%>
+                <div id="clp"></div>
+                <%}%>
+              </div>
             </div>
-            <div class="col1">
-              <%for(let i=10; i<student.present.length; i++){%>
-                <%if(i>=20){break;}%>
-                  <div class="att-date">
-                    <p>
-                      <%=student.present[i].datevalue %>
-                    </p>
-                    <input type="checkbox" checked>
-                  </div>
-                  <%}%>
-            </div>
-            <div class="col1">
-              <%for(let i=20; i<student.present.length; i++){%>
-                <%if(i>=30){break;}%>
-                  <div class="att-date">
-                    <p>
-                      <%=student.present[i].datevalue %>
-                    </p>
-                    <input type="checkbox" checked>
-                  </div>
-                  <%}%>
-
-            </div>
-            <div class="col1">
-              <%for(let i=30; i<student.present.length; i++){%>
-                <%if(i>=40){break;}%>
-                  <div class="att-date">
-                    <p>
-                      <%=student.present[i].datevalue %>
-                    </p>
-                    <input type="checkbox" checked>
-                  </div>
-                  <%}%>
-
-            </div>
-            <div class="col1">
-              <%for(let i=40; i<student.present.length; i++){%>
-                <%if(i>=50){break;}%>
-                  <div class="att-date">
-                    <p>
-                      <%=student.present[i].datevalue %>
-                    </p>
-                    <input type="checkbox" checked>
-                  </div>
-                  <%}%>
-
-            </div>
-            <div class="col1">
-              <%for(let i=50; i<student.present.length; i++){%>
-                <%if(i>=60){break;}%>
-                  <div class="att-date">
-                    <p>
-                      <%=student.present[i].datevalue %>
-                    </p>
-                    <input type="checkbox" checked>
-                  </div>
-                  <%}%>
-            </div>
-          </main>
+            <%c++%>
+            <%}%>
+        </div>
+        <%}%>
+  
+      </div>
+      <%} else{%>
+        <div class="att-cont"></div>
+      <%}%>
 
 
           <!-- Tab Content 2 -->

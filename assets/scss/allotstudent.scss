@@ -9,63 +9,48 @@
 
         .main-content{
           align-self: center;
-          height: 78vh;
+          height: 79vh;
           overflow: auto;
 
           ul{
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            /* height: 20px; */
-            list-style: none;
 
             li{
-              border: solid;
-              border-width:thin;
-              border-color: $aliceblue;
-              padding:5px 0 5px 12px;
-              margin: 9px 0 9px 0;
-              border-radius: 25px;
+              border: 1px solid $white-color;
+              padding: 1rem 1rem;
+              margin-bottom: 1rem;
+              border-radius: 15px;
               background-color: $allot-sub-bgcolor;
+              width: 65vw;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
 
-              a{
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                text-decoration: none;
-                padding: 0.5rem 0.75rem;
+              
+               
+               
 
                 .anchor-content{
-                  display: flex;
-                  flex-direction: column;
-                  gap: 0.5rem;
+                  width: 560px;
 
                   .row1{
-                    display: flex;
-                    flex-direction: row ;
-                    justify-content: space-around;
+                    margin-bottom: 0.3rem;
 
                     .sub-code{
-                      font-style: normal;
-                      font-weight: 275;
-                      font-size: 20px;
+                      font-weight: 200;
+                      font-size: 1.2rem;
                       color: $white-color;
                     }
 
                     .sub-name{
-                      width: 450px;
                       font-weight: 500;
-                      font-size: 20px;
+                      font-size: 1.3rem;
                       color: $white-color;
                     }
                   }
 
                   .row2{
                     display: flex;
-                    flex-direction: row;
-                    color: $aliceblue;
-                    font-style: normal;
+                    gap: 0.75vw;
                     font-weight: 300;
                     font-size: 17px;
 
@@ -80,7 +65,7 @@
                   display: flex;
                   gap: 0.75rem;
                 }
-              }
+              
 
             }
           }

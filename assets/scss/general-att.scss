@@ -29,7 +29,7 @@
   transition: all 0.3s;
 }
 .sub-name a svg:hover{
-  width: 1.85vw;
+  width: 1.75vw;
   fill: #ffffffc7;
 }
 
@@ -71,11 +71,6 @@
   transition: all 0.3s;
 }
 
-// .tab-item:hover {
-//   color: #fff;
-//   cursor: pointer;
-// }
-
 .tab-item:hover{
   font-size: 1.05rem;
 }
@@ -84,6 +79,9 @@
   background-color: #0000008f;
   border-radius: 7px;
  
+}
+.tab-border:hover{
+  font-size: 1rem;
 }
 
 
@@ -153,7 +151,7 @@
     border-radius: 0px 0px 10px 10px;
     overflow: hidden;
     background: #0000006c;
-    // backdrop-filter: blur(602px);
+    backdrop-filter: blur(41);
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     display: none;
     margin: 0 0.5vw;

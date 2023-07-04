@@ -15,14 +15,14 @@
                 </h1>
             </div>
             <div class="year__sem__sec">
-                <span>Year : <strong>
-                        <%=timetable.year%>
-                    </strong></span>
+                <span>Department : <strong>
+                    <%=timetable.department%>
+                </strong></span>
                 <span>Semester : <strong>
                         <%=timetable.semester%>
                     </strong></span>
                 <span>Section : <strong>
-                        <%=timetable.department%>
+                        <%=timetable.section%>
                     </strong></span>
             </div>
         </div>
@@ -90,10 +90,11 @@
                                 
                                 <%for(let i=0; i<student.length; i++){%>
                                     <a href="/teacher/viewstudentattendance/<%=student[i]._id%>">
+                                        <!-- <%=parseInt(((student[i].totalpresent) /(student[i].present.length))*100)%> -->
                                             <li>
                                                 <div class="postcard">
                                                     <div class="mark <%if(parseInt(((student[i].totalpresent) /(student[i].present.length))*100)>=  74){%>
-                                                present <%}else{%>absent<%}%>
+                                                present <%}else if(isNaN(parseInt(((student[i].totalpresent) /(student[i].present.length))*100) )){}else{%>absent<%}%>
                                                 "></div>
                                                 <div>
                                                     <div><img

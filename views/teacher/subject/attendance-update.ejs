@@ -15,14 +15,14 @@
                 </h1>
             </div>
             <div class="year__sem__sec">
-                <span>Year : <strong>
-                        <%=timetable.year%>
-                    </strong></span>
+                <span>Department : <strong>
+                    <%=timetable.department%>
+                </strong></span>
                 <span>Semester : <strong>
                         <%=timetable.semester%>
                     </strong></span>
                 <span>Section : <strong>
-                        <%=timetable.department%>
+                        <%=timetable.section%>
                     </strong></span>
             </div>
         </div>
@@ -158,4 +158,9 @@ options1.forEach(option =>{
         optionMenu1.classList.remove("active");
     });
 });
+document.addEventListener("click", (event) => {
+	if (!optionMenu1.contains(event.target)) {
+	  optionMenu1.classList.remove("active");
+	}
+  });
 </script>

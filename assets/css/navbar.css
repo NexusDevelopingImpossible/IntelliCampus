@@ -33,7 +33,7 @@ body {
 .tabs ul {
   display: flex;
   flex-direction: column;
-  padding-left: 1vw; }
+  padding-left: 0.75vw; }
 
 .tabs ul li {
   list-style: none; }
