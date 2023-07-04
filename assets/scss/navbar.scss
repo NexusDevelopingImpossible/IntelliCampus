@@ -100,7 +100,7 @@ body {
   margin-left: 0rem;
   width: 85vw;
   height: 96vh;
-  background-image: url("../images/bg (1).png");
+  background-image: url("../images/bgm.png");
   background-size: cover;
   background-position: center;
   border-radius: 2.75vw;
@@ -111,8 +111,8 @@ body {
 
 
 .blur{
-  // background: linear-gradient(136deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 100%);
-  // backdrop-filter: blur(12px);
+  background: linear-gradient(136deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 100%);
+  backdrop-filter: blur(12px);
   width: auto;
   height: 100%;
   padding: 2vh 0;

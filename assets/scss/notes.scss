@@ -1,0 +1,172 @@
+// - - - - -  - - - -
+// Filter
+// - - - - -  - - - -
+.filter{
+    border: 1px solid #FD6D08;
+    border-radius: 5px;
+    text-align: center;
+    align-self: center;
+    padding: 0.8vh 1vw;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+.filter:hover{
+    background-color: #FD6D08;
+}
+
+
+#filters-and-options{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8rem;
+}
+
+#filters{
+    display: flex;
+    width: 32vw;
+    justify-content: space-between;
+}
+
+#upload{
+    display: flex;
+    background-color: #FD6D08;
+    padding: 1vh 1vw;
+    border-radius: 50px;
+}
+
+#upload:active{
+    transform: translateY(2px);
+}
+
+#upload-title{
+    font-size: large;
+    font-weight: normal;
+}
+
+#upload-icon{
+    height: 3vh;
+    width: 2vw;
+    margin-left: 1.5vw;
+}
+
+.btns span svg{
+    width: 2vw;
+    fill: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+}.btns span{
+    padding: 0.2rem 0.5rem;
+    transition: all 0.3s;
+}
+.btns span:hover{
+    background-color: #00000026;
+    border-radius: 50%;
+    border-radius: 7px 0 0 7px;
+}
+.btns span:last-child:hover{
+    border-radius: 0 7px 7px 0;
+
+}
+
+.btns{
+   display: flex;
+   justify-content: space-between;
+   background-color: #0000000f;
+   border-radius: 7px;
+//    padding: 0.2rem 0.5rem;
+   
+}
+
+// - - - - -  - - - -
+// main list 
+// - - - - -  - - - -
+
+
+.list__main{
+    padding: 1rem 8rem;
+}
+.list__items {
+    padding-bottom: 0.4rem;
+}
+.list__main__title ul{
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+.list__main__title ul li{
+    font-size: 0.9rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+.list__main__title ul li:last-child{
+    border: none;
+}
+.list__main__title ul li:nth-child(1),
+.list__main__title ul li:nth-child(5)
+{
+    flex:1;
+}
+.list__main__title ul li:nth-child(2){
+    flex:4;
+}
+.list__main__title ul li:nth-child(3){
+    flex:3;
+}
+
+.list__main__title ul li:nth-child(6){
+    flex:1;
+}
+
+.list__main__title ul li:nth-child(4){
+    flex: 2;
+}
+
+/* list-items */
+
+.list__items ul{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(248, 213, 123, 0.15);    
+    border-radius: 7px;
+    padding: 0.2rem 1rem;
+    color: #fff;
+}
+.list__items ul li:nth-child(1),
+.list__items ul li:nth-child(5){
+    flex:1;
+}
+.list__items ul li:nth-child(2){
+    flex:4;
+}
+.list__items ul li:nth-child(3){
+    flex:3;
+}
+.list__items ul li:nth-child(6){
+    flex:1;
+}
+.list__items ul li:nth-child(4){
+    flex:2;
+}
+
+
+
+
+// - - - - - - - - - - - - - - 
+// student olist
+// - - - - - - - - - - - - - - 
+
+
+.student-list-scroll{
+    height: 60vh;
+    overflow-y: auto;
+  }
+  .student-list-scroll::-webkit-scrollbar {
+    display: none;
+  }

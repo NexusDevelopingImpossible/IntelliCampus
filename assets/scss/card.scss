@@ -5,6 +5,7 @@
   height: 80vh;
   justify-content: space-between;
   padding: 1vh 3vw;
+ 
 
   .card-col1 {
     display: flex;
@@ -16,6 +17,7 @@
       background-color: $card-background-color;
       border: 1px solid $card-border;
       border-radius: 20px;
+      // backdrop-filter: blur(7px);
     }
 
     .card1 {

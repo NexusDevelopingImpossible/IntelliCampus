@@ -1,5 +1,7 @@
 .student-info {
-  padding: 0 8rem 2rem; }
+  width: 65vw;
+  margin: auto;
+  padding-bottom: 2rem; }
 
 .std-info {
   background-color: #00000025;
@@ -71,9 +73,10 @@
 .date-list {
   display: flex;
   gap: 4vw;
-  height: 60vh;
+  height: 55vh;
   overflow-x: auto;
-  padding: 0 8rem 2rem; }
+  width: 65vw;
+  margin: auto; }
   .date-list .att-list {
     display: flex;
     flex-direction: column;
