@@ -1,10 +1,10 @@
 // attenddance view profile after clicked
 // - - - - - - - - -- - - - - - --
 .student-info {
-  padding: 1rem 8rem 2rem;
+  padding: 0 8rem 2rem;
 }
 
-.std-info{
+.std-info {
   background-color: #00000025;
   padding: 1rem 1.5rem;
   display: flex;
@@ -13,9 +13,8 @@
   border-radius: 10px;
 }
 
-.back-btn a svg:hover{
+.back-btn a svg:hover {
   fill: #ffffff76;
-  
 }
 .profile-info {
   display: flex;
@@ -54,18 +53,18 @@
   display: flex;
   gap: 1rem;
 }
-.std-btn{
+.std-btn {
   display: flex;
   gap: 1rem;
 }
-.export{
+.export {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 0.75rem !important;
   width: 7rem !important;
 }
-.export img{
+.export img {
   width: 17px;
   height: 17px;
 }
@@ -124,7 +123,7 @@
   margin: auto;
   transition: all 0.3s;
 }
-.search-btn:hover{
+.search-btn:hover {
   background: #0000006a;
 }
 .search-input input {
@@ -145,17 +144,17 @@
   color: #ffffff7c;
 }
 
-.export-btn{
+.export-btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.export-btn img{
+.export-btn img {
   width: 18px;
   height: 18px;
 }
-.export-btn{
+.export-btn {
   text-decoration: none;
   padding: 0.75rem 1.2rem;
   background: #fd6d08;
@@ -166,7 +165,7 @@
   transition: all 0.3s;
 }
 
-.export-btn:hover{
+.export-btn:hover {
   background: #ea6404;
 }
 
@@ -206,11 +205,15 @@
 .postcard {
   background-color: rgba(255, 255, 255, 0.1);
   width: 10rem;
-  height: 10rem;
+  height: 9rem;
   border-radius: 10px;
   text-align: center;
-  margin: 0 0 1.5rem 0;
-  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom:1.5rem;
+  padding: 0.5rem;
+  position: relative;
 }
 
 .order {
@@ -227,14 +230,15 @@
 }
 .stu_name {
   font-weight: 500;
+  padding-top: 0.3rem;
 }
 .stu_reg_no {
   font-weight: 100;
 }
 .mark {
-  padding: 0;
-  margin-left: 8.5rem;
-  margin-top: 0.6rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
   width: 1rem;
   height: 1rem;
   border-radius: 100%;
@@ -247,4 +251,3 @@
 .absent {
   background-color: #ff0000;
 }
-

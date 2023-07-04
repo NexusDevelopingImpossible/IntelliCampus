@@ -38,3 +38,20 @@ options.forEach(option =>{
         optionMenu.classList.remove("active");
     });
 });
+
+
+let checkAllRadios = document.getElementById("checkall");
+let otherRadios = document.querySelectorAll(".radios");
+
+checkAllRadios.addEventListener("change", function(){
+	if(this.checked){
+		otherRadios.forEach(function(radio){
+			radio.checked = true;
+		});
+	
+	}else{
+		otherRadios.forEach(function(radio){
+			radio.checked = false;
+		});
+	}
+});
