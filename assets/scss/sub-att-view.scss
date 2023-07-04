@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 // attenddance view profile after clicked
 // - - - - - - - - -- - - - - - --
 .student-info {
@@ -72,37 +74,65 @@
   padding-left: 0.5rem;
   font-weight: 600;
 }
-.col1 {
+
+// - - - - att list
+
+.date-list {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 10rem;
+  gap: 4vw;
+  height: 60vh;
+  overflow-x: auto;
+  // width: 70vw;
+  padding: 0 8rem 2rem;
+
+  .att-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+
+    .att-day {
+      display: flex;
+      justify-content: space-around;
+      width: 15vw;
+      padding: 1vh 0;
+      align-items: center;
+      background-color: $att-bgcolor;  
+      // backdrop-filter: blur(12px);
+      border-radius: 0.75vw;
+
+      .att-no {
+        font-weight: 200;
+        font-size: 2vh;
+      }
+      .att-date {
+        font-weight: 500;
+        font-size: 2vh;
+      }
+
+      #clc {
+        background: none;
+        align-items: center;
+        justify-content: center;
+        width: 1.6vw;
+        height: 1.6vw;
+        border: 2px solid $white-color;
+        border-radius: 100%;
+        display: flex;
+
+        #clp {
+          background: $orange-color;
+          width: 1.4vw;
+          height: 1.4vw;
+          border-radius: 100%;
+        }
+      }
+    }
+  }
 }
-.att-date {
-  border-radius: 5px;
-  padding: 0.4rem;
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  justify-content: center;
-  background-color: #f8d57b30;
-  width: 10rem;
-}
-.att-date p {
-  font-weight: 500;
+.att-cont {
+  height: 60vh;
 }
 
-.main-row {
-  display: flex;
-  gap: 1rem;
-}
-
-.attendance-list {
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  padding-left: 8rem;
-}
 
 //   - - - - -
 
@@ -214,6 +244,10 @@
   margin-bottom:1.5rem;
   padding: 0.5rem;
   position: relative;
+  transition: all 0.1s;
+}
+.postcard:hover{
+  background-color: rgba(255, 255, 255, 0.169);
 }
 
 .order {
@@ -251,3 +285,5 @@
 .absent {
   background-color: #ff0000;
 }
+
+

@@ -12,8 +12,7 @@
             <ul>
                 <%for(let i=0; i<timetable.length; i++){%>
                     <li>
-                        <a href="/teacher/searchstudent/<%=timetable[i]._id%>">
-
+                     
                             <div class="anchor-content">
                                 <div class="row1">
                                     <span class="sub-code" name="subjectcode" value="hi">
@@ -25,21 +24,23 @@
                                 </div>
                                 <div class="row2">
                                     <span>Year : <span class="bold-part">2021 &nbsp;</span></span>
-                                    <span class="department">department : <span class="bold-part">
+                                    <span class="department">Department : <span class="bold-part">
                                             <%= timetable[i].department%> &nbsp;
                                         </span></span>
-                                    <span class="section">section : <span class="bold-part">
+                                    <span class="section">Section : <span class="bold-part">
                                             <%= timetable[i].section%> &nbsp;
                                         </span></span>
                                 </div>
                             </div>
                             <div class="btn-div">
+                                <a href="/teacher/searchstudent/<%=timetable[i]._id%>">
+
                                 <button class="btn btn-full btn-large"> + Add Students
-                                </button>
+                                </button> </a>
                                 <button class="btn btn-outline"> Import
                                 </button>
                             </div>
-                        </a>
+                       
                     </li>
                     <%}%>
             </ul>

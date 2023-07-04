@@ -3,14 +3,14 @@
 /************************************************************************************************/
 
 /*********************************** Subjects's Attendance **********************************/
-$select-btn-color:#00000024 ;
-$white-color : #fff;
-$options-bgcolor : #0000004b;
-$options-hover-color: #282727;
-$att-bgcolor : #f8d57b30;
-$orange-color : #fd6d08;
+// $select-btn-color:#00000024 ;
+// $white-color : #fff;
+// $options-bgcolor : #0000004b;
+// $options-hover-color: #282727;
+// $att-bgcolor : #f8d57b30;
+// $orange-color : #fd6d08;
 
-
+@import './variables.scss';
 
   .sub-attendance {
     margin: 0rem 6vw 4vh;
@@ -146,7 +146,6 @@ $orange-color : #fd6d08;
 
             #clp {
               background: $orange-color;
-              border: 2px solid $orange-color;
               width: 1.4vw;
               height: 1.4vw;
               border-radius: 100%;
