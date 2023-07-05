@@ -226,3 +226,14 @@ module.exports.fetchnoti = async (req, res) => {
     console.log(error);
   }
 };
+
+
+// student notes
+
+module.exports.notes = async (req, res) => {
+  try {
+    return res.render("student/std-notes", { title: "Notes"});
+  } catch (error) {
+    console.log(error);
+  }
+};
