@@ -15,7 +15,6 @@
     background-color: #FD6D08;
 }
 
-
 #filters-and-options{
     display: flex;
     justify-content: space-between;
@@ -30,9 +29,9 @@
 
 #upload{
     display: flex;
-    background-color: #FD6D08;
-    padding: 1vh 1vw;
-    border-radius: 50px;
+    align-items: center;
+    gap: 0.5vw;
+    justify-content: center;
 }
 
 #upload:active{
@@ -44,25 +43,46 @@
     font-weight: normal;
 }
 
-#upload-icon{
-    height: 3vh;
-    width: 2vw;
-    margin-left: 1.5vw;
+
+.upload-icon svg{
+    width: 1.65vw;
+    fill: #fff;
 }
 
-.btns span svg{
-    width: 2vw;
+.btn-std span svg{
+    width: 1.65vw;
     fill: #fff;
     cursor: pointer;
     transition: all 0.3s;
-}.btns span{
-    padding: 0.2rem 0.5rem;
+}
+.btn-std span{
+    padding: 0 0.5rem;
+    transition: all 0.3s;
+    cursor: pointer;
+    height: 5vh;
+    display: flex;
+    justify-content: end;
+}
+.btns span svg{
+    width: 1.65vw;
+    fill: #fff;
+    cursor: pointer;
     transition: all 0.3s;
 }
+.btns span{
+    padding: 0 0.5rem;
+    transition: all 0.3s;
+    cursor: pointer;
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .btns span:hover{
-    background-color: #00000026;
+    background-color: #ffffff26;
     border-radius: 50%;
     border-radius: 7px 0 0 7px;
+    
 }
 .btns span:last-child:hover{
     border-radius: 0 7px 7px 0;
@@ -72,10 +92,43 @@
 .btns{
    display: flex;
    justify-content: space-between;
+   align-items: center;
    background-color: #0000000f;
+height: 5vh;
    border-radius: 7px;
-//    padding: 0.2rem 0.5rem;
    
+}
+
+// for student notes
+.btn-std span svg{
+    width: 1.65vw;
+    fill: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.btn-std span{
+    padding: 0 0.5rem;
+    transition: all 0.3s;
+    cursor: pointer;
+    height: 5vh;
+    display: flex;
+    width: 3vw;
+    justify-content: center;
+    background-color: #0000000f;
+    border-radius: 7px;
+}
+.btn-std{
+    height: 5vh;
+    border-radius: 7px;
+    display: flex;
+    justify-content: end;
+    
+ }
+ .btn-std span:hover{
+    background-color: #ffffff26;
+    border-radius: 50%;
+    border-radius: 7px;
+    
 }
 
 // - - - - -  - - - -
@@ -106,25 +159,29 @@
 .list__main__title ul li:last-child{
     border: none;
 }
-.list__main__title ul li:nth-child(1),
-.list__main__title ul li:nth-child(5)
-{
-    flex:1;
+.list__main__title ul li:nth-child(1){
+    flex: 1;
 }
 .list__main__title ul li:nth-child(2){
     flex:4;
 }
+
 .list__main__title ul li:nth-child(3){
-    flex:3;
+    flex:2;
+}
+.list__main__title ul li:nth-child(4){
+    flex: 1.5;
+}
+.list__main__title ul li:nth-child(5)
+{
+    flex:1.5;
 }
 
 .list__main__title ul li:nth-child(6){
     flex:1;
 }
 
-.list__main__title ul li:nth-child(4){
-    flex: 2;
-}
+
 
 /* list-items */
 
@@ -135,24 +192,29 @@
     gap: 1rem;
     background: rgba(248, 213, 123, 0.15);    
     border-radius: 7px;
-    padding: 0.2rem 1rem;
-    color: #fff;
+    padding: 0 1rem;
+    height: 5vh;
+    padding-right: 0;
 }
-.list__items ul li:nth-child(1),
-.list__items ul li:nth-child(5){
-    flex:1;
+.list__items ul li:nth-child(1){
+    flex: 1;
 }
 .list__items ul li:nth-child(2){
     flex:4;
+    display: flex;
+    gap: 0.75rem;
 }
 .list__items ul li:nth-child(3){
-    flex:3;
+    flex:2;
+}
+.list__items ul li:nth-child(4){
+    flex:1.5;
+}
+.list__items ul li:nth-child(5){
+    flex:1.5;
 }
 .list__items ul li:nth-child(6){
     flex:1;
-}
-.list__items ul li:nth-child(4){
-    flex:2;
 }
 
 

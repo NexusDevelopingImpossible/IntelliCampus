@@ -226,7 +226,7 @@ module.exports.deletesubject = async function (req, res) {
     await Timetable.findByIdAndDelete(id);
     let teacherdata = await Teacher.findOne({ _id: req.query.teacherid });
     let timetables = await Timetable.find({
-      username: teacherdata.username,
+      username: teacherdata._id,
     }).populate("subjectcode");
     req.flash("success", "Subject deleted successfully");
     return res.render("admin/allotsubjectform", {

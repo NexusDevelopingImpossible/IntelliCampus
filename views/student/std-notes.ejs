@@ -1,0 +1,76 @@
+
+    <link rel="stylesheet" href="<%= assetPath('css/notes.css') %>">
+  
+ 
+        <div class="main-page">
+            <div class="blur">
+                <div class="page-heading">
+                    <!-- <a href="/student/dashboard"><img src="/images/allotarrow.png" alt="" id="back_buttn"></a> -->
+                    <a href="/student/dashboard"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
+                    <h1 class="heading">Attendance</h1>
+                  </div>
+           
+          
+            <div id="filters-and-options">
+                <div id="filters">
+                    <div class="filter">All</div>
+                    <div class="filter">Notes</div>
+                    <div class="filter">PVQs</div>
+                    <div class="filter">Sample Papers</div>
+                    <div class="filter">Videos</div>
+                </div>
+                
+            </div>
+            <!-- new main list -->
+            <!-- - - - - - - - - -->
+            <div class="list__main">
+                <div class="list__main__title">
+                    <ul>
+                        <li>S.No</li>
+                        <li>File Name</li>
+                        <li>Date Uploaded</li>
+                        <li>File Size</li>
+                        <li>Chapters</li>
+                        <li></li>
+                      
+                    </ul>
+                </div>
+                <div class="student-list-scroll">
+                        <div class="list__items">
+                            <ul>
+                                <li class="note-metadata">
+                                    01
+                                </li>
+                                <li class="note-data">
+                                    <img src="/images/teenyicons_pdf-solid.png" alt="" class="pdf-icon">Note1.pdf
+                                </li>
+                                <li class="note-metadata">
+                                    29-Feb-2023
+                                </li>
+                                <li class="note-metadata">
+                                    209kb
+                                </li>
+                                <li class="note-metadata">
+                                   1
+                                </li>
+                                <li class="btn-std">
+                                    <span><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"  viewBox="0 0 24 24" ><g><rect/></g><g><path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z"/></g></svg></span>
+                                </li>
+                                
+                              
+                            </ul>
+                            
+                        </div>
+                     
+                    
+                       
+                </div>
+            </div>
+
+     
+            </div>
+        </div>
+
+
+
+<script src="<%= assetPath('js/attendance.js') %>"></script>
