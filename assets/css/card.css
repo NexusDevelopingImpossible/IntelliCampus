@@ -159,3 +159,28 @@
 .card5 {
   width: 24vw;
   height: 42vh; }
+
+.saved, .noted svg {
+  width: 1.5vw;
+  fill: #fff;
+  cursor: pointer; }
+
+.saved svg:hover, .noted svg:hover {
+  fill: #ffffff8a; }
+
+.announcements {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.saved-noty {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; }
+
+.noty2 {
+  display: none; }
+
+.pdf a svg {
+  width: 1.5vw;
+  fill: #fff; }

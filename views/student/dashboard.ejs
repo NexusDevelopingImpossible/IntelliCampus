@@ -111,10 +111,14 @@
           </div>
         </div>
       </div>
+        <!--  - - - - - - - - -- - - - - - --  -->
+        <!-- annoucements card's  main section -->
+        <!--  - - - - - - - - -- - - - - - --  -->
       <div class="card-col1">
-        <div class="card card4">
-          <div class="card-hed">
+        <div class="card card4 noty1">
+          <div class="card-hed announcements">
             <p>Announcements</p>
+            <span class="saved"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 18l2 1V3c0-1.1-.9-2-2-2H8.99C7.89 1 7 1.9 7 3h10c1.1 0 2 .9 2 2v13zM15 5H5c-1.1 0-2 .9-2 2v16l7-3 7 3V7c0-1.1-.9-2-2-2z"/></svg></span>
           </div>
           <div class="content" id="noti-div">
             <% for(let i=0; i<notidata.length; i++) {%>
@@ -130,9 +134,9 @@
                   </div>
                   <div class="pdf">
                     <a href="<%=notidata[i].notiflie%>" target="_blank">
-                      <ion-icon class="download-outline" name="download-outline"></ion-icon>
+                      <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"  viewBox="0 0 24 24" ><g><rect/></g><g><path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z"/></g></svg>
                     </a><a class="createStudentNotiBtn" href="/student/pinnoti/<%=notidata[i]._id%>">
-                      <ion-icon class="pin-outline" name="navigate"></ion-icon>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V6c0-.55.45-1 1-1h8c.55 0 1 .45 1 1v12z"/></svg>
                     </a>
                     <input type="hidden" id="/student/pinnoti/<%=notidata[i]._id%>-title"
                       value="<%=notidata[i].title%>" />
@@ -143,6 +147,32 @@
                 <%}%>
           </div>
         </div>
+        <!--  - - - - - - - - -- - - - - - --  -->
+        <!-- annoucements card's saved section -->
+        <!--  - - - - - - - - -- - - - - - --  -->
+        <div class="card card4 noty2">
+          <div class="card-hed saved-noty">
+            <span class="noted"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></span>
+            <p>Saved Announcements</p>
+          </div>
+          <div class="content save-cont" id="noti-div">
+            <% for(let i=0; i<student.pinned.length; i++) {%>
+              <div class="notification">
+                <div class="text">
+                  <p class="old"><%=student.pinned[i].noti.title%></p>
+                </div>
+                <div class="pdf">
+                  <a href="<%=notidata[i].notiflie%>" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"  viewBox="0 0 24 24" ><g><rect/></g><g><path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z"/></g></svg>
+                  </a><a class="createStudentNotiBtn" href="/student/unpinnoti/<%=notidata[i]._id%>">
+                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+                  </a>
+                </div>
+              </div>
+              <%}%>
+          </div>
+        </div>
+        <!--  - - - - - - - - -- - - - - - --  -->
         <div class="card card5">
           <div class="wrapper">
             <header>
