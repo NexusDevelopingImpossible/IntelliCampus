@@ -21,7 +21,7 @@ router.post("/addattendance", teacherController.addattendance);
 router.post("/change_attendance", teacherController.change_attendance);
 router.post("/updateMarks", teacherController.updateMarks);
 router.get("/notes/:id", teacherController.viewnotes);
-
+router.get("/search/:registration", teacherController.profile);
 
 router.get("/viewstudentattendance", teacherController.viewstudentattendance);
 

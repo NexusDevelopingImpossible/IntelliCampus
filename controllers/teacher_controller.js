@@ -379,3 +379,31 @@ module.exports.viewnotes = async (req, res) => {
     console.log(err);
   }
 };
+
+
+module.exports.profile = async (req, res) => {
+  try {
+    const studentdata = await Student.findOne({username: req.body.username});
+    if(!studentdata){
+      req.flash("error", "Incorrect registraion number");
+      return res.redirect('back');
+    }
+    return res
+    return res.render("student/profile", { title: "Profile", student: studentdata});
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports.profile = async (req, res) => {
+  try {
+    console.log(req.params.registration)
+    const studentdata = await Student.findOne({username: req.params.registration});
+    if(!studentdata){
+      req.flash("error", "Incorrect registraion number");
+      return res.redirect('back');
+    }
+    return res.render("student/profile", { title: "Profile", student: studentdata});
+  } catch (error) {
+    console.log(error);
+  }
+};

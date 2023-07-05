@@ -44,14 +44,13 @@
    
     
     <div class=" search-input">
-      <input type="text" placeholder="Eg: 202300423" />
-      <div class="search-btn">
-          <a href="#">Search</a>
-      </div>
+      <input type="text" placeholder="Eg: 202300423" id="reg"/>
+      <a href="/teacher/search/" class="search-btn" id="reg-path" id="search-btn">
+          Search
+      </a>
   </div>
 
     <!--.........................Teacher Subjects......................-->
-
     <div class="subjects">
       <h1 class="hed">My Subjects</h1>
       <div class="main-carousel-container">
@@ -68,7 +67,7 @@
             <% for(let i=0; i<timetable.length; i++) {%>
                 <a href="/teacher/getsubject/<%= timetable[i]._id %>">
                   <div class="slide">
-                  <div class="sl" onmouseover="changeContent(this)" onmouseout="restoreContent(this)">
+                  <div class="sl">
                     <div class="cont-def">
                       <div class="sbj-cd">
                         <h2>
@@ -205,3 +204,21 @@
 </body>
 
 </html>
+
+<script>
+  document.getElementById("reg").addEventListener("input", function() {
+      // Get the input value
+      var inputValue = document.getElementById("reg").value;
+
+      // Set the input value as the text content of the <a> element
+      var anchorTag = document.getElementById("reg-path");
+      anchorTag.href = "/teacher/search/" + inputValue;
+    });
+    document.getElementById("reg").addEventListener("keyup", function(event) {
+      if (event.key === "Enter") {
+        var anchorTag = document.getElementById("reg-path");
+        document.getElementById('search-btn').style.backgroundColor = "#0000006a";
+        anchorTag.click(); // Simulate a click on the anchor tag
+      }
+    });
+</script>
