@@ -135,8 +135,9 @@ module.exports.allotsubject = (req, res) => {
 //Searching teacher id from the teacher database for alloting subject used in allot subject page
 module.exports.searchteacherid = async function (req, res) {
   try {
+    console.log(req.params.id)
     let teacherdata = await Teacher.findOne({
-      username: req.body.registration,
+      username: req.params.id,
     });
     if (!teacherdata) {
       req.flash("error", "Teacher does not exist.");
@@ -210,11 +211,12 @@ module.exports.addsubject = async function (req, res) {
       teacherid: teacherdata._id,
     }).populate("subjectcode");
     req.flash("success", "Subject allot successfully");
-    return res.render("admin/allotsubjectform", {
-      title: "Allot Subject data",
-      teacher: teacherdata,
-      timetable: timetables,
-    });
+    return res.redirect('back')
+    // return res.render("admin/allotsubjectform", {
+    //   title: "Allot Subject data",
+    //   teacher: teacherdata,
+    //   timetable: timetables,
+    // });
   } catch (err) {
     console.log(err);
   }
@@ -229,11 +231,12 @@ module.exports.deletesubject = async function (req, res) {
       username: teacherdata._id,
     }).populate("subjectcode");
     req.flash("success", "Subject deleted successfully");
-    return res.render("admin/allotsubjectform", {
-      title: "Allot Subject data",
-      teacher: teacherdata,
-      timetable: timetables,
-    });
+    return res.redirect('back');
+    // return res.render("admin/allotsubjectform", {
+    //   title: "Allot Subject data",
+    //   teacher: teacherdata,
+    //   timetable: timetables,
+    // });
   } catch (err) {
     console.log(err);
   }

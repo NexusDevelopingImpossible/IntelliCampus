@@ -1,5 +1,7 @@
 const express = require('express');
 const passport = require('passport');
+// const microsoftStrategy = require('passport-microsoft').Strategy;
+
 
 const router = express.Router();
 
@@ -16,6 +18,8 @@ router.use('/admin', require("./admins"))
 router.use('/teacher', require("./teachers"))
 router.use('/student', require("./students"))
 router.use('/timetable', require("./timetables"))
+router.get('/auth/microsoft', passport.authenticate('microsoft'));
+router.get('/auth/microsoft/redirect', passport.authenticate('microsoft', { failureRedirect: '/login' }), homeController.micin);
 
 router.post('/create-session', passport.authenticate(
     'local',

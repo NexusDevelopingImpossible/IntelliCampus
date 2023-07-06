@@ -1,5 +1,6 @@
 const express = require('express');
 const env = require('./config/environment');
+const microsoft = require('./config/microsoft_oauth');
 const logger = require('morgan') 
 const app = express();
 require('./config/view-helpers')(app)
@@ -78,6 +79,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 app.use(passport.setAuthenticatedUser);
 app.use(flash());

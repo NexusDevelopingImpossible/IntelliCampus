@@ -70,10 +70,6 @@
 .search-btn:hover {
   background: #0000006a; }
 
-a:focus {
-  outline: 1px solid #fd6d08;
-  border-radius: inherit; }
-
 .search-input input {
   border-radius: 20px;
   background: transparent;

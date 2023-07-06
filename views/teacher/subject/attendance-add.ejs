@@ -167,6 +167,7 @@ let newattDom = function (data) {
         document.getElementById("len"+i).innerHTML = data.student[i].present.length;
         document.getElementById("tp"+i).innerHTML = data.student[i].totalpresent;
         document.getElementById("per"+i).innerHTML = parseInt(((data.student[i].totalpresent) /(data.student[i].present.length))*100)+"%";
+        document.getElementById("cb"+i).checked = true;
     }
 //   const p1 = $(`
 //       <div class="student-list-scroll">
