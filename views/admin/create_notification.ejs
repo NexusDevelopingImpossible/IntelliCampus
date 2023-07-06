@@ -2,6 +2,13 @@
 
 
 <div class="main-page">
+    <div class="blur">
+        <div class="page-heading">
+          <!-- <a href="/student/dashboard"><img src="/images/allotarrow.png" alt="" id="back_buttn"></a> -->
+          <a href="/student/dashboard"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
+          <h1 class="heading">Create Notification</h1>
+        </div>
+    
 
     <!-- overlay -->
     <div class="overlay" id="overlay"></div>
@@ -55,25 +62,10 @@
     </div>
 
     <div class="main__content">
-        <div class="main__title">
-            <button>
-                <a href="#" class="back__btn">
-                    <svg width="40" height="40" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M21.25 30L14.25 23M14.25 23L21.25 16M14.25 23L31.75 23M2 23C2 34.598 11.402 44 23 44C34.598 44 44 34.598 44 23C44 11.402 34.598 2 23 2C11.402 2 2 11.402 2 23Z"
-                            stroke="white" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </a>
-            </button>
-            <h2 class="main__title__name">
-                Create Notification
-            </h2>
-        </div>
-
         <div class="button__section">
-            <button id="create__btn" class="create__btn">Create</button>
+            <button id="create__btn" class="btn btn-full btn-medium">Create</button>
             OR
-            <button class="import">Import</button>
+            <button class="btn btn-outline btn-medium">Import</button>
         </div>
 
         <div class="list__main">
@@ -129,7 +121,7 @@
 
         </div>
     </div>
-
+    </div>
 </div>
 <script src="<%= assetPath('js/create_notif.js') %>"></script>
 <script src="<%= assetPath('js/notification_form.js') %>"></script>

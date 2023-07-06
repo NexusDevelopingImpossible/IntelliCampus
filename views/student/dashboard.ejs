@@ -23,7 +23,7 @@
       <div class="card-col1">
         <div class="card card1">
           <div class="b1">
-            <img class="img" src="/images/AG.jpg" alt="" />
+            <a href="/teacher/search/<%=student.username%>"><img class="img" src="/images/AG.jpg" alt="" /></a>
             <div>
               <h1 class="std-name">
                 <%=student.name%>
@@ -156,6 +156,7 @@
             <p>Saved Announcements</p>
           </div>
           <div class="content save-cont" id="noti-div">
+            <%if(student.pinned.length > 0){%>
             <% for(let i=0; i<student.pinned.length; i++) {%>
               <div class="notification">
                 <div class="text">
@@ -169,7 +170,7 @@
                   </a>
                 </div>
               </div>
-              <%}%>
+              <%}}%>
           </div>
         </div>
         <!--  - - - - - - - - -- - - - - - --  -->
