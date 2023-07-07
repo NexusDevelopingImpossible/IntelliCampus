@@ -17,7 +17,6 @@
 
 #filters {
   display: flex;
-  width: 32vw;
   justify-content: space-between; }
 
 #upload {

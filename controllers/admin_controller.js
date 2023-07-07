@@ -285,8 +285,6 @@ module.exports.notification = async function (req, res) {
   }
 };
 
-
-
 module.exports.createnoti = async function (req, res) {
   try {
     // console.log(req.file);
@@ -298,17 +296,7 @@ module.exports.createnoti = async function (req, res) {
         title: req.body.title,
         notiflie: Noti.uploadpath + '/' + req.file.filename
       })
-      // if(req.xhr){
-      //   return res.status(200).json({
-      //     data: {
-      //       noti: notidata
-      //     },
-      //     message: 'Noti'
-      //   })
-      // }
     });
-    
-
     return res.redirect("back");
   } catch (error) {
     console.log(error);

@@ -18,8 +18,8 @@
             </div>
             <div class="year__sem__sec">
                 <span>Department : <strong>
-                    <%=timetable.department%>
-                </strong></span>
+                        <%=timetable.department%>
+                    </strong></span>
                 <span>Semester : <strong>
                         <%=timetable.semester%>
                     </strong></span>
@@ -33,19 +33,19 @@
                 <div id="tab-1" class="tab-item tab-border">
                     <p class="hed-day">Attendance</p>
                 </div>
-                <div id="tab-2" class="tab-item">
-                    <a href="/teacher/internalmarks/<%=timetable._id%>">
+                <a href="/teacher/internalmarks/<%=timetable._id%>">
+                    <div id="tab-2" class="tab-item">
                         <p class="hed-day">Internal Marks</p>
-                    </a>
-                </div>
+                    </div>
+                </a>
                 <div id="tab-3" class="tab-item">
                     <p class="hed-day">Assignment</p>
                 </div>
-                <div id="tab-4" class="tab-item">
-                    <a href="/teacher/notes/<%=timetable._id%>">
-                    <p class="hed-day">Notes</p>
+                <a href="/teacher/notes/<%=timetable._id%>">
+                    <div id="tab-4" class="tab-item">
+                        <p class="hed-day">Notes</p>
+                    </div>
                 </a>
-                </div>
             </div>
         </section>
         <section class="tab-content">
@@ -114,7 +114,8 @@
                                     <li id="per<%=i%>">
                                         <%=parseInt(((student[i].totalpresent) /(student[i].present.length))*100)%>%
                                     </li>
-                                    <li><input type="checkbox" name="check" class="radios" id="cb<%=i%>" value="<%=i%>" checked>
+                                    <li><input type="checkbox" name="check" class="radios" id="cb<%=i%>" value="<%=i%>"
+                                            checked>
                                     </li>
                                     <input type="text" value=<%=student[i]._id%> name="studentlist"
                                     style="display: none">
@@ -133,50 +134,50 @@
 <script src="<%= assetPath('js/internalMarks.js') %>"></script>
 
 <script>
-let createform = function () {
-  const newattform = $('#att-form');
+    let createform = function () {
+        const newattform = $('#att-form');
 
-  $(document).on('submit', '#att-form', function (e) {
-    e.preventDefault();
-    $.ajax({
-      type: 'post',
-      url: '/teacher/addattendance',
-      data: newattform.serialize(),
-      success: function (data) {
-        const nAtt = newattDom(data.data);
-        new Noty({
-          theme: 'relax',
-          text: 'Attendance added',
-          type: 'success',
-          layout: 'topRight',
-          timeout: 1500,
-        }).show();
-      },
-      error: function (error) {
-        console.log(error.responseText);
-      }
-    });
-  });
-};
+        $(document).on('submit', '#att-form', function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'post',
+                url: '/teacher/addattendance',
+                data: newattform.serialize(),
+                success: function (data) {
+                    const nAtt = newattDom(data.data);
+                    new Noty({
+                        theme: 'relax',
+                        text: 'Attendance added',
+                        type: 'success',
+                        layout: 'topRight',
+                        timeout: 1500,
+                    }).show();
+                },
+                error: function (error) {
+                    console.log(error.responseText);
+                }
+            });
+        });
+    };
 
-let newattDom = function (data) {
-    date.value = null;
-    console.log(data);
-    for(let i = 0; i<data.student.length; i++){
-        let l = "len" + i;
-        document.getElementById("len"+i).innerHTML = data.student[i].present.length;
-        document.getElementById("tp"+i).innerHTML = data.student[i].totalpresent;
-        document.getElementById("per"+i).innerHTML = parseInt(((data.student[i].totalpresent) /(data.student[i].present.length))*100)+"%";
-        document.getElementById("cb"+i).checked = true;
-    }
-//   const p1 = $(`
-//       <div class="student-list-scroll">
-//         ${interpolatedString}
-//       </div>
-//   `);
-    return
-};
+    let newattDom = function (data) {
+        date.value = null;
+        console.log(data);
+        for (let i = 0; i < data.student.length; i++) {
+            let l = "len" + i;
+            document.getElementById("len" + i).innerHTML = data.student[i].present.length;
+            document.getElementById("tp" + i).innerHTML = data.student[i].totalpresent;
+            document.getElementById("per" + i).innerHTML = parseInt(((data.student[i].totalpresent) / (data.student[i].present.length)) * 100) + "%";
+            document.getElementById("cb" + i).checked = true;
+        }
+        //   const p1 = $(`
+        //       <div class="student-list-scroll">
+        //         ${interpolatedString}
+        //       </div>
+        //   `);
+        return
+    };
 
-createform();
+    createform();
 
 </script>

@@ -1,134 +1,144 @@
-
 <link rel="stylesheet" href="<%= assetPath('css/general-att.css') %>">
 <link rel="stylesheet" href="<%= assetPath('css/sub-att-view.css') %>" />
 
 <div class="main-page">
   <div class="blur">
-  <div id="title">
-    <div class="sub-name">
-      <a href="/teacher/dashboard"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
+    <div id="title">
+      <div class="sub-name">
+        <a href="/teacher/dashboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+            <path
+              d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z" />
+          </svg></a>
         <h1 class="subject" id="sub_code">
-            <%=timetable.subjectcode.code%>
+          <%=timetable.subjectcode.code%>
         </h1>
         <h1 class="subject" id="sub_title">
-            <%=timetable.subjectcode.name%>
+          <%=timetable.subjectcode.name%>
         </h1>
-    </div>
-    <div class="year__sem__sec">
-      <span>Department : <strong>
-        <%=timetable.department%>
-    </strong></span>
-        <span>Semester : <strong>
-                <%=timetable.semester%>
-            </strong></span>
-        <span>Section : <strong>
-                <%=timetable.section%>
-            </strong></span>
-    </div>
-</div>
-
-  <section class="att-navbar">
-    <div class="container">
-      <div id="tab-1" class="tab-item tab-border">
-        <p class="hed-day">Attendance</p>
       </div>
-      <div id="tab-2" class="tab-item">
+      <div class="year__sem__sec">
+        <span>Department : <strong>
+            <%=timetable.department%>
+          </strong></span>
+        <span>Semester : <strong>
+            <%=timetable.semester%>
+          </strong></span>
+        <span>Section : <strong>
+            <%=timetable.section%>
+          </strong></span>
+      </div>
+    </div>
+
+    <section class="att-navbar">
+      <div class="container">
+        <div id="tab-1" class="tab-item tab-border">
+          <p class="hed-day">Attendance</p>
+        </div>
         <a href="/teacher/internalmarks/<%=timetable._id%>">
-          <p class="hed-day">Internal Marks</p>
+          <div id="tab-2" class="tab-item">
+            <p class="hed-day">Internal Marks</p>
+          </div>
+        </a>
+        <div id="tab-3" class="tab-item">
+          <p class="hed-day">Assignment</p>
+        </div>
+        <a href="/teacher/notes/<%=timetable._id%>">
+          <div id="tab-4" class="tab-item">
+            <p class="hed-day">Notes</p>
+          </div>
         </a>
       </div>
-      <div id="tab-3" class="tab-item">
-        <p class="hed-day">Assignment</p>
-    </div>
-    <div id="tab-4" class="tab-item">
-      <a href="/teacher/notes/<%=timetable._id%>">
-      <p class="hed-day">Notes</p>
-  </a>
-  </div>
-    </div>
-  </section>
-  <section class="tab-content">
+    </section>
+    <section class="tab-content">
       <!-- Tab Content 1 -->
       <div id="tab-1-content" class="tab-content-item show">
-      
+
         <section class="student-info">
           <div class="std-info">
             <div class="profile-info">
               <div class="sub-name">
-            <!-- <a href="/teacher/attendance_view/<%=timetable._id%>"><img src="/images/back.png" alt="" id="back_buttn"/></a></div> -->
-            <a href="/teacher/attendance_view/<%=timetable._id%>"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a></div>
-            <div class="image">
-              <img
-                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
-                alt="" />
-            </div>
-            <div class="student__details">
-              <h3 class="name">
-                <%= student.studentid.name%>
-              </h3>
-              <p class="registration">
-                <%= student.studentid.username%>
-              </p>
-            </div>
-          </div>
-          <div class="attendance-info">
-            <p>Attendance Percentage: <span>
-                <%=(parseInt(((student.totalpresent) /(student.present.length))*100))%>%
-              </span></p>
-            <div>
-              <p>Present:<span>
-                  <%=student.totalpresent%>
-                </span></p>
-              <p>Absent:<span><%=student.present.length-student.totalpresent%></span></p>
-            </div>
-          </div>
-          <div class="std-btn">
-            <button class="btn-full btn btn-sm" type="reset">Save</button>
-            <button class="btn-outline btn btn-sm export" type="submit">Export <img src="/images/excel.png" alt=""></button>
-        </div>
-        </div>
-        </section>
-        <section class="attendance-list">
-          
-    <%if(student.present.length>0){%>
-      <% let t = student.present.length %>
-      <% let c = 0; %>
-      <div class="date-list">
-        <%for(let i = 0; i<((student.present.length/8)+1); i++){%>
-        <div class="att-list">
-          <%for(let j = 0; (j<8 && c<t); j++){%>
-            <div class="att-day">
-              <div class="att-no">01</div>
-              <div class="att-date"><%=student.present[c].datevalue%></div>
-              <div id="clc">
-                <%if(student.present[c].att){%>
-                <div id="clp"></div>
-                <%}%>
+                <!-- <a href="/teacher/attendance_view/<%=timetable._id%>"><img src="/images/back.png" alt="" id="back_buttn"/></a></div> -->
+                <a href="/teacher/attendance_view/<%=timetable._id%>"><svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 -960 960 960">
+                    <path
+                      d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z" />
+                  </svg></a>
+              </div>
+              <div class="image">
+                <img
+                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                  alt="" />
+              </div>
+              <div class="student__details">
+                <h3 class="name">
+                  <%= student.studentid.name%>
+                </h3>
+                <p class="registration">
+                  <%= student.studentid.username%>
+                </p>
               </div>
             </div>
-            <%c++%>
-            <%}%>
-        </div>
-        <%}%>
-  
-      </div>
-      <%} else{%>
-        <div class="att-cont"></div>
-      <%}%>
-
-
-          <!-- Tab Content 2 -->
-          <div id="tab-2-content" class="tab-content-item">
-            <h1>internal marks</h1>
+            <div class="attendance-info">
+              <p>Attendance Percentage: <span>
+                  <%=(parseInt(((student.totalpresent) /(student.present.length))*100))%>%
+                </span></p>
+              <div>
+                <p>Present:<span>
+                    <%=student.totalpresent%>
+                  </span></p>
+                <p>Absent:<span><%=student.present.length-student.totalpresent%></span></p>
+              </div>
+            </div>
+            <div class="std-btn">
+              <button class="btn-full btn btn-sm" type="reset">Save</button>
+              <button class="btn-outline btn btn-sm export" type="submit">Export <img src="/images/excel.png"
+                  alt=""></button>
+            </div>
           </div>
+        </section>
+        <section class="attendance-list">
 
-          <!-- Tab Content 3 -->
-          <div id="tab-3-content" class="tab-content-item">
-            <h1>notes</h1>
-          </div>
+          <%if(student.present.length>0){%>
+            <% let t=student.present.length %>
+              <% let c=0; %>
+                <div class="date-list">
+                  <%for(let i=0; i<((student.present.length/8)+1); i++){%>
+                    <div class="att-list">
+                      <%for(let j=0; (j<8 && c<t); j++){%>
+                        <div class="att-day">
+                          <div class="att-no">01</div>
+                          <div class="att-date">
+                            <%=student.present[c].datevalue%>
+                          </div>
+                          <div id="clc">
+                            <%if(student.present[c].att){%>
+                              <div id="clp"></div>
+                              <%}%>
+                          </div>
+                        </div>
+                        <%c++%>
+                          <%}%>
+                    </div>
+                    <%}%>
+
+                </div>
+                <%} else{%>
+                  <div class="att-cont"></div>
+                  <%}%>
+
+
+                    <!-- Tab Content 2 -->
+                    <div id="tab-2-content" class="tab-content-item">
+                      <h1>internal marks</h1>
+                    </div>
+
+                    <!-- Tab Content 3 -->
+                    <div id="tab-3-content" class="tab-content-item">
+                      <h1>notes</h1>
+                    </div>
       </div>
-  </section>
- </div>
+    </section>
+  </div>
 </div>
 </section>
 <script src="<%= assetPath('js/attendance.js') %>"></script>

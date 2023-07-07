@@ -1,12 +1,14 @@
-
 <link rel="stylesheet" href="<%= assetPath('css/general-att.css') %>">
 <link rel="stylesheet" href="<%= assetPath('css/sub-att-view.css') %>">
 
-    <div class="main-page">
-        <div class="blur">
+<div class="main-page">
+    <div class="blur">
         <div id="title">
             <div class="sub-name">
-                <a href="/teacher/dashboard"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
+                <a href="/teacher/dashboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                        <path
+                            d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z" />
+                    </svg></a>
                 <h1 class="subject" id="sub_code">
                     <%=timetable.subjectcode.code%>
                 </h1>
@@ -16,8 +18,8 @@
             </div>
             <div class="year__sem__sec">
                 <span>Department : <strong>
-                    <%=timetable.department%>
-                </strong></span>
+                        <%=timetable.department%>
+                    </strong></span>
                 <span>Semester : <strong>
                         <%=timetable.semester%>
                     </strong></span>
@@ -31,19 +33,19 @@
                 <div id="tab-1" class="tab-item tab-border">
                     <p class="hed-day">Attendance</p>
                 </div>
-                <div id="tab-2" class="tab-item">
-                    <a href="/teacher/internalmarks/<%=timetable._id%>">
-                    <p class="hed-day">Internal Marks</p>
+                <a href="/teacher/internalmarks/<%=timetable._id%>">
+                    <div id="tab-2" class="tab-item">
+                        <p class="hed-day">Internal Marks</p>
+                    </div>
                 </a>
-                </div>
                 <div id="tab-3" class="tab-item">
                     <p class="hed-day">Assignment</p>
                 </div>
-                <div id="tab-4" class="tab-item">
-                    <a href="/teacher/notes/<%=timetable._id%>">
-                    <p class="hed-day">Notes</p>
+                <a href="/teacher/notes/<%=timetable._id%>">
+                    <div id="tab-4" class="tab-item">
+                        <p class="hed-day">Notes</p>
+                    </div>
                 </a>
-                </div>
             </div>
         </section>
         <section class="tab-content">
@@ -66,8 +68,8 @@
                         </a>
                     </ul>
                 </div>
-                
-            
+
+
                 <div class=" search-input">
                     <input type="text" placeholder="Search" />
                     <div class="search-btn">
@@ -80,7 +82,7 @@
                 </div>
                 <!-- @Srijan Check css  -->
             </div>
-            
+
             <main class="student-profile">
                 <div id="list">
                     <div class="serial_naming">
@@ -89,13 +91,13 @@
                         </div>
                         <div class="stu_list">
                             <ul class="stu_name_cards">
-                                
+
                                 <%for(let i=0; i<student.length; i++){%>
                                     <a href="/teacher/viewstudentattendance/<%=student[i]._id%>">
                                         <!-- <%=parseInt(((student[i].totalpresent) /(student[i].present.length))*100)%> -->
-                                            <li>
-                                                <div class="postcard">
-                                                    <div class="mark <%if(parseInt(((student[i].totalpresent) /(student[i].present.length))*100)>=  74){%>
+                                        <li>
+                                            <div class="postcard">
+                                                <div class="mark <%if(parseInt(((student[i].totalpresent) /(student[i].present.length))*100)>=  74){%>
                                                 present <%}else if(isNaN(parseInt(((student[i].totalpresent) /(student[i].present.length))*100) )){}else{%>absent<%}%>
                                                 "></div>
                                                 <div>
@@ -113,21 +115,21 @@
                                                         </p>
                                                     </div>
                                                 </div>
-                                                </div>
-                                            </li>
-                                        </a>
-                                    
+                                            </div>
+                                        </li>
+                                    </a>
+
                                     <%}%>
                             </ul>
                         </div>
                     </div>
-                    </div>
                 </div>
-            </main>
-            
-        </section>
-
-
     </div>
-    <script src="<%= assetPath('js/attendance.js') %>"></script>
-    <script src="<%= assetPath('js/internalMarks.js') %>"></script>
+    </main>
+
+    </section>
+
+
+</div>
+<script src="<%= assetPath('js/attendance.js') %>"></script>
+<script src="<%= assetPath('js/internalMarks.js') %>"></script>

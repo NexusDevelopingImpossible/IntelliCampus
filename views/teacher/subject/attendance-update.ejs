@@ -1,12 +1,14 @@
-
 <link rel="stylesheet" href="<%= assetPath('css/general-att.css') %>">
 <link rel="stylesheet" href="<%= assetPath('css/sub-att-add-update.css') %>">
 
-    <div class="main-page">
-        <div class="blur">
+<div class="main-page">
+    <div class="blur">
         <div id="title">
             <div class="sub-name">
-                <a href="/teacher/dashboard"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
+                <a href="/teacher/dashboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                        <path
+                            d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z" />
+                    </svg></a>
                 <h1 class="subject" id="sub_code">
                     <%=timetable.subjectcode.code%>
                 </h1>
@@ -16,8 +18,8 @@
             </div>
             <div class="year__sem__sec">
                 <span>Department : <strong>
-                    <%=timetable.department%>
-                </strong></span>
+                        <%=timetable.department%>
+                    </strong></span>
                 <span>Semester : <strong>
                         <%=timetable.semester%>
                     </strong></span>
@@ -31,19 +33,19 @@
                 <div id="tab-1" class="tab-item tab-border">
                     <p class="hed-day">Attendance</p>
                 </div>
-                <div id="tab-2" class="tab-item">
-                    <a href="/teacher/internalmarks/<%=timetable._id%>">
-                    <p class="hed-day">Internal Marks</p>
+                <a href="/teacher/internalmarks/<%=timetable._id%>">
+                    <div id="tab-2" class="tab-item">
+                        <p class="hed-day">Internal Marks</p>
+                    </div>
                 </a>
-                </div>
                 <div id="tab-3" class="tab-item">
                     <p class="hed-day">Assignment</p>
                 </div>
-                <div id="tab-4" class="tab-item">
-                    <a href="/teacher/notes/<%=timetable._id%>">
-                    <p class="hed-day">Notes</p>
+                <a href="/teacher/notes/<%=timetable._id%>">
+                    <div id="tab-4" class="tab-item">
+                        <p class="hed-day">Notes</p>
+                    </div>
                 </a>
-                </div>
             </div>
         </section>
         <section class="tab-content">
@@ -70,17 +72,24 @@
                         </div>
                         <div class="select-menu1">
                             <div class="select-btn1">
-                                <span class="sBtn-text"><%if(timetable.classes.length>0){%><%if(date){%><%=date.date%><%}else{%>Select date<%}%><%}else{%>No date<%}%></span>
+                                <span class="sBtn-text">
+                                    <%if(timetable.classes.length>0){%><%if(date){%>
+                                            <%=date.date%>
+                                                <%}else{%>Select date<%}%>
+                                                        <%}else{%>No date<%}%>
+                                </span>
                                 <ion-icon name="caret-down-outline"></ion-icon>
                             </div>
                             <ul class="options" id="att-choose">
-                                <%for(let j = 0; j<timetable.classes.length; j++){%>
+                                <%for(let j=0; j<timetable.classes.length; j++){%>
                                     <a href="/teacher/attendaceedit/<%=timetable.classes[j]._id%>">
                                         <li class="option1" value="view">
-                                            <span class="option-text"><%=timetable.classes[j].date%></span>
+                                            <span class="option-text">
+                                                <%=timetable.classes[j].date%>
+                                            </span>
                                         </li>
                                     </a>
-                                <%}%>
+                                    <%}%>
                             </ul>
                         </div>
                     </div>
@@ -105,64 +114,67 @@
                     </div>
                     <div class="student-list-scroll">
                         <%if(date){%>
-                        <%for(let i=0; i<student.length; i++){%>
-                            <div class="list__items">
-                                <ul>
-                                    <li>
-                                        <%=i+1%>
-                                    </li>
-                                    <li>
-                                        <%=student[i].studentid.name%>
-                                    </li>
-                                    <li>
-                                        <%=student[i].studentid.username%>
-                                    </li>
-                                    <li>
-                                        <%=student[i].present.length%>
-                                    </li>
-                                    <li>
-                                        <%if(student[i].present[0].att){student[i].totalpresent=1%>1<%}else{student[i].totalpresent=0%>0<%}%>
-                                    </li>
-                                    <li>
-                                        <%=parseInt(((student[i].totalpresent)
-                                            /(student[i].present.length))*100)%>%
-                                    </li>
+                            <%for(let i=0; i<student.length; i++){%>
+                                <div class="list__items">
+                                    <ul>
+                                        <li>
+                                            <%=i+1%>
+                                        </li>
+                                        <li>
+                                            <%=student[i].studentid.name%>
+                                        </li>
+                                        <li>
+                                            <%=student[i].studentid.username%>
+                                        </li>
+                                        <li>
+                                            <%=student[i].present.length%>
+                                        </li>
+                                        <li>
+                                            <%if(student[i].present[0].att){student[i].totalpresent=1%>1
+                                                <%}else{student[i].totalpresent=0%>0<%}%>
+                                        </li>
+                                        <li>
+                                            <%=parseInt(((student[i].totalpresent) /(student[i].present.length))*100)%>%
+                                        </li>
 
-                                    <li><input type="checkbox" name="check" id="" value="<%=i%>" <%if(student[i].present.length>0){%><%if(student[i].present[0].att){%>checked<%}%><%}%>>
-                                    </li>
-                                    
-                                    <input type="text" value=<%=student[i]._id%> name="studentlist"
-                                    style="display: none">
-                                </ul>
-                            </div>
-                        <%}%>
-                        <%}%>
+                                        <li><input type="checkbox" name="check" id="" value="<%=i%>"
+                                                <%if(student[i].present.length>0){%><%if(student[i].present[0].att){%>
+                                                checked<%}%>
+                                                    <%}%>>
+                                        </li>
+
+                                        <input type="text" value=<%=student[i]._id%> name="studentlist"
+                                        style="display: none">
+                                    </ul>
+                                </div>
+                                <%}%>
+                                    <%}%>
                     </div>
                 </div>
             </form>
         </section>
-</div>
-
     </div>
-    <script src="<%= assetPath('js/attendance.js') %>"></script>
-    <script src="<%= assetPath('js/internalMarks.js') %>"></script>
+
+</div>
+<script src="<%= assetPath('js/attendance.js') %>"></script>
+<script src="<%= assetPath('js/internalMarks.js') %>"></script>
 
 <script>
     const optionMenu1 = document.querySelector(".select-menu1"),
-       selectBtn1 = optionMenu1.querySelector(".select-btn1"),
-       options1 = optionMenu1.querySelectorAll(".option1")
+        selectBtn1 = optionMenu1.querySelector(".select-btn1"),
+        options1 = optionMenu1.querySelectorAll(".option1")
     //    sBtn_text1 = optionMenu.querySelector(".sBtn-text1");
-selectBtn1.addEventListener("click", () => optionMenu1.classList.toggle("active"));       
-options1.forEach(option =>{
-    option.addEventListener("click", ()=>{
-        // let selectedOption = option.querySelector(".option-text").innerText;
-        // sBtn_text.innerText = selectedOption;
-        optionMenu1.classList.remove("active");
+    selectBtn1.addEventListener("click", () => optionMenu1.classList.toggle("active"));
+    options1.forEach(option => {
+        option.addEventListener("click", () => {
+            // let selectedOption = option.querySelector(".option-text").innerText;
+            // sBtn_text.innerText = selectedOption;
+            optionMenu1.classList.remove("active");
+        });
     });
-});
-document.addEventListener("click", (event) => {
-	if (!optionMenu1.contains(event.target)) {
-	  optionMenu1.classList.remove("active");
-	}
-  });
+    document.addEventListener("click", (event) => {
+        if (!optionMenu1.contains(event.target)) {
+            optionMenu1.classList.remove("active");
+        }
+    });
 </script>

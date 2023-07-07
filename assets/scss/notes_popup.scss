@@ -16,17 +16,28 @@
     background-color: #FD6D08;
 }
 
-
+#pop-main{
+    display: none;
+    position: absolute;
+    // display: flex;
+    justify-content: center;
+    top: 2%;
+    width: 84vw;
+    height: 96vh;
+    border-radius: 2.75vw;
+    backdrop-filter: blur(12px);
+}
 #upload-notes{
-    margin: 20vh 24vw;
+    // margin: 20vh 24vw;
     height: 60vh;
+    margin: auto;
     width: 40vw;
     background: linear-gradient(0deg, rgba(248, 213, 123, 0.15), rgba(248, 213, 123, 0.15)),
 linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
     border-radius: 20px;
 }
 
-#title{
+#title-popup{
     background: #FFFFFF33;
     display: flex;
     justify-content: space-between;
@@ -134,4 +145,13 @@ linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
     width: 3vh;
     background: rgba(0, 0, 0, 0.15);
     border: 1px solid #FD6D08;
+}
+
+
+button{
+    background-color: rgba(255, 255, 255, 0);
+    outline: none;
+    border: 0px;
+    display: flex;
+    cursor: pointer;
 }

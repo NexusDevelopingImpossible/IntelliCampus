@@ -6,6 +6,9 @@ const Attendance = require("../models/attendance");
 const MarksScheme = require("../models/marksScheme");
 const Notification = require("../models/notification");
 const prettydate = require("pretty-date");
+const fs = require("fs");
+const path = require("path");
+const multer = require("multer");
 
 
 //Dashboard
@@ -371,7 +374,7 @@ module.exports.viewnotes = async (req, res) => {
     const timetables = await Timetable.findOne({ _id: req.params.id }).populate(
       "subjectcode"
     );
-    return res.render("teacher/notes", {
+    return res.render("teacher/subject/notes", {
       title: "Notes",
       timetable: timetables
     });
@@ -381,19 +384,7 @@ module.exports.viewnotes = async (req, res) => {
 };
 
 
-module.exports.profile = async (req, res) => {
-  try {
-    const studentdata = await Student.findOne({username: req.body.username});
-    if(!studentdata){
-      req.flash("error", "Incorrect registraion number");
-      return res.redirect('back');
-    }
-    return res
-    return res.render("student/profile", { title: "Profile", student: studentdata});
-  } catch (error) {
-    console.log(error);
-  }
-};
+
 module.exports.profile = async (req, res) => {
   try {
     console.log(req.params.registration)
@@ -403,6 +394,31 @@ module.exports.profile = async (req, res) => {
       return res.redirect('back');
     }
     return res.render("student/profile", { title: "Profile", student: studentdata});
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+module.exports.uploadnote = async (req, res) => {
+  try {
+    let note = Timetable.uploadfile(req, res, function (error) {
+      if (error) {
+        console.log("** Multer error:", error);
+      }
+      console.log(req.file);
+      let subjectdata = Timetable.findById()
+      const note = {};
+      const file = Timetable.uploadpath + '/' + req.file.filename;
+      const type = req.body.type;
+      const chapter = req.body.chapter;
+      note.push(file);
+      note.push(type);
+      note.push(chapter);
+      subjectdata.notes.push(note);
+      subjectdata.save();
+      return res.redirect('back');
+    });
   } catch (error) {
     console.log(error);
   }
