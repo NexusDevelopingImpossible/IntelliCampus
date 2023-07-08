@@ -1,1 +1,61 @@
-.queries{margin-top:3vh}.question{font-size:2.2vh}.question-number{margin-right:2vw}.rating{display:flex;margin-left:4vw;margin-top:3vh;width:30vw;justify-content:space-between}.rank{width:4vw;height:6vh;display:flex;align-items:center;justify-content:center;text-align:center;font-size:2.5vh;background-color:hsla(0,0%,100%,.15);border:1px solid #fff;border-radius:15px;color:#fff;cursor:pointer;transition-duration:.3s}.rank:hover{background-color:#fd6d08}.marker{display:flex;width:30vw;justify-content:space-between;margin-left:4vw;margin-top:.5vh;font-weight:400;font-size:1.5vh;color:hsla(0,0%,100%,.5)}#profile-photo{height:8vh;width:8vh;border:3px solid #fd6d08;border-radius:100%;margin-left:1vw}#teacher-details{font-size:1.6vh;font-weight:lighter}#teacher-name{font-size:3vh;font-weight:bolder}#feedback-query-list{margin:3vh 0 0 3vw;height:70vh;overflow-y:auto}#feedback-query-list::-webkit-scrollbar{display:none}#submit-bttn{margin-left:70vw}
+.main-page .blur .page-heading #profile-photo {
+  height: 8vh;
+  width: 8vh;
+  border: 3px solid #fd6d08;
+  border-radius: 100%;
+  margin-left: 1vw; }
+
+.main-page .blur .page-heading #teacher-details {
+  font-size: 1.6vh;
+  font-weight: lighter; }
+  .main-page .blur .page-heading #teacher-details #teacher-name {
+    font-size: 3vh;
+    font-weight: bolder; }
+
+.main-page .blur #feedback-query-list {
+  margin: 3vh 0 0 3vw;
+  height: 70vh;
+  overflow-y: auto; }
+  .main-page .blur #feedback-query-list .queries {
+    margin-top: 3vh; }
+    .main-page .blur #feedback-query-list .queries .question {
+      font-size: 2.2vh; }
+      .main-page .blur #feedback-query-list .queries .question .question-number {
+        margin-right: 2vw; }
+    .main-page .blur #feedback-query-list .queries .rating {
+      display: flex;
+      margin-left: 4vw;
+      margin-top: 3vh;
+      width: 30vw;
+      justify-content: space-between; }
+      .main-page .blur #feedback-query-list .queries .rating .rank {
+        width: 4vw;
+        height: 6vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 2.5vh;
+        background-color: rgba(255, 255, 255, 0.15);
+        border: 1px solid #fff;
+        border-radius: 15px;
+        color: #fff;
+        cursor: pointer;
+        transition-duration: 0.3s; }
+      .main-page .blur #feedback-query-list .queries .rating .rank:hover {
+        background-color: #fd6d08; }
+    .main-page .blur #feedback-query-list .queries .marker {
+      display: flex;
+      width: 30vw;
+      justify-content: space-between;
+      margin-left: 4vw;
+      margin-top: 0.5vh;
+      font-weight: 400;
+      font-size: 1.5vh;
+      color: rgba(255, 255, 255, 0.5); }
+
+.main-page .blur #feedback-query-list::-webkit-scrollbar {
+  display: none; }
+
+.main-page .blur #submit-bttn {
+  margin-left: 70vw; }

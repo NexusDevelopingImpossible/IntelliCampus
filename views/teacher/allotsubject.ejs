@@ -1,21 +1,18 @@
 <link rel="stylesheet" href="<%= assetPath('css/allotstudent.css') %>">
 <div class="main-page">
+    <div class="blur">
 
     <div class="allot-student">
-        <div class="sub-heading">
-            <div id="plus-button">
-                <a href="#"><img src="/images/allotarrow.png"></a>
-            </div>
-            <div id="allot-head">
-                <h3>Allot subjects to Students</h3>
-            </div>
-        </div>
+        
+        <div class="page-heading">
+            <a href="/teacher/dashboard"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
+            <h1 class="heading">Allot subjects to Students</h1>
+          </div>
         <div class="main-content">
             <ul>
                 <%for(let i=0; i<timetable.length; i++){%>
                     <li>
-                        <a href="/teacher/searchstudent/<%=timetable[i]._id%>">
-
+                     
                             <div class="anchor-content">
                                 <div class="row1">
                                     <span class="sub-code" name="subjectcode" value="hi">
@@ -27,23 +24,26 @@
                                 </div>
                                 <div class="row2">
                                     <span>Year : <span class="bold-part">2021 &nbsp;</span></span>
-                                    <span class="department">department : <span class="bold-part">
+                                    <span class="department">Department : <span class="bold-part">
                                             <%= timetable[i].department%> &nbsp;
                                         </span></span>
-                                    <span class="section">section : <span class="bold-part">
+                                    <span class="section">Section : <span class="bold-part">
                                             <%= timetable[i].section%> &nbsp;
                                         </span></span>
                                 </div>
                             </div>
                             <div class="btn-div">
+                                <a href="/teacher/searchstudent/<%=timetable[i]._id%>">
+
                                 <button class="btn btn-full btn-large"> + Add Students
-                                </button>
+                                </button> </a>
                                 <button class="btn btn-outline"> Import
                                 </button>
                             </div>
-                        </a>
+                       
                     </li>
                     <%}%>
             </ul>
         </div>
+    </div>
     </div>

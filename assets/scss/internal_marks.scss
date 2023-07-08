@@ -1,177 +1,140 @@
-// .main-page {
-//   color: white;
-// }
+@import './variables.scss';
+.main-page {
+  .blur {
+    .main-table {
+      margin-top: 3vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-// .page-heading {
-//   display: flex;
-//   align-items: center;
-//   margin: 2.5vh 0 0 2.5vh;
-// }
+      div {
+        #marks-display {
+          overflow: auto;
+          height: 73vh;
 
-// .heading {
-//   display: inline-block;
-//   font-size: 4vh;
-// }
+          #marks-display::-webkit-scrollbar {
+            display: none;
+          }
 
-.subject {
-  text-align: left;
-  height: 5vh;
-  padding: 5px 0;
-  background-color: #f8d57b1a;
-  width: 17vw;
-  padding-left: 1vw;
-}
+          #marks {
+            width: 75vw;
+            text-align: center;
+            font-size: larger;
+            border-collapse: collapse;
+            color: white;
 
-.sub-code {
-  font-weight: 100;
-  padding-right: 1vw;
-  width: 6vw;
-  font-size: 2vh;
-}
-.sub-title {
-  text-align: left;
-  font-size: 2vh;
-}
+            th {
+              font-size: 1.75vh;
+              font-weight: 300;
+              border-right: 0.01px solid rgba(255, 255, 255, 0.2);
+            }
 
-.sub-inf {
-  display: flex;
-  align-items: center;
-}
-.total-marks {
-  background-color: #b78f301a;
-}
+            th:first-child {
+              border-top-left-radius: 10px;
+            }
 
-#footnote {
-  display: flex;
-  justify-content: center;
-}
-#footnote > div {
-  margin-top: 2.5vh;
-  width: 75vw;
-  display: flex;
-  justify-content: space-between;
-}
+            th:last-child {
+              border-top-right-radius: 10px;
+            }
 
-.note {
-  display: inline;
-  font-size: 1.75vh;
-}
+            td {
+              border: 0.5px solid rgba(255, 255, 255, 0.4);
+              font-size: 2vh;
+            }
 
-.note-tit {
-  font-weight: 500;
-}
-.note-data {
-  font-weight: 100;
-}
+            #markers {
+              td {
+                border: none !important;
+              }
+              .mark-td {
+                border: none !important;
+                border-top-left-radius: 7px;
+                border-top-right-radius: 7px;
 
-#marks-display {
-  overflow: auto;
-  height: 73vh;
-}
-#marks-display::-webkit-scrollbar {
-  display: none;
-}
+                div {
+                  background-color: #ffffff1a;
+                  padding: 0.75vh 0;
+                  margin: auto;
+                }
+              }
+              .mark-att {
+                div {
+                  border-top-left-radius: 10px;
+                  border-right: 0.5px solid #ffffff38 !important;
+                }
+              }
 
-#marks {
-  width: 75vw;
-  text-align: center;
-  font-size: larger;
-  border-collapse: collapse;
-  color: white;
-}
+              .mark-int {
+                div {
+                  border-top-right-radius: 10px;
+                }
+              }
+            }
+            #tb-header {
+              background-color: #390300d6;
+              opacity: 50%;
+              height: 6vh;
 
-#marks th {
-  font-size: 1.75vh;
-  font-weight: 300;
-  border-right: 0.01px solid rgba(255, 255, 255, 0.2);
-}
-#marks th:last-child {
-  border: none;
-}
-#marks th:first-child {
-  border-top-left-radius: 10px;
-}
-#marks th:last-child {
-  border-top-right-radius: 10px;
-}
+              th {
+                width: 3vw;
+              }
+            }
+            #sub-row {
+              .subject {
+                text-align: left;
+                height: 5vh;
+                padding: 5px 0;
+                background-color: #f8d57b1a;
+                width: 17vw;
+                padding-left: 1vw;
 
-#marks td {
-  border: 0.5px solid rgba(255, 255, 255, 0.4);
-  font-size: 2vh;
-}
+                .sub-inf {
+                  display: flex;
+                  align-items: center;
 
-#tb-header {
-  background-color: #390300d6;
-  opacity: 50%;
-  height: 6vh;
-}
+                  .sub-code {
+                    font-weight: 100;
+                    padding-right: 1vw;
+                    width: 6vw;
+                    font-size: 2vh;
+                  }
+                  .sub-title {
+                    text-align: left;
+                    font-size: 2vh;
+                  }
+                }
+              }
+              .total-marks {
+                background-color: #b78f301a;
+              }
+            }
+          }
+        }
+      }
+    }
+    #footnote {
+      display: flex;
+      justify-content: center;
 
-#tb-header th {
-  width: 3vw;
-}
+      div {
+        margin-top: 2.5vh;
+        width: 75vw;
+        display: flex;
+        justify-content: space-between;
 
-// #markers {
-//   display: flex;
-//   margin-left: 27vw;
-//   text-align: center;
-//   margin-bottom: 0;
-// }
+        .note {
+          display: inline;
+          font-size: 1.75vh;
 
-// #atten-marker {
-//   font-size: 2vh;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: #ffffff1a;
-//   width: 13vw;
-//   height: 4vh;
-//   text-align: center;
-//   margin-right: 1.5vw;
-//   border-top-left-radius: 7px;
-//   border-top-right-radius: 7px;
-// }
+          .note-tit {
+            font-weight: 500;
+          }
 
-// #inter-marker {
-//   font-size: 2vh;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: #ffffff1a;
-//   width: 28vw;
-//   border-top-left-radius: 7px;
-//   border-top-right-radius: 7px;
-//   height: 4vh;
-// }
-
-.main-table {
-  margin-top: 3vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.mark-td {
-  border: none !important;
-  // background-color: #ffffff1a;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-}
-.mark-td div{
-  background-color: #ffffff1a;
-  padding: 0.75vh 0;
-  margin: auto;
-}
-
-.mark-att div{
-  border-top-left-radius: 10px;
-  border-right: 0.5px solid #ffffff38 !important;
-  
-}
-.mark-int div{
-  border-top-right-radius: 10px;
-  
-}
-
-#markers > td{
-  border: none !important;
+          .note-data {
+            font-weight: 100;
+          }
+        }
+      }
+    }
+  }
 }

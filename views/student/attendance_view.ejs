@@ -2,8 +2,10 @@
 
 
 <div class="main-page">
+  <div class="blur">
   <div class="page-heading">
-    <a href="/student/dashboard"><img src="/images/allotarrow.png" alt="" id="back_buttn"></a>
+    <!-- <a href="/student/dashboard"><img src="/images/allotarrow.png" alt="" id="back_buttn"></a> -->
+    <a href="/student/dashboard"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
     <h1 class="heading">Attendance</h1>
   </div>
 
@@ -18,7 +20,7 @@
           <%for(let i = 0; i<attendance.length; i++){%>
           <a href="/student/attendancesingle/<%=attendance[i]._id%>">
             <li class="option" value="view">
-              <span class="option-text"><span class="sub-code"><%=attendance[i].timetableid.subjectcode.code%></span> <%=attendance[i].timetableid.subjectcode.name%></span>
+              <span class="option-text"><span class="sub-code"><%=attendance[i].timetableid.subjectcode.code%></span> <%=attendance[i].timetableid.subjectcode.name%></span><div class="noti-circle" id="<%=i%>"></div>
             </li>
           </a>
           <%}%>
@@ -70,8 +72,23 @@
   </div>
 
 
-
 </div>
+</div>
+<script>
+  window.locals = [];
+  let u = <%- JSON.stringify(locals.attendance) %>
+  window.locals.push(u);
+  for (let i = 0; i < locals[0].length; i++) {
+    if (locals[0][i].exitattendance < locals[0][i].updateattendance) {
+      let id = document.getElementById('attendance');
+      let id2 = document.getElementById(i);
+      console.log(id.style)
+      id.style.display = "flex";
+      id2.style.display = "flex";
+      console.log("adasda");
+    }
+  }
+</script>
 
 
 

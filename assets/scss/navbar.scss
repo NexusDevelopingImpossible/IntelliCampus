@@ -40,7 +40,7 @@ body {
   display: flex;
   flex-direction: column;
   // padding: 1rem 0;
-  padding-left: 1vw;
+  padding-left: 0.75vw;
 }
 
 .tabs ul li {
@@ -61,7 +61,7 @@ body {
 .tab-name {
   color: #ffffff;
   font-weight: 500;
-  font-size: 2.1vh;
+  font-size: 1.1rem;
 }
 
 
@@ -100,15 +100,26 @@ body {
   margin-left: 0rem;
   width: 85vw;
   height: 96vh;
-  background-image: url("../images/bg-blur.png");
+  background-image: url("../images/bgm.png");
   background-size: cover;
   background-position: center;
   border-radius: 2.75vw;
-  padding: 2vh 0;
+ 
   // padding-bottom: 2vh;
   // overflow: auto;
 }
 
+
+.blur{
+  background: linear-gradient(136deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 100%);
+  backdrop-filter: blur(12px);
+  width: auto;
+  height: 100%;
+  padding: 2vh 0;
+  border-radius: 2.75vw;
+ 
+
+}
 .dash-manipal-vec {
   position: absolute;
   opacity: 0.05;
@@ -147,6 +158,7 @@ body {
   height: 10px;
   background-color: #fd6d08;
   border-radius: 50%;
+  display: none;
 }
 .tab-set{
   display: flex;

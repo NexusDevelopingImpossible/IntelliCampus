@@ -29,18 +29,17 @@ module.exports.dashboard = async (req, res) => {
     }
     // req.locals.int = internal;
 
-    return res.render("Student/dashboard", {
+    return res.render("student/dashboard", {
       title: "Dashboard",
       student: studentdata,
       internal, calendardata, notidata, arr
     });
   } catch (err) {
     console.log(err);
-  }
+  } 
 };
 module.exports.pinnoti = async (req, res) => {
   try {
-    // console.log(req.params.id);
     let notiarray = await Student.findOne({
       username: res.locals.user.username,
     }).populate({ path: "pinned", populate: { path: "noti" } });;
@@ -51,12 +50,18 @@ module.exports.pinnoti = async (req, res) => {
       }
       notiarray.pinned.push(newnoti);
       notiarray.save();
+      let notiLength=notiarray.pinned.length;
+      const newNotiId = notiarray.pinned[notiLength-1]._id;
+
+      return res.status(200).json({ newNotiId });
     }
     return res.redirect('back');
   } catch (error) {
-    
+    console.error(error);
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 }
+
 
 module.exports.unpinnoti = async (req, res) => {
   try {
@@ -67,7 +72,6 @@ module.exports.unpinnoti = async (req, res) => {
     const index = student.pinned.findIndex(obj => obj._id == req.params.id);
     console.log(index)
     if (index !== -1) {
-      // Remove the object from the array
       student.pinned.splice(index, 1);
       await student.save();
     }
@@ -150,22 +154,20 @@ module.exports.attendancesingle = async (req, res) => {
     const studentdata = await Student.findOne({
       username: res.locals.user.username,
     });
-    const attendance = await Attendance.find({
-      studentid: studentdata._id,
-    }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
-    const attendancesingle = await Attendance.findById(req.params.id).populate({
+    const attendancesingle = await Attendance.findByIdAndUpdate(req.params.id).populate({
       path: "timetableid",
       populate: { path: "subjectcode" },
     });
-    console.log("Att: ",attendancesingle);
-    console.log(attendancesingle.present.length)
+    attendancesingle.exitattendance = Date.now();
+    await attendancesingle.save();
+    const attendance = await Attendance.find({
+      studentid: studentdata._id,
+    }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
     attendancesingle.present.sort((a, b) => {
       const dateA = new Date(a.datevalue);
       const dateB = new Date(b.datevalue);
       return dateA.getTime() - dateB.getTime();
     });
-    
-    console.log(attendancesingle.present);
     let subject = attendancesingle.timetableid.subjectcode;
     return res.render("student/attendance_view", {
       title: "Attendance",
@@ -179,8 +181,9 @@ module.exports.attendancesingle = async (req, res) => {
 
 module.exports.enter_feedback = async (req, res) => {
   try {
+    const teacherdata = await Teacher.findById(req.params.id);
 
-    return res.render("student/feedback_response", { title: "Submit Feedback" });
+    return res.render("student/feedback_response", { title: "Submit Feedback", teacherdata });
   } catch (Error) {
     console.log(Error);
   }
@@ -190,6 +193,46 @@ module.exports.feedbackdata = async (req, res) => {
   try {
     req.flash("success", "Feedback submitted.");
     return res.redirect("feedback");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports.fetchnoti = async (req, res) => {
+  try {
+    function isUpdatedTimeWithin30Seconds(updatedTime) {
+      const currentTime = new Date();
+      const timeDifference = (currentTime.getTime() - updatedTime.getTime()) / 1000; // Convert to seconds
+    
+      return timeDifference >= 0 && timeDifference <= 10;
+    }
+    const notidata = await Notification.find();
+    let newnoti, notitime;
+    // console.log("G:",notidata);
+    const isWithin30Seconds = isUpdatedTimeWithin30Seconds(notidata[notidata.length-1].updatedAt);
+    if (isWithin30Seconds) {
+      newnoti = notidata[notidata.length-1];
+      notitime = prettydate.format(newnoti.updatedAt);
+    } else {
+      newnoti = 0;
+      notitime = 0;
+    }
+    // console.log(newnoti.updatedAt);
+    
+    return res.status(200).json({newnoti, notitime});
+    
+    return res.redirect('back');
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+// student notes
+
+module.exports.notes = async (req, res) => {
+  try {
+    return res.render("student/std-notes", { title: "Notes"});
   } catch (error) {
     console.log(error);
   }

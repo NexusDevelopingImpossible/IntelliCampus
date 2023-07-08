@@ -1,1 +1,44 @@
-.allot-student{display:flex;flex-direction:column;justify-content:space-evenly}.sub-heading{margin-top:35px;margin-left:5%;display:flex;flex-direction:row}#plus-button>a>img{width:30px;margin-top:5px;height:auto}#allot-head{margin-left:28%;font-size:28px;font-style:normal;font-weight:600;color:#fff}.main-content{align-self:center;margin-top:25px}.main-content>ul{display:flex;flex-direction:column;text-decoration:none;list-style:none}.main-content>ul>li{border:solid;border-width:thin;border-color:#f0f8ff;padding:5px 0 5px 12px;margin:9px 0;border-radius:25px;background-color:#F8D57B26}.main-content>ul>li>a{display:flex;flex-direction:row;justify-content:space-between;align-items:center;text-decoration:none;padding:.5rem .75rem}.anchor-content{display:flex;flex-direction:column;gap:.5rem}.btn-div{display:flex;gap:.75rem}.row1{display:flex;flex-direction:row;justify-content:space-around}.sub-code{font-style:normal;font-weight:275}.sub-code,.sub-name{font-size:20px;color:#fff}.sub-name{width:450px;font-weight:500}.row2{display:flex;flex-direction:row;color:#f0f8ff;font-weight:300;font-size:17px}.bold-part,.row2{font-style:normal}.bold-part{font-weight:700;font-size:15px}
+.main-page .blur .allot-student {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; }
+  .main-page .blur .allot-student .main-content {
+    align-self: center;
+    height: 79vh;
+    overflow: auto; }
+    .main-page .blur .allot-student .main-content ul li {
+      border: 1px solid #fff;
+      padding: 1rem 1rem;
+      margin-bottom: 1rem;
+      border-radius: 15px;
+      background-color: #F8D57B26;
+      width: 65vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      .main-page .blur .allot-student .main-content ul li .anchor-content {
+        width: 560px; }
+        .main-page .blur .allot-student .main-content ul li .anchor-content .row1 {
+          margin-bottom: 0.3rem; }
+          .main-page .blur .allot-student .main-content ul li .anchor-content .row1 .sub-code {
+            font-weight: 200;
+            font-size: 1.2rem;
+            color: #fff; }
+          .main-page .blur .allot-student .main-content ul li .anchor-content .row1 .sub-name {
+            font-weight: 500;
+            font-size: 1.3rem;
+            color: #fff; }
+        .main-page .blur .allot-student .main-content ul li .anchor-content .row2 {
+          display: flex;
+          gap: 0.75vw;
+          font-weight: 300;
+          font-size: 17px; }
+          .main-page .blur .allot-student .main-content ul li .anchor-content .row2 .bold-part {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 15px; }
+      .main-page .blur .allot-student .main-content ul li .btn-div {
+        display: flex;
+        gap: 0.75rem; }
+  .main-page .blur .allot-student .main-content::-webkit-scrollbar {
+    display: none; }

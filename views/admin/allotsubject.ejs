@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="<%= assetPath('css/teacherSubj.css') %>">
 
 <div class="main-page">
+    <div class="blur">
 
     <div class="main__content">
         <div class="main__title">
@@ -16,10 +17,10 @@
 
         <div class="allot__1" id="section1">
             <div class="reg__section">
-                <form action="/admin/searchteacherid" method="post">
+                <!-- <form action="/admin/searchteacherid" method="post"> -->
                     <input type="text" name="registration" id="reg" placeholder="Registration No">
-                    <button class="btn btn-full btn-medium" type="submit" onclick="searchbtn()">Select</button>
-                </form>
+                    <a href="" id="reg-path"><button class="btn btn-full btn-medium" >Select</button></a>
+                <!-- </form> -->
             </div>
 
 
@@ -32,3 +33,21 @@
         </h1>
     </div>
 </div>
+</div>
+<script>
+    document.getElementById("reg").addEventListener("input", function() {
+        // Get the input value
+        var inputValue = document.getElementById("reg").value;
+  
+        // Set the input value as the text content of the <a> element
+        var anchorTag = document.getElementById("reg-path");
+        anchorTag.href = "/admin/searchteacherid/" + inputValue;
+      });
+      document.getElementById("reg").addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+          var anchorTag = document.getElementById("reg-path");
+        //   document.getElementById('search-btn').style.backgroundColor = "#0000006a";
+          anchorTag.click(); // Simulate a click on the anchor tag
+        }
+      });
+  </script>

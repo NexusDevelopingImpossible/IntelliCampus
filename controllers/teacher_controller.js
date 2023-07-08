@@ -6,6 +6,9 @@ const Attendance = require("../models/attendance");
 const MarksScheme = require("../models/marksScheme");
 const Notification = require("../models/notification");
 const prettydate = require("pretty-date");
+const fs = require("fs");
+const path = require("path");
+const multer = require("multer");
 
 
 //Dashboard
@@ -75,7 +78,9 @@ module.exports.searchstudent = async (req, res) => {
           totalpresent: 0,
           examMarks: [],
           updateattendance: Date.now(),
-          updateinternal: Date.now()
+          updateinternal: Date.now(),
+          exitattendance: Date.now(),
+          exitinternal: Date.now()
         });
       }
     }
@@ -90,22 +95,18 @@ module.exports.searchstudent = async (req, res) => {
 module.exports.getsubject = async (req, res) => {
   try {
     checkurlfunct.checkurlteacher(req, res);
-    let timeTableCode = req.params.id;
     const timetables = await Timetable.findOne({ _id: req.params.id }).populate(
       "subjectcode"
     );
     const data = await Attendance.find({
       timetableid: timetables._id,
     }).populate("timetableid studentid");
-    data.sort();
-
-    // let marksData = await MarksScheme.findOne({
-    //   timeTableId: timeTableCode,
-    // });
-    // marksData = JSON.stringify(marksData)
-
-    // let attendanceInfo = await Attendance.find({});
-    // let studentInfo = await Student.find({}).sort();
+    data.sort((a, b) => {
+      const studentIdA = a.studentid.username;
+      const studentIdB = b.studentid.username;
+    
+      return studentIdA - studentIdB;
+    });
     return res.render("teacher/subject/attendance-add", {
       title: "Attendance",
       timetable: timetables,
@@ -119,8 +120,6 @@ module.exports.getsubject = async (req, res) => {
     console.log(err);
   }
 };
-
-//Add new attendance
 module.exports.addattendance = async (req, res) => {
   try {
     checkurlfunct.checkurlteacher(req, res);
@@ -131,8 +130,9 @@ module.exports.addattendance = async (req, res) => {
     dateadd.save();
     const newdateId = dateadd.classes[dateadd.classes.length - 1]._id;
     // console.log(newdateId);
+    let dataA = await Attendance.find({ timetableid: req.body.id }).populate('studentid');
     for (let i = 0; i < req.body.studentlist.length; i++) {
-      let data = await Attendance.findById(req.body.studentlist[i]);
+      let data = dataA.find(item => item._id==(req.body.studentlist[i]));
       let attvalue = false;
       for (let j = 0; j < check.length; j++) {
         if (check[j] == i) {
@@ -150,8 +150,16 @@ module.exports.addattendance = async (req, res) => {
       data.updateattendance = Date.now();
       data.save();
     }
-    req.flash("success", "Attendance added successfully");
-    return res.redirect("back");
+    // const dataA = await Attendance.find({ timetableid: req.body.id }).populate('studentid');
+    if (req.xhr) {
+      return res.status(200).json({
+        data: {
+          student: dataA
+        },
+      });
+    }
+    // req.flash("success", "Attendance added successfully");
+    // return res.redirect("back");
   } catch (err) {
     console.log(err);
     return;
@@ -357,4 +365,61 @@ module.exports.updateMarks = async (req, res) => {
     }
   }
   res.redirect("back");
+};
+
+// notes
+module.exports.viewnotes = async (req, res) => {
+  try {
+    checkurlfunct.checkurlteacher(req, res);
+    const timetables = await Timetable.findOne({ _id: req.params.id }).populate(
+      "subjectcode"
+    );
+    return res.render("teacher/subject/notes", {
+      title: "Notes",
+      timetable: timetables
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+
+module.exports.profile = async (req, res) => {
+  try {
+    console.log(req.params.registration)
+    const studentdata = await Student.findOne({username: req.params.registration});
+    if(!studentdata){
+      req.flash("error", "Incorrect registraion number");
+      return res.redirect('back');
+    }
+    return res.render("student/profile", { title: "Profile", student: studentdata});
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+module.exports.uploadnote = async (req, res) => {
+  try {
+    let note = Timetable.uploadfile(req, res, function (error) {
+      if (error) {
+        console.log("** Multer error:", error);
+      }
+      console.log(req.file);
+      let subjectdata = Timetable.findById()
+      const note = {};
+      const file = Timetable.uploadpath + '/' + req.file.filename;
+      const type = req.body.type;
+      const chapter = req.body.chapter;
+      note.push(file);
+      note.push(type);
+      note.push(chapter);
+      subjectdata.notes.push(note);
+      subjectdata.save();
+      return res.redirect('back');
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };

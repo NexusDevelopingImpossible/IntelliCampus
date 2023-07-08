@@ -1,5 +1,6 @@
 const express = require('express');
 const env = require('./config/environment');
+const microsoft = require('./config/microsoft_oauth');
 const logger = require('morgan') 
 const app = express();
 require('./config/view-helpers')(app)
@@ -22,7 +23,7 @@ if(env.name == "development"){
   app.use(sassMiddleware({
     src: path.join(__dirname, env.asset_path, 'scss'),
     dest: path.join(__dirname, env.asset_path, 'css'),
-    debug: true, //true for console message
+    debug: false, //true for console message
     outputStyle: 'extended',
     prefix: '/css'
   }));
@@ -35,9 +36,9 @@ app.use(cookieParser());
 
 app.use(express.urlencoded());
 console.log(__dirname + '\\public\\assets\\')
-app.use(express.static(__dirname + '/public/assets/'));
-// app.use(express.static(__dirname + './assets'));
-// app.use(express.static('./assets'));
+// app.use(express.static(__dirname + '/public/assets/'));  //production using public
+// app.use(express.static(__dirname + './assets'));   //production using assets
+app.use(express.static('./assets'));    //depolyment using assets
 
 
 app.use('/upload', express.static(__dirname + '/upload'));
@@ -78,6 +79,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 app.use(passport.setAuthenticatedUser);
 app.use(flash());

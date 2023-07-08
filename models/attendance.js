@@ -59,6 +59,12 @@ const attendanceSchema = new mongoose.Schema(
     },
     updateinternal: {
       type: Date
+    },
+    exitattendance: {
+      type: Date
+    },
+    exitinternal: {
+      type: Date
     }
   },
   {

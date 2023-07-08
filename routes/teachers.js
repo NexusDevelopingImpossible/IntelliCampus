@@ -20,7 +20,9 @@ router.get('/searchstudent/:id', teacherController.searchstudent);
 router.post("/addattendance", teacherController.addattendance);
 router.post("/change_attendance", teacherController.change_attendance);
 router.post("/updateMarks", teacherController.updateMarks);
-
+router.get("/notes/:id", teacherController.viewnotes);
+router.get("/search/:registration", teacherController.profile);
+router.post("/uploadnotes", teacherController.uploadnote);
 
 router.get("/viewstudentattendance", teacherController.viewstudentattendance);
 

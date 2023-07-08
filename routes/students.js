@@ -16,5 +16,6 @@ router.get("/attendancesingle/:id", studentController.attendancesingle);
 router.post("/feedbackdata", studentController.feedbackdata);
 router.get("/pinnoti/:id", studentController.pinnoti);
 router.get("/unpinnoti/:id", studentController.unpinnoti);
-
+router.get("/fetchnoti", studentController.fetchnoti);
+router.get("/notes", studentController.notes);
 module.exports = router;

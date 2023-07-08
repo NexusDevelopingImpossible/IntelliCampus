@@ -1,189 +1,219 @@
-
 <link rel="stylesheet" href="<%= assetPath('css/studenthome.css') %>" />
 <link rel="stylesheet" href="<%= assetPath('css/card.css') %>" />
 <link rel="stylesheet" href="<%= assetPath('css/dashboard-calendar.css') %>" />
 
 
 <div class="main-page">
-  <div class="heading">
-    <div class="dash-heading">
-      <h1 class="head head1">Dashboard</h1>
-      <h4 class="head welcome-msg">
-        Welcome back,<span id="name">
-          <%=student.name%>
-        </span>
-      </h4>
+  <div class="blur">
+    <div class="heading">
+      <div class="dash-heading">
+        <h1 class="head head1">Dashboard</h1>
+        <h4 class="head welcome-msg">
+          Welcome back,<span id="name">
+            <%=student.name%>
+          </span>
+        </h4>
+      </div>
+
     </div>
- 
-  </div>
-  <!-- - - - - -  -->
-  <!-- cards -->
-  <!-- - - - - - -  -->
-  <section class="cards">
-    <div class="card-col1">
-      <div class="card card1">
-        <div class="b1">
-          <img class="img" src="/images/AG.jpg" alt="" />
-          <div>
-            <h1 class="std-name">
-              <%=student.name%>
+    <!-- - - - - -  -->
+    <!-- cards -->
+    <!-- - - - - - -  -->
+    <section class="cards">
+      <div class="card-col1">
+        <div class="card card1">
+          <div class="b1">
+            <a href="/teacher/search/<%=student.username%>"><img class="img" src="/images/AG.jpg" alt="" /></a>
+            <div>
+              <h1 class="std-name">
+                <%=student.name%>
+              </h1>
+              <p class="reg">
+                <%= student.username %>
+              </p>
+            </div>
+          </div>
+          <div class="b2">
+            <div>
+              <h1>Course : <span>
+                  <%= student.department %>
+                </span></h1>
+              <h1>Semester : <span>
+                  <%= student.semester %>
+                </span></h1>
+              <h1>Section : <span>
+                  <%= student.section %>
+                </span></h1>
+            </div>
+          </div>
+          <div class="b3">
+            <h1>
+              TG :
+              <span>
+              </span>
             </h1>
-            <p class="reg">
-              <%= student.username %>
-            </p>
+            <h1>
+              No :
+              <span>
+
+              </span>
+            </h1>
+            <h1>
+              Chamber :
+              <span>
+
+              </span>
+            </h1>
           </div>
         </div>
-        <div class="b2">
-          <div>
-            <h1>Course : <span>
-                <%= student.department %>
-              </span></h1>
-            <h1>Semester : <span>
-                <%= student.semester %>
-              </span></h1>
-            <h1>Section : <span>
-                <%= student.section %>
-              </span></h1>
+        <div class="card card2">
+          <div class="card-hed">
+            <p>Attendence</p>
+          </div>
+          <div class="attendence-container">
+            <% if(internal.length==0){ %>
+              <div id="no-subject">No subjects</div>
+              <% } %>
+                <div class="attendence-percent">
+                  <%for(let i=0; i<internal.length; i++){%>
+                    <% function extractCapitalLetters(str) { const capitalLetters=str.match(/[A-Z]/g); return
+                      capitalLetters ? capitalLetters.join('') : '' ; }
+                      internal[i].timetableid.subjectcode.name=extractCapitalLetters(internal[i].timetableid.subjectcode.name);
+                      let percent=parseInt(((internal[i].totalpresent) /(internal[i].present.length))*100);
+                      if(isNaN(percent)){ percent=0; } var type="" ;
+                      if(internal[i].timetableid.subjectcode.type=="Theory" ){ type="(T)" ; }
+                      if(internal[i].timetableid.subjectcode.type=="Lab" ){ type="(L)" ; } %>
+
+                      <div class="container">
+                        <div class="circle-progress">
+                          <span class="progress-val">
+                            <%=percent%>%
+                          </span>
+                        </div>
+                        <div class="sub-info">
+                          <p class="sub-code">
+                            <%=internal[i].timetableid.subjectcode.code%>
+                          </p>
+                          <p class="sub-name">
+                            <%console.log(internal[i].timetableid.subjectcode)%>
+                            <%=internal[i].timetableid.subjectcode.name%>
+                              <%=type%>
+                          </p>
+                        </div>
+                      </div>
+                      <%}%>
+
+                </div>
           </div>
         </div>
-        <div class="b3">
-          <h1>
-            TG :
-            <span>Palash Ghosal (449)
-            </span>
-          </h1>
-          <h1>
-            No :
-            <span>
-              7076321457
-            </span>
-          </h1>
-          <h1>
-            Chamber :
-            <span>
-              E-301
-            </span>
-          </h1>
+        <div class="card card3">
+          <div class="card-hed">
+            <p>Visual Highlights</p>
+          </div>
         </div>
       </div>
-      <div class="card card2">
-        <div class="card-hed">
-          <p>Attendence</p>
-        </div>
-        <div class="attendence-container">
-          <% if(internal.length==0){ %>
-            <div id="no-subject">No subjects</div>
-          <% } %>
-          <div class="attendence-percent">
-            <%for(let i=0; i<internal.length; i++){%>
-              <% function extractCapitalLetters(str) { const capitalLetters=str.match(/[A-Z]/g); return capitalLetters ?
-                capitalLetters.join('') : '' ; }
-                internal[i].timetableid.subjectcode.name=extractCapitalLetters(internal[i].timetableid.subjectcode.name);
-                let percent=parseInt(((internal[i].totalpresent) /(internal[i].present.length))*100);
-                if(isNaN(percent)){ percent=0; } 
-                var type = "";
-                if(internal[i].timetableid.subjectcode.type == "Theory"){
-                    type = "(T)";
-                }
-                if(internal[i].timetableid.subjectcode.type == "Lab"){
-                    type = "(L)";
-                }
-                %>
-
-                <div class="container">
-                  <div class="circle-progress">
-                    <span class="progress-val">
-                      <%=percent%>%
-                    </span>
+        <!--  - - - - - - - - -- - - - - - --  -->
+        <!-- annoucements card's  main section -->
+        <!--  - - - - - - - - -- - - - - - --  -->
+      <div class="card-col1">
+        <div class="card card4 noty1">
+          <div class="card-hed announcements">
+            <p>Announcements</p>
+            <span class="saved"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 18l2 1V3c0-1.1-.9-2-2-2H8.99C7.89 1 7 1.9 7 3h10c1.1 0 2 .9 2 2v13zM15 5H5c-1.1 0-2 .9-2 2v16l7-3 7 3V7c0-1.1-.9-2-2-2z"/></svg></span>
+          </div>
+          <div class="content" id="noti-div">
+            <% for(let i=0; i<notidata.length; i++) {%>
+              <% let t="old" ; if(locals.user.exittime<notidata[i].updatedAt){ t="new" ; } %>
+                <div class="notification">
+                  <div class="text">
+                    <p class="<%=t%>">
+                      <%=notidata[i].title%>
+                    </p>
+                    <p class="time">
+                      <%=arr[i]%>
+                    </p>
                   </div>
-                  <div class="sub-info">
-                    <p class="sub-code">
-                      <%=internal[i].timetableid.subjectcode.code%>
-                    </p>
-                    <p class="sub-name">
-                      <%=internal[i].timetableid.subjectcode.name%> <%=type%>
-                    </p>
+                  <div class="pdf">
+                    <a href="<%=notidata[i].notiflie%>" target="_blank">
+                      <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"  viewBox="0 0 24 24" ><g><rect/></g><g><path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z"/></g></svg>
+                    </a><a class="createStudentNotiBtn" href="/student/pinnoti/<%=notidata[i]._id%>">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V6c0-.55.45-1 1-1h8c.55 0 1 .45 1 1v12z"/></svg>
+                    </a>
+                    <input type="hidden" id="/student/pinnoti/<%=notidata[i]._id%>-title"
+                      value="<%=notidata[i].title%>" />
+                    <input type="hidden" id="/student/pinnoti/<%=notidata[i]._id%>-file"
+                      value="<%=notidata[i].notiflie%>" />
                   </div>
                 </div>
                 <%}%>
-
           </div>
         </div>
-      </div>
-      <div class="card card3">
-        <div class="card-hed">
-          <p>Visual Highlights</p>
-        </div>
-      </div>
-    </div>
-    <div class="card-col1">
-      <div class="card card4">
-        <div class="card-hed">
-          <p>Announcements</p>
-        </div>
-        <div class="content">
-          <% for(let i=0; i<student.pinned.length; i++) {%>
-          <div class="notification">
-            <div class="text">
-              <p class="old"><%=student.pinned[i].noti.title%></p>
-            </div>
-            <div class="pdf">
-              <a href="<%=student.pinned[i].noti.notiflie%>" target="_blank"><ion-icon class="download-outline" name="download-outline"></ion-icon></a><a href="/student/unpinnoti/<%=student.pinned[i]._id%>"><ion-icon class="pin-outline" name="navigate-circle"></ion-icon></a>
-            </div>
+        <!--  - - - - - - - - -- - - - - - --  -->
+        <!-- annoucements card's saved section -->
+        <!--  - - - - - - - - -- - - - - - --  -->
+        <div class="card card4 noty2">
+          <div class="card-hed saved-noty">
+            <span class="noted"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></span>
+            <p>Saved Announcements</p>
           </div>
-          <%}%>
-          <% for(let i=0; i<notidata.length; i++) {%>
-            <% let t = "old";
-              if(locals.user.exittime<notidata[i].updatedAt){
-                t = "new";
-            }
-              %>
-          <div class="notification">
-            <div class="text">
-              <p class="<%=t%>"><%=notidata[i].title%></p>
-              <p class="time"><%=arr[i]%></p>
-            </div>
-            <div class="pdf">
-              <a href="<%=notidata[i].notiflie%>" target="_blank"><ion-icon class="download-outline" name="download-outline"></ion-icon></a><a href="/student/pinnoti/<%=notidata[i]._id%>"><ion-icon class="pin-outline" name="navigate"></ion-icon></a>
-            </div>
-          </div>
-          <%}%>
-        </div>
-      </div>
-      <div class="card card5">
-        <div class="wrapper">
-          <header>
-            <!-- holiday data -->
-            <input id="cal" type="hidden" value="<%=calendardata%>">
-            <div class="icons calendar-hed">
-              <div>
-                <span id="prev" class="icon-fp"><ion-icon name="chevron-back-outline"></ion-icon></span>
+          <div class="content save-cont" id="noti-div">
+            <%if(student.pinned.length > 0){%>
+            <% for(let i=0; i<student.pinned.length; i++) {%>
+              <div class="notification">
+                <div class="text">
+                  <p class="old"><%=student.pinned[i].noti.title%></p>
+                </div>
+                <div class="pdf">
+                  <a href="<%=notidata[i].notiflie%>" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"  viewBox="0 0 24 24" ><g><rect/></g><g><path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z"/></g></svg>
+                  </a><a class="createStudentNotiBtn" href="/student/unpinnoti/<%=notidata[i]._id%>">
+                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+                  </a>
+                </div>
               </div>
-              <div class="current-DATE">
-                <p class="current-date"></p>
-                <p class="current-year"></p>
+              <%}}%>
+          </div>
+        </div>
+        <!--  - - - - - - - - -- - - - - - --  -->
+        <div class="card card5">
+          <div class="wrapper">
+            <header>
+              <!-- holiday data -->
+              <input id="cal" type="hidden" value="<%=calendardata%>">
+              <div class="icons calendar-hed">
+                <div>
+                  <span id="prev" class="icon-fp">
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                  </span>
+                </div>
+                <div class="current-DATE">
+                  <p class="current-date"></p>
+                  <p class="current-year"></p>
+                </div>
+                <div>
+                  <span id="next" class="icon-fp">
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                  </span>
+                </div>
               </div>
-              <div>
-                <span id="next" class="icon-fp"><ion-icon name="chevron-forward-outline"></ion-icon></span>
-              </div>
+            </header>
+            <div class="calendar">
+              <ul class="weeks">
+                <li>Sun</li>
+                <li>Mon</li>
+                <li>Tue</li>
+                <li>Wed</li>
+                <li>Thu</li>
+                <li>Fri</li>
+                <li>Sat</li>
+              </ul>
+              <ul class="days"></ul>
             </div>
-          </header>
-          <div class="calendar">
-            <ul class="weeks">
-              <li>Sun</li>
-              <li>Mon</li>
-              <li>Tue</li>
-              <li>Wed</li>
-              <li>Thu</li>
-              <li>Fri</li>
-              <li>Sat</li>
-            </ul>
-            <ul class="days"></ul>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </div>
 <script src="<%= assetPath('js/progress.js') %>"></script>
 <script src="<%= assetPath('js/dashboard-calendar.js') %>"></script>
@@ -194,5 +224,78 @@
   let data = cal.value;
   data = JSON.parse(data);
   console.log(data);
+</script>
 
+<script src="<%= assetPath('js/studentNoti.js') %>"></script>
+
+<script>
+  $('.createStudentNotiBtn').each(function () {
+    let self = this;
+    let createStudentNotis = new createStudentNoti(self);
+  })
+</script>
+<script>
+  window.locals = [];
+  let u = <%- JSON.stringify(locals.internal) %>
+    window.locals.push(u);
+  for (let i = 0; i < locals[0].length; i++) {
+    if (locals[0][i].exitattendance < locals[0][i].updateattendance) {
+      let id = document.getElementById('attendance');
+      // console.log(id.style)
+      id.style.display = "flex";
+      // console.log("adasda");
+    }
+  }
+</script>
+<script>
+  let refreshnoti = function () {
+    console.log("Refresh");
+    $.ajax({
+      type: 'get',
+      url: '/student/fetchnoti',
+      // data: newattform.serialize(),
+      success: function (data) {
+        console.log(data);
+        const newnoti = notiDom(data.newnoti, data.notitime)
+        // const nAtt = newattDom(data.data);
+
+      },
+      error: function (error) {
+        console.log(error.responseText);
+      }
+    });
+  }
+  let notiDom = function (data, time) {
+    console.log(data == 0);
+    if (!(data == 0)) {
+      console.log(data);
+      let addnoti = $(`
+      <div class="notification">
+        <div class="text">
+          <p class="new">${data.title}</p>
+          <p class="time">${time}</p>
+        </div>
+        <div class="pdf">
+          <a href="${data.notiflie}" target="_blank">
+            <ion-icon class="download-outline" name="download-outline"></ion-icon>
+          </a>
+          <a class="createStudentNotiBtn" href="/student/pinnoti/${data._id}">
+            <ion-icon class="pin-outline" name="navigate"></ion-icon>
+          </a>
+          <input type="hidden" id="/student/pinnoti/${data._id}-title" value="${data.title}" />
+          <input type="hidden" id="/student/pinnoti/${data._id}-file" value="${data.notiflie}" />
+        </div>
+      </div>
+      `)
+      $('#noti-div').prepend(addnoti);
+      new Noty({
+          theme: 'relax',
+          text: 'New Noti',
+          type: 'success',
+          layout: 'topRight',
+          timeout: 1500,
+        }).show();
+    }
+  }
+  setInterval(refreshnoti, 10000)
 </script>

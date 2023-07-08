@@ -1,10 +1,14 @@
 <link rel="stylesheet" href="<%= assetPath('css/general-att.css') %>">
 <link rel="stylesheet" href="<%= assetPath('css/sub-att-add-update.css') %>">
 
-    <div class="main-page">
+<div class="main-page">
+    <div class="blur">
         <div id="title">
             <div class="sub-name">
-                <a href="/teacher/dashboard"><img src="/images/allotarrow.png" alt="" id="back_buttn"/></a>
+                <a href="/teacher/dashboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                        <path
+                            d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z" />
+                    </svg></a>
                 <h1 class="subject" id="sub_code">
                     <%=timetable.subjectcode.code%>
                 </h1>
@@ -13,14 +17,14 @@
                 </h1>
             </div>
             <div class="year__sem__sec">
-                <span>Year : <strong>
-                        <%=timetable.year%>
+                <span>Department : <strong>
+                        <%=timetable.department%>
                     </strong></span>
                 <span>Semester : <strong>
                         <%=timetable.semester%>
                     </strong></span>
                 <span>Section : <strong>
-                        <%=timetable.department%>
+                        <%=timetable.section%>
                     </strong></span>
             </div>
         </div>
@@ -29,18 +33,23 @@
                 <div id="tab-1" class="tab-item tab-border">
                     <p class="hed-day">Attendance</p>
                 </div>
-                <div id="tab-2" class="tab-item">
-                    <a href="/teacher/internalmarks/<%=timetable._id%>">
+                <a href="/teacher/internalmarks/<%=timetable._id%>">
+                    <div id="tab-2" class="tab-item">
                         <p class="hed-day">Internal Marks</p>
-                    </a>
-                </div>
+                    </div>
+                </a>
                 <div id="tab-3" class="tab-item">
-                    <p class="hed-day">Notes</p>
+                    <p class="hed-day">Assignment</p>
                 </div>
+                <a href="/teacher/notes/<%=timetable._id%>">
+                    <div id="tab-4" class="tab-item">
+                        <p class="hed-day">Notes</p>
+                    </div>
+                </a>
             </div>
         </section>
         <section class="tab-content">
-            <form action="/teacher/addattendance" method="post" id="MyForm">
+            <form action="/teacher/addattendance" method="post" id="att-form">
                 <div class="mode__and__button">
                     <div class="left">
                         <div class="select-menu">
@@ -78,9 +87,9 @@
                             <li>Name</li>
                             <li>Registration No.</li>
                             <li>CLC</li>
-                            <li>CLA</li>
+                            <li>CLP</li>
                             <li>PER</li>
-                            <li><input type="checkbox" name="" id=""></li>
+                            <li><input type="checkbox" name="" id="checkall" checked></li>
                         </ul>
                     </div>
                     <div class="student-list-scroll">
@@ -96,16 +105,17 @@
                                     <li>
                                         <%=student[i].studentid.username%>
                                     </li>
-                                    <li>
+                                    <li id="len<%=i%>">
                                         <%=student[i].present.length%>
                                     </li>
-                                    <li>
+                                    <li id="tp<%=i%>">
                                         <%=student[i].totalpresent%>
                                     </li>
-                                    <li>
+                                    <li id="per<%=i%>">
                                         <%=parseInt(((student[i].totalpresent) /(student[i].present.length))*100)%>%
                                     </li>
-                                    <li><input type="checkbox" name="check" id="" value="<%=i%>" checked>
+                                    <li><input type="checkbox" name="check" class="radios" id="cb<%=i%>" value="<%=i%>"
+                                            checked>
                                     </li>
                                     <input type="text" value=<%=student[i]._id%> name="studentlist"
                                     style="display: none">
@@ -116,9 +126,58 @@
                 </div>
             </form>
         </section>
-
-
     </div>
 
-    <script src="<%= assetPath('js/attendance.js') %>"></script>
-    <script src="<%= assetPath('js/internalMarks.js') %>"></script>
+</div>
+
+<script src="<%= assetPath('js/attendance.js') %>"></script>
+<script src="<%= assetPath('js/internalMarks.js') %>"></script>
+
+<script>
+    let createform = function () {
+        const newattform = $('#att-form');
+
+        $(document).on('submit', '#att-form', function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'post',
+                url: '/teacher/addattendance',
+                data: newattform.serialize(),
+                success: function (data) {
+                    const nAtt = newattDom(data.data);
+                    new Noty({
+                        theme: 'relax',
+                        text: 'Attendance added',
+                        type: 'success',
+                        layout: 'topRight',
+                        timeout: 1500,
+                    }).show();
+                },
+                error: function (error) {
+                    console.log(error.responseText);
+                }
+            });
+        });
+    };
+
+    let newattDom = function (data) {
+        date.value = null;
+        console.log(data);
+        for (let i = 0; i < data.student.length; i++) {
+            let l = "len" + i;
+            document.getElementById("len" + i).innerHTML = data.student[i].present.length;
+            document.getElementById("tp" + i).innerHTML = data.student[i].totalpresent;
+            document.getElementById("per" + i).innerHTML = parseInt(((data.student[i].totalpresent) / (data.student[i].present.length)) * 100) + "%";
+            document.getElementById("cb" + i).checked = true;
+        }
+        //   const p1 = $(`
+        //       <div class="student-list-scroll">
+        //         ${interpolatedString}
+        //       </div>
+        //   `);
+        return
+    };
+
+    createform();
+
+</script>

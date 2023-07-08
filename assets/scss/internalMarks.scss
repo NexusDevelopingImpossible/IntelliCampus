@@ -91,7 +91,7 @@
 }
 
 .list-sroll{
-    height: 50vh;
+    height: 57vh;
     overflow-y: auto;
 }
 .list-sroll::-webkit-scrollbar{
@@ -102,8 +102,8 @@
     display: flex;
     gap: 1rem;
     background: rgba(0, 0, 0, 0.12);
-    border-radius: 15px;
-    padding: 0.3rem 1rem;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
     color: #fff;
     margin-bottom: 1rem;
 }
@@ -140,21 +140,19 @@
     align-items: center;
     gap: 1rem;
     background: rgba(248, 213, 123, 0.15);    
-    border-radius: 10px;
-    height: 40px;
-    // padding: 0.4rem 1rem;
+    border-radius: 7px;
+    // height: 40px;
+    padding: 0.2rem 1rem;
     color: #fff;
 }
 .list__items ul li .input-tag{
     background: rgba(0, 0, 0, 0.09);        
     border-radius: 5px;
-    padding: 0.6rem 0.8rem;
-    display: flex;
-    // font-size: 1rem;
-    // justify-content: center;
+    text-align: center;
+    font-size: 1.1rem;
     border: none;
     outline: none;
-    width: 40px;
+    width: 50px;
     height: 35px;
     color: #fff;
 }

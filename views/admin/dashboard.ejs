@@ -1,8 +1,9 @@
 <link rel="stylesheet" href="<%= assetPath('css/adminhome.css') %>" />
 <link rel="stylesheet" href="<%= assetPath('css/dashboard-calendar.css') %>" />
-<link rel="stylesheet" href="<%= assetPath('css/card.scss') %>" />
+<link rel="stylesheet" href="<%= assetPath('css/card.css') %>" />
 
 <div class="main-page">
+  <div class="blur">
   <!--Home Page ADMIN-->
 
   <div class="heading">
@@ -18,19 +19,20 @@
         <img class="img" src="/images/AG.jpg" alt="" />
       </div>
       <div class="adm">
-        <h1 class="adm-name">Md Amanullah</h1>
-        <p class="adm-info">Professor and HOD <br />Department of CSE</p>
+        <h1 class="adm-name"><%=admindata.name%></h1>
+        <p class="adm-info">Professor and HOD <br />Department of <%=admindata.department%></p>
       </div>
     </div>
   </div>
-  <!-- <div>
-        <img class="dash-manipal-vec" src="/images/manipal-vector.png" alt="" />
-      </div> -->
 
   <div class="search-box">
-    <div>
-      <input type="text" class="search-input" placeholder="Search" />
-    </div>
+    <div class=" search-input">
+      <input type="text" placeholder="Eg: 202300423" />
+      <div class="search-btn">
+          <a href="#">Search</a>
+      </div>
+  </div>
+
     <div class="add">
       <a class=" btn btn-full btn-large add-button" href="/admin/addteacher">Add Teacher
         <img src="/images/add.png" alt="" />
@@ -45,7 +47,7 @@
     <h1 class="hed">My Teachers</h1>
     <div class="main-carousel-container">
       <div class="controller left-control">
-        <img class="control-img" src="/images/left-arrow.png" alt="" />
+        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg>
       </div>
       <div class="carousel-container">
         <div class="carousel">
@@ -74,7 +76,7 @@
         </div>
       </div>
       <div class="controller right-control">
-        <img src="/images/right-arrow.png" alt="" />
+        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" ><path d="M266-99.333q-17.667-18.334-18-43.833-.333-25.5 18-43.834l294.334-294.333-294.667-294.668q-17.667-17.666-18.5-43.333Q246.333-845 265-863.667q17.666-18.333 43.833-18.666 26.167-.334 43.833 18l347 346.333q7.667 7.667 11.5 17.167 3.834 9.5 3.834 19.5t-3.834 19.5q-3.833 9.499-11.5 17.166L353.333-98.333q-17.667 17.666-43.167 17.666T266-99.333Z"/></svg>
       </div>
     </div>
   </div>
@@ -121,6 +123,8 @@
     </div>
   </div>
 </div>
+</div>
 
 
 <script src="<%= assetPath('js/dashboard-calendar.js') %>"></script>
+<script src="<%= assetPath('js/teacher-subject-timetable.js') %>"></script>

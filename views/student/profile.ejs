@@ -1,0 +1,579 @@
+<link rel="stylesheet" href="<%= assetPath('css/profile.css') %>" />
+<div class="main-page">
+  <div class="blur">
+    <main class="prof-main-container">
+      <section class="info-left">
+        <div class="personal-info">
+          <div class="profile-header">
+            <a href="/student/dashboard"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
+            <h1 class="info-hed">Personal Profile</h1>
+            <span class="edit-btn"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" ><g><rect fill="none" height="24" width="24"/></g><g><g><g><path d="M3,17.46l0,3.04C3,20.78,3.22,21,3.5,21h3.04c0.13,0,0.26-0.05,0.35-0.15L17.81,9.94l-3.75-3.75L3.15,17.1 C3.05,17.2,3,17.32,3,17.46z"/></g><g><path d="M20.71,5.63l-2.34-2.34c-0.39-0.39-1.02-0.39-1.41,0l-1.83,1.83l3.75,3.75l1.83-1.83C21.1,6.65,21.1,6.02,20.71,5.63z"/></g></g></g></svg></span>
+          </div>
+          <div class="image-container">
+            <img profile-img src="/images/AG.jpg" alt="Original Image" class="image" id="image" />
+            <div class="upload-option">
+              <label for="file-upload" class="upload-label">
+                <span><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M21.02 5H19V2.98c0-.54-.44-.98-.98-.98h-.03c-.55 0-.99.44-.99.98V5h-2.01c-.54 0-.98.44-.99.98v.03c0 .55.44.99.99.99H17v2.01c0 .54.44.99.99.98h.03c.54 0 .98-.44.98-.98V7h2.02c.54 0 .98-.44.98-.98v-.04c0-.54-.44-.98-.98-.98zM16 9.01V8h-1.01c-.53 0-1.03-.21-1.41-.58-.37-.38-.58-.88-.58-1.44 0-.36.1-.69.27-.98H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8.28c-.3.17-.64.28-1.02.28-1.09-.01-1.98-.9-1.98-1.99zM15.96 19H6c-.41 0-.65-.47-.4-.8l1.98-2.63c.21-.28.62-.26.82.02L10 18l2.61-3.48c.2-.26.59-.27.79-.01l2.95 3.68c.26.33.03.81-.39.81z"/></svg></span>
+                <input type="file" id="file-upload" class="file-input" accept="image/*">
+              </label>
+            </div>
+          </div>
+          <p class="std-name">Srijan Dev</p>
+          <p class="std-reg-no">202100232</p>
+          <div class="std-details-1">
+            <p><span>Course:</span>B.TECH (IT)</p>
+            <p><span>Semester:</span> 5</p>
+            <p><span>Section:</span> A</p>
+            <p><span>TG Name:</span> Diganta Baruah (449)</p>
+            <p><span>TG No:</span> 7076321457</p>
+          </div>
+          <div class="std-details-2">
+            <p>
+              <span>DOB:</span>
+              <input
+                class="input-read"
+                type="text"
+                value="12-Mar-2002"
+                readonly
+              />
+            </p>
+            <p>
+              <span>Gender:</span>
+              <!-- <input class="input-read" type="text" value="Male" readonly /> -->
+              <select class="input-read" disabled>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </p>
+            <p>
+              <span>Phone:</span>
+              <input
+                class="input-read"
+                type="text"
+                value="8789334294"
+                readonly
+              />
+            </p>
+            <p>
+              <span>Whatsapp:</span>
+              <input
+                class="input-read"
+                type="text"
+                value="8789334294"
+                readonly
+              />
+            </p>
+            <p>
+              <span>Email:</span>
+              <input
+                class="input-read"
+                type="text"
+                value="srijandev4@gmail.com"
+                readonly
+              />
+            </p>
+            <p>
+              <span>Official Email:</span>
+              <input
+                class="input-read"
+                type="text"
+                value="srijan_202100423@smit.smu.edu.in"
+                readonly
+              />
+            </p>
+            <p>
+              <span>Blood Group:</span>
+              <!-- <input class="input-read" type="text" value="B+" readonly /> -->
+              <select class="input-read" disabled>
+                <option value="B+">B+</option>
+                <option value="A+">A+</option>
+                <option value="B-">B-</option>
+              </select>
+            </p>
+            <p>
+              <span>Aadhar No.:</span>
+              <input
+                class="input-read"
+                type="text"
+                value="2434562443455"
+                readonly
+              />
+            </p>
+            <p>
+              <span>Category:</span>
+              <!-- <input class="input-read" type="text" value="General" readonly /> -->
+              <select class="input-read" disabled>
+                <option value="General">General</option>
+                <option value="OBC">OBC</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+              </select>
+            </p>
+            <p>
+              <span>Mother Tongue:</span>
+              <input class="input-read" type="text" value="Hindi" readonly />
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="info-right">
+        <div class="parents-info info-cont">
+          <h1 class="info-hed">Parent's Infromation:</h1>
+          <div class="inner-cont">
+            <div class="parent-details-1 parent-details">
+              <div>
+                <p>
+                  <span class="inline-info">Father's Name:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="Shanker Singh"
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Occupation:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="Secret Agent"
+                    readonly
+                  />
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span class="inline-info">Mothers's Name:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="Nitu Singh"
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Occupation:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="Secret Agent"
+                    readonly
+                  />
+                </p>
+              </div>
+            </div>
+            <div class="parent-details-2 parent-details">
+              <div>
+                <p>
+                  <span class="inline-info">Parent’s PAN:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="HJVD87J"
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Parent’s Aadhar:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="2346464353242"
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Phone No:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="9846358365"
+                    readonly
+                  />
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span class="inline-info">Whatsapp No:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="8787342745"
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Parent Email ID:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="emailblah@gmail.com"
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Annual Income:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="10 rupeya"
+                    readonly
+                  />
+                </p>
+              </div>
+            </div>
+            <div class="parent-details-3 parent-details">
+              <div>
+                <p>
+                  <span class="inline-info">Permanent Address:</span>
+                  <textarea
+                    class="input-read"
+                    type="text"
+                    value=""
+                    readonly
+                  >Blah Blah Nagar, KankarBag, Patna, 800026</textarea>
+                </p>
+                <p>
+                  <span class="inline-info">Correspondent Address:</span>
+                  <textarea
+                    class="input-read"
+                    type="text"
+                    value=""
+                    readonly
+                  >Blah Blah Nagar, KankarBag, Patna, 800026</textarea>
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span class="inline-info">PIN Code:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="800026"
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">State:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="Bihar"
+                    readonly
+                  />
+                  
+                </p>
+                <p>
+                  <span class="inline-info">District:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="Patna"
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">City:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="Patna"
+                    readonly
+                  />
+                </p>
+             
+              </div>
+            </div>
+            <div class="parent-details-4 parent-details">
+              <p class="info-sub-hed">Local Guardian Info:</p>
+              <div>
+                <p>
+                  <span class="inline-info">LG Present?</span>
+                  <select class="input-read input-sm" disabled>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                  </select>
+                </p>
+                <p>
+                  <span class="inline-info">Name:</span>
+                  <input class="input-read" type="text" value="" readonly />
+                </p>
+                <p>
+                  <span class="inline-info">Contact No:</span>
+                  <input class="input-read" type="text" value="" readonly />
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span class="inline-info">Address:</span>
+                  <input
+                    class="input-read input-addr"
+                    type="text"
+                    value=""
+                    readonly
+                  />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tg-info parents-info info-cont">
+          <h1 class="info-hed">Teacher Guardian's Infromation:</h1>
+          <div class="inner-cont">
+            <div class="parent-details-1 parent-details">
+              <div>
+                <p>
+                  <span class="inline-info">TG Name:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="Diganta Baruah"
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Phone:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="8454567678"
+                    readonly
+                  />
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span class="inline-info">Whatsapp:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="8454567678"
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Email:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="tgkaemail@gmail.coma"
+                    readonly
+                  />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="qualification-info info-cont">
+          <h1 class="info-hed">Qualification Infromation:</h1>
+          <div class="inner-cont">
+            <div class="parent-details-2 parent-details">
+              <div>
+                <p>
+                  <span class="inline-info">Latest Qualification:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="HJVD87J"
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Specialization/Course:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="2346464353242"
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Board:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="9846358365"
+                    readonly
+                  />
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span class="inline-info">Institute name:</span>
+                  <input
+                    class="input-read institute-input"
+                    type="text"
+                    value="Scottish Public School, Katihar"
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Year of Passing:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value="2019"
+                    readonly
+                  />
+                </p>
+              </div>
+            </div>
+            <div class="qualification-details-2 parent-details">
+              <div>
+                <p>
+                  <span class="inline-info">Physics:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value=""
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Chemistry:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value=""
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Mathematics:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value=""
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Biology:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value=""
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">English:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value=""
+                    readonly
+                  />
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span class="inline-info">Computer Sc:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value=""
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Optional 1:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value=""
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Optional 2:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value=""
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Optional 3:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value=""
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info">Optional 4:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value=""
+                    readonly
+                  />
+                </p>
+              </div>
+            </div>
+            <div class="parent-details-2 parent-details">
+              <div>
+                <p>
+                  <span class="inline-info qualification-last-p">Total Marks:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value=""
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info qualification-last-p">Total Marks Obtained:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value=""
+                    readonly
+                  />
+                </p>
+                <p>
+                  <span class="inline-info qualification-last-p">Total Percentage Obtained:</span>
+                  <input
+                    class="input-read"
+                    type="text"
+                    value=""
+                    readonly
+                  />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="upload-info info-cont">
+          <h1 class="info-hed">Upload Your Files:</h1>
+          <div class="inner-cont">
+            <div class="file-details-1">
+                <p>
+                  <span class="inline-info">Class X Marksheet:</span>
+                  <label class="input-read">
+                  <input
+                    
+                    type="text"
+                    value="Shanker Singh"
+                    readonly
+                  />
+                  <span></span>
+                </label>
+                </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="popup-btns">
+        <a href="#" class="btn btn-full btn-large">Save</a>
+      </div>
+    </main>
+  </div>
+</div>
+
+
+<script src="<%= assetPath('js/profile.js') %>"></script>
