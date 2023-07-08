@@ -1,3 +1,6 @@
+.qualification-info, .parents-info {
+  display: none; }
+
 textarea {
   resize: none;
   color: #fff;
@@ -5,7 +8,7 @@ textarea {
 
 select {
   padding: 0;
-  width: 11vw;
+  width: 11.1vw;
   opacity: 1;
   cursor: pointer; }
 
@@ -75,12 +78,6 @@ select:disabled {
   font-weight: 500;
   font-size: 1.5vw;
   color: #f9ebe1; }
-
-.profile-img {
-  width: 6vw;
-  border-radius: 50%;
-  border: 3px solid #fd6d08;
-  margin-bottom: 0.75vh; }
 
 .std-name {
   font-size: 1.55vw;
@@ -211,8 +208,65 @@ select:disabled {
 .qualification-last-p {
   width: 15vw; }
 
+.file-details-1 p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5vh; }
+
+.input-read input {
+  background-color: transparent;
+  border: none;
+  width: 17vw;
+  height: 3vh; }
+
+.input-read input:focus {
+  outline: none; }
+
 .popup-btns {
   position: absolute;
   bottom: 1.5vh;
-  right: 1vw;
+  left: 50%;
+  display: none; }
+
+.image-container {
+  position: relative;
+  display: inline-block; }
+
+.image {
+  width: 6vw;
+  height: 11vh;
+  border-radius: 50%;
+  border: 3px solid #fd6d08;
+  margin-bottom: 0.75vh; }
+
+.upload-option {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  background-color: #0000002c;
+  border-radius: 50%; }
+
+.image-container:hover .upload-option {
+  opacity: 1;
+  pointer-events: auto; }
+
+.upload-label {
+  width: 6vw;
+  height: 11vh;
+  border-radius: 50%;
+  color: #ffF;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.upload-label span svg {
+  width: 3vw;
+  fill: #fff; }
+
+.file-input {
   display: none; }
