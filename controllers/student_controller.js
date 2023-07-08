@@ -29,7 +29,7 @@ module.exports.dashboard = async (req, res) => {
     }
     // req.locals.int = internal;
 
-    return res.render("Student/dashboard", {
+    return res.render("student/dashboard", {
       title: "Dashboard",
       student: studentdata,
       internal, calendardata, notidata, arr

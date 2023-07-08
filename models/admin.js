@@ -6,6 +6,10 @@ const adminSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    name: {
+        type: String,
+        required: true,
+      },
     branch: {
         type: String,
         required: true

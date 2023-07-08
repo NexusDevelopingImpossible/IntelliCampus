@@ -19,6 +19,13 @@
       border-radius: 20px;
       // backdrop-filter: blur(7px);
     }
+    .card-hed {
+      p {
+        padding-top: 1vh;
+        font-size: 1.2rem;
+        color: $card-head;
+      }
+    }
 
     .card1 {
       height: 12vh;
@@ -42,14 +49,14 @@
 
         div {
           .std-name {
-            font-size: 2.5vh;
+            font-size: 1.3rem;
             font-weight: 600;
             line-height: 1.5;
           }
 
           .reg {
             font-weight: 100;
-            font-size: 2.2vh;
+            font-size: 1.1rem;
           }
         }
       }
@@ -57,7 +64,7 @@
       .b2 {
         div {
           h1 {
-            font-size: 1.9vh;
+            font-size: 0.9rem;
             font-weight: 500;
             line-height: 1.5;
           }
@@ -72,7 +79,7 @@
         width: 14vw;
 
         h1 {
-          font-size: 1.9vh;
+          font-size: 0.9rem;
           font-weight: 500;
           line-height: 1.5;
         }
@@ -87,17 +94,7 @@
       height: 25vh;
       padding: 0 1vw;
       width: 53vw;
-  
-      .card-hed {
-        p {
-          padding-top: 1vh;
-          font-size: 2.65vh;
-          color: $card-head;
-        }
-       
-  
 
-      }
       .attendence-container {
         width: 50.75vw;
         overflow-x: auto;
@@ -117,8 +114,8 @@
 
             .circle-progress {
               position: relative;
-              width: 5vw;
-              height: 5vw;
+              width: 4.5rem;
+              height: 4.5rem;
               border-radius: 50%;
               background: conic-gradient(#ffbd01 0deg, #00000068 0deg);
               display: flex;
@@ -127,7 +124,7 @@
 
               .progress-val {
                 position: relative;
-                font-size: 2.3vh;
+                font-size: 1.3rem;
                 font-weight: 600;
                 color: $white-color;
               }
@@ -136,8 +133,8 @@
             .circle-progress::before {
               content: "";
               position: absolute;
-              width: 4.5vw;
-              height: 4.5vw;
+              width: 4rem;
+              height: 4rem;
               background-color: $circle-progress-color;
               border-radius: 50%;
             }
@@ -150,12 +147,12 @@
               margin-top: 1.5vh;
 
               .sub-code {
-                font-size: 1.7vh;
+                font-size: 1rem;
                 font-weight: 100;
               }
 
               .sub-name {
-                font-size: 2.3vh;
+                font-size: 1rem;
               }
             }
           }
@@ -170,13 +167,6 @@
       width: 53vw;
       padding: 0 1vw;
   
-      .card-hed {
-        p {
-          padding-top: 1vh;
-          font-size: 2.65vh;
-          color: $card-head;
-        }
-      }
     }
     .card4 {
       height: 34vh;
@@ -185,9 +175,6 @@
   
       .card-hed {
         p {
-          padding-top: 1vh;
-          font-size: 2.65vh;
-          color: $card-head;
           padding-bottom: 1.5vh;
         }
       }
@@ -197,6 +184,7 @@
         overflow-x: auto;
         overflow-y: auto;
         -ms-overflow-style: none;
+        padding-top: 1vh;
   
         .notification {
           padding-bottom: 2vh;
@@ -205,7 +193,7 @@
           justify-content: space-between;
   
           .text {
-            font-size: 2vh;
+            font-size: 1rem;
   
             .old {
               color: $Noti-old-color;
@@ -220,7 +208,7 @@
               color: $Noti-time-color;
               padding-top: 0.5vh;
               font-weight: 400;
-              font-size: 1.5vh;
+              font-size: 0.7rem;
             }
           }
   
