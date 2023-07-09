@@ -1,67 +1,89 @@
 <link rel="stylesheet" href="<%= assetPath('css/login.css') %>" />
-
+<!-- <meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
 <body onload="getCookieData()">
-  
-
-<div class="logo-title">
-  <img src="/images/smit-logo.png" alt="SMIT Logo" />
-</div>
-<section class="container-main">
-  <div class="container-left">
-    <img class="logo-smit" src="images/manipal-vector.png" alt="" />
+  <div class="logo-title">
+    <img src="/images/smit-logo.png" alt="SMIT Logo" />
   </div>
-  <div class="container-right">
-    <form class="login-form" method="POST" action="/create-session">
-      <div class="ecampus-logo">
-        <img src="/images/MANAGER LOGO 3 white 3.png" alt="Ecampus Manager Logo SMIT" />
-      </div>
-      <div class="form-content">
-        <input name="username" class="form-input" id="form-input-user" type="text" placeholder="Username"
-          pattern="\d{4}|\d{9}" title="Please Enter a valid username" required />
-      </div>
-      <div class="form-content">
-        <input class="form-input" name="password" id="form-input-password" type="password" placeholder="Password"
-          required />
-      </div>
-      <div class="form-button">
-        <!-- <span class="btn-rememberme">
-          <input type="checkbox" onclick="setcookie()" name="rememberme" id="btnRememberMe"/>
-          <label for="btnRememberMe">Remember me</label>
-        </span> -->
-        <span class="btn-forgotpass desktop-view">
-          <a href="/forgetpassword" id="btnForgotPass" type="button">
-            Forgot Password ?
-          </a>
-        </span>
-      </div>
-      <div class="form-signin">
-        <span class="btn-signin">
-          <button id="btnSignIn" type="submit">Sign In</button>
-        </span>
-        <span class="btn-outlook">
-          <button id="btnOutlook" type="button">
-            <span class="mobile-view">Continue with </span>
-            <a href="/auth/microsoft">
-            <img src="/images/outlook.png" alt="Outlook Login" /></a>
-          </button>
-        </span>
-      </div>
-      <div class="mobile-view">
-        <div class="form-button">
-          <span class="btn-forgotpass">
-            <a id="btnForgotPass" type="button"> Forgot Password ? </a>
+  <section class="container-main">
+    <div class="container-left">
+      <span>
+        <img class="logo-smit" src="images/manipal-vector.png" alt="" />
+      </span>
+    </div>
+    <div class="container-right">
+      <form class="login-form" method="POST" action="/create-session">
+        <div class="ecampus-logo">
+          <img
+            src="/images/MANAGER LOGO 3 white 3.png"
+            alt="Ecampus Manager Logo SMIT"
+          />
+        </div>
+        <div class="form-input-field">
+          <span class="form-content">
+            <input
+              name="username"
+              class="form-input"
+              id="form-input-user"
+              type="text"
+              placeholder="Username"
+              pattern="\d{4}|\d{9}"
+              title="Please Enter a valid username"
+              required
+            />
+          </span>
+          <span class="form-content">
+            <input
+              class="form-input"
+              name="password"
+              id="form-input-password"
+              type="password"
+              placeholder="Password"
+              required
+            />
+            <div class="form-button desktop-view">
+              <!-- <span class="btn-rememberme">
+              <input type="checkbox" onclick="setcookie()" name="rememberme" id="btnRememberMe"/>
+              <label for="btnRememberMe">Remember me</label>
+            </span> -->
+              <span class="btn-forgotpass">
+                <a href="/forgetpassword" id="btnForgotPass" type="button">
+                  Forgot Password ?
+                </a>
+              </span>
+            </div>
           </span>
         </div>
-      </div>
-      <div class="form-info">
-        <p>
-          <!-- Note: For student, use registration number as Username and 123 as
-          password if it is not change! -->
-        </p>
-      </div>
-    </form>
-  </div>
-</section>
+        <div class="form-signin">
+          <span class="btn-signin">
+            <button id="btnSignIn" type="submit">Sign In</button>
+          </span>
+          <span class="btn-outlook">
+            <a href="/auth/microsoft">
+              <button id="btnOutlook" type="button">
+                <span class="mobile-view">Continue with </span>
+                <img src="/images/outlook.png" alt="Outlook Login" />
+              </button>
+            </a>
+          </span>
+        </div>
+        <div class="mobile-view">
+          <div class="form-button">
+            <span class="btn-forgotpass">
+              <a id="btnForgotPass" type="button"> Forgot Password ? </a>
+            </span>
+          </div>
+        </div>
+        <!-- <div class="form-info">
+          <p>
+            Note: For student, use registration number as Username and 123 as
+          password if it is not change!
+          </p>
+        </div> -->
+      </form>
+    </div>
+  </section>
 </body>
 <script type="text/javascript" src="<%= assetPath('js/login.js') %>"></script>
 <!-- <script type="text/javascript">
@@ -87,7 +109,7 @@ function getCookieData(){
     document.getElementById("form-input-user").value=getCookie(myusername);
     document.getElementById("form-input-password").value=getCookie(mypasswd);
   }
-} -->
-
-
 </script>
+} 
+</script>
+-->
