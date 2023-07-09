@@ -18,6 +18,7 @@
 
   <body>
     <% if(!((title=="Login" ) || (title=="error" ) || (title=="Sign Up" )) ) {%>
+      <%if((locals.user)){%>
       <% if(locals.user.position==="student" ){%> 
         <%- include('navbar/student'); %>
       <% } %>
@@ -28,6 +29,7 @@
         <%- include('navbar/admin'); %>
       <% } %>
     <%}%> 
+    <%}%>
     <%- body %>
   </body>
 

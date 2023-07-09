@@ -1,5 +1,8 @@
 <link rel="stylesheet" href="<%= assetPath('css/login.css') %>" />
 
+<body onload="getCookieData()">
+  
+
 <div class="logo-title">
   <img src="/images/smit-logo.png" alt="SMIT Logo" />
 </div>
@@ -22,11 +25,11 @@
       </div>
       <div class="form-button">
         <span class="btn-rememberme">
-          <input type="checkbox" name="Remember" id="btnRememberMe"/>
+          <input type="checkbox" onclick="setcookie()" name="rememberme" id="btnRememberMe"/>
           <label for="btnRememberMe">Remember me</label>
         </span>
         <span class="btn-forgotpass desktop-view">
-          <a href="#" id="btnForgotPass" type="button">
+          <a href="/forgetpassword" id="btnForgotPass" type="button">
             Forgot Password ?
           </a>
         </span>
@@ -38,9 +41,7 @@
         <span class="btn-outlook">
           <button id="btnOutlook" type="button">
             <span class="mobile-view">Continue with </span>
-            <a href="/auth/microsoft">
             <img src="/images/outlook.png" alt="Outlook Login" />
-          </a>
           </button>
         </span>
       </div>
@@ -60,4 +61,25 @@
     </form>
   </div>
 </section>
+</body>
 <script type="text/javascript" src="<%= assetPath('js/login.js') %>"></script>
+<script type="text/javascript">
+  function setcookie(){
+    let u = document.getElementById("form-input-user").value;
+    let p = document.getElementById("form-input-password").value;
+
+    document.cookie="myusername="+u;
+    document.cookie="mypasswd="+p;
+    //console.log(u,p)
+  }
+  
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+}
+function getCookieData(){
+  console.log("Fuck Off");
+}
+
+</script>
