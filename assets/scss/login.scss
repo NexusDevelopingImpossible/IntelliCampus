@@ -209,17 +209,20 @@ body {
 
 .login-form #btnForgotPass {
   border: none;
-  padding: 0;
+  //padding: 0;
   background-color: transparent;
-
   font-style: normal;
   font-weight: 500;
   font-size: 0.9rem;
   color: #ffffff;
   cursor: pointer;
   transition-duration: 0.4s;
-
   text-decoration: none;
+  border: 2px solid black;
+  //padding: 0 105px;
+  //width: 100vw;
+  text-align: right;
+  
 }
 
 #btnForgotPass:hover {
@@ -394,8 +397,12 @@ body {
   }
 
   .login-form .form-button {
-    align-items: center;
-    justify-content: center;
+    //align-items: center;
+    //justify-content: center;
+    
+    background-color: #fff;
+    width: 20vw;
+    text-align: right;
     padding-top: 2vh;
   }
 
@@ -449,6 +456,7 @@ body {
     height: 80vh;
   }
 }
+
 
 /*--------------------------Passwowrd 1-------------------------*/
 

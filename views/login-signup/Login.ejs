@@ -24,10 +24,10 @@
           required />
       </div>
       <div class="form-button">
-        <span class="btn-rememberme">
+        <!-- <span class="btn-rememberme">
           <input type="checkbox" onclick="setcookie()" name="rememberme" id="btnRememberMe"/>
           <label for="btnRememberMe">Remember me</label>
-        </span>
+        </span> -->
         <span class="btn-forgotpass desktop-view">
           <a href="/forgetpassword" id="btnForgotPass" type="button">
             Forgot Password ?
@@ -63,7 +63,7 @@
 </section>
 </body>
 <script type="text/javascript" src="<%= assetPath('js/login.js') %>"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   function setcookie(){
     let u = document.getElementById("form-input-user").value;
     let p = document.getElementById("form-input-password").value;
@@ -71,6 +71,7 @@
     document.cookie="myusername="+u;
     document.cookie="mypasswd="+p;
     //console.log(u,p)
+    
   }
   
 function getCookie(name) {
@@ -79,7 +80,13 @@ function getCookie(name) {
   if (parts.length === 2) return parts.pop().split(';').shift();
 }
 function getCookieData(){
-  console.log("Fuck Off");
-}
+  let myusername = "myusername";
+  let mypasswd= "mypasswd";
+  if(getCookie(myusername) || getCookie(mypasswd)){
+    document.getElementById("form-input-user").value=getCookie(myusername);
+    document.getElementById("form-input-password").value=getCookie(mypasswd);
+  }
+} -->
+
 
 </script>
