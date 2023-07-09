@@ -1,2 +1,2 @@
-# IntelliCampus
-[a link](https://intellicampus.in/)
+# [IntelliCampus](https://intellicampus.in/)
+
