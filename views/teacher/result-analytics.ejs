@@ -1,6 +1,67 @@
+<link rel="stylesheet" href="<%= assetPath('css/result-analysis.css') %>">
 <div class="main-page">
     <div class="blur">
+        <div class="page-heading">
+            <a href="/teacher/dashboard"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
+            <h1 class="heading">Result Analysis</h1>
+          </div>
+          <main class="main-result">
+            <!-- <section class="select-menu">
+                <select class="select-sm" name="course" id="course-select">
+                    <option value="">Course </option>
+                    <option value="BTECH">BTECH</option>
+                    <option value="MTECH">MTECH</option>
+                    <option value="BCA">BCA</option>
+                </select>
+                <select class="select-sm" name="course" id="course-select">
+                    <option value="">Department</option>
+                    <option value="BTECH">BTECH</option>
+                    <option value="MTECH">MTECH</option>
+                    <option value="BCA">BCA</option>
+                </select>
+                <select class="select-sm" name="course" id="course-select">
+                    <option value="">Semester</option>
+                    <option value="BTECH">BTECH</option>
+                    <option value="MTECH">MTECH</option>
+                    <option value="BCA">BCA</option>
+                </select>
+                <select class="select-sm select-large" name="course" id="course-select">
+                    <option value="">Course</option>
+                    <option value="BTECH">BTECH</option>
+                    <option value="MTECH">MTECH</option>
+                    <option value="BCA">BCA</option>
+                </select>
+                
+            </section> -->
+            <section class="upload-file">
+                <div class="input-file">
+                    <!-- <input type="file" name="fileexcel" id=""> -->
+                    <label class="custom-file-upload">
+                        <input id="select-file" type="file"/>
+                        <span id="file-name">Select your file here</span>
+                    </label>
+                    <button class="submit-btn btn btn-full btn-medium">Submit</button>
+                </div>
+                <div class="calulate-file">
+                    <p>Click here to view calculate analysis:</p>
+                    <a href="/teacher/view-result-analytics"><button class="submit-btn btn btn-outline btn-medium" type="submit">View</button></a>
+                </div>
+            </section>
+          </main>
 
 
         </div>
         </div>
+
+<script>
+    let selectFile = document.getElementById("select-file");
+    let fileName = document.getElementById("file-name");
+
+    selectFile.addEventListener("change", function(e){
+        console.log(selectFile.files[0].name);
+        fileName.innerHTML = selectFile.files[0].name;
+
+    })
+
+
+</script>
