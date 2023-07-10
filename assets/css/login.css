@@ -226,7 +226,7 @@ body {
 .mobile-view {
   display: none; }
 
-@media screen and (max-width: 1024px) {
+@media all and (max-width: 980px) {
   .mobile-view {
     display: block; }
   body {

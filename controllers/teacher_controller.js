@@ -423,3 +423,13 @@ module.exports.uploadnote = async (req, res) => {
     console.log(error);
   }
 };
+
+
+
+module.exports.res_analysis = async (req, res) => {
+  try {
+    return res.render("teacher/result-analytics", { title: "Result Analysis"});
+  } catch (error) {
+    console.log(error);
+  }
+};
