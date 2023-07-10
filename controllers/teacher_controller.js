@@ -433,3 +433,11 @@ module.exports.res_analysis = async (req, res) => {
     console.log(error);
   }
 };
+
+module.exports.view_analysis = async (req, res) => {
+  try {
+    return res.render("teacher/view-result-analysis", { title: "View Result Analysis"});
+  } catch (error) {
+    console.log(error);
+  }
+};
