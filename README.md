@@ -1,1 +1,2 @@
-# IntelliCampus
+# [IntelliCampus](https://intellicampus.in/)
+

@@ -1,0 +1,147 @@
+@media screen and (min-width: 370px) and (max-width: 1024px) {
+  .navbar {
+    display: none;
+  }
+  .main-page {
+    margin: 0;
+    border-radius: 0;
+    width: 100svw;
+    height: 100svh;
+    overflow: hidden;
+    // background-size: cover;
+    // background-position: 3;
+  }
+  .blur {
+    border-radius: 0;
+    overflow: auto;
+    padding: 0;
+  }
+
+  .card1,
+  .card3,
+  .card4,
+  .card5 {
+    display: none;
+  }
+
+  .dash-heading {
+    .head1 {
+      font-size: 5rem !important;
+    }
+
+    .welcome-msg {
+      font-size: 3rem !important;
+    }
+  }
+
+  .cards {
+    height: auto;
+  }
+  .card2 {
+    // height: 27vh;
+    padding: 0 3vw;
+    width: 94vw;
+
+    .attendence-container {
+      width: auto;
+      overflow-x: auto;
+      white-space: nowrap;
+      -ms-overflow-style: none;
+
+      .attendence-percent {
+        display: flex;
+        gap: 5vw;
+        padding-top: 2vh;
+        padding-bottom: 3vh;
+
+        .container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .circle-progress {
+            width: 20vw;
+            height: 20vw;
+          }
+
+          .circle-progress::before {
+            width: 17.5vw;
+            height: 17.5vw;
+          }
+        }
+      }
+    }
+    .attendence-container::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  //   mobile navbar
+
+  .mobile-nav {
+    // display: block ;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 1vh 3vw;
+  }
+  .nav-li {
+    width: auto;
+    height: 14vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+  }
+
+  .card-internal {
+    display: block;
+    margin-top: 2vh;
+  }
+  .nav-li svg {
+    width: 11vw;
+    fill: #fff;
+  }
+  .tab-name {
+    font-size: 5vw;
+  }
+
+  .mobile-header {
+    padding: 1vh 3vw;
+    margin-bottom: 1vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.046);
+  }
+  .logo-phone {
+    height: 6vh;
+  }
+  .mobile-menu {
+    width: 25vw;
+    display: flex;
+    justify-content: space-between;
+  }
+  .mobile-menu svg {
+    width: 11vw;
+  }
+  .mobile-menu a img {
+    width: 11vw;
+    border: 3px solid #fd6d08;
+    border-radius: 50%;
+  }
+
+  // .sidebar1 {
+  //   position: absolute;
+  //   top: 0;
+  //   background: rgb(57, 3, 0);
+  //   // backdrop-filter: blur(77px);
+  //   width: 100vw;
+  //   height: 100vh;
+  //   display: flex;
+  //   justify-content: end;
+  // }
+  
+}
