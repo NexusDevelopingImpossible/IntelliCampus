@@ -70,7 +70,7 @@ input[type="file"] {
 // - - - - - - -  - - - -
 
 
-ul{
+.view-analysis-main ul{
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -95,8 +95,34 @@ ul{
 
 .analysis-table{
     display: none;
-    background-color: #FD6D08;
-    width: 20rem;
-    height: 20rem;
+    // background-color: #FD6D08;
+    // width: 20rem;
+    // height: 20rem;
 }
 
+.table-wrapper {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #ff0000;
+  padding: 8px;
+  text-align: left;
+  width: 100px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+.analysis-table{
+  margin: 2vh 0;
+  height: 66vh;
+  overflow: auto;
+}

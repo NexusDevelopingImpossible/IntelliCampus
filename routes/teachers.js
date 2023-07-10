@@ -6,6 +6,7 @@ const router = express.Router();
 const homeController = require('../controllers/home_controller');
 
 const teacherController = require('../controllers/teacher_controller');
+const resultanalysisController = require('../controllers/result_analysis');
 
 router.get("/dashboard", teacherController.dashboard); //Delete this
 
@@ -26,6 +27,8 @@ router.post("/uploadnotes", teacherController.uploadnote);
 router.get("/result-analytics", teacherController.res_analysis);
 router.get("/view-result-analytics", teacherController.view_analysis);
 
+router.get("/cal-result-analytics", resultanalysisController.ra_calculate);
+router.post("/uploadfile", resultanalysisController.uploadfile);
 router.get("/viewstudentattendance", teacherController.viewstudentattendance);
 
 module.exports = router;

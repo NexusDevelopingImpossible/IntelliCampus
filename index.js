@@ -42,6 +42,7 @@ app.use(express.static('./assets'));    //depolyment using assets
 
 
 app.use('/upload', express.static(__dirname + '/upload'));
+app.use('/data', express.static(__dirname + '/data'));
 
 app.use(logger(env.morgan.mode, env.morgan.options));
 
