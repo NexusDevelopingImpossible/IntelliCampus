@@ -1,4 +1,6 @@
-const editBtn = document.querySelector(".edit-btn");
+function start(){
+  "use strict";
+  const editBtn = document.querySelector(".edit-btn");
 const inputEdit = document.querySelectorAll('input[type="text"], textarea[type="text"], select');
 const selectEdit = document.querySelectorAll('select');
 const saveBtn = document.querySelector(".popup-btns");
@@ -24,12 +26,14 @@ if (editBtn.classList.contains("edit-btn-clicked")) {
 
 
 });
-
+}
+start();
 
 
 
 // image upload js
-
+function uploadImage(){
+"use strict";
 const image = document.getElementById("image");
 const fileUpload = document.getElementById("file-upload");
 
@@ -43,3 +47,5 @@ fileUpload.addEventListener("change", function(event) {
 
   reader.readAsDataURL(file);
 });
+}
+uploadImage();

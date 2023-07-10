@@ -1,12 +1,12 @@
 // - - - - - - -
-// subject navbar 
-// - - - - - - - 
-
+// subject navbar
+// - - - - - - -
 const tabItems = document.querySelectorAll('.tab-item');
 const tabContentItems = document.querySelectorAll('.tab-content-item');
 
 
 function view_update(value) {
+"use strict";
 	var view = document.getElementById('view-tab');
 	var add = document.getElementById('add-tab');
 	var update = document.getElementById('update-tab');
@@ -30,24 +30,24 @@ function view_update(value) {
 	}
 }
 
-// - - - - - - - 
+// - - - - - - -
 // select menu
-// - - - - - - - 
+// - - - - - - -
 
 const optionMenu = document.querySelector(".select-menu"),
        selectBtn = optionMenu.querySelector(".select-btn"),
        options = optionMenu.querySelectorAll(".option"),
        sBtn_text = optionMenu.querySelector(".sBtn-text");
-selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));      
- 
+selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));
+
 options.forEach(option =>{
-	
+
     option.addEventListener("click", ()=>{
         let selectedOption = option.querySelector(".option-text").innerText;
         sBtn_text.innerText = selectedOption;
         optionMenu.classList.remove("active");
     });
-	
+
 });
 document.addEventListener("click", (event) => {
 	if (!optionMenu.contains(event.target)) {
@@ -56,9 +56,9 @@ document.addEventListener("click", (event) => {
   });
 
 
-// - - - - - - - 
+// - - - - - - -
 //   radiobtns
-// - - - - - - - 
+// - - - - - - -
 
 
 let checkAllRadios = document.getElementById("checkall");
@@ -69,7 +69,7 @@ checkAllRadios.addEventListener("change", function(){
 		otherRadios.forEach(function(radio){
 			radio.checked = true;
 		});
-	
+
 	}else{
 		otherRadios.forEach(function(radio){
 			radio.checked = false;

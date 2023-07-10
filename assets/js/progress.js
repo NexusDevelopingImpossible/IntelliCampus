@@ -15,16 +15,21 @@
 
 
 // Get all the elements with class "circle-progress"
-const circleProgress = document.querySelectorAll(".circle-progress");
+"use strict"
+function start(){
+  const circleProgress = document.querySelectorAll(".circle-progress");
 
-// Loop through each element and update the conic gradient degree
-circleProgress.forEach((circle) => {
-  const progressVal = circle.querySelector(".progress-val");
-  const percent = parseInt(progressVal.textContent); // Get the percent value
+  // Loop through each element and update the conic gradient degree
+  circleProgress.forEach((circle) => {
+    const progressVal = circle.querySelector(".progress-val");
+    const percent = parseInt(progressVal.textContent); // Get the percent value
 
-  // Calculate the degree based on the percent value
-  const degree = percent * 3.6; // 360 degrees divided by 100
+    // Calculate the degree based on the percent value
+    const degree = percent * 3.6; // 360 degrees divided by 100
 
-  // Update the conic gradient style
-  circle.style.background = `conic-gradient(from 0deg, #ffbd01 0deg ${degree}deg, #00000068 ${degree}deg 360deg)`;
-});
+    // Update the conic gradient style
+    circle.style.background = `conic-gradient(from 0deg, #ffbd01 0deg ${degree}deg, #00000068 ${degree}deg 360deg)`;
+  });
+}
+start();
+

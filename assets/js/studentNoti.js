@@ -6,6 +6,7 @@ class createStudentNoti {
   }
 
   createNoti() {
+    "use strict";
     let pself=this;
     $(this.notiElement).click(function (e) {
       e.preventDefault();
@@ -67,6 +68,7 @@ class createStudentNoti {
 // document.addEventListener("DOMContentLoaded", function() {
 
 function notificationSaved(){
+  "use strict";
 const savedBtn = document.querySelector(".saved");
 const notedBtn = document.querySelector(".noted");
 const notyCard = document.querySelector(".noty1");
@@ -84,6 +86,6 @@ const savedCard = document.querySelector(".noty2");
     savedCard.style.display = "none";
   });
 
- 
+
 }
 notificationSaved();
