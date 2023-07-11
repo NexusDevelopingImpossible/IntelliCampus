@@ -26,6 +26,8 @@ body {
   width: 15vw;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+
 }
 .nav-smit-logo img {
   width: 12vw;
@@ -40,7 +42,7 @@ body {
   display: flex;
   flex-direction: column;
   // padding: 1rem 0;
-  padding-left: 0.75vw;
+  // padding-left: 0.75vw;
 }
 
 .tabs ul li {
@@ -164,4 +166,20 @@ body {
   display: flex;
   align-items: center;
   gap: 0.4rem;
+}
+
+.nexus-logo{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2.5vh;
+}
+.nexus-logo p{
+  font-size: 1vw;
+  font-weight: 100;
+  margin: auto;
+}
+.nexus-logo img{
+  width: 10vw;
+  margin: auto;
+  
 }

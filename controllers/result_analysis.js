@@ -31,7 +31,7 @@ function getUniqueValues(array) {
 module.exports.ra_calculate = function (req, res) {
   try {
     const workbook = XLSX.readFile(
-      "data\\template_result_analysis.xlsx"
+      "data/template_result_analysis.xlsx"
     );
     let sheetsQuiz = ["Quiz 1", "Quiz 2"];
     let sheetsSess = ["Sess 1", "Sess 2"];
