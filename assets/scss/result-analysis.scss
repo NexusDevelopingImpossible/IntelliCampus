@@ -68,12 +68,31 @@ input[type="file"] {
 // - - - - - - -  - - - -
 // View Result Analysis
 // - - - - - - -  - - - -
+.view-analysis-main > div{
+  display: flex;
+  justify-content: space-between;
+}
 
-
-.view-analysis-main ul{
+.export-btn{
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+.export-btn button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5vw;
+  height: 6vh;
+}
+.export-svg{
+  width: 1vw;
+}
+.view-analysis-main div ul{
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    width: 55vw;
     gap: 1vw;
 }
 
@@ -112,7 +131,7 @@ table {
 
 th,
 td {
-  border: 1px solid #ff0000;
+  border: 1px solid #ffffff5c;
   padding: 8px;
   text-align: left;
   width: 100px;
@@ -126,3 +145,4 @@ th {
   height: 66vh;
   overflow: auto;
 }
+
