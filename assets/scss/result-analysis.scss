@@ -16,6 +16,9 @@
   cursor: pointer;
   font-size: 1vw;
 }
+.select-sm option{
+  background-color: #FD6D08;
+}
 
 .select-large {
   width: 30vw;
@@ -57,13 +60,15 @@ input[type="file"] {
 
 .calulate-file{
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1.5vw;
     font-size: 1.2vw;
 }
-
+input::placeholder{
+  color: #fff;
+}
 
 // - - - - - - -  - - - -
 // View Result Analysis

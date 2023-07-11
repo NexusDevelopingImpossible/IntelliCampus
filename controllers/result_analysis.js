@@ -5,41 +5,52 @@ const multer = require("multer");
 const XLSX = require("xlsx");
 const { start } = require("repl");
 
-module.exports.uploadfile = function (req, res) {
-  try {
-    let path = ResultAnalysis.uploadfileexcel(req, res, function (error) {
-    //   console.log(Excel.uploadpath);
-      console.log(req.file);
-      if (error) {
-        console.log("** Multer error:", error);
-      }
-    //   ResultAnalysis.create({
-    //     title: req.body.title,
-    //     excelfile: Excel.uploadpath + "\\" + req.file.filename,
-    //   });
-    });
-    return res.redirect("/teacher/cal-result-analytics");
-  } catch (error) {
-    console.log(error);
-  }
-};
 function getUniqueValues(array) {
   const uniqueSet = new Set(array);
   const uniqueArray = Array.from(uniqueSet);
   return uniqueArray;
 }
-module.exports.ra_calculate = function (req, res) {
+module.exports.uploadfile = async function (req, res) {
   try {
-    const workbook = XLSX.readFile(
-      "data/template_result_analysis.xlsx"
-    );
+    try {
+      let path = await new Promise((resolve, reject) => {
+        ResultAnalysis.uploadfileexcel(req, res, function (error) {
+          if (error) {
+            console.log("** Multer error:", error);
+            reject(error);
+          }
+          resolve(ResultAnalysis.uploadpath + "\\" + req.file.filename);
+        });
+      });
+    } catch (error) {
+      // Handle the error
+    }
+    let url = ResultAnalysis.uploadpath + "\\" + req.file.filename;
+    let url2 = ResultAnalysis.uploadpath + "\\" + "-calculated" + req.file.filename;
+    url = url.slice(1);
+    url2 = url2.slice(1)
+    console.log(url);
+    try {
+      await ResultAnalysis.create({
+        course: req.body.course,
+        excelfile: ResultAnalysis.uploadpath + "\\" + req.file.filename,
+        department: req.body.department,
+        semester: req.body.semester,
+        subjectcode: req.body.subjectcode,
+        calexcelfile:
+          ResultAnalysis.uploadpath + "\\" + "-calculated" + req.file.filename,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+    const workbook = XLSX.readFile(url);
     let sheetsQuiz = ["Quiz 1", "Quiz 2"];
     let sheetsSess = ["Sess 1", "Sess 2"];
     const internalworksheet = workbook.Sheets["Internal"];
     for (let y = 0; y < sheetsQuiz.length; y++) {
       const worksheet = workbook.Sheets[sheetsQuiz[y]];
       const data = XLSX.utils.sheet_to_json(worksheet);
-      // console.log(worksheet["A5"]);
       let i = 1;
       let emptyValue;
       let arrCO = [];
@@ -530,16 +541,28 @@ module.exports.ra_calculate = function (req, res) {
     //   let passupdate3 = String.fromCharCode(71) + (8 + u);
     //   finalworksheet[passupdate3].v = Number(avg/5)
     // }
-    XLSX.writeFile(
-      workbook,
-      "upload\\data\\Result Analysis CS1502 _2022-update.xlsx"
-    );
+    // url = "upload/data/Result Analysis CS1502 _2022-update.xlsx";
+    const externalworksheet = workbook.Sheets["External"];
+    
 
-    // return res.redirect("back");
-    return res.render("teacher/view-result-analysis", {
-      title: "gsgsxgdxgs"
-    });
 
+
+
+    XLSX.writeFile(workbook, url2);
+
+    // return res.render("teacher/view-result-analysis", {
+    //   title: "View Result Analysis",
+    // });
+    return res.redirect("view-result-analytics\?url="+url2)
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports.view_res_analysis = async (req, res) => {
+  try {
+    const link = req.query.url;
+    console.log("jhgvv",link);
+    return res.render("teacher/view-result-analysis", { title: "Result Analysis", link});
   } catch (error) {
     console.log(error);
   }

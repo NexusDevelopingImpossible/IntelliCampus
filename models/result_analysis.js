@@ -5,13 +5,28 @@ const Excelfile = path.join("/upload/data");
 
 const resultanalysisSchema = new mongoose.Schema(
   {
-    title: {
+    course: {
       type: String,
       required: true,
     },
+    department: {
+      type: String,
+      required: true,
+    },
+    semester: {
+      type: String,
+      required: true,
+    },
+    subjectcode: {
+      type: String,
+      required: true
+    },
     excelfile: {
       type: String,
-      // required: true,
+      required: true,
+    },
+    calexcelfile: {
+      type: String
     }
   },
   {
@@ -24,7 +39,7 @@ let storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now();
-    cb(null, file.fieldname + "-" + uniqueSuffix + file.originalname);
+    cb(null, "Result_Analysis" + "-" + uniqueSuffix + "-" + file.originalname);
   },
 });
 

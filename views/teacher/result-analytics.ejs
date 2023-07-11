@@ -8,54 +8,61 @@
                 </svg></a>
             <h1 class="heading">Result Analysis</h1>
         </div>
-        <main class="main-result">
-            <!-- <section class="select-menu">
-                <select class="select-sm" name="course" id="course-select">
-                    <option value="">Course </option>
-                    <option value="BTECH">BTECH</option>
-                    <option value="MTECH">MTECH</option>
-                    <option value="BCA">BCA</option>
-                </select>
-                <select class="select-sm" name="course" id="course-select">
-                    <option value="">Department</option>
-                    <option value="BTECH">BTECH</option>
-                    <option value="MTECH">MTECH</option>
-                    <option value="BCA">BCA</option>
-                </select>
-                <select class="select-sm" name="course" id="course-select">
-                    <option value="">Semester</option>
-                    <option value="BTECH">BTECH</option>
-                    <option value="MTECH">MTECH</option>
-                    <option value="BCA">BCA</option>
-                </select>
-                <select class="select-sm select-large" name="course" id="course-select">
+        <form action="/teacher/uploadfile" method="post" enctype="multipart/form-data">
+            <main class="main-result">
+                <section class="select-menu">
+                    <select class="select-sm" name="course" id="course-select">
+                        <option value="">Course </option>
+                        <option value="BTECH">BTECH</option>
+                        <!-- <option value="MTECH">MTECH</option>
+                    <option value="BCA">BCA</option> -->
+                    </select>
+                    <select class="select-sm" name="department" id="course-select">
+                        <option value="">Department</option>
+                        <option value="CSE">CSE</option>
+                        <!-- <option value="MTECH">MTECH</option>
+                    <option value="BCA">BCA</option> -->
+                    </select>
+                    <select class="select-sm" name="semester" id="course-select">
+                        <option value="">Semester</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+
+                    </select>
+                    <!-- <select class="select-sm select-large" name="course" id="course-select">
                     <option value="">Course</option>
                     <option value="BTECH">BTECH</option>
                     <option value="MTECH">MTECH</option>
                     <option value="BCA">BCA</option>
-                </select>
-                
-            </section> -->
+                </select> -->
+                    <input type="text" class="select-sm select-large" name="subjectcode" placeholder="Subject Code">
 
-            <section class="upload-file">
-                <form action="/teacher/uploadfile" method="post">
+                </section>
+
+                <section class="upload-file">
+
                     <div class="input-file">
                         <!-- <input type="file" name="fileexcel" id=""> -->
                         <label class="custom-file-upload">
-                            <input id="select-file" type="file" name="fileexcel"/>
+                            <input id="select-file" type="file" name="fileexcel" />
                             <span id="file-name">Select your file here</span>
                         </label>
                         <button class="submit-btn btn btn-full btn-medium">Submit</button>
                     </div>
-                    <div class="calulate-file">
-                        <p>Click here to view calculate analysis:</p>
-                        <button class="submit-btn btn btn-outline btn-medium" type="submit">View</button>
-                    </div>
-                </form>
-            </section>
-        </main>
-
-
+                    
+                </section>
+            </main>
+        </form>
+        <div class="calulate-file">
+            <p>Download Template:</p>
+            <a href="..\data\template_result_analysis.xlsx"><button class="submit-btn btn btn-outline btn-medium" type="submit">View</button></a>
+        </div>
     </div>
 </div>
 
