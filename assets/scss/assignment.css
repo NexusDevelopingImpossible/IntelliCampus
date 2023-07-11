@@ -1,0 +1,263 @@
+/* overridng */
+.navbar {
+    width: 16%;
+    display: flex;
+    flex-direction: column;
+}
+.nav-manipal-vector img {
+    position: absolute;
+    width: 16rem;
+    height: 16rem;
+    left: -6px;
+    top: 450px;
+    opacity: 0.07;
+    z-index: -1;
+}
+
+.main-background{
+    width: 84%;
+    background: linear-gradient(112.35deg, rgba(255, 255, 255, 0.4) 1.41%, rgba(255, 255, 255, 0) 99.01%);
+    backdrop-filter: blur(22px);
+    border-radius: 55px;
+    margin: 1rem;
+    position: relative;
+}
+
+/* Overlay */
+.overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    display: none;
+}
+/* Adding the show class */
+.overlay.show{
+    display: block;
+}
+/* Modal */
+.modal {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 300;
+    width: 475px;
+    border: 1px solid #ffffff7a;
+    border-radius: 15px;
+    overflow: hidden;
+    z-index: 2;
+}
+/* adding the show class */
+.modal.show{
+    display: block;
+}
+
+/* Create AssignMent Button */
+.create__assignment__btn{
+    position: absolute;
+    bottom: 70px;
+    right: 70px;
+    padding: 0.7rem;
+    border-radius:50%;
+    background: #0000001b;
+    border: 1px solid #ffffff3d;
+    cursor: pointer;
+}
+
+.top{
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background: #baa9a9e3;
+}
+.top h3{
+    font-weight: normal;
+}
+.close{
+    background: none;
+    cursor: pointer;
+    border: none;
+}
+.bottom{
+    background: #9e8e8eba;
+    padding: 1rem 1rem;
+}
+.row1{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.row1 input{
+    outline: none;
+    border: 1px solid #ffffff7a;
+    border-radius: 10px;
+    caret-color: #fff;
+    padding: 1rem;
+    background: #fd6e0855;
+    color: #fff;
+    letter-spacing: 1px;
+}
+.row1 span{
+    color: #fff;
+    font-size: 0.8rem;
+}
+.row1 span input{
+    color: #fff;
+    padding: 0.4rem;
+    margin-left: 1rem;
+}
+
+::placeholder{
+    color: #fff;
+}
+
+.row2{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+.row2 .btn {
+    background: #FD6D08;
+    border: none;
+    color: #fff;
+    padding: 0.2rem 1.2rem;
+    display: flex;
+    border-radius: 15px;
+    align-items: center;
+    gap: 1rem;
+}
+.row2 input[type=file] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 142px;
+    height: 33px;
+    cursor: pointer;
+}
+.save__btn{
+    background: #FD6D08;
+    border: none;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: normal;
+    cursor: pointer;
+    padding: 0.5rem 1.8rem;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.main-container{
+    display: flex;
+    width: 100%;
+}
+
+
+/* Main content */
+.main__content{
+    padding: 2rem 4rem;
+}
+
+/* ASSIGNMENT LIST */
+.assignment__list__main{
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+    
+}
+.assignment__list{
+    border: 1px solid #fff;
+    background: #f8d57b23;
+    border-radius: 20px;
+    display: flex;
+    padding: 0.6rem 1rem;
+    gap: 1rem;
+    align-items: center;
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+.assignment__title{
+    display: flex;
+    gap: 1rem;
+}
+.assignment__title h3{
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+.due__date{
+    color: #fff;
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+}
+.dynamic__date{
+    color: #ffffff9b;
+    font-size: 0.7rem;
+}
+.assignment__desc{
+    color: #fff;
+    font-size: 0.8rem;
+}
+/* Button */
+.download__btn{
+    background:#FD6D08;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+.download__btn a{
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+.dynamic___pdf__title{
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+.view__btn{
+    border: 1px solid #FD6D08;
+    background: transparent;
+    color: #fff;
+    padding: 0.5rem 0.8rem;
+    border-radius: 10px;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+/* Right */
+.right{
+    display: flex;
+    flex-direction: column;
+    background: #0000001b;
+    border-radius: 20px;
+    gap: 0.5rem;
+}
+.right button{
+    padding: 0.5rem 0.35rem;
+    border-radius: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+.right button:hover{
+    background: #00000032;
+
+}
