@@ -1,0 +1,119 @@
+<link rel="stylesheet" href="<%= assetPath('css/result-analysis.css') %>">
+
+<div class="main-page">
+  <div class="blur">
+    <div class="page-heading">
+      <a href="/teacher/result-analytics"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+          <path
+            d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z" />
+        </svg></a>
+      <h1 class="heading">View Result Analysis</h1>
+    </div>
+    <main class="view-analysis-main">
+      <div>
+      <ul class="analysis-list">
+        <li id="camp">CAM_Projection</li>
+        <li id="q1">Quiz 1</li>
+        <li id="s1">Sess 1</li>
+        <li id="q2">Quiz 2</li>
+        <li id="s2">Sess 2</li>
+        <li id="int">Internal</li>
+        <li id="ext">External_new</li>
+        <li id="fcoa">Final_CO_Attainment</li>
+        <li id="poa">PO-Attainment</li>
+        <li id="rcoa">Rubrics_CO_Attainment</li>
+      </ul>
+      <div class="export-btn">
+        <button class="btn btn-outline btn-sm">Print</button>
+        <%let u = "..\\" + link%>
+        <a href="<%=u%>"><button class="btn btn-full btn-medium">Export <svg class="export-svg" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M17.375 5.90625V14.4375H16.0625V5.90625H13.4375C12.9154 5.90625 12.4146 5.69883 12.0454 5.32962C11.6762 4.9604 11.4688 4.45964 11.4688 3.9375V1.3125H4.25C3.9019 1.3125 3.56806 1.45078 3.32192 1.69692C3.07578 1.94306 2.9375 2.2769 2.9375 2.625V14.4375H1.625V2.625C1.625 1.92881 1.90156 1.26113 2.39384 0.768845C2.88613 0.276562 3.55381 0 4.25 0L11.4688 0L17.375 5.90625ZM9.31625 19.4788C9.32376 19.6856 9.37447 19.8886 9.46512 20.0746C9.55576 20.2606 9.68433 20.4256 9.84256 20.559C10.0132 20.7008 10.2232 20.811 10.4712 20.8898C10.7206 20.9698 11.0107 21.0092 11.3441 21.0092C11.7877 21.0092 12.1631 20.9396 12.4702 20.8018C12.7812 20.664 13.0162 20.4711 13.1789 20.2243C13.3445 19.9681 13.4299 19.6683 13.4244 19.3633C13.4244 19.0693 13.3653 18.8252 13.2472 18.6283C13.127 18.4317 12.9573 18.2701 12.755 18.1597C12.5229 18.0314 12.273 17.9385 12.0134 17.8841L11.1984 17.6951C11.0058 17.66 10.8239 17.581 10.6668 17.4641C10.6072 17.4178 10.5592 17.3582 10.5266 17.2901C10.494 17.222 10.4777 17.1472 10.4791 17.0717C10.4791 16.8669 10.5592 16.6989 10.7206 16.5677C10.8847 16.4351 11.1091 16.3682 11.3939 16.3682C11.5816 16.3682 11.7431 16.3984 11.8796 16.4574C12.0047 16.5088 12.1152 16.5905 12.2011 16.695C12.2819 16.7924 12.3362 16.9091 12.3586 17.0336H13.343C13.3269 16.7665 13.2365 16.5092 13.0818 16.2908C12.9159 16.0552 12.6891 15.8691 12.4256 15.7526C12.1033 15.6112 11.7536 15.5431 11.4018 15.5531C11.0173 15.5531 10.6773 15.6187 10.382 15.75C10.088 15.8799 9.857 16.065 9.69031 16.3026C9.52363 16.5414 9.44094 16.821 9.44094 17.1413C9.44094 17.4051 9.49344 17.6348 9.60238 17.829C9.71 18.0246 9.86356 18.1834 10.0631 18.3107C10.2639 18.4354 10.4988 18.5299 10.7718 18.5903L11.5829 18.7792C11.8546 18.8436 12.0554 18.9276 12.1893 19.0326C12.255 19.0823 12.3075 19.1472 12.3425 19.2217C12.3775 19.2963 12.3938 19.3782 12.3901 19.4604C12.3921 19.5956 12.3532 19.7283 12.2786 19.8411C12.1941 19.9563 12.0778 20.0444 11.9439 20.0944C11.7982 20.1561 11.6158 20.1863 11.4018 20.1863C11.2483 20.1863 11.1078 20.1692 10.9818 20.1338C10.8653 20.1017 10.7549 20.0508 10.655 19.9828C10.5676 19.9263 10.4928 19.8523 10.4352 19.7656C10.3777 19.6789 10.3385 19.5813 10.3203 19.4788H9.31625ZM4.42587 15.6608H5.59794L3.92581 18.2949L5.57169 20.9094H4.37994L3.26431 19.0522H3.21837L2.09881 20.9094H0.96875L2.59625 18.2634L0.9845 15.6608H2.20644L3.29844 17.5481H3.34569L4.42587 15.6608ZM6.94981 20.0248H9.17712V20.9094H5.91162V15.6608H6.94981V20.0248ZM16.9721 15.6608H18.1441L16.472 18.2949L18.1179 20.9094H16.9261L15.8105 19.0522H15.7646L14.645 20.9094H13.5149L15.1424 18.2634L13.5307 15.6608H14.7526L15.8446 17.5481H15.8919L16.9721 15.6608Z" fill="white"/>
+          </svg>
+          </button></a>
+      </div>
+    </div>
+      <section class="analysis-table" id="table1">1</section>
+      <section class="analysis-table" id="table2">2</section>
+      <section class="analysis-table" id="table3">3</section>
+      <section class="analysis-table" id="table4">4</section>
+      <section class="analysis-table" id="table5">5</section>
+      <section class="analysis-table" id="table6">6</section>
+      <section class="analysis-table" id="table7">7</section>
+      <section class="analysis-table" id="table8">8</section>
+      <section class="analysis-table" id="table9">9</section>
+      <section class="analysis-table" id="table10">10</section>
+    </main>
+  </div>
+</div>
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+<script type="text/javascript">
+  window.locals = [];
+  let u = <%- JSON.stringify(locals.link) %>
+    window.locals.push(u);
+  (async () => {
+    /* fetch and parse workbook -- see the fetch example for details */
+    const workbook = XLSX.read(await (await fetch("..\\"+locals[0])).arrayBuffer());
+
+    let output = [];
+    let worksheet = workbook.Sheets["CAM_Projection"];
+    let html = XLSX.utils.sheet_to_html(worksheet);
+    output.push(`<H3>${name}</H3>${html}`);
+    table1.innerHTML = output.join("\n");
+    
+    output = [];
+    worksheet = workbook.Sheets["Quiz 1"];
+    html = XLSX.utils.sheet_to_html(worksheet);
+    output.push(`<H3>${name}</H3>${html}`);
+    table2.innerHTML = output.join("\n");
+
+    output = [];
+    worksheet = workbook.Sheets["Sess 1"];
+    html = XLSX.utils.sheet_to_html(worksheet);
+    output.push(`<H3>${name}</H3>${html}`);
+    table3.innerHTML = output.join("\n");
+
+    output = [];
+    worksheet = workbook.Sheets["Quiz 2"];
+    html = XLSX.utils.sheet_to_html(worksheet);
+    output.push(`<H3>${name}</H3>${html}`);
+    table4.innerHTML = output.join("\n");
+
+    output = [];
+    worksheet = workbook.Sheets["Sess 2"];
+    html = XLSX.utils.sheet_to_html(worksheet);
+    output.push(`<H3>${name}</H3>${html}`);
+    table5.innerHTML = output.join("\n");
+
+    output = [];
+    worksheet = workbook.Sheets["Internal"];
+    html = XLSX.utils.sheet_to_html(worksheet);
+    output.push(`<H3>${name}</H3>${html}`);
+    table6.innerHTML = output.join("\n");
+
+    output = [];
+    worksheet = workbook.Sheets["External_new"];
+    html = XLSX.utils.sheet_to_html(worksheet);
+    output.push(`<H3>${name}</H3>${html}`);
+    table7.innerHTML = output.join("\n");
+
+    output = [];
+    worksheet = workbook.Sheets["Final_CO_Attainment"];
+    html = XLSX.utils.sheet_to_html(worksheet);
+    output.push(`<H3>${name}</H3>${html}`);
+    table8.innerHTML = output.join("\n");
+
+    output = [];
+    worksheet = workbook.Sheets["PO_Attainment"];
+    html = XLSX.utils.sheet_to_html(worksheet);
+    output.push(`<H3>${name}</H3>${html}`);
+    table9.innerHTML = output.join("\n");
+
+    output = [];
+    worksheet = workbook.Sheets["Rubrics_CO_Attainment"];
+    html = XLSX.utils.sheet_to_html(worksheet);
+    output.push(`<H3>${name}</H3>${html}`);
+    table10.innerHTML = output.join("\n");
+  })();
+</script>
+
+<script src="<%= assetPath('js/result-analysis.js') %>"></script>

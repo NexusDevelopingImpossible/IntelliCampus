@@ -11,12 +11,39 @@
   font-size: 35px;
   color: #fff;
 }
-
+.outside{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: .1rem 2rem;
+}
 .dropdown-button{
   display: flex;
   justify-content: start;
+  /* margin-left: 3rem; */
+  margin-top:1.5rem;
+}
+.transfer{
   margin-left: 3rem;
   margin-top:1.5rem;
+}
+.btn-save2{
+  background-color: 
+  rgba(253, 109, 8, 1);
+  color: #fff;
+  width: 180px;
+  height: 35px;
+  border-radius: 20px;
+  border: none;
+  font-size: 15px;
+  font-family: 'Montserrat';
+  font-weight: 300;
+  /* padding: 0.5rem; */
+}
+.btn-save2 img{
+  width: 15px;
+  /* text-align: center; */
+  margin-left: 5px;
 }
 .options{
   width:110px;

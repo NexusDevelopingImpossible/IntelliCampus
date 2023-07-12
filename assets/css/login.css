@@ -226,10 +226,13 @@ body {
 .mobile-view {
   display: none; }
 
-@media all and (max-width: 980px) {
+@media all and (max-width: 940px) {
+  html {
+    font-size: 35%; }
   .mobile-view {
     display: block; }
   body {
+    width: 100svw;
     height: 100svh;
     background-image: url("../images/bg_phone.png"); }
   .logo-title {
@@ -244,11 +247,12 @@ body {
   .container-right {
     width: 100vw; }
   .login-form {
-    width: 50rem;
-    height: 70rem;
+    width: 60rem;
+    height: 75rem;
     justify-content: center;
     gap: 5rem;
-    padding: 2.5rem 3rem 2.5rem 3rem; }
+    padding: 2.5rem 3rem 2.5rem 3rem;
+    border-radius: 30px; }
   .logo-title img {
     margin: 3rem 0;
     width: 22rem; }
@@ -303,12 +307,6 @@ body {
     width: 3.5rem; }
   .desktop-view {
     display: none !important; } }
-
-@media screen and (max-width: 376px) {
-  body {
-    height: 120vh; }
-  .login-form {
-    height: 80vh; } }
 
 /*--------------------------Passwowrd 1-------------------------*/
 .login-form-pass .email-contents {

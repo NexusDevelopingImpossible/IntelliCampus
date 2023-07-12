@@ -433,3 +433,12 @@ module.exports.res_analysis = async (req, res) => {
     console.log(error);
   }
 };
+module.exports.allot_students = async (req, res) => {
+  try {
+    return res.render("teacher/teach-allot-students", { title: "Allot Students"});
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+

@@ -21,7 +21,8 @@ body {
   height: 100vh;
   width: 15vw;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  justify-content: space-between; }
 
 .nav-smit-logo img {
   width: 12vw;
@@ -32,8 +33,7 @@ body {
 
 .tabs ul {
   display: flex;
-  flex-direction: column;
-  padding-left: 0.75vw; }
+  flex-direction: column; }
 
 .tabs ul li {
   list-style: none; }
@@ -64,9 +64,6 @@ body {
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px; }
 
-.dynamic-hover:hover {
-  padding: 2.5vh 2vw 2.5vh 1.75vw !important; }
-
 .nav-manipal-vector img {
   position: absolute;
   width: 24vw;
@@ -88,7 +85,6 @@ body {
 
 .blur {
   background: linear-gradient(136deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
-  backdrop-filter: blur(12px);
   width: auto;
   height: 100%;
   padding: 2vh 0;
@@ -113,3 +109,17 @@ body {
   display: flex;
   align-items: center;
   gap: 0.4rem; }
+
+.nexus-logo {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2.5vh; }
+
+.nexus-logo p {
+  font-size: 1vw;
+  font-weight: 100;
+  margin: auto; }
+
+.nexus-logo img {
+  width: 10vw;
+  margin: auto; }

@@ -39,6 +39,9 @@
           border: 3px solid $profile-border;
           margin-right: 0.8vw;
         }
+        .img:hover{
+          opacity: 0.9;
+        }
 
         div {
           .std-name {
@@ -277,6 +280,6 @@
     }
 
 
-    .card-internal, .mobile-header, .sidebar1{
+    .card-internal, .mobile-header{
       display: none;
     }
