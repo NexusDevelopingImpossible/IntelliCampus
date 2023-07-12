@@ -64,6 +64,9 @@ body {
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px; }
 
+.dynamic-hover:hover {
+  padding: 2.5vh 2vw 2.5vh 1.75vw !important; }
+
 .nav-manipal-vector img {
   position: absolute;
   width: 24vw;
@@ -85,6 +88,7 @@ body {
 
 .blur {
   background: linear-gradient(136deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+  backdrop-filter: blur(12px);
   width: auto;
   height: 100%;
   padding: 2vh 0;

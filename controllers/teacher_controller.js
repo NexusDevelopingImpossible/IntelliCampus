@@ -442,3 +442,12 @@ module.exports.allot_students = async (req, res) => {
 };
 
 
+module.exports.allot = async (req, res) => {
+  try {
+    return res.render("teacher/allotsubjectform", { title: "Allot Students"});
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+

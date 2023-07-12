@@ -27,6 +27,7 @@ router.post("/uploadnotes", teacherController.uploadnote);
 router.get("/result-analytics", teacherController.res_analysis);
 router.get("/view-result-analytics", resultanalysisController.view_res_analysis);
 router.get("/teach-allot-students", teacherController.allot_students);
+router.get("/allot", teacherController.allot);
 
 router.post("/uploadfile", resultanalysisController.uploadfile);
 router.get("/viewstudentattendance", teacherController.viewstudentattendance);
