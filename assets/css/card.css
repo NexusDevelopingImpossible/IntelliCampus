@@ -27,8 +27,10 @@
       width: 4.5vw;
       height: 4.5vw;
       border-radius: 50%;
-      border: 3px solid #febb8c;
+      border: 3px solid #fd6d08;
       margin-right: 0.8vw; }
+    .card1 .b1 .img:hover {
+      opacity: 0.9; }
     .card1 .b1 div .std-name {
       font-size: 2.5vh;
       font-weight: 600;
@@ -185,5 +187,5 @@
   width: 1.5vw;
   fill: #fff; }
 
-.card-internal, .mobile-header, .sidebar1 {
+.card-internal, .mobile-header {
   display: none; }

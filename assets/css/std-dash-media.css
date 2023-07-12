@@ -1,4 +1,4 @@
-@media screen and (min-width: 370px) and (max-width: 1024px) {
+@media screen and (min-width: 300px) and (max-width: 950px) {
   .navbar {
     display: none; }
   .main-page {
@@ -8,6 +8,8 @@
     height: 100svh;
     overflow: hidden; }
   .blur {
+    width: 100svw;
+    height: 100svh;
     border-radius: 0;
     overflow: auto;
     padding: 0; }
@@ -16,42 +18,30 @@
   .card4,
   .card5 {
     display: none; }
-  .dash-heading .head1 {
-    font-size: 5rem !important; }
-  .dash-heading .welcome-msg {
-    font-size: 3rem !important; }
   .cards {
     height: auto; }
+  .card {
+    border-radius: 10px; }
   .card2 {
     padding: 0 3vw;
     width: 94vw; }
     .card2 .attendence-container {
-      width: auto;
-      overflow-x: auto;
-      white-space: nowrap;
-      -ms-overflow-style: none; }
+      width: auto; }
       .card2 .attendence-container .attendence-percent {
-        display: flex;
-        gap: 5vw;
-        padding-top: 2vh;
-        padding-bottom: 3vh; }
-        .card2 .attendence-container .attendence-percent .container {
-          display: flex;
-          flex-direction: column;
-          align-items: center; }
-          .card2 .attendence-container .attendence-percent .container .circle-progress {
-            width: 20vw;
-            height: 20vw; }
-          .card2 .attendence-container .attendence-percent .container .circle-progress::before {
-            width: 17.5vw;
-            height: 17.5vw; }
+        gap: 5vw; }
+        .card2 .attendence-container .attendence-percent .container .circle-progress {
+          width: 20vw;
+          height: 20vw; }
+        .card2 .attendence-container .attendence-percent .container .circle-progress::before {
+          width: 17.5vw;
+          height: 17.5vw; }
     .card2 .attendence-container::-webkit-scrollbar {
       display: none; }
   .mobile-nav {
     display: grid !important;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 3vw;
     padding: 1vh 3vw; }
   .nav-li {
     width: auto;
@@ -87,4 +77,39 @@
   .mobile-menu a img {
     width: 11vw;
     border: 3px solid #fd6d08;
-    border-radius: 50%; } }
+    border-radius: 50%; }
+  .sidebar1 {
+    position: absolute;
+    top: 0;
+    background: rgba(57, 3, 0, 0.688);
+    backdrop-filter: blur(12px);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .sidebar1 a img {
+    width: 25vw;
+    margin-top: 8vh;
+    margin-bottom: 1h;
+    border-radius: 50%;
+    border: 2px solid #FD6D08; }
+  .std-name {
+    font-size: 3vh;
+    font-weight: 600; }
+  .reg {
+    font-size: 2.5vh;
+    font-weight: 100; }
+  .sidebar1 div {
+    margin-top: 2vh; }
+  .sidebar1 div h1 {
+    padding-bottom: 1.5vh;
+    display: flex;
+    width: 55vw;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2.2vh;
+    font-weight: 200; }
+  .sidebar1 div h1 span {
+    font-weight: 500;
+    padding-left: 5vw; } }

@@ -1,4 +1,4 @@
-@media screen and (min-width: 370px) and (max-width: 1024px) {
+@media screen and (min-width: 300px) and (max-width: 950px) {
   .navbar {
     display: none;
   }
@@ -12,6 +12,8 @@
     // background-position: 3;
   }
   .blur {
+    width: 100svw;
+    height: 100svh;
     border-radius: 0;
     overflow: auto;
     padding: 0;
@@ -24,18 +26,12 @@
     display: none;
   }
 
-  .dash-heading {
-    .head1 {
-      font-size: 5rem !important;
-    }
-
-    .welcome-msg {
-      font-size: 3rem !important;
-    }
-  }
 
   .cards {
     height: auto;
+  }
+  .card{
+    border-radius: 10px;
   }
   .card2 {
     // height: 27vh;
@@ -44,20 +40,11 @@
 
     .attendence-container {
       width: auto;
-      overflow-x: auto;
-      white-space: nowrap;
-      -ms-overflow-style: none;
 
       .attendence-percent {
-        display: flex;
         gap: 5vw;
-        padding-top: 2vh;
-        padding-bottom: 3vh;
 
         .container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
 
           .circle-progress {
             width: 20vw;
@@ -83,7 +70,7 @@
     display: grid !important;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 3vw;
     padding: 1vh 3vw;
   }
   .nav-li {
@@ -133,15 +120,48 @@
     border-radius: 50%;
   }
 
-  // .sidebar1 {
-  //   position: absolute;
-  //   top: 0;
-  //   background: rgb(57, 3, 0);
-  //   // backdrop-filter: blur(77px);
-  //   width: 100vw;
-  //   height: 100vh;
-  //   display: flex;
-  //   justify-content: end;
-  // }
+  .sidebar1 {
+    position: absolute;
+    top: 0;
+    background: rgba(57, 3, 0, 0.688);
+    backdrop-filter: blur(12px);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar1 a img{
+    width: 25vw;
+    margin-top: 8vh;
+    margin-bottom: 1h;
+    border-radius: 50%;
+  border: 2px solid #FD6D08;
+  }
   
+  .std-name{
+    font-size: 3vh;
+    font-weight: 600;
+  }
+  .reg{
+    font-size: 2.5vh;
+    font-weight: 100;
+  }
+  .sidebar1 div{
+    margin-top: 2vh;
+  }
+  .sidebar1 div h1{
+    padding-bottom: 1.5vh;
+    display: flex;
+    width: 55vw;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2.2vh;
+    font-weight: 200;
+  }
+  .sidebar1 div h1 span{
+    font-weight: 500;
+    padding-left: 5vw;
+  }
 }
