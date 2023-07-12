@@ -307,12 +307,16 @@ gap: 2.5rem;
   display: none;
 }
 
-@media all and (max-width: 980px) {
+@media all and (max-width: 940px) {
+  html{
+    font-size: 35%;
+  }
   .mobile-view {
     display: block;
   }
 
   body {
+    width: 100svw;
     height: 100svh;
     background-image: url("../images/bg_phone.png");
   }
@@ -336,11 +340,12 @@ gap: 2.5rem;
   }
 
   .login-form {
-    width: 50rem;
-    height: 70rem;
+    width: 60rem;
+    height: 75rem;
     justify-content: center;
     gap: 5rem;
     padding: 2.5rem 3rem 2.5rem 3rem;
+    border-radius: 30px;
   }
 
   .logo-title img {
@@ -424,15 +429,12 @@ gap: 2.5rem;
   }
 }
 
-@media screen and (max-width: 376px) {
-  body {
-    height: 120vh;
-  }
+// @media screen and (max-width: 376px) {
 
-  .login-form {
-    height: 80vh;
-  }
-}
+//   .login-form {
+//     height: 80vh;
+//   }
+// }
 
 
 /*--------------------------Passwowrd 1-------------------------*/
