@@ -1,8 +1,10 @@
 
   function onclicked(id) {
+    "use strict";
     check(id);
   }
   function check(stringid) {
+    "use strict";
     let id = parseInt(stringid);
     if (0 < id && id < 6) {
       let selected = document.getElementById(id);
