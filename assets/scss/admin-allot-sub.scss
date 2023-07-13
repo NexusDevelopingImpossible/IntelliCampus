@@ -1,40 +1,17 @@
 /* Main Content */
 .main__content {
-  padding: 2rem 6rem;
-  position: relative;
 }
-.main__title {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-.main__title button {
-  background: none;
-  border: none;
-}
-.back_btn_icon {
-  font-size: 2.5rem;
-  color: #fff;
-  font-weight: 600;
-  transition: all 0.3s;
-}
-.back_btn_icon:hover {
-  color: #ffffff8e;
-}
-.main__title__name {
-  font-size: 1.8rem;
-  color: #fff;
-  font-weight: 600;
-}
+
 
 /* ALLOT-1 */
 .allot__1 {
   // display: none;
 }
 .reg__section {
-  padding: 3rem 0;
+  padding: 2vh 5.5vw;
   display: flex;
-  gap: 3rem;
+  align-items: center;
+  gap: 2vw;
 }
 .reg__section input {
   padding: 0.7rem 1rem;
@@ -53,6 +30,9 @@
   color: #ffffff78;
 }
 
+#reg-path button{
+  height: 6vh;
+}
 .notification {
   padding-top: 4rem;
   display: flex;
