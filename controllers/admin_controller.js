@@ -312,6 +312,23 @@ module.exports.allottg = async (req, res) => {
 };
 
 
+module.exports.add_dept = async (req, res) => {
+  try {
+    return res.render("admin/addDepartment", { title: "Add Department"});
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports.add_program = async (req, res) => {
+  try {
+    return res.render("admin/addProgram", { title: "Add Program"});
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
 module.exports.allottg_std = async (req, res) => {
   try {
     return res.render("admin/allottg-std", { title: "Allot TG to Students"});

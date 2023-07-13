@@ -20,6 +20,8 @@ router.get("/notification", adminController.notification);
 router.post("/createnoti", adminController.createnoti);
 router.get("/allottg", adminController.allottg);
 router.get("/allottg-std", adminController.allottg_std);
+router.get("/add-dept", adminController.add_dept);
+router.get("/add-program", adminController.add_program);
 
 
 module.exports = router;

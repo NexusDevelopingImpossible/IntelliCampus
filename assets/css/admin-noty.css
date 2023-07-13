@@ -18,6 +18,15 @@
 .overlay.show {
   display: block; }
 
+#pop-main {
+  display: none;
+  position: absolute;
+  top: 2%;
+  width: 84vw;
+  height: 96vh;
+  border-radius: 2.75vw;
+  backdrop-filter: blur(12px); }
+
 /* Modal */
 .modal {
   display: none;
@@ -26,11 +35,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 300;
+  margin: auto;
   width: 600px;
   border: 1px solid #ffffff7a;
   border-radius: 15px;
-  overflow: hidden;
-  z-index: 2; }
+  overflow: hidden; }
 
 /* adding the show class */
 .modal.show {
