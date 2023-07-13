@@ -23,5 +23,8 @@ router.get("/allottg-std", adminController.allottg_std);
 router.get("/add-dept", adminController.add_dept);
 router.get("/add-program", adminController.add_program);
 
+router.get("/tgsearch/:id", adminController.tgsearch);
+router.post("/addward", adminController.addward);
+
 
 module.exports = router;

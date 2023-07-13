@@ -1,112 +1,99 @@
-
 <link rel="stylesheet" href="<%= assetPath('css/admin-allottg.css') %>">
 
 
 <div class="main-page">
- <div class="blur">
-    <div class="main__content">
-        <div class="page-heading">
-            <a href="/teacher/dashboard"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
-            <h1 class="heading">Allot Tg to students</h1>
-          </div>
-        <div class="allot__2" id="section2">
-            <div class="teacher__and__btn">
-                <div class="teacher">
-                    <div class="image">
-                        <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
-                            alt="">
-                    </div>
-                    <div class="teacher__details">
-                        <h3 class="name">
-                            Mr Teacher
-                        </h3>
-                        <p class="designation">
-                            Professor and HOD <br> Department of IT
-                        </p>
-                    </div>
-               
-                </div>
-                <div class="import-bnt">
-                    <a href="#"><div class="template-btn btn btn-outline" type="submit">Download Template</div></a>
-                <div class="input-file">
-                    <!-- <input type="file" name="fileexcel" id=""> -->
-                    <label class="custom-file-upload">
-                        <input id="select-file" type="file" name="fileexcel" />
-                        <span id="file-name">Import your file here</span>
-                    </label>
-                    <button class="submit-btn btn btn-full btn-medium">Submit</button>
-                </div>
-              
+    <div class="blur">
+        <div class="main__content">
+            <div class="page-heading">
+                <a href="/admin/dashboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                        <path
+                            d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z" />
+                    </svg></a>
+                <h1 class="heading">Allot Tg to students</h1>
             </div>
-            </div>
+            <div class="allot__2" id="section2">
+                <div class="teacher__and__btn">
+                    <div class="teacher">
+                        <div class="image">
+                            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                                alt="">
+                        </div>
+                        <div class="teacher__details">
+                            <h3 class="name">
+                                <%=teacher.name%>
+                            </h3>
+                            <p class="designation">
+                                <%=teacher.position%> <br> Department of <%=teacher.department%>
+                            </p>
+                        </div>
 
-            <div class="description">
-                <div class="description__titles">
-                    <ul>
-                        <li>Registration No</li>
-                        <li>Student Name</li>
-                        <li>Phone No</li>
-                        <li>Branch</li>
-                        <li>Dept</li>
-                        <li>Sem</li>
-                        <li>Sec</li>
-                        <li></li>
-
-                        <!-- <li>Delete</li> -->
-                    </ul>
+                    </div>
+                    <div class="import-bnt">
+                        <a href="..\..\data\template_tg.xlsx">
+                            <div class="template-btn btn btn-outline" type="submit">Download Template</div>
+                        </a>
+                        <form action="/admin/addward" method="post" enctype="multipart/form-data">
+                            <input type="hidden" value="<%=teacher._id%>" name="teacherid">
+                            <div class="input-file">
+                                <label class="custom-file-upload">
+                                    <input id="select-file" type="file" name="fileexcel" required/>
+                                    <span id="file-name">Import your file here</span>
+                                </label>
+                                <button class="submit-btn btn btn-full btn-medium">Submit</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="description-scroll">
 
-                    <div class="description__list">
+                <div class="description">
+                    <div class="description__titles">
                         <ul>
-                            <li>202100423</li>
-                            <li>Srijan Dev</li>
-                            <li>8789334294</li>
-                            <li>BTECH</li>
-                            <li>IT</li>
-                            <li>4</li>
-                            <li>A</li>
-                            <li><a class="del-btn" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" ><path d="M261-120q-24.75 0-42.375-17.625T201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"/></svg></a></li>
+                            <li>Registration No</li>
+                            <li>Student Name</li>
+                            <li>Phone No</li>
+                            <li>Branch</li>
+                            <li>Dept</li>
+                            <li>Sem</li>
+                            <li>Sec</li>
+                            <li></li>
+
+                            <!-- <li>Delete</li> -->
                         </ul>
-                        <ul>
-                            <li>202100423</li>
-                            <li>Srijan Dev</li>
-                            <li>8789334294</li>
-                            <li>BTECH</li>
-                            <li>IT</li>
-                            <li>4</li>
-                            <li>A</li>
-                            <li><a class="del-btn" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" ><path d="M261-120q-24.75 0-42.375-17.625T201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"/></svg></a></li>
-                        </ul>
-                        <ul>
-                            <li>202100423</li>
-                            <li>Srijan Dev</li>
-                            <li>8789334294</li>
-                            <li>BTECH</li>
-                            <li>IT</li>
-                            <li>4</li>
-                            <li>A</li>
-                            <li><a class="del-btn" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" ><path d="M261-120q-24.75 0-42.375-17.625T201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"/></svg></a></li>
-                        </ul>
-                        <ul>
-                            <li>202100423</li>
-                            <li>Srijan Dev</li>
-                            <li>8789334294</li>
-                            <li>BTECH</li>
-                            <li>IT</li>
-                            <li>4</li>
-                            <li>A</li>
-                            <li><a class="del-btn" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" ><path d="M261-120q-24.75 0-42.375-17.625T201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"/></svg></a></li>
-                        </ul>
+                    </div>
+                    <div class="description-scroll">
+                        <div class="description__list">
+                            <%for(let i = 0; i<tgdata.length; i++){%>
+                            <ul>
+                                <li><%=tgdata[i].studentid.username%></li>
+                                <li><%=tgdata[i].studentid.name%></li>
+                                <li>8789334294</li>
+                                <li>BTECH</li>
+                                <li><%=tgdata[i].studentid.department%></li>
+                                <li><%=tgdata[i].studentid.semester%></li>
+                                <li><%=tgdata[i].studentid.section%></li>
+                                <li><a class="del-btn" href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                            <path
+                                                d="M261-120q-24.75 0-42.375-17.625T201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z" />
+                                        </svg></a></li>
+                            </ul>
+                            <%}%>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
+    </div>
 </div>
+<script>
+    let selectFile = document.getElementById("select-file");
+    let fileName = document.getElementById("file-name");
 
-<script src="<%= assetPath('js/allotsubject.js') %>"></script>
+    selectFile.addEventListener("change", function (e) {
+        console.log(selectFile.files[0].name);
+        fileName.innerHTML = selectFile.files[0].name;
+
+    })
+
+
+</script>

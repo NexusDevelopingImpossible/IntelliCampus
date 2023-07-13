@@ -7,10 +7,11 @@ const Admin = require("../models/admin");
 const checkurlfunct = require("./server-function");
 const Calendar = require("../models/calendar");
 const Noti = require("../models/notification");
+const TG = require("../models/tg");
 const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
-
+const XLSX = require("xlsx");
 //Dashboard
 module.exports.dashboard = async (req, res) => {
   try {
@@ -305,11 +306,94 @@ module.exports.createnoti = async function (req, res) {
 
 module.exports.allottg = async (req, res) => {
   try {
-    return res.render("admin/allottg", { title: "Allot TG"});
+    return res.render("admin/allottg", { title: "Allot TG" });
   } catch (error) {
     console.log(error);
   }
 };
+
+module.exports.allottg_std = async (req, res) => {
+  try {
+    return res.render("admin/allottg-std", { title: "Allot TG to Students" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports.tgsearch = async (req, res) => {
+  try {
+    console.log(req.params.id);
+    let teacherdata = await Teacher.findOne({
+      username: req.params.id,
+    });
+    if (!teacherdata) {
+      req.flash("error", "Teacher does not exist.");
+      res.redirect("back");
+    }
+    let tgdata = await TG.find({ teacherid: teacherdata._id }).populate('studentid');
+    console.log("TG: ", tgdata);
+    return res.render("admin/allottg-std", {
+      title: "Allot TG to Students",
+      teacher: teacherdata,
+      tgdata,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports.addward = async (req, res) => {
+  try {
+    try {
+      let path = await new Promise((resolve, reject) => {
+        TG.uploadfileexcel(req, res, function (error) {
+          if (error) {
+            console.log("** Multer error:", error);
+            reject(error);
+          }
+          resolve(TG.uploadpath + "\\" + req.file.filename);
+        });
+      });
+    } catch (error) {
+      console.log(error)
+    }
+    let url = TG.uploadpath + "\\" + req.file.filename;
+    url = url.slice(1);
+    const workbook = XLSX.readFile(url);
+    const worksheet = workbook.Sheets["Ward_List"];
+    for (let i = 2; i < 50; i++) {
+      try {
+        let cellToUpdate = String("A" + i);
+        // console.log("Cell: ",cellToUpdate);
+        if (!worksheet[cellToUpdate]) {
+          break;
+        }
+        console.log(worksheet[cellToUpdate].v);
+        let std_registration = Number(worksheet[cellToUpdate].v);
+        console.log(std_registration);
+        let studentdata = await Student.findOne({ username: std_registration });
+        // console.log(studentdata);
+        let tgcheck = await TG.findOne({ studentid: studentdata._id });
+        console.log("Check: ", tgcheck);
+        if (!tgcheck) {
+          console.log("Created");
+          await TG.create({
+            teacherid: req.body.teacherid,
+            studentid: studentdata._id,
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    return res.redirect("back");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+
 
 
 module.exports.add_dept = async (req, res) => {
@@ -327,14 +411,3 @@ module.exports.add_program = async (req, res) => {
     console.log(error);
   }
 };
-
-
-module.exports.allottg_std = async (req, res) => {
-  try {
-    return res.render("admin/allottg-std", { title: "Allot TG to Students"});
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-
