@@ -1,0 +1,103 @@
+.add-program-1 {
+  display: flex;
+  padding-left: 5rem;
+  align-self: center;
+  margin-top: 30px; }
+
+.options {
+  width: 208px;
+  height: 52px;
+  font-weight: 300;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  font-size: 15px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.12); }
+
+.options option {
+  font-size: 20px;
+  color: black; }
+
+.dropdown-button {
+  display: flex; }
+
+.options:focus {
+  outline: 2px solid orange;
+  /* oranges! yey */
+  border: none; }
+
+.prog-inp {
+  width: 383px;
+  height: 53px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 2.6rem;
+  font-size: 20px;
+  color: white;
+  padding-left: 1rem; }
+
+.prog-inp::placeholder {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400; }
+
+.add-btn {
+  width: 115px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #fd6d08;
+  border: none;
+  color: white;
+  font-family: Montserrat;
+  font-size: 19px;
+  font-weight: 500; }
+
+.add-btn:hover {
+  cursor: pointer; }
+
+.add-program-1:nth-child(1) {
+  margin-right: 3rem; }
+
+.options::selection {
+  border: 1px solid orange; }
+
+input[type="text"]:focus {
+  outline: 2px solid orange;
+  /* oranges! yey */
+  border: none; }
+
+input:focus::-webkit-input-placeholder {
+  opacity: 0; }
+
+.prog-div {
+  width: 200px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: rgba(248, 213, 123, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem; }
+
+.prog-div p {
+  color: #fff;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500; }
+
+.trash {
+  color: white;
+  font-size: 25px; }
+
+.trash:hover {
+  cursor: pointer; }
+
+.prog-grid {
+  padding-left: 5rem;
+  padding-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; }
