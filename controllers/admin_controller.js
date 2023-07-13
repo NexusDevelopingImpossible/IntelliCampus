@@ -302,3 +302,22 @@ module.exports.createnoti = async function (req, res) {
     console.log(error);
   }
 };
+
+module.exports.allottg = async (req, res) => {
+  try {
+    return res.render("admin/allottg", { title: "Allot TG"});
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+module.exports.allottg_std = async (req, res) => {
+  try {
+    return res.render("admin/allottg-std", { title: "Allot TG to Students"});
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
