@@ -1,0 +1,84 @@
+.main-page .blur .main-table {
+  margin-top: 3vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .main-page .blur .main-table div #marks-display {
+    overflow: auto;
+    height: 73vh; }
+    .main-page .blur .main-table div #marks-display #marks-display::-webkit-scrollbar {
+      display: none; }
+    .main-page .blur .main-table div #marks-display #marks {
+      width: 75vw;
+      text-align: center;
+      font-size: larger;
+      border-collapse: collapse;
+      color: white; }
+      .main-page .blur .main-table div #marks-display #marks th {
+        font-size: 1.75vh;
+        font-weight: 300;
+        border-right: 0.01px solid rgba(255, 255, 255, 0.2); }
+      .main-page .blur .main-table div #marks-display #marks th:first-child {
+        border-top-left-radius: 10px; }
+      .main-page .blur .main-table div #marks-display #marks th:last-child {
+        border-top-right-radius: 10px; }
+      .main-page .blur .main-table div #marks-display #marks td {
+        border: 0.5px solid rgba(255, 255, 255, 0.4);
+        font-size: 2vh; }
+      .main-page .blur .main-table div #marks-display #marks #markers td {
+        border: none !important; }
+      .main-page .blur .main-table div #marks-display #marks #markers .mark-td {
+        border: none !important;
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px; }
+        .main-page .blur .main-table div #marks-display #marks #markers .mark-td div {
+          background-color: #ffffff1a;
+          padding: 0.75vh 0;
+          margin: auto; }
+      .main-page .blur .main-table div #marks-display #marks #markers .mark-att div {
+        border-top-left-radius: 10px;
+        border-right: 0.5px solid #ffffff38 !important; }
+      .main-page .blur .main-table div #marks-display #marks #markers .mark-int div {
+        border-top-right-radius: 10px; }
+      .main-page .blur .main-table div #marks-display #marks #tb-header {
+        background-color: #390300d6;
+        opacity: 50%;
+        height: 6vh; }
+        .main-page .blur .main-table div #marks-display #marks #tb-header th {
+          width: 3vw; }
+      .main-page .blur .main-table div #marks-display #marks #sub-row .subject {
+        text-align: left;
+        height: 5vh;
+        padding: 5px 0;
+        background-color: #f8d57b1a;
+        width: 17vw;
+        padding-left: 1vw; }
+        .main-page .blur .main-table div #marks-display #marks #sub-row .subject .sub-inf {
+          display: flex;
+          align-items: center; }
+          .main-page .blur .main-table div #marks-display #marks #sub-row .subject .sub-inf .sub-code {
+            font-weight: 100;
+            padding-right: 1vw;
+            width: 6vw;
+            font-size: 2vh; }
+          .main-page .blur .main-table div #marks-display #marks #sub-row .subject .sub-inf .sub-title {
+            text-align: left;
+            font-size: 2vh; }
+      .main-page .blur .main-table div #marks-display #marks #sub-row .total-marks {
+        background-color: #b78f301a; }
+
+.main-page .blur #footnote {
+  display: flex;
+  justify-content: center; }
+  .main-page .blur #footnote div {
+    margin-top: 2.5vh;
+    width: 75vw;
+    display: flex;
+    justify-content: space-between; }
+    .main-page .blur #footnote div .note {
+      display: inline;
+      font-size: 1.75vh; }
+      .main-page .blur #footnote div .note .note-tit {
+        font-weight: 500; }
+      .main-page .blur #footnote div .note .note-data {
+        font-weight: 100; }
