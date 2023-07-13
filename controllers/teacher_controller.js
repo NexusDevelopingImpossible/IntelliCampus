@@ -450,4 +450,12 @@ module.exports.allot = async (req, res) => {
   }
 };
 
+module.exports.assignment_check = async (req, res) => {
+  try {
+    return res.render("teacher/subject/assignment_check", { title: "Assignment Check"});
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 
