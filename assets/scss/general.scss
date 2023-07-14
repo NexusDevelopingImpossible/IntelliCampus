@@ -79,7 +79,10 @@ select {
 //   width: 2.5vw;
 // }
 
-
+.page-heading h1{
+  font-size: 4vh;
+  font-weight: 600;
+}
 .tab-icon, .page-heading svg{
   width: 1.65vw;
   fill: #fff;

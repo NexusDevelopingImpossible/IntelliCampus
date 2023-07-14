@@ -1,7 +1,7 @@
 
 /* mode-and-button */
 .mode__and__button{
-    padding: 0 8rem;
+    padding: 0 7.5vw;
     height: 6vh;
     align-items: center;
     display: flex;
@@ -10,7 +10,7 @@
 .left,
 .right{
     display: flex;
-    gap: 1.5rem;
+    gap: 1.5vw;
 }
 
 .date input{
@@ -31,17 +31,17 @@
 
 /* List */
 .list__main{
-    padding: 1rem 8rem;
+    padding: 2vh 7.5vw;
 }
 .list__main__title ul{
     list-style-type: none;
     display: flex;
-    gap: 1rem;
+    gap: 1vw;
     background: rgba(0, 0, 0, 0.12);
     border-radius: 10px;
-    padding: 0.5rem 1rem;
+    padding: 1.3vh 1vw;
     color: #fff;
-    margin-bottom: 1rem;
+    margin-bottom: 2.5vh;
 }
 .list__main__title ul li{
     font-size: 0.9rem;
@@ -81,7 +81,7 @@ input[type="checkbox"]::before {
     content: "\25CF";
     border-radius: 50%;
     position: absolute;
-    font-size: 1.9rem;
+    font-size: 2.9vh;
     right: 0px;
     top: -10px;
     color: #FD6D08;
@@ -92,17 +92,20 @@ input[type="checkbox"]:checked::before{
 }
 /* list-items */
 .list__items{
-    padding-bottom: 0.4rem;
+    padding-bottom: 1.4vh;
 }
 .list__items ul{
     list-style-type: none;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1vw;
     background: rgba(248, 213, 123, 0.15);    
     border-radius: 7px;
-    padding: 0.5rem 1rem;
+    padding: 1.3vh 1vw;
     color: #fff;
+}
+.list__items ul li{
+    font-size: 1rem;
 }
 .list__items ul li:nth-child(1),
 .list__items ul li:nth-child(4),
@@ -164,9 +167,8 @@ select option{
     justify-content: space-between;
     background: #fd6e082d;
     border: 0.5px solid #fff;
-    // padding: 0.5rem;
     padding: 1.1vh 1vw;
-    font-size: 1rem;
+    font-size: 2vh;
     font-weight: 400;
     border-radius: 15px;
     align-items: center;
@@ -187,7 +189,7 @@ select option{
     border-radius: 0px 0px 10px 10px;
     overflow-y: auto;
     height: auto;
-    max-height: 15rem;
+    max-height: 30vh;
     background: #0000004b;
     box-shadow: 0 0 3px rgba(0,0,0,0.1);
     display: none;
@@ -201,7 +203,7 @@ select option{
 .options .option1{
     display: flex;
     cursor: pointer;
-    padding: 0.4rem 0rem;
+    padding: 1.5vh 0;
     align-items: center;
     justify-content: center;
     width: 140px;
@@ -214,6 +216,6 @@ select option{
     font-size: 25px;
 }
 .option1 .option-text{
-    font-size: 1rem;
+    font-size: 2vh;
     color: #fff;
 }

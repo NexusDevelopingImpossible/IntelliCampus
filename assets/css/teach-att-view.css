@@ -1,11 +1,11 @@
 .student-info {
   width: 65vw;
   margin: auto;
-  padding-bottom: 2rem; }
+  padding-bottom: 4vh; }
 
 .std-info {
   background-color: #00000025;
-  padding: 1rem 1.5rem;
+  padding: 2vh 1.5vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,57 +17,54 @@
 .profile-info {
   display: flex;
   align-items: center;
-  gap: 0.75rem; }
+  gap: 0.75vw; }
 
 .student__details .name {
   color: #fff;
   font-weight: 500;
-  font-size: 1.3rem; }
+  font-size: 2.4vh; }
 
 .student__details .registration {
   color: #fff;
-  font-size: 1rem;
-  padding: 0.3rem 0;
-  font-weight: 100;
-  /* font-size: 1rem; */ }
+  font-size: 2vh;
+  font-weight: 100; }
 
 .image {
-  width: 3.5rem;
-  height: 3.5rem; }
+  width: 3.75vw;
+  height: 3.75vw; }
 
 .image img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 3px solid #fd6d08;
-  /* margin-right: 0.5rem; */ }
+  border: 3px solid #fd6d08; }
 
 .attendance-info {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem; }
+  gap: 1.4vh; }
 
 .attendance-info div {
   display: flex;
-  gap: 1rem; }
+  gap: 1vw; }
 
 .std-btn {
   display: flex;
-  gap: 1rem; }
+  gap: 1vw; }
 
 .export {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 0.75rem !important;
-  width: 7rem !important; }
+  padding: 0 0.75vw !important;
+  width: 7vw !important; }
 
 .export img {
   width: 17px;
   height: 17px; }
 
 .attendance-info span {
-  padding-left: 0.5rem;
+  padding-left: 0.5vw;
   font-weight: 600; }
 
 .date-list {
@@ -118,11 +115,11 @@
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 20px;
-  font-size: 1rem;
+  font-size: 2vh;
   color: #ffffff; }
 
 .search-btn {
-  padding: 0.75rem 1rem;
+  padding: 1.75vh 1vw;
   background: #00000037;
   color: #fff;
   border-radius: 19px;
@@ -137,10 +134,10 @@
   border-radius: 20px;
   background: transparent;
   border: none;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
+  padding: 1.75vh 1vw;
+  font-size: 2vh;
   color: #ffffff;
-  width: 25rem; }
+  width: 25vw; }
 
 .search-input input:focus {
   outline: none; }
@@ -159,7 +156,7 @@
 
 .export-btn {
   text-decoration: none;
-  padding: 0.75rem 1.2rem;
+  padding: 1.5vh 1.2vw;
   background: #fd6d08;
   width: 8.5vw;
   color: #fff;
@@ -172,7 +169,7 @@
 
 .tab-header {
   height: 6vh;
-  padding: 0 8rem;
+  padding: 0 7.5vw;
   display: flex;
   align-items: center;
   justify-content: space-between; }
@@ -183,32 +180,31 @@
 .student-profile {
   overflow-y: auto;
   max-height: 65vh;
-  margin-top: 1.5rem; }
+  margin-top: 2.5vh; }
 
 .student-profile::-webkit-scrollbar {
   display: none; }
 
 .Alphabet {
   float: left;
-  padding-top: 1rem; }
+  padding-top: 2vh; }
 
 .serial_naming {
   display: flex; }
 
 .stu_list {
-  padding: 0 8rem; }
+  padding: 0 7.5vw; }
 
 .postcard {
   background-color: rgba(255, 255, 255, 0.1);
-  width: 10rem;
-  height: 9rem;
+  width: 11.75vw;
+  height: 19vh;
   border-radius: 10px;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
-  padding: 0.5rem;
+  margin-bottom: 2.5vh;
   position: relative;
   transition: all 0.1s; }
 
@@ -216,7 +212,7 @@
   background-color: rgba(255, 255, 255, 0.169); }
 
 .order {
-  font-size: 2rem;
+  font-size: 4vh;
   font-weight: lighter;
   display: inline-block; }
 
@@ -228,17 +224,17 @@
 
 .stu_name {
   font-weight: 500;
-  padding-top: 0.3rem; }
+  padding-top: 1.3vh; }
 
 .stu_reg_no {
   font-weight: 100; }
 
 .mark {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  width: 1rem;
-  height: 1rem;
+  top: 1.3vh;
+  right: 0.7vw;
+  width: 1vw;
+  height: 1vw;
   border-radius: 100%; }
 
 .present {
