@@ -411,3 +411,33 @@ module.exports.add_program = async (req, res) => {
     console.log(error);
   }
 };
+
+module.exports.spotsearch = async (req, res) => {
+  try {
+    // console.log(parseFloat(req.params.id))
+    // console.log(isNaN(req.params.id))
+    // if(isNaN(req.params.id)){
+      let result = await Teacher.find({name: {$regex: new RegExp('^'+ req.params.id +'.*', 'i')}}).limit(5);
+      let result1 = await Student.find({name: {$regex: new RegExp('^'+ req.params.id +'.*', 'i')}}).limit(5);
+    // }
+    // if(!isNaN(parseFloat(req.params.id))){
+    //   let str = parseFloat(req.params.id)
+    //   let result = await Teacher.find({username: {$regex: new RegExp('^'+ str +'.*', 'i')}}).limit(5);
+    //   let result1 = await Student.find({username: {$regex: new RegExp('^'+ str +'.*', 'i')}}).limit(5);
+    // }
+    
+  console.log(result);
+  console.log(result1);
+  if (req.xhr) {
+    return res.status(200).json({
+      data: {
+        result: result,
+        result1: result1
+      },
+    });
+  }
+    return res.redirect('back');
+  } catch (error) {
+    console.log(error);
+  }
+};

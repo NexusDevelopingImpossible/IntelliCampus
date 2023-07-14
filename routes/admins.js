@@ -25,6 +25,6 @@ router.get("/add-program", adminController.add_program);
 
 router.get("/tgsearch/:id", adminController.tgsearch);
 router.post("/addward", adminController.addward);
-
+router.get("/spotsearch/:id", adminController.spotsearch);
 
 module.exports = router;

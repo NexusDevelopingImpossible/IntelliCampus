@@ -296,12 +296,16 @@
 .spot-item {
   font-size: 2.5vh;
   padding: 1rem;
+  color: #ffffff5e;
 }
 
 .spot-item:hover {
   background-color: #ffffff16;
   padding: 1rem;
   border-radius: 5px;
+}
+.spot-item span{
+  color: #ffffff;
 }
 
 #close-btn{
