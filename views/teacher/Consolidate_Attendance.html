@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../../assets/scss/Consolidate_Attendance.css">
+    <link rel="stylesheet" href="../../assets/css/navbar.css">
+    <link rel="stylesheet" href="../../assets/scss/assignment.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <section class="main-container">
+        <div class="navbar">
+            <div class="nav-smit-logo">
+                <img src="../../assets/images/SMIT HIGH RES LOGO WHITE 1.png" alt="" />
+            </div>
+            <div class="tabs">
+                <ul>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/dashboard.png" alt="" /></span>
+                            <span class="tab-name">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/PROFILE ICON.png" alt="" /></span>
+                            <span class="tab-name">Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/Edit-ID.png" alt="" /></span>
+                            <span class="tab-name">Edit ID</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/Allot-subject.png" alt="" /></span>
+                            <span class="tab-name">Allot Subject</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/timetable.png" alt="" /></span>
+                            <span class="tab-name">Timetable</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/Change-semester.png" alt="" /></span>
+                            <span class="tab-name">Semester</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/Feedback.png" alt="" /></span>
+                            <span class="tab-name">Feedback</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/Report.png" alt="" /></span>
+                            <span class="tab-name">Report</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/setting.png" alt="" /></span>
+                            <span class="tab-name">Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/signout.png" alt="" /></span>
+                            <span class="tab-name" id="1">Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nav-manipal-vector">
+                <img src="../../assets/images/manipal-vector.png" alt="" />
+            </div>
+        </div>
+
+        <div class="main-page">
+            <div class="blur">
+                <div id="heading">
+                    <button id="back-bttn"><img src="../../assets/images/lefty_arrow.png" alt="" id="back-img"></button>
+                    <h1 id="heading-title">Consolidate Attendance</h1>
+                </div>
+                <div id="view-options">
+                    <div id="attendance-filters">
+                        <button class="filter"><span class="filter-name">Course</span><img src="../../assets/images/down-arr.svg" alt="" class="down-arr"></button>
+                        <button class="filter"><span class="filter-name">Department</span><img src="../../assets/images/down-arr.svg" alt="" class="down-arr"></button>
+                        <button class="filter"><span class="filter-name">Semester</span><img src="../../assets/images/down-arr.svg" alt="" class="down-arr"></button>
+                        <button class="filter"><span class="filter-name">Section</span><img src="../../assets/images/down-arr.svg" alt="" class="down-arr"></button>
+                        <button class="filter"><span class="filter-name">Attendance</span><img src="../../assets/images/down-arr.svg" alt="" class="down-arr"></button>
+                    </div>
+                    <button id="option"><span id="option-name">View</span></button>
+                </div>
+                <div id="attendance-table">
+                    <div id="student-details-container">
+                        <table id="student-details">
+                            <tr class="table-header"><th class="table-heading">Student</th></tr>
+                            <tr class="sub-title"><td> </td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                            <tr class="student-detail"><td class="detail-value"><span class="reg-no">202100435</span><span class="stu-name">Srijan Dev</span></td></tr>
+                        </table>
+                    </div>
+                    <div class="subject-list-container">
+                        <table id="subject-list">
+                            <tr class="table-header"><th class="table-header-value" colspan="3"><div class="sub-code">BP1390</div><div class="sub-name">Constitution of <br> India(T)</div></th></tr>
+                            <tr class="sub-title"><td class="sub-title-name">CLC</td><td class="sub-title-name">CLA</td><td class="sub-title-name">PER</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                        <table id="subject-list">
+                            <tr class="table-header"><th class="table-header-value" colspan="3"><div class="sub-code">BP1390</div><div class="sub-name">Constitution of <br> India(T)</div></th></tr>
+                            <tr class="sub-title"><td class="sub-title-name">CLC</td><td class="sub-title-name">CLA</td><td class="sub-title-name">PER</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                        </table>
+                        <table id="subject-list">
+                            <tr class="table-header"><th class="table-header-value" colspan="3"><div class="sub-code">BP1390</div><div class="sub-name">Constitution of <br> India(T)</div></th></tr>
+                            <tr class="sub-title"><td class="sub-title-name">CLC</td><td class="sub-title-name">CLA</td><td class="sub-title-name">PER</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                        </table>
+                        <table id="subject-list">
+                            <tr class="table-header"><th class="table-header-value" colspan="3"><div class="sub-code">BP1390</div><div class="sub-name">Constitution of <br> India(T)</div></th></tr>
+                            <tr class="sub-title"><td class="sub-title-name">CLC</td><td class="sub-title-name">CLA</td><td class="sub-title-name">PER</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                        </table>
+                        <table id="subject-list">
+                            <tr class="table-header"><th class="table-header-value" colspan="3"><div class="sub-code">BP1390</div><div class="sub-name">Constitution of <br> India(T)</div></th></tr>
+                            <tr class="sub-title"><td class="sub-title-name">CLC</td><td class="sub-title-name">CLA</td><td class="sub-title-name">PER</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                        </table>
+                        <table id="subject-list">
+                            <tr class="table-header"><th class="table-header-value" colspan="3"><div class="sub-code">BP1390</div><div class="sub-name">Constitution of <br> India(T)</div></th></tr>
+                            <tr class="sub-title"><td class="sub-title-name">CLC</td><td class="sub-title-name">CLA</td><td class="sub-title-name">PER</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                        </table>
+                        <table id="subject-list">
+                            <tr class="table-header"><th class="table-header-value" colspan="3"><div class="sub-code">BP1390</div><div class="sub-name">Constitution of <br> India(T)</div></th></tr>
+                            <tr class="sub-title"><td class="sub-title-name">CLC</td><td class="sub-title-name">CLA</td><td class="sub-title-name">PER</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                        </table>
+                        <table id="subject-list">
+                            <tr class="table-header"><th class="table-header-value" colspan="3"><div class="sub-code">BP1390</div><div class="sub-name">Constitution of <br> India(T)</div></th></tr>
+                            <tr class="sub-title"><td class="sub-title-name">CLC</td><td class="sub-title-name">CLA</td><td class="sub-title-name">PER</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                            <tr class="student-detail"><td class="attendance-value">21</td><td class="attendance-value">12</td><td class="attendance-value">76</td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="label-list">
+                    <div class="label">
+                        <span class="label-name">CLC:</span>
+                        <span class="label-desc">Classes Conducted</span>
+                    </div>
+                    <div class="label">
+                        <span class="label-name">CLA:</span>
+                        <span class="label-desc">Classes Attended</span>
+                    </div>
+                    <div class="label">
+                        <span class="label-name">PER:</span>
+                        <span class="label-desc">Percentage</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../../assets/js/assignment.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+<script src="../../assets/js/Consolidate_Attendance.js"></script>
+</html>
