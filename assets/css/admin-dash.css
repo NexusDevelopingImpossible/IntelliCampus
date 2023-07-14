@@ -212,3 +212,48 @@
   background-color: #f8d57b1e;
   border: 1px solid #ffffff9a;
   border-radius: 20px; }
+
+.main-page {
+  position: relative; }
+
+#popup-blur {
+  display: none;
+  top: 0;
+  position: absolute;
+  width: 84vw;
+  height: inherit;
+  border-radius: inherit;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(24px);
+  flex-direction: column;
+  align-items: center;
+  gap: 5vh; }
+
+.spotlight {
+  margin-top: 15vh; }
+
+.spotlight-list {
+  width: 35vw; }
+
+.spot-item {
+  font-size: 2.5vh;
+  padding: 1rem; }
+
+.spot-item:hover {
+  background-color: #ffffff16;
+  padding: 1rem;
+  border-radius: 5px; }
+
+#close-btn {
+  width: 3vw;
+  position: absolute;
+  top: 5vh;
+  right: 4vw;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 50%; }
+
+#close-btn:hover {
+  background-color: #00000021;
+  border-radius: 50%;
+  padding: 0.25vw; }
