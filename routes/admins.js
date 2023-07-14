@@ -20,8 +20,11 @@ router.get("/notification", adminController.notification);
 router.post("/createnoti", adminController.createnoti);
 router.get("/allottg", adminController.allottg);
 router.get("/allottg-std", adminController.allottg_std);
-router.get("/add-dept", adminController.add_dept);
-router.get("/add-program", adminController.add_program);
+router.get("/department", adminController.dept);
+router.get("/program", adminController.program);
+router.post("/adddepartment", adminController.adddept);
+router.post("/addprogram", adminController.addprogram);
+router.get("/searchprogram/:id", adminController.searchprogram);
 
 router.get("/tgsearch/:id", adminController.tgsearch);
 router.post("/addward", adminController.addward);

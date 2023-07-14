@@ -7,6 +7,7 @@ const Admin = require("../models/admin");
 const checkurlfunct = require("./server-function");
 const Calendar = require("../models/calendar");
 const Noti = require("../models/notification");
+const Department = require("../models/department");
 const TG = require("../models/tg");
 const fs = require("fs");
 const path = require("path");
@@ -396,17 +397,70 @@ module.exports.addward = async (req, res) => {
 
 
 
-module.exports.add_dept = async (req, res) => {
+module.exports.dept = async (req, res) => {
   try {
-    return res.render("admin/addDepartment", { title: "Add Department"});
+    let dept = await Department.find({});
+    return res.render("admin/addDepartment", { title: "Add Department", dept});
   } catch (error) {
     console.log(error);
   }
 };
 
-module.exports.add_program = async (req, res) => {
+
+module.exports.program = async (req, res) => {
   try {
-    return res.render("admin/addProgram", { title: "Add Program"});
+    let dept = await Department.find({});
+    let programlist = '';
+    return res.render("admin/addProgram", { title: "Add Program", dept, programlist});
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports.searchprogram = async (req, res) => {
+  try {
+    let dept = await Department.find({});
+    let programlist = await Department.findOne({department:req.params.id})
+    return res.render("admin/addProgram", { title: "Add Program", dept, programlist});
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports.adddept = async (req, res) => {
+  try {
+    let checkdept = await Department.findOne({department: req.body.department});
+    console.log(checkdept);
+    if(!checkdept){
+      await Department.create({
+        department: req.body.department
+      })
+    }
+    if (req.xhr) {
+      return res.status(200).json({
+        data: {
+          dept: req.body.department
+        },
+      });}
+    return res.redirect('back');
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports.addprogram = async (req, res) => {
+  try {
+    let checkdept = await Department.findOne({department: req.body.department});
+    console.log(checkdept);
+    if(checkdept){
+      let program = req.body.program;
+      checkdept.course.push(program);
+      checkdept.save();
+    }
+    // if (req.xhr) {
+    //   return res.status(200).json({
+    //     data: {
+    //       dept: req.body.department
+    //     },
+    //   });}
+    return res.redirect('back');
   } catch (error) {
     console.log(error);
   }
@@ -441,3 +495,5 @@ module.exports.spotsearch = async (req, res) => {
     console.log(error);
   }
 };
+
+

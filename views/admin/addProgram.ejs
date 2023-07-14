@@ -4,35 +4,33 @@
 <div class="main-page">
   <div class="blur">
     <div class="page-heading">
-      <a href="/teacher/dashboard"
+      <a href="/admin/dashboard"
         ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
           <path
             d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"
-          /></svg
-      ></a>
-      <h1 class="heading">Allot Tg to students</h1>
+          /></svg></a>
+      <h1 class="heading">Add Program</h1>
     </div>
     <!-- Add Program -->
-    <form action="" class="add-program-1">
+    <form action="/admin/addprogram" method="post" class="add-program-1" >
       <div class="dropdown-button">
-        <select class="options" id="op-one">
+        <select class="options" id="op-one" name="department" required>
           <option value="" disabled selected>Department</option>
-          <option value="btech">B.tech</option>
-          <option value="mtech">M.tech</option>
-          <option value="phd">P.hd</option>
-          <option value="BBA">BBA</option>
+          
+          <%if(programlist){console.log(programlist)}%>
+          <%for(let i = 0; i<dept.length; i++){%>
+          <a href="/admin/searchprogram/<%=dept[i].department%>"><option value="<%=i%><%=dept[i].department%>"><%=dept[i].department%></option></a>
+          <%}%>
         </select>
       </div>
-      <input class="prog-inp" type="text" placeholder="Enter Program" />
+      <input class="prog-inp" type="text" placeholder="Enter Program" name="program" required/>
       <button type="submit" id="btn" class="add-btn">Add</button>
     </form>
 
     <!-- Program Box -->
-    <div class="prog-grid">
-      <div class="prog-div">
-        <p>BTECH</p>
-        <ion-icon name="trash-outline" class="trash"></ion-icon>
-      </div>
+    <%console.log(dept)%>
+    <div class="prog-grid" id="prog-grid">
+      
       <div class="prog-div">
         <p>MTECH</p>
         <ion-icon name="trash-outline" class="trash"></ion-icon>
@@ -52,5 +50,11 @@
     </div>
   </div>
 </div>
+<script>
+var select = document.getElementById("op-one");
 
-<script src="../../assets/js/assignment.js"></script>
+select.addEventListener("click", function() {
+
+  console.log(select.value[0]);
+});
+</script>
