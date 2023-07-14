@@ -45,7 +45,7 @@
       <div class="att-list">
         <%for(let j = 0; (j<8 && c<t); j++){%>
           <div class="att-day">
-            <div class="att-no">01</div>
+            <div class="att-no"><%=c+1%></div>
             <div class="att-date"><%=attendancesingle.present[c].datevalue%></div>
             <div id="clc">
               <%if(attendancesingle.present[c].att){%>
@@ -91,4 +91,4 @@
 
 
 
-<script src="<%= assetPath('js/student-attendance.js') %>"></script>
+<script src="<%= assetPath('js/std-att-select.js') %>"></script>
