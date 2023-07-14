@@ -54,6 +54,10 @@ select {
   margin: 3vh 0;
   margin-left: 5vh; }
 
+.page-heading h1 {
+  font-size: 4vh;
+  font-weight: 600; }
+
 .tab-icon, .page-heading svg {
   width: 1.65vw;
   fill: #fff;

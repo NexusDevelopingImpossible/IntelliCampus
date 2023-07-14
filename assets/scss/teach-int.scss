@@ -3,14 +3,14 @@
 
 /* mode-and-button */
 .mode__and__button{
-    padding: 0 8rem;
+    padding: 0 7.5vw;
     display: flex;
     justify-content: space-between;
 }
 .left,
 .right{
     display: flex;
-    gap: 1.5rem;
+    gap: 1.5vw;
 }
 .selection__mode{
     position: relative;
@@ -19,7 +19,7 @@
     background: rgba(253, 109, 8, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius: 30px;
-    padding: 0.5rem 1rem;
+    padding: 1.5vh 1vw;
     cursor: pointer;
     outline: none;
 }
@@ -34,7 +34,7 @@
     pointer-events:none;
     transition:.25s all ease;
     font-size: 14px;
-    margin: 0 1rem;
+    margin: 0 1vw;
 }
 .left button{
     width: 12vw;
@@ -45,7 +45,7 @@
     display: none;
     position: absolute;
     flex-direction: column;
-    padding: 0 1rem;
+    padding: 0 1vw;
     background: rgb(93, 57, 55);
     width: 100%;
     top: 37px;
@@ -62,7 +62,7 @@
     transform: rotate(180deg);
 }
 .items span {
-    padding: 0.3rem 0;
+    padding: 1.3vh 0;
     border-bottom: 1px solid #ffffff76;
 }
 .items span:hover {
@@ -73,21 +73,10 @@
     border: none;
 }
 
-// .right button{
-//     background: none;
-//     border: 2px solid #FD6D08;
-//     border-radius: 20px;
-//     cursor: pointer;
-//     padding: 0 1.5rem;
-//     color: #fff;
-// }
-// .right .save{
-//     background: #FD6D08;
-// }
 
 /* List */
 .list__main{
-    padding: 1rem 8rem;
+    padding: 2vh 7.5vw;
 }
 
 .list-sroll{
@@ -100,17 +89,17 @@
 .list__main__title ul{
     list-style-type: none;
     display: flex;
-    gap: 1rem;
+    gap: 1vw;
     background: rgba(0, 0, 0, 0.12);
     border-radius: 10px;
-    padding: 0.5rem 1rem;
+    padding: 1vh 1vw;
     color: #fff;
-    margin-bottom: 1rem;
+    margin-bottom: 2vh;
 }
 .list__main__title ul li{
     font-size: 0.9rem;
     border-right: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 0.2rem 0;
+    padding: 0.3vh 0;
 }
 .list__main__title ul li:nth-child(1),
 .list__main__title ul li:nth-child(4){
@@ -132,28 +121,31 @@
 
 /* list-items */
 .list__items{
-    padding-bottom: 0.5rem;
+    padding-bottom: 1vh;
 }
 .list__items ul{
     list-style-type: none;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1vw;
     background: rgba(248, 213, 123, 0.15);    
     border-radius: 7px;
     // height: 40px;
-    padding: 0.2rem 1rem;
+    padding: 0.75vh 1vw;
     color: #fff;
+}
+.list__items ul li{
+    font-size: 1rem;
 }
 .list__items ul li .input-tag{
     background: rgba(0, 0, 0, 0.09);        
     border-radius: 5px;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 2.2vh;
     border: none;
     outline: none;
-    width: 50px;
-    height: 35px;
+    width: 3.5vw;
+    height: 4.5vh;
     color: #fff;
 }
 .list__items ul li:nth-child(1){
