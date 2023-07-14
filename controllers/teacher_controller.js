@@ -452,7 +452,10 @@ module.exports.allot = async (req, res) => {
 
 module.exports.assignment_check = async (req, res) => {
   try {
-    return res.render("teacher/subject/assignment_check", { title: "Assignment Check"});
+    let timetabledata = await Timetable.findById(req.params.id).populate(
+      "subjectcode"
+    );
+    return res.render("teacher/subject/assignment_check", { title: "Assignment Check", timetable:timetabledata});
   } catch (error) {
     console.log(error);
   }

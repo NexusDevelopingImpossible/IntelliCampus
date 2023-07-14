@@ -1,102 +1,138 @@
-<link rel="stylesheet" href="<%= assetPath('css/teach-general-att.css') %>">
-<link rel="stylesheet" href="<%= assetPath('css/teach-assign-check.css') %>">
+<link rel="stylesheet" href="<%= assetPath('css/teach-general-att.css') %>" />
+<link rel="stylesheet" href="<%= assetPath('css/teach-assign-check.css') %>" />
 
-
-      <div class="main-page">
-        <div class="blur">
-          <!-- - - - - - - - - - - -->
-          <!-- Write you code here -->
-          <!-- - - - - - - - - - - -->
-
-          <div class="main_content">
-            <div class="assignment_card">
-              <div class="subject_back">
-                <a href="">
-                  <img src="../../assets/images/lefty_arrow.png" alt="" />
-                </a>
-              </div>
-              <div class="subject_assignment">
-                <div class="assignment_title">
-                  <div class="subject_title">Data Structure Assignment I</div>
-                  <div class="due_date">
-                    <img src="../../assets/images/clock.png" alt="" />
-                    Due July 2, 2023
-                  </div>
-                </div>
-                <div class="assignment_desc">
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem Ipsum is that it has a more-or-less
-                  normal distribution of letters
-                </div>
-              </div>
-              <div class="assignment_file">
-                <button class="download_btn">
-                  <a href="">
-                    <img
-                      src="../../assets/images/teenyicons_pdf-solid.png"
-                      alt=""
-                    />
-                    16/07/2023.pdf
-                  </a>
-                </button>
-              </div>
+<div class="main-page">
+  <div class="blur">
+    <!-- - - - - - - - - - - -->
+    <!-- Write you code here -->
+    <!-- - - - - - - - - - - -->
+    <div id="title">
+      <div class="sub-name">
+        <a href="/teacher/dashboard"
+          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+            <path
+              d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"
+            /></svg
+        ></a>
+        <h1 class="subject" id="sub_code"><%=timetable.subjectcode.code%></h1>
+        <h1 class="subject" id="sub_title"><%=timetable.subjectcode.name%></h1>
+      </div>
+      <div class="year__sem__sec">
+        <span>Department : <strong> <%=timetable.department%> </strong></span>
+        <span>Semester : <strong> <%=timetable.semester%> </strong></span>
+        <span>Section : <strong> <%=timetable.section%> </strong></span>
+      </div>
+    </div>
+    <section class="att-navbar">
+      <div class="container">
+        <a href="/teacher/getsubject/<%=timetable._id%>">
+          <div id="tab-1" class="tab-item">
+            <p class="hed-day">Attendance</p>
+          </div>
+        </a>
+        <a href="/teacher/internalmarks/<%=timetable._id%>">
+          <div id="tab-2" class="tab-item">
+            <p class="hed-day">Internal Marks</p>
+          </div>
+        </a>
+        <a href="/teacher/assignmentcheck">
+          <div id="tab-3" class="tab-item tab-border">
+            <p class="hed-day">Assignment</p>
+          </div>
+        </a>
+        <a href="/teacher/notes/<%=timetable._id%>">
+          <div id="tab-4" class="tab-item">
+            <p class="hed-day">Notes</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    <div class="main_content">
+      <div class="assignment_card">
+        <div class="subject_back">
+          <a href="">
+            <img src="../../assets/images/lefty_arrow.png" alt="" />
+          </a>
+        </div>
+        <div class="subject_assignment">
+          <div class="assignment_title">
+            <div class="subject_title">Data Structure Assignment I</div>
+            <div class="due_date">
+              <img src="../../assets/images/clock.png" alt="" />
+              Due July 2, 2023
             </div>
+          </div>
+          <div class="assignment_desc">
+            It is a long established fact that a reader will be distracted by
+            the readable content of a page when looking at its layout. The point
+            of using Lorem Ipsum is that it has a more-or-less normal
+            distribution of letters
+          </div>
+        </div>
+        <div class="assignment_file">
+          <button class="download_btn">
+            <a href="">
+              <img src="../../assets/images/teenyicons_pdf-solid.png" alt="" />
+              16/07/2023.pdf
+            </a>
+          </button>
+        </div>
+      </div>
 
-            <div class="filters_save">
-              <div class="left_side_button">
-                <button class="btn_1">All</button>
-                <button class="btn_2">Submitted</button>
-                <button class="btn_2">Not Submitted</button>
-              </div>
-              <div class="right_side_button">
-                <button class="btn_3">Reset</button>
-                <button class="btn_4">Save</button>
-              </div>
-            </div>
+      <div class="filters_save">
+        <div class="left_side_button">
+          <button class="btn_1">All</button>
+          <button class="btn_2">Submitted</button>
+          <button class="btn_2">Not Submitted</button>
+        </div>
+        <div class="right_side_button">
+          <button class="btn_3">Reset</button>
+          <button class="btn_4">Save</button>
+        </div>
+      </div>
 
-            <div class="description">
-              <div class="description__titles">
-                <ul>
-                  <li>S.No</li>
-                  <li>Name</li>
-                  <li>Mobile No</li>
-                  <li>Uploaded File</li>
-                  <li>Date & Time Uploaded</li>
-                  <li>Marks(5)</li>
-                </ul>
-              </div>
-              <div class="description-scroll">
-                <div class="description__list">
-                  <ul>
-                    <li>01</li>
-                    <li>Srijan Dev</li>
-                    <li>8789334294</li>
-                    <li></li>
-                    <li>29-Feb-2023; 08:00 PM</li>
-                    <li><span class="marks_box">5</span></li>
-                  </ul>
+      <div class="description">
+        <div class="description__titles">
+          <ul>
+            <li>S.No</li>
+            <li>Name</li>
+            <li>Mobile No</li>
+            <li>Uploaded File</li>
+            <li>Date & Time Uploaded</li>
+            <li>Marks(5)</li>
+          </ul>
+        </div>
+        <div class="description-scroll">
+          <div class="description__list">
+            <ul>
+              <li>01</li>
+              <li>Srijan Dev</li>
+              <li>8789334294</li>
+              <li></li>
+              <li>29-Feb-2023; 08:00 PM</li>
+              <li><span class="marks_box">5</span></li>
+            </ul>
 
-                  <ul>
-                    <li>01</li>
-                    <li>Srijan Dev</li>
-                    <li>8789334294</li>
-                    <li></li>
-                    <li>29-Feb-2023; 08:00 PM</li>
-                    <li><span class="marks_box">5</span></li>
-                  </ul>
+            <ul>
+              <li>01</li>
+              <li>Srijan Dev</li>
+              <li>8789334294</li>
+              <li></li>
+              <li>29-Feb-2023; 08:00 PM</li>
+              <li><span class="marks_box">5</span></li>
+            </ul>
 
-                  <ul>
-                    <li>01</li>
-                    <li>Srijan Dev</li>
-                    <li>8789334294</li>
-                    <li></li>
-                    <li>29-Feb-2023; 08:00 PM</li>
-                    <li><span class="marks_box">5</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <ul>
+              <li>01</li>
+              <li>Srijan Dev</li>
+              <li>8789334294</li>
+              <li></li>
+              <li>29-Feb-2023; 08:00 PM</li>
+              <li><span class="marks_box">5</span></li>
+            </ul>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
