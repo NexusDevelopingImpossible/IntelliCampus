@@ -197,28 +197,6 @@
   </div>
   </div>
 
-  <script src="<%= assetPath('js/dashboard-calendar.js') %>"></script>
+  <script src="<%= assetPath('js/dash-cale.js') %>"></script>
+  <script src="<%= assetPath('js/teach-carousel.js') %>"></script>
 
-  <script src="<%= assetPath('js/teacher-subject-timetable.js') %>"></script>
-
-</body>
-
-</html>
-
-<script>
-  document.getElementById("reg").addEventListener("input", function() {
-      // Get the input value
-      var inputValue = document.getElementById("reg").value;
-
-      // Set the input value as the text content of the <a> element
-      var anchorTag = document.getElementById("reg-path");
-      anchorTag.href = "/teacher/search/" + inputValue;
-    });
-    document.getElementById("reg").addEventListener("keyup", function(event) {
-      if (event.key === "Enter") {
-        var anchorTag = document.getElementById("reg-path");
-        document.getElementById('search-btn').style.backgroundColor = "#0000006a";
-        anchorTag.click(); // Simulate a click on the anchor tag
-      }
-    });
-</script>

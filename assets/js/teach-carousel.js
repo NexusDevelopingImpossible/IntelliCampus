@@ -30,3 +30,22 @@ document.addEventListener("DOMContentLoaded", function() {
     scrollcontainer.scrollLeft += 330;
   });
 });
+
+
+// search bar
+
+document.getElementById("reg").addEventListener("input", function() {
+  // Get the input value
+  var inputValue = document.getElementById("reg").value;
+
+  // Set the input value as the text content of the <a> element
+  var anchorTag = document.getElementById("reg-path");
+  anchorTag.href = "/teacher/search/" + inputValue;
+});
+document.getElementById("reg").addEventListener("keyup", function(event) {
+  if (event.key === "Enter") {
+    var anchorTag = document.getElementById("reg-path");
+    document.getElementById('search-btn').style.backgroundColor = "#0000006a";
+    anchorTag.click(); // Simulate a click on the anchor tag
+  }
+});

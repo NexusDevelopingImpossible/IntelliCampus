@@ -315,20 +315,11 @@
 
 
 </div>
-<script src="<%= assetPath('js/progress.js') %>"></script>
-<script src="<%= assetPath('js/dashboard-calendar.js') %>"></script>
+<script src="<%= assetPath('js/std-progress.js') %>"></script>
+<script src="<%= assetPath('js/dash-cale.js') %>"></script>
+<script src="<%= assetPath('noty.js') %>"></script>
 
 
-
-
-<script>
-  let cal = document.getElementById("cal");
-  let data = cal.value;
-  data = JSON.parse(data);
-  console.log(data);
-</script>
-
-<script src="<%= assetPath('js/studentNoti.js') %>"></script>
 
 <script>
   $('.createStudentNotiBtn').each(function () {
