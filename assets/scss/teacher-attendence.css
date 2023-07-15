@@ -52,7 +52,7 @@
     height: 63vh;
     padding: 2rem 2rem ;
 }
-`
+
 .description-scroll {
     height: 70vh;
     overflow-y: auto;
