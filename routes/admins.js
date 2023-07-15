@@ -25,6 +25,8 @@ router.get("/program", adminController.program);
 router.post("/adddepartment", adminController.adddept);
 router.post("/addprogram", adminController.addprogram);
 router.get("/searchprogram/:id", adminController.searchprogram);
+router.get("/deleteprogram/:id", adminController.deleteprogram);    
+router.get("/deletedepartment/:id", adminController.deletedepartment);    
 
 router.get("/tgsearch/:id", adminController.tgsearch);
 router.post("/addward", adminController.addward);

@@ -148,10 +148,12 @@ module.exports.searchteacherid = async function (req, res) {
     let timetables = await Timetable.find({
       teacherid: teacherdata._id,
     }).populate("subjectcode");
+    let department = await Department.find({});
     return res.render("admin/allotsubjectform", {
       title: "Allot Subject data",
       teacher: teacherdata,
       timetable: timetables,
+      dept: department
     });
   } catch (err) {
     console.log(err);
@@ -447,19 +449,35 @@ module.exports.adddept = async (req, res) => {
 };
 module.exports.addprogram = async (req, res) => {
   try {
+    console.log(req.body);
     let checkdept = await Department.findOne({department: req.body.department});
     console.log(checkdept);
     if(checkdept){
       let program = req.body.program;
       checkdept.course.push(program);
+      console.log("Done")
       checkdept.save();
     }
-    // if (req.xhr) {
-    //   return res.status(200).json({
-    //     data: {
-    //       dept: req.body.department
-    //     },
-    //   });}
+    return res.redirect('back');
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports.deleteprogram = async (req, res) => {
+  try {
+    let checkdept = await Department.findById(req.params.id.slice(1));
+    console.log(req.params.id[0]);
+    checkdept.course.splice((req.params.id[0]), 1);
+    console.log("hi",checkdept);
+    await checkdept.save();
+    return res.redirect('back');
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports.deletedepartment = async (req, res) => {
+  try {
+    await Department.findByIdAndDelete(req.params.id);
     return res.redirect('back');
   } catch (error) {
     console.log(error);
