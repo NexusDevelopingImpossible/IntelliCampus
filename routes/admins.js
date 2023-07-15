@@ -31,5 +31,7 @@ router.get("/deletedepartment/:id", adminController.deletedepartment);
 router.get("/tgsearch/:id", adminController.tgsearch);
 router.post("/addward", adminController.addward);
 router.get("/spotsearch/:id", adminController.spotsearch);
+router.get("/setting", adminController.setting);
+router.post("/changepassword", adminController.changepassword);
 
 module.exports = router;

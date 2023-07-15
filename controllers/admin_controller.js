@@ -514,4 +514,33 @@ module.exports.spotsearch = async (req, res) => {
   }
 };
 
+module.exports.setting = async (req, res) => {
+  try {
+    return res.render("admin/setting", { title: "Setting"});
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports.changepassword = async (req, res) => {
+  try {
+    if(req.body.newpassword === req.body.new1password){
+      let user = await User.findById(res.locals.user._id);
+      if(user.password === req.body.oldpassword){
+        user.password = req.body.new1password;
+        await user.save();
+        req.flash("success", "Password Updated");
+      } 
+      else{
+        req.flash("error", "Old password did not match");
+      }
+    }
+    else{
+      req.flash("error", "New and Confirm password did not match");
+    }
+    return res.redirect('back');
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 

@@ -32,5 +32,6 @@ router.get("/allot", teacherController.allot);
 router.post("/uploadfile", resultanalysisController.uploadfile);
 router.get("/viewstudentattendance", teacherController.viewstudentattendance);
 router.get("/assignmentcheck/:id", teacherController.assignment_check);
-
+router.get("/setting", teacherController.setting);
+router.post("/changepassword", teacherController.changepassword);
 module.exports = router;
