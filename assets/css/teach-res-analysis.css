@@ -7,7 +7,7 @@
   margin-bottom: 5vh; }
 
 .select-sm {
-  border-radius: 0.625rem;
+  border-radius: 7px;
   border: 1px solid rgba(255, 255, 255, 0.7);
   background: rgba(253, 109, 8, 0.2);
   width: 13vw;
