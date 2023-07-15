@@ -4,28 +4,6 @@
   align-self: center;
   margin-top: 30px; }
 
-.options {
-  width: 208px;
-  height: 52px;
-  font-weight: 300;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  font-size: 15px;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.12); }
-
-.options option {
-  font-size: 20px;
-  color: black; }
-
-.dropdown-button {
-  display: flex; }
-
-.options:focus {
-  outline: 2px solid orange;
-  /* oranges! yey */
-  border: none; }
-
 .prog-inp {
   width: 383px;
   height: 53px;

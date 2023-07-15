@@ -39,16 +39,14 @@ module.exports.create = async (req, res) => {
 
 module.exports.createSession = async (req, res) => {
   try {
-    console.log("kiii");
     const { username, password } = req.body;
-    console.log("B:",req.body);
-    console.log("U:",req.user)
+    // console.log("B:",req.body);
+    // console.log("U:",req.user)
     // console.log(req.body)
     // Find the user in the database based on the provided username
     let user = await User.findOne({ username: username });
     // let userdata = await User.
     if (!user || user.password !== password) {
-      console.log("hilkdfnsl")
       // User not found or password is incorrect
       // req.flash("Error", "User not found or password is incorrect");
       return res.redirect("/");
@@ -62,7 +60,7 @@ module.exports.createSession = async (req, res) => {
       },
       { new: true }
     );
-    console.log("Gsdfsdfsdfsfs");
+
     //   console.log(updatedUser);
     // Redirect to different routes based on the user's type
     if (user.position === "student") {
@@ -79,7 +77,7 @@ module.exports.createSession = async (req, res) => {
 module.exports.micin = async function (req, res) {
   let user = await User.findById(req.user._id);
   if(!user){
-    console.log("kill");
+    // console.log("kill");
     return res.redirect("/");
   }
   if (user.position === "student") {

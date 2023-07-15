@@ -1,6 +1,65 @@
 <link rel="stylesheet" href="<%= assetPath('css/admin-addProgram.css') %>">
 
+<style>
+  .select-menu .select-btn {
+    display: flex;
+    justify-content: space-between;
+    width: 12vw;
+    padding: 1.1vh 1vw;
+    align-items: center;
+    background: #0000004d;
+    border: 0.5px solid #fff;
+    font-size: 2vh;
+    font-weight: 400;
+    border-radius: 1vw;
+    cursor: pointer;
+  }
+  
+  .select-btn i {
+    font-size: 2vh;
+    transition: 0.3s;
+  }
+  
+  .select-menu.active .select-btn i {
+    transform: rotate(-180deg);
+  }
+  
+  .select-menu .options {
+    position: absolute;
+    z-index: 1;
+    border-radius: 0px 0px 10px 10px;
+    overflow: hidden;
+    background: #0000006c;
+    backdrop-filter: blur(41);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    display: none;
+    margin: 0 0.5vw;
+  }
 
+
+  .select-menu.active .options {
+    display: block;
+  }
+  
+  .options .option {
+    cursor: pointer;
+    padding: 1vh 0;
+    align-items: center;
+    padding-left: 1vw;
+    width: 11vw;
+  }
+  
+  .options .option:hover {
+    background: #282727;
+  }
+  
+
+  .option .option-text {
+    font-size: 2vh;
+    color: #fff;
+  }
+  
+</style>
 <div class="main-page">
   <div class="blur">
     <div class="page-heading">
@@ -14,39 +73,40 @@
     <!-- Add Program -->
     <form action="/admin/addprogram" method="post" class="add-program-1" >
       <div class="dropdown-button">
-        <select class="options" id="op-one" name="department" required>
-          <option value="" disabled selected>Department</option>
-          
-          <%if(programlist){console.log(programlist)}%>
-          <%for(let i = 0; i<dept.length; i++){%>
-          <a href="/admin/searchprogram/<%=dept[i].department%>"><option value="<%=i%><%=dept[i].department%>"><%=dept[i].department%></option></a>
-          <%}%>
-        </select>
+
+        <div class="select-menu">
+          <div class="select-btn">
+            <%if(programlist){%>
+              <span class="sBtn-text"><%=programlist.department%></span>
+            <%}else{%>
+              <span class="sBtn-text">Department</span>
+              <%}%>
+              <ion-icon name="caret-down-outline"></ion-icon>
+          </div>
+          <ul class="options" id="att-choose">
+            <%for(let i = 0; i<dept.length; i++){%>
+              <a href="/admin/searchprogram/<%=dept[i].department%>">
+                  <li class="option" value="view">
+                      <span class="option-text"><%=dept[i].department%></span>
+                  </li>
+              </a>
+              <%}%>
+          </ul>
+      </div>
       </div>
       <input class="prog-inp" type="text" placeholder="Enter Program" name="program" required/>
       <button type="submit" id="btn" class="add-btn">Add</button>
     </form>
 
     <!-- Program Box -->
-    <%console.log(dept)%>
     <div class="prog-grid" id="prog-grid">
-      
-      <div class="prog-div">
-        <p>MTECH</p>
-        <ion-icon name="trash-outline" class="trash"></ion-icon>
-      </div>
-      <div class="prog-div">
-        <p>CSE(AI)</p>
-        <ion-icon name="trash-outline" class="trash"></ion-icon>
-      </div>
-      <div class="prog-div">
-        <p>CSE(AI)</p>
-        <ion-icon name="trash-outline" class="trash"></ion-icon>
-      </div>
-      <!-- <div class="prog-div">
-                    <p>BTECH</p>
-                    <ion-icon name="trash-outline" class="trash"></ion-icon>
-                 </div> -->
+      <%if(programlist != 0){%>
+        <%for(let i =0; i<programlist.course.length; i++){%>
+        <div class="prog-div">
+          <p><%=programlist.course[i]%></p>
+          <ion-icon name="trash-outline" class="trash"></ion-icon>
+        </div>
+        <%}}%>
     </div>
   </div>
 </div>
@@ -57,4 +117,27 @@ select.addEventListener("click", function() {
 
   console.log(select.value[0]);
 });
+</script>
+<script>
+  const optionMenu = document.querySelector(".select-menu"),
+       selectBtn = optionMenu.querySelector(".select-btn"),
+       options = optionMenu.querySelectorAll(".option"),
+       sBtn_text = optionMenu.querySelector(".sBtn-text");
+selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));
+
+options.forEach(option =>{
+
+    option.addEventListener("click", ()=>{
+        let selectedOption = option.querySelector(".option-text").innerText;
+        sBtn_text.innerText = selectedOption;
+        optionMenu.classList.remove("active");
+    });
+
+});
+document.addEventListener("click", (event) => {
+	if (!optionMenu.contains(event.target)) {
+	  optionMenu.classList.remove("active");
+	}
+  });
+
 </script>

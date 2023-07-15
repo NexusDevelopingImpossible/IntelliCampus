@@ -410,7 +410,7 @@ module.exports.dept = async (req, res) => {
 module.exports.program = async (req, res) => {
   try {
     let dept = await Department.find({});
-    let programlist = '';
+    let programlist = 0;
     return res.render("admin/addProgram", { title: "Add Program", dept, programlist});
   } catch (error) {
     console.log(error);
