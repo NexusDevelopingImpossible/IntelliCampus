@@ -68,6 +68,8 @@ module.exports.createSession = async (req, res) => {
       return res.redirect("/admin/dashboard");
     }else if (user.position === "examcell") {
       return res.redirect("/examcell/dashboard");
+    }else if (user.position === "feecell") {
+      return res.redirect("/feecell/dashboard");
     }else {
       return res.redirect("login-signup/signup");
     }
@@ -76,7 +78,6 @@ module.exports.createSession = async (req, res) => {
 module.exports.micin = async function (req, res) {
   let user = await User.findById(req.user._id);
   if(!user){
-    // console.log("kill");
     return res.redirect("/");
   }
   if (user.position === "student") {

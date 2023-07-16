@@ -30,6 +30,14 @@ module.exports.checkurlexamcell = (req, res) => {
         return res.redirect('../error')
     }
 }
+module.exports.checkurlfeecell = (req, res) => {
+    if ((res.locals.user === undefined)) {
+        return res.redirect('../')
+    }
+    if (!(res.locals.user.position === "feecell")) {
+        return res.redirect('../error')
+    }
+}
 
 
 

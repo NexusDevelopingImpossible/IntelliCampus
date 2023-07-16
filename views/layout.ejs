@@ -33,6 +33,9 @@
       <% if(locals.user.position==="examcell" ){%> 
         <%- include('navbar/examcell'); %>
       <% } %>
+      <% if(locals.user.position==="feecell" ){%> 
+        <%- include('navbar/feecell'); %>
+      <% } %>
     <%}%> 
     <%}%>
     <%- body %>
