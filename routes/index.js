@@ -15,6 +15,7 @@ router.get('/signup', homeController.signUp);   //Delete this
 router.get('/error', homeController.error); 
 
 router.use('/admin', require("./admins"))
+router.use('/examcell', require("./examcell"))
 router.use('/teacher', require("./teachers"))
 router.use('/student', require("./students"))
 router.use('/timetable', require("./timetables"))

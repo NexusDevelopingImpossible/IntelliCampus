@@ -16,7 +16,7 @@ const XLSX = require("xlsx");
 //Dashboard
 module.exports.dashboard = async (req, res) => {
   try {
-    checkurlfunct.checkurladmmin(req, res);
+    checkurlfunct.checkurladmin(req, res);
     let admindata = await Admin.findOne({ username: res.locals.user.username });
     let teacherdata = await Teacher.find({ department: admindata.department });
     res.render("admin/dashboard", { title: "Dashboard", teacher: teacherdata });
@@ -26,14 +26,14 @@ module.exports.dashboard = async (req, res) => {
 };
 //Add Student Page
 module.exports.addstudent = (req, res) => {
-  checkurlfunct.checkurladmmin(req, res);
+  checkurlfunct.checkurladmin(req, res);
   return res.render("admin/addstudent", {
     title: "Create Student ID",
   });
 };
 //Add Teacher Page
 module.exports.addteacher = (req, res) => {
-  checkurlfunct.checkurladmmin(req, res);
+  checkurlfunct.checkurladmin(req, res);
   return res.render("admin/addteacher", {
     title: "Create Teacher ID",
   });
@@ -131,7 +131,7 @@ module.exports.createteacher = function (req, res) {
 };
 //Allot Subject Page
 module.exports.allotsubject = (req, res) => {
-  checkurlfunct.checkurladmmin(req, res);
+  checkurlfunct.checkurladmin(req, res);
   return res.render("admin/allotsubject", { title: "Allot Subject" });
 };
 //Searching teacher id from the teacher database for alloting subject used in allot subject page

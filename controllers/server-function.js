@@ -1,4 +1,4 @@
-module.exports.checkurladmmin = (req, res) => {
+module.exports.checkurladmin = (req, res) => {
     if ((res.locals.user === undefined)) {
         return res.redirect('../')
     }
@@ -22,5 +22,14 @@ module.exports.checkurlstudent = (req, res) => {
         return res.redirect('../error')
     }
 }
+module.exports.checkurlexamcell = (req, res) => {
+    if ((res.locals.user === undefined)) {
+        return res.redirect('../')
+    }
+    if (!(res.locals.user.position === "examcell")) {
+        return res.redirect('../error')
+    }
+}
+
 
 

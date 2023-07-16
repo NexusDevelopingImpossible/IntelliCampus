@@ -30,7 +30,7 @@ module.exports.create = async (req, res) => {
     }
     let user = await User.findOne({ username: req.body.username });
     await User.create(req.body);
-    await Admin.create(req.body);
+    // await Admin.create(req.body);
     return res.redirect("/Login");
   } catch (err) {
     console.log(err);
@@ -40,9 +40,6 @@ module.exports.create = async (req, res) => {
 module.exports.createSession = async (req, res) => {
   try {
     const { username, password } = req.body;
-    // console.log("B:",req.body);
-    // console.log("U:",req.user)
-    // console.log(req.body)
     // Find the user in the database based on the provided username
     let user = await User.findOne({ username: username });
     // let userdata = await User.
@@ -69,7 +66,9 @@ module.exports.createSession = async (req, res) => {
       return res.redirect("/teacher/dashboard");
     } else if (user.position === "admin") {
       return res.redirect("/admin/dashboard");
-    } else {
+    }else if (user.position === "examcell") {
+      return res.redirect("/examcell/dashboard");
+    }else {
       return res.redirect("login-signup/signup");
     }
   } catch (error) {}

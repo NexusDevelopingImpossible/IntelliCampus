@@ -30,6 +30,9 @@
       <% if(locals.user.position==="admin" ){%> 
         <%- include('navbar/admin'); %>
       <% } %>
+      <% if(locals.user.position==="examcell" ){%> 
+        <%- include('navbar/examcell'); %>
+      <% } %>
     <%}%> 
     <%}%>
     <%- body %>
