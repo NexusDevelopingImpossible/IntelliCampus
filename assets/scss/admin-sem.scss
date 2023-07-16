@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500&display=swap");
+
+html, input {
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+}
+a {
+  text-decoration: none;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+}
+.main-cont {
+  padding: 0 5vw;
+}
+
+.main-cont > div{
+    height: 75vh;
+    overflow: auto;
+}
+.filter-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5vh;
+}
+
+.filter-section > div {
+  display: flex;
+  gap: 2vw;
+}
+.select-replace {
+  border-radius: 0.625rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.2);
+  width: 11.375rem;
+  height: 3.25rem;
+}
+.create-sem-btn {
+  background-color: #fd6d08;
+  width: 13vw;
+  color: #fff;
+  display: flex;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5vw;
+  padding: 0.75vh 0;
+}
+.create-sem-btn svg {
+  width: 2vw;
+}
+
+
+.sem-section {
+    padding: 0 5vw;
+    margin-top: 5vh;
+    
+}
+
+.sem-block{
+   gap: 2vw; 
+   margin-bottom: 1vh;
+}
+
+
+.sem-no {
+  background: rgba(248, 213, 123, 0.15);
+  border-radius: 10px;
+  width: 15vw;
+  padding: 0.75vh 1vw;
+  justify-content: center;
+  gap: 1.5vw;
+}
+
+.no-box {
+  border: 0.5px solid rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.11);
+  border-radius: 5px;
+  width: 4vw;
+  height: 3vw;
+  color: #fff;
+  font-size: 1.5vw;
+  text-align: center;
+}
+
+.sem-cord input{
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.10);
+    border: none;
+    color: #fff;
+    width: 20vw;
+    padding: 1.75vh 1vw;
+    font-size: 2vh;
+    margin-left: 1.5vw;
+}
+
+.sec-block{
+    justify-content: space-between;
+    align-items:first baseline;
+}
+.sec-block > div{
+    background: rgba(255, 255, 255, 0.10);
+    border-radius: 10px;
+    
+}
+
+.sec-block > div .sec-sub-block:last-child{
+    border: none;
+}
+.sec-sub-block{
+    width: 60vw;
+    justify-content: space-between;
+    border-bottom: 1px solid #ffffff10;
+    padding: 1.2vh 2vw;
+}
+.sec-no input{
+    margin-left: 1.5vw;
+
+}
+
+
+.del-btn svg ,.add-section-btn svg{
+    width: 2vw;
+    fill: #fff;
+}
+
+.add-section-btn{
+    width: 4vw;
+    height: 4vw;
+    justify-content: center;
+    align-items: center;
+}

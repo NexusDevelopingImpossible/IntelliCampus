@@ -544,3 +544,11 @@ module.exports.changepassword = async (req, res) => {
 };
 
 
+
+module.exports.semester = async (req, res) => {
+  try {
+    return res.render("admin/admin-create-sem", { title: "Create Semester"});
+  } catch (error) {
+    console.log(error);
+  }
+};
