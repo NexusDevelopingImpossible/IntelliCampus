@@ -8,6 +8,7 @@ const checkurlfunct = require("./server-function");
 const Calendar = require("../models/calendar");
 const Noti = require("../models/notification");
 const Department = require("../models/department");
+const SemSection = require("../models/semsection");
 const TG = require("../models/tg");
 const fs = require("fs");
 const path = require("path");
@@ -547,7 +548,67 @@ module.exports.changepassword = async (req, res) => {
 
 module.exports.semester = async (req, res) => {
   try {
-    return res.render("admin/admin-create-sem", { title: "Create Semester"});
+    const dept = await Department.find({}); 
+    const course = [];
+    return res.render("admin/admin-create-sem", { title: "Create Semester", dept, course});
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports.semestercourse = async (req, res) => {
+  try {
+    const dept = await Department.find({}); 
+    const course = await Department.findById(req.params.id);
+    
+    return res.redirect('back');
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports.createsem = async (req, res) => {
+  try {
+    console.log(req.body)
+    let department = req.body.primary;
+    let course = req.body.secondary;
+    // console.log(req.body.secondary);
+    let sem = req.body.semester;
+    let sec = req.body.section;
+    let semco = req.body.semco;
+    let secco = req.body.secco;
+    let j = 0;
+    // console.log(sem, sec);
+    for(let i = 0; i<sem.length; i++){
+      let check = 0;
+      if(sec[j] == 'A'){
+        check = 1;
+        await SemSection.create({
+          department: department,
+          course: course,
+          semester: sem[i],
+          section: sec[j],
+          semesterCoordinator: semco[i],
+          sectionCoordinator: secco[j]
+        })
+        console.log(sem[i], sec[j]);
+      }
+      let k = j + 1;
+      for(;k<sec.length; k++){
+        if(sec[k] == 'A' && check == 1){
+          break;
+        }
+        console.log(sem[i], sec[k]);
+        await SemSection.create({
+          department: department,
+          course: course,
+          semester: sem[i],
+          section: sec[k],
+          semesterCoordinator: semco[i],
+          sectionCoordinator: secco[k]
+        })
+      }
+      j = k;
+    }
+    return res.redirect('back');
   } catch (error) {
     console.log(error);
   }

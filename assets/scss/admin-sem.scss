@@ -17,7 +17,7 @@ a {
 }
 
 .main-cont > div{
-    height: 75vh;
+    height: 70vh;
     overflow: auto;
 }
 .filter-section {
@@ -132,4 +132,12 @@ a {
     height: 4vw;
     justify-content: center;
     align-items: center;
+}
+
+.page-scroll{
+  overflow-y: auto;
+  height: 65vh;
+}
+input::placeholder{
+  color: white;
 }

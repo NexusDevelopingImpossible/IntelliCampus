@@ -34,5 +34,7 @@ router.get("/spotsearch/:id", adminController.spotsearch);
 router.get("/setting", adminController.setting);
 router.post("/changepassword", adminController.changepassword);
 router.get("/semester", adminController.semester);
+router.post("/createsem", adminController.createsem);
+router.get("/semestercourse/:id", adminController.semestercourse);
 
 module.exports = router;

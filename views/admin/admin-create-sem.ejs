@@ -1,60 +1,81 @@
 <link rel="stylesheet" href="<%= assetPath('css/admin-sem.css') %>">
-
-      <div class="main-page">
-        <div class="blur">
-          <main class="main-cont">
-            <section class="filter-section">
-              <div>
-                <div class="select-replace"></div>
-                <div class="select-replace"></div>
-              </div>
-              <a id="create-sem" class="create-sem-btn" href="#"
-                >Create Semester
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="#FFFFFF"
-                >
-                  <path d="M0 0h24v24H0V0z" fill="none" />
-                  <path
-                    d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"
-                  /></svg></a>
-            </section>
-            <div>
-            <section class="sem-section">
-              <div class="sem-block flex">
-                <div class="sem-no flex">Semester : <input class="no-box" type="text" value="1"></div>
-                <div class="sem-cord">
-                  <label for="">Semester Coordinator :</label>
-                  <input
-                    type="text"
-                    name=""
-                    id=""
-                    value="Select semester coordinator"
-                  />
-                </div>
-              </div>
-              <div class="sec-block flex">
-                <div class="sec-block-in">
-                <div class="sec-sub-block flex">
-                    <div class="sec-no">Section : <input class="no-box" type="text" value="1"></div>
-                    <div class="sem-cord">
-                        <label for="">Semester Coordinator :</label>
-                        <input type="text" name="" id="" value="Select semester coordinator"
-                        />
-                      </div>
-                      <div class="del-btn"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M261-120q-24.75 0-42.375-17.625T201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"/></svg></div>
-                </div>
-                <div id="copied-sec-section"></div>
+<style>
+  select{
+    color: black;
+  }
+  option{
+    color: black;
+  }
+</style>
+<div class="main-page">
+  <div class="blur">
+    <div class="page-heading">
+      <a href="/admin/dashboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+          <path
+            d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z" />
+        </svg></a>
+      <h1 class="heading">Add Department</h1>
+    </div>
+    <main class="main-cont">
+      <form action="/admin/createsem" method="post">
+      <section class="filter-section">
+        <div class="filters">
+          <select id="primary">
+            <%for(let i = 1; i<dept.length; i++){%>
+            <optgroup label="Department">
+              <option value="<%=dept[i].department%>"><%=dept[i].department%></option>
+              <%for(let j = 0; j<dept[i].course.length; j++){%>
+              <option value="<%=dept[i].course[j]%>"><%=dept[i].course[j]%></option>
+              <%}%> 
+            </optgroup>
+            <%}%>
+          </select>
+        </div>
+        <a id="create-sem" class="create-sem-btn" href="#">Create Semester
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF">
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path
+              d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z" />
+          </svg></a>
+      </section>
+      <div class="page-scroll">
+        <section class="sem-section">
+          <div class="sem-block flex">
+            <div class="sem-no flex">Semester : <input class="no-box" type="text" name="semester" value="1"></div>
+            <div class="sem-cord">
+              <label for="">Semester Coordinator :</label>
+              <input type="text" name="semco" id="" placeholder="Select semester coordinator" />
             </div>
-                <div id="create-section" class="add-section-btn flex"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" ><path d="M450-450H230q-12.75 0-21.375-8.675-8.625-8.676-8.625-21.5 0-12.825 8.625-21.325T230-510h220v-220q0-12.75 8.675-21.375 8.676-8.625 21.5-8.625 12.825 0 21.325 8.625T510-730v220h220q12.75 0 21.375 8.675 8.625 8.676 8.625 21.5 0 12.825-8.625 21.325T730-450H510v220q0 12.75-8.675 21.375-8.676 8.625-21.5 8.625-12.825 0-21.325-8.625T450-230v-220Z"/></svg></div>
+          </div>
+          <div class="sec-block flex">
+            <div class="sec-block-in">
+              <div class="sec-sub-block flex">
+                <div class="sec-no">Section : <input class="no-box" type="text" value="A" name="section"></div>
+                <div class="sem-cord">
+                  <label for="">Section Coordinator :</label>
+                  <input type="text" name="secco" id="" placeholder="Select semester coordinator" />
+                </div>
+                <div class="del-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path
+                      d="M261-120q-24.75 0-42.375-17.625T201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z" />
+                  </svg></div>
               </div>
-            </section>
-            <div id="copied-sem-section"></div>
-        </div>
-          </main>
-        </div>
+              <div id="copied-sec-section"></div>
+            </div>
+            <div id="create-section" class="add-section-btn flex"><svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 -960 960 960">
+                <path
+                  d="M450-450H230q-12.75 0-21.375-8.675-8.625-8.676-8.625-21.5 0-12.825 8.625-21.325T230-510h220v-220q0-12.75 8.675-21.375 8.676-8.625 21.5-8.625 12.825 0 21.325 8.625T510-730v220h220q12.75 0 21.375 8.675 8.625 8.676 8.625 21.5 0 12.825-8.625 21.325T730-450H510v220q0 12.75-8.675 21.375-8.676 8.625-21.5 8.625-12.825 0-21.325-8.625T450-230v-220Z" />
+              </svg></div>
+          </div>
+        </section>
+        <div id="copied-sem-section"></div>
       </div>
+      <input type="submit" class="btn-full btn btn-sm">
+      </form>
+    </main>
+  </div>
+</div>
 
 
-    <script src="<%= assetPath('js/admin-sem.js') %>"></script>
+<script src="<%= assetPath('js/admin-sem.js') %>"></script>
