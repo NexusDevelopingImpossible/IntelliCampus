@@ -8,7 +8,10 @@ const Notification = require("../models/notification");
 const prettydate = require("pretty-date");
 const { ConnectionStates } = require("mongoose");
 const User = require("../models/user");
-
+const fs = require("fs");
+const path = require("path");
+const studentsProfile = require("../models/studentProfile");
+const { setTimeout } = require("timers/promises");
 
 module.exports.dashboard = async (req, res) => {
   try {
@@ -17,14 +20,14 @@ module.exports.dashboard = async (req, res) => {
       username: res.locals.user.username,
     }).populate({ path: "pinned", populate: { path: "noti" } });
     const internal = await Attendance.find({
-      studentid: studentdata._id
+      studentid: studentdata._id,
     }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
     console.log(internal);
     let calendardata = await Calendar.find({});
     calendardata = JSON.stringify(calendardata);
-    let notidata = await Notification.find({}).sort({updatedAt: -1});
+    let notidata = await Notification.find({}).sort({ updatedAt: -1 });
     let arr = [];
-    for(let i = 0; i<notidata.length; i++){
+    for (let i = 0; i < notidata.length; i++) {
       const dd = prettydate.format(notidata[i].updatedAt);
       arr.push(dd);
     }
@@ -33,54 +36,56 @@ module.exports.dashboard = async (req, res) => {
     return res.render("student/dashboard", {
       title: "Dashboard",
       student: studentdata,
-      internal, calendardata, notidata, arr
+      internal,
+      calendardata,
+      notidata,
+      arr,
     });
   } catch (err) {
     console.log(err);
-  } 
+  }
 };
 module.exports.pinnoti = async (req, res) => {
   try {
     let notiarray = await Student.findOne({
       username: res.locals.user.username,
-    }).populate({ path: "pinned", populate: { path: "noti" } });;
-    const index = notiarray.pinned.findIndex(obj => obj.noti._id == req.params.id);
-    if(index == -1){
+    }).populate({ path: "pinned", populate: { path: "noti" } });
+    const index = notiarray.pinned.findIndex(
+      (obj) => obj.noti._id == req.params.id
+    );
+    if (index == -1) {
       const newnoti = {
-        noti: req.params.id
-      }
+        noti: req.params.id,
+      };
       notiarray.pinned.push(newnoti);
       notiarray.save();
-      let notiLength=notiarray.pinned.length;
-      const newNotiId = notiarray.pinned[notiLength-1]._id;
+      let notiLength = notiarray.pinned.length;
+      const newNotiId = notiarray.pinned[notiLength - 1]._id;
 
       return res.status(200).json({ newNotiId });
     }
-    return res.redirect('back');
+    return res.redirect("back");
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Internal Server Error" });
   }
-}
-
+};
 
 module.exports.unpinnoti = async (req, res) => {
   try {
     let student = await Student.findOne({
       username: res.locals.user.username,
     }).populate({ path: "pinned", populate: { path: "noti" } });
-    console.log(req.params.id)
-    const index = student.pinned.findIndex(obj => obj._id == req.params.id);
-    console.log(index)
+    console.log(req.params.id);
+    const index = student.pinned.findIndex((obj) => obj._id == req.params.id);
+    console.log(index);
     if (index !== -1) {
       student.pinned.splice(index, 1);
       await student.save();
     }
-    return res.redirect('back');
-  } catch (error) {
-    
-  }
-}
+    return res.redirect("back");
+  } catch (error) {}
+};
 
 module.exports.internalmarks = async (req, res) => {
   try {
@@ -110,12 +115,12 @@ module.exports.feedback = async (req, res) => {
     });
     const attendance = await Attendance.find({
       studentid: studentdata._id,
-    }).select('timetableid -_id');
+    }).select("timetableid -_id");
     var teacherdata = [];
-    for(let i = 0; i<attendance.length; i++){
-      const teacher = await Timetable.findOne({_id: attendance[i].timetableid}).populate(
-        "teacherid subjectcode"
-      );
+    for (let i = 0; i < attendance.length; i++) {
+      const teacher = await Timetable.findOne({
+        _id: attendance[i].timetableid,
+      }).populate("teacherid subjectcode");
       // console.log(teacher);
       teacherdata.push(teacher);
     }
@@ -123,7 +128,7 @@ module.exports.feedback = async (req, res) => {
     return res.render("student/feedback", {
       title: "Feedback",
       student: studentdata,
-      teacherdata
+      teacherdata,
     });
   } catch (err) {}
 };
@@ -136,12 +141,13 @@ module.exports.attendance = async (req, res) => {
     const attendance = await Attendance.find({
       studentid: studentdata._id,
     }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
-    let subject
+    let subject;
     let attendancesingle;
     console.log(attendance);
     return res.render("student/attendance_view", {
       title: "Attendance",
-      attendance, attendancesingle,
+      attendance,
+      attendancesingle,
       subject: subject,
     });
   } catch (err) {
@@ -155,7 +161,9 @@ module.exports.attendancesingle = async (req, res) => {
     const studentdata = await Student.findOne({
       username: res.locals.user.username,
     });
-    const attendancesingle = await Attendance.findByIdAndUpdate(req.params.id).populate({
+    const attendancesingle = await Attendance.findByIdAndUpdate(
+      req.params.id
+    ).populate({
       path: "timetableid",
       populate: { path: "subjectcode" },
     });
@@ -172,8 +180,9 @@ module.exports.attendancesingle = async (req, res) => {
     let subject = attendancesingle.timetableid.subjectcode;
     return res.render("student/attendance_view", {
       title: "Attendance",
-      attendance, attendancesingle,
-      subject: subject
+      attendance,
+      attendancesingle,
+      subject: subject,
     });
   } catch (err) {
     console.log(err);
@@ -184,7 +193,10 @@ module.exports.enter_feedback = async (req, res) => {
   try {
     const teacherdata = await Teacher.findById(req.params.id);
 
-    return res.render("student/feedback_response", { title: "Submit Feedback", teacherdata });
+    return res.render("student/feedback_response", {
+      title: "Submit Feedback",
+      teacherdata,
+    });
   } catch (Error) {
     console.log(Error);
   }
@@ -203,66 +215,113 @@ module.exports.fetchnoti = async (req, res) => {
   try {
     function isUpdatedTimeWithin30Seconds(updatedTime) {
       const currentTime = new Date();
-      const timeDifference = (currentTime.getTime() - updatedTime.getTime()) / 1000; // Convert to seconds
-    
+      const timeDifference =
+        (currentTime.getTime() - updatedTime.getTime()) / 1000; // Convert to seconds
+
       return timeDifference >= 0 && timeDifference <= 10;
     }
     const notidata = await Notification.find();
     let newnoti, notitime;
     // console.log("G:",notidata);
-    const isWithin30Seconds = isUpdatedTimeWithin30Seconds(notidata[notidata.length-1].updatedAt);
+    const isWithin30Seconds = isUpdatedTimeWithin30Seconds(
+      notidata[notidata.length - 1].updatedAt
+    );
     if (isWithin30Seconds) {
-      newnoti = notidata[notidata.length-1];
+      newnoti = notidata[notidata.length - 1];
       notitime = prettydate.format(newnoti.updatedAt);
     } else {
       newnoti = 0;
       notitime = 0;
     }
     // console.log(newnoti.updatedAt);
-    
-    return res.status(200).json({newnoti, notitime});
-    
-    return res.redirect('back');
+
+    return res.status(200).json({ newnoti, notitime });
+
+    return res.redirect("back");
   } catch (error) {
     console.log(error);
   }
 };
 
-
 // student notes
 
 module.exports.notes = async (req, res) => {
   try {
-    return res.render("student/std-notes", { title: "Notes"});
+    return res.render("student/std-notes", { title: "Notes" });
   } catch (error) {
     console.log(error);
   }
 };
 module.exports.setting = async (req, res) => {
   try {
-    return res.render("student/setting", { title: "Setting"});
+    return res.render("student/setting", { title: "Setting" });
   } catch (error) {
     console.log(error);
   }
 };
 module.exports.changepassword = async (req, res) => {
   try {
-    if(req.body.newpassword === req.body.new1password){
+    if (req.body.newpassword === req.body.new1password) {
       let user = await User.findById(res.locals.user._id);
-      if(user.password === req.body.oldpassword){
+      if (user.password === req.body.oldpassword) {
         user.password = req.body.new1password;
         await user.save();
         req.flash("success", "Password Updated");
-      } 
-      else{
+      } else {
         req.flash("error", "Old password did not match");
       }
-    }
-    else{
+    } else {
       req.flash("error", "New and Confirm password did not match");
     }
-    return res.redirect('back');
+    return res.redirect("back");
   } catch (error) {
     console.log(error);
+  }
+};
+
+module.exports.updateProfile = async (req, res) => {
+  try {
+    let createdProfile;
+    studentsProfile.uploadedFiles(req, res, async function (error) {
+      if (error) {
+        console.log("**** Multer error :", error);
+      } else {
+        let regnNo = req.body.regnNo;
+        let existingStudentProfileUpdate =
+          await studentsProfile.findOneAndUpdate({ regnNo: regnNo }, req.body);
+        if (existingStudentProfileUpdate) {
+        } else {
+          await studentsProfile.create(req.body, (err, studentProfile) => {
+            if (err) {
+              console.log("error in finding user ", err);
+              return res.json({ Error: err });
+            }
+          });
+        }
+      }
+      async function load_file(){
+        if (req.files) {
+          let files = req.files;
+          let existingStudentProfile;
+          existingStudentProfile = await studentsProfile.findOne({
+            regnNo: req.body.regnNo,
+          });
+          await processFiles(existingStudentProfile);
+          async function processFiles(existingStudentProfile) {
+            for (let file of files) {
+              console.log(existingStudentProfile);
+              let tempPath = studentsProfile.filePath + "/" + file.filename;
+              existingStudentProfile.fileexcel.push(tempPath);
+            }
+            await existingStudentProfile.save();
+          }
+        }
+      }
+      await load_file();
+      return res.redirect("back");
+    });
+  } catch (error) {
+    console.log(`Error: ${error}`);
+    res.json({ Error: error });
   }
 };
