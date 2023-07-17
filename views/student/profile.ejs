@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="<%= assetPath('css/profile.css') %>" />
 <div class="main-page">
   <div class="blur">
+    <form action="/student/updateProfile" method="post" enctype="multipart/form-data">
     <main class="prof-main-container">
       <section class="info-left">
         <div class="personal-info">
@@ -20,6 +21,7 @@
           </div>
           <p class="std-name">Srijan Dev</p>
           <p class="std-reg-no">202100232</p>
+          <input type="hidden" name="regnNo" value="202100232" />
           <div class="std-details-1">
             <p><span>Course:</span>B.TECH (IT)</p>
             <p><span>Semester:</span> 5</p>
@@ -31,6 +33,7 @@
             <p>
               <span>DOB:</span>
               <input
+                name="DOB"
                 class="input-read"
                 type="text"
                 value="12-Mar-2002"
@@ -40,7 +43,7 @@
             <p>
               <span>Gender:</span>
               <!-- <input class="input-read" type="text" value="Male" readonly /> -->
-              <select class="input-read" disabled>
+              <select name="gender" class="input-read" disabled>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
@@ -49,6 +52,7 @@
             <p>
               <span>Phone:</span>
               <input
+                name="phoneNo"
                 class="input-read"
                 type="text"
                 value="8789334294"
@@ -58,6 +62,7 @@
             <p>
               <span>Whatsapp:</span>
               <input
+                name="phoneNoWhatsapp"
                 class="input-read"
                 type="text"
                 value="8789334294"
@@ -76,6 +81,7 @@
             <p>
               <span>Official Email:</span>
               <input
+                name="officialEmail"
                 class="input-read"
                 type="text"
                 value="srijan_202100423@smit.smu.edu.in"
@@ -85,7 +91,7 @@
             <p>
               <span>Blood Group:</span>
               <!-- <input class="input-read" type="text" value="B+" readonly /> -->
-              <select class="input-read" disabled>
+              <select name="bloodGroup" class="input-read" disabled>
                 <option value="B+">B+</option>
                 <option value="A+">A+</option>
                 <option value="B-">B-</option>
@@ -94,6 +100,7 @@
             <p>
               <span>Aadhar No.:</span>
               <input
+                name="aadharNo"
                 class="input-read"
                 type="text"
                 value="2434562443455"
@@ -103,7 +110,7 @@
             <p>
               <span>Category:</span>
               <!-- <input class="input-read" type="text" value="General" readonly /> -->
-              <select class="input-read" disabled>
+              <select name="category" class="input-read" disabled>
                 <option value="General">General</option>
                 <option value="OBC">OBC</option>
                 <option value="SC">SC</option>
@@ -112,7 +119,7 @@
             </p>
             <p>
               <span>Mother Tongue:</span>
-              <input class="input-read" type="text" value="Hindi" readonly />
+              <input name="motherTongue" class="input-read" type="text" value="Hindi" readonly />
             </p>
           </div>
         </div>
@@ -126,6 +133,7 @@
                 <p>
                   <span class="inline-info">Father's Name:</span>
                   <input
+                    name="fatherName"
                     class="input-read"
                     type="text"
                     value="Shanker Singh"
@@ -135,6 +143,7 @@
                 <p>
                   <span class="inline-info">Occupation:</span>
                   <input
+                    name="fatherOccupation"
                     class="input-read"
                     type="text"
                     value="Secret Agent"
@@ -146,6 +155,7 @@
                 <p>
                   <span class="inline-info">Mothers's Name:</span>
                   <input
+                    name="motherName"
                     class="input-read"
                     type="text"
                     value="Nitu Singh"
@@ -155,6 +165,7 @@
                 <p>
                   <span class="inline-info">Occupation:</span>
                   <input
+                    name="motherOccupation"
                     class="input-read"
                     type="text"
                     value="Secret Agent"
@@ -168,6 +179,7 @@
                 <p>
                   <span class="inline-info">Parent’s PAN:</span>
                   <input
+                    name="parentPAN"
                     class="input-read"
                     type="text"
                     value="HJVD87J"
@@ -177,6 +189,7 @@
                 <p>
                   <span class="inline-info">Parent’s Aadhar:</span>
                   <input
+                    name="parentAadhar"
                     class="input-read"
                     type="text"
                     value="2346464353242"
@@ -186,6 +199,7 @@
                 <p>
                   <span class="inline-info">Phone No:</span>
                   <input
+                    name="parentPhoneNo"
                     class="input-read"
                     type="text"
                     value="9846358365"
@@ -197,6 +211,7 @@
                 <p>
                   <span class="inline-info">Whatsapp No:</span>
                   <input
+                    name="parentWhatsappNo"
                     class="input-read"
                     type="text"
                     value="8787342745"
@@ -206,6 +221,7 @@
                 <p>
                   <span class="inline-info">Parent Email ID:</span>
                   <input
+                    name="parentEmailId"
                     class="input-read"
                     type="text"
                     value="emailblah@gmail.com"
@@ -215,6 +231,7 @@
                 <p>
                   <span class="inline-info">Annual Income:</span>
                   <input
+                    name="parentAnnualIncome"
                     class="input-read"
                     type="text"
                     value="10 rupeya"
@@ -228,6 +245,7 @@
                 <p>
                   <span class="inline-info">Permanent Address:</span>
                   <textarea
+                    name="permanentAddress"
                     class="input-read"
                     type="text"
                     value=""
@@ -237,6 +255,7 @@
                 <p>
                   <span class="inline-info">Correspondent Address:</span>
                   <textarea
+                    name="correspondentAddress"
                     class="input-read"
                     type="text"
                     value=""
@@ -248,6 +267,7 @@
                 <p>
                   <span class="inline-info">PIN Code:</span>
                   <input
+                    name="PINCode"
                     class="input-read"
                     type="text"
                     value="800026"
@@ -257,6 +277,7 @@
                 <p>
                   <span class="inline-info">State:</span>
                   <input
+                    name="state"
                     class="input-read"
                     type="text"
                     value="Bihar"
@@ -267,6 +288,7 @@
                 <p>
                   <span class="inline-info">District:</span>
                   <input
+                    name="district"
                     class="input-read"
                     type="text"
                     value="Patna"
@@ -276,6 +298,7 @@
                 <p>
                   <span class="inline-info">City:</span>
                   <input
+                    name="city"
                     class="input-read"
                     type="text"
                     value="Patna"
@@ -290,24 +313,25 @@
               <div>
                 <p>
                   <span class="inline-info">LG Present?</span>
-                  <select class="input-read input-sm" disabled>
+                  <select name="LGpresent" class="input-read input-sm" disabled>
                     <option value="No">No</option>
                     <option value="Yes">Yes</option>
                   </select>
                 </p>
                 <p>
                   <span class="inline-info">Name:</span>
-                  <input class="input-read" type="text" value="" readonly />
+                  <input name="LGname" class="input-read" type="text" value="" readonly />
                 </p>
                 <p>
                   <span class="inline-info">Contact No:</span>
-                  <input class="input-read" type="text" value="" readonly />
+                  <input name="LGcontactNo" class="input-read" type="text" value="" readonly />
                 </p>
               </div>
               <div>
                 <p>
                   <span class="inline-info">Address:</span>
                   <input
+                    name="LGaddress"
                     class="input-read input-addr"
                     type="text"
                     value=""
@@ -319,13 +343,14 @@
           </div>
         </div>
         <div class="tg-info parents-info info-cont">
-          <h1 class="info-hed">Teacher Guardian's Infromation:</h1>
+          <h1 class="info-hed">Teacher Guardian's Information:</h1>
           <div class="inner-cont">
             <div class="parent-details-1 parent-details">
               <div>
                 <p>
                   <span class="inline-info">TG Name:</span>
                   <input
+                    name="TGname"
                     class="input-read"
                     type="text"
                     value="Diganta Baruah"
@@ -335,6 +360,7 @@
                 <p>
                   <span class="inline-info">Phone:</span>
                   <input
+                    name="TGphone"
                     class="input-read"
                     type="text"
                     value="8454567678"
@@ -346,6 +372,7 @@
                 <p>
                   <span class="inline-info">Whatsapp:</span>
                   <input
+                    name="TGwhatsapp"
                     class="input-read"
                     type="text"
                     value="8454567678"
@@ -355,6 +382,7 @@
                 <p>
                   <span class="inline-info">Email:</span>
                   <input
+                    name="TGemail"
                     class="input-read"
                     type="text"
                     value="tgkaemail@gmail.coma"
@@ -373,6 +401,7 @@
                 <p>
                   <span class="inline-info">Latest Qualification:</span>
                   <input
+                    name="latestQualification"
                     class="input-read"
                     type="text"
                     value="HJVD87J"
@@ -382,6 +411,7 @@
                 <p>
                   <span class="inline-info">Specialization/Course:</span>
                   <input
+                    name="specializationCourse"
                     class="input-read"
                     type="text"
                     value="2346464353242"
@@ -391,6 +421,7 @@
                 <p>
                   <span class="inline-info">Board:</span>
                   <input
+                    name="board"
                     class="input-read"
                     type="text"
                     value="9846358365"
@@ -402,6 +433,7 @@
                 <p>
                   <span class="inline-info">Institute name:</span>
                   <input
+                    name="instituteName"
                     class="input-read institute-input"
                     type="text"
                     value="Scottish Public School, Katihar"
@@ -411,6 +443,7 @@
                 <p>
                   <span class="inline-info">Year of Passing:</span>
                   <input
+                    name="yearOfPassing"
                     class="input-read"
                     type="text"
                     value="2019"
@@ -424,6 +457,7 @@
                 <p>
                   <span class="inline-info">Physics:</span>
                   <input
+                    name="physicsMarks"
                     class="input-read"
                     type="text"
                     value=""
@@ -433,6 +467,7 @@
                 <p>
                   <span class="inline-info">Chemistry:</span>
                   <input
+                    name="chemistryMarks"
                     class="input-read"
                     type="text"
                     value=""
@@ -442,6 +477,7 @@
                 <p>
                   <span class="inline-info">Mathematics:</span>
                   <input
+                    name="mathematicsMarks"
                     class="input-read"
                     type="text"
                     value=""
@@ -451,6 +487,7 @@
                 <p>
                   <span class="inline-info">Biology:</span>
                   <input
+                    name="biologyMarks"
                     class="input-read"
                     type="text"
                     value=""
@@ -460,6 +497,7 @@
                 <p>
                   <span class="inline-info">English:</span>
                   <input
+                    name="englishMarks"
                     class="input-read"
                     type="text"
                     value=""
@@ -471,6 +509,7 @@
                 <p>
                   <span class="inline-info">Computer Sc:</span>
                   <input
+                    name="computerMarks"
                     class="input-read"
                     type="text"
                     value=""
@@ -480,6 +519,7 @@
                 <p>
                   <span class="inline-info">Optional 1:</span>
                   <input
+                    name="optionalMarks1"
                     class="input-read"
                     type="text"
                     value=""
@@ -489,6 +529,7 @@
                 <p>
                   <span class="inline-info">Optional 2:</span>
                   <input
+                    name="optionalMarks2"
                     class="input-read"
                     type="text"
                     value=""
@@ -498,6 +539,7 @@
                 <p>
                   <span class="inline-info">Optional 3:</span>
                   <input
+                    name="optionalMarks3"
                     class="input-read"
                     type="text"
                     value=""
@@ -507,6 +549,7 @@
                 <p>
                   <span class="inline-info">Optional 4:</span>
                   <input
+                    name="optionalMarks4"
                     class="input-read"
                     type="text"
                     value=""
@@ -520,6 +563,7 @@
                 <p>
                   <span class="inline-info qualification-last-p">Total Marks:</span>
                   <input
+                    name="totalMarks"
                     class="input-read"
                     type="text"
                     value=""
@@ -529,6 +573,7 @@
                 <p>
                   <span class="inline-info qualification-last-p">Total Marks Obtained:</span>
                   <input
+                    name="totalMarksObtained"
                     class="input-read"
                     type="text"
                     value=""
@@ -538,6 +583,7 @@
                 <p>
                   <span class="inline-info qualification-last-p">Total Percentage Obtained:</span>
                   <input
+                    name="totalPercentageObtained"
                     class="input-read"
                     type="text"
                     value=""
@@ -564,18 +610,21 @@
                   <span></span>
                 </label> -->
                 <label class="custom-file-upload input-read">
-                  <input id="select-file" type="file" name="fileexcel" />
+                  <input id="select-file" type="file" name="fileexcel" multiple/>
+                  <!-- <input type="file" name="testFile2" id="" /> -->
                   <span id="file-name">Select your file here</span>
               </label>
                 </p>
+                
             </div>
           </div>
         </div>
       </section>
       <div class="popup-btns">
-        <a href="#" class="btn btn-full btn-large">Save</a>
+        <button type="submit" class="btn btn-full btn-large">Save</button>
       </div>
     </main>
+  </form>
   </div>
 </div>
 
