@@ -111,29 +111,7 @@ function create_input_teacher() {
   }
 }
 function data(){
-  const results = [
-    {
-      department: 'CSE',
-      course: [
-        'B.Tech',
-        'B.Tech (AI & ML)',
-        'B.Tech (IoT & CyberSec with Blockchain)',
-        'M.Tech',
-        'Ph.D'
-      ]
-    },
-    { department: 'IT', course: [ 'B.Tech', 'M.Tech' ] },
-    { department: 'CIVIL', course: [ 'B.Tech', 'M.Tech', 'Ph.D' ] },
-    { department: 'ECE', course: [ 'B.Tech', 'M.Tech' ] },
-    { department: 'EEE', course: [ 'B.Tech', 'M.Tech' ] },
-    { department: 'AI & DS', course: [ 'B.Tech' ] },
-    { department: 'CA', course: [ 'BCA', 'MCA' ] },
-    { department: 'MS', course: [] },
-    { department: 'Chemistry', course: [ 'B.Sc', 'M.Sc' ] },
-    { department: 'Mathematics', course: [ 'B.Sc', 'M.Sc' ] },
-    { department: 'Physics', course: [ 'B.Sc', 'M.Sc' ] },
-    { department: 'ME', course: [ 'B.Tech', 'M.Tech' ] }
-  ];
+  const results = locals[0];
   
     // Assume 'results' contains the data fetched from the database as shown in the previous examples.
 

@@ -122,24 +122,16 @@ module.exports.allotsubject = (req, res) => {
 //Searching teacher id from the teacher database for alloting subject used in allot subject page
 module.exports.searchteacherid = async function (req, res) {
   try {
-    console.log(req.params.id);
-    let teacherdata = await Teacher.findOne({
-      username: req.params.id,
-    });
-    if (!teacherdata) {
-      req.flash("error", "Teacher does not exist.");
-      res.redirect("back");
+    let result = await Teacher.find({
+      name: { $regex: new RegExp("^" + req.params.id + ".*", "i") },
+    }).limit(5);
+    if (req.xhr) {
+      return res.status(200).json({
+        data: {
+          result
+        },
+      });
     }
-    let timetables = await Timetable.find({
-      teacherid: teacherdata._id,
-    }).populate("subjectcode");
-    let department = await Department.find({});
-    return res.render("admin/allotsubjectform", {
-      title: "Allot Subject data",
-      teacher: teacherdata,
-      timetable: timetables,
-      dept: department,
-    });
   } catch (err) {
     console.log(err);
   }

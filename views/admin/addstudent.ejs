@@ -1,40 +1,38 @@
-
-  <link rel="stylesheet" href="<%= assetPath('css/admin-add.css') %>">
-
-    <div class="main-page">
-      <div class="input-page" id="input-pageid">
-        <div class="input-heading-1">Add Students</div>
-        <div class="input-div">
-          <div class="form-set">
-            <div class="form-text">Registration start</div>
-            <input type="text" class="input-name reg-input" required name="start" id="start">
-          </div>
-          <div class="form-set">
-            <div class="form-text">Registration end</div>
-            <input type="text" class="input-name reg-input" required name="end" id="end">
-          </div>
-        </div>
-        <button class="btn btn-full btn-medium input-submit" onclick="create_input_student()">Submit</button>
-        <p>OR</p>
-        <button class="btn btn-outline btn-medium input-submit" onclick="create_input_student()">Import</button>
-
+<link rel="stylesheet" href="<%= assetPath('css/admin-add.css') %>">
+<div class="main-page">
+  <div class="input-page" id="input-pageid">
+    <div class="input-heading-1">Add Students</div>
+    <div class="input-div">
+      <div class="form-set">
+        <div class="form-text">Registration start</div>
+        <input type="text" class="input-name reg-input" required name="start" id="start">
       </div>
-      <div class="input-page2" id="input-pageid2">
-        <div class="input-heading-3">Add Student</div>
-        <form action="/admin/createstudent" method="post">
-          <div class="input-heading-4">Count: <span id="count"></span></div>
-          <div id="form-list">
-          </div>
-          <div class="btn-div">
-            <button class="btn btn-outline btn-medium input-button bt-left">Cancel</button>
-            <button class="btn btn-full btn-medium input-button bt-right" type="submit">Submit</button>
-          </div>
-        </form>
+      <div class="form-set">
+        <div class="form-text">Registration end</div>
+        <input type="text" class="input-name reg-input" required name="end" id="end">
       </div>
     </div>
-  <script src="<%= assetPath('js/admin-addteach.js') %>"></script>
-  <script>
-    window.locals = [];
-    let u = <%- JSON.stringify(locals.dept) %>
+    <button class="btn btn-full btn-medium input-submit" onclick="create_input_student()">Submit</button>
+    <p>OR</p>
+    <button class="btn btn-outline btn-medium input-submit" onclick="create_input_student()">Import</button>
+
+  </div>
+  <div class="input-page2" id="input-pageid2">
+    <div class="input-heading-3">Add Student</div>
+    <form action="/admin/createstudent" method="post">
+      <div class="input-heading-4">Count: <span id="count"></span></div>
+      <div id="form-list">
+      </div>
+      <div class="btn-div">
+        <a href="/admin/addstudent" class="btn btn-outline btn-medium input-button bt-left">Cancel</a>
+        <button class="btn btn-full btn-medium input-button bt-right" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="<%= assetPath('js/admin-addteach.js') %>"></script>
+<script>
+  window.locals = [];
+  let u = <%- JSON.stringify(locals.dept) %>
     window.locals.push(u);
-  </script>
+</script>

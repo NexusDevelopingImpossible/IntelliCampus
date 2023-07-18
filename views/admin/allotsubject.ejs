@@ -29,13 +29,16 @@
 </div>
 </div>
 <script>
+    let urllink;
+    let searchval;
     document.getElementById("reg").addEventListener("input", function() {
         // Get the input value
         var inputValue = document.getElementById("reg").value;
   
         // Set the input value as the text content of the <a> element
         var anchorTag = document.getElementById("reg-path");
-        anchorTag.href = "/admin/searchteacherid/" + inputValue;
+        // anchorTag.href = "/admin/searchteacherid/" + inputValue;
+        urllink = "/admin/searchteacherid/" + inputValue;;
       });
       document.getElementById("reg").addEventListener("keyup", function(event) {
         if (event.key === "Enter") {
@@ -44,4 +47,41 @@
           anchorTag.click(); // Simulate a click on the anchor tag
         }
       });
+  </script>
+  <script>
+    let createform = function () {
+      const newattform = $('#search');
+      $.ajax({
+        type: 'get',
+        url: urllink,
+        success: function (data) {
+          console.log(data.data.result);
+          let g = data.data.result
+          // let DPMstring  = '';
+          // let sl = searchval.length;
+          // for(let i = 0; i<g.result.length; i++){
+          //   DPMstring = DPMstring + `<a href="/admin/teachersubject/${data.data.result[i]._id}"><p class="spot-item"><span>${searchval}</span>${(g.result[i].name).slice(sl)} ${g.result[i].username}</p></a>`
+          // }
+          // for(let i = 0; i<g.result1.length; i++){
+          //   DPMstring = DPMstring + `<a href="#"><p class="spot-item"><span>${searchval}</span>${(g.result1[i].name).slice(sl)} ${g.result1[i].username}</p></a>`
+          // }
+          // $('#spotlight-list').html(DPMstring);
+        },
+        error: function (error) {
+          console.log(error.responseText);
+        }
+      });
+    }
+    const search = document.getElementById('reg');
+    search.addEventListener('input', () => {
+      console.log(search.value.length)
+      if(search.value){
+        searchval = search.value;
+        createform();
+      }
+      if(search.value.length == 0){
+        document.getElementById('spotlight-list').innerHTML = '';
+      }
+  
+    })
   </script>
