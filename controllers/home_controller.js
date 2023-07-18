@@ -30,7 +30,7 @@ module.exports.create = async (req, res) => {
     }
     let user = await User.findOne({ username: req.body.username });
     await User.create(req.body);
-    // await Admin.create(req.body);
+    await Admin.create(req.body);
     return res.redirect("/Login");
   } catch (err) {
     console.log(err);
