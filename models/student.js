@@ -15,13 +15,15 @@ const studentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    course: {
+      type: String,
+      required: true,
+    },
     semester: {
       type: Number,
-      required: true,
     },
     section: {
       type: String,
-      required: true,
     },
     pinned: [
       {

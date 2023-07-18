@@ -34,11 +34,18 @@
       </div>
 
     </div>
+    
 
 
 
   <script src="<%= assetPath('js/admin-addteach.js') %>"></script>
-</body>
+ 
 
+</body>
+<script>
+  window.locals = [];
+  let u = <%- JSON.stringify(locals.dept) %>
+  window.locals.push(u);
+</script>
 </html>
 

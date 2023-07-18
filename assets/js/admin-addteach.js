@@ -26,6 +26,10 @@ function create_input_student() {
     counter = eval(parseInt(start) + parseInt(i));
     let div = document.createElement('div');
     div.classList.add('form-row');
+    let st = '';
+    for(let i = 0; i<locals[0].length; i++){
+      st = st + `<option value="`+locals[0][i]+`">`+locals[0][i]+`</option>`
+    }
     div.innerHTML = `<div class="form-row">
         <div>
         <input type="checkbox" checked></div>
@@ -38,17 +42,17 @@ function create_input_student() {
           <input type="text" class="input-name std-input" name="name`+ i + `">
         </div>
         <div class="form-set">
-      <div class="form-text">Department</div>
-      <input type="text" class="input-name std-input" name="department`+ i + `">
-      </div>
-      <div class="form-set">
-      <div class="form-text">Section</div>
-      <input type="text" class="input-name std-input" name="section`+i+`">
-      </div>
-      <div class="form-set">
-      <div class="form-text">Semester</div>
-      <input type="number" class="input-name std-input" name="semester`+i+`">
-      </div>
+        <div class="form-text">Department</div>
+        <select id="departments`+i+`" class="departments input-name" name="department`+i+`">
+        <option value="">Select a department</option>
+        </select>
+        </div>
+        <div class="form-set">
+        <div class="form-text">Course</div>
+        <select id="courses`+i+`" class="courses input-name" name="courses`+i+`">
+        <option value="">Select a course</option>
+        </select>
+        </div>
         <div class="form-set">
           <div class="form-text">Password</div>
           <input type="password" class="input-name std-input" value=`+ genPassword() + ` name="password` + i + `">
@@ -56,6 +60,7 @@ function create_input_student() {
       </div>`;
     document.getElementById('form-list').appendChild(div);
   }
+  data();
 }
 function create_input_teacher() {
   var start = document.getElementById('start').value;
@@ -74,6 +79,10 @@ function create_input_teacher() {
     counter = eval(parseInt(start) + parseInt(i));
     let div = document.createElement('div');
     div.classList.add('form-row');
+    let st = '';
+    for(let i = 0; i<locals[0].length; i++){
+      st = st + `<option value="`+locals[0][i]+`">`+locals[0][i]+`</option>`
+    }
     div.innerHTML = `<div class="form-row">
       <div>
       <input type="checkbox" checked></div>
@@ -87,7 +96,7 @@ function create_input_teacher() {
       </div>
       <div class="form-set">
       <div class="form-text">Department</div>
-      <input type="text" class="input-name" name="department`+ i + `">
+      <select name="department `+ i +`"class="input-name" >`+st+`</select>
       </div>
       <div class="form-set">
       <div class="form-text">Position</div>
@@ -100,4 +109,77 @@ function create_input_teacher() {
     </div>`;
     document.getElementById('form-list').appendChild(div);
   }
+}
+function data(){
+  const results = [
+    {
+      department: 'CSE',
+      course: [
+        'B.Tech',
+        'B.Tech (AI & ML)',
+        'B.Tech (IoT & CyberSec with Blockchain)',
+        'M.Tech',
+        'Ph.D'
+      ]
+    },
+    { department: 'IT', course: [ 'B.Tech', 'M.Tech' ] },
+    { department: 'CIVIL', course: [ 'B.Tech', 'M.Tech', 'Ph.D' ] },
+    { department: 'ECE', course: [ 'B.Tech', 'M.Tech' ] },
+    { department: 'EEE', course: [ 'B.Tech', 'M.Tech' ] },
+    { department: 'AI & DS', course: [ 'B.Tech' ] },
+    { department: 'CA', course: [ 'BCA', 'MCA' ] },
+    { department: 'MS', course: [] },
+    { department: 'Chemistry', course: [ 'B.Sc', 'M.Sc' ] },
+    { department: 'Mathematics', course: [ 'B.Sc', 'M.Sc' ] },
+    { department: 'Physics', course: [ 'B.Sc', 'M.Sc' ] },
+    { department: 'ME', course: [ 'B.Tech', 'M.Tech' ] }
+  ];
+  
+    // Assume 'results' contains the data fetched from the database as shown in the previous examples.
+
+// Get references to the select elements
+// Assume 'results' contains the data fetched from the database as shown in the previous examples.
+
+// Function to populate the departments select
+function populateDepartments(departmentsSelect) {
+  console.log(departmentSelects);
+  departmentsSelect.innerHTML = '<option value="">Select a department</option>';
+  results.forEach((result) => {
+    const option = document.createElement('option');
+    option.value = result.department;
+    option.textContent = result.department;
+    departmentsSelect.appendChild(option);
+  });
+}
+
+// Function to populate the courses select based on the selected department
+function updateCourses(departmentsSelect, coursesSelect) {
+  const selectedDepartment = departmentsSelect.value;
+  coursesSelect.innerHTML = '<option value="">Select a course</option>';
+  if (selectedDepartment) {
+    const departmentData = results.find((result) => result.department === selectedDepartment);
+    if (departmentData) {
+      departmentData.course.forEach((course) => {
+        const option = document.createElement('option');
+        option.value = course;
+        option.textContent = course;
+        coursesSelect.appendChild(option);
+      });
+    }
+  }
+}
+
+// Get all the department and course select elements
+const departmentSelects = document.querySelectorAll('.departments');
+const courseSelects = document.querySelectorAll('.courses');
+console.log(departmentSelects);
+// Populate all the department selects
+departmentSelects.forEach((departmentsSelect) => populateDepartments(departmentsSelect));
+
+// Add event listener to each department select to update the corresponding courses select
+departmentSelects.forEach((departmentsSelect, index) => {
+  departmentsSelect.addEventListener('change', () => {
+    updateCourses(departmentsSelect, courseSelects[index]);
+  });
+});
 }

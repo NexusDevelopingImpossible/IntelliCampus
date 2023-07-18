@@ -26,119 +26,103 @@ module.exports.dashboard = async (req, res) => {
   }
 };
 //Add Student Page
-module.exports.addstudent = (req, res) => {
-  checkurlfunct.checkurladmin(req, res);
-  return res.render("admin/addstudent", {
-    title: "Create Student ID",
-  });
+module.exports.addstudent = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    const dept = await Department.find(
+      {},
+      { _id: 0, department: 1, course: 1 }
+    );
+    return res.render("admin/addstudent", {
+      title: "Create Student ID",
+      dept,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 //Add Teacher Page
-module.exports.addteacher = (req, res) => {
-  checkurlfunct.checkurladmin(req, res);
-  return res.render("admin/addteacher", {
-    title: "Create Teacher ID",
-  });
+module.exports.addteacher = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    const dept = await Department.distinct("department");
+    return res.render("admin/addteacher", {
+      title: "Create Teacher ID",
+      dept,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 //Creating new Student id used in Add student page
-module.exports.createstudent = function (req, res) {
-  var obj = req.body;
-  var key = Object.keys(obj);
-  var len = key.length;
-  for (let i = 0; i < len; i++) {
-    User.findOne({ username: req.body[key[i]] }, (err, user) => {
-      if (user) {
-        console.log("User found in the database.");
-      } else {
-        User.create(
-          {
-            username: req.body[key[i]],
-            password: req.body[key[i + 5]],
-            position: "student",
-          },
-          function (err, newUser) {
-            if (err) {
-              console.log("Error in creating a user id!");
-              return;
-            }
-            console.log("******", newUser);
-          }
-        );
-        Student.create(
-          {
-            username: req.body[key[i]],
-            name: req.body[key[i + 1]],
-            department: req.body[key[i + 2]],
-            section: req.body[key[i + 3]],
-            semester: req.body[key[i + 4]],
-          },
-          function (err, newStudent) {
-            if (err) {
-              console.log("Error in creating a new student id!");
-              return;
-            }
-            console.log("******", newStudent);
-          }
-        );
-      }
-      i = i + 5;
-    });
-  }
-  return res.redirect("/admin/dashboard");
-};
-//Creating a new Teacher id used in Add Teacher page
-module.exports.createteacher = function (req, res) {
-  var obj = req.body;
-  var key = Object.keys(obj);
-  var len = key.length;
-  for (let i = 0; i < len; i++) {
-    User.findOne({ username: req.body[key[i]] }, (err, user) => {
-      if (user) {
-        console.log("User found in the database.");
-      } else {
-        User.create(
-          {
-            username: req.body[key[i]],
-            password: req.body[key[i + 4]],
-            position: "teacher",
-          },
-          function (err, newUser) {
-            if (err) {
-              console.log("Error in creating a user id!");
-              return;
-            }
-            console.log("******", newUser);
-          }
-        );
-        Teacher.create(
-          {
-            username: req.body[key[i]],
-            name: req.body[key[i + 1]],
-            department: req.body[key[i + 2]],
-            position: req.body[key[i + 3]],
-          },
-          function (err, newTeacher) {
-            if (err) {
-              console.log("Error in creating a teacher id!");
-              return;
-            }
-            console.log("******", newTeacher);
-          }
-        );
+module.exports.createstudent = async function (req, res) {
+  try {
+    var obj = req.body;
+    var key = Object.keys(obj);
+    var len = key.length;
+    for (let i = 0; i < len; i++) {
+      let user = await User.findOne({ username: req.body[key[i]] });
+      if (!user) {
+        await User.create({
+          username: req.body[key[i]],
+          password: req.body[key[i + 4]],
+          position: "student",
+        });
+        await Student.create({
+          username: req.body[key[i]],
+          name: req.body[key[i + 1]],
+          department: req.body[key[i + 2]],
+          course: req.body[key[i + 3]],
+        });
       }
       i = i + 4;
-    });
+    }
+    return res.redirect("/admin/dashboard");
+  } catch (error) {
+    console.log(error);
   }
-  return res.redirect("/admin/dashboard");
+};
+//Creating a new Teacher id used in Add Teacher page
+module.exports.createteacher = async function (req, res) {
+  try {
+    var obj = req.body;
+    var key = Object.keys(obj);
+    var len = key.length;
+    for (let i = 0; i < len; i++) {
+      let user = await User.findOne({ username: req.body[key[i]] });
+      if (!user) {
+        await User.create({
+          username: req.body[key[i]],
+          password: req.body[key[i + 4]],
+          position: "teacher",
+        });
+        await Teacher.create({
+          username: req.body[key[i]],
+          name: req.body[key[i + 1]],
+          department: req.body[key[i + 2]],
+          position: req.body[key[i + 3]],
+        });
+      }
+      i = i + 4;
+    }
+    return res.redirect("/admin/dashboard");
+  } catch (error) {
+    console.log(error);
+  }
 };
 //Allot Subject Page
 module.exports.allotsubject = (req, res) => {
-  checkurlfunct.checkurladmin(req, res);
-  return res.render("admin/allotsubject", { title: "Allot Subject" });
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    return res.render("admin/allotsubject", { title: "Allot Subject" });
+  } catch (error) {
+    console.log(error);
+  }
 };
 //Searching teacher id from the teacher database for alloting subject used in allot subject page
 module.exports.searchteacherid = async function (req, res) {
   try {
-    console.log(req.params.id)
+    console.log(req.params.id);
     let teacherdata = await Teacher.findOne({
       username: req.params.id,
     });
@@ -154,7 +138,7 @@ module.exports.searchteacherid = async function (req, res) {
       title: "Allot Subject data",
       teacher: teacherdata,
       timetable: timetables,
-      dept: department
+      dept: department,
     });
   } catch (err) {
     console.log(err);
@@ -216,7 +200,7 @@ module.exports.addsubject = async function (req, res) {
       teacherid: teacherdata._id,
     }).populate("subjectcode");
     req.flash("success", "Subject allot successfully");
-    return res.redirect('back')
+    return res.redirect("back");
     // return res.render("admin/allotsubjectform", {
     //   title: "Allot Subject data",
     //   teacher: teacherdata,
@@ -236,7 +220,7 @@ module.exports.deletesubject = async function (req, res) {
       username: teacherdata._id,
     }).populate("subjectcode");
     req.flash("success", "Subject deleted successfully");
-    return res.redirect('back');
+    return res.redirect("back");
     // return res.render("admin/allotsubjectform", {
     //   title: "Allot Subject data",
     //   teacher: teacherdata,
@@ -280,10 +264,11 @@ module.exports.addholiday = async function (req, res) {
 module.exports.notification = async function (req, res) {
   try {
     const notidata = await Noti.find({});
-    console.log(notidata)
+    console.log(notidata);
 
     return res.render("admin/create_notification", {
-      title: "Create Notification", notidata
+      title: "Create Notification",
+      notidata,
     });
   } catch (error) {
     console.log(error);
@@ -299,8 +284,8 @@ module.exports.createnoti = async function (req, res) {
       }
       Noti.create({
         title: req.body.title,
-        notiflie: Noti.uploadpath + '/' + req.file.filename
-      })
+        notiflie: Noti.uploadpath + "/" + req.file.filename,
+      });
     });
     return res.redirect("back");
   } catch (error) {
@@ -334,7 +319,9 @@ module.exports.tgsearch = async (req, res) => {
       req.flash("error", "Teacher does not exist.");
       res.redirect("back");
     }
-    let tgdata = await TG.find({ teacherid: teacherdata._id }).populate('studentid');
+    let tgdata = await TG.find({ teacherid: teacherdata._id }).populate(
+      "studentid"
+    );
     console.log("TG: ", tgdata);
     return res.render("admin/allottg-std", {
       title: "Allot TG to Students",
@@ -359,7 +346,7 @@ module.exports.addward = async (req, res) => {
         });
       });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
     let url = TG.uploadpath + "\\" + req.file.filename;
     url = url.slice(1);
@@ -396,25 +383,24 @@ module.exports.addward = async (req, res) => {
   }
 };
 
-
-
-
-
 module.exports.dept = async (req, res) => {
   try {
     let dept = await Department.find({});
-    return res.render("admin/addDepartment", { title: "Add Department", dept});
+    return res.render("admin/addDepartment", { title: "Add Department", dept });
   } catch (error) {
     console.log(error);
   }
 };
 
-
 module.exports.program = async (req, res) => {
   try {
     let dept = await Department.find({});
     let programlist = 0;
-    return res.render("admin/addProgram", { title: "Add Program", dept, programlist});
+    return res.render("admin/addProgram", {
+      title: "Add Program",
+      dept,
+      programlist,
+    });
   } catch (error) {
     console.log(error);
   }
@@ -422,28 +408,35 @@ module.exports.program = async (req, res) => {
 module.exports.searchprogram = async (req, res) => {
   try {
     let dept = await Department.find({});
-    let programlist = await Department.findOne({department:req.params.id})
-    return res.render("admin/addProgram", { title: "Add Program", dept, programlist});
+    let programlist = await Department.findOne({ department: req.params.id });
+    return res.render("admin/addProgram", {
+      title: "Add Program",
+      dept,
+      programlist,
+    });
   } catch (error) {
     console.log(error);
   }
 };
 module.exports.adddept = async (req, res) => {
   try {
-    let checkdept = await Department.findOne({department: req.body.department});
+    let checkdept = await Department.findOne({
+      department: req.body.department,
+    });
     console.log(checkdept);
-    if(!checkdept){
+    if (!checkdept) {
       await Department.create({
-        department: req.body.department
-      })
+        department: req.body.department,
+      });
     }
     if (req.xhr) {
       return res.status(200).json({
         data: {
-          dept: req.body.department
+          dept: req.body.department,
         },
-      });}
-    return res.redirect('back');
+      });
+    }
+    return res.redirect("back");
   } catch (error) {
     console.log(error);
   }
@@ -451,15 +444,17 @@ module.exports.adddept = async (req, res) => {
 module.exports.addprogram = async (req, res) => {
   try {
     console.log(req.body);
-    let checkdept = await Department.findOne({department: req.body.department});
+    let checkdept = await Department.findOne({
+      department: req.body.department,
+    });
     console.log(checkdept);
-    if(checkdept){
+    if (checkdept) {
       let program = req.body.program;
       checkdept.course.push(program);
-      console.log("Done")
+      console.log("Done");
       checkdept.save();
     }
-    return res.redirect('back');
+    return res.redirect("back");
   } catch (error) {
     console.log(error);
   }
@@ -468,10 +463,10 @@ module.exports.deleteprogram = async (req, res) => {
   try {
     let checkdept = await Department.findById(req.params.id.slice(1));
     console.log(req.params.id[0]);
-    checkdept.course.splice((req.params.id[0]), 1);
-    console.log("hi",checkdept);
+    checkdept.course.splice(req.params.id[0], 1);
+    console.log("hi", checkdept);
     await checkdept.save();
-    return res.redirect('back');
+    return res.redirect("back");
   } catch (error) {
     console.log(error);
   }
@@ -479,7 +474,7 @@ module.exports.deleteprogram = async (req, res) => {
 module.exports.deletedepartment = async (req, res) => {
   try {
     await Department.findByIdAndDelete(req.params.id);
-    return res.redirect('back');
+    return res.redirect("back");
   } catch (error) {
     console.log(error);
   }
@@ -490,26 +485,30 @@ module.exports.spotsearch = async (req, res) => {
     // console.log(parseFloat(req.params.id))
     // console.log(isNaN(req.params.id))
     // if(isNaN(req.params.id)){
-      let result = await Teacher.find({name: {$regex: new RegExp('^'+ req.params.id +'.*', 'i')}}).limit(5);
-      let result1 = await Student.find({name: {$regex: new RegExp('^'+ req.params.id +'.*', 'i')}}).limit(5);
+    let result = await Teacher.find({
+      name: { $regex: new RegExp("^" + req.params.id + ".*", "i") },
+    }).limit(5);
+    let result1 = await Student.find({
+      name: { $regex: new RegExp("^" + req.params.id + ".*", "i") },
+    }).limit(5);
     // }
     // if(!isNaN(parseFloat(req.params.id))){
     //   let str = parseFloat(req.params.id)
     //   let result = await Teacher.find({username: {$regex: new RegExp('^'+ str +'.*', 'i')}}).limit(5);
     //   let result1 = await Student.find({username: {$regex: new RegExp('^'+ str +'.*', 'i')}}).limit(5);
     // }
-    
-  console.log(result);
-  console.log(result1);
-  if (req.xhr) {
-    return res.status(200).json({
-      data: {
-        result: result,
-        result1: result1
-      },
-    });
-  }
-    return res.redirect('back');
+
+    console.log(result);
+    console.log(result1);
+    if (req.xhr) {
+      return res.status(200).json({
+        data: {
+          result: result,
+          result1: result1,
+        },
+      });
+    }
+    return res.redirect("back");
   } catch (error) {
     console.log(error);
   }
@@ -517,57 +516,57 @@ module.exports.spotsearch = async (req, res) => {
 
 module.exports.setting = async (req, res) => {
   try {
-    return res.render("admin/setting", { title: "Setting"});
+    return res.render("admin/setting", { title: "Setting" });
   } catch (error) {
     console.log(error);
   }
 };
 module.exports.changepassword = async (req, res) => {
   try {
-    if(req.body.newpassword === req.body.new1password){
+    if (req.body.newpassword === req.body.new1password) {
       let user = await User.findById(res.locals.user._id);
-      if(user.password === req.body.oldpassword){
+      if (user.password === req.body.oldpassword) {
         user.password = req.body.new1password;
         await user.save();
         req.flash("success", "Password Updated");
-      } 
-      else{
+      } else {
         req.flash("error", "Old password did not match");
       }
-    }
-    else{
+    } else {
       req.flash("error", "New and Confirm password did not match");
     }
-    return res.redirect('back');
+    return res.redirect("back");
   } catch (error) {
     console.log(error);
   }
 };
 
-
-
 module.exports.semester = async (req, res) => {
   try {
-    const dept = await Department.find({}); 
+    const dept = await Department.find({});
     const course = [];
-    return res.render("admin/admin-create-sem", { title: "Create Semester", dept, course});
+    return res.render("admin/admin-create-sem", {
+      title: "Create Semester",
+      dept,
+      course,
+    });
   } catch (error) {
     console.log(error);
   }
 };
 module.exports.semestercourse = async (req, res) => {
   try {
-    const dept = await Department.find({}); 
+    const dept = await Department.find({});
     const course = await Department.findById(req.params.id);
-    
-    return res.redirect('back');
+
+    return res.redirect("back");
   } catch (error) {
     console.log(error);
   }
 };
 module.exports.createsem = async (req, res) => {
   try {
-    console.log(req.body)
+    console.log(req.body);
     let department = req.body.primary;
     let course = req.body.secondary;
     // console.log(req.body.secondary);
@@ -577,9 +576,9 @@ module.exports.createsem = async (req, res) => {
     let secco = req.body.secco;
     let j = 0;
     // console.log(sem, sec);
-    for(let i = 0; i<sem.length; i++){
+    for (let i = 0; i < sem.length; i++) {
       let check = 0;
-      if(sec[j] == 'A'){
+      if (sec[j] == "A") {
         check = 1;
         await SemSection.create({
           department: department,
@@ -587,13 +586,13 @@ module.exports.createsem = async (req, res) => {
           semester: sem[i],
           section: sec[j],
           semesterCoordinator: semco[i],
-          sectionCoordinator: secco[j]
-        })
+          sectionCoordinator: secco[j],
+        });
         console.log(sem[i], sec[j]);
       }
       let k = j + 1;
-      for(;k<sec.length; k++){
-        if(sec[k] == 'A' && check == 1){
+      for (; k < sec.length; k++) {
+        if (sec[k] == "A" && check == 1) {
           break;
         }
         console.log(sem[i], sec[k]);
@@ -603,12 +602,12 @@ module.exports.createsem = async (req, res) => {
           semester: sem[i],
           section: sec[k],
           semesterCoordinator: semco[i],
-          sectionCoordinator: secco[k]
-        })
+          sectionCoordinator: secco[k],
+        });
       }
       j = k;
     }
-    return res.redirect('back');
+    return res.redirect("back");
   } catch (error) {
     console.log(error);
   }
