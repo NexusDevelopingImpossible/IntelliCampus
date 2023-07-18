@@ -34,16 +34,16 @@
   cursor: pointer;
 }
 .main-page .title-header .buttons .submit {
-  background-color: #fd6d08;
-  width: 8vw;
-  color: #fff;
-  font-size: 19px;
-  font-weight: 500;
-  border: none;
-  height: 6vh;
-  cursor: pointer;
-  border-radius: 20px;
-  margin-left: 2vw;
+    background-color: #fd6d08;
+    width: 8vw;
+    color: #fff;
+    font-size: 19px;
+    font-weight: 500;
+    border: none;
+    height: 6vh;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-left: 2vw;
 }
 .description {
     display: flex;
