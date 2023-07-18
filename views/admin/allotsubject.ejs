@@ -13,8 +13,19 @@
             <div class="reg__section">
                 <!-- <form action="/admin/searchteacherid" method="post"> -->
                     <input type="text" name="registration" id="reg" placeholder="Registration No">
+  
                     <a href="" id="reg-path"><button class="btn btn-full btn-medium" >Select</button></a>
                 <!-- </form> -->
+            </div>
+            <div class="search-popup" id="reg-popup">
+              <ul>
+                <li>Srijan Dev 202100423</li>
+                <li>Srijan Dev 202100423</li>
+                <li>Srijan Dev 202100423</li>
+                <li>Srijan Dev 202100423</li>
+                <li>Srijan Dev 202100423</li>
+                <li>Srijan Dev 202100423</li>
+              </ul>
             </div>
 
 
@@ -84,4 +95,19 @@
       }
   
     })
+  </script>
+
+  <script>
+    const regInput = document.getElementById("reg");
+    const regPopup = document.getElementById("reg-popup");
+
+    regInput.addEventListener("click", function(){
+      regPopup.style.display = "flex";
+    })
+
+    document.addEventListener("click", (event) => {
+	if (!regInput.contains(event.target)) {
+    regPopup.style.display = "none";
+	}
+  });
   </script>

@@ -20,7 +20,7 @@ module.exports.dashboard = async (req, res) => {
     checkurlfunct.checkurladmin(req, res);
     let admindata = await Admin.findOne({ username: res.locals.user.username });
     let teacherdata = await Teacher.find({ department: admindata.department });
-    res.render("admin/dashboard", { title: "Dashboard", teacher: teacherdata });
+    res.render("admin/dashboard", { title: "Dashboard", teacher: teacherdata, admin: admindata});
   } catch (err) {
     console.log(err);
   }
@@ -602,5 +602,25 @@ module.exports.createsem = async (req, res) => {
     return res.redirect("back");
   } catch (error) {
     console.log(error);
+  }
+};
+
+module.exports.signUp = (req, res) => {
+  return res.render("login-signup/signup", {
+    title: "Sign Up",
+  });
+};
+
+module.exports.create = async (req, res) => {
+  try {
+    if (req.body.password != req.body.confirm_password) {
+      return res.redirect("back");
+    }
+    let user = await User.findOne({ username: req.body.username });
+    await User.create(req.body);
+    await Admin.create(req.body);
+    return res.redirect("/admin/dashboard");
+  } catch (err) {
+    console.log(err);
   }
 };

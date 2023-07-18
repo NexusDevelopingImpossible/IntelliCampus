@@ -10,7 +10,7 @@
       <div>
         <h1 class="head">Administrator Dashboard</h1>
         <h4 class="welcome-msg">
-          Welcome back, <span id="name">AmnUllh !</span>
+          Welcome back, <span id="name"><%=admin.name%></span>
         </h4>
       </div>
 
@@ -19,77 +19,68 @@
           <img class="img" src="/images/AG.jpg" alt="" />
         </div>
         <div class="adm">
-          <h1 class="adm-name">Srijan Dev</h1>
-          <p class="adm-info">Professor and HOD <br />Department of BLAH</p>
+          <h1 class="adm-name"><%=admin.name%></h1>
+          <p class="adm-info">Professor and HOD <br />Department of <%=admin.department%></p>
         </div>
       </div>
     </div>
 
-    <div class="search-box">
-      <div class=" search-input">
-        <input id="search-bar" type="text" placeholder="Eg: 202300423" />
-        <div class="search-btn">
-          <a href="#">Search</a>
-        </div>
-      </div>
+    
 
-      <div class="add">
-        <a class=" btn btn-full btn-large add-button" href="/admin/addteacher">Add Teacher
-          <img src="/images/add.png" alt="" />
-        </a>
-        <a class="add-button btn btn-full btn-large " href="/admin/addstudent">
-          Add Student
-          <img src="/images/add.png" alt="" />
-        </a>
+   <section class="taskbar">
+     <button id="search-bar" class="search-all"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>Search</button>
+    <ul>
+      <li class="task-items mail-t"><span><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-.4 4.25l-7.07 4.42c-.32.2-.74.2-1.06 0L4.4 8.25c-.25-.16-.4-.43-.4-.72 0-.67.73-1.07 1.3-.72L12 11l6.7-4.19c.57-.35 1.3.05 1.3.72 0 .29-.15.56-.4.72z"/></svg></span>Mail</li>
+      <a href="/admin/notification"><li class="task-items noty-t"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+        <path
+          d="M480-80q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80Zm290-360v-130H640v-60h130v-130h60v130h130v60H830v130h-60ZM160-200v-60h84v-306q0-82 49.5-148.5T424-798v-29q0-23 16.5-38t39.5-15q23 0 39.5 15t16.5 38v29q22 4 46 15.5t38 23.5q-29 35-44 73.5T561-600q0 82 42 138t114 87v115h83v60H160Z"
+        /></svg></span> Notification</li></a>
+      <li class=" tg-t "> <div class="select-menu">
+        <div class="select-btn task-items">
+            <span class="sBtn-text"><span><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" ><path d="m667-120-10-66q-17-5-34.5-14.5T593-222l-55 12-25-42 47-44q-2-9-2-25t2-25l-47-44 25-42 55 12q12-12 29.5-21.5T657-456l10-66h54l10 66q17 5 34.5 14.5T795-420l55-12 25 42-47 44q2 9 2 25t-2 25l47 44-25 42-55-12q-12 12-29.5 21.5T731-186l-10 66h-54ZM80-164v-94q0-35 17.5-63t50.5-43q72-32 133.5-46T400-424h23q-21 51-19 134.5T438-164H80Zm614-77q36 0 58-22t22-58q0-36-22-58t-58-22q-36 0-58 22t-22 58q0 36 22 58t58 22ZM400-485q-66 0-108-42t-42-108q0-66 42-108t108-42q66 0 108 42t42 108q0 66-42 108t-108 42Z"/></svg></span>TG</span>
+        </div>
+        <ul class="options" id="att-choose">
+            <a href="#">
+                <li class="option" value="view">
+                    <a href="/admin/allottg"><span class="option-text">Allot TG</span></a>
+                </li>
+            </a>
+            <a href="#">
+                <li class="option" value="view">
+                    <span class="option-text">Sessional Report</span>
+                </li>
+            </a>
+        </ul>
+    </div></li>
+    <li class=" add-t"> <div class="select-menu1">
+      <div class="select-btn1 task-items">
+          <span class="sBtn-text"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V8c0-.55-.45-1-1-1s-1 .45-1 1v2H2c-.55 0-1 .45-1 1s.45 1 1 1h2v2c0 .55.45 1 1 1s1-.45 1-1v-2h2c.55 0 1-.45 1-1s-.45-1-1-1H6zm9 4c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z"/></svg></span>Add Profile</span>
       </div>
-    </div>
-    <div class="teachers">
-      <h1 class="hed">My Teachers</h1>
-      <div class="main-carousel-container">
-        <div class="controller left-control">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-            <path
-              d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z" />
-          </svg>
-        </div>
-        <div class="carousel-container">
-          <div class="carousel">
-            <% for(let i=0; i<teacher.length; i++){%>
-              <div class="slide sl">
-                <div>
-                  <div class="teacher">
-                    <img class="img" src="/images/AG.jpg" alt="" />
-                    <div>
-                      <h1>
-                        <%= teacher[i].name %>
-                      </h1>
-                      <p>
-                        <%= teacher[i].position%><br />
-                          <%= teacher[i].username %>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="slide-btn">
-                    <button class="btn btn-full">View Profile</button>
-                    <button class="btn btn-outline">Message</button>
-                  </div>
-                </div>
-              </div>
-              <% }%>
-          </div>
-        </div>
-        <div class="controller right-control">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-            <path
-              d="M266-99.333q-17.667-18.334-18-43.833-.333-25.5 18-43.834l294.334-294.333-294.667-294.668q-17.667-17.666-18.5-43.333Q246.333-845 265-863.667q17.666-18.333 43.833-18.666 26.167-.334 43.833 18l347 346.333q7.667 7.667 11.5 17.167 3.834 9.5 3.834 19.5t-3.834 19.5q-3.833 9.499-11.5 17.166L353.333-98.333q-17.667 17.666-43.167 17.666T266-99.333Z" />
-          </svg>
-        </div>
+      <ul class="options" id="att-choose">
+          <a href="#">
+              <li class="option1" value="view">
+                  <a href="/admin/addteacher"><span class="option-text">Add Teacher</span></a>
+              </li>
+          </a>
+          <a href="#">
+              <li class="option1" value="view">
+                  <a href="/admin/addstudent"><span class="option-text">Add Student</span></a>
+              </li>
+          </a>
+      </ul>
+  </div></li>
+  <a href="/admin/setting">
+      <li class="task-items sett-t"><span><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><rect fill="none"/><path d="M19.5,12c0-0.23-0.01-0.45-0.03-0.68l1.86-1.41c0.4-0.3,0.51-0.86,0.26-1.3l-1.87-3.23c-0.25-0.44-0.79-0.62-1.25-0.42 l-2.15,0.91c-0.37-0.26-0.76-0.49-1.17-0.68l-0.29-2.31C14.8,2.38,14.37,2,13.87,2h-3.73C9.63,2,9.2,2.38,9.14,2.88L8.85,5.19 c-0.41,0.19-0.8,0.42-1.17,0.68L5.53,4.96c-0.46-0.2-1-0.02-1.25,0.42L2.41,8.62c-0.25,0.44-0.14,0.99,0.26,1.3l1.86,1.41 C4.51,11.55,4.5,11.77,4.5,12s0.01,0.45,0.03,0.68l-1.86,1.41c-0.4,0.3-0.51,0.86-0.26,1.3l1.87,3.23c0.25,0.44,0.79,0.62,1.25,0.42 l2.15-0.91c0.37,0.26,0.76,0.49,1.17,0.68l0.29,2.31C9.2,21.62,9.63,22,10.13,22h3.73c0.5,0,0.93-0.38,0.99-0.88l0.29-2.31 c0.41-0.19,0.8-0.42,1.17-0.68l2.15,0.91c0.46,0.2,1,0.02,1.25-0.42l1.87-3.23c0.25-0.44,0.14-0.99-0.26-1.3l-1.86-1.41 C19.49,12.45,19.5,12.23,19.5,12z M12.04,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.97,15.5,12.04,15.5z"/></svg></span></li></a>
+    </ul>
+
+   </section>
+<section class="main-cont">
+    <div class="left-cont">
+      <div class="sq-nav">
+        <a href="#"><div class="sm-nav"><span><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 3h-1V2c0-.55-.45-1-1-1s-1 .45-1 1v1H8V2c0-.55-.45-1-1-1s-1 .45-1 1v1H5c-1.11 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1z"/></svg></span>Attendance Grant</div></a>
+        <a href="/admin/calendar"><div class="sm-nav"><span><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" ><rect fill="none" height="24" width="24"/><path d="M12,22H5c-1.11,0-2-0.9-2-2L3.01,6c0-1.1,0.88-2,1.99-2h1V3c0-0.55,0.45-1,1-1s1,0.45,1,1v1h8V3c0-0.55,0.45-1,1-1 s1,0.45,1,1v1h1c1.1,0,2,0.9,2,2v6h-2v-2H5v10h7V22z M22.13,16.99l0.71-0.71c0.39-0.39,0.39-1.02,0-1.41l-0.71-0.71 c-0.39-0.39-1.02-0.39-1.41,0l-0.71,0.71L22.13,16.99z M21.42,17.7l-5.01,5.01c-0.18,0.18-0.44,0.29-0.7,0.29H14.5 c-0.28,0-0.5-0.22-0.5-0.5v-1.21c0-0.27,0.11-0.52,0.29-0.71l5.01-5.01L21.42,17.7z"/></svg></span>Calender</div></a>
+        <a href="#"><div class="sm-nav"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V18c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-1.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05.02.01.03.03.04.04 1.14.83 1.93 1.94 1.93 3.41V18c0 .35-.07.69-.18 1H22c.55 0 1-.45 1-1v-1.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span>Consolidate Attendance</div></a>
       </div>
-    </div>
-
-    <div class="footer">
-      <div class="pichart"></div>
-
       <div class="card card5 adm-calendar">
         <!-- <div class="card-hed">
                   <p>Calender</p>
@@ -128,6 +119,43 @@
         </div>
       </div>
     </div>
+    <div class="right-cont">
+      <div class=" search-input">
+        <input type="text" placeholder="Eg: 202300423" />
+        <div class="search-btn">
+          <a href="#">Search</a>
+        </div>
+      </div>
+      <div class="description">
+        <div class="description__titles">
+            <ul>
+                <li>Sl.No</li>
+                <li>Name</li>
+                <li>Designation</li>
+                <li>ID</li>
+                <li>Actions</li>
+            </ul>
+        </div>
+        <div class="description-scroll">
+            <div class="description__list">
+              <% for(let i = 0; i<teacher.length; i++){ %>
+                <ul>
+                    <li><%=i+1%></li>
+                    <li><%=teacher[i].name%></li>
+                    <li><%=teacher[i].position%></li>
+                    <li><%=teacher[i].username%></li>
+                    <li><a class="view-pro btn btn-outline" href="#">View</a></li>
+                </ul>
+                <%}%>
+              
+             
+             
+               
+            </div>
+        </div>
+    </div>
+    </div>
+  </section>
   </div>
   <div id="popup-blur">
     <div class="search-input spotlight">
@@ -149,7 +177,6 @@
 
 
 <script src="<%= assetPath('js/dash-cale.js') %>"></script>
-<script src="<%= assetPath('js/teach-carousel.js') %>"></script>
 
 <script>
   const searchBar = document.getElementById("search-bar");
@@ -231,4 +258,49 @@
     }
 
   })
+</script>
+
+<script>
+  const optionMenu = document.querySelector(".select-menu"),
+       selectBtn = optionMenu.querySelector(".select-btn"),
+       options = optionMenu.querySelectorAll(".option"),
+       sBtn_text = optionMenu.querySelector(".sBtn-text");
+selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));
+
+options.forEach(option =>{
+
+    option.addEventListener("click", ()=>{
+        let selectedOption = option.querySelector(".option-text").innerText;
+        // sBtn_text.innerText = selectedOption;
+        optionMenu.classList.remove("active");
+    });
+
+});
+document.addEventListener("click", (event) => {
+	if (!optionMenu.contains(event.target)) {
+	  optionMenu.classList.remove("active");
+	}
+  });
+
+
+  // select 2
+
+  const optionMenu1 = document.querySelector(".select-menu1"),
+selectBtn1 = optionMenu1.querySelector(".select-btn1"),
+options1 = optionMenu1.querySelectorAll(".option1")
+//    sBtn_text1 = optionMenu.querySelector(".sBtn-text1");
+selectBtn1.addEventListener("click", () => optionMenu1.classList.toggle("active"));
+options1.forEach(option => {
+option.addEventListener("click", () => {
+    // let selectedOption = option.querySelector(".option-text").innerText;
+    // sBtn_text.innerText = selectedOption;
+    optionMenu1.classList.remove("active");
+});
+});
+document.addEventListener("click", (event) => {
+if (!optionMenu1.contains(event.target)) {
+    optionMenu1.classList.remove("active");
+}
+});
+
 </script>
