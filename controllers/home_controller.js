@@ -17,25 +17,8 @@ module.exports.error = function (req, res) {
   });
 };
 
-module.exports.signUp = (req, res) => {
-  return res.render("login-signup/signup", {
-    title: "Sign Up",
-  });
-};
 
-module.exports.create = async (req, res) => {
-  try {
-    if (req.body.password != req.body.confirm_password) {
-      return res.redirect("back");
-    }
-    let user = await User.findOne({ username: req.body.username });
-    await User.create(req.body);
-    await Admin.create(req.body);
-    return res.redirect("/Login");
-  } catch (err) {
-    console.log(err);
-  }
-};
+
 
 module.exports.createSession = async (req, res) => {
   try {

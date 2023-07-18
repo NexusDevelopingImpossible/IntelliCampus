@@ -1,6 +1,20 @@
 .main-result{
   padding: 0 5.4vw;
 }
+option{
+  background-color: #FD6D08;
+}
+
+select::after {
+  content: '\25BC'; /* Unicode character for down arrow */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  /* Add additional styles as needed */
+}
+
 .select-menu {
   display: flex;
   justify-content: space-between;
