@@ -5,15 +5,14 @@
   margin-top: 30px; }
 
 .prog-inp {
-  width: 383px;
-  height: 53px;
+  width: 27vw;
+  height: 7vh;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.7);
   background: rgba(255, 255, 255, 0.1);
-  margin: 0 2.6rem;
+  padding-left: 1vw;
   font-size: 20px;
-  color: white;
-  padding-left: 1rem; }
+  color: white; }
 
 .prog-inp::placeholder {
   color: #fff;
@@ -22,18 +21,7 @@
 
 .add-btn {
   width: 115px;
-  height: 48px;
-  flex-shrink: 0;
-  border-radius: 20px;
-  background: #fd6d08;
-  border: none;
-  color: white;
-  font-family: Montserrat;
-  font-size: 19px;
-  font-weight: 500; }
-
-.add-btn:hover {
-  cursor: pointer; }
+  height: 48px; }
 
 .add-program-1:nth-child(1) {
   margin-right: 3rem; }
@@ -42,7 +30,7 @@
   border: 1px solid orange; }
 
 input[type="text"]:focus {
-  outline: 2px solid orange;
+  outline: 1px solid orange;
   /* oranges! yey */
   border: none; }
 
@@ -52,30 +40,41 @@ input:focus::-webkit-input-placeholder {
 .prog-div {
   width: auto;
   height: 50px;
-  flex-shrink: 0;
   border-radius: 10px;
   background: rgba(248, 213, 123, 0.15);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem; }
+  gap: 1.5vw;
+  padding: 0 1vw; }
 
 .prog-div p {
   color: #fff;
   font-size: 20px;
-  font-style: normal;
   font-weight: 500; }
 
-.trash {
-  color: white;
-  font-size: 25px; }
+.trash svg {
+  fill: white;
+  width: 2vw;
+  transition: all 0.3s; }
 
-.trash:hover {
-  cursor: pointer; }
+.trash svg:hover {
+  cursor: pointer;
+  fill: rgba(255, 255, 255, 0.387); }
 
 .prog-grid {
-  padding-left: 5rem;
-  padding-top: 3rem;
+  padding: 6vh 5vw;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem; }
+  gap: 1.5vw; }
+
+.add-dept {
+  padding: 0 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem; }
+
+#adddept {
+  display: flex;
+  gap: 1.5vw;
+  align-items: center; }

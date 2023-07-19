@@ -21,7 +21,10 @@ select {
   border-radius: 20px;
   font-size: 2vh;
   font-weight: 400;
-  transition: all 0.3s; }
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 .btn-full {
   background-color: #fd6d08; }

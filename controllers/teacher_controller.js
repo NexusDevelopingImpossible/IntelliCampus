@@ -491,3 +491,10 @@ module.exports.changepassword = async (req, res) => {
 };
 
 
+module.exports.profile = async (req, res) => {
+  try {
+    return res.render("teacher/profile-teach", { title: "Teacher Profile"});
+  } catch (error) {
+    console.log(error);
+  }
+};

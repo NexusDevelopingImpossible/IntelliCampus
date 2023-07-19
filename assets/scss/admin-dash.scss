@@ -4,8 +4,8 @@
 .heading {
   /* position: absolute; */
   /* padding-top: 1rem; */
-  padding: 0rem 2rem;
-  padding-bottom: 1rem;
+  padding: 0rem 2vw;
+  padding-bottom: 1vh;
   display: flex;
   justify-content: space-between;
 }
@@ -13,30 +13,26 @@
 .head {
   color: #ffffff;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 6vh;
 }
 
 .welcome-msg {
   color: #ffffff;
   font-weight: 300;
-  font-size: 1.5rem;
+  font-size: 3.5vh;
 }
 
 .welcome-msg span {
   font-weight: 600;
 }
 
-/*.cards{
-  background-color: #f8d57b1e;
-  border: 1px solid #ffffff9a;
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-}*/
+
 
 .admin-info {
   display: flex;
   color: #ffffff;
   align-items: center;
+  gap: 0.75vw;
 }
 
 .img {
@@ -44,17 +40,16 @@
   height: 4.5rem;
   border-radius: 50%;
   border: 3px solid #fd6d08;
-  margin-right: 0.5rem;
 }
 
 .adm-name {
   font-weight: 400;
-  font-size: 1.6rem;
+  font-size: 3.2vh;
 }
 
 .adm-info {
   font-weight: 200;
-  font-size: 1rem;
+  font-size: 2vh;
 }
 
 // - - - - - - - -
@@ -63,16 +58,17 @@
 
 .taskbar {
   margin: 0 2vw;
-  padding: 0.75vh 0.5vw;
+  padding: 0.75vh 0.75vw;
   background: rgba(0, 0, 0, 0.309);
-  border-radius: 15px;
+  border-radius: 20px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 2vh;
 }
 .taskbar ul {
   display: flex;
-  gap: 1vw;
+  gap: 0.75vw;
 }
 .taskbar ul li {
   list-style: none;
@@ -142,7 +138,7 @@
 .select-menu .options, .select-menu1 .options  {
   position: absolute;
     z-index: 1;
-    top: 6vh;
+    top: 5.75vh;
     border-radius: 0px 0px 10px 10px;
     // border-radius: 10px;
     overflow: hidden;
@@ -193,7 +189,7 @@
   box-shadow: 0px 0px 14px 0px rgba(50, 48, 48, 0.1);
   height: 25.5vh;
   display: flex;
-  border-radius: 10px;
+  border-radius: 20px;
   justify-content: space-between;
   flex-direction: column;
   padding: 0 0.75vw;
@@ -225,12 +221,13 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
 .right-cont {
   // border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0px 0px 14px 0px rgba(50, 48, 48, 0.1);
 
   background: rgba(248, 213, 123, 0.15);
-  border-radius: 10px;
+  border-radius: 20px;
   width: 54.5vw;
   padding: 2.5vh 1vw;
   height: 70vh;

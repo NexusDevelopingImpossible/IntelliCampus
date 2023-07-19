@@ -1,6 +1,6 @@
-.qualification-info, .parents-info {
+// .qualification-info, .parents-info {
   
-}
+// }
 textarea {
   resize: none;
   color: #fff;
@@ -24,6 +24,9 @@ select:disabled{
 .info-right {
   height: 90vh;
   overflow: auto;
+}
+.info-right::-webkit-scrollbar{
+  display: none;
 }
 
 
@@ -66,6 +69,9 @@ select:disabled{
   flex-direction: column;
   align-items: center;
   padding: 1.5vh 0;
+}
+.personal-info::-webkit-scrollbar{
+  display: none;
 }
 .info-cont {
   width: 55vw;
