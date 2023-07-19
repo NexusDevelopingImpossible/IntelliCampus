@@ -42,7 +42,7 @@
   
         // Set the input value as the text content of the <a> element
         var anchorTag = document.getElementById("reg-path");
-        // anchorTag.href = "/admin/searchteacherid/" + inputValue;
+        anchorTag.href = "/admin/searchbaralotsubject/" + inputValue;
         searchval = inputValue;
         urllink = "/admin/searchteacherid/" + inputValue;
         console.log(urllink);
@@ -68,7 +68,7 @@
           let sl = searchval.length;
           console.log(g);
           for(let i = 0; i<g.length; i++){
-            DPMstring = DPMstring + `<li><a href="/admin/teachersubject/${g[i]._id}"><p class="spot-item"><span>${searchval}</span>${(g[i].name).slice(sl)} ${g[i].username}</p></a></li>`
+            DPMstring = DPMstring + `<li><a href="/admin/searchbaralotsubject/${g[i].username}"><p class="spot-item"><span>${searchval}</span>${(g[i].name).slice(sl)} ${g[i].username}</p></a></li>`
           }
           // for(let i = 0; i<g.result1.length; i++){
           //   DPMstring = DPMstring + `<a href="#"><p class="spot-item"><span>${searchval}</span>${(g.result1[i].name).slice(sl)} ${g.result1[i].username}</p></a>`

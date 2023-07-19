@@ -236,7 +236,7 @@
           DPMstring = DPMstring + `<a href="#"><p class="spot-item"><span>${searchval}</span>${(g.result[i].name).slice(sl)} ${g.result[i].username}</p></a>`
         }
         for(let i = 0; i<g.result1.length; i++){
-          DPMstring = DPMstring + `<a href="#"><p class="spot-item"><span>${searchval}</span>${(g.result1[i].name).slice(sl)} ${g.result1[i].username}</p></a>`
+          DPMstring = DPMstring + `<a href="/admin/studentprofile/${g.result1[i]._id}"><p class="spot-item"><span>${searchval}</span>${(g.result1[i].name).slice(sl)} ${g.result1[i].username}</p></a>`
         }
         $('#spotlight-list').html(DPMstring);
       },

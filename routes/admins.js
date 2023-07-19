@@ -14,6 +14,7 @@ router.get("/addteacher", adminController.addteacher);
 router.post('/createteacher', adminController.createteacher);
 router.get("/allotsubject", adminController.allotsubject);
 router.get('/searchteacherid/:id', adminController.searchteacherid);
+router.get('/searchbaralotsubject/:id', adminController.searchbaralotsubject);
 router.post('/addsubject', adminController.addsubject); 
 router.get('/deletesubject', adminController.deletesubject); 
 router.get('/calendar', adminController.calendar); 
@@ -38,5 +39,6 @@ router.post("/changepassword", adminController.changepassword);
 router.get("/semester", adminController.semester);
 router.post("/createsem", adminController.createsem);
 router.get("/semestercourse/:id", adminController.semestercourse);
+router.get("/studentprofile/:id", adminController.adminstudentprofile);
 
 module.exports = router;

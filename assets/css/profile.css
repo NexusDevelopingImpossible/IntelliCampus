@@ -22,6 +22,9 @@ select:disabled {
   height: 90vh;
   overflow: auto; }
 
+.info-right::-webkit-scrollbar {
+  display: none; }
+
 .profile-header {
   display: flex;
   align-items: center;
@@ -61,6 +64,9 @@ select:disabled {
   flex-direction: column;
   align-items: center;
   padding: 1.5vh 0; }
+
+.personal-info::-webkit-scrollbar {
+  display: none; }
 
 .info-cont {
   width: 55vw;

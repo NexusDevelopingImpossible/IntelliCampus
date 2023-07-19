@@ -9,6 +9,7 @@ const Calendar = require("../models/calendar");
 const Noti = require("../models/notification");
 const Department = require("../models/department");
 const SemSection = require("../models/semsection");
+const studentsProfile = require("../models/studentProfile");
 const TG = require("../models/tg");
 const fs = require("fs");
 const path = require("path");
@@ -74,6 +75,9 @@ module.exports.createstudent = async function (req, res) {
           department: req.body[key[i + 2]],
           course: req.body[key[i + 3]],
         });
+        await studentsProfile.create({
+          regnNo: req.body[key[i]],
+        })
       }
       i = i + 4;
     }
@@ -132,6 +136,30 @@ module.exports.searchteacherid = async function (req, res) {
         },
       });
     }
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.searchbaralotsubject = async function (req, res) {
+  try {
+    console.log(typeof(req.params.id));
+    let teacherdata = await Teacher.findOne({
+      username: req.params.id,
+    });
+    if (!teacherdata) {
+      req.flash("error", "Teacher does not exist.");
+      res.redirect("back");
+    }
+    let timetables = await Timetable.find({
+      teacherid: teacherdata._id,
+    }).populate("subjectcode");
+    let department = await Department.find({});
+    return res.render("admin/allotsubjectform", {
+      title: "Allot Subject data",
+      teacher: teacherdata,
+      timetable: timetables,
+      dept: department
+    });
   } catch (err) {
     console.log(err);
   }
@@ -421,10 +449,12 @@ module.exports.adddept = async (req, res) => {
         department: req.body.department,
       });
     }
+    let dept = await Department.find();
+
     if (req.xhr) {
       return res.status(200).json({
         data: {
-          dept: req.body.department,
+          dept: dept[dept.length-1]
         },
       });
     }
@@ -558,7 +588,7 @@ module.exports.semestercourse = async (req, res) => {
 };
 module.exports.createsem = async (req, res) => {
   try {
-    console.log(req.body);
+    // console.log(req.body);
     let department = req.body.primary;
     let course = req.body.secondary;
     // console.log(req.body.secondary);
@@ -623,4 +653,18 @@ module.exports.create = async (req, res) => {
   } catch (err) {
     console.log(err);
   }
+};
+module.exports.adminstudentprofile = async (req, res) => {
+  let student = await Student.findById(req.params.id);
+  let studentdata = await studentsProfile.findOne({regnNo: student.username});
+  console.log("TT:",studentdata);
+  return res.render("student/profile", {
+    title: "Profile", student,  studentdata
+  });
+};
+module.exports.adminteacherprofile = async (req, res) => {
+  let student = await Student.findById(req.params.id);
+  return res.render("teacher/profile-teach", {
+    title: "Profile", student
+  })
 };

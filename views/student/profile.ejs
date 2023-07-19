@@ -19,13 +19,13 @@
               </label>
             </div>
           </div>
-          <p class="std-name">Srijan Dev</p>
-          <p class="std-reg-no">202100232</p>
-          <input type="hidden" name="regnNo" value="202100232" />
+          <p class="std-name"><%=student.name%></p>
+          <p class="std-reg-no"><%=student.username%></p>
+          <input type="hidden" name="regnNo" value="<%=student.username%>" />
           <div class="std-details-1">
-            <p><span>Course:</span>B.TECH (IT)</p>
-            <p><span>Semester:</span> 5</p>
-            <p><span>Section:</span> A</p>
+            <p><span>Course:</span><%=student.course%> (<%=student.department%>)</p>
+            <p><span>Semester:</span> <%=student.semester%></p>
+            <p><span>Section:</span> <%=student.section%></p>
             <p><span>TG Name:</span> Diganta Baruah (449)</p>
             <p><span>TG No:</span> 7076321457</p>
           </div>
@@ -36,14 +36,15 @@
                 name="DOB"
                 class="input-read"
                 type="text"
-                value="12-Mar-2002"
+                value="<%=studentdata.DOB%>"
                 readonly
               />
             </p>
             <p>
               <span>Gender:</span>
               <!-- <input class="input-read" type="text" value="Male" readonly /> -->
-              <select name="gender" class="input-read" disabled>
+              <select name="gender" class="input-read" value="<%=studentdata.gender%>" disabled>
+                <option value="<%=studentdata.gender%>"><%=studentdata.gender%></option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
@@ -55,7 +56,7 @@
                 name="phoneNo"
                 class="input-read"
                 type="text"
-                value="8789334294"
+                value="<%=studentdata.phoneNo%>"
                 readonly
               />
             </p>
@@ -65,7 +66,7 @@
                 name="phoneNoWhatsapp"
                 class="input-read"
                 type="text"
-                value="8789334294"
+                value="<%=studentdata.phoneNoWhatsapp%>"
                 readonly
               />
             </p>
@@ -74,7 +75,7 @@
               <input
                 class="input-read"
                 type="text"
-                value="srijandev4@gmail.com"
+                value="<%=studentdata.officialEmail%>"
                 readonly
               />
             </p>
@@ -84,14 +85,15 @@
                 name="officialEmail"
                 class="input-read"
                 type="text"
-                value="srijan_202100423@smit.smu.edu.in"
+                value="<%=studentdata.officialEmail%>"
                 readonly
               />
             </p>
             <p>
               <span>Blood Group:</span>
               <!-- <input class="input-read" type="text" value="B+" readonly /> -->
-              <select name="bloodGroup" class="input-read" disabled>
+              <select name="bloodGroup" class="input-read" value="<%=studentdata.bloodGroup%>" disabled>
+                <option value="<%=studentdata.bloodGroup%>+"><%=studentdata.bloodGroup%></option>
                 <option value="B+">B+</option>
                 <option value="A+">A+</option>
                 <option value="B-">B-</option>
@@ -103,14 +105,15 @@
                 name="aadharNo"
                 class="input-read"
                 type="text"
-                value="2434562443455"
+                value="<%=studentdata.aadharNo%>"
                 readonly
               />
             </p>
             <p>
               <span>Category:</span>
               <!-- <input class="input-read" type="text" value="General" readonly /> -->
-              <select name="category" class="input-read" disabled>
+              <select name="category" class="input-read" value="<%=studentdata.category%>" disabled>
+                <option value="<%=studentdata.category%>"><%=studentdata.category%></option>
                 <option value="General">General</option>
                 <option value="OBC">OBC</option>
                 <option value="SC">SC</option>
@@ -119,7 +122,7 @@
             </p>
             <p>
               <span>Mother Tongue:</span>
-              <input name="motherTongue" class="input-read" type="text" value="Hindi" readonly />
+              <input name="motherTongue" class="input-read" type="text" value="<%=studentdata.motherTongue%>" readonly />
             </p>
           </div>
         </div>
