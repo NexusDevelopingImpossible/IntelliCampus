@@ -105,186 +105,25 @@
           <!-- Tab Content 1 -->
           <div id="tab-1-content" class="tab-content-item show">
             <div class="tab1-cont">
+            <%for(let i = 0; i<timetabledata.length; i++){%>
             <div class="cont-def sl slide">
               <div class="sbj-cd-name">
-                <h2> MA-2342</h2>
-                <p>Engenieerign Mathematics</p>
+                <h2> <%=timetabledata[i].subjectcode.code%></h2>
+                <p><%=timetabledata[i].subjectcode.name%></p>
               </div>
               <div class="sbj-info">
                 <h1><span>Semester: </span>
-                  5th
+                  <%=timetabledata[i].semester%>
                 </h1>
                 <h1><span>Department: </span>
-                  IT
+                  <%=timetabledata[i].department%>
                 </h1>
                 <h1><span>Section: </span>
-                  A
+                  <%=timetabledata[i].section%>
                 </h1>
               </div>
-              
             </div>
-            <div class="cont-def sl slide">
-              <div class="sbj-cd-name">
-                <h2> MA-2342</h2>
-                <p>Engenieerign Mathematics</p>
-              </div>
-              <div class="sbj-info">
-                <h1><span>Semester: </span>
-                  5th
-                </h1>
-                <h1><span>Department: </span>
-                  IT
-                </h1>
-                <h1><span>Section: </span>
-                  A
-                </h1>
-              </div>
-              
-            </div>
-            <div class="cont-def sl slide">
-              <div class="sbj-cd-name">
-                <h2> MA-2342</h2>
-                <p>Engenieerign Mathematics</p>
-              </div>
-              <div class="sbj-info">
-                <h1><span>Semester: </span>
-                  5th
-                </h1>
-                <h1><span>Department: </span>
-                  IT
-                </h1>
-                <h1><span>Section: </span>
-                  A
-                </h1>
-              </div>
-              
-            </div>
-            <div class="cont-def sl slide">
-              <div class="sbj-cd-name">
-                <h2> MA-2342</h2>
-                <p>Engenieerign Mathematics</p>
-              </div>
-              <div class="sbj-info">
-                <h1><span>Semester: </span>
-                  5th
-                </h1>
-                <h1><span>Department: </span>
-                  IT
-                </h1>
-                <h1><span>Section: </span>
-                  A
-                </h1>
-              </div>
-              
-            </div>
-            <div class="cont-def sl slide">
-              <div class="sbj-cd-name">
-                <h2> MA-2342</h2>
-                <p>Engenieerign Mathematics</p>
-              </div>
-              <div class="sbj-info">
-                <h1><span>Semester: </span>
-                  5th
-                </h1>
-                <h1><span>Department: </span>
-                  IT
-                </h1>
-                <h1><span>Section: </span>
-                  A
-                </h1>
-              </div>
-              
-            </div>
-            <div class="cont-def sl slide">
-              <div class="sbj-cd-name">
-                <h2> MA-2342</h2>
-                <p>Engenieerign Mathematics</p>
-              </div>
-              <div class="sbj-info">
-                <h1><span>Semester: </span>
-                  5th
-                </h1>
-                <h1><span>Department: </span>
-                  IT
-                </h1>
-                <h1><span>Section: </span>
-                  A
-                </h1>
-              </div>
-              
-            </div>
-            <div class="cont-def sl slide">
-              <div class="sbj-cd-name">
-                <h2> MA-2342</h2>
-                <p>Engenieerign Mathematics</p>
-              </div>
-              <div class="sbj-info">
-                <h1><span>Semester: </span>
-                  5th
-                </h1>
-                <h1><span>Department: </span>
-                  IT
-                </h1>
-                <h1><span>Section: </span>
-                  A
-                </h1>
-              </div>
-              
-            </div>
-            <div class="cont-def sl slide">
-              <div class="sbj-cd-name">
-                <h2> MA-2342</h2>
-                <p>Engenieerign Mathematics</p>
-              </div>
-              <div class="sbj-info">
-                <h1><span>Semester: </span>
-                  5th
-                </h1>
-                <h1><span>Department: </span>
-                  IT
-                </h1>
-                <h1><span>Section: </span>
-                  A
-                </h1>
-              </div>
-              
-            </div>
-            <div class="cont-def sl slide">
-              <div class="sbj-cd-name">
-                <h2> MA-2342</h2>
-                <p>Engenieerign Mathematics</p>
-              </div>
-              <div class="sbj-info">
-                <h1><span>Semester: </span>
-                  5th
-                </h1>
-                <h1><span>Department: </span>
-                  IT
-                </h1>
-                <h1><span>Section: </span>
-                  A
-                </h1>
-              </div>
-              
-            </div>
-            <div class="cont-def sl slide">
-              <div class="sbj-cd-name">
-                <h2> MA-2342</h2>
-                <p>Engenieerign Mathematics</p>
-              </div>
-              <div class="sbj-info">
-                <h1><span>Semester: </span>
-                  5th
-                </h1>
-                <h1><span>Department: </span>
-                  IT
-                </h1>
-                <h1><span>Section: </span>
-                  A
-                </h1>
-              </div>
-              
-            </div>
+            <%}%>
           </div>
           </div>
   
@@ -320,115 +159,16 @@
                 </div>
                 <div class="description-scroll">
                     <div class="description__list">
+                      <%console.log(tgdata)%>
+                      <%for(let i = 0; i<tgdata.length; i++){%>
                         <ul>
-                            <li>1</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
+                            <li><%=i+1%></li>
+                            <li><%=tgdata[i].studentid.name%></li>
+                            <li><%=tgdata[i].studentid.username%></li>
                             <li>srijan_202100423.smit.smu.edu.in</li>
                             <li><a class="view-pro btn btn-outline" href="#">View</a></li>
                         </ul>
-                        <ul>
-                            <li>1</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>srijan_202100423.smit.smu.edu.in</li>
-                            <li><a class="view-pro btn btn-outline" href="#">View</a></li>
-                        </ul>
-                        <ul>
-                            <li>1</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>srijan_202100423.smit.smu.edu.in</li>
-                            <li><a class="view-pro btn btn-outline" href="#">View</a></li>
-                        </ul>
-                        <ul>
-                            <li>1</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>srijan_202100423.smit.smu.edu.in</li>
-                            <li><a class="view-pro btn btn-outline" href="#">View</a></li>
-                        </ul>
-                        <ul>
-                            <li>1</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>srijan_202100423.smit.smu.edu.in</li>
-                            <li><a class="view-pro btn btn-outline" href="#">View</a></li>
-                        </ul>
-                        <ul>
-                            <li>1</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>srijan_202100423.smit.smu.edu.in</li>
-                            <li><a class="view-pro btn btn-outline" href="#">View</a></li>
-                        </ul>
-                        <ul>
-                            <li>1</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>srijan_202100423.smit.smu.edu.in</li>
-                            <li><a class="view-pro btn btn-outline" href="#">View</a></li>
-                        </ul>
-                        <ul>
-                            <li>1</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>srijan_202100423.smit.smu.edu.in</li>
-                            <li><a class="view-pro btn btn-outline" href="#">View</a></li>
-                        </ul>
-                        <ul>
-                            <li>1</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>srijan_202100423.smit.smu.edu.in</li>
-                            <li><a class="view-pro btn btn-outline" href="#">View</a></li>
-                        </ul>
-                        <ul>
-                            <li>1</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>srijan_202100423.smit.smu.edu.in</li>
-                            <li><a class="view-pro btn btn-outline" href="#">View</a></li>
-                        </ul>
-                        <ul>
-                            <li>1</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>srijan_202100423.smit.smu.edu.in</li>
-                            <li><a class="view-pro btn btn-outline" href="#">View</a></li>
-                        </ul>
-                        <ul>
-                            <li>1</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>srijan_202100423.smit.smu.edu.in</li>
-                            <li><a class="view-pro btn btn-outline" href="#">View</a></li>
-                        </ul>
-                        <ul>
-                            <li>1</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>srijan_202100423.smit.smu.edu.in</li>
-                            <li><a class="view-pro btn btn-outline" href="#">View</a></li>
-                        </ul>
-                        <ul>
-                            <li>1</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>srijan_202100423.smit.smu.edu.in</li>
-                            <li><a class="view-pro btn btn-outline" href="#">View</a></li>
-                        </ul>
-                        <ul>
-                            <li>1</li>
-                            <li>Srijan Dev</li>
-                            <li>202100423</li>
-                            <li>srijan_202100423.smit.smu.edu.in</li>
-                            <li><a class="view-pro btn btn-outline" href="#">View</a></li>
-                        </ul>
-                      
-                     
-                     
-                       
+                        <%}%>                  
                     </div>
                 </div>
             </div>

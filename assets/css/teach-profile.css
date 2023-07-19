@@ -41,6 +41,9 @@
   height: 80vh;
   overflow: auto; }
 
+.tab1-cont::-webkit-scrollbar {
+  display: none; }
+
 .show {
   display: block !important;
   opacity: 1 !important;

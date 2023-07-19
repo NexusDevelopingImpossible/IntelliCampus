@@ -228,7 +228,7 @@ select:disabled {
 .popup-btns {
   position: absolute;
   bottom: 1.5vh;
-  left: 50%; }
+  left: 43%; }
 
 .image-container {
   position: relative;
@@ -269,3 +269,6 @@ select:disabled {
 .upload-label span svg {
   width: 3vw;
   fill: #fff; }
+
+.file-input {
+  display: none; }

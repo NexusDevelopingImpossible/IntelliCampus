@@ -209,7 +209,9 @@ const studentsProfileSchema = new mongoose.Schema(
     fileexcel: {
       type: Array,
     },
-
+    avatar: {
+      type: String,
+    },
     //   testFile2: {
     //         type:String,
     //     },
@@ -232,6 +234,11 @@ let storage = multer.diskStorage({
 studentsProfileSchema.statics.uploadedFiles = multer({
   storage: storage,
 }).array("fileexcel", 5);
+studentsProfileSchema.statics.filePath = UPLOAD_Path;
+
+studentsProfileSchema.statics.uploadedFiles = multer({ storage: storage }).single(
+  "avatar"
+);
 studentsProfileSchema.statics.filePath = UPLOAD_Path;
 
 const studentsProfile = mongoose.model(

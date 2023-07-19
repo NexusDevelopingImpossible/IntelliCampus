@@ -20,6 +20,7 @@ router.get("/fetchnoti", studentController.fetchnoti);
 router.get("/notes", studentController.notes);
 router.get("/setting", studentController.setting);
 router.post("/changepassword", studentController.changepassword);
+router.get("/profile", studentController.profile);
 router.post("/updateProfile", studentController.updateProfile);
 
 module.exports = router;

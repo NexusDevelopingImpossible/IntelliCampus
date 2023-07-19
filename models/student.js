@@ -33,6 +33,9 @@ const studentSchema = new mongoose.Schema(
         },
       },
     ],
+    avatar: {
+      type: String,
+    }
   },
   {
     timestamps: true,

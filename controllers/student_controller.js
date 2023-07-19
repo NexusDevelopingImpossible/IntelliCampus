@@ -278,7 +278,20 @@ module.exports.changepassword = async (req, res) => {
     console.log(error);
   }
 };
-
+module.exports.profile = async (req, res) => {
+  try {
+    const student = await Student.findOne({
+      username: res.locals.user.username,
+    });
+    let existingStudentProfile;
+    existingStudentProfile = await studentsProfile.findOne({
+      regnNo: res.locals.user.username,
+    });
+    return res.render("student/profile", { title: "Profile", student, studentdata: existingStudentProfile });
+  } catch (error) {
+    console.log(error);
+  }
+};
 module.exports.updateProfile = async (req, res) => {
   try {
     let createdProfile;
@@ -299,9 +312,30 @@ module.exports.updateProfile = async (req, res) => {
           });
         }
       }
-      async function load_file(){
+      async function load_file() {
+        if (req.file) {
+          let existingStudentProfile;
+          existingStudentProfile = await studentsProfile.findOne({
+            regnNo: req.body.regnNo,
+          });
+          let student = await Student.findOne({
+            username: req.body.regnNo,
+          });
+          if (existingStudentProfile.avatar) {
+            fs.unlinkSync(
+              path.join(__dirname, "..", existingStudentProfile.avatar)
+            );
+          }
+
+          student.avatar = studentsProfile.filePath + "/" + req.file.filename;
+          existingStudentProfile.avatar =
+            studentsProfile.filePath + "/" + req.file.filename;
+          await existingStudentProfile.save();
+          await student.save();
+        }
         if (req.files) {
           let files = req.files;
+          console.log("Hi:", files);
           let existingStudentProfile;
           existingStudentProfile = await studentsProfile.findOne({
             regnNo: req.body.regnNo,
@@ -309,7 +343,7 @@ module.exports.updateProfile = async (req, res) => {
           await processFiles(existingStudentProfile);
           async function processFiles(existingStudentProfile) {
             for (let file of files) {
-              console.log(existingStudentProfile);
+              // console.log(existingStudentProfile);
               let tempPath = studentsProfile.filePath + "/" + file.filename;
               existingStudentProfile.fileexcel.push(tempPath);
             }

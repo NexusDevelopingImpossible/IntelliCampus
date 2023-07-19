@@ -5,6 +5,7 @@ const Student = require("../models/student");
 const Attendance = require("../models/attendance");
 const MarksScheme = require("../models/marksScheme");
 const Notification = require("../models/notification");
+const TG = require("../models/tg");
 const prettydate = require("pretty-date");
 const fs = require("fs");
 const path = require("path");
@@ -493,7 +494,14 @@ module.exports.changepassword = async (req, res) => {
 
 module.exports.profile = async (req, res) => {
   try {
-    return res.render("teacher/profile-teach", { title: "Teacher Profile"});
+    let teacherdata = await Teacher.findOne({
+      username: res.locals.user.username,
+    });
+    let timetabledata = await Timetable.find({
+      teacherid: teacherdata._id,
+    }).populate("subjectcode");
+    let tgdata = await TG.find({teacherid: teacherdata._id}).populate('studentid');
+    return res.render("teacher/profile-teach", { title: "Teacher Profile", teacherdata, timetabledata, tgdata});
   } catch (error) {
     console.log(error);
   }
