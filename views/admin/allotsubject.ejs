@@ -18,13 +18,7 @@
                 <!-- </form> -->
             </div>
             <div class="search-popup" id="reg-popup">
-              <ul>
-                <li>Srijan Dev 202100423</li>
-                <li>Srijan Dev 202100423</li>
-                <li>Srijan Dev 202100423</li>
-                <li>Srijan Dev 202100423</li>
-                <li>Srijan Dev 202100423</li>
-                <li>Srijan Dev 202100423</li>
+              <ul id="reg-list">
               </ul>
             </div>
 
@@ -49,7 +43,9 @@
         // Set the input value as the text content of the <a> element
         var anchorTag = document.getElementById("reg-path");
         // anchorTag.href = "/admin/searchteacherid/" + inputValue;
-        urllink = "/admin/searchteacherid/" + inputValue;;
+        searchval = inputValue;
+        urllink = "/admin/searchteacherid/" + inputValue;
+        console.log(urllink);
       });
       document.getElementById("reg").addEventListener("keyup", function(event) {
         if (event.key === "Enter") {
@@ -68,15 +64,16 @@
         success: function (data) {
           console.log(data.data.result);
           let g = data.data.result
-          // let DPMstring  = '';
-          // let sl = searchval.length;
-          // for(let i = 0; i<g.result.length; i++){
-          //   DPMstring = DPMstring + `<a href="/admin/teachersubject/${data.data.result[i]._id}"><p class="spot-item"><span>${searchval}</span>${(g.result[i].name).slice(sl)} ${g.result[i].username}</p></a>`
-          // }
+          let DPMstring  = '';
+          let sl = searchval.length;
+          console.log(g);
+          for(let i = 0; i<g.length; i++){
+            DPMstring = DPMstring + `<li><a href="/admin/teachersubject/${g[i]._id}"><p class="spot-item"><span>${searchval}</span>${(g[i].name).slice(sl)} ${g[i].username}</p></a></li>`
+          }
           // for(let i = 0; i<g.result1.length; i++){
           //   DPMstring = DPMstring + `<a href="#"><p class="spot-item"><span>${searchval}</span>${(g.result1[i].name).slice(sl)} ${g.result1[i].username}</p></a>`
           // }
-          // $('#spotlight-list').html(DPMstring);
+          $('#reg-list').html(DPMstring);
         },
         error: function (error) {
           console.log(error.responseText);
@@ -84,15 +81,17 @@
       });
     }
     const search = document.getElementById('reg');
+    console.log(search);
     search.addEventListener('input', () => {
       console.log(search.value.length)
       if(search.value){
         searchval = search.value;
+        console.log("call");
         createform();
       }
-      if(search.value.length == 0){
-        document.getElementById('spotlight-list').innerHTML = '';
-      }
+      // if(search.value.length == 0){
+      //   document.getElementById('reg-list').innerHTML = '';
+      // }
   
     })
   </script>
