@@ -17,6 +17,15 @@ const teacherSchema = new mongoose.Schema({
     position: {
         type: String,
         required: true
+    },
+    semesterco: {
+        type: String,
+    },
+    sectionco: {
+        type: String,
+    },
+    avatar: {
+        type: String,
     }
 
 }, {

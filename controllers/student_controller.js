@@ -326,7 +326,6 @@ module.exports.updateProfile = async (req, res) => {
               path.join(__dirname, "..", existingStudentProfile.avatar)
             );
           }
-
           student.avatar = studentsProfile.filePath + "/" + req.file.filename;
           existingStudentProfile.avatar =
             studentsProfile.filePath + "/" + req.file.filename;

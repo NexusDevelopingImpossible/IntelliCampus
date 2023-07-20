@@ -2,32 +2,31 @@
 <link rel="stylesheet" href="<%= assetPath('css/teach-profile.css') %>" />
 <div class="main-page">
   <div class="blur">
-    <form action="/student/updateProfile" method="post" enctype="multipart/form-data">
     <main class="prof-main-container">
+      <form action="/teacher/updateProfile" method="post" enctype="multipart/form-data">
       <section class="info-left">
         <div class="personal-info">
           <div class="profile-header">
-            <a href="/student/dashboard"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
             <h1 class="info-hed">Personal Profile</h1>
             <span class="edit-btn"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" ><g><rect fill="none" height="24" width="24"/></g><g><g><g><path d="M3,17.46l0,3.04C3,20.78,3.22,21,3.5,21h3.04c0.13,0,0.26-0.05,0.35-0.15L17.81,9.94l-3.75-3.75L3.15,17.1 C3.05,17.2,3,17.32,3,17.46z"/></g><g><path d="M20.71,5.63l-2.34-2.34c-0.39-0.39-1.02-0.39-1.41,0l-1.83,1.83l3.75,3.75l1.83-1.83C21.1,6.65,21.1,6.02,20.71,5.63z"/></g></g></g></svg></span>
           </div>
           <div class="image-container">
-            <img profile-img src="/images/AG.jpg" alt="Original Image" class="image" id="image" />
+            <img profile-img src="<%=teacher.avatar%>" alt="Original Image" class="image" id="image" />
             <div class="upload-option">
               <label for="file-upload" class="upload-label">
                 <span><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M21.02 5H19V2.98c0-.54-.44-.98-.98-.98h-.03c-.55 0-.99.44-.99.98V5h-2.01c-.54 0-.98.44-.99.98v.03c0 .55.44.99.99.99H17v2.01c0 .54.44.99.99.98h.03c.54 0 .98-.44.98-.98V7h2.02c.54 0 .98-.44.98-.98v-.04c0-.54-.44-.98-.98-.98zM16 9.01V8h-1.01c-.53 0-1.03-.21-1.41-.58-.37-.38-.58-.88-.58-1.44 0-.36.1-.69.27-.98H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8.28c-.3.17-.64.28-1.02.28-1.09-.01-1.98-.9-1.98-1.99zM15.96 19H6c-.41 0-.65-.47-.4-.8l1.98-2.63c.21-.28.62-.26.82.02L10 18l2.61-3.48c.2-.26.59-.27.79-.01l2.95 3.68c.26.33.03.81-.39.81z"/></svg></span>
-                <input type="file" id="file-upload" class="file-input" accept="image/*">
+                <input type="file" id="file-upload" class="file-input" name="avatar" accept="image/*">
               </label>
             </div>
           </div>
-          <p class="std-name">Srijan Dev</p>
-          <p class="std-reg-no">202100232</p>
-          <input type="hidden" name="regnNo" value="202100232" />
+          <p class="std-name"><%=teacher.name%></p>
+          <p class="std-reg-no"><%=teacher.username%></p>
+          <input type="hidden" name="regnNo" value="<%=teacher.username%>" />
           <div class="std-details-1">
-            <p><span>Position:</span>Associate Professor</p>
-            <p><span>Department:</span> IT</p>
-            <p><span>Semester Coordinator:</span> A</p>
-            <p><span>Section Coordinator:</span> Diganta Baruah (449)</p>
+            <p><span>Position:</span><%=teacher.position%></p>
+            <p><span>Department:</span> <%=teacher.department%></p>
+            <p><span>Semester Coordinator:</span> <%=teacher.semesterco%></p>
+            <p><span>Section Coordinator:</span> <%=teacher.sectionco%></p>
           </div>
           <div class="std-details-2">
             <p>
@@ -36,7 +35,7 @@
                 name="chamber"
                 class="input-read"
                 type="text"
-                value="B-602"
+                value="<%=teacherdata.chamber%>"
                 readonly
               />
             </p>
@@ -46,13 +45,14 @@
                 name="DOB"
                 class="input-read"
                 type="text"
-                value="12-Mar-2002"
+                value="<%=teacherdata.DOB%>"
                 readonly
               />
             </p>
             <p>
               <span>Gender:</span>
-              <select name="gender" class="input-read" disabled>
+              <select name="gender" class="input-read">
+                <option value="<%=teacherdata.gender%>" disabled><%=teacherdata.gender%></option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
@@ -64,7 +64,7 @@
                 name="phoneNo"
                 class="input-read"
                 type="text"
-                value="8789334294"
+                value="<%=teacherdata.phoneNo%>"
                 readonly
               />
             </p>
@@ -74,7 +74,7 @@
                 name="phoneNoWhatsapp"
                 class="input-read"
                 type="text"
-                value="8789334294"
+                value="<%=teacherdata.phoneNoWhatsapp%>"
                 readonly
               />
             </p>
@@ -84,13 +84,15 @@
                 name="officialEmail"
                 class="input-read"
                 type="text"
-                value="srijan_202100423@smit.smu.edu.in"
+                value="<%=teacherdata.officialEmail%>"
                 readonly
               />
             </p>
+            <div class="save-div"><input type="submit" class="btn btn-full btn-med" value="Save"></div>
           </div>
         </div>
       </section>
+    </form>
       <section class="info-right">
       <div class="tabs-bar">
           <div id="tab-1" class="tab-item tb tab-border">
@@ -178,7 +180,6 @@
   
       </section>
     </main>
-  </form>
   </div>
 </div>
 

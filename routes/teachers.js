@@ -35,4 +35,6 @@ router.get("/assignmentcheck/:id", teacherController.assignment_check);
 router.get("/setting", teacherController.setting);
 router.post("/changepassword", teacherController.changepassword);
 router.get("/profile", teacherController.profile);
+router.post("/updateProfile", teacherController.updateProfile);
+
 module.exports = router;

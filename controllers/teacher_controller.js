@@ -5,6 +5,7 @@ const Student = require("../models/student");
 const Attendance = require("../models/attendance");
 const MarksScheme = require("../models/marksScheme");
 const Notification = require("../models/notification");
+const teachersProfile = require('../models/teacherprofile');
 const TG = require("../models/tg");
 const prettydate = require("pretty-date");
 const fs = require("fs");
@@ -494,15 +495,66 @@ module.exports.changepassword = async (req, res) => {
 
 module.exports.profile = async (req, res) => {
   try {
-    let teacherdata = await Teacher.findOne({
+    let teacher = await Teacher.findOne({
       username: res.locals.user.username,
     });
     let timetabledata = await Timetable.find({
-      teacherid: teacherdata._id,
+      teacherid: teacher._id,
     }).populate("subjectcode");
-    let tgdata = await TG.find({teacherid: teacherdata._id}).populate('studentid');
-    return res.render("teacher/profile-teach", { title: "Teacher Profile", teacherdata, timetabledata, tgdata});
+    let existingTeacherProfile;
+    // console.log(res.locals.user.username);
+    existingTeacherProfile = await teachersProfile.findOne({
+      regnNo: res.locals.user.username,
+    });
+    let tgdata = await TG.find({teacherid: teacher._id}).populate('studentid');
+    return res.render("teacher/profile-teach", { title: "Teacher Profile", teacher, timetabledata, tgdata, teacherdata: existingTeacherProfile});
   } catch (error) {
     console.log(error);
+  }
+};
+module.exports.updateProfile = async (req, res) => {
+  try {
+    let createdProfile;
+    teachersProfile.uploadedFiles(req, res, async function (error) {
+      if (error) {
+        console.log("**** Multer error :", error);
+      } else {
+        let regnNo = req.body.regnNo;
+        let existingTeacherProfileUpdate =
+          await teachersProfile.findOneAndUpdate({ regnNo: regnNo }, req.body);
+        if (existingTeacherProfileUpdate) {
+        } else {
+          await teachersProfile.create(req.body);
+        }
+      }
+      async function load_file() {
+        if (req.file) {
+          let existingTeacherProfile;
+          existingTeacherProfile = await teachersProfile.findOne({
+            regnNo: res.locals.user.username,
+          });
+          // console.log(req.body.regnNo);
+          let teacher = await Teacher.findOne({
+            username: res.locals.user.username,
+          });
+          // console.log(teacher)
+          if (existingTeacherProfile.avatar) {
+            fs.unlinkSync(
+              path.join(__dirname, "..", existingTeacherProfile.avatar)
+            );
+          }
+          teacher.avatar = teachersProfile.filePath + "/" + req.file.filename;
+          existingTeacherProfile.avatar =
+            teachersProfile.filePath + "/" + req.file.filename;
+          await existingTeacherProfile.save();
+          await teacher.save();
+        }
+      }
+      await load_file();
+      return res.redirect("back");
+    });
+  } catch (error) {
+    console.log(`Error: ${error}`);
+    res.json({ Error: error });
   }
 };

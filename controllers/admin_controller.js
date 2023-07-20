@@ -15,6 +15,7 @@ const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
 const XLSX = require("xlsx");
+const teachersProfile = require("../models/teacherprofile");
 //Dashboard
 module.exports.dashboard = async (req, res) => {
   try {
@@ -106,6 +107,9 @@ module.exports.createteacher = async function (req, res) {
           department: req.body[key[i + 2]],
           position: req.body[key[i + 3]],
         });
+        await teachersProfile.create({
+          regnNo: req.body[key[i]],
+        })
       }
       i = i + 4;
     }

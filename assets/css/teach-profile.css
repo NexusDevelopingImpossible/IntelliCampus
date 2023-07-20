@@ -215,3 +215,8 @@
   width: 4vw;
   font-size: 1.75vh;
   border-radius: 10px; }
+
+.save-div {
+  display: flex;
+  margin-top: 5vh;
+  justify-content: center; }
