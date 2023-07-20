@@ -11,6 +11,7 @@ const Department = require("../models/department");
 const SemSection = require("../models/semsection");
 const studentsProfile = require("../models/studentProfile");
 const TG = require("../models/tg");
+const Tempupload = require("../models/templateupoad");
 const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
@@ -87,6 +88,65 @@ module.exports.createstudent = async function (req, res) {
     console.log(error);
   }
 };
+module.exports.createstudentWexcel = async function (req, res) {
+  try {
+    try {
+      let path = await new Promise((resolve, reject) => {
+        Tempupload.uploadfileexcel(req, res, function (error) {
+          if (error) {
+            console.log("** Multer error:", error);
+            reject(error);
+          }
+          resolve(Tempupload.uploadpath + "/" + req.file.filename);
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    let url = Tempupload.uploadpath + "/" + req.file.filename;
+    url = url.slice(1);
+    console.log(url);
+    const workbook = XLSX.readFile(url);
+    const worksheet = workbook.Sheets["Studentlist"];
+    let i = 2;
+    let cellToUpdate = String("A" + i);
+    try {
+      while(worksheet[cellToUpdate]!=undefined){
+        cellToUpdate = String("A" + i);
+        cellname = String("B" + i);
+        celldept = String("C" + i);
+        cellcourse = String("D" + i);
+        let std_registration = Number(worksheet[cellToUpdate].v);
+        let userdata = await User.findOne({ username: std_registration });
+        if(!userdata){
+          await Student.create({
+            username: std_registration,
+            name: (worksheet[cellname].v),
+            department: (worksheet[celldept].v),
+            course: (worksheet[cellcourse].v),
+          });
+          await User.create({
+            username: std_registration,
+            position: 'student',
+            password: '1'
+          })
+          await studentsProfile.create({
+            regnNo: std_registration,
+          })
+        }
+        i++;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    fs.unlinkSync(
+      path.join(__dirname, "..", url)
+    );
+    return res.redirect("/admin/dashboard");
+  } catch (error) {
+    console.log(error);
+  }
+};
 //Creating a new Teacher id used in Add Teacher page
 module.exports.createteacher = async function (req, res) {
   try {
@@ -113,6 +173,65 @@ module.exports.createteacher = async function (req, res) {
       }
       i = i + 4;
     }
+    return res.redirect("/admin/dashboard");
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports.createteacherWexcel = async function (req, res) {
+  try {
+    try {
+      let path = await new Promise((resolve, reject) => {
+        Tempupload.uploadfileexcel(req, res, function (error) {
+          if (error) {
+            console.log("** Multer error:", error);
+            reject(error);
+          }
+          resolve(Tempupload.uploadpath + "/" + req.file.filename);
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    let url = Tempupload.uploadpath + "/" + req.file.filename;
+    url = url.slice(1);
+    console.log(url);
+    const workbook = XLSX.readFile(url);
+    const worksheet = workbook.Sheets["Teacherlist"];
+    let i = 2;
+    let cellToUpdate = String("A" + i);
+    try {
+      while(worksheet[cellToUpdate]!=undefined){
+        cellToUpdate = String("A" + i);
+        cellname = String("B" + i);
+        celldept = String("C" + i);
+        cellposition = String("D" + i);
+        let std_registration = Number(worksheet[cellToUpdate].v);
+        let userdata = await User.findOne({ username: std_registration });
+        if(!userdata){
+          await Teacher.create({
+            username: std_registration,
+            name: (worksheet[cellname].v),
+            department: (worksheet[celldept].v),
+            position: (worksheet[cellposition].v),
+          });
+          await User.create({
+            username: std_registration,
+            position: 'teacher',
+            password: '1'
+          })
+          await teachersProfile.create({
+            regnNo: std_registration,
+          })
+        }
+        i++;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    fs.unlinkSync(
+      path.join(__dirname, "..", url)
+    );
     return res.redirect("/admin/dashboard");
   } catch (error) {
     console.log(error);

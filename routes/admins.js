@@ -8,9 +8,11 @@ const adminController = require('../controllers/admin_controller');
 router.get("/dashboard", adminController.dashboard); //Delete this
 router.get("/addstudent", adminController.addstudent);
 router.post('/createstudent', adminController.createstudent);
+router.post('/createstudentWexcel', adminController.createstudentWexcel);
 router.post('/create', adminController.create);
 router.get('/signup', adminController.signUp); 
 router.get("/addteacher", adminController.addteacher);
+router.post('/createteacherWexcel', adminController.createteacherWexcel);
 router.post('/createteacher', adminController.createteacher);
 router.get("/allotsubject", adminController.allotsubject);
 router.get('/searchteacherid/:id', adminController.searchteacherid);

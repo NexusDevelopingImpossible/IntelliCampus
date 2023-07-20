@@ -1,31 +1,88 @@
-<link rel="stylesheet" href="<%= assetPath('css/admin-add.css') %>">
+<link rel="stylesheet" href="<%= assetPath('css/admin-add.css') %>" />
 <div class="main-page">
   <div class="input-page" id="input-pageid">
     <div class="input-heading-1">Add Students</div>
     <div class="input-div">
       <div class="form-set">
         <div class="form-text">Registration start</div>
-        <input type="text" class="input-name reg-input" required name="start" id="start">
+        <input
+          type="text"
+          class="input-name reg-input"
+          required
+          name="start"
+          id="start"
+        />
       </div>
       <div class="form-set">
         <div class="form-text">Registration end</div>
-        <input type="text" class="input-name reg-input" required name="end" id="end">
+        <input
+          type="text"
+          class="input-name reg-input"
+          required
+          name="end"
+          id="end"
+        />
       </div>
     </div>
-    <button class="btn btn-full btn-medium input-submit" onclick="create_input_student()">Submit</button>
+    <button
+      class="btn btn-full btn-medium input-submit"
+      onclick="create_input_student()"
+    >
+      Submit
+    </button>
     <p>OR</p>
-    <button class="btn btn-outline btn-medium input-submit" onclick="create_input_student()">Import</button>
-
+    <form
+      action="/admin/createstudentWexcel"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div class="input-file">
+        <a href="..\..\data\template_addstudent.xlsx">
+          <div class="template-btn btn btn-outline" type="submit">
+            Download Template
+          </div>
+        </a>
+        <div class="custom-file-upload">
+          <label>
+            <input id="select-file" type="file" name="fileexcel" required />
+            <span id="file-name">Import your file here</span>
+          </label>
+          <span style="display: none" class="import-icon"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="#FFFFFF"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path
+                d="M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"
+              />
+            </svg>
+          </span>
+        </div>
+        <button id="submit-btn" class="submit-btn btn btn-full btn-medium">
+          Submit
+        </button>
+      </div>
+    </form>
   </div>
   <div class="input-page2" id="input-pageid2">
     <div class="input-heading-3">Add Student</div>
     <form action="/admin/createstudent" method="post">
       <div class="input-heading-4">Count: <span id="count"></span></div>
-      <div id="form-list">
-      </div>
+      <div id="form-list"></div>
       <div class="btn-div">
-        <a href="/admin/addstudent" class="btn btn-outline btn-medium input-button bt-left">Cancel</a>
-        <button class="btn btn-full btn-medium input-button bt-right" type="submit">Submit</button>
+        <a
+          href="/admin/addstudent"
+          class="btn btn-outline btn-medium input-button bt-left"
+          >Cancel</a
+        >
+        <button
+          class="btn btn-full btn-medium input-button bt-right"
+          type="submit"
+        >
+          Submit
+        </button>
       </div>
     </form>
   </div>
@@ -35,4 +92,30 @@
   window.locals = [];
   let u = <%- JSON.stringify(locals.dept) %>
     window.locals.push(u);
+</script>
+<script>
+  let selectFile = document.getElementById("select-file");
+  let fileName = document.getElementById("file-name");
+  let importIcon = document.querySelector(".import-icon");
+  let submitBtn = document.querySelector("#submit-btn");
+
+  selectFile.addEventListener("change", function (e) {
+    console.log(selectFile.files[0].name);
+    fileName.innerHTML = selectFile.files[0].name.slice(0, 20) + "..";
+  });
+
+  selectFile.addEventListener("change", function () {
+    if (selectFile.files.length > 0) {
+      importIcon.style.display = "block";
+      submitBtn.style.opacity = "1";
+    }
+  });
+
+  importIcon.addEventListener("mousedown", function (e) {
+    e.preventDefault(); // Prevents the default behavior of the click event
+    selectFile.value = "";
+    fileName.innerHTML = "Import your file here";
+    importIcon.style.display = "none";
+    submitBtn.style.opacity = "0.4";
+  });
 </script>
