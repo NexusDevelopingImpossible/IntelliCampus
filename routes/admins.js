@@ -42,5 +42,6 @@ router.get("/semester", adminController.semester);
 router.post("/createsem", adminController.createsem);
 router.get("/semestercourse/:id", adminController.semestercourse);
 router.get("/studentprofile/:id", adminController.adminstudentprofile);
+router.get("/deactivateaccount", adminController.deactivateaccount);
 
 module.exports = router;

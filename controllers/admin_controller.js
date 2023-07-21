@@ -791,3 +791,12 @@ module.exports.adminteacherprofile = async (req, res) => {
     title: "Profile", student
   })
 };
+
+module.exports.deactivateaccount = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    res.render("admin/deactivate-accnt", { title: "Deactivate Account"});
+  } catch (err) {
+    console.log(err);
+  }
+};
