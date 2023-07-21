@@ -96,3 +96,18 @@ select {
   fill: #ffffffc7;
 }
 
+
+// filter select css
+
+.filter-select{
+  background: rgba(0, 0, 0, 0.40);
+  width: 9vw;
+  padding: 1vh 0.5vw;
+  border-radius: 7px;
+  font-size: 1.75vh;
+  cursor: pointer;
+}
+.filter-select:focus{
+  outline: none;
+
+}

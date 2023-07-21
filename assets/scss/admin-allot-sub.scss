@@ -18,6 +18,7 @@
   padding: 1vh 0;
   border-radius: 10px;
   font-size: 2vh;
+  height: 30vh
 }
 .search-popup ul li{
   list-style: none;
@@ -78,11 +79,14 @@
 .allot__2 {
   //  display: none;
 }
+.main__content{
+  padding: 2vh 5vw;
+}
 .teacher__and__btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 2rem;
+  margin-bottom: 2.5vh;
 }
 .teacher {
   display: flex;
@@ -125,7 +129,6 @@
 
 /* Description */
 .description {
-  padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
