@@ -18,7 +18,7 @@ select {
   padding: 1vh 1.5vw;
   border: none;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 2vh;
   font-weight: 400;
   transition: all 0.3s;
