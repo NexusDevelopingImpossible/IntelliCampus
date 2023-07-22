@@ -212,6 +212,19 @@ const studentsProfileSchema = new mongoose.Schema(
     avatar: {
       type: String,
     },
+    cgpa: {
+      type: Number,
+    },
+    backlog: {
+      type: Number,
+    },
+    backloglist: 
+      {type: Array}
+    ,
+    feepending: {
+      type: String,
+    },
+
     //   testFile2: {
     //         type:String,
     //     },

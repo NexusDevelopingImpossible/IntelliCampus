@@ -1,11 +1,31 @@
 const mongoose = require('mongoose');
 
 const subjectSchema = new mongoose.Schema({
+    department: {
+        type: String,
+        required: true,
+    },
+    course: {
+        type: String,
+        required: true
+    },
+    semester: {
+        type: String,
+        required: true
+    },
     code: {
         type: String,
         required: true,
     },
     name: {
+        type: String,
+        required: true
+    },
+    type: {
+        type: String,
+        required: true
+    },
+    theorytype: {
         type: String,
         required: true
     },
@@ -15,12 +35,7 @@ const subjectSchema = new mongoose.Schema({
     },
     numberofclasses: {
         type: Number,
-        required: true
     },
-    type: {
-        type: String,
-        required: true
-    }
     
 
 }, {

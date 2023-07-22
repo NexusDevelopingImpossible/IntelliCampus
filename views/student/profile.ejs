@@ -134,18 +134,20 @@
           <div class="cgpa-backlogs">
             <div class="cgpa">
               <span class="info-hed-sm">CGPA:</span>
-              <span class="input-read-bd">8.1</span>
+              <span class="input-read-bd"><%=studentdata.cgpa%></span>
             </div>
             <div class="backlogs">
               <span class="info-hed-sm">Backlogs:</span>
-              <span class="input-read-bd">2</span>
+              <span class="input-read-bd"><%=studentdata.backlog%></span>
             </div>
           </div>
           <div class="backlogs-subjects">
             <p class="info-sub-hed">Backlog subject List:</p>
             <div>
-            <span class="input-read">IT-4523 Engnieering Mathematics</span>
-            <span class="input-read">IT-4523 Engnieering Mathematics</span>
+            <%for(let i = 0; i<studentdata.backlog; i++){%>
+              <span class="input-read"><%=studentdata.backloglist[i]%></span>
+            <%}%>
+            
 </div>
           </div>
          
@@ -202,7 +204,7 @@
             <div class="parent-details-2 parent-details">
               <div>
                 <p>
-                  <span class="inline-info">Parent’s PAN:</span>
+                  <span class="inline-info">Parent's PAN:</span>
                   <input
                     name="parentPAN"
                     class="input-read"
@@ -212,7 +214,7 @@
                   />
                 </p>
                 <p>
-                  <span class="inline-info">Parent’s Aadhar:</span>
+                  <span class="inline-info">Parent's Aadhar:</span>
                   <input
                     name="parentAadhar"
                     class="input-read"

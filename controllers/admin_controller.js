@@ -711,9 +711,9 @@ module.exports.semestercourse = async (req, res) => {
 };
 module.exports.createsem = async (req, res) => {
   try {
-    // console.log(req.body);
-    let department = req.body.primary;
-    let course = req.body.secondary;
+    console.log(req.body);
+    let department = req.body.department;
+    let course = req.body.courses;
     // console.log(req.body.secondary);
     let sem = req.body.semester;
     let sec = req.body.section;
@@ -740,7 +740,7 @@ module.exports.createsem = async (req, res) => {
         if (sec[k] == "A" && check == 1) {
           break;
         }
-        console.log(sem[i], sec[k]);
+        console.log(sem[i], secco[k]);
         await SemSection.create({
           department: department,
           course: course,

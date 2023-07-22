@@ -22,7 +22,6 @@ module.exports.dashboard = async (req, res) => {
     const internal = await Attendance.find({
       studentid: studentdata._id,
     }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
-    console.log(internal);
     let calendardata = await Calendar.find({});
     calendardata = JSON.stringify(calendardata);
     let notidata = await Notification.find({}).sort({ updatedAt: -1 });

@@ -10,30 +10,37 @@
                 </svg></a>
                 <h1 class="heading">Studentwise GPA & Backlogs</h1>
             </div>
-            <div class="allot__2" id="section2">
+            <form action="/examcell/cgpa/adddata" method="post" enctype="multipart/form-data">
+                <div class="allot__2" id="section2">
                 <div class="teacher__and__btn">
                     <div class="filters">
-                      <select class="filter-select" name="" id="">
-                        <option value="Department">Department</option>
-                        <option value="IT">IT</option>
-                        <option value="CSE">CSE</option>
-                      </select>
-                      <select class="filter-select" name="" id="">
-                        <option value="Course">Course</option>
-                        <option value="IT">IT</option>
-                        <option value="CSE">CSE</option>
-                      </select>
-                      <select class="filter-select" name="" id="">
-                        <option value="Section">Section</option>
-                        <option value="IT">IT</option>
-                        <option value="CSE">CSE</option>
-                      </select>
-                    </div>
+                        <select
+                          id="departmentSelect"
+                          class="filter-select"
+                          name="department"
+                          onchange="updateCourseSelect()"
+                        >
+                          <option value="">Select a department</option>
+                        </select>
+          
+                        <select
+                          id="courseSelect"
+                          class="filter-select"
+                          name="course"
+                          onchange="updateSemesterSelect()"
+                        >
+                          <option value="">Select a course</option>
+                        </select>
+          
+                        <select id="semesterSelect" class="filter-select" name="semester">
+                          <option value="">Select a semester</option>
+                        </select>
+                      </div>
                     <div class="import-bnt">
-                        <a href="..\..\data\template_tg.xlsx">
+                        <a href="..\..\data\template_cgpabacklog.xlsx">
                             <div class="template-btn btn btn-outline" type="submit">Template <span><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"  viewBox="0 0 24 24" width="1.5vw" fill="#FFFFFF"><g><rect fill="none" height="24" width="24"/></g><g><path d="M16.59,9H15V4c0-0.55-0.45-1-1-1h-4C9.45,3,9,3.45,9,4v5H7.41c-0.89,0-1.34,1.08-0.71,1.71l4.59,4.59 c0.39,0.39,1.02,0.39,1.41,0l4.59-4.59C17.92,10.08,17.48,9,16.59,9z M5,19c0,0.55,0.45,1,1,1h12c0.55,0,1-0.45,1-1s-0.45-1-1-1H6 C5.45,18,5,18.45,5,19z"/></g></svg></span></div>
                         </a>
-                        <form action="/admin/addward" method="post" enctype="multipart/form-data">
+                        
                             <input type="hidden" value="" name="teacherid">
                             <div class="input-file">
                                 <div class="custom-file-upload">
@@ -45,7 +52,6 @@
                             </div>
                                 <button id="submit-btn" class="submit-btn btn btn-full btn-medium">Submit</button>
                             </div>
-                        </form>
                     </div>
                 </div>
 
@@ -167,9 +173,88 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                </div>
+        </form>
         </div>
     </div>
 </div>
 
 <script src="<%= assetPath('js/feecell.js') %>"></script>
+<script>
+    var departmentSelect = document.getElementById("departmentSelect");
+  var courseSelect = document.getElementById("courseSelect");
+  var semesterSelect = document.getElementById("semesterSelect");
+
+  departmentSelect.addEventListener("change", updateCourseSelect);
+  courseSelect.addEventListener("change", updateSemesterSelect);
+  let u = <%- JSON.stringify(locals.deptSem) %>;
+  let data = u;
+  function updateDepartmentSelect() {
+
+    var departments = [...new Set(data.map(item => item.department))];
+
+    for (var i = 0; i < departments.length; i++) {
+      var option = document.createElement("option");
+      option.text = departments[i];
+      option.value = departments[i];
+      departmentSelect.appendChild(option);
+    }
+  }
+
+  function updateCourseSelect() {
+    var selectedDepartment = departmentSelect.value;
+
+    courseSelect.innerHTML = "";
+    semesterSelect.innerHTML = "";
+
+    if (selectedDepartment) {
+      var departmentData = data.filter(item => item.department === selectedDepartment);
+      var courses = [...new Set(departmentData.map(item => item.course))];
+      var option = document.createElement("option");
+      option.text = "Select a course";
+      courseSelect.appendChild(option);
+      for (var i = 0; i < courses.length; i++) {
+        var option = document.createElement("option");
+        option.text = courses[i];
+        option.value = courses[i];
+        courseSelect.appendChild(option);
+      }
+    } else {
+      var option = document.createElement("option");
+      option.text = "Select a course";
+      courseSelect.appendChild(option);
+    }
+
+    // After updating the course select, also update the semester select
+    updateSemesterSelect();
+  }
+
+  function updateSemesterSelect() {
+    var selectedDepartment = departmentSelect.value;
+    var selectedCourse = courseSelect.value;
+
+    semesterSelect.innerHTML = "";
+
+    if (selectedDepartment && selectedCourse) {
+      var departmentCourseData = data.filter(item => item.department === selectedDepartment && item.course === selectedCourse);
+      var semesters = [...new Set(departmentCourseData.map(item => item.semester))];
+      var option = document.createElement("option");
+      option.text = "Select a semester";
+      semesterSelect.appendChild(option);
+      for (var i = 0; i < semesters.length; i++) {
+        var option = document.createElement("option");
+        option.text = semesters[i];
+        option.value = semesters[i];
+        semesterSelect.appendChild(option);
+      }
+    } else {
+      var option = document.createElement("option");
+      option.text = "Select a semester";
+      semesterSelect.appendChild(option);
+    }
+  }
+
+  // Call the update functions initially to load the selects dynamically
+  updateDepartmentSelect();
+  updateCourseSelect();  
+</script>

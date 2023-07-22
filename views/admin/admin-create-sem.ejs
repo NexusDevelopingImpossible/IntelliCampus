@@ -1,12 +1,5 @@
 <link rel="stylesheet" href="<%= assetPath('css/admin-sem.css') %>">
-<style>
-  select{
-    color: black;
-  }
-  option{
-    color: black;
-  }
-</style>
+
 <div class="main-page">
   <div class="blur">
     <div class="page-heading">
@@ -20,15 +13,11 @@
       <form action="/admin/createsem" method="post">
       <section class="filter-section">
         <div class="filters">
-          <select  id="primary">
-            <%for(let i = 1; i<dept.length; i++){%>
-            <optgroup  label="Department">
-              <option  value="<%=dept[i].department%>"><%=dept[i].department%></option>
-              <%for(let j = 0; j<dept[i].course.length; j++){%>
-              <option value="<%=dept[i].course[j]%>"><%=dept[i].course[j]%></option>
-              <%}%> 
-            </optgroup>
-            <%}%>
+          <select id="departments" class="departments filter-select" name="department">
+            <option value="">Select a department</option>
+          </select>
+          <select id="courses" class="courses filter-select" name="courses">
+            <option value="">Select a course</option>
           </select>
         </div>
         <a id="create-sem" class="create-sem-btn" href="#">Create Semester
@@ -77,5 +66,55 @@
   </div>
 </div>
 
+<script>
+  window.locals = [];
+  let u = <%- JSON.stringify(locals.dept) %>
+    window.locals.push(u);
+    function data(){
+  const results = locals[0];
+  
+function populateDepartments(departmentsSelect) {
+  console.log(departmentSelects);
+  departmentsSelect.innerHTML = '<option value="">Select a department</option>';
+  results.forEach((result) => {
+    const option = document.createElement('option');
+    option.value = result.department;
+    option.textContent = result.department;
+    departmentsSelect.appendChild(option);
+  });
+}
 
+// Function to populate the courses select based on the selected department
+function updateCourses(departmentsSelect, coursesSelect) {
+  const selectedDepartment = departmentsSelect.value;
+  coursesSelect.innerHTML = '<option value="">Select a course</option>';
+  if (selectedDepartment) {
+    const departmentData = results.find((result) => result.department === selectedDepartment);
+    if (departmentData) {
+      departmentData.course.forEach((course) => {
+        const option = document.createElement('option');
+        option.value = course;
+        option.textContent = course;
+        coursesSelect.appendChild(option);
+      });
+    }
+  }
+}
+
+// Get all the department and course select elements
+const departmentSelects = document.querySelectorAll('.departments');
+const courseSelects = document.querySelectorAll('.courses');
+console.log(departmentSelects);
+// Populate all the department selects
+departmentSelects.forEach((departmentsSelect) => populateDepartments(departmentsSelect));
+
+// Add event listener to each department select to update the corresponding courses select
+departmentSelects.forEach((departmentsSelect, index) => {
+  departmentsSelect.addEventListener('change', () => {
+    updateCourses(departmentsSelect, courseSelects[index]);
+  });
+});
+}
+data();
+</script>
 <script src="<%= assetPath('js/admin-sem.js') %>"></script>
