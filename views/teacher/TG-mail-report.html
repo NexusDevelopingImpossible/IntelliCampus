@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TG Mail Report</title>
+    <link rel="stylesheet" href="../../assets/css/navbar.css">
+    <link rel="stylesheet" href="../../assets/scss/assignment.css">
+    <link rel="stylesheet" href="../../assets/scss/create-feedback.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <section class="main-container">
+        <div class="navbar">
+            <div class="nav-smit-logo">
+                <img src="../../assets/images/SMIT HIGH RES LOGO WHITE 1.png" alt="" />
+            </div>
+            <div class="tabs">
+                <ul>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/dashboard.png" alt="" /></span>
+                            <span class="tab-name">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/PROFILE ICON.png" alt="" /></span>
+                            <span class="tab-name">Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/Edit-ID.png" alt="" /></span>
+                            <span class="tab-name">Edit ID</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/Allot-subject.png" alt="" /></span>
+                            <span class="tab-name">Allot Subject</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/timetable.png" alt="" /></span>
+                            <span class="tab-name">Timetable</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/Change-semester.png" alt="" /></span>
+                            <span class="tab-name">Semester</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/Feedback.png" alt="" /></span>
+                            <span class="tab-name">Feedback</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/Report.png" alt="" /></span>
+                            <span class="tab-name">Report</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/setting.png" alt="" /></span>
+                            <span class="tab-name">Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tab" href="#">
+                            <span class="tab-icon"><img src="../../assets/images/signout.png" alt="" /></span>
+                            <span class="tab-name" id="1">Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-manipal-vector">
+                <img src="../../assets/images/manipal-vector.png" alt="" />
+            </div>
+        </div>
+
+        <div class="main-page">
+            <div class="blur">
+                <!-- - - - - - - - - - - -->
+                <!-- Write you code here -->
+                <!-- - - - - - - - - - - -->
+                <div class="title-header">
+                    <div class="title">
+                        <img src="../../assets/images/lefty_arrow.png " alt=""><span>TG Mail Report
+                    </div></span>
+
+                </div>
+                <div class="containers">
+                    <div class="options ">
+                        <select name="Depart" id="dept-box">
+                            <option value="" id="">Dept</option>
+                        </select>
+                        <select name="course" id="dept-box">
+                            <option value="" id="">Course</option>
+                        </select>
+                        <select name="sem" id="dept-box">
+                            <option value="" id="">Semester</option>
+                        </select>
+                        <div class="deadline-container">
+                            <label for="" id="deadline">Set deadline :</label>
+                            <select name="deadline" id="deadline-date">
+                                <option value="" id="">12/32/23</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="creat-feed">
+                        Send Mail
+                    </button>
+                </div>
+                <div class="main-table">
+                    <div class="description">
+                        <div class="description__titles">
+                            <ul>
+                                <li>S.No</li>
+                                <li>Name</li>
+                                <li>Employ Id</li>
+                                <li>No of Wards</li>
+                                <li id="sended"></li>
+                            </ul>
+                        </div>
+                        <div class="description-scroll">
+                            <div class="description__list">
+                                <ul>
+                                    <li>1</li>
+                                    <li>IT</li>
+                                    <li>B.Tech</li>
+                                    <li>5th</li>
+                                    <li>Sended<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none"><path d="M16.7351 1.10435C16.9438 1.25614 17.0292 1.45852 16.9912 1.7115L14.5627 16.2829C14.5311 16.4663 14.4299 16.6086 14.2592 16.7098C14.1706 16.7604 14.0726 16.7857 13.9651 16.7857C13.8955 16.7857 13.8196 16.7699 13.7374 16.7383L9.44005 14.9833L7.14433 17.7818C7.0305 17.9273 6.87555 18 6.6795 18C6.59728 18 6.52772 17.9874 6.4708 17.9621C6.35064 17.9178 6.25419 17.8435 6.18146 17.7391C6.10873 17.6348 6.07237 17.5193 6.07237 17.3929V14.082L14.2686 4.03571L4.12765 12.8108L0.380511 11.274C0.146513 11.1855 0.0200269 11.0115 0.00105405 10.7522C-0.0115945 10.4993 0.089594 10.3127 0.30462 10.1925L16.09 1.08538C16.1849 1.02846 16.2861 1 16.3936 1C16.5201 1 16.6339 1.03478 16.7351 1.10435Z" fill="white" /></svg></li>
+                                </ul>
+
+                                <ul>
+                                    <li>1</li>
+                                    <li>IT</li>
+                                    <li>B.Tech</li>
+                                    <li>5th</li>
+                                    <li>Sended<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none"><path d="M16.7351 1.10435C16.9438 1.25614 17.0292 1.45852 16.9912 1.7115L14.5627 16.2829C14.5311 16.4663 14.4299 16.6086 14.2592 16.7098C14.1706 16.7604 14.0726 16.7857 13.9651 16.7857C13.8955 16.7857 13.8196 16.7699 13.7374 16.7383L9.44005 14.9833L7.14433 17.7818C7.0305 17.9273 6.87555 18 6.6795 18C6.59728 18 6.52772 17.9874 6.4708 17.9621C6.35064 17.9178 6.25419 17.8435 6.18146 17.7391C6.10873 17.6348 6.07237 17.5193 6.07237 17.3929V14.082L14.2686 4.03571L4.12765 12.8108L0.380511 11.274C0.146513 11.1855 0.0200269 11.0115 0.00105405 10.7522C-0.0115945 10.4993 0.089594 10.3127 0.30462 10.1925L16.09 1.08538C16.1849 1.02846 16.2861 1 16.3936 1C16.5201 1 16.6339 1.03478 16.7351 1.10435Z" fill="white" /></svg></li>
+                                </ul>
+
+                                <ul>
+                                    <li>1</li>
+                                    <li>IT</li>
+                                    <li>B.Tech</li>
+                                    <li>5th</li>
+                                    <li>Sended<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none"><path d="M16.7351 1.10435C16.9438 1.25614 17.0292 1.45852 16.9912 1.7115L14.5627 16.2829C14.5311 16.4663 14.4299 16.6086 14.2592 16.7098C14.1706 16.7604 14.0726 16.7857 13.9651 16.7857C13.8955 16.7857 13.8196 16.7699 13.7374 16.7383L9.44005 14.9833L7.14433 17.7818C7.0305 17.9273 6.87555 18 6.6795 18C6.59728 18 6.52772 17.9874 6.4708 17.9621C6.35064 17.9178 6.25419 17.8435 6.18146 17.7391C6.10873 17.6348 6.07237 17.5193 6.07237 17.3929V14.082L14.2686 4.03571L4.12765 12.8108L0.380511 11.274C0.146513 11.1855 0.0200269 11.0115 0.00105405 10.7522C-0.0115945 10.4993 0.089594 10.3127 0.30462 10.1925L16.09 1.08538C16.1849 1.02846 16.2861 1 16.3936 1C16.5201 1 16.6339 1.03478 16.7351 1.10435Z" fill="white" /></svg></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../../assets/js/assignment.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
