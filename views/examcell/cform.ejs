@@ -1,14 +1,359 @@
-<link rel="stylesheet" href="<%= assetPath('css/exam-cgpa-backlog.css') %>">
+<link rel="stylesheet" href="<%= assetPath('css/exam-lock-int.css') %>" />
+<link rel="stylesheet" href="<%= assetPath('css/exam-cform.css') %>" />
+<link rel="stylesheet" href="<%= assetPath('css/std-int.css') %>" />
+
 <div class="main-page">
   <div class="blur">
-    <div class="page-heading">
-      <a href="/examcell/dashboard"
-        ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-          <path
-            d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"
-          /></svg
-      ></a>
-      <h1 class="heading">C-Form</h1>
+    <div class="main__content">
+      <div class="page-heading">
+        <a href="/examcell/dashboard"
+          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+            <path
+              d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"
+            /></svg
+        ></a>
+        <h1 class="heading">C FORM</h1>
+      </div>
+      <div class="allot__2" id="section2">
+        <div class="teacher__and__btn">
+          <div class="filters">
+            <select class="filter-select" name="" id="">
+              <option value="Department">Department</option>
+              <option value="IT">IT</option>
+              <option value="CSE">CSE</option>
+            </select>
+            <select class="filter-select" name="" id="">
+              <option value="Course">Course</option>
+              <option value="IT">IT</option>
+              <option value="CSE">CSE</option>
+            </select>
+            <select class="filter-select" name="" id="">
+              <option value="Section">Section</option>
+              <option value="IT">IT</option>
+              <option value="CSE">CSE</option>
+            </select>
+            <select class="filter-select sub-sj" name="" id="">
+              <option value="Section">Subject</option>
+              <option value="IT">DSA</option>
+              <option value="CSE">Maths</option>
+            </select>
+          </div>
+          <button id="lock-btn" class="lock-btn btn btn-full">
+            Export
+            <span
+              ><svg xmlns="http://www.w3.org/2000/svg" width="25" fill="white" class="bi bi-filetype-xlsx" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M14 4.5V11h-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM7.86 14.841a1.13 1.13 0 0 0 .401.823c.13.108.29.192.479.252.19.061.411.091.665.091.338 0 .624-.053.858-.158.237-.105.416-.252.54-.44a1.17 1.17 0 0 0 .187-.656c0-.224-.045-.41-.135-.56a1.002 1.002 0 0 0-.375-.357 2.028 2.028 0 0 0-.565-.21l-.621-.144a.97.97 0 0 1-.405-.176.37.37 0 0 1-.143-.299c0-.156.061-.284.184-.384.125-.101.296-.152.513-.152.143 0 .266.023.37.068a.624.624 0 0 1 .245.181.56.56 0 0 1 .12.258h.75a1.093 1.093 0 0 0-.199-.566 1.21 1.21 0 0 0-.5-.41 1.813 1.813 0 0 0-.78-.152c-.293 0-.552.05-.777.15-.224.099-.4.24-.527.421-.127.182-.19.395-.19.639 0 .201.04.376.123.524.082.149.199.27.351.367.153.095.332.167.54.213l.618.144c.207.049.36.113.462.193a.387.387 0 0 1 .153.326.512.512 0 0 1-.085.29.558.558 0 0 1-.255.193c-.111.047-.25.07-.413.07-.117 0-.224-.013-.32-.04a.837.837 0 0 1-.249-.115.578.578 0 0 1-.255-.384h-.764Zm-3.726-2.909h.893l-1.274 2.007 1.254 1.992h-.908l-.85-1.415h-.035l-.853 1.415H1.5l1.24-2.016-1.228-1.983h.931l.832 1.438h.036l.823-1.438Zm1.923 3.325h1.697v.674H5.266v-3.999h.791v3.325Zm7.636-3.325h.893l-1.274 2.007 1.254 1.992h-.908l-.85-1.415h-.035l-.853 1.415h-.861l1.24-2.016-1.228-1.983h.931l.832 1.438h.036l.823-1.438Z"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+      
     </div>
+    <div class="main-table">
+      <div>
+        <div id="marks-display">
+          <table id="marks">
+            <tr id="tb-header">
+              <th>SL.NO</th>
+              <th>REG NO</th>
+              <th>STUDENT NAME</th>
+              <th>QUIZ 1</th>
+              <th>SESS 1</th>
+              <th>QUIZ 2</th>
+              <th>SESS 2</th>
+              <th>ASSIGN</th>
+              <th>PER</th>
+              <th>ATTND</th>
+              <th>TOTAL</th>
+            </tr>
+
+            <div class="table-scroll">
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+
+              <tr>
+                <td>01</td>
+                <td>202100205</td>
+                <td>AmnUllh</td>
+                <td>4.0</td>
+                <td>10.8</td>
+                <td>3.7</td>
+                <td>11</td>
+                <td>4.2</td>
+                <td>78</td>
+                <td>3</td>
+                <td>47</td>
+              </tr>
+            </div>
+           
+         
+          </table>
+        </div>
+      </div>
+    </div>
+    
   </div>
 </div>
