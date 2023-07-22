@@ -14,7 +14,7 @@
             <div class="upload-option">
               <label for="file-upload" class="upload-label">
                 <span><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M21.02 5H19V2.98c0-.54-.44-.98-.98-.98h-.03c-.55 0-.99.44-.99.98V5h-2.01c-.54 0-.98.44-.99.98v.03c0 .55.44.99.99.99H17v2.01c0 .54.44.99.99.98h.03c.54 0 .98-.44.98-.98V7h2.02c.54 0 .98-.44.98-.98v-.04c0-.54-.44-.98-.98-.98zM16 9.01V8h-1.01c-.53 0-1.03-.21-1.41-.58-.37-.38-.58-.88-.58-1.44 0-.36.1-.69.27-.98H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-8.28c-.3.17-.64.28-1.02.28-1.09-.01-1.98-.9-1.98-1.99zM15.96 19H6c-.41 0-.65-.47-.4-.8l1.98-2.63c.21-.28.62-.26.82.02L10 18l2.61-3.48c.2-.26.59-.27.79-.01l2.95 3.68c.26.33.03.81-.39.81z"/></svg></span>
-                <input type="file" id="file-upload" class="file-input" name="avatar" accept="image/*">
+                <input type="file" id="file-upload" class="file-input" name="avatar" accept="image/*" disabled>
               </label>
             </div>
           </div>
@@ -34,14 +34,13 @@
               <input
                 name="DOB"
                 class="input-read"
-                type="text"
+                type="date"
                 value="<%=studentdata.DOB%>"
                 readonly
               />
             </p>
             <p>
               <span>Gender:</span>
-              <!-- <input class="input-read" type="text" value="Male" readonly /> -->
               <select name="gender" class="input-read" value="<%=studentdata.gender%>" disabled>
                 <option value="<%=studentdata.gender%>"><%=studentdata.gender%></option>
                 <option value="Male">Male</option>
@@ -127,6 +126,30 @@
         </div>
       </section>
       <section class="info-right">
+        <div class="info-cont">
+          <div class="fees">
+              <span class="info-hed-sm">Fees Pending:</span>
+              <span class="input-read-bd">Rs 65,000</span>
+          </div>
+          <div class="cgpa-backlogs">
+            <div class="cgpa">
+              <span class="info-hed-sm">CGPA:</span>
+              <span class="input-read-bd">8.1</span>
+            </div>
+            <div class="backlogs">
+              <span class="info-hed-sm">Backlogs:</span>
+              <span class="input-read-bd">2</span>
+            </div>
+          </div>
+          <div class="backlogs-subjects">
+            <p class="info-sub-hed">Backlog subject List:</p>
+            <div>
+            <span class="input-read">IT-4523 Engnieering Mathematics</span>
+            <span class="input-read">IT-4523 Engnieering Mathematics</span>
+</div>
+          </div>
+         
+        </div>
         <div class="parents-info info-cont">
           <h1 class="info-hed">Parent's Infromation:</h1>
           <div class="inner-cont">
@@ -351,45 +374,21 @@
               <div>
                 <p>
                   <span class="inline-info">TG Name:</span>
-                  <input
-                    name="TGname"
-                    class="input-read"
-                    type="text"
-                    value="Diganta Baruah"
-                    readonly
-                  />
-                </p>
+                  <span class="input-read tg">Srijan Dev</span>
+                  </p>
                 <p>
                   <span class="inline-info">Phone:</span>
-                  <input
-                    name="TGphone"
-                    class="input-read"
-                    type="text"
-                    value="8454567678"
-                    readonly
-                  />
+                  <span class="input-read tg">8454567678</span>
                 </p>
               </div>
               <div>
                 <p>
                   <span class="inline-info">Whatsapp:</span>
-                  <input
-                    name="TGwhatsapp"
-                    class="input-read"
-                    type="text"
-                    value="8454567678"
-                    readonly
-                  />
+                  <span class="input-read tg">8454567678</span>
                 </p>
                 <p>
                   <span class="inline-info">Email:</span>
-                  <input
-                    name="TGemail"
-                    class="input-read"
-                    type="text"
-                    value="tgkaemail@gmail.coma"
-                    readonly
-                  />
+                  <span class="input-read tg">tgkaemail@gmail.coma</span>
                 </p>
               </div>
             </div>
@@ -600,31 +599,22 @@
           <h1 class="info-hed">Upload Your Files:</h1>
           <div class="inner-cont">
             <div class="file-details-1">
-                <p>
                   <span class="inline-info">Class X Marksheet:</span>
-                  <!-- <label class="input-read">
-                  <input
-                    
-                    type="file"
-                    value=""
-                    readonly
-                  />
-                  <span></span>
-                </label> -->
-                <label class="custom-file-upload input-read">
-                  <input id="select-file" type="file" name="fileexcel" multiple/>
-                  <!-- <input type="file" name="testFile2" id="" /> -->
-                  <span id="file-name">Select your file here</span>
-              </label>
-                </p>
+                <div class="custom-file-upload input-read">
+                  <label>
+                      <input id="select-file" type="file" name="fileexcel" disabled/>
+                      <span id="file-name">Upload your file</span>
+                  </label>
+                  <a href="#" id="download-btn"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"  viewBox="0 0 24 24" width="1.5vw" fill="#FFFFFF"><g><rect fill="none" height="24" width="24"/></g><g><path d="M16.59,9H15V4c0-0.55-0.45-1-1-1h-4C9.45,3,9,3.45,9,4v5H7.41c-0.89,0-1.34,1.08-0.71,1.71l4.59,4.59 c0.39,0.39,1.02,0.39,1.41,0l4.59-4.59C17.92,10.08,17.48,9,16.59,9z M5,19c0,0.55,0.45,1,1,1h12c0.55,0,1-0.45,1-1s-0.45-1-1-1H6 C5.45,18,5,18.45,5,19z"/></g></svg></a>
+                  <span style="display: none;" class="import-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"/></svg></span>
+              </div>
                 
             </div>
           </div>
         </div>
       </section>
-      <div class="popup-btns">
-        <button type="submit" class="btn btn-full btn-large">Save</button>
-      </div>
+        <button id="save-btn" type="submit" class="popup-btns btn btn-full btn-medium">Save</button>
+    
     </main>
   </form>
   </div>
@@ -632,3 +622,33 @@
 
 
 <script src="<%= assetPath('js/profile.js') %>"></script>
+
+<script>
+  let selectFile = document.getElementById("select-file");
+let fileName = document.getElementById("file-name");
+let importIcon = document.querySelector(".import-icon");
+let submitBtn = document.querySelector("#submit-btn");
+
+selectFile.addEventListener("change", function (e) {
+    console.log(selectFile.files[0].name);
+    fileName.innerHTML = (selectFile.files[0].name).slice(0,20)+"..";
+
+})
+
+
+selectFile.addEventListener("change", function() {
+if (selectFile.files.length > 0) {
+importIcon.style.display = "block";
+submitBtn.style.opacity = "1";
+}
+
+});
+
+importIcon.addEventListener("mousedown", function(e) {
+e.preventDefault(); // Prevents the default behavior of the click event
+selectFile.value = "";
+fileName.innerHTML = "Upload your file";
+importIcon.style.display = "none";
+submitBtn.style.opacity = "0.4";
+});
+</script>

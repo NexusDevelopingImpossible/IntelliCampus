@@ -20,10 +20,10 @@
       <form action="/admin/createsem" method="post">
       <section class="filter-section">
         <div class="filters">
-          <select id="primary">
+          <select  id="primary">
             <%for(let i = 1; i<dept.length; i++){%>
-            <optgroup label="Department">
-              <option value="<%=dept[i].department%>"><%=dept[i].department%></option>
+            <optgroup  label="Department">
+              <option  value="<%=dept[i].department%>"><%=dept[i].department%></option>
               <%for(let j = 0; j<dept[i].course.length; j++){%>
               <option value="<%=dept[i].course[j]%>"><%=dept[i].course[j]%></option>
               <%}%> 
