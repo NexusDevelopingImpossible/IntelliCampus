@@ -1,5 +1,4 @@
 const checkurlfunct = require("./server-function");
-const Examcell = require("../models/examcell");
 const Student = require("../models/student");
 const studentsProfile = require("../models/studentProfile");
 const SemSection = require("../models/semsection");
@@ -129,12 +128,16 @@ module.exports.addcgpa = async (req, res) => {
         let arraysub = (String(worksheet[cellsub].v)).split(',');
         let updatearraysub = [];
         for(let j = 0; j<arraysub.length; j++){
-          let subdata = Subject.findOne({code: arraysub[i]});
+          console.log(arraysub[j]);
+          let subdata = await Subject.findOne({code: String(arraysub[j])});
+          console.log(subdata);
           let substring = subdata.code + ' ' + subdata.name;
           updatearraysub.push(substring);
         }
         let studreg = String(worksheet[cellreg].v);
-        let studdata = await studentsProfile.findOneAndUpdate({regnNo:studreg},{cgpa: Number(worksheet[cellcgpa].v),backlog: Number(worksheet[cellnobacklog].v), backloglist: updatearraysub})
+        let studdata = await studentsProfile.findOneAndUpdate({regnNo:studreg},{cgpa: Number(worksheet[cellcgpa].v),backlog: Number(worksheet[cellnobacklog].v), backloglist: updatearraysub},{ new: true })
+        console.log(studdata);
+        // studdata.save();
         i++;
       }
     } catch (error) {
@@ -176,5 +179,44 @@ module.exports.searchsub = async (req, res) => {
     }
   } catch (err) {
     console.log(err);
+  }
+};
+module.exports.searchcgpa = async (req, res) => {
+  try {
+    checkurlfunct.checkurlexamcell(req, res);
+    const studdata = await Student.find({department: req.query.dept, course: req.query.course, semester: req.query.sem});
+    if (req.xhr) {
+      return res.status(200).json({
+        studdata
+      });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.setting = async (req, res) => {
+  try {
+    return res.render("examcell/setting", { title: "Setting" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports.changepassword = async (req, res) => {
+  try {
+    if (req.body.newpassword === req.body.new1password) {
+      let user = await User.findById(res.locals.user._id);
+      if (user.password === req.body.oldpassword) {
+        user.password = req.body.new1password;
+        await user.save();
+        req.flash("success", "Password Updated");
+      } else {
+        req.flash("error", "Old password did not match");
+      }
+    } else {
+      req.flash("error", "New and Confirm password did not match");
+    }
+    return res.redirect("back");
+  } catch (error) {
+    console.log(error);
   }
 };

@@ -5,15 +5,15 @@ const router = express.Router();
 
 const adminController = require('../controllers/admin_controller');
 
-router.get("/dashboard", adminController.dashboard); //Delete this
-router.get("/addstudent", adminController.addstudent);
-router.post('/createstudent', adminController.createstudent);
-router.post('/createstudentWexcel', adminController.createstudentWexcel);
-router.post('/create', adminController.create);
+router.get('/dashboard', adminController.dashboard); //Delete this
+router.get('/addstudent', adminController.addstudent);
+router.post('/addstudent/createstudent', adminController.createstudent);
+router.post('/addstudent/createstudentWexcel', adminController.createstudentWexcel);
+router.get('/addteacher', adminController.addteacher);
+router.post('/addteache/createteacherWexcel', adminController.createteacherWexcel);
+router.post('/addteache/createteacher', adminController.createteacher);
 router.get('/signup', adminController.signUp); 
-router.get("/addteacher", adminController.addteacher);
-router.post('/createteacherWexcel', adminController.createteacherWexcel);
-router.post('/createteacher', adminController.createteacher);
+router.post('/create', adminController.create);
 router.get("/allotsubject", adminController.allotsubject);
 router.get('/searchteacherid/:id', adminController.searchteacherid);
 router.get('/searchbaralotsubject/:id', adminController.searchbaralotsubject);
@@ -43,5 +43,7 @@ router.post("/createsem", adminController.createsem);
 router.get("/semestercourse/:id", adminController.semestercourse);
 router.get("/studentprofile/:id", adminController.adminstudentprofile);
 router.get("/deactivateaccount", adminController.deactivateaccount);
+router.get("/section", adminController.section);
+router.get("/mail", adminController.mail);
 
 module.exports = router;

@@ -38,8 +38,8 @@
                         <ul>
                             <li>Code</li>
                             <li>Subject Name</li>
-                            <li>Course</li>
                             <li>Dept</li>
+                            <li>Course</li>
                             <li>Sem</li>
                             <li>Sec</li>
                             <li></li>
@@ -55,8 +55,8 @@
                             <ul>
                                 <li><%= timetable[i].subjectcode.code%></li>
                                 <li><%= timetable[i].subjectcode.name%></li>
-                                <li><%= timetable[i].branch%></li>
                                 <li><%= timetable[i].department%></li>
+                                <li><%= timetable[i].course%></li>
                                 <li><%= timetable[i].semester%></li>
                                 <li><%= timetable[i].section%></li>
                                 <li><a class="del-btn" href="/admin/deletesubject/?id=<%= timetable[i]._id %>&teacherid=<%= teacher._id %>">
@@ -83,17 +83,25 @@
                     <form action="/admin/addsubject" method="post">
                         <div class="input__field">
                             <div class="row1">
-                                <input type="text" name="branch" id="course" placeholder="Course">
-                                <!-- <select name="department" id="dept">
-                                    for()
-                                </select> -->
-                                <input type="text" name="department" id="dept" placeholder="Dept">
-                                <input type="number" name="semester" id="sem" placeholder="Semester">
-                                <input type="text" name="section" id="sec" placeholder="Section">
+                                <select id="department" class="filter-select" name="department" required>
+                                    <option value="">Select Department</option>
+                                  </select>
+                                  <select id="course" class="filter-select" name="course" required>
+                                    <option value="">Select Course</option>
+                                  </select>
+                                  <select id="semester" class="filter-select" name="semester" required>
+                                    <option value="">Select Semester</option>
+                                  </select>
+                                  
+                                  <select id="section" class="filter-select" name="section" required>
+                                    <option value="">Select Section</option>
+                                </select>
                             </div>
                             <div class="row2">
                                 <input type="text" value="<%= teacher.username %>" style="display: none" name="registration">
-                                <input type="text" name="code" id="code" placeholder="Code">
+                                <select id="subject" class="filter-select" name="subname">
+                                    <option value="">Select Subject</option>
+                                </select>
                                 <!-- <input type="text" name="subject" id="subject" placeholder="Subject Name"> -->
                             </div>
                             
@@ -106,3 +114,84 @@
     </div>
     
     <script src="<%= assetPath('js/admin-allotsub.js') %>"></script>
+    <script>
+        let u = <%- JSON.stringify(locals.subject) %>;
+        let v = <%- JSON.stringify(locals.semsec) %>;
+
+         const subjectsData = u;
+         const semsecData = v;
+
+  const uniqueValues = (data, key) =>
+    [...new Set(data.map((item) => item[key]))];
+
+  function populateSelect(selectId, values) {
+    const select = document.getElementById(selectId);
+    select.innerHTML = "<option value=''>Select " + selectId + "</option>";
+
+    values.forEach((value) => {
+      const option = document.createElement("option");
+      option.text = value;
+      option.value = value;
+      select.appendChild(option);
+    });
+  }
+
+  function updateOptions(selectId) {
+    const selectedDepartment = document.getElementById("department").value;
+    const selectedCourse = document.getElementById("course").value;
+    const selectedSemester = document.getElementById("semester").value;
+
+    let filteredSubjects = subjectsData;
+    let filteredSection = semsecData;
+    
+    
+    if (selectedDepartment) {
+        filteredSubjects = filteredSubjects.filter(
+            (subject) => subject.department === selectedDepartment
+        );
+        filteredSection = filteredSection.filter(
+            (section) => section.department === selectedDepartment
+        );
+        console.log("dept",filteredSection);
+    }
+
+    if (selectedCourse) {
+      filteredSubjects = filteredSubjects.filter(
+        (subject) => subject.course === selectedCourse
+      );
+      filteredSection = filteredSection.filter(
+        (section) => section.course === selectedCourse
+      );
+      console.log("cour",filteredSection);
+    }
+
+    if (selectedSemester) {
+      filteredSubjects = filteredSubjects.filter(
+        (subject) => subject.semester === selectedSemester
+      );
+      filteredSection = filteredSection.filter(
+        (section) => section.semester == selectedSemester
+      );
+      console.log("ugug:",filteredSection);
+    }
+
+    populateSelect("subject", uniqueValues(filteredSubjects, "name"));
+    populateSelect("section", uniqueValues(filteredSection, "section"));
+  }
+
+  document.getElementById("department").addEventListener("change", function () {
+    populateSelect("course", uniqueValues(subjectsData, "course"));
+    updateOptions("department");
+  });
+
+  document.getElementById("course").addEventListener("change", function () {
+    populateSelect("semester", uniqueValues(subjectsData, "semester"));
+    updateOptions("course");
+  });
+
+  document.getElementById("semester").addEventListener("change", function () {
+    updateOptions("semester");
+  });
+
+  populateSelect("department", uniqueValues(subjectsData, "department"));
+    </script>

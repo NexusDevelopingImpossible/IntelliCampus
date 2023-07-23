@@ -17,6 +17,7 @@ const path = require("path");
 const multer = require("multer");
 const XLSX = require("xlsx");
 const teachersProfile = require("../models/teacherprofile");
+const adminsMailer = require("../mailer/admin_mailer");
 //Dashboard
 module.exports.dashboard = async (req, res) => {
   try {
@@ -65,6 +66,7 @@ module.exports.createstudent = async function (req, res) {
     var len = key.length;
     for (let i = 0; i < len; i++) {
       let user = await User.findOne({ username: req.body[key[i]] });
+      console.log(user);
       if (!user) {
         await User.create({
           username: req.body[key[i]],
@@ -273,6 +275,10 @@ module.exports.searchbaralotsubject = async function (req, res) {
       req.flash("error", "Teacher does not exist.");
       res.redirect("back");
     }
+    const subject = await Subject.find();
+    const semsec = await SemSection.find();
+    console.log(subject);
+    console.log(semsec);
     let timetables = await Timetable.find({
       teacherid: teacherdata._id,
     }).populate("subjectcode");
@@ -281,7 +287,8 @@ module.exports.searchbaralotsubject = async function (req, res) {
       title: "Allot Subject data",
       teacher: teacherdata,
       timetable: timetables,
-      dept: department
+      dept: department,
+      subject, semsec
     });
   } catch (err) {
     console.log(err);
@@ -320,16 +327,16 @@ module.exports.addsubject = async function (req, res) {
         console.log("Incorrect semester value.");
       //error to changed later @RAJ
     }
-    const subjectCode = req.body.code;
+    const subjectCode = req.body.subname;
     var subjectName;
-    let subject = await Subject.findOne({ code: subjectCode });
+    let subject = await Subject.findOne({ name: subjectCode });
     subjectName = subject._id;
     let teacherdata = await Teacher.findOne({
       username: req.body.registration,
     });
     await Timetable.create({
-      branch: req.body.branch,
       department: req.body.department,
+      course: req.body.course,
       year: year,
       semester: req.body.semester,
       section: req.body.section,
@@ -337,11 +344,6 @@ module.exports.addsubject = async function (req, res) {
       subjectcode: subjectName,
       classes: [],
     });
-    // return res.redirect('back'); DONT UNCOMMENT THIS
-
-    let timetables = await Timetable.find({
-      teacherid: teacherdata._id,
-    }).populate("subjectcode");
     req.flash("success", "Subject allot successfully");
     return res.redirect("back");
     // return res.render("admin/allotsubjectform", {
@@ -796,6 +798,26 @@ module.exports.deactivateaccount = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
     res.render("admin/deactivate-accnt", { title: "Deactivate Account"});
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.section = async (req, res) => {
+  try {req.accepts(types);
+    checkurlfunct.checkurladmin(req, res);
+    const semsec = await SemSection.find();
+    console.log(semsec);
+    res.render("admin/addsection", { title: "Section", semsec});
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.mail = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    const semsec = await SemSection.find();
+    adminsMailer.newMail();         
+    res.render("admin/mail", { title: "Mail", semsec});
   } catch (err) {
     console.log(err);
   }

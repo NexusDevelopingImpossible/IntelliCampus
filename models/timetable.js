@@ -4,13 +4,13 @@ const path = require("path");
 const Notefile = path.join("/upload/note");
 
 const timetableSchema = new mongoose.Schema({
-    branch: {
-        type: String,
-        required: true,
-    },
     department: {
         type: String,
         required: true
+    },
+    course: {
+        type: String,
+        required: true,
     },
     year: {
         type: Number,

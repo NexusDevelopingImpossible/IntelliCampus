@@ -48,8 +48,9 @@
         theme: 'relax',
         text: "<%= flash.success %>",
         type: 'success',
-        layout: 'topRight',
-        timeout: 1500
+        layout: 'topCenter',
+        progressBar: true,
+        timeout: 1500,
       }).show();
   <% } %>
   <% if (flash.error && flash.error.length > 0) { %>

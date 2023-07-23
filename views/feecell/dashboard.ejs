@@ -6,70 +6,35 @@
             <div class="page-heading">
                 <h1 class="heading">Pending Fees</h1>
             </div>
+            <form action="/feecell/dashboard/adddata" method="post" enctype="multipart/form-data">
             <div class="allot__2" id="section2">
                 <div class="teacher__and__btn">
                     <div class="filters">
-                        <div class="select-menu">
-                            <div class="select-btn">
-                                <span class="sBtn-text">Dept</span>
-                                <ion-icon name="caret-down-outline"></ion-icon>
-                            </div>
-                            <ul class="options" id="att-choose">
-                                <a href="#">
-                                    <li class="option" value="view">
-                                        <span class="option-text">Update</span>
-                                    </li>
-                                </a>
-                                <a href="#">
-                                    <li class="option" value="view">
-                                        <span class="option-text">View</span>
-                                    </li>
-                                </a>
-                            </ul>
-                        </div>
-                        <div class="select-menu1">
-                            <div class="select-btn1">
-                                <span class="sBtn-text">Course</span>
-                                <ion-icon name="caret-down-outline"></ion-icon>
-                            </div>
-                            <ul class="options" id="att-choose">
-                                    <a href="#">
-                                        <li class="option1" value="view">
-                                            <span class="option-text">View </span>
-                                        </li>
-                                    </a>
-                                    <a href="#">
-                                        <li class="option1" value="view">
-                                            <span class="option-text">Update</span>
-                                        </li>
-                                    </a>
-                            </ul>
-                        </div>
-                        <div class="select-menu2">
-                            <div class="select-btn2">
-                                <span class="sBtn-text">Semester</span>
-                                <ion-icon name="caret-down-outline"></ion-icon>
-                            </div>
-                            <ul class="options" id="att-choose">
-                                    <a href="#">
-                                        <li class="option2" value="view">
-                                            <span class="option-text">VIew </span>
-                                        </li>
-                                    </a>
-                                    <a href="#">
-                                        <li class="option2" value="view">
-                                            <span class="option-text">Update</span>
-                                        </li>
-                                    </a>
-                            </ul>
-                        </div>
-                        
-                    </div>
+                        <select
+                          id="departmentSelect"
+                          class="filter-select"
+                          onchange="updateCourseSelect()"
+                        >
+                          <option value="">Select a department</option>
+                        </select>
+          
+                        <select
+                          id="courseSelect"
+                          class="filter-select"
+                          onchange="updateSemesterSelect()"
+                        >
+                          <option value="">Select a course</option>
+                        </select>
+          
+                        <select id="semesterSelect" class="filter-select">
+                          <option value="">Select a semester</option>
+                        </select>
+                      </div>
                     <div class="import-bnt">
-                        <a href="..\..\data\template_tg.xlsx">
-                            <div class="template-btn btn btn-outline" type="submit">Download Template</div>
+                        <a href="..\..\data\template_feepending.xlsx">
+                            <div class="template-btn btn btn-outline" type="submit">Template <span><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"  viewBox="0 0 24 24" width="1.5vw" fill="#FFFFFF"><g><rect fill="none" height="24" width="24"/></g><g><path d="M16.59,9H15V4c0-0.55-0.45-1-1-1h-4C9.45,3,9,3.45,9,4v5H7.41c-0.89,0-1.34,1.08-0.71,1.71l4.59,4.59 c0.39,0.39,1.02,0.39,1.41,0l4.59-4.59C17.92,10.08,17.48,9,16.59,9z M5,19c0,0.55,0.45,1,1,1h12c0.55,0,1-0.45,1-1s-0.45-1-1-1H6 C5.45,18,5,18.45,5,19z"/></g></svg></span></div>
                         </a>
-                        <form action="/admin/addward" method="post" enctype="multipart/form-data">
+                        
                             <input type="hidden" value="" name="teacherid">
                             <div class="input-file">
                                 <div class="custom-file-upload">
@@ -81,7 +46,6 @@
                             </div>
                                 <button id="submit-btn" class="submit-btn btn btn-full btn-medium">Submit</button>
                             </div>
-                        </form>
                     </div>
                 </div>
 
@@ -97,109 +61,137 @@
                         </ul>
                     </div>
                     <div class="description-scroll">
-                        <div class="description__list">
-                            <ul>
-                                <li>01</li>
-                                <li>202100423</li>
-                                <li>Srijan Dev</li>
-                                <li>srijan_202100423@smit.smu.edu.in</li>
-                                <li>Hosteller</li>
-                                <li>Rs 65,000</li>
-                            </ul>
-                            <ul>
-                                <li>01</li>
-                                <li>202100423</li>
-                                <li>Srijan Dev</li>
-                                <li>srijan_202100423@smit.smu.edu.in</li>
-                                <li>Hosteller</li>
-                                <li>Rs 65,000</li>
-                            </ul>
-                            <ul>
-                                <li>01</li>
-                                <li>202100423</li>
-                                <li>Srijan Dev</li>
-                                <li>srijan_202100423@smit.smu.edu.in</li>
-                                <li>Hosteller</li>
-                                <li>Rs 65,000</li>
-                            </ul>
-                            <ul>
-                                <li>01</li>
-                                <li>202100423</li>
-                                <li>Srijan Dev</li>
-                                <li>srijan_202100423@smit.smu.edu.in</li>
-                                <li>Hosteller</li>
-                                <li>Rs 65,000</li>
-                            </ul>
-                            <ul>
-                                <li>01</li>
-                                <li>202100423</li>
-                                <li>Srijan Dev</li>
-                                <li>srijan_202100423@smit.smu.edu.in</li>
-                                <li>Hosteller</li>
-                                <li>Rs 65,000</li>
-                            </ul>
-                            <ul>
-                                <li>01</li>
-                                <li>202100423</li>
-                                <li>Srijan Dev</li>
-                                <li>srijan_202100423@smit.smu.edu.in</li>
-                                <li>Hosteller</li>
-                                <li>Rs 65,000</li>
-                            </ul>
-                            <ul>
-                                <li>01</li>
-                                <li>202100423</li>
-                                <li>Srijan Dev</li>
-                                <li>srijan_202100423@smit.smu.edu.in</li>
-                                <li>Hosteller</li>
-                                <li>Rs 65,000</li>
-                            </ul>
-                            <ul>
-                                <li>01</li>
-                                <li>202100423</li>
-                                <li>Srijan Dev</li>
-                                <li>srijan_202100423@smit.smu.edu.in</li>
-                                <li>Hosteller</li>
-                                <li>Rs 65,000</li>
-                            </ul>
-                            <ul>
-                                <li>01</li>
-                                <li>202100423</li>
-                                <li>Srijan Dev</li>
-                                <li>srijan_202100423@smit.smu.edu.in</li>
-                                <li>Hosteller</li>
-                                <li>Rs 65,000</li>
-                            </ul>
-                            <ul>
-                                <li>01</li>
-                                <li>202100423</li>
-                                <li>Srijan Dev</li>
-                                <li>srijan_202100423@smit.smu.edu.in</li>
-                                <li>Hosteller</li>
-                                <li>Rs 65,000</li>
-                            </ul>
-                            <ul>
-                                <li>01</li>
-                                <li>202100423</li>
-                                <li>Srijan Dev</li>
-                                <li>srijan_202100423@smit.smu.edu.in</li>
-                                <li>Hosteller</li>
-                                <li>Rs 65,000</li>
-                            </ul>
-                            <ul>
-                                <li>01</li>
-                                <li>202100423</li>
-                                <li>Srijan Dev</li>
-                                <li>srijan_202100423@smit.smu.edu.in</li>
-                                <li>Hosteller</li>
-                                <li>Rs 65,000</li>
-                            </ul>
+                        <div class="description__list" id="stud_list">
                         </div>
                     </div>
                 </div>
             </div>
+          </form>
         </div>
     </div>
 </div>
 
 <script src="<%= assetPath('js/feecell.js') %>"></script>
+<script>
+    var departmentSelect = document.getElementById("departmentSelect");
+  var courseSelect = document.getElementById("courseSelect");
+  var semesterSelect = document.getElementById("semesterSelect");
+
+  departmentSelect.addEventListener("change", updateCourseSelect);
+  courseSelect.addEventListener("change", updateSemesterSelect);
+  let u = <%- JSON.stringify(locals.deptSem) %>;
+  let data = u;
+  function updateDepartmentSelect() {
+
+    var departments = [...new Set(data.map(item => item.department))];
+
+    for (var i = 0; i < departments.length; i++) {
+      var option = document.createElement("option");
+      option.text = departments[i];
+      option.value = departments[i];
+      departmentSelect.appendChild(option);
+    }
+  }
+
+  function updateCourseSelect() {
+    var selectedDepartment = departmentSelect.value;
+
+    courseSelect.innerHTML = "";
+    semesterSelect.innerHTML = "";
+
+    if (selectedDepartment) {
+      var departmentData = data.filter(item => item.department === selectedDepartment);
+      var courses = [...new Set(departmentData.map(item => item.course))];
+      var option = document.createElement("option");
+      option.text = "Select a course";
+      courseSelect.appendChild(option);
+      for (var i = 0; i < courses.length; i++) {
+        var option = document.createElement("option");
+        option.text = courses[i];
+        option.value = courses[i];
+        courseSelect.appendChild(option);
+      }
+    } else {
+      var option = document.createElement("option");
+      option.text = "Select a course";
+      courseSelect.appendChild(option);
+    }
+
+    // After updating the course select, also update the semester select
+    updateSemesterSelect();
+  }
+
+  function updateSemesterSelect() {
+    var selectedDepartment = departmentSelect.value;
+    var selectedCourse = courseSelect.value;
+
+    semesterSelect.innerHTML = "";
+
+    if (selectedDepartment && selectedCourse) {
+      var departmentCourseData = data.filter(item => item.department === selectedDepartment && item.course === selectedCourse);
+      var semesters = [...new Set(departmentCourseData.map(item => item.semester))];
+      var option = document.createElement("option");
+      option.text = "Select a semester";
+      semesterSelect.appendChild(option);
+      for (var i = 0; i < semesters.length; i++) {
+        var option = document.createElement("option");
+        option.text = semesters[i];
+        option.value = semesters[i];
+        semesterSelect.appendChild(option);
+      }
+    } else {
+      var option = document.createElement("option");
+      option.text = "Select a semester";
+      semesterSelect.appendChild(option);
+    }
+  }
+
+  // Call the update functions initially to load the selects dynamically
+  updateDepartmentSelect();
+  updateCourseSelect(); 
+  $(document).ready(function() {
+    // Attach an event handler to the select element
+    $('#semesterSelect').change(function() {
+      // Get the selected value
+      var selectedValue = $(this).val();
+      var dept = document.getElementById('departmentSelect').value;
+      var course = document.getElementById('courseSelect').value;
+
+
+      // Send the AJAX GET request
+      $.ajax({
+        type: 'GET',
+        url: '/feecell/dashboard/search',
+        data: {
+          dept: dept,
+          course: course,
+          sem: selectedValue // Pass the selected value to the server
+        }, // Replace with your server endpoint URL
+        success: function(response) {
+          // Handle the successful response from the server
+          let domstring = '';
+          let stud = response.studdata
+          console.log(stud);
+          for(let i = 0; i<stud.length; i++){
+            domstring = domstring + `<ul>
+                                <li>01</li>
+                                <li>Srijan Dev</li>
+                                <li>202100423</li>
+                                <li>IT</li>
+                                <li>B.Tech</li>
+                                <li>5th</li>
+                                <li>7.8</li>
+                                <li>0</li>
+                            </ul>`
+          }
+          $('#stud_list').html(domstring)
+        },
+        error: function(xhr, status, error) {
+          // Handle errors
+          console.error('AJAX request failed.');
+          console.log(error);
+        }
+      });
+    });
+  }); 
+  </script>

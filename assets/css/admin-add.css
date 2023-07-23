@@ -1,13 +1,12 @@
 body {
   font-family: "Montserrat", sans-serif;
-  color: white;
-}
+  color: white; }
 
 .main-page {
   display: flex;
   align-items: center;
-  justify-content: center;
-}
+  justify-content: center; }
+
 .input-page {
   padding: 1rem;
   display: flex;
@@ -16,95 +15,72 @@ body {
   flex-direction: column;
   margin: auto;
   width: 100%;
-  height: 100%;
-  //   vertical-align: middle;
-  //    text-align: center;
-  //    margin: auto;
-  //    vertical-align: middle;
-  // position: absolute;
-  // z-index: 2;
-}
+  height: 100%; }
 
 .input-heading-1 {
   font-size: 3rem;
   font-weight: 600;
-  margin-bottom: 3rem;
+  margin-bottom: 3rem; }
 
-}
-
-// .input-heading-2 {
-//   font-size: 2.5rem;
-//   margin: 2rem 0rem;
-//   text-align: center;
-// }
 .input-heading-3 {
   font-size: 2.5rem;
   font-weight: 600;
-  padding-bottom: 2rem;
-}
+  padding-bottom: 2rem; }
+
 .input-heading-4 {
   font-size: 1rem;
   display: none;
   /* margin: 2rem 0rem; */
   /* font-weight: 600; */
-  /* text-align: center; */
-}
+  /* text-align: center; */ }
+
 .input-div {
   display: flex;
-  gap: 1rem;
-}
+  gap: 1rem; }
+
 .form-set {
   margin: 0 1rem;
-  margin-bottom: 0.8rem;
-}
+  margin-bottom: 0.8rem; }
 
 .form-text {
   margin-left: 0.2rem;
-  margin-bottom: 0.2rem;
-}
+  margin-bottom: 0.2rem; }
+
 .form-row {
   display: flex;
   flex-direction: row;
   margin-top: 0.3rem;
-  align-items: center;
-}
+  align-items: center; }
+
 .input-submit {
   margin: 1.5rem 0;
-  height: 2.5rem;
-}
-
+  height: 2.5rem; }
 
 .input-name {
   width: 180px;
-  // height: 50px;
   border-radius: 10px;
   border: 0.5px solid white;
   background-color: #f8d57b30;
   padding: 0.7rem 1rem;
   color: white;
   font-size: 18px;
-  font-weight: 500;
-  // vertical-align: middle;
-}
+  font-weight: 500; }
 
-.reg-input{
+.reg-input {
   width: 230px;
-  border-radius: 15px;
-}
+  border-radius: 15px; }
 
-.std-input{
-  width: 160px;
-}
+.std-input {
+  width: 160px; }
+
 .input-name:focus {
   outline: none;
-  border: 0.5px solid #fadb0e;
-}
+  border: 0.5px solid #fadb0e; }
 
 .input-name::placeholder {
   color: rgba(255, 255, 255, 0.315);
   font-size: 18px;
-  font-weight: 500;
-}
+  font-weight: 500; }
 
 .input-page2 {
   display: none;
@@ -113,9 +89,7 @@ body {
   flex-direction: column;
   margin: auto;
   width: 100%;
-  height: 100%;
-  // visibility: hidden;
-}
+  height: 100%; }
 
 input[type="checkbox"] {
   width: 2rem;
@@ -127,40 +101,34 @@ input[type="checkbox"] {
   background-color: transparent;
   border: 3px solid #fff;
   border-radius: 20px;
-  cursor: pointer;
-}
+  cursor: pointer; }
+
 input[type="checkbox"]:checked {
-  background-color: #fd6d08;
-}
+  background-color: #fd6d08; }
 
 #form-list {
   height: 63vh;
-  overflow-y: scroll;
-}
+  overflow-y: scroll; }
+
 #form-list::-webkit-scrollbar {
-  display: none;
-}
+  display: none; }
 
 .btn-div {
   display: flex;
   justify-content: space-between;
-  padding-top: 1rem;
-}
+  padding-top: 1rem; }
 
-.import-bnt{
+.import-bnt {
   display: flex;
   gap: 1.5vw;
-  align-items: center;
-}
+  align-items: center; }
 
-.template-btn{
+.template-btn {
   font-size: 0.85vw !important;
-  border-radius: 10px !important;
-}
+  border-radius: 10px !important; }
 
 input[type="file"] {
-  display: none;
-}
+  display: none; }
 
 .custom-file-upload {
   border-radius: 20px 0rem 0rem 20px;
@@ -171,46 +139,39 @@ input[type="file"] {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // padding: 0 1.5vw;
   cursor: pointer;
   font-size: 1.2vw;
-  position: relative;
-  
-}
-.custom-file-upload svg{
+  position: relative; }
+
+.custom-file-upload svg {
   position: absolute;
   transform: translateY(-50%);
   right: 0.5vw;
   width: 2vw;
   fill: #fff;
-  transition: transform 0.3s ease-in-out;
-}
-#file-name{
+  transition: transform 0.3s ease-in-out; }
+
+#file-name {
   display: flex;
   align-items: center;
   width: 20vw;
   padding: 0 1.5vw;
   height: 6vh;
-  overflow: auto;
+  overflow: auto; }
 
-}
-
-#submit-btn{
+#submit-btn {
   opacity: 0.4;
-border-radius: 0rem 20px 20px 0rem;
-}
-#select-file{
-  width: 10vw;
-}
+  border-radius: 0rem 20px 20px 0rem; }
+
+#select-file {
+  width: 10vw; }
+
 .submit-btn {
-  height: 6vh;
-}
+  height: 6vh; }
 
-
-.input-file{
-    display: flex;
-    gap: 0.25vw;
-    margin-top: 3vh;
-    align-items: center;
-    justify-content: center;
-}
+.input-file {
+  display: flex;
+  gap: 0.25vw;
+  margin-top: 3vh;
+  align-items: center;
+  justify-content: center; }

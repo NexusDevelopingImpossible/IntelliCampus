@@ -129,7 +129,7 @@
         <div class="info-cont">
           <div class="fees">
               <span class="info-hed-sm">Fees Pending:</span>
-              <span class="input-read-bd">Rs 65,000</span>
+              <span class="input-read-bd">Rs <%=studentdata.feepending%></span>
           </div>
           <div class="cgpa-backlogs">
             <div class="cgpa">
@@ -144,7 +144,8 @@
           <div class="backlogs-subjects">
             <p class="info-sub-hed">Backlog subject List:</p>
             <div>
-            <%for(let i = 0; i<studentdata.backlog; i++){%>
+              <%console.log(studentdata)%>
+            <%for(let i = 0; i<studentdata.backloglist.length; i++){%>
               <span class="input-read"><%=studentdata.backloglist[i]%></span>
             <%}%>
             
