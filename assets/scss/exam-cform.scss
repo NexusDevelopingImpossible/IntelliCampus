@@ -1,31 +1,32 @@
 .sub-sj {
-    width: 20vw;
+  width: 20vw;
 }
 
 .xlsx_svg {
-    width: 1.5vw;
-    fill: white;
+  width: 1.5vw;
+  fill: white;
 }
 
 #marks {
-    width: 78vw !important;
+  width: 78vw !important;
 }
 
 td:nth-child(3) {
-    padding-left: 1vw;
-    text-align: left;
+  padding-left: 1vw;
+  text-align: left;
 }
 
 #tb-header {
-     th:nth-child(3) {
-        width: 12vw !important;
-    }
+  th:nth-child(3) {
+    width: 12vw !important;
+  }
 }
 
 td {
-    height: 4.5vh;
+  height: 4.5vh;
 }
 
 #marks-display::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
+

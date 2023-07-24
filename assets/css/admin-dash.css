@@ -43,7 +43,7 @@
 
 .taskbar {
   margin: 0 2vw;
-  padding: 0.75vh 0.75vw;
+  padding: 0.75vh 0.5vw;
   background: rgba(0, 0, 0, 0.309);
   border-radius: 20px;
   display: flex;
@@ -57,6 +57,9 @@
 
 .taskbar ul li {
   list-style: none; }
+
+.sett-t {
+  border-radius: 15px !important; }
 
 .search-all {
   border: 0.5px solid rgba(255, 255, 255, 0.7);
