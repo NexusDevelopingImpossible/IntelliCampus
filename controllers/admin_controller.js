@@ -276,17 +276,13 @@ module.exports.searchbaralotsubject = async function (req, res) {
     }
     const subject = await Subject.find();
     const semsec = await SemSection.find();
-    console.log(subject);
-    console.log(semsec);
     let timetables = await Timetable.find({
       teacherid: teacherdata._id,
     }).populate("subjectcode");
-    let department = await Department.find({});
     return res.render("admin/allotsubjectform", {
       title: "Allot Subject data",
       teacher: teacherdata,
       timetable: timetables,
-      dept: department,
       subject, semsec
     });
   } catch (err) {
@@ -805,7 +801,6 @@ module.exports.section = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
     const semsec = await SemSection.find();
-    console.log(semsec);
     res.render("admin/addsection", { title: "Section", semsec});
   } catch (err) {
     console.log(err);
@@ -819,5 +814,60 @@ module.exports.mail = async (req, res) => {
     res.render("admin/mail", { title: "Mail", semsec});
   } catch (err) {
     console.log(err);
+  }
+};
+module.exports.searchsectionstudent = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    let studentlist = await Student.find(req.query);
+    console.log(studentlist);
+    if (req.xhr) {
+      return res.status(200).json({
+        studentlist: studentlist,
+      });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.addstudentsection = async function (req, res) {
+  try {
+    try {
+      let path = await new Promise((resolve, reject) => {
+        Tempupload.uploadfileexcel(req, res, function (error) {
+          if (error) {
+            console.log("** Multer error:", error);
+            reject(error);
+          }
+          resolve(Tempupload.uploadpath + "/" + req.file.filename);
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    let url = Tempupload.uploadpath + "/" + req.file.filename;
+    url = url.slice(1);
+    const workbook = XLSX.readFile(url);
+    const worksheet = workbook.Sheets["Student"];
+    let i = 2;
+    let cellToUpdate = String("A" + i);
+    console.log(req.body)
+    try {
+      while(worksheet[cellToUpdate]!=undefined){
+        cellToUpdate = String("A" + i);
+        let std_registration = Number(worksheet[cellToUpdate].v);
+        let student = await Student.findOneAndUpdate({username: std_registration},{department:String(req.body.department),course: String(req.body.course),semester: req.body.semester,section: String(req.body.section)});
+        await student.save();
+        i++;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    fs.unlinkSync(
+      path.join(__dirname, "..", url)
+    );
+    return res.redirect('back');
+  } catch (error) {
+    console.log(error);
   }
 };

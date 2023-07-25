@@ -1,3 +1,4 @@
+const { bold } = require("gulp-cli/lib/shared/ansi");
 const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path");
@@ -22,7 +23,13 @@ const teachersProfileSchema = new mongoose.Schema(
     phoneNo: {
       type: String,
     },
+    hidephoneno: {
+      type: String,
+    },
     phoneNoWhatsapp: {
+      type: String,
+    },
+    hidewhatsappno: {
       type: String,
     },
     officialEmail: {

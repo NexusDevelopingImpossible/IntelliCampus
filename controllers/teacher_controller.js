@@ -72,7 +72,9 @@ module.exports.searchstudent = async (req, res) => {
       semester: timetabledata.semester,
       section: timetabledata.section,
     });
-    if (timetabledata.subjectcode.type === "Theory") {
+    console.log(timetabledata.subjectcode.type == "Theroy");
+    if (timetabledata.subjectcode.type == "Theory") {
+      console.log(timetabledata, studentdata);
       for (let i = 0; i < studentdata.length; i++) {
         await Attendance.create({
           timetableid: timetabledata._id,
@@ -465,13 +467,16 @@ module.exports.assignment_check = async (req, res) => {
 };
 module.exports.setting = async (req, res) => {
   try {
-    return res.render("teacher/setting", { title: "Setting"});
+    let teacherdata = await teachersProfile.findOne({regnNo: res.locals.user.username}, {_id: 0, hidephoneno: 1, hidewhatsappno:1});
+    console.log(teacherdata);
+    return res.render("teacher/setting", { title: "Setting", teacherdata});
   } catch (error) {
     console.log(error);
   }
 };
 module.exports.changepassword = async (req, res) => {
   try {
+    console.log(req.body);
     if(req.body.newpassword === req.body.new1password){
       let user = await User.findById(res.locals.user._id);
       if(user.password === req.body.oldpassword){
@@ -485,6 +490,24 @@ module.exports.changepassword = async (req, res) => {
     }
     else{
       req.flash("error", "New and Confirm password did not match");
+    }
+    return res.redirect('back');
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports.settingupdate = async (req, res) => {
+  try {
+    if(req.body.hidephoneno == undefined){
+      req.body.hidephoneno = 'off';
+    }
+    if(req.body.hidewhatsappno == undefined){
+      req.body.hidewhatsappno = 'off';
+    }
+    let teacherdata = await teachersProfile.findOneAndUpdate({regnNo: res.locals.user.username}, {hidephoneno: req.body.hidephoneno, hidewhatsappno: req.body.hidewhatsappno});
+    await teacherdata.save();
+    if (req.xhr) {
+      return res.status(200);
     }
     return res.redirect('back');
   } catch (error) {

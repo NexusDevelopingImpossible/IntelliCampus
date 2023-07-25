@@ -36,5 +36,6 @@ router.get("/setting", teacherController.setting);
 router.post("/changepassword", teacherController.changepassword);
 router.get("/profile", teacherController.profile);
 router.post("/updateProfile", teacherController.updateProfile);
+router.post("/setting/update", teacherController.settingupdate);
 
 module.exports = router;

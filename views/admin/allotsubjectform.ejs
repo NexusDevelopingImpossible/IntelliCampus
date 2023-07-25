@@ -84,23 +84,23 @@
                         <div class="input__field">
                             <div class="row1">
                                 <select id="department" class="filter-select" name="department" required>
-                                    <option value="">Select Department</option>
+                                    <option value="">Department</option>
                                   </select>
                                   <select id="course" class="filter-select" name="course" required>
-                                    <option value="">Select Course</option>
+                                    <option value="">Course</option>
                                   </select>
                                   <select id="semester" class="filter-select" name="semester" required>
-                                    <option value="">Select Semester</option>
+                                    <option value="">Semester</option>
                                   </select>
                                   
                                   <select id="section" class="filter-select" name="section" required>
-                                    <option value="">Select Section</option>
+                                    <option value="">Section</option>
                                 </select>
                             </div>
                             <div class="row2">
                                 <input type="text" value="<%= teacher.username %>" style="display: none" name="registration">
                                 <select id="subject" class="filter-select" name="subname">
-                                    <option value="">Select Subject</option>
+                                    <option value="">Subject</option>
                                 </select>
                                 <!-- <input type="text" name="subject" id="subject" placeholder="Subject Name"> -->
                             </div>
@@ -126,7 +126,7 @@
 
   function populateSelect(selectId, values) {
     const select = document.getElementById(selectId);
-    select.innerHTML = "<option value=''>Select " + selectId + "</option>";
+    select.innerHTML = "<option value=''> " + selectId + "</option>";
 
     values.forEach((value) => {
       const option = document.createElement("option");
@@ -152,7 +152,6 @@
         filteredSection = filteredSection.filter(
             (section) => section.department === selectedDepartment
         );
-        console.log("dept",filteredSection);
     }
 
     if (selectedCourse) {
@@ -162,7 +161,6 @@
       filteredSection = filteredSection.filter(
         (section) => section.course === selectedCourse
       );
-      console.log("cour",filteredSection);
     }
 
     if (selectedSemester) {
@@ -172,7 +170,7 @@
       filteredSection = filteredSection.filter(
         (section) => section.semester == selectedSemester
       );
-      console.log("ugug:",filteredSection);
+
     }
 
     populateSelect("subject", uniqueValues(filteredSubjects, "name"));

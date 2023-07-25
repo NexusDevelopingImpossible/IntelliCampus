@@ -1,0 +1,80 @@
+.add-program-1 {
+  display: flex;
+  padding-left: 5rem;
+  align-self: center;
+  margin-top: 30px; }
+
+.prog-inp {
+  width: 27vw;
+  height: 7vh;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.1);
+  padding-left: 1vw;
+  font-size: 20px;
+  color: white; }
+
+.prog-inp::placeholder {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400; }
+
+.add-btn {
+  width: 115px;
+  height: 48px; }
+
+.add-program-1:nth-child(1) {
+  margin-right: 3rem; }
+
+.options::selection {
+  border: 1px solid orange; }
+
+input[type="text"]:focus {
+  outline: 1px solid orange;
+  /* oranges! yey */
+  border: none; }
+
+input:focus::-webkit-input-placeholder {
+  opacity: 0; }
+
+.prog-div {
+  width: auto;
+  height: 50px;
+  border-radius: 10px;
+  background: rgba(248, 213, 123, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 1.5vw;
+  padding: 0 1vw; }
+
+.prog-div p {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500; }
+
+.trash svg {
+  fill: white;
+  width: 2vw;
+  transition: all 0.3s; }
+
+.trash svg:hover {
+  cursor: pointer;
+  fill: rgba(255, 255, 255, 0.387); }
+
+.prog-grid {
+  padding: 6vh 5vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5vw; }
+
+.add-dept {
+  padding: 0 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem; }
+
+#adddept {
+  display: flex;
+  gap: 1.5vw;
+  align-items: center; }

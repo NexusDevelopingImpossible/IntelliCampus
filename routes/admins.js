@@ -44,6 +44,8 @@ router.get("/semestercourse/:id", adminController.semestercourse);
 router.get("/studentprofile/:id", adminController.adminstudentprofile);
 router.get("/deactivateaccount", adminController.deactivateaccount);
 router.get("/section", adminController.section);
+router.post("/section/addstudent", adminController.addstudentsection);
 router.get("/mail", adminController.mail);
+router.get("/section/searchstudent", adminController.searchsectionstudent);
 
 module.exports = router;
