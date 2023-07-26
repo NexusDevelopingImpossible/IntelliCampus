@@ -111,6 +111,7 @@
   gap: 1rem;
 }
 .row2 input[type="file"] {
+  display: block !important;
   position: absolute;
   left: 0;
   top: 0;
@@ -268,3 +269,5 @@
 .list__items ul li span svg {
   cursor: pointer;
 }
+
+

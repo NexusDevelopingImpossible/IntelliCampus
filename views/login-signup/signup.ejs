@@ -1,7 +1,16 @@
-<link rel="stylesheet" href="<%= assetPath('css/signup.css') %>">
 
+
+<div class="main-page">
+  <div class="blur">
+    <div class="page-heading">
+      <a href="/admin/dashboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+          <path
+            d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z" />
+        </svg></a>
+      <h1 class="heading">Create New Account</h1>
+    </div>
 <form action="/admin/create" method="post">
-  <h1>Sign Up</h1>
+
     <input type="number" name="username" placeholder="regn" required>
     <div>
     <input type="text" name="name" placeholder="name">
@@ -16,3 +25,6 @@
       </select>
     <input type="Submit" value="Sign Up">
 </form>
+
+</div>
+</div>

@@ -10,7 +10,8 @@ a {
 
 button,
 input,
-select, textarea {
+select,
+textarea {
   font-family: "Montserrat", sans-serif !important;
   color: #ffffff; }
 
@@ -60,7 +61,8 @@ select, textarea {
   font-size: 4vh;
   font-weight: 600; }
 
-.tab-icon, .page-heading svg {
+.tab-icon,
+.page-heading svg {
   width: 1.65vw;
   fill: #fff;
   transition: all 0.3s; }
@@ -70,6 +72,7 @@ select, textarea {
   fill: #ffffffc7; }
 
 .filter-select {
+  position: relative;
   background: rgba(0, 0, 0, 0.4);
   width: 9vw;
   padding: 1vh 0.5vw;
@@ -80,14 +83,28 @@ select, textarea {
 .filter-select:focus {
   outline: none; }
 
+.filter-select {
+  appearance: none;
+  /* Hide the default arrow on some browsers */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath d="M7 10l5 5 5-5z" fill="%23fff"%3E%3C/path%3E%3C/svg%3E');
+  /* Updated SVG code with white fill */
+  background-repeat: no-repeat;
+  background-position: right center;
+  /* Adjust the position of the arrow */
+  padding-right: 0.5vw;
+  /* Add padding to prevent text overlap with the arrow */
+  background-size: 20px; }
+
 input[type="file"] {
   display: none; }
 
 .custom-file-upload {
-  border-radius: 20px 0rem 0rem 20px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.08);
-  width: 20vw;
+  width: 17vw;
   height: 6vh;
   display: flex;
   align-items: center;
@@ -107,14 +124,21 @@ input[type="file"] {
 #file-name {
   display: flex;
   align-items: center;
-  width: 20vw;
-  padding: 0 1.5vw;
+  width: 17vw;
+  padding: 0 1vw;
   height: 6vh;
   overflow: auto; }
 
+.template-btn {
+  padding: 1vh 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75vw; }
+
 #submit-btn {
   opacity: 0.4;
-  border-radius: 0rem 20px 20px 0rem; }
+  border-radius: 10px; }
 
 #select-file {
   width: 10vw; }
@@ -124,6 +148,10 @@ input[type="file"] {
 
 .input-file {
   display: flex;
-  gap: 0.25vw;
+  gap: 1vw;
   align-items: center;
   justify-content: center; }
+
+.upload-part {
+  display: flex;
+  gap: 0.5vw; }
