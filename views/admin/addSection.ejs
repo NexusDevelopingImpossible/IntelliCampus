@@ -12,12 +12,15 @@
       </a>
       <h1 class="heading">Add Students in Section</h1>
     </div>
-    <form
+    
+    <div class="main__content">
+      <form
       action="/admin/section/addstudent"
       method="post"
       enctype="multipart/form-data"
     >
-      <div>
+      <div class="header">
+        <div>
         <select id="department" class="filter-select" name="department">
           <option value="" disabled selected>Department</option>
         </select>
@@ -30,12 +33,14 @@
         <select id="section" class="filter-select" name="section">
           <option value="" disabled selected>Section</option>
         </select>
+      </div>
         <div class="input-file">
           <a href="..\..\data\template_section.xlsx">
             <div class="template-btn btn btn-outline" type="submit">
               Template
             </div>
           </a>
+          <div class="upload-part">
           <div class="custom-file-upload">
             <label>
               <input id="select-file" type="file" name="fileexcel" required />
@@ -54,13 +59,14 @@
               </svg>
             </span>
           </div>
-          <button id="submit-btn" class="submit-btn btn btn-full btn-medium">
+          <button id="submit-btn" class="submit-btn btn btn-full">
             Submit
           </button>
         </div>
+        </div>
       </div>
     </form>
-    <div class="main__content">
+    <div class="description">
       <div class="section__title">
         <span>SI. No</span>
         <span>Registration No</span>
@@ -69,6 +75,7 @@
       </div>
       <div class="student__section__list" id="student_list">
       </div>
+    </div>
     </div>
   </div>
 </div>
@@ -236,19 +243,7 @@
           <div class="section">
             <span>${data[i].section}</span>
             <button class="delete-btn">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 31 28"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12.1406 4.5V5H17.9219V4.5C17.9219 3.83696 17.6173 3.20107 17.0752 2.73223C16.5331 2.26339 15.7979 2 15.0312 2C14.2646 2 13.5294 2.26339 12.9873 2.73223C12.4452 3.20107 12.1406 3.83696 12.1406 4.5ZM9.82812 5V4.5C9.82812 3.30653 10.3763 2.16193 11.3521 1.31802C12.3279 0.474106 13.6513 0 15.0312 0C16.4112 0 17.7346 0.474106 18.7104 1.31802C19.6862 2.16193 20.2344 3.30653 20.2344 4.5V5H28.9062C29.2129 5 29.507 5.10536 29.7238 5.29289C29.9407 5.48043 30.0625 5.73478 30.0625 6C30.0625 6.26522 29.9407 6.51957 29.7238 6.70711C29.507 6.89464 29.2129 7 28.9062 7H27.1626L24.975 23.568C24.8137 24.7882 24.1388 25.9143 23.0789 26.7317C22.0191 27.5491 20.6485 28.0006 19.2284 28H10.8341C9.41403 28.0006 8.04342 27.5491 6.98358 26.7317C5.92374 25.9143 5.24882 24.7882 5.0875 23.568L2.89987 7H1.15625C0.849593 7 0.555497 6.89464 0.338658 6.70711C0.121819 6.51957 0 6.26522 0 6C0 5.73478 0.121819 5.48043 0.338658 5.29289C0.555497 5.10536 0.849593 5 1.15625 5H9.82812ZM7.38612 23.34C7.48266 24.0719 7.88719 24.7475 8.52263 25.2381C9.15807 25.7286 9.97999 25.9998 10.8317 26H19.2296C20.0814 25.9998 20.9033 25.7286 21.5387 25.2381C22.1742 24.7475 22.5787 24.0719 22.6752 23.34L24.8363 7H5.22741L7.38612 23.34ZM11.5625 10.5C11.8692 10.5 12.1633 10.6054 12.3801 10.7929C12.5969 10.9804 12.7188 11.2348 12.7188 11.5V21.5C12.7188 21.7652 12.5969 22.0196 12.3801 22.2071C12.1633 22.3946 11.8692 22.5 11.5625 22.5C11.2558 22.5 10.9617 22.3946 10.7449 22.2071C10.5281 22.0196 10.4062 21.7652 10.4062 21.5V11.5C10.4062 11.2348 10.5281 10.9804 10.7449 10.7929C10.9617 10.6054 11.2558 10.5 11.5625 10.5ZM19.6562 11.5C19.6562 11.2348 19.5344 10.9804 19.3176 10.7929C19.1008 10.6054 18.8067 10.5 18.5 10.5C18.1933 10.5 17.8992 10.6054 17.6824 10.7929C17.4656 10.9804 17.3438 11.2348 17.3438 11.5V21.5C17.3438 21.7652 17.4656 22.0196 17.6824 22.2071C17.8992 22.3946 18.1933 22.5 18.5 22.5C18.8067 22.5 19.1008 22.3946 19.3176 22.2071C19.5344 22.0196 19.6562 21.7652 19.6562 21.5V11.5Z"
-                  fill="white"
-                  fill-opacity="0.8"
-                />
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" width="1.85vw" fill="#fff"><path d="M261-120q-24.75 0-42.375-17.625T201-180v-570h-11q-12.75 0-21.375-8.675-8.625-8.676-8.625-21.5 0-12.825 8.625-21.325T190-810h158q0-13 8.625-21.5T378-840h204q12.75 0 21.375 8.625T612-810h158q12.75 0 21.375 8.675 8.625 8.676 8.625 21.5 0 12.825-8.625 21.325T770-750h-11v570q0 24.75-17.625 42.375T699-120H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"/></svg>
             </button>
           </div>
         </div>`

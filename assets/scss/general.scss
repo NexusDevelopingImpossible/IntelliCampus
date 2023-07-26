@@ -15,7 +15,8 @@ a {
 
 button,
 input,
-select, textarea {
+select,
+textarea {
   font-family: "Montserrat", sans-serif !important;
   color: #ffffff;
 }
@@ -39,7 +40,6 @@ select, textarea {
 
 .btn-full:hover {
   background: $btn-color-hover;
-
 }
 
 .btn-outline {
@@ -49,28 +49,25 @@ select, textarea {
 
 .btn-outline:hover {
   background: $btn-color;
-  
 }
 
-.btn-sm{
+.btn-sm {
   // padding: 1.1vh 0;
-    width: 6vw;
-
+  width: 6vw;
 }
 
-.btn-large{
-    width: 13vw;
-    height: 5.75vh;
+.btn-large {
+  width: 13vw;
+  height: 5.75vh;
 }
 
-.btn-medium{
-    width: 8.6vw;
+.btn-medium {
+  width: 8.6vw;
 }
-
 
 // Page Heading
 
-.page-heading{
+.page-heading {
   display: flex;
   align-items: center;
   gap: 1vw;
@@ -82,35 +79,48 @@ select, textarea {
 //   width: 2.5vw;
 // }
 
-.page-heading h1{
+.page-heading h1 {
   font-size: 4vh;
   font-weight: 600;
 }
-.tab-icon, .page-heading svg{
+.tab-icon,
+.page-heading svg {
   width: 1.65vw;
   fill: #fff;
   transition: all 0.3s;
 }
-.page-heading svg:hover{
+.page-heading svg:hover {
   width: 2.3vw;
   fill: #ffffffc7;
 }
 
-
 // filter select css
 
-.filter-select{
-  background: rgba(0, 0, 0, 0.40);
+.filter-select {
+  position: relative;
+  background: rgba(0, 0, 0, 0.4);
   width: 9vw;
   padding: 1vh 0.5vw;
   border-radius: 7px;
   font-size: 1.75vh;
   cursor: pointer;
 }
-.filter-select:focus{
+.filter-select:focus {
   outline: none;
-
 }
+
+.filter-select{
+  appearance: none; /* Hide the default arrow on some browsers */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  // background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath d="M7 10l5 5 5-5z"%3E%3C/path%3E%3C/svg%3E'); /* Add your SVG code here */
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath d="M7 10l5 5 5-5z" fill="%23fff"%3E%3C/path%3E%3C/svg%3E'); /* Updated SVG code with white fill */
+  background-repeat: no-repeat;
+  background-position: right center; /* Adjust the position of the arrow */
+  padding-right: 0.5vw; /* Add padding to prevent text overlap with the arrow */
+  background-size: 20px;
+}
+
 //file upload
 
 input[type="file"] {
@@ -118,10 +128,10 @@ input[type="file"] {
 }
 
 .custom-file-upload {
-  border-radius: 20px 0rem 0rem 20px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.08);
-  width: 20vw;
+  width: 17vw;
   height: 6vh;
   display: flex;
   align-items: center;
@@ -130,9 +140,8 @@ input[type="file"] {
   cursor: pointer;
   font-size: 1.2vw;
   position: relative;
-  
 }
-.custom-file-upload svg{
+.custom-file-upload svg {
   position: absolute;
   transform: translateY(-50%);
   right: 0.5vw;
@@ -140,31 +149,40 @@ input[type="file"] {
   fill: #fff;
   transition: transform 0.3s ease-in-out;
 }
-#file-name{
+#file-name {
   display: flex;
   align-items: center;
-  width: 20vw;
-  padding: 0 1.5vw;
+  width: 17vw;
+  padding: 0 1vw;
   height: 6vh;
   overflow: auto;
-
 }
-
-#submit-btn{
+.template-btn {
+  padding: 1vh 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75vw;
+}
+#submit-btn {
   opacity: 0.4;
-border-radius: 0rem 20px 20px 0rem;
+  border-radius: 10px;
 }
-#select-file{
+#select-file {
   width: 10vw;
 }
 .submit-btn {
   height: 6vh;
 }
 
-.input-file{
-    display: flex;
-    gap: 0.25vw;
-    align-items: center;
-    justify-content: center;
+.input-file {
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+  justify-content: center;
 }
 
+.upload-part {
+  display: flex;
+  gap: 0.5vw;
+}

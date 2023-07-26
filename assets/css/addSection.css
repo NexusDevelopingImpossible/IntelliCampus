@@ -1,46 +1,24 @@
-/* overridng */
-.navbar {
-  width: 16%;
-  display: flex;
-  flex-direction: column; }
-
-.nav-manipal-vector img {
-  position: absolute;
-  width: 16rem;
-  height: 16rem;
-  left: -6px;
-  top: 450px;
-  opacity: 0.07;
-  z-index: -1; }
-
-.main-background {
-  width: 84%;
-  background: linear-gradient(112.35deg, rgba(255, 255, 255, 0.4) 1.41%, rgba(255, 255, 255, 0) 99.01%);
-  backdrop-filter: blur(22px);
-  border-radius: 55px;
-  margin: 1rem;
-  position: relative; }
-
 /* Main content */
-.main-container {
+.header {
   display: flex;
-  width: 100%; }
+  justify-content: space-between;
+  align-items: center; }
 
 .main__content {
-  padding: 2rem 4rem;
-  /* Added new */
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem; }
+  padding: 0 5vw; }
 
 /* Section Title */
 /* Adjust the width accordingly */
+.description {
+  margin-top: 4vh; }
+
 .section__title {
   width: 70%;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
   padding: 0.6rem;
+  margin-bottom: 1rem;
   border-radius: 8px;
   color: #ffffffbd;
   background: #00000044; }
@@ -56,11 +34,11 @@
 
 .section__title span:nth-child(2),
 .list span:nth-child(2) {
-  flex: 3; }
+  flex: 2.5; }
 
 .section__title span:nth-child(3),
 .list span:nth-child(3) {
-  flex: 3; }
+  flex: 4; }
 
 .section__title span:nth-child(4),
 .list div:nth-child(4) {
@@ -75,7 +53,9 @@
   gap: 0.6rem;
   margin: 0 auto;
   color: #fff;
-  padding-top: 0.8rem; }
+  padding-bottom: 0.8rem;
+  height: 63vh;
+  overflow: auto; }
 
 .list span,
 .list div {
@@ -84,6 +64,7 @@
 .list {
   border-radius: 8px;
   background: #f8d57b29;
+  height: 5vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
