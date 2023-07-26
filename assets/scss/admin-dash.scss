@@ -119,13 +119,13 @@
 /*--------------------------tg and add program select style-------------------------*/
 
 
-.select-menu, .select-menu1{
+.select-menu, .select-menu1, .select-menu2{
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.select-menu .select-btn, .select-menu1 .select-btn1 {
+.select-menu .select-btn, .select-menu1 .select-btn1,, .select-menu2 .select-btn2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -134,11 +134,11 @@
 
 
 
-.select-menu.active .select-btn i, .select-menu1.active .select-btn1 i  {
+.select-menu.active .select-btn i, .select-menu1.active .select-btn1 i , , .select-menu2.active .select-btn2 i  {
   transform: rotate(-180deg);
 }
 
-.select-menu .options, .select-menu1 .options  {
+.select-menu .options, .select-menu1 .options,  .select-menu2 .options   {
   position: absolute;
     z-index: 1;
     top: 5.75vh;
@@ -151,24 +151,24 @@
 }
 
 
-.select-menu.active .options, .select-menu1.active .options  {
+.select-menu.active .options, .select-menu1.active .options, .select-menu2.active .options   {
   display: block;
 }
 
-.options .option, .options .option1 {
+.options .option, .options .option1, .options .option2  {
   cursor: pointer;
   padding: 1vh 1vw;
   align-items: center;
   // width: 10vw;
 }
 
-.options .option:hover, .options .option1:hover {
+.options .option:hover, .options .option1:hover, .options .option2:hover {
   background: #ffffff28;
 }
 
 
 
-.option .option-text, .option1 .option-text  {
+.option .option-text, .option1 .option-text, .option2 .option-text   {
   font-size: 2vh;
   color: #fff;
 }

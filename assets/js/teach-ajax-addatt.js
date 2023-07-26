@@ -13,11 +13,8 @@ let createform = function () {
                   theme: "relax",
                   text: "Attendance added",
                   type: "success",
-                  layout: "topCenter",
-                  animation: {
-                    open: "animated bounceInTop", // Animate.css class names
-                    close: "animated bounceOutTop", // Animate.css class names
-                  },
+                  layout: "topRight",
+                 
                   timeout: 1500,
                 }).show();
             },

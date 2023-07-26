@@ -1,245 +1,245 @@
-/* overridng */
-.navbar {
-    width: 16%;
-    display: flex;
-    flex-direction: column;
-}
-.nav-manipal-vector img {
-    position: absolute;
-    width: 16rem;
-    height: 16rem;
-    left: -6px;
-    top: 450px;
-    opacity: 0.07;
-    z-index: -1;
-}
-
-.main-background{
-    width: 84%;
-    background: linear-gradient(112.35deg, rgba(255, 255, 255, 0.4) 1.41%, rgba(255, 255, 255, 0) 99.01%);
-    backdrop-filter: blur(22px);
-    border-radius: 55px;
-    margin: 1rem;
-    position: relative;
-}
-
 /* Main content */
-.main-container{
-    display: flex;
-    width: 100%;
+.main-container {
+  // display: flex;
+  // width: 100%;
 }
 
+.main__content {
+  padding: 0rem 5rem;
 
-.main__content{
-    padding: 2rem 4rem;
-
-    /* Added new */
-    display: flex;
-    flex-direction: column;
-    gap: 1.3rem;
+  /* Added new */
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
 }
 
+// popup
 
-/* Overlay */
-.overlay{
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    z-index: 1;
-    display: none;
+.popup {
+  display: none;
+  position: absolute;
+  top: 0;
+  z-index: 20;
+  background: linear-gradient(
+    136deg,
+    rgba(6, 3, 3, 0.203) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  backdrop-filter: blur(3px);
+  margin-left: 0rem;
+  width: 84vw;
+  height: 96vh;
+  border-radius: 2.75vw;
+  align-items: center;
+  justify-content: center;
 }
-/* Adding the show class */
-.overlay.show{
-    display: block;
-}
-/* Modal */
 .modal {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 300;
-    width: 475px;
-    border: 1px solid #ffffff7a;
-    border-radius: 15px;
-    overflow: hidden;
-    z-index: 2;
-    background: #baa9a9e3;
-    padding: 1rem;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  width: 45vw;
+  border: 0.5px solid rgba(255, 255, 255, 0.7);
+  background: rgba(248, 213, 123, 0.15);
+  backdrop-filter: blur(34px);
+  box-shadow: 0px 0px 100px 0px rgba(0, 0, 0, 0.204);
+  border-radius: 10px;
 }
 /* adding the show class */
-.modal.show{
-    display: block;
+.modal.show {
+  display: block;
 }
 
-.top{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
-    background: #baa9a9e3;
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px 10px 0rem 0rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.15);
 }
-.top h3{
-    font-weight: 600;
+.top h3 {
+  font-weight: 600;
 }
-.close{
-    background: none;
-    cursor: pointer;
-    border: none;
+.close {
+  background: none;
+  cursor: pointer;
+  border: none;
+}
+.middle,
+.bottom {
+  padding: 0.5rem 1.5rem;
+}
+.middle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #fff;
+  padding-bottom: 1rem;
+}
+.dropdown__section {
+  padding: 0.75rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.subject__title {
+  padding: 0.5rem 0;
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+}
+.description-text {
+  display: flex;
+  gap: 1vh;
+  flex-direction: column;
+}
+.subject__title span {
+  width: 6vw;
 }
 
-.middle{
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    color: #fff;
-    padding-bottom: 1rem;
+.subject__title input,
+.description-text textarea {
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  width: 100%;
+  resize: vertical;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.1s;
 }
-.dropdown__section{
-    padding: 0.5rem;
+
+.subject__title input:focus,
+.description-text textarea:focus {
+  outline: 0.5px solid #fff;
+  background: rgba(137, 137, 137, 0.049);
 }
-.subject__title{
-    border-top: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-    padding: 0.5rem;
+.row2 {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
 }
-.subject__title input{
-    border: none;
-    background: none;
-    outline: none;
-    caret-color: #fff;
-    padding: 0.5rem;
-    color: #fff;
+.row2 .btna {
+  background: #00000071;
+  border: none;
+  color: #fff;
+  padding: 0.2rem 1rem;
+  display: flex;
+  border-radius: 15px;
+  align-items: center;
+  gap: 0.5rem;
 }
-.mail__content{
-    border: none;
-    border-bottom: 1px solid #fff;
-    background: none;
-    outline: none;
-    resize: vertical;
-    caret-color: #fff;
+.row2 input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 142px;
+  height: 33px;
+  cursor: pointer;
 }
-.row2{
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-}
-.row2 .btn {
-    background: #00000071;
-    border: none;
-    color: #fff;
-    padding: 0.2rem 1rem;
-    display: flex;
-    border-radius: 15px;
-    align-items: center;
-    gap: 0.5rem;
-}
-.row2 input[type=file] {
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    width: 142px;
-    height: 33px;
-    cursor: pointer;
-}
-.send__btn{
-    background: #FD6D08;
-    border: none;
-    border-radius: 15px;
-    font-size: 0.9rem;
-    font-weight: normal;
-    cursor: pointer;
-    padding: 0.5rem 1.8rem;
-    letter-spacing: 1px;
-    color: #fff;
+
+.bottom {
+  margin-bottom: 0.75rem;
 }
 
 /* Mail section */
-.header{
-    display: flex;
-    align-items: center;   
-    gap: 1rem; 
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
-.back__btn{
-    background: none;
-    outline: none;
-    border: none;
-    cursor: pointer;
+
+
+.sent__mails__button {
+  display: flex;
+  justify-content: space-between;
+}
+.sent__mails__button h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+.compose__btn {
+  background: #f66e0e;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.5rem 1.4rem;
+  border-radius: 10px;
+}
+.compose__btn span {
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+.mail__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  overflow: auto;
+  height: 72vh;
+}
+.mail {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background: #ffffff47;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+.mail__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #0000005d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mail__description {
     display: flex;
     align-items: center;
+    gap: 0.75rem;
 }
-.title{
-    font-size: 1.7rem;
-    font-weight: 600;
-    color: #fff;
+.mail__title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
 }
-.sent__mails__button{
-    display: flex;
-    justify-content: space-between;
-    padding: 0 1rem;
+.time {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
 }
-.sent__mails__button h3{
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #fff;
-}
-.compose__btn{
-    background:#F66E0E;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;    
-    gap: 0.7rem;
-    padding: 0.5rem 1.4rem;
-    border-radius: 10px;
-}
-.compose__btn span{
-    color: #fff;
-    font-size: 1rem;
-    letter-spacing: 1px;
-}
-.mail__list{
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    padding: 0 1rem;
-}
-.mail{
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    background: #ffffff47;
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
-}
-.mail__icon{
-    width: 40px;
-    height: 40px;
+
+.dot-sep{
+    display: block;
     border-radius: 50%;
-    background: #0000005d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 6px;
+    width: 6px;
+    background: #fff;
 }
-.mail__description{
+.sub-glmp{
+    width: 22vw;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: #ffffffb8;
+    font-weight: 500;
 }
-.mail__title{
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #fff;
-}
-.time{
-    font-size: 0.7rem;
-    letter-spacing: 1px;
+.desc-glmp{
+    width: 32vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #ffffff93;
 }
