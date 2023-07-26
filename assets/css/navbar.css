@@ -84,7 +84,8 @@ body {
   background-image: url("../images/bgm.png");
   background-size: cover;
   background-position: center;
-  border-radius: 2.75vw; }
+  border-radius: 2.75vw;
+  position: relative; }
 
 .blur {
   background: linear-gradient(136deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
