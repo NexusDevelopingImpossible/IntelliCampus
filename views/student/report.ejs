@@ -1,0 +1,112 @@
+<link rel="stylesheet" href="<%= assetPath('css/mail.css') %>" />
+
+<div class="main-page">
+  <div class="blur">
+    <div class="page-heading">
+      <a href="/admin/dashboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+          <path
+            d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z" />
+        </svg></a>
+      <h1 class="heading">Mails</h1>
+  </div>
+
+
+   
+
+    <div class="main__content">
+    
+      <div class="sent__mails__button">
+        <h3></h3>
+        <button class="compose__btn" id="compose__btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.5vw" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M3 17.46v3.04c0 .28.22.5.5.5h3.04c.13 0 .26-.05.35-.15L17.81 9.94l-3.75-3.75L3.15 17.1c-.1.1-.15.22-.15.36zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+          <span>Compose</span>
+        </button>
+      </div>
+
+      <div class="mail__list">
+        <%for(let i = 0; i<reportdata.length; i++){%>
+        <div class="mail">
+          <div class="mail__icon">
+            <svg
+              width="50"
+              height="16"
+              viewBox="0 0 36 28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M30 0.5H6C2.7 0.5 0 3.2 0 6.5V21.5C0 24.8 2.7 27.5 6 27.5H30C33.3 27.5 36 24.8 36 21.5V6.5C36 3.2 33.3 0.5 30 0.5ZM32.4 9.2L20.55 17.15C19.8 17.6 18.9 17.9 18 17.9C17.1 17.9 16.2 17.6 15.45 17.15L3.6 9.2C3 8.75 2.85 7.85 3.3 7.1C3.75 6.5 4.65 6.35 5.4 6.8L17.25 14.75C17.7 15.05 18.45 15.05 18.9 14.75L30.75 6.8C31.5 6.35 32.4 6.5 32.85 7.25C33.15 7.85 33 8.75 32.4 9.2Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+          <p class="mail__description">
+            <span class="mail__title">CSE - 4th(A)</span> <span class="dot-sep"></span><span class="sub-glmp">Ipsam ut natus, amet facilis nulla
+              eum?</span> <span class="desc-glmp">dolor sit amet
+                consectetur adipisicing elit. Ipsam ut natus, amet facilis nulla
+                eum?Lorem ipsum dolor, sit amet kfhweifhiwe ewkjfnwiejfiwfj ksdji
+                wdjfhweuhfuewh kjsdnvv Lorem ipsum dolor sit amet consectetur
+                adipisicing</span>
+          </p>
+          <div class="time">6:69AM</div>
+        </div>
+        <%}%>
+        
+
+      </div>
+    </div>
+  </div>
+  <div class="popup pp">
+  </div>
+  <div class="modal pp" id="modal">
+    <div class="top">
+      <h3>Compose Mail</h3>
+      <button class="close" id="close">
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 58 58"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_1546_5783)">
+            <path
+              d="M38.4546 19.13C43.8882 24.351 44.0612 33.0201 38.8403 38.4538C33.6193 43.8874 24.9502 44.0604 19.5165 38.8395C14.0829 33.6185 13.9098 24.9494 19.1308 19.5157C24.3518 14.0821 33.0209 13.9091 38.4546 19.13ZM40.8218 16.6664C34.0184 10.1292 23.2043 10.345 16.6671 17.1485C10.13 23.9519 10.3458 34.766 17.1493 41.3031C23.9527 47.8403 34.7668 47.6245 41.3039 40.821C47.8411 34.0176 47.6253 23.2035 40.8218 16.6664ZM36.3284 33.671L31.401 28.9365L36.1355 24.0092L33.6718 21.6419L28.9373 26.5693L24.01 21.8348L21.6427 24.2985L26.5701 29.033L21.8356 33.9603L24.2992 36.3276L29.0338 31.4002L33.9611 36.1347L36.3284 33.671Z"
+              fill="white"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_1546_5783">
+              <rect
+                width="41"
+                height="41"
+                fill="white"
+                transform="translate(28.4072) rotate(43.8565)"
+              />
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+    </div>
+    <form action="/student/report/sendreport" method="post">
+    <div class="middle">
+      <div class="subject__title">
+        <span>Subject : </span>
+        <input type="text" name="subject" id="" />
+      </div>
+      <div class="description-text">
+        <span>Description : </span>
+        <textarea class="mail__content" id="" name="description" cols="30" rows="10"> </textarea>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="row2">
+
+        <button class="send__btn btn btn-full btn-medium">Send</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+<script src="<%= assetPath('js/mail.js') %>"></script>

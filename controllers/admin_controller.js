@@ -17,6 +17,7 @@ const path = require("path");
 const multer = require("multer");
 const XLSX = require("xlsx");
 const teachersProfile = require("../models/teacherprofile");
+const admin_mailer = require("../mailer/admin_mailer");
 //Dashboard
 module.exports.dashboard = async (req, res) => {
   try {
@@ -810,7 +811,7 @@ module.exports.mail = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
     const semsec = await SemSection.find();
-    // adminsMailer.newMail();         
+    admin_mailer.newmail();
     res.render("admin/mail", { title: "Mail", semsec});
   } catch (err) {
     console.log(err);

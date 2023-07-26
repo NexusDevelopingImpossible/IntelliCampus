@@ -11,6 +11,7 @@ const User = require("../models/user");
 const fs = require("fs");
 const path = require("path");
 const studentsProfile = require("../models/studentProfile");
+const studentreport = require("../models/student_report");
 const { setTimeout } = require("timers/promises");
 
 module.exports.dashboard = async (req, res) => {
@@ -286,7 +287,11 @@ module.exports.profile = async (req, res) => {
     existingStudentProfile = await studentsProfile.findOne({
       regnNo: res.locals.user.username,
     });
-    return res.render("student/profile", { title: "Profile", student, studentdata: existingStudentProfile });
+    return res.render("student/profile", {
+      title: "Profile",
+      student,
+      studentdata: existingStudentProfile,
+    });
   } catch (error) {
     console.log(error);
   }
@@ -355,5 +360,37 @@ module.exports.updateProfile = async (req, res) => {
   } catch (error) {
     console.log(`Error: ${error}`);
     res.json({ Error: error });
+  }
+};
+module.exports.report = async (req, res) => {
+  try {
+    let student = await Student.findOne({ username: res.locals.user.username });
+    let reportdata = [];
+    if (student) {
+      reportdata = await studentreport.findById(student._id);
+    }
+    console.log(reportdata);
+    return res.render("student/report", {
+      title: "Report",
+      reportdata,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports.sendreport = async (req, res) => {
+  try {
+    let student = await Student.findOne({ username: res.locals.user.username });
+    if (student) {
+      await studentreport.create({
+        subject: String(req.body.subject),
+        description: String(req.body.description),
+        studentid: student._id,
+      });
+    }
+    req.flash("success", "Report send");
+    return res.redirect("back");
+  } catch (error) {
+    console.log(error);
   }
 };
