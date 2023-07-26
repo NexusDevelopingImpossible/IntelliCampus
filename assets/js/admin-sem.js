@@ -17,6 +17,7 @@ createSem.addEventListener("click", function () {
       type="text"
       name="semco"
       id=""
+      class="input-search"
       placeholder="Select semester coordinator"
     />
   </div>
@@ -26,8 +27,8 @@ createSem.addEventListener("click", function () {
   <div class="sec-sub-block flex">
       <div class="sec-no">Section : <input class="no-box" type="text" name="section" value="A"></div>
       <div class="sem-cord">
-          <label for="">Semester Coordinator :</label>
-          <input type="text" name="secco" id="" placeholder="Select semester coordinator"
+          <label for="">Section Coordinator :</label>
+          <input type="text" class="input-search" name="secco" id="" placeholder="Select section coordinator"
           />
         </div>
         <div class="del-btn"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M261-120q-24.75 0-42.375-17.625T201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"/></svg></div>
@@ -55,12 +56,12 @@ createSem.addEventListener("click", function () {
         clonedSec.classList.add("sec-sub-block");
         clonedSec.classList.add("flex");
         let secSectionDOM =
-      `<div class="sec-no">Section : <input class="no-box" type="text" name="section" value="` +
-      String.fromCharCode(Al) +
-      `"></div>
+          `<div class="sec-no">Section : <input class="no-box" type="text" name="section" value="` +
+          String.fromCharCode(Al) +
+          `"></div>
       <div class="sem-cord">
-      <label for="">Semester Coordinator :</label>
-      <input type="text" name="secco" id="" placeholder="Select semester coordinator"/>
+      <label for="">Section Coordinator :</label>
+      <input type="text" name="semco" id="" class="input-search" placeholder="Select section coordinator"/>
       </div>
       <div class="del-btn"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M261-120q-24.75 0-42.375-17.625T201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"/></svg></div>
     `;
@@ -88,8 +89,8 @@ createSec.forEach((sec) => {
       String.fromCharCode(Alpha) +
       `"></div>
       <div class="sem-cord">
-      <label for="">Semester Coordinator :</label>
-      <input type="text" name="" id="" value="Select semester coordinator"/>
+      <label for="">Section Coordinator :</label>
+      <input type="text" name="semco" class="input-search" id="" placeholder="Select section coordinator"/>
       </div>
       <div class="del-btn"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M261-120q-24.75 0-42.375-17.625T201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"/></svg></div>
     `;
@@ -100,54 +101,3 @@ createSec.forEach((sec) => {
 });
 
 ///
-splitSelect = {
-  selects: [],
-  current: null,
-  firstName: "primary",
-  secondName: "secondary",
-  init: function () {
-    var s = document.getElementById(splitSelect.firstName);
-    var c = document.createElement("select");
-    c.onchange = function () {
-      splitSelect.choose(this.selectedIndex);
-    };
-    s.parentNode.insertBefore(c, s);
-    var g = s.getElementsByTagName("optgroup");
-    for (var i = 0, j = g.length; i < j; i++) {
-      var o = g[i].getElementsByTagName("option");
-      var news = document.createElement("select");
-      s.parentNode.insertBefore(news, s);
-      news.style.display = "none";
-      splitSelect.selects.push(news);
-      var k = 0;
-      c.appendChild(o[0]);
-      while (o[k]) {
-        if (o[k].getAttribute("selected") === "selected") {
-          splitSelect.current = i;
-          news.style.display = "inline";
-        }
-        news.appendChild(o[k]);
-      }
-    }
-    c.selectedIndex = splitSelect.current;
-    s.parentNode.removeChild(s);
-    c.id = splitSelect.firstName;
-    c.name = splitSelect.firstName;
-    if (splitSelect.current === null) {
-      splitSelect.selects[0].style.display = "inline";
-      splitSelect.selects[0].selectedIndex = 0;
-      c.selectedIndex = 0;
-      splitSelect.current = 0;
-    }
-  },
-  choose: function (o) {
-    if (splitSelect.current !== null) {
-      splitSelect.selects[splitSelect.current].style.display = "none";
-      splitSelect.selects[splitSelect.current].name = "";
-    }
-    splitSelect.selects[o].style.display = "inline";
-    splitSelect.selects[o].name = splitSelect.secondName;
-    splitSelect.current = o;
-  },
-};
-window.onload = splitSelect.init;

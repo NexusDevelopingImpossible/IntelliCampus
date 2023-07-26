@@ -9,15 +9,15 @@
         </svg></a>
       <h1 class="heading">Create Semester & Section</h1>
     </div>
-    <main class="main-cont">
+    <main class="main-cont" id="parent-div">
       <form action="/admin/createsem" method="post">
       <section class="filter-section">
         <div class="filters">
           <select id="departments" class="departments filter-select" name="department">
-            <option value="">Select a department</option>
+            <option value="">Department</option>
           </select>
           <select id="courses" class="courses filter-select" name="courses">
-            <option value="">Select a course</option>
+            <option value="">Course</option>
           </select>
         </div>
         <a id="create-sem" class="create-sem-btn" href="#">Create Semester
@@ -33,7 +33,7 @@
             <div class="sem-no flex">Semester : <input class="no-box" type="text" name="semester" value="1"></div>
             <div class="sem-cord">
               <label for="">Semester Coordinator :</label>
-              <input type="text" name="semco" id="" placeholder="Select semester coordinator" />
+              <input type="text" class="input-search" name="semco" id="" placeholder="Select semester coordinator" />
             </div>
           </div>
           <div class="sec-block flex">
@@ -42,7 +42,7 @@
                 <div class="sec-no">Section : <input class="no-box" type="text" value="A" name="section"></div>
                 <div class="sem-cord">
                   <label for="">Section Coordinator :</label>
-                  <input type="text" name="secco" id="" placeholder="Select semester coordinator" />
+                  <input type="text" class="input-search" name="secco" id="" placeholder="Select section coordinator" />
                 </div>
                 <div class="del-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                     <path
@@ -60,7 +60,9 @@
         </section>
         <div id="copied-sem-section"></div>
       </div>
-      <input type="submit" class="btn-full btn btn-sm">
+      <div class="submit-div">
+        <input type="submit" class="btn-full btn btn-sm">
+      </div>
       </form>
     </main>
   </div>
@@ -75,7 +77,7 @@
   
 function populateDepartments(departmentsSelect) {
   console.log(departmentSelects);
-  departmentsSelect.innerHTML = '<option value="">Select a department</option>';
+  departmentsSelect.innerHTML = '<option value="">Department</option>';
   results.forEach((result) => {
     const option = document.createElement('option');
     option.value = result.department;
@@ -87,7 +89,7 @@ function populateDepartments(departmentsSelect) {
 // Function to populate the courses select based on the selected department
 function updateCourses(departmentsSelect, coursesSelect) {
   const selectedDepartment = departmentsSelect.value;
-  coursesSelect.innerHTML = '<option value="">Select a course</option>';
+  coursesSelect.innerHTML = '<option value="">Course</option>';
   if (selectedDepartment) {
     const departmentData = results.find((result) => result.department === selectedDepartment);
     if (departmentData) {
@@ -118,3 +120,32 @@ departmentSelects.forEach((departmentsSelect, index) => {
 data();
 </script>
 <script src="<%= assetPath('js/admin-sem.js') %>"></script>
+<script>
+  //   const regInput = document.getElementById("reg");
+  //   const regPopup = document.getElementById("reg-popup");
+
+  //   regInput.addEventListener("click", function(){
+  //     regPopup.style.display = "flex";
+  //   })
+
+  //   document.addEventListener("click", (event) => {
+	// if (!regInput.contains(event.target)) {
+  //   regPopup.style.display = "none";
+	// }
+  // });
+</script>
+<script>
+  
+  // const parentElement = document.getElementById('parent-div'); // Replace 'parent-container' with the actual ID of the parent element.
+
+  // // Add input event listener to the parent element using event delegation
+  // parentElement.addEventListener('input', handleInputChange);
+
+  // // Function to handle input changes
+  // function handleInputChange(event) {
+  //   const targetInput = event.target;
+  //   if (targetInput.classList.contains('input-search')) {
+      
+  //   }
+  // }
+</script>

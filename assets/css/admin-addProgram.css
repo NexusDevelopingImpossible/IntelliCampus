@@ -78,3 +78,55 @@ input:focus::-webkit-input-placeholder {
   display: flex;
   gap: 1.5vw;
   align-items: center; }
+
+.select-menu .select-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 12vw;
+  padding: 1.1vh 1vw;
+  align-items: center;
+  background: #0000004d;
+  border: 0.5px solid #fff;
+  font-size: 2vh;
+  font-weight: 400;
+  border-radius: 1vw;
+  cursor: pointer; }
+
+.select-btn i {
+  font-size: 2vh;
+  transition: 0.3s; }
+
+.select-menu.active .select-btn i {
+  transform: rotate(-180deg); }
+
+.select-menu .options {
+  position: absolute;
+  z-index: 1;
+  border-radius: 0px 0px 10px 10px;
+  overflow: hidden;
+  background: #0000006c;
+  backdrop-filter: blur(41);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  display: none;
+  margin: 0 0.5vw; }
+
+.select-menu.active .options {
+  display: block; }
+
+.options .option {
+  cursor: pointer;
+  padding: 1vh 0;
+  align-items: center;
+  padding-left: 1vw;
+  width: 11vw; }
+
+.options .option:hover {
+  background: #282727; }
+
+.option .option-text {
+  font-size: 2vh;
+  color: #fff; }
+
+.searchdiv {
+  display: flex;
+  gap: 1vw; }
