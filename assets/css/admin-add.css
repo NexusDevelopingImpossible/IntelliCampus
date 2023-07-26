@@ -3,7 +3,12 @@ body {
   color: white; }
 
 .input-page {
-  padding: 1rem; }
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh; }
 
 .input-heading-1 {
   font-size: 3rem;
@@ -28,6 +33,8 @@ body {
 
 .form-set {
   margin: 0 1rem;
+  display: flex;
+  gap: 2vw;
   margin-bottom: 0.8rem; }
 
 .form-text {
@@ -41,7 +48,7 @@ body {
   align-items: center; }
 
 .input-submit {
-  margin: 1.5rem 0;
+  margin: 2.5vh 0 0 0;
   height: 2.5rem; }
 
 .input-name {
@@ -53,6 +60,9 @@ body {
   color: white;
   font-size: 18px;
   font-weight: 500; }
+
+.or-div {
+  padding: 4.5vh 0; }
 
 .reg-input {
   width: 230px;
@@ -111,9 +121,15 @@ input[type="checkbox"]:checked {
   gap: 1.5vw;
   align-items: center; }
 
+.template-div {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
 .template-btn {
   font-size: 0.85vw !important;
-  border-radius: 10px !important; }
+  border-radius: 10px !important;
+  width: 8vw; }
 
 input[type="file"] {
   display: none; }
@@ -160,6 +176,6 @@ input[type="file"] {
 .input-file {
   display: flex;
   gap: 1vw;
-  margin-top: 3vh;
+  margin-top: 4.5vh;
   align-items: center;
   justify-content: center; }

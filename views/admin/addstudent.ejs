@@ -1,10 +1,19 @@
 <link rel="stylesheet" href="<%= assetPath('css/admin-add.css') %>" />
 <div class="main-page">
   <div class="blur">
+    <div class="page-heading">
+      <a href="/admin/dashboard"
+        ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+          <path
+            d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"
+          /></svg>
+      </a>
+      <h1 class="heading">Add Student</h1>
+    </div>
   <div class="input-page" id="input-pageid">
-    <div class="input-heading-1">Add Students</div>
     <div class="input-div">
       <div class="form-set">
+        <div class="input-set">
         <div class="form-text">Registration start</div>
         <input
           type="text"
@@ -13,8 +22,10 @@
           name="start"
           id="start"
         />
+        </div>
       </div>
       <div class="form-set">
+        <div class="input-set">
         <div class="form-text">Registration end</div>
         <input
           type="text"
@@ -23,6 +34,7 @@
           name="end"
           id="end"
         />
+        </div>
       </div>
     </div>
     <button
@@ -31,18 +43,16 @@
     >
       Submit
     </button>
-    <p>OR</p>
-    <form
-      action="/admin/addstudent/createstudentWexcel"
-      method="post"
-      enctype="multipart/form-data"
-    >
-      <div class="input-file">
-        <a href="..\..\data\template_addstudent.xlsx">
+    <div class="or-div"><p class=>OR</p></div>
+    <form action="/admin/addstudent/createstudentWexcel" method="post" enctype="multipart/form-data">
+       <div class="template-div"> 
+      <a href="..\..\data\template_addstudent.xlsx">
           <div class="template-btn btn btn-outline" type="submit">
             Template
           </div>
         </a>
+        </div>
+      <div class="input-file">
         <div class="custom-file-upload">
           <label>
             <input id="select-file" type="file" name="fileexcel" required />

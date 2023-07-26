@@ -10,11 +10,15 @@ let createform = function () {
             success: function (data) {
                 const nAtt = newattDom(data.data);
                 new Noty({
-                    theme: 'relax',
-                    text: 'Attendance added',
-                    type: 'success',
-                    layout: 'topRight',
-                    timeout: 1500,
+                  theme: "relax",
+                  text: "Attendance added",
+                  type: "success",
+                  layout: "topCenter",
+                  animation: {
+                    open: "animated bounceInTop", // Animate.css class names
+                    close: "animated bounceOutTop", // Animate.css class names
+                  },
+                  timeout: 1500,
                 }).show();
             },
             error: function (error) {

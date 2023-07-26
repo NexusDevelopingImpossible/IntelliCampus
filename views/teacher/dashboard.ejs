@@ -2,7 +2,21 @@
 <link rel="stylesheet" href="<%= assetPath('css/teach-dash.css') %>" />
 <link rel="stylesheet" href="<%= assetPath('css/dash-calendar.css') %>" />
 <link rel="stylesheet" href="<%= assetPath('css/dash-card.css') %>" />
-
+<style>
+  #profileImage {
+  width: 4.5vw;
+  height: 4.5vw;
+  border-radius: 50%;
+  background: #fd6d08;
+  font-size: 35px;
+  color: #fff;
+  text-align: center;
+  margin-right: 0.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
 
   <div class="main-page">
     <div class="blur">
@@ -28,7 +42,7 @@
 
       <div class="teacher-info">
         <div>
-          <a href="/teacher/profile"><img class="tch-img" src="<%=teacher.avatar%>" alt="" /></a>
+          <a href="/teacher/profile"><%if(teacher.avatar){%><img class="tch-img" src="<%=teacher.avatar%>" alt="" /><%}else{%><div id="profileImage"></div><%}%></a>
         </div>
         <div>
           <h1 class="tch-name">
@@ -200,3 +214,10 @@
   <script src="<%= assetPath('js/dash-cale.js') %>"></script>
   <script src="<%= assetPath('js/teach-carousel.js') %>"></script>
 
+<script>
+  $(document).ready(function(){
+  var firstName = document.getElementById('name').innerText;
+  var intials = firstName.charAt(0);
+  var profileImage = $('#profileImage').text(intials);
+});
+</script>
