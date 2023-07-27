@@ -2,6 +2,9 @@
 /*****************************************Student Attendance View CSS***********************************/
 /************************************************************************************************/
 /*********************************** Subjects's Attendance **********************************/
+body{
+  overflow-x: hidden;
+}
 .sub-attendance {
   margin: 0rem 6vw 4vh; }
   .sub-attendance .sel-subject {
@@ -112,3 +115,61 @@
 
 .foot {
   margin: auto 7vw; }
+
+  @media screen and (min-width: 300px) and (max-width: 640px){
+    .arrow{
+      display: none;
+    }
+    .page-heading{
+      /* margin-left: 16%; */
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+    }
+    .sel-subject{
+      display: flex;
+      flex-direction: column;
+    }
+    .sel-subject{
+
+    }
+    .select-btn{
+      width: 90vw !important;
+      position: relative;
+      left: 0%;
+    }
+    .sub-attendance .sel-subject .select-menu .options .option{
+      width: 90vw;
+    }
+    .att-info{
+      width: 90vw;
+      margin-top: 1.4rem;
+      /* gap: 20vw !important; */
+      display: flex;
+      justify-content: space-between;
+    }
+    .abb{
+      font-size: .8rem !important;
+    }
+    .date-list{
+      /* width: 100vw !important; */
+      width: 90vw !important;
+      height: 67vh !important;
+    }
+    .att-day{
+      margin-bottom: 2vh;
+      width: 200px !important;
+      height: 50px !important;
+      border-radius: 12px !important;
+    }
+    #clc{
+      height: 25px !important;
+      width: 25px !important;
+    }
+    #clp{
+      height: 19px !important;
+      width: 19px !important;
+    }
+  }
