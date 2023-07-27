@@ -159,12 +159,13 @@
   height: 72vh; }
 
 .mail {
+  width: 73vw;
   padding: 0.5rem 1rem;
   border-radius: 10px;
   background: #ffffff2e;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 1vw;
   color: #fff; }
 
 .mail__icon {
@@ -188,7 +189,8 @@
 
 .time {
   font-size: 0.7rem;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  width: 9vw; }
 
 .dot-sep {
   display: block;
@@ -198,8 +200,6 @@
   background: #fff; }
 
 .sub-glmp {
-  width: auto;
-  max-width: 22vw;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -207,7 +207,8 @@
 
 .desc-glmp {
   width: auto;
-  max-width: 32vw;
+  max-width: 50vw;
+  min-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -220,4 +221,16 @@
 .end-pt {
   display: flex;
   align-items: center;
-  gap: 0.75vw; }
+  gap: 0.75vw;
+  margin-left: auto; }
+
+.reg-show {
+  padding-left: 1vw;
+  font-weight: 200; }
+
+.name-show {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 8vw;
+  font-weight: 500; }
