@@ -872,3 +872,14 @@ module.exports.addstudentsection = async function (req, res) {
     console.log(error);
   }
 };
+
+
+
+module.exports.reports = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    res.render("admin/report", { title: "Report"});
+  } catch (err) {
+    console.log(err);
+  }
+};

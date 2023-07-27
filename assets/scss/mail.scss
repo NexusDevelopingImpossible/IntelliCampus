@@ -164,23 +164,12 @@
 .sent__mails__button h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #fff;
 }
 .compose__btn {
-  background: #f66e0e;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
   gap: 0.7rem;
-  padding: 0.5rem 1.4rem;
-  border-radius: 10px;
 }
 .compose__btn span {
-  color: #fff;
   font-size: 1rem;
-  letter-spacing: 1px;
 }
 .mail__list {
   display: flex;
@@ -192,7 +181,7 @@
 .mail {
   padding: 0.5rem 1rem;
   border-radius: 10px;
-  background: #ffffff47;
+  background: #ffffff2e;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -230,16 +219,29 @@
     background: #fff;
 }
 .sub-glmp{
-    width: 22vw;
+  width: auto;
+    max-width: 22vw;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 500;
 }
 .desc-glmp{
-    width: 32vw;
+  width: auto;
+    max-width: 32vw;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     color: #ffffff93;
+}
+
+.mail > div{
+  display: flex;
+  align-items: center;
+}
+
+.end-pt{
+  display: flex;
+  align-items: center;
+  gap: 0.75vw;
 }

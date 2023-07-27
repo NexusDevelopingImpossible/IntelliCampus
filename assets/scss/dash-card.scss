@@ -15,8 +15,10 @@
 }
     .card {
       background-color: $card-background-color;
-      border: 1px solid $card-border;
-      border-radius: 20px;
+      // border: 1px solid $card-border;
+      border: 0.5px solid #ffffff79;
+      // box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
       // backdrop-filter: blur(7px);
     }
 
@@ -61,12 +63,13 @@
         div {
           h1 {
             font-size: 1.9vh;
-            font-weight: 500;
+            font-weight: 200;
             line-height: 1.5;
+            
           }
 
           h1 span {
-            font-weight: 100;
+            font-weight: 500;
           }
         }
       }
@@ -76,7 +79,7 @@
 
         h1 {
           font-size: 1.9vh;
-          font-weight: 500;
+          font-weight: 200;
           line-height: 1.5;
         }
 

@@ -80,9 +80,9 @@
 .task-items {
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.08);
-  padding: 0.5vh 1vw !important;
+  padding: 0.5vh 1.04vw !important;
   display: flex;
-  gap: 0.5vw;
+  gap: 1vw;
   height: 5vh;
   align-items: center !important;
   border-radius: 10px;
@@ -140,7 +140,7 @@
 .sBtn-text {
   display: flex;
   align-items: center;
-  gap: 0.5vw; }
+  gap: 1vw; }
 
 /*--------------------------right-cont style-------------------------*/
 .main-cont {
