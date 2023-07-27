@@ -367,7 +367,7 @@ module.exports.report = async (req, res) => {
     let student = await Student.findOne({ username: res.locals.user.username });
     let reportdata = '';
     if (student) {
-      reportdata = await studentreport.find({studentid: student._id}).populate('studentid');
+      reportdata = await studentreport.find({studentid: student._id}).populate('studentid').sort({ updatedAt: -1 });
     }
     let timearr = [];
     for (let i = 0; i < reportdata.length; i++){

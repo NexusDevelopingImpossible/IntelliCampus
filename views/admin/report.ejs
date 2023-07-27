@@ -15,17 +15,9 @@
 
     <div class="main__content">
     
-      <div class="sent__mails__button">
-        <h3></h3>
-        <button class="compose__btn btn btn-full" id="compose__btn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.5vw" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M3 17.46v3.04c0 .28.22.5.5.5h3.04c.13 0 .26-.05.35-.15L17.81 9.94l-3.75-3.75L3.15 17.1c-.1.1-.15.22-.15.36zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-          <span>Compose</span>
-        </button>
-      </div>
+     
 
       <div class="mail__list">
-        <%if(reportdata){%>
-        <%for(let i = 0; i<reportdata.length; i++){%>
         <div class="mail">
           <div>
           <div class="mail__icon">
@@ -43,16 +35,14 @@
             </svg>
           </div>
           <p class="mail__description">
-            <span class="mail__title"></span> <span class="sub-glmp"><%=reportdata[i].subject%></span> <span class="desc-glmp"><%=reportdata[i].description%></span>
+            <span class="mail__title"></span> <span class="sub-glmp"></span> <span class="desc-glmp"></span>
           </p>
         </div>
         <div class="end-pt">
-          <div class="time"><%=timearr[i]%></div>
+          <div class="time"></div>
           <div class="tick"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="1.5vw" fill="#ffff"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M17.3 6.3c-.39-.39-1.02-.39-1.41 0l-5.64 5.64 1.41 1.41L17.3 7.7c.38-.38.38-1.02 0-1.4zm4.24-.01l-9.88 9.88-3.48-3.47c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L22.95 7.71c.39-.39.39-1.02 0-1.41h-.01c-.38-.4-1.01-.4-1.4-.01zM1.12 14.12L5.3 18.3c.39.39 1.02.39 1.41 0l.7-.7-4.88-4.9c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.03 0 1.42z"/></svg></div>
         </div>
         </div>
-        <%}%>
-        <%}%>
 
       </div>
     </div>

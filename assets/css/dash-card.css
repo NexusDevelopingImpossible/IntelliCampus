@@ -10,8 +10,8 @@
 
 .card {
   background-color: #f8d57b1e;
-  border: 1px solid #ffffff9a;
-  border-radius: 20px; }
+  border: 0.5px solid #ffffff79;
+  border-radius: 15px; }
 
 .card1 {
   height: 12vh;
@@ -40,15 +40,15 @@
       font-size: 2.2vh; }
   .card1 .b2 div h1 {
     font-size: 1.9vh;
-    font-weight: 500;
+    font-weight: 200;
     line-height: 1.5; }
   .card1 .b2 div h1 span {
-    font-weight: 100; }
+    font-weight: 500; }
   .card1 .b3 {
     width: 14vw; }
     .card1 .b3 h1 {
       font-size: 1.9vh;
-      font-weight: 500;
+      font-weight: 200;
       line-height: 1.5; }
     .card1 .b3 h1 span {
       font-weight: 100; }

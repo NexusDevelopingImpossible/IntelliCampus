@@ -39,14 +39,16 @@
   border-radius: 15px;
   background-color: #fff;
   width: 20vw;
-  height: 4rem;
-  letter-spacing: 0.05em;
+  height: 3.5rem;
   border-style: none;
   font-weight: 600;
   font-size: 1rem;
   text-align: left;
   padding: 0.1rem 0.8rem;
   color: #7b6e6e;
+}
+.main-page .blur .main-content .pass-sec input:focus{
+  outline: 2px solid #fd6d08;
 }
 .main-page .blur .main-content .pass-sec input::placeholder {
   color: #7b6e6e;
@@ -59,9 +61,15 @@
   border-style: none;
   width: 10vw;
   cursor: pointer;
-  height: 4rem;
+  height: 3.5rem;
+  transition: all 0.3s;
 }
-
+.main-page .blur .main-content .pass-sec #save:focus{
+  outline: none;
+}
+.main-page .blur .main-content .pass-sec #save:hover{
+  background: #414040;
+}
 .main-page .blur .main-content .contact span {
   font-size: 1.2rem;
   color: #fff;
