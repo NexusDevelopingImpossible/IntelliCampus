@@ -147,12 +147,18 @@ a {
     border: 0px;
     width: 7px;
 }
+
 .page-scroll::-webkit-scrollbar-thumb {
     border-radius: 4px;
     border: 0px;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,.4);
     // -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
+
+.page-scroll::-webkit-scrollbar-thumb:hover{
+  background-color: rgba(0,0,0,.6);
+}
+
 input::placeholder{
   color: white;
 }

@@ -18,6 +18,7 @@ const multer = require("multer");
 const XLSX = require("xlsx");
 const teachersProfile = require("../models/teacherprofile");
 const admin_mailer = require("../mailer/admin_mailer");
+const studentreport = require("../models/student_report");
 //Dashboard
 module.exports.dashboard = async (req, res) => {
   try {
@@ -878,7 +879,9 @@ module.exports.addstudentsection = async function (req, res) {
 module.exports.reports = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
-    res.render("admin/report", { title: "Report"});
+    
+    let reportdata = await studentreport.find().populate("studentid");
+    res.render("admin/report", { title: "Report", reportdata});
   } catch (err) {
     console.log(err);
   }

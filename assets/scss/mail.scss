@@ -156,7 +156,6 @@
   gap: 1rem;
 }
 
-
 .sent__mails__button {
   display: flex;
   justify-content: space-between;
@@ -179,12 +178,14 @@
   height: 72vh;
 }
 .mail {
+  width: 73vw;
   padding: 0.5rem 1rem;
   border-radius: 10px;
   background: #ffffff2e;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
+  gap: 1vw;
   color: #fff;
 }
 .mail__icon {
@@ -197,9 +198,9 @@
   align-items: center;
 }
 .mail__description {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 .mail__title {
   font-size: 0.9rem;
@@ -209,39 +210,63 @@
 .time {
   font-size: 0.7rem;
   letter-spacing: 1px;
+  width: 9vw;
+
 }
 
-.dot-sep{
-    display: block;
-    border-radius: 50%;
-    height: 6px;
-    width: 6px;
-    background: #fff;
+.dot-sep {
+  display: block;
+  border-radius: 50%;
+  height: 6px;
+  width: 6px;
+  background: #fff;
 }
-.sub-glmp{
-  width: auto;
-    max-width: 22vw;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-weight: 500;
+.sub-glmp {
+  // width: auto;
+  // min-width: 0;
+  // max-width: 20vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
 }
-.desc-glmp{
+.desc-glmp {
   width: auto;
-    max-width: 32vw;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: #ffffff93;
+  // min-width: 5vw;
+  max-width: 50vw;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #ffffff93;
+}
+.desc-glmp1 {
+  // width: auto;
+  // max-width: 22vw;
 }
 
-.mail > div{
+.mail > div {
   display: flex;
   align-items: center;
+  // gap: 1vw;
 }
 
-.end-pt{
+.end-pt {
   display: flex;
   align-items: center;
   gap: 0.75vw;
+  margin-left: auto;
+}
+.reg-show {
+  padding-left: 1vw;
+  font-weight: 200;
+}
+
+.name-show {
+  // width: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 8vw;
+  font-weight: 500;
 }
