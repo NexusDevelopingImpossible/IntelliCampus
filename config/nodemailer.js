@@ -4,7 +4,6 @@ const path = require("path");
 const env = require("./environment");
 
 let transporter = nodemailer.createTransport({
-  smtp: {
     service: "gmail",
     host: "smtp.gmail.com",
     port: 587,
@@ -13,7 +12,6 @@ let transporter = nodemailer.createTransport({
       user: "campusintelli@gmail.com",
       pass: "aocpwxqqukyoonrq", // app passwords from 2 step authentication at google security.
     },
-  },
 });
 
 let renderTemplate = async function (data, relativePath) {

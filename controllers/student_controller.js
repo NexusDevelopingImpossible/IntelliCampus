@@ -365,14 +365,19 @@ module.exports.updateProfile = async (req, res) => {
 module.exports.report = async (req, res) => {
   try {
     let student = await Student.findOne({ username: res.locals.user.username });
-    let reportdata = [];
+    let reportdata = '';
     if (student) {
-      reportdata = await studentreport.findById(student._id);
+      reportdata = await studentreport.find({studentid: student._id}).populate('studentid');
+    }
+    let timearr = [];
+    for (let i = 0; i < reportdata.length; i++){
+      let it = prettydate.format(reportdata[i].updatedAt);
+      timearr.push(it);
     }
     console.log(reportdata);
     return res.render("student/report", {
       title: "Report",
-      reportdata,
+      reportdata, timearr
     });
   } catch (error) {
     console.log(error);

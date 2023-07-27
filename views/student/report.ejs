@@ -24,6 +24,7 @@
       </div>
 
       <div class="mail__list">
+        <%if(reportdata){%>
         <%for(let i = 0; i<reportdata.length; i++){%>
         <div class="mail">
           <div class="mail__icon">
@@ -41,17 +42,12 @@
             </svg>
           </div>
           <p class="mail__description">
-            <span class="mail__title">CSE - 4th(A)</span> <span class="dot-sep"></span><span class="sub-glmp">Ipsam ut natus, amet facilis nulla
-              eum?</span> <span class="desc-glmp">dolor sit amet
-                consectetur adipisicing elit. Ipsam ut natus, amet facilis nulla
-                eum?Lorem ipsum dolor, sit amet kfhweifhiwe ewkjfnwiejfiwfj ksdji
-                wdjfhweuhfuewh kjsdnvv Lorem ipsum dolor sit amet consectetur
-                adipisicing</span>
+            <span class="mail__title"><%=reportdata[i].studentid.department%> - <%=reportdata[i].studentid.semester%>(<%=reportdata[i].studentid.section%>)</span> <span class="sub-glmp"><%=reportdata[i].subject%></span> <span class="desc-glmp"><%=reportdata[i].description%></span>
           </p>
-          <div class="time">6:69AM</div>
+          <div class="time"><%=timearr[i]%></div>
         </div>
         <%}%>
-        
+        <%}%>
 
       </div>
     </div>

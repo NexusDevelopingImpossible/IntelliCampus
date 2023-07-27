@@ -1,11 +1,11 @@
 const nodeMailer = require("../config/nodemailer");
-exports.newmail = () => {
+exports.sendotp = (user, otp) => {
   nodeMailer.transporter.sendMail(
     {
       from: "campusintelli@gmail.com",
-      to: "omsinkar03bit@gmail.com",
-      subject: "New comment published",
-      html: "<h1>Yup, your comment is now published</h1>",
+      to: user.email,
+      subject: "OTP for Intellicampus",
+      html: `<h1>${otp}</h1>`,
       //   html: htmlString,
     },
     function (error, info) {
