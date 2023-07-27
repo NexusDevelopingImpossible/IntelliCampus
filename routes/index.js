@@ -11,10 +11,11 @@ const homeController = require('../controllers/home_controller');
 router.get('/', homeController.home);
 router.get('/Login', homeController.Login);
 router.get('/forgotpassword', homeController.fp_forgotpassword);
-router.get('/forgotpassword/email', homeController.fp_mail);
-router.get("/forgotpassword/verify", homeController.verifyotp);
+router.post('/forgotpassword/email', homeController.fp_mail);
+router.post("/forgotpassword/verify", homeController.verifyotp);
+router.post("/forgotpassword/password", homeController.fp_password);
 // router.get('/otp', homeController.fp_opt);
-router.get('/password', homeController.fp_password);
+// router.get('/password', homeController.fp_password);
   //Delete this
 router.get('/error', homeController.error); 
 

@@ -13,6 +13,7 @@ module.exports.home = function (req, res) {
 };
 
 module.exports.Login = function (req, res) {
+  console.log(res.locals);
   return res.render("login-signup/Login", {
     title: "Login",
   });
@@ -28,58 +29,70 @@ module.exports.fp_forgotpassword = function (req, res) {
   });
 };
 module.exports.fp_mail = async function (req, res) {
-  let user = await User.findOne({ email: req.query.email });
+  console.log(res.locals);
+  let user = await User.findOne({ email: req.body.email });
   if (user) {
-    let email = req.query.email;
-    let xyz = user._id
+    let email = req.body.email;
     let genotp = generateRandom4DigitNumber();
     OTP.create({
       userid: user._id,
       otp: genotp
     });
     forgotpassword.sendotp(user, genotp);
-    return res.render("login-signup/password2", {
-      title: "OTP", email, xyz
-    });
+    if (req.xhr) {
+      return res.status(200).json({
+        email, user
+      });
+    }
   }
   else {
-    req.flash('error','Incorrect email')
-    return res.redirect('back');
+    if (req.xhr) {
+      return res.status(200).json({
+        data: "0",
+      });
+    } 
   }
 };
-module.exports.fp_opt = function (req, res) {
-  return res.render("login-signup/password2", {
-    title: "OTP",
-  });
-};
+
 module.exports.verifyotp = async function (req, res) {
-  let checkopt = req.query.opt1 + req.query.opt2 + req.query.opt3 + req.query.opt4;
-  let verotparr = await OTP.find({ userid: String(req.query.xyz) });
-  console.log(checkopt)
-  console.log(req.query)
+  console.log("igbhj", req.body);
+  let checkopt = req.body.opt1 + req.body.opt2 + req.body.opt3 + req.body.opt4;
+  let verotparr = await OTP.find({ userid: String(req.body.id) });
+  console.log(verotparr); 
+  console.log(checkopt);
   let verotp = verotparr[verotparr.length - 1];
   console.log(verotp);
-  let email = req.query.email;
-  let xyz = user._id;
-  if (verotp.otp === checkopt) {
-    return res.render("login-signup/password3", {
-      title: "Change password",
-    });
+  let email = req.body.email;
+  if (verotp.otp == checkopt) {
+    console.log('match');
+    if (req.xhr) {
+      return res.status(200).json({
+        user: req.body.id,
+      });;
+    }
   }
   else {
-    req.flash('error', 'Incorrect otp');
-    return res.render("login-signup/password2", {
-      title: "Change password",
-      email,
-      xyz,
-    });
+    console.log("unmatch")
+    if (req.xhr) {
+      return res.status(200).json({
+        data: "0",
+      });;
+    }
   }
   
 };
-module.exports.fp_password = function (req, res) {
-  return res.render("login-signup/password3", {
-    title: "Change password",
-  });
+module.exports.fp_password = async function (req, res) {
+  console.log(req.body);
+  if (req.body.password == req.body.password1) {
+    let user = await User.findById(req.body.id);
+    user.password = req.body.password;
+    await user.save();
+  }
+  else {
+    req.flash('error', 'Both password dont match.')
+    return res.redirect('back');
+  }
+  return res.redirect('/Login')
 };
 
 
@@ -141,7 +154,7 @@ module.exports.micin = async function (req, res) {
 }
 
 module.exports.destroySession = async function (req, res) {
-  // console.log(res.locals)
+  console.log(res.locals)
   await User.findByIdAndUpdate(res.locals.user._id, {
     $set: {
       exittime: Date.now(),

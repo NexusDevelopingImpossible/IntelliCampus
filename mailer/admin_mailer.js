@@ -13,7 +13,7 @@ exports.newmail = () => {
         console.log("error in sending mail: ", error);
         return;
       }
-      console.log("message sent: ", info);
+      // console.log("message sent: ", info);
       return;
     }
   );
