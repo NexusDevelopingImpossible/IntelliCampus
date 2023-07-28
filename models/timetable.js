@@ -32,8 +32,6 @@ const timetableSchema = new mongoose.Schema({
     subjectcode: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Subject',
-        // foreignField: 'code',
-        // autopopulate: true,
         required: true,
     },
     classes: [{
@@ -42,6 +40,9 @@ const timetableSchema = new mongoose.Schema({
             required: true
         }
     }],
+    internalmarks: {
+        type: Array,
+    },
     notes: [{
         file: {
             type: String

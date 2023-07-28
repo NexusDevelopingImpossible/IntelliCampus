@@ -19,6 +19,7 @@ const XLSX = require("xlsx");
 const teachersProfile = require("../models/teacherprofile");
 const admin_mailer = require("../mailer/admin_mailer");
 const studentreport = require("../models/student_report");
+const prettydate = require("pretty-date");
 //Dashboard
 module.exports.dashboard = async (req, res) => {
   try {
@@ -331,16 +332,40 @@ module.exports.addsubject = async function (req, res) {
     let teacherdata = await Teacher.findOne({
       username: req.body.registration,
     });
-    await Timetable.create({
-      department: req.body.department,
-      course: req.body.course,
-      year: year,
-      semester: req.body.semester,
-      section: req.body.section,
-      teacherid: teacherdata._id,
-      subjectcode: subjectName,
-      classes: [],
-    });
+    if (subject.type == 'Theory') {
+      await Timetable.create({
+        department: req.body.department,
+        course: req.body.course,
+        year: year,
+        semester: req.body.semester,
+        section: req.body.section,
+        teacherid: teacherdata._id,
+        subjectcode: subjectName,
+        classes: [],
+        internalmarks: [
+          { Quiz1: "10" },
+          { Quiz2: "10" },
+          { Session1: "50" },
+          { Session2: "50" },
+        ],
+      });
+    }
+    if (subject.type == "Lab") {
+      await Timetable.create({
+        department: req.body.department,
+        course: req.body.course,
+        year: year,
+        semester: req.body.semester,
+        section: req.body.section,
+        teacherid: teacherdata._id,
+        subjectcode: subjectName,
+        classes: [],
+        internalmarks: [
+          { Final: "60" }
+        ],
+      });
+    }
+    
     req.flash("success", "Subject allot successfully");
     return res.redirect("back");
     // return res.render("admin/allotsubjectform", {
@@ -880,8 +905,15 @@ module.exports.reports = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
     
-    let reportdata = await studentreport.find().populate("studentid");
-    res.render("admin/report", { title: "Report", reportdata});
+    let reportdata = await studentreport
+      .find()
+      .populate("studentid")
+      .sort({ updatedAt: -1 });
+    let timearr = [];
+    for (let i = 0; i < reportdata.length; i++){
+      timearr[i] = prettydate.format(reportdata[i].updatedAt);
+    }
+    res.render("admin/report", { title: "Report", reportdata, timearr});
   } catch (err) {
     console.log(err);
   }

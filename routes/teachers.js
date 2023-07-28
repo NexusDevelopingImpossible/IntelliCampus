@@ -20,7 +20,6 @@ router.get("/attendaceedit/:id", teacherController.attendaceedit);
 router.get('/searchstudent/:id', teacherController.searchstudent);
 router.post("/addattendance", teacherController.addattendance);
 router.post("/change_attendance", teacherController.change_attendance);
-router.post("/updateMarks", teacherController.updateMarks);
 router.get("/notes/:id", teacherController.viewnotes);
 router.get("/search/:registration", teacherController.profile);
 router.post("/uploadnotes", teacherController.uploadnote);
@@ -37,5 +36,8 @@ router.post("/changepassword", teacherController.changepassword);
 router.get("/profile", teacherController.profile);
 router.post("/updateProfile", teacherController.updateProfile);
 router.post("/setting/update", teacherController.settingupdate);
+
+router.post("/internal/resetmaxmarks", teacherController.int_resetmaxmarks);
+router.post("/internal/updateinternal", teacherController.int_updateinternal);
 
 module.exports = router;

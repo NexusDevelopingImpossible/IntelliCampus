@@ -67,14 +67,14 @@ module.exports.searchstudent = async (req, res) => {
     let timetabledata = await Timetable.findOne({
       _id: req.params.id,
     }).populate("subjectcode");
-    let studentdata = await Student.find({
-      department: timetabledata.department,
-      semester: timetabledata.semester,
-      section: timetabledata.section,
-    });
     console.log(timetabledata.subjectcode.type == "Theroy");
-    if (timetabledata.subjectcode.type == "Theory") {
-      console.log(timetabledata, studentdata);
+    if (timetabledata.subjectcode.theorytype == "Core") {
+      let studentdata = await Student.find({
+        department: timetabledata.department,
+        semester: timetabledata.semester,
+        section: timetabledata.section,
+      });
+      // console.log(timetabledata, studentdata);
       for (let i = 0; i < studentdata.length; i++) {
         await Attendance.create({
           timetableid: timetabledata._id,
@@ -85,7 +85,38 @@ module.exports.searchstudent = async (req, res) => {
           updateattendance: Date.now(),
           updateinternal: Date.now(),
           exitattendance: Date.now(),
-          exitinternal: Date.now()
+          exitinternal: Date.now(),
+          examMarks: [
+            { Quiz1: "" },
+            { Session1: "" },
+            { Quiz2: "" },
+            { Session2: "" },
+          ],
+        });
+      }
+    }
+    if (timetabledata.subjectcode.theorytype == "Elective") {
+      let studentdata = await Student.find({
+        department: timetabledata.department,
+        semester: timetabledata.semester
+      });
+      for (let i = 0; i < studentdata.length; i++) {
+        await Attendance.create({
+          timetableid: timetabledata._id,
+          studentid: studentdata[i]._id,
+          present: [],
+          totalpresent: 0,
+          examMarks: [],
+          updateattendance: Date.now(),
+          updateinternal: Date.now(),
+          exitattendance: Date.now(),
+          exitinternal: Date.now(),
+          examMarks: [
+            { Quiz1: "" },
+            { Session1: "" },
+            { Quiz2: "" },
+            { Session2: "" },
+          ],
         });
       }
     }
@@ -293,84 +324,21 @@ module.exports.internalmarkspage = async (req, res) => {
   let timetabledata = await Timetable.findById(req.params.id).populate(
     "subjectcode"
   );
-  let marksData = await MarksScheme.findOne({ timeTableId: req.params.id });
+  // let marksData = await MarksScheme.findOne({ timeTableId: req.params.id });
   let data = await Attendance.find({ timetableid: req.params.id }).populate(
-    "timetableid studentid"
+    "studentid"
   );
-  marksData = JSON.stringify(marksData);
-  // console.log(window.screen.height);
+  // marksData = JSON.stringify(marksData);
+  console.log(timetabledata.internalmarks);
   return res.render("teacher/subject/internalmarks", {
     title: "Internal marks",
     timetable: timetabledata,
-    marksData: marksData,
+    // marksData: marksData,
     student: data,
   });
 };
 
-module.exports.updateMarks = async (req, res) => {
-  console.log(req.body);
-  let marksInfo = req.body;
-  const examType = marksInfo.examType;
-  delete marksInfo.examType;
-  if (examType == "quiz1") {
-    for (let i = 0; i < marksInfo.setMarks.length; i++) {
-      let marks = marksInfo.setMarks[i];
-      let marksDefault = marksInfo.setDefaultMarks[i];
-      let attendanceId = marksInfo.attendanceIdInfo[i];
-      let attendanceUserInfo = await Attendance.findByIdAndUpdate(
-        attendanceId,
-        {
-          $set: {
-            "examMarks.quiz1": [marks, marksDefault],
-          },
-        }
-      );
-    }
-  } else if (examType == "quiz2") {
-    for (let i = 0; i < marksInfo.setMarks.length; i++) {
-      let marks = marksInfo.setMarks[i];
-      let marksDefault = marksInfo.setDefaultMarks[i];
-      let attendanceId = marksInfo.attendanceIdInfo[i];
-      let attendanceUserInfo = await Attendance.findByIdAndUpdate(
-        attendanceId,
-        {
-          $set: {
-            "examMarks.quiz2": [marks, marksDefault],
-          },
-        }
-      );
-    }
-  } else if (examType == "sess1") {
-    for (let i = 0; i < marksInfo.setMarks.length; i++) {
-      let marks = marksInfo.setMarks[i];
-      let marksDefault = marksInfo.setDefaultMarks[i];
-      let attendanceId = marksInfo.attendanceIdInfo[i];
-      let attendanceUserInfo = await Attendance.findByIdAndUpdate(
-        attendanceId,
-        {
-          $set: {
-            "examMarks.sess1": [marks, marksDefault],
-          },
-        }
-      );
-    }
-  } else if (examType == "sess2") {
-    for (let i = 0; i < marksInfo.setMarks.length; i++) {
-      let marks = marksInfo.setMarks[i];
-      let marksDefault = marksInfo.setDefaultMarks[i];
-      let attendanceId = marksInfo.attendanceIdInfo[i];
-      let attendanceUserInfo = await Attendance.findByIdAndUpdate(
-        attendanceId,
-        {
-          $set: {
-            "examMarks.sess2": [marks, marksDefault],
-          },
-        }
-      );
-    }
-  }
-  res.redirect("back");
-};
+
 
 // notes
 module.exports.viewnotes = async (req, res) => {
@@ -579,5 +547,104 @@ module.exports.updateProfile = async (req, res) => {
   } catch (error) {
     console.log(`Error: ${error}`);
     res.json({ Error: error });
+  }
+};
+
+module.exports.int_resetmaxmarks = async (req, res) => {
+  try {
+    console.log(req.body); 
+    examType = req.body.examType;
+    let timetabledata = await Timetable.findById(req.body.timetableid);
+    if (timetabledata) {
+      let intarr = timetabledata.internalmarks;
+      let examObject = intarr.find((item) => examType in item);
+      const index = intarr.indexOf(examObject);
+      if (examObject) {
+        timetabledata.internalmarks[index][examType] = req.body.maxMarks;
+        timetabledata.markModified('internalmarks');
+        let s = await timetabledata.save();
+      }
+      else {
+        let examt;
+        if (examType == 'Quiz1') {
+          examt = { Quiz1: req.body.maxMarks };
+        }
+        if (examType == 'Quiz2') {
+          examt = { Quiz2: req.body.maxMarks };
+        }
+        if (examType == "Session1") {
+          examt = { Session1: req.body.maxMarks };
+        }
+        if (examType == "Session2") {
+          examt = { Session2: req.body.maxMarks };
+        }
+        timetabledata.internalmarks.push(examt);
+        let t = await timetabledata.save();
+      } 
+    }
+    if (req.xhr) {
+      return res.status(200).json({
+        data: timetabledata.internalmarks
+      });
+    }
+    return res.redirect('back');
+  } catch (error) {
+    console.log(error);
+  }
+}
+module.exports.int_updateinternal = async (req, res) => {
+  try {
+    console.log(req.body);
+    let examType = req.body.examtype;
+    let student = req.body.student;
+    let timetableid;
+    // console.log(attendance);
+    for (let i = 0; i < student.length; i++){
+      let stud_int = await Attendance.findById(student[i]);
+      timetableid = stud_int.timetableid;
+      let intarr = stud_int.examMarks;
+      console.log(intarr);
+      let examObject = intarr.find((item) => examType in item);
+      
+      const index = intarr.indexOf(examObject);
+      if (examObject) {
+        stud_int.examMarks[index][examType] = req.body.marks[i];
+        stud_int.markModified("examMarks");
+      } else {
+        let examt;
+        console.log(examType);
+        if (examType == "Quiz1") {
+          examt = { Quiz1: req.body.marks[i] };
+          stud_int.examMarks.push(examt);
+        }
+        if (examType == "Quiz2") {
+          examt = { Quiz2: req.body.marks[i] };
+          stud_int.examMarks.push(examt);
+        }
+        if (examType == "Session1") {
+          examt = { Session1: req.body.marks[i] };
+          stud_int.examMarks.push(examt);
+        }
+        if (examType == "Session2") {
+          examt = { Session2: req.body.marks[i] };
+          stud_int.examMarks.push(examt);
+        }
+        // await stud_int.save();
+        console.log("saved");
+      } 
+      await stud_int.save();
+    }
+      let data = await Attendance.find({ timetableid: timetableid }).populate(
+        "studentid"
+      );
+    if (req.xhr) {
+      return res.status(200)
+        .json({
+        student: data,
+      });
+    }
+    return res.redirect("back");
+  } catch (error) {
+    console.log(error);
   }
 };

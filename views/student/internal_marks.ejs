@@ -70,10 +70,10 @@
                                     if(internal[i].timetableid.subjectcode.type == "Lab"){
                                     type = "(L)";
                                     }
-
+                                    let total= 0;
 
                                     %>
-
+                                    
                                     <tr id="sub-row">
                                         <td class="subject">
                                             <div class="sub-inf">
@@ -95,36 +95,43 @@
                                         <td>
                                             <%=per%>%
                                         </td>
+                                        <%if(internal[i].timetableid.subjectcode.type == "Theory"){%>
                                         <td>
-                                            <%=internal[i].examMarks.quiz1[1]%>
+                                            <%if(internal[i].examMarks[0]){%>
+                                            <%=internal[i].examMarks[0]['Quiz1']%>
+                                            <%total = total + Number(internal[i].examMarks[0]['Quiz1'])%>
+                                            <%}%>
                                         </td>
                                         <td>
-                                            <%=internal[i].examMarks.sess1[1]%>
+                                            <%if(internal[i].examMarks[1]){%>
+                                            <%=internal[i].examMarks[1]['Session1']%>
+                                            <%total = total + Number(internal[i].examMarks[1]['Session1'])%>
+                                            <%}%>
                                         </td>
                                         <td>
-                                            <%=internal[i].examMarks.quiz2[1]%>
+                                            <%if(internal[i].examMarks[2]){%>
+                                            <%=internal[i].examMarks[2]['Quiz2']%>
+                                            <%total = total + Number(internal[i].examMarks[2]['Quiz2'])%>
+                                           <%}%>
                                         </td>
                                         <td>
-                                            <%=internal[i].examMarks.sess2[1]%>
+                                            <%if(internal[i].examMarks[3]){%>
+                                            <%=internal[i].examMarks[3]['Session2']%>
+                                            <%total = total + Number(internal[i].examMarks[3]['Session2'])%>
+                                            <%}%>
                                         </td>
-                                        <td></td>
+                                        <td>
+                                            <!-- assignment  -->
+                                        </td>
+                                        <%}else{%><td colspan="5"></td><%}%>
+                                        
                                         <td>
                                             <%=att%>
                                         </td>
-                                        <% if(internal[i].examMarks.quiz1[1]==undefined){
-                                            internal[i].examMarks.quiz1[1]=0; }
-                                            if(internal[i].examMarks.quiz2[1]==undefined){
-                                            internal[i].examMarks.quiz2[1]=0; }
-                                            if(internal[i].examMarks.sess1[1]==undefined){
-                                            internal[i].examMarks.sess1[1]=0; }
-                                            if(internal[i].examMarks.sess2[1]==undefined){
-                                            internal[i].examMarks.sess2[1]=0; } %>
-                                            <%let total=internal[i].examMarks.quiz1[1] + internal[i].examMarks.sess1[1]
-                                                + internal[i].examMarks.quiz2[1] + internal[i].examMarks.sess2[1] +
-                                                att%>
-                                                <td class="total-marks">
-                                                    <%=total%>
-                                                </td>
+                                        
+                                        <td>
+                                            <%=total+att%>
+                                        </td>
                                     </tr>
                                     <%}%>
                         </div>

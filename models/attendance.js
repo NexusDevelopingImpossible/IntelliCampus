@@ -24,48 +24,29 @@ const attendanceSchema = new mongoose.Schema(
           required: true,
         },
         datevalue: {
-          type: String
-        }
+          type: String,
+        },
       },
     ],
     examMarks: {
-      quiz1: [
-        {
-          type: Number,
-        },
-      ],
-      quiz2: [
-        {
-          type: Number,
-        },
-      ],
-      sess1: [
-        {
-          type: Number,
-        },
-      ],
-      sess2: [
-        {
-          type: Number,
-        },
-      ],
+      type: Array,
     },
     totalpresent: {
       type: Number,
       required: true,
     },
     updateattendance: {
-      type: Date
+      type: Date,
     },
     updateinternal: {
-      type: Date
+      type: Date,
     },
     exitattendance: {
-      type: Date
+      type: Date,
     },
     exitinternal: {
-      type: Date
-    }
+      type: Date,
+    },
   },
   {
     timestamps: true,

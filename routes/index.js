@@ -24,7 +24,6 @@ router.use('/examcell', require("./examcell"))
 router.use('/feecell', require("./feecell"))
 router.use('/teacher', require("./teachers"))
 router.use('/student', require("./students"))
-router.use('/timetable', require("./timetables"))
 router.get('/auth/microsoft', passport.authenticate('microsoft'));
 router.get('/auth/microsoft/redirect', passport.authenticate('microsoft', { failureRedirect: '/login' }), homeController.micin);
 

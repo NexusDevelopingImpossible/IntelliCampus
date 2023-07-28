@@ -127,6 +127,12 @@
   function populateSelect(selectId, values) {
     const select = document.getElementById(selectId);
     select.innerHTML = "<option value=''> " + selectId + "</option>";
+    if(selectId == "section"){
+      const option = document.createElement("option");
+      option.text = "All";
+      option.value = "All";
+      select.appendChild(option);
+    }
 
     values.forEach((value) => {
       const option = document.createElement("option");

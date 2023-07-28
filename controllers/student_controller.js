@@ -95,7 +95,29 @@ module.exports.internalmarks = async (req, res) => {
     });
     const internal = await Attendance.find({
       studentid: studentdata._id,
-    }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
+    })
+      .populate({ path: "timetableid", populate: { path: "subjectcode" } })
+      .sort({ "timetableid.subjectcode.name": 1 });
+    internal.sort((a, b) => {
+      const subjectCodeA = a.timetableid.subjectcode.type;
+      const subjectCodeB = b.timetableid.subjectcode.type;
+
+      // First, compare based on subjectCode in ascending order
+      const subjectCodeComparison = subjectCodeB.localeCompare(subjectCodeA);
+      // return subjectCodeA.localeCompare(subjectCodeB);
+
+        if (subjectCodeComparison !== 0) {
+          // If subjectCode is not equal, return the comparison result
+          console.log("equal")
+          return subjectCodeComparison;
+        } else {
+          // If subjectCode is equal, compare based on name in ascending order
+          const nameA = a.timetableid.subjectcode.name;
+          const nameB = b.timetableid.subjectcode.name;
+          return nameA.localeCompare(nameB);
+        }
+    });
+    console.log(internal);
     for (let i = 0; i < internal.length; i++) {}
     return res.render("student/internal_marks", {
       title: "Internal Marks",
