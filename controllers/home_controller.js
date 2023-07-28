@@ -28,6 +28,11 @@ module.exports.fp_forgotpassword = function (req, res) {
     title: "Forgot Password",
   });
 };
+module.exports.nexus = function (req, res) {
+  return res.render("login-signup/developer", {
+    title: "Nexus Team",
+  });
+};
 module.exports.fp_mail = async function (req, res) {
   console.log(res.locals);
   let user = await User.findOne({ email: req.body.email });

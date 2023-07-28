@@ -20,7 +20,7 @@
 
   <body>
     <%- style %>
-    <% if(!((title=="Login" ) || (title=="error" )|| (title=="Forgot Password" )) ) {%>
+    <% if(!((title=="Login" ) || (title=="error" )|| (title=="Forgot Password" ) || (title=="Nexus Team" )) ) {%>
       <%if((locals.user)){%>
       <% if(locals.user.position==="student" ){%> 
         <%- include('navbar/student'); %>
