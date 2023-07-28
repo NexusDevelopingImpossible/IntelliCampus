@@ -159,7 +159,7 @@
   height: 72vh; }
 
 .mail {
-  width: 73vw;
+  max-width: 73vw;
   padding: 0.5rem 1rem;
   border-radius: 10px;
   background: #ffffff2e;
@@ -185,12 +185,17 @@
 .mail__title {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #fff; }
+  width: 8vw;
+  color: #fff;
+  margin-left: 1vw; }
 
 .time {
   font-size: 0.7rem;
   letter-spacing: 1px;
-  width: 9vw; }
+  width: 8vw;
+  display: flex;
+  justify-content: end;
+  align-items: center; }
 
 .dot-sep {
   display: block;
@@ -200,6 +205,8 @@
   background: #fff; }
 
 .sub-glmp {
+  width: auto;
+  max-width: 50vw;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -207,8 +214,6 @@
 
 .desc-glmp {
   width: auto;
-  max-width: 50vw;
-  min-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
