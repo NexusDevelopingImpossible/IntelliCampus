@@ -18,11 +18,18 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.nexus img{
+  width: 20rem;
+  left: 50%;
+  top: 1px;
+  position: absolute;
+}
 .container-main {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 /*---------------------Left Section--------------------------------------*/
 

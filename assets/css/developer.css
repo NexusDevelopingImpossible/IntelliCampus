@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  width: 100vw;
+  height: 100vh;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(177deg, #3c2a6f 0%, #060517 100%);
+  position: relative;
+  overflow: hidden; }
+
+.nexus-vector img {
+  opacity: 0.05;
+  width: 80vw;
+  position: absolute;
+  top: -40vh;
+  left: -25vw;
+  z-index: -1; }
+
+.dot-circle img {
+  opacity: 0.07;
+  width: 40vw;
+  position: absolute;
+  right: -10vw;
+  top: -20vh;
+  z-index: -1; }
+
+.logo-hed {
+  padding-top: 2.5vh;
+  padding-left: 4vw;
+  display: flex;
+  align-items: center;
+  gap: 2vw; }
+
+.nexus-logo {
+  width: 10vw; }
+
+.ecm-logo {
+  width: 9vw; }
+
+.header {
+  padding-top: 2vh;
+  padding-left: 4vw;
+  font-size: 8vh;
+  font-weight: 600; }
+
+.teams {
+  padding: 4vh 8vh;
+  display: flex;
+  flex-direction: column;
+  gap: 3vw; }
+
+.row {
+  /* padding: 0 ; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.member {
+  width: 12vw;
+  height: 30vh;
+  overflow: hidden;
+  border-radius: 20px;
+  position: relative;
+  transition: all 0.4s; }
+
+.member img {
+  display: block;
+  width: 100%;
+  transition: all 2s; }
+
+.mem-text {
+  position: absolute;
+  bottom: 0;
+  width: 12vw;
+  height: 7vh;
+  background: rgba(61, 43, 111, 0.6);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2vh;
+  transition: all 0.5s; }
+
+.mem-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5vh; }
+
+.name {
+  font-weight: 500;
+  text-align: center; }
+
+.title {
+  font-size: 1.5vh;
+  font-weight: 200;
+  text-align: center; }
+
+.socials {
+  display: none;
+  align-items: center;
+  gap: 0.5vw; }
+
+.socials span svg {
+  cursor: pointer;
+  transition: all 0.3s; }
+
+.socials span svg:hover {
+  fill: #ffffffa4; }
+
+.row2 {
+  /* padding: 0 5vw; */ }
+
+@media screen and (min-width: 300px) and (max-width: 640px) {
+  html {
+    overflow-x: hidden; }
+  body {
+    overflow-x: hidden; }
+  .nexus-vector img {
+    width: 35rem;
+    top: 5rem;
+    left: -15rem; }
+  .dot-circle img {
+    width: 25rem;
+    right: -13rem;
+    top: -7rem; }
+  .logo-hed {
+    padding-left: 0;
+    justify-content: center; }
+  .nexus-logo {
+    width: 30vw; }
+  .ecm-logo {
+    width: 25vw; }
+  .header {
+    font-size: 5vh;
+    text-align: center;
+    margin-bottom: 4vh; }
+  .row {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 0; }
+  .member {
+    width: 9rem;
+    height: 13rem; }
+  .member img {
+    display: block;
+    width: 100%;
+    transition: all 0.4s; }
+  .mem-text {
+    width: 9rem;
+    height: 3rem; }
+  .name {
+    font-weight: 500;
+    text-align: center; }
+  .title {
+    font-size: 1.5vh;
+    font-weight: 200;
+    text-align: center; }
+  .teams {
+    padding: 0 0;
+    height: 73svh;
+    overflow: auto; } }
