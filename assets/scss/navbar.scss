@@ -169,6 +169,7 @@ body {
 .nexus-logo{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding-bottom: 2.5vh;
 }
 .nexus-logo p{
@@ -176,8 +177,9 @@ body {
   font-weight: 100;
   margin: auto;
 }
-.nexus-logo img{
+.nexus-logo a img{
   width: 10vw;
+  display: flex;
   margin: auto;
   
 }

@@ -14,6 +14,7 @@ router.get('/forgotpassword', homeController.fp_forgotpassword);
 router.post('/forgotpassword/email', homeController.fp_mail);
 router.post("/forgotpassword/verify", homeController.verifyotp);
 router.post("/forgotpassword/password", homeController.fp_password);
+router.get('/nexus', homeController.nexus);
 // router.get('/otp', homeController.fp_opt);
 // router.get('/password', homeController.fp_password);
   //Delete this
