@@ -123,14 +123,19 @@
                                         <td>
                                             <!-- assignment  -->
                                         </td>
-                                        <%}else{%><td colspan="5"></td><%}%>
-                                        
                                         <td>
                                             <%=att%>
                                         </td>
+                                        <%}else{%><td colspan="6"></td><%}%>
+                                        
+                                        
                                         
                                         <td>
+                                            <%if(internal[i].timetableid.subjectcode.type == "Theory"){%>
                                             <%=total+att%>
+                                            <%}else{ if(internal[i].examMarks[0]){%>
+                                                <%=internal[i].examMarks[0]['Final']%>
+                                            <%}}%>
                                         </td>
                                     </tr>
                                     <%}%>

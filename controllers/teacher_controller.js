@@ -3,16 +3,14 @@ const Teacher = require("../models/teacher");
 const Timetable = require("../models/timetable");
 const Student = require("../models/student");
 const Attendance = require("../models/attendance");
-const MarksScheme = require("../models/marksScheme");
 const Notification = require("../models/notification");
-const teachersProfile = require('../models/teacherprofile');
+const teachersProfile = require("../models/teacherprofile");
 const TG = require("../models/tg");
 const prettydate = require("pretty-date");
 const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
 const User = require("../models/user");
-
 
 //Dashboard
 module.exports.dashboard = async (req, res) => {
@@ -24,9 +22,9 @@ module.exports.dashboard = async (req, res) => {
     let timetabledata = await Timetable.find({
       teacherid: teacherdata._id,
     }).populate("subjectcode");
-    let notidata = await Notification.find({}).sort({updatedAt: -1});
+    let notidata = await Notification.find({}).sort({ updatedAt: -1 });
     let arr = [];
-    for(let i = 0; i<notidata.length; i++){
+    for (let i = 0; i < notidata.length; i++) {
       const dd = prettydate.format(notidata[i].updatedAt);
       arr.push(dd);
     }
@@ -34,7 +32,9 @@ module.exports.dashboard = async (req, res) => {
     return res.render("teacher/dashboard", {
       title: "Dashboard",
       teacher: teacherdata,
-      timetable: timetabledata, notidata, arr
+      timetable: timetabledata,
+      notidata,
+      arr,
     });
   } catch (err) {
     console.log(err);
@@ -68,13 +68,66 @@ module.exports.searchstudent = async (req, res) => {
       _id: req.params.id,
     }).populate("subjectcode");
     console.log(timetabledata.subjectcode.type == "Theroy");
-    if (timetabledata.subjectcode.theorytype == "Core") {
+    if (timetabledata.subjectcode.type == "Theory") {
+      if (timetabledata.subjectcode.theorytype == "Core") {
+        let studentdata = await Student.find({
+          department: timetabledata.department,
+          semester: timetabledata.semester,
+          section: timetabledata.section,
+        });
+        // console.log(timetabledata, studentdata);
+        for (let i = 0; i < studentdata.length; i++) {
+          await Attendance.create({
+            timetableid: timetabledata._id,
+            studentid: studentdata[i]._id,
+            present: [],
+            totalpresent: 0,
+            examMarks: [],
+            updateattendance: Date.now(),
+            updateinternal: Date.now(),
+            exitattendance: Date.now(),
+            exitinternal: Date.now(),
+            examMarks: [
+              { Quiz1: "" },
+              { Session1: "" },
+              { Quiz2: "" },
+              { Session2: "" },
+            ],
+          });
+        }
+      }
+      if (timetabledata.subjectcode.theorytype == "Elective") {
+        let studentdata = await Student.find({
+          department: timetabledata.department,
+          semester: timetabledata.semester,
+        });
+        for (let i = 0; i < studentdata.length; i++) {
+          await Attendance.create({
+            timetableid: timetabledata._id,
+            studentid: studentdata[i]._id,
+            present: [],
+            totalpresent: 0,
+            examMarks: [],
+            updateattendance: Date.now(),
+            updateinternal: Date.now(),
+            exitattendance: Date.now(),
+            exitinternal: Date.now(),
+            examMarks: [
+              { Quiz1: "" },
+              { Session1: "" },
+              { Quiz2: "" },
+              { Session2: "" },
+            ],
+          });
+        }
+      }
+    }
+    if (timetabledata.subjectcode.type == "Lab") {
       let studentdata = await Student.find({
         department: timetabledata.department,
         semester: timetabledata.semester,
         section: timetabledata.section,
       });
-      // console.log(timetabledata, studentdata);
       for (let i = 0; i < studentdata.length; i++) {
         await Attendance.create({
           timetableid: timetabledata._id,
@@ -87,35 +140,7 @@ module.exports.searchstudent = async (req, res) => {
           exitattendance: Date.now(),
           exitinternal: Date.now(),
           examMarks: [
-            { Quiz1: "" },
-            { Session1: "" },
-            { Quiz2: "" },
-            { Session2: "" },
-          ],
-        });
-      }
-    }
-    if (timetabledata.subjectcode.theorytype == "Elective") {
-      let studentdata = await Student.find({
-        department: timetabledata.department,
-        semester: timetabledata.semester
-      });
-      for (let i = 0; i < studentdata.length; i++) {
-        await Attendance.create({
-          timetableid: timetabledata._id,
-          studentid: studentdata[i]._id,
-          present: [],
-          totalpresent: 0,
-          examMarks: [],
-          updateattendance: Date.now(),
-          updateinternal: Date.now(),
-          exitattendance: Date.now(),
-          exitinternal: Date.now(),
-          examMarks: [
-            { Quiz1: "" },
-            { Session1: "" },
-            { Quiz2: "" },
-            { Session2: "" },
+            { Final: "" },
           ],
         });
       }
@@ -140,7 +165,7 @@ module.exports.getsubject = async (req, res) => {
     data.sort((a, b) => {
       const studentIdA = a.studentid.username;
       const studentIdB = b.studentid.username;
-    
+
       return studentIdA - studentIdB;
     });
     return res.render("teacher/subject/attendance-add", {
@@ -166,9 +191,11 @@ module.exports.addattendance = async (req, res) => {
     dateadd.save();
     const newdateId = dateadd.classes[dateadd.classes.length - 1]._id;
     // console.log(newdateId);
-    let dataA = await Attendance.find({ timetableid: req.body.id }).populate('studentid');
+    let dataA = await Attendance.find({ timetableid: req.body.id }).populate(
+      "studentid"
+    );
     for (let i = 0; i < req.body.studentlist.length; i++) {
-      let data = dataA.find(item => item._id==(req.body.studentlist[i]));
+      let data = dataA.find((item) => item._id == req.body.studentlist[i]);
       let attvalue = false;
       for (let j = 0; j < check.length; j++) {
         if (check[j] == i) {
@@ -190,7 +217,7 @@ module.exports.addattendance = async (req, res) => {
     if (req.xhr) {
       return res.status(200).json({
         data: {
-          student: dataA
+          student: dataA,
         },
       });
     }
@@ -234,7 +261,6 @@ module.exports.attendance_update = async (req, res) => {
 };
 
 module.exports.attendaceedit = async (req, res) => {
-  
   const timetables = await Timetable.findOne({
     "classes._id": req.params.id,
   }).populate("subjectcode");
@@ -262,7 +288,6 @@ module.exports.attendaceedit = async (req, res) => {
 //view attendance of single student
 module.exports.viewstudentattendance = async (req, res) => {
   try {
-   
     let data = await Attendance.findById(req.params.id).populate(
       "timetableid studentid"
     );
@@ -294,12 +319,14 @@ module.exports.change_attendance = async (req, res) => {
           break;
         }
       }
-      let pastdata = await Attendance.findOne({_id: req.body.studentlist[i]});
-      const date = pastdata.present.find((number) => number.date == req.body.date);
-      if(!date.att && attvalue){
+      let pastdata = await Attendance.findOne({ _id: req.body.studentlist[i] });
+      const date = pastdata.present.find(
+        (number) => number.date == req.body.date
+      );
+      if (!date.att && attvalue) {
         tp = 1;
       }
-      if(date.att && !attvalue){
+      if (date.att && !attvalue) {
         tp = -1;
       }
       tp = tp + pastdata.totalpresent;
@@ -309,7 +336,7 @@ module.exports.change_attendance = async (req, res) => {
           $set: {
             "present.$.att": attvalue,
             totalpresent: tp,
-            updateattendance: Date.now()
+            updateattendance: Date.now(),
           },
         }
       );
@@ -338,8 +365,6 @@ module.exports.internalmarkspage = async (req, res) => {
   });
 };
 
-
-
 // notes
 module.exports.viewnotes = async (req, res) => {
   try {
@@ -349,29 +374,31 @@ module.exports.viewnotes = async (req, res) => {
     );
     return res.render("teacher/subject/notes", {
       title: "Notes",
-      timetable: timetables
+      timetable: timetables,
     });
   } catch (err) {
     console.log(err);
   }
 };
 
-
-
 module.exports.profile = async (req, res) => {
   try {
-    console.log(req.params.registration)
-    const studentdata = await Student.findOne({username: req.params.registration});
-    if(!studentdata){
+    console.log(req.params.registration);
+    const studentdata = await Student.findOne({
+      username: req.params.registration,
+    });
+    if (!studentdata) {
       req.flash("error", "Incorrect registraion number");
-      return res.redirect('back');
+      return res.redirect("back");
     }
-    return res.render("student/profile", { title: "Profile", student: studentdata});
+    return res.render("student/profile", {
+      title: "Profile",
+      student: studentdata,
+    });
   } catch (error) {
     console.log(error);
   }
 };
-
 
 module.exports.uploadnote = async (req, res) => {
   try {
@@ -380,9 +407,9 @@ module.exports.uploadnote = async (req, res) => {
         console.log("** Multer error:", error);
       }
       console.log(req.file);
-      let subjectdata = Timetable.findById()
+      let subjectdata = Timetable.findById();
       const note = {};
-      const file = Timetable.uploadpath + '/' + req.file.filename;
+      const file = Timetable.uploadpath + "/" + req.file.filename;
       const type = req.body.type;
       const chapter = req.body.chapter;
       note.push(file);
@@ -390,34 +417,33 @@ module.exports.uploadnote = async (req, res) => {
       note.push(chapter);
       subjectdata.notes.push(note);
       subjectdata.save();
-      return res.redirect('back');
+      return res.redirect("back");
     });
   } catch (error) {
     console.log(error);
   }
 };
 
-
-
 module.exports.res_analysis = async (req, res) => {
   try {
-    return res.render("teacher/result-analytics", { title: "Result Analysis"});
+    return res.render("teacher/result-analytics", { title: "Result Analysis" });
   } catch (error) {
     console.log(error);
   }
 };
 module.exports.allot_students = async (req, res) => {
   try {
-    return res.render("teacher/teach-allot-students", { title: "Allot Students"});
+    return res.render("teacher/teach-allot-students", {
+      title: "Allot Students",
+    });
   } catch (error) {
     console.log(error);
   }
 };
 
-
 module.exports.allot = async (req, res) => {
   try {
-    return res.render("teacher/allotsubjectform", { title: "Allot Students"});
+    return res.render("teacher/allotsubjectform", { title: "Allot Students" });
   } catch (error) {
     console.log(error);
   }
@@ -428,16 +454,22 @@ module.exports.assignment_check = async (req, res) => {
     let timetabledata = await Timetable.findById(req.params.id).populate(
       "subjectcode"
     );
-    return res.render("teacher/subject/assignment_check", { title: "Assignment Check", timetable:timetabledata});
+    return res.render("teacher/subject/assignment_check", {
+      title: "Assignment Check",
+      timetable: timetabledata,
+    });
   } catch (error) {
     console.log(error);
   }
 };
 module.exports.setting = async (req, res) => {
   try {
-    let teacherdata = await teachersProfile.findOne({regnNo: res.locals.user.username}, {_id: 0, hidephoneno: 1, hidewhatsappno:1});
+    let teacherdata = await teachersProfile.findOne(
+      { regnNo: res.locals.user.username },
+      { _id: 0, hidephoneno: 1, hidewhatsappno: 1 }
+    );
     console.log(teacherdata);
-    return res.render("teacher/setting", { title: "Setting", teacherdata});
+    return res.render("teacher/setting", { title: "Setting", teacherdata });
   } catch (error) {
     console.log(error);
   }
@@ -445,44 +477,47 @@ module.exports.setting = async (req, res) => {
 module.exports.changepassword = async (req, res) => {
   try {
     console.log(req.body);
-    if(req.body.newpassword === req.body.new1password){
+    if (req.body.newpassword === req.body.new1password) {
       let user = await User.findById(res.locals.user._id);
-      if(user.password === req.body.oldpassword){
+      if (user.password === req.body.oldpassword) {
         user.password = req.body.new1password;
         await user.save();
         req.flash("success", "Password Updated");
-      } 
-      else{
+      } else {
         req.flash("error", "Old password did not match");
       }
-    }
-    else{
+    } else {
       req.flash("error", "New and Confirm password did not match");
     }
-    return res.redirect('back');
+    return res.redirect("back");
   } catch (error) {
     console.log(error);
   }
 };
 module.exports.settingupdate = async (req, res) => {
   try {
-    if(req.body.hidephoneno == undefined){
-      req.body.hidephoneno = 'off';
+    if (req.body.hidephoneno == undefined) {
+      req.body.hidephoneno = "off";
     }
-    if(req.body.hidewhatsappno == undefined){
-      req.body.hidewhatsappno = 'off';
+    if (req.body.hidewhatsappno == undefined) {
+      req.body.hidewhatsappno = "off";
     }
-    let teacherdata = await teachersProfile.findOneAndUpdate({regnNo: res.locals.user.username}, {hidephoneno: req.body.hidephoneno, hidewhatsappno: req.body.hidewhatsappno});
+    let teacherdata = await teachersProfile.findOneAndUpdate(
+      { regnNo: res.locals.user.username },
+      {
+        hidephoneno: req.body.hidephoneno,
+        hidewhatsappno: req.body.hidewhatsappno,
+      }
+    );
     await teacherdata.save();
     if (req.xhr) {
       return res.status(200);
     }
-    return res.redirect('back');
+    return res.redirect("back");
   } catch (error) {
     console.log(error);
   }
 };
-
 
 module.exports.profile = async (req, res) => {
   try {
@@ -497,8 +532,16 @@ module.exports.profile = async (req, res) => {
     existingTeacherProfile = await teachersProfile.findOne({
       regnNo: res.locals.user.username,
     });
-    let tgdata = await TG.find({teacherid: teacher._id}).populate('studentid');
-    return res.render("teacher/profile-teach", { title: "Teacher Profile", teacher, timetabledata, tgdata, teacherdata: existingTeacherProfile});
+    let tgdata = await TG.find({ teacherid: teacher._id }).populate(
+      "studentid"
+    );
+    return res.render("teacher/profile-teach", {
+      title: "Teacher Profile",
+      teacher,
+      timetabledata,
+      tgdata,
+      teacherdata: existingTeacherProfile,
+    });
   } catch (error) {
     console.log(error);
   }
@@ -552,7 +595,7 @@ module.exports.updateProfile = async (req, res) => {
 
 module.exports.int_resetmaxmarks = async (req, res) => {
   try {
-    console.log(req.body); 
+    console.log(req.body);
     examType = req.body.examType;
     let timetabledata = await Timetable.findById(req.body.timetableid);
     if (timetabledata) {
@@ -561,15 +604,14 @@ module.exports.int_resetmaxmarks = async (req, res) => {
       const index = intarr.indexOf(examObject);
       if (examObject) {
         timetabledata.internalmarks[index][examType] = req.body.maxMarks;
-        timetabledata.markModified('internalmarks');
+        timetabledata.markModified("internalmarks");
         let s = await timetabledata.save();
-      }
-      else {
+      } else {
         let examt;
-        if (examType == 'Quiz1') {
+        if (examType == "Quiz1") {
           examt = { Quiz1: req.body.maxMarks };
         }
-        if (examType == 'Quiz2') {
+        if (examType == "Quiz2") {
           examt = { Quiz2: req.body.maxMarks };
         }
         if (examType == "Session1") {
@@ -578,20 +620,23 @@ module.exports.int_resetmaxmarks = async (req, res) => {
         if (examType == "Session2") {
           examt = { Session2: req.body.maxMarks };
         }
+        if (examType == "Final") {
+          examt = { Quiz1: req.body.maxMarks };
+        }
         timetabledata.internalmarks.push(examt);
         let t = await timetabledata.save();
-      } 
+      }
     }
     if (req.xhr) {
       return res.status(200).json({
-        data: timetabledata.internalmarks
+        data: timetabledata.internalmarks,
       });
     }
-    return res.redirect('back');
+    return res.redirect("back");
   } catch (error) {
     console.log(error);
   }
-}
+};
 module.exports.int_updateinternal = async (req, res) => {
   try {
     console.log(req.body);
@@ -599,13 +644,13 @@ module.exports.int_updateinternal = async (req, res) => {
     let student = req.body.student;
     let timetableid;
     // console.log(attendance);
-    for (let i = 0; i < student.length; i++){
+    for (let i = 0; i < student.length; i++) {
       let stud_int = await Attendance.findById(student[i]);
       timetableid = stud_int.timetableid;
       let intarr = stud_int.examMarks;
       console.log(intarr);
       let examObject = intarr.find((item) => examType in item);
-      
+
       const index = intarr.indexOf(examObject);
       if (examObject) {
         stud_int.examMarks[index][examType] = req.body.marks[i];
@@ -631,15 +676,14 @@ module.exports.int_updateinternal = async (req, res) => {
         }
         // await stud_int.save();
         console.log("saved");
-      } 
+      }
       await stud_int.save();
     }
-      let data = await Attendance.find({ timetableid: timetableid }).populate(
-        "studentid"
-      );
+    let data = await Attendance.find({ timetableid: timetableid }).populate(
+      "studentid"
+    );
     if (req.xhr) {
-      return res.status(200)
-        .json({
+      return res.status(200).json({
         student: data,
       });
     }

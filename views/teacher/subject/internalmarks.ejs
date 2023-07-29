@@ -80,7 +80,12 @@
             </div>
             <form action="/teacher/internal/updateinternal" method="post" id="studinternal">
                 <input type="hidden" name="timetableid" value="<%=timetable._id%>"/>
+                <%if(timetable.subjectcode.type == "Theory"){%>
                 <input type="hidden" id="selectvalue" name="examtype" value="Quiz1"/>
+                <%}%>
+                <%if(timetable.subjectcode.type == "Lab"){%>
+                <input type="hidden" id="selectvalue" name="examtype" value="Final"/>
+                <%}%>
             <div class="list__main">
                     <div class="list__main__title">
                         <ul>
@@ -217,10 +222,15 @@
             document.getElementById('defaultmarks').innerHTML = 15;
             document.getElementById('poptitle').innerHTML = "Sessional 2";
         }
+        if(g == 'Final'){
+            document.getElementById('defaultmarks').innerHTML = 60;
+            document.getElementById('poptitle').innerHTML = "Final";
+        }
         const quiz2Object = internalmarks.find(item => g in item);
         const index = internalmarks.indexOf(quiz2Object);
         // console.log(index);
         if(quiz2Object){
+            console.log(quiz2Object)
             document.getElementById('maxMarksField').innerHTML = quiz2Object[g];
         }
         else{   
@@ -230,18 +240,18 @@
         console.log("len", internalstudent)
         for(let i = 0; i<internalstudent.length; i++){
             const studdquiz2Object = internalstudent[i].examMarks.find(item => g in item);
-            console.log(studdquiz2Object);
+            // console.log(studdquiz2Object);
             const studindex = internalstudent[i].examMarks.indexOf(studdquiz2Object);
-            console.log("sad",studindex);
+            // console.log("sad",studindex);
             if(studindex !== -1){
-                console.log("fff",internalstudent[i].examMarks[studindex][g])
+                // console.log("fff",internalstudent[i].examMarks[studindex][g])
                 markarr[i].value = '';
                 document.getElementsByClassName('input-tag-2')[i].value=internalstudent[i].examMarks[studindex][g]
             }
             else{
                 markarr[i].value = '';
                 document.getElementsByClassName('input-tag-2')[i].value = "";
-                console.log(document.getElementsByClassName('input-tag-2')[i].value)
+                // console.log(document.getElementsByClassName('input-tag-2')[i].value)
             }
         }
     }

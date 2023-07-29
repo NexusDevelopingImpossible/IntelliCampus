@@ -18,6 +18,7 @@ const customMware = require('./config/middleware');
 const bodyParser = require("body-parser");
 const path = require('path');
 const prettydate = require("pretty-date"); //
+const mongoSanitize = require("express-mongo-sanitize");
 
 if(env.name == "development"){
   app.use(sassMiddleware({
@@ -31,6 +32,7 @@ if(env.name == "development"){
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(mongoSanitize());
 app.use(cookieParser());
 
 
