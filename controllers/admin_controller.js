@@ -819,7 +819,8 @@ module.exports.adminteacherprofile = async (req, res) => {
 module.exports.deactivateaccount = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
-    res.render("admin/deactivate-accnt", { title: "Deactivate Account"});
+    const deptSem = await SemSection.find();
+    res.render("admin/deactivate-accnt", { title: "Deactivate Account", deptSem});
   } catch (err) {
     console.log(err);
   }
@@ -914,6 +915,14 @@ module.exports.reports = async (req, res) => {
       timearr[i] = prettydate.format(reportdata[i].updatedAt);
     }
     res.render("admin/report", { title: "Report", reportdata, timearr});
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.feedback = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    res.render("admin/create-feedback", { title: "Feedback"});
   } catch (err) {
     console.log(err);
   }

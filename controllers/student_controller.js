@@ -12,6 +12,7 @@ const fs = require("fs");
 const path = require("path");
 const studentsProfile = require("../models/studentProfile");
 const studentreport = require("../models/student_report");
+const Feedback = require("../models/feedback");
 const { setTimeout } = require("timers/promises");
 
 module.exports.dashboard = async (req, res) => {
@@ -226,6 +227,7 @@ module.exports.enter_feedback = async (req, res) => {
 
 module.exports.feedbackdata = async (req, res) => {
   try {
+    console.log(req.body);
     req.flash("success", "Feedback submitted.");
     return res.redirect("feedback");
   } catch (error) {

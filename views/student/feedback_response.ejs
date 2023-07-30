@@ -1,146 +1,336 @@
 <link rel="stylesheet" href="<%= assetPath('css/std-feed-res.css') %>" />
-
+<style>
+  label {
+    display: block;
+    padding: 5px;
+    position: relative;
+    padding-left: 20px;
+  }
+  label input {
+    display: none;
+  }
+  label span {
+    width: 4vw;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 2.5vh;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid #fff;
+    border-radius: 15px;
+    color: #fff;
+    cursor: pointer;
+    transition-duration: 0.3s;
+  }
+  input:checked + span {
+    background-color: #fd6d08;
+  }
+</style>
 <div class="main-page">
   <div class="blur">
-  <div id="main-title" class="page-heading">
-    <!-- <a href="/student/feedback"><img src="/images/allotarrow.png" alt="" id="back_buttn" /></a> -->
-    <a href="/student/feedback"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
-    <img src="/images/AG.jpg" alt="" id="profile-photo" />
-    <div id="teacher-details">
-      <div id="teacher-name"><%=teacherdata.name%></div>
-      <div id="teacher-title"><%=teacherdata.position%></div>
-      <div id="teacher-number"><%=teacherdata.username%></div>
+    <div id="main-title" class="page-heading">
+      <!-- <a href="/student/feedback"><img src="/images/allotarrow.png" alt="" id="back_buttn" /></a> -->
+      <a href="/student/feedback"
+        ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+          <path
+            d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"
+          />
+        </svg>
+      </a>
+      <img src="/images/AG.jpg" alt="" id="profile-photo" />
+      <div id="teacher-details">
+        <div id="teacher-name"><%=teacherdata.name%></div>
+        <div id="teacher-title"><%=teacherdata.position%></div>
+        <div id="teacher-number"><%=teacherdata.username%></div>
+      </div>
     </div>
-  </div>
-  <form action="/student/feedbackdata" method="post">
-    <!-- <input type="hidden" value=""> -->
-    <div id="feedback-query-list">
-      <div class="queries">
-        <div class="question">
-          <span class="question-number">1</span>
-          <span class="question-title">How satisfied are you with the quality of notes provided during
-            lectures?
-          </span>
+    <form action="/student/feedbackdata" method="post">
+      <!-- <input type="hidden" value=""> -->
+      <div id="feedback-query-list">
+        <div class="queries">
+          <div class="question">
+            <span class="question-number">1</span>
+            <span class="question-title"
+              >Rate of providing useful and timely feedback on your assignments.
+            </span>
+          </div>
+          <div class="rating">
+            <label
+              ><input type="radio" name="q1" value="1" /><span>1</span></label
+            >
+            <label
+              ><input type="radio" name="q1" value="2" /><span>2</span></label
+            >
+            <label
+              ><input type="radio" name="q1" value="3" /><span>3</span></label
+            >
+            <label
+              ><input type="radio" name="q1" value="4" /><span>4</span></label
+            >
+            <label
+              ><input type="radio" name="q1" value="5" /><span>5</span></label
+            >
+          </div>
+          <div class="marker">
+            <div>Least Satisfied</div>
+            <div>Very Satisfied</div>
+          </div>
         </div>
-        <div class="rating">
-          <div id="1" onclick="onclicked(this.id)" class="rank row1">1</div>
-          <div id="2" onclick="onclicked(this.id)" class="rank row1">2</div>
-          <div id="3" onclick="onclicked(this.id)" class="rank row1">3</div>
-          <div id="4" onclick="onclicked(this.id)" class="rank row1">4</div>
-          <div id="5" onclick="onclicked(this.id)" class="rank row1">5</div>
-          <input id="row1" type="hidden" name="row1">
+        <div class="queries">
+          <div class="question">
+            <span class="question-number">2</span>
+            <span class="question-title"
+              >Proficiency of teachers in breaking down complex topics into a
+              compact and understanding way .
+            </span>
+          </div>
+          <div class="rating">
+            <label
+              ><input type="radio" name="q2" value="1" /><span>1</span></label
+            >
+            <label
+              ><input type="radio" name="q2" value="2" /><span>2</span></label
+            >
+            <label
+              ><input type="radio" name="q2" value="3" /><span>3</span></label
+            >
+            <label
+              ><input type="radio" name="q2" value="4" /><span>4</span></label
+            >
+            <label
+              ><input type="radio" name="q2" value="5" /><span>5</span></label
+            >
+          </div>
+          <div class="marker">
+            <div>Least Satisfied</div>
+            <div>Very Satisfied</div>
+          </div>
         </div>
-        <div class="marker">
-          <div>Least Satisfied</div>
-          <div>Very Satisfied</div>
+        <div class="queries">
+          <div class="question">
+            <span class="question-number">3</span>
+            <span class="question-title"
+              >Infulenceing you as a student to a greater level of excellence.
+            </span>
+          </div>
+          <div class="rating">
+            <label
+              ><input type="radio" name="q3" value="1" /><span>1</span></label
+            >
+            <label
+              ><input type="radio" name="q3" value="2" /><span>2</span></label
+            >
+            <label
+              ><input type="radio" name="q3" value="3" /><span>3</span></label
+            >
+            <label
+              ><input type="radio" name="q3" value="4" /><span>4</span></label
+            >
+            <label
+              ><input type="radio" name="q3" value="5" /><span>5</span></label
+            >
+          </div>
+          <div class="marker">
+            <div>Least Satisfied</div>
+            <div>Very Satisfied</div>
+          </div>
         </div>
-      </div>
-      <div class="queries">
-        <div class="question">
-          <span class="question-number">2</span>
-          <span class="question-title">How satisfied are you with the quality of notes provided during
-            lectures?
-          </span>
+        <div class="queries">
+          <div class="question">
+            <span class="question-number">4</span>
+            <span class="question-title"
+              >Rate of providing learning resources and materials with easy
+              access to students equally.
+            </span>
+          </div>
+          <div class="rating">
+            <label
+              ><input type="radio" name="q4" value="1" /><span>1</span></label
+            >
+            <label
+              ><input type="radio" name="q4" value="2" /><span>2</span></label
+            >
+            <label
+              ><input type="radio" name="q4" value="3" /><span>3</span></label
+            >
+            <label
+              ><input type="radio" name="q4" value="4" /><span>4</span></label
+            >
+            <label
+              ><input type="radio" name="q4" value="5" /><span>5</span></label
+            >
+          </div>
+          <div class="marker">
+            <div>Least Satisfied</div>
+            <div>Very Satisfied</div>
+          </div>
         </div>
-        <div class="rating">
-          <div id="6" onclick="onclicked(this.id)" name="row2" class="rank row2">1</div>
-          <div id="7" onclick="onclicked(this.id)" name="row2" class="rank row2">2</div>
-          <div id="8" onclick="onclicked(this.id)" name="row2" class="rank row2">3</div>
-          <div id="9" onclick="onclicked(this.id)" name="row2" class="rank row2">4</div>
-          <div id="10" onclick="onclicked(this.id)" name="row2" class="rank row2">5</div>
-          <input id="row2" type="hidden" name="row2">
+        <div class="queries">
+          <div class="question">
+            <span class="question-number">5</span>
+            <span class="question-title"
+              >Ability to effectively convey information to you as a teacher.
+            </span>
+          </div>
+          <div class="rating">
+            <label
+              ><input type="radio" name="q5" value="1" /><span>1</span></label
+            >
+            <label
+              ><input type="radio" name="q5" value="2" /><span>2</span></label
+            >
+            <label
+              ><input type="radio" name="q5" value="3" /><span>3</span></label
+            >
+            <label
+              ><input type="radio" name="q5" value="4" /><span>4</span></label
+            >
+            <label
+              ><input type="radio" name="q5" value="5" /><span>5</span></label
+            >
+          </div>
+          <div class="marker">
+            <div>Least Satisfied</div>
+            <div>Very Satisfied</div>
+          </div>
         </div>
-        <div class="marker">
-          <div>Least Satisfied</div>
-          <div>Very Satisfied</div>
+        <div class="queries">
+          <div class="question">
+            <span class="question-number">6</span>
+            <span class="question-title"
+              >Coverage of syllabus at an appropriate time and a uniform pace
+            </span>
+          </div>
+          <div class="rating">
+            <label
+              ><input type="radio" name="q6" value="1" /><span>1</span></label
+            >
+            <label
+              ><input type="radio" name="q6" value="2" /><span>2</span></label
+            >
+            <label
+              ><input type="radio" name="q6" value="3" /><span>3</span></label
+            >
+            <label
+              ><input type="radio" name="q6" value="4" /><span>4</span></label
+            >
+            <label
+              ><input type="radio" name="q6" value="5" /><span>5</span></label
+            >
+          </div>
+          <div class="marker">
+            <div>Least Satisfied</div>
+            <div>Very Satisfied</div>
+          </div>
         </div>
-      </div>
-      <div class="queries">
-        <div class="question">
-          <span class="question-number">3</span>
-          <span class="question-title">How satisfied are you with the quality of notes provided during
-            lectures?
-          </span>
+        <div class="queries">
+          <div class="question">
+            <span class="question-number">7</span>
+            <span class="question-title"
+              >Display of appreciativeness from teachers in an active classroom.
+            </span>
+          </div>
+          <div class="rating">
+            <label
+              ><input type="radio" name="q7" value="1" /><span>1</span></label
+            >
+            <label
+              ><input type="radio" name="q7" value="2" /><span>2</span></label
+            >
+            <label
+              ><input type="radio" name="q7" value="3" /><span>3</span></label
+            >
+            <label
+              ><input type="radio" name="q7" value="4" /><span>4</span></label
+            >
+            <label
+              ><input type="radio" name="q7" value="5" /><span>5</span></label
+            >
+          </div>
+          <div class="marker">
+            <div>Least Satisfied</div>
+            <div>Very Satisfied</div>
+          </div>
         </div>
-        <div class="rating">
-          <div id="11" onclick="onclicked(this.id)" name="row3" class="rank row3">1</div>
-          <div id="12" onclick="onclicked(this.id)" name="row3" class="rank row3">2</div>
-          <div id="13" onclick="onclicked(this.id)" name="row3" class="rank row3">3</div>
-          <div id="14" onclick="onclicked(this.id)" name="row3" class="rank row3">4</div>
-          <div id="15" onclick="onclicked(this.id)" name="row3" class="rank row3">5</div>
-          <input id="row3" type="hidden" name="row3">
+        <div class="queries">
+          <div class="question">
+            <span class="question-number">8</span>
+            <span class="question-title"
+              >Timely exposure to institutional gatherings and development
+              programs.
+            </span>
+          </div>
+          <div class="rating">
+            <label
+              ><input type="radio" name="q8" value="1" /><span>1</span></label
+            >
+            <label
+              ><input type="radio" name="q8" value="2" /><span>2</span></label
+            >
+            <label
+              ><input type="radio" name="q8" value="3" /><span>3</span></label
+            >
+            <label
+              ><input type="radio" name="q8" value="4" /><span>4</span></label
+            >
+            <label
+              ><input type="radio" name="q8" value="5" /><span>5</span></label
+            >
+          </div>
+          <div class="marker">
+            <div>Least Satisfied</div>
+            <div>Very Satisfied</div>
+          </div>
         </div>
-        <div class="marker">
-          <div>Least Satisfied</div>
-          <div>Very Satisfied</div>
+        <div class="queries">
+          <div class="question">
+            <span class="question-number">9</span>
+            <span class="question-title"
+              >Fostering a friendly and inclusive classroom environment by
+              teachers.
+            </span>
+          </div>
+          <div class="rating">
+            <label
+              ><input type="radio" name="q9" value="1" /><span>1</span></label
+            >
+            <label
+              ><input type="radio" name="q9" value="2" /><span>2</span></label
+            >
+            <label
+              ><input type="radio" name="q9" value="3" /><span>3</span></label
+            >
+            <label
+              ><input type="radio" name="q9" value="4" /><span>4</span></label
+            >
+            <label
+              ><input type="radio" name="q9" value="5" /><span>5</span></label
+            >
+          </div>
+          <div class="marker">
+            <div>Least Satisfied</div>
+            <div>Very Satisfied</div>
+          </div>
         </div>
-      </div>
-      <div class="queries">
-        <div class="question">
-          <span class="question-number">4</span>
-          <span class="question-title">How satisfied are you with the quality of notes provided during
-            lectures?
-          </span>
-        </div>
-        <div class="rating">
-          <div id="16" onclick="onclicked(this.id)" name="row4" value="1" class="rank row4">1</div>
-          <div id="17" onclick="onclicked(this.id)" name="row4" value="2" class="rank row4">2</div>
-          <div id="18" onclick="onclicked(this.id)" name="row4" value="3" class="rank row4">3</div>
-          <div id="19" onclick="onclicked(this.id)" name="row4" value="4" class="rank row4">4</div>
-          <div id="20" onclick="onclicked(this.id)" name="row4" value="5" class="rank row4">5</div>
-          <input id="row4" type="hidden" name="row4">
-        </div>
-        <div class="marker">
-          <div>Least Satisfied</div>
-          <div>Very Satisfied</div>
-        </div>
-      </div>
-      <div class="queries">
-        <div class="question">
-          <span class="question-number">5</span>
-          <span class="question-title">How satisfied are you with the quality of notes provided during
-            lectures?
-          </span>
-        </div>
-        <div class="rating">
-          <div id="21" onclick="onclicked(this.id)" name="row5" value="1" class="rank row5">1</div>
-          <div id="22" onclick="onclicked(this.id)" name="row5" value="2" class="rank row5">2</div>
-          <div id="23" onclick="onclicked(this.id)" name="row5" value="3" class="rank row5">3</div>
-          <div id="24" onclick="onclicked(this.id)" name="row5" value="4" class="rank row5">4</div>
-          <div id="25" onclick="onclicked(this.id)" name="row5" value="5" class="rank row5">5</div>
-          <input id="row5" type="hidden" name="row5">
-        </div>
-        <div class="marker">
-          <div>Least Satisfied</div>
-          <div>Very Satisfied</div>
-        </div>
-      </div>
-      <div class="queries">
-        <div class="question">
-          <span class="question-number">6</span>
-          <span class="question-title">How satisfied are you with the quality of notes provided during
-            lectures?
-          </span>
-        </div>
-        <div class="rating">
-          <div id="26" onclick="onclicked(this.id)" name="row6" value="1" class="rank row6">1</div>
-          <div id="27" onclick="onclicked(this.id)" name="row6" value="2" class="rank row6">2</div>
-          <div id="28" onclick="onclicked(this.id)" name="row6" value="3" class="rank row6">3</div>
-          <div id="29" onclick="onclicked(this.id)" name="row6" value="4" class="rank row6">4</div>
-          <div id="30" onclick="onclicked(this.id)" name="row6" value="5" class="rank row6">5</div>
-          <input id="row6" type="hidden" name="row6">
-        </div>
-        <div class="marker">
-          <div>Least Satisfied</div>
-          <div>Very Satisfied</div>
-        </div>
-      </div>
+        <div class="queries">
+          <div class="question">
+            <span class="question-number">10</span>
+            <span class="question-title"
+              >How is the act of patience and understanding exhibited over the students?
+            </span>
+          </div>
+          <div class="text-area">
+            <textarea type="text" class="input-read"></textarea>
+          </div>
+        <!-- here  -->
 
-    </div>
-    <button class="btn btn-full btn-medium" id="submit-bttn" type="submit">
-      Submit
-    </button>
-  </form>
+      </div>
+      <button class="btn btn-full btn-medium" id="submit-bttn" type="submit">
+        Submit
+      </button>
+    </form>
   </div>
 </div>
 
