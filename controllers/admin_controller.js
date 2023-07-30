@@ -838,7 +838,7 @@ module.exports.mail = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
     const semsec = await SemSection.find();
-    admin_mailer.newmail();
+    // admin_mailer.newmail();
     res.render("admin/mail", { title: "Mail", semsec});
   } catch (err) {
     console.log(err);

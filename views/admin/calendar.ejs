@@ -4,7 +4,7 @@
   <div class="page-heading">
   <!-- <a href="/student/dashboard"><img src="/images/allotarrow.png" alt="" id="back_buttn"></a> -->
   <a href="/student/dashboard"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
-  <h1 class="heading">Attendance</h1>
+  <h1 class="heading">Create Calendar</h1>
 </div>
   <div class="import-button">
       <button class="btn btn-outline btn-medium">Import</button>
@@ -19,19 +19,18 @@
   </div>
   <form action="/admin/addholiday" method="post"> 
       <div class="notupdated">
-     
         <ul>
           <li>
             1
           </li>
           <li>
-            <input class="inputbox" type="date" placeholder="dd-mm-yy">
+            <input class="inputbox" name="date" type="date" placeholder="dd-mm-yy">
           </li>
           <li>
             Saturday
           </li>
           <li>
-            <input type="text" class="inputbox" id="" placeholder="blah blah blah day">
+            <input type="text" class="inputbox" name="holidaytitle" id="" placeholder="blah blah blah day">
             <button class="btn-save">Save</button>
             <button class="del-btn">
               <img src="/images/cross2.png" alt="">
@@ -40,24 +39,25 @@
         </ul>
       </div>  
       </form>
-        
+        <%for(let i =0; i<calendardata.length; i++){%>
       <div class="updated">
         <ul>
           <li>
-            1
+            <%=i+1%>
           </li>
           <li>
-            26/10/2002
+            <%=calendardata[i].date%>
           </li>
           <li>
             Saturday
           </li>
           <li>
-            <p>Blah Blah Blah Day</p>
+            <p><%=calendardata[i].holidaytitle%></p>
             <button class="updated-btn"><img src="/images/dustbin.png" alt="*" /></button>
           </li>
         </ul>
       </div>
+      <%}%>
     <div class="add-button">
       <button class="add-btn"><img src="/images/plus.png" alt="" /></button>
     </div>

@@ -25,7 +25,7 @@ module.exports.dashboard = async (req, res) => {
       studentid: studentdata._id,
     }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
     let calendardata = await Calendar.find({});
-    calendardata = JSON.stringify(calendardata);
+    // calendardata = JSON.stringify(calendardata);
     let notidata = await Notification.find({}).sort({ updatedAt: -1 });
     let arr = [];
     for (let i = 0; i < notidata.length; i++) {

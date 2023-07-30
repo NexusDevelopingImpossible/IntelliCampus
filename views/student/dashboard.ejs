@@ -31,7 +31,7 @@
       <div class="card-col1">
         <div class="card card1">
           <div class="b1">
-            <a href="/student/profile"><img class="img" src="<%=student.avatar%>" alt="" /></a>
+            <a  href="/student/profile"><img class="img" src="<%=student.avatar%>" alt="" /></a>
             <div>
               <h1 class="std-name">
                 <%=student.name%>
@@ -317,28 +317,28 @@
 </div>
 <script src="<%= assetPath('js/std-progress.js') %>"></script>
 <script src="<%= assetPath('js/dash-cale.js') %>"></script>
-<script src="<%= assetPath('noty.js') %>"></script>
+
 
 
 
 <script>
-  $('.createStudentNotiBtn').each(function () {
-    let self = this;
-    let createStudentNotis = new createStudentNoti(self);
-  })
-</script>
-<script>
-  window.locals = [];
-  let u = <%- JSON.stringify(locals.internal) %>
-    window.locals.push(u);
-  for (let i = 0; i < locals[0].length; i++) {
-    if (locals[0][i].exitattendance < locals[0][i].updateattendance) {
-      let id = document.getElementById('attendance');
-      // console.log(id.style)
-      id.style.display = "flex";
-      // console.log("adasda");
-    }
-  }
+//   $('.createStudentNotiBtn').each(function () {
+//     let self = this;
+//     let createStudentNotis = new createStudentNoti(self);
+//   })
+// </script>
+ <script>
+//   window.locals = [];
+//   let u = <%- JSON.stringify(locals.internal) %>
+//     window.locals.push(u);
+//   for (let i = 0; i < locals[0].length; i++) {
+//     if (locals[0][i].exitattendance < locals[0][i].updateattendance) {
+//       let id = document.getElementById('attendance');
+//       // console.log(id.style)
+//       id.style.display = "flex";
+//       // console.log("adasda");
+//     }
+//   }
 </script>
 <script>
   let refreshnoti = function () {
@@ -391,4 +391,177 @@
     }
   }
   setInterval(refreshnoti, 10000)
+</script>
+<script>
+  var caldata = <%-JSON.stringify(locals.calendardata) %>;
+  const daysTag = document.querySelector(".days"),
+  currentDate = document.querySelector(".current-date"),
+  currentYear = document.querySelector(".current-year"),
+  prevNextIcon = document.querySelectorAll(".icons span");
+
+// getting new date, current year and month
+let date = new Date(),
+  currYear = date.getFullYear(),
+  currMonth = date.getMonth();
+
+// storing full name of all months in array
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+
+const renderCalendar = () => {
+  let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
+    lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(),
+    lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(),
+    lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
+  let liTag = "";
+
+  for (let i = firstDayofMonth; i > 0; i--) {
+    // creating li of previous month last days
+    liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+  }
+
+  for (let i = 1; i <= lastDateofMonth; i++) {
+    // creating li of all days of current month
+    let caltitle = '';
+    console.log(caldata);
+        for(let z = 0; z < caldata.length; z++){
+      console.log(caldata[z].date.split('-')[1]-1,(caldata[z].date.split('-')[2]) )
+      if (((caldata[z].date.split('-')[1]-1) == Number(currMonth)) && ((caldata[z].date.split('-')[2]) == i)) {
+        caltitle = caldata[z].holidaytitle;
+      }
+    }
+    let isToday =
+      i === date.getDate() &&
+      currMonth === new Date().getMonth() &&
+      currYear === new Date().getFullYear()
+        ? "active"
+        : "";
+    liTag += `<li onmouseover="hoverHoliday(this.id)" id="${i}" class="${isToday} main-div"><div>${i}</div> <div id="hid${i}" class="hidden-div">${caltitle}</div></li> 
+        </div>`;
+
+  }
+
+  for (let i = lastDayofMonth; i < 6; i++) {
+    liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
+  }
+  currentDate.innerText = `${months[currMonth]}`;
+  currentYear.innerText = `${currYear}`;
+  daysTag.innerHTML = liTag;
+};
+renderCalendar();
+
+prevNextIcon.forEach((icon) => {
+  icon.addEventListener("click", () => {
+    currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+    if (currMonth < 0 || currMonth > 11) {
+      date = new Date(currYear, currMonth, new Date().getDate());
+      currYear = date.getFullYear();
+      currMonth = date.getMonth();
+    } else {
+      date = new Date();
+    }
+    renderCalendar();
+  });
+});
+
+// hover
+
+// const mainDiv = document.querySelectorAll('.main-div');
+// const hiddenDiv = document.querySelector('.hidden-div');
+// console.log(mainDiv);
+
+const mainDiv = document.querySelectorAll(".main-div");
+function hoverHoliday(id) {
+  const hiddenDiv = document.getElementById(`hid${id}`);
+    let idDSome = document.getElementById(id);
+    idDSome.addEventListener("mouseover", function(event) {
+
+    let vw = window.innerWidth,
+      vh = window.innerHeight;
+    let eCXinVW = (event.clientX / vw) * 100; // Multiplying by 100 to get percentage
+    let eCYinVH = (event.clientY / vh) * 100;
+
+    if (eCXinVW < 81 && eCYinVH < 78) {
+      hiddenDiv.style.left = 2 + "vw";
+      hiddenDiv.style.top =  5 + "vh";
+    }
+    if (eCXinVW >= 81 && eCYinVH <= 78) {
+      hiddenDiv.style.left = -15 + "vw";
+      hiddenDiv.style.top = 5 + "vh";
+    }
+    if (eCXinVW < 81 && eCYinVH > 78) {
+      hiddenDiv.style.left = 2 + "vw";
+      hiddenDiv.style.top = -5 + "vh";
+    }
+    if (eCXinVW >= 81 && eCYinVH >= 78) {
+      hiddenDiv.style.left = -15 + "vw";
+      hiddenDiv.style.top = -5 + "vh";
+    }
+
+    //   hiddenDiv.style.left = '25px';
+    //   hiddenDiv.style.top = '25px';
+    // hiddenDiv.style.display = "block";
+  });
+
+  idDSome.addEventListener("mouseenter", function () {
+    hiddenDiv.style.display = "flex";
+  });
+
+  idDSome.addEventListener("mouseleave", function () {
+    hiddenDiv.style.display = "none";
+  });
+}
+// mainDiv.forEach(md=>{
+
+//     md.addEventListener('mousemove', function (event) {
+//         let vw = window.innerWidth,
+//             vh = window.innerHeight;
+//         let eCXinVW = event.clientX / vw * 100; // Multiplying by 100 to get percentage
+//         let eCYinVH = event.clientY / vh * 100;
+//         console.log(eCXinVW);
+//         console.log(eCYinVH);
+//         if (eCXinVW < 81 && eCYinVH < 78) {
+//             hiddenDiv.style.left = eCXinVW-93 + 'vw';
+//             hiddenDiv.style.top = eCYinVH-61 + 'vh';
+//         }
+//         if (eCXinVW > 81 && eCYinVH < 78) {
+//             hiddenDiv.style.left = eCXinVW-107 + 'vw';
+//             hiddenDiv.style.top = eCYinVH-61 + 'vh';
+//         }
+//         if (eCXinVW < 81 && eCYinVH > 78) {
+//             hiddenDiv.style.left = eCXinVW-93 + 'vw';
+//             hiddenDiv.style.top = eCYinVH-72 + 'vh';
+//         }
+//         if (eCXinVW > 81 && eCYinVH > 78) {
+//             hiddenDiv.style.left = eCXinVW-107 + 'vw';
+//             hiddenDiv.style.top = eCYinVH-72 + 'vh';
+//         }
+
+//     //   hiddenDiv.style.left = '25px';
+//     //   hiddenDiv.style.top = '25px';
+//     });
+
+//     md.addEventListener('mouseenter', function() {
+//       hiddenDiv.style.display = 'block';
+//     });
+
+//     md.addEventListener('mouseleave', function() {
+//       hiddenDiv.style.display = 'none';
+//     });
+// })
+
 </script>
