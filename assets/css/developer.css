@@ -106,7 +106,8 @@ body {
 .socials {
   display: none;
   align-items: center;
-  gap: 0.5vw; }
+  flex-direction: column;
+  gap: 2vh; }
 
 .socials span svg {
   cursor: pointer;
