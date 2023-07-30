@@ -81,6 +81,49 @@
 
 }
 
+.rating label {
+  display: block;
+  padding: 5px;
+  position: relative;
+  padding-left: 20px;
+}
+.rating label input {
+  display: none;
+}
+.rating label span {
+  width: 4vw;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 2.5vh;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid #fff;
+  border-radius: 15px;
+  color: #fff;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+input:checked + span {
+  background-color: #fd6d08;
+}
+.input-read{
+  width: 40vw;
+  font-size: 20px;
+  padding:0.5rem;   
+  height: 20vh;
+  margin-top: 3vh;
+  margin-left: 3.7vw;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.15);
+resize: none;
+}
+.input-read:focus {
+  outline: none; 
+}
+
 /*---Media Query-----*/
 @media screen and (min-width: 300px) and (max-width: 640px) {
   .page-heading {
@@ -135,17 +178,3 @@
   }
 }
 
-.input-read{
-  width: 40vw;
-  font-size: 20px;
-  padding:0.5rem;   
-  height: 20vh;
-  margin-top: 3vh;
-  margin-left: 3vw;
-  border: none;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.15);
-}
-.input-read:focus {
-  outline: none; 
-}

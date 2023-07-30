@@ -10,6 +10,7 @@
   display: none;
   position: absolute;
   top: 0;
+  left: 0vw;
   z-index: 20;
   background: linear-gradient(136deg, rgba(6, 3, 3, 0.203) 0%, rgba(255, 255, 255, 0) 100%);
   backdrop-filter: blur(3px);

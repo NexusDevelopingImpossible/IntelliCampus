@@ -19,18 +19,33 @@
 //     overlay.classList.remove('show')
 // });
 
-
 const composeButton = document.getElementById("compose__btn");
-const cross  = document.getElementById("close");
+const popOpen = document.querySelectorAll(".mail");
+const cross1 = document.querySelectorAll(".close");
+const cross = document.getElementById("close");
 const popup = document.querySelector(".popup");
 const modal = document.querySelector(".modal");
 
-composeButton.addEventListener("click", function(){
-    popup.style.display = "flex";
-    modal.style.display = "block";
-})
-cross.addEventListener("click", function(){
+let count = 0;
+
+function reportOpen(id) {
+  console.log(id);
+  document.getElementById(`pop${id}`).style.display = "flex";
+  document.getElementById(`modal${id}`).style.display = "block";
+}
+
+composeButton.addEventListener("click", function () {
+  popup.style.display = "flex";
+  modal.style.display = "block";
+});
+cross.addEventListener("click", function () {
+  popup.style.display = "none";
+  modal.style.display = "none";
+});
+
+cross1.forEach((cross) => {
+  cross.addEventListener("click", function () {
     popup.style.display = "none";
     modal.style.display = "none";
-
-})
+  });
+});
