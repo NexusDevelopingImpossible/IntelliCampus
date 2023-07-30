@@ -66,8 +66,8 @@
             <button id="create__btn" class="btn btn-full btn-medium">Create</button>
         </div>
 
-        <div class="list__main">
-            <div class="list__main__title">
+        <div class="description">
+            <div class="description__titles">
                 <ul>
                     <li>S.No</li>
                     <li>Notification Title</li>
@@ -75,9 +75,9 @@
                     <li>Attached Document</li>
                 </ul>
             </div>
-            <div class="noti-list">
+            <div class="description-scroll">
                 <%for(let i = 0; i<notidata.length; i++){%>
-                <div class="list__items">
+                <div class="description__list">
                     <ul>
                         <li><%=i+1%></li>
                         <li><%=notidata[i].title%></li>

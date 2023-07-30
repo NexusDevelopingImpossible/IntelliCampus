@@ -1,14 +1,14 @@
 .filter {
-  border: 1px solid #FD6D08;
+  border: 1px solid #fd6d08;
   height: 3vh;
-  padding: 0.2vh 0.5vw;
-  text-align: center;
-  transition-duration: 0.3s;
-  margin-right: 0.5vw;
+  padding: 0 0.5vw;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
   font-size: small; }
 
 .filter:hover {
-  background-color: #FD6D08; }
+  background-color: #fd6d08; }
 
 #pop-main {
   display: none;
@@ -27,7 +27,7 @@
   border-radius: 20px; }
 
 #title-popup {
-  background: #FFFFFF33;
+  background: #ffffff33;
   display: flex;
   justify-content: space-between;
   height: 7.5vh;
@@ -50,34 +50,50 @@
   font-weight: normal;
   margin-top: 3vh; }
 
+#main-section {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  align-items: center; }
+
 #upload-files {
   text-align: center;
-  border: 3px dashed #FD6D08;
+  border-radius: 10px;
+  border: 3px dashed #fd6d08;
   width: 50vh;
-  margin: 5vh auto; }
+  display: flex;
+  gap: 1.5vh;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5vh 0;
+  height: 30vh; }
+
+.active {
+  background-color: #ffffff1b; }
 
 #footnote {
   font-weight: normal;
   font-size: medium;
-  color: #FFFFFFB2;
+  color: #ffffffb2;
   margin: 2vh 0 0 0; }
 
 #else {
   font-weight: lighter;
   font-size: small;
-  color: #FFFFFFB2;
+  color: #ffffffb2;
   margin: 1vh 0 0 0; }
 
 #select {
   height: 5vh;
   width: 10vw;
-  border: 1px solid #FD6D08;
+  border: 1px solid #fd6d08;
   margin: 1vh auto 2vh;
   padding: 1vh 0;
   border-radius: 50px; }
 
 #select:hover {
-  background-color: #FD6D08; }
+  background-color: #fd6d08; }
 
 #select:active {
   transform: translateY(1px); }
@@ -87,16 +103,17 @@
 
 #catagories {
   display: flex;
-  margin-left: 2vw; }
+  align-items: center; }
 
 #filters {
-  display: flex; }
+  display: flex;
+  gap: 0.5vw; }
 
 #upload {
   display: flex;
-  background-color: #FD6D08;
+  align-items: center;
+  background-color: #fd6d08;
   padding: 1vh 1vw;
-  border-radius: 50px;
   margin-left: 3vw; }
 
 #upload-title {
@@ -107,15 +124,15 @@
   transform: translateY(2px); }
 
 #chapter {
-  margin-left: 1vw;
-  display: flex; }
+  display: flex;
+  align-items: center; }
 
 #input-ch-no {
   margin-left: 1vh;
   height: 3vh;
   width: 3vh;
   background: rgba(0, 0, 0, 0.15);
-  border: 1px solid #FD6D08; }
+  border: 1px solid #fd6d08; }
 
 button {
   background-color: rgba(255, 255, 255, 0);
@@ -123,3 +140,27 @@ button {
   border: 0px;
   display: flex;
   cursor: pointer; }
+
+.pdf-sel-btn {
+  width: 10vw; }
+
+#file-display {
+  display: none;
+  height: 25vh;
+  padding: 0 1vw;
+  flex-wrap: wrap;
+  gap: 1vw;
+  width: 100%;
+  overflow-x: auto; }
+
+.drag-here {
+  height: 25vh; }
+
+.file-container {
+  background-color: #fd6d08;
+  height: 4vh;
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  padding: 0 0.75vw;
+  border-radius: 7px; }

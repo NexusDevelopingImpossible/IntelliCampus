@@ -12,8 +12,8 @@
               ></a>
                 <h1 class="heading">Deactivate Account</h1>
             </div>
-            <div class="allot__2" id="section2">
-                <div class="teacher__and__btn">
+            <div class="main-section" id="section2">
+                <div class="section-header">
                     <div class="filters">
                         <select class="filter-select" name="" id="">
                             <option value="Department">Department</option>
@@ -163,26 +163,29 @@
         </div>
     </div>
     <div class="popup">
-        <div class="popup-item">
+      </div>
+          <div class="popup-item">
             <p class="popup-hed">Confirm Deactivation ?</p>
             <div class="action-btn">
                 <span id="cross" class="cross act-btn"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="4vw" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none" opacity=".87"/><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm4.3 14.3c-.39.39-1.02.39-1.41 0L12 13.41 9.11 16.3c-.39.39-1.02.39-1.41 0-.39-.39-.39-1.02 0-1.41L10.59 12 7.7 9.11c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0L12 10.59l2.89-2.89c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41L13.41 12l2.89 2.89c.38.38.38 1.02 0 1.41z"/></svg></span>
                 <span id="check" class="check act-btn"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="4vw" fill="#9EFF00"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM9.29 16.29 5.7 12.7c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0L10 14.17l6.88-6.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-7.59 7.59c-.38.39-1.02.39-1.41 0z"/></svg></span>
             </div>
         </div>
-      </div>
 </div>
 
 <script>
     const deactkBtn = document.getElementById("deact-btn");
     const cross  = document.getElementById("cross");
     const popup = document.querySelector(".popup");
+    const modal = document.querySelector(".popup-item");
 
     deactkBtn.addEventListener("click", function(){
         popup.style.display = "flex";
+        modal.style.display = "flex";
     })
     cross.addEventListener("click", function(){
         popup.style.display = "none";
+        modal.style.display = "none";
     
     })
 
