@@ -69,7 +69,7 @@
                         <%}%>
 
                     </select>
-                    <button class="reset btn-outline btn btn-sm" onclick="addsub()">Reset Max Marks</button>
+                    <button class="reset btn-outline btn" onclick="addsub()">Reset Max Marks</button>
                 </div>
                 <div class="right">
                     <button class="reset btn-outline btn btn-sm" onclick="resetmodel()">Reset</button>
@@ -126,48 +126,54 @@
             </form>
         </section>
 
-        <div class="popup" id="reset-max">
-            <div class="flex-container">
-                <div class="test-type">
-                    <p id="poptitle">QUIZ 1</p>
-                </div>
-                <div class="popup-content">
-                    <div id="maximum-marks">
-                        <p>Enter maximum marks</p>
-                    </div>
-                    <div id="input-part">
-                        <form action="/teacher/internal/resetmaxmarks" method="post" id="MaxMarksForm">
-                            <input type="number" name="maxMarks" class="popup-input" onclick="addsub()" min="0" max="200"
-                                list="defaultNumbers" id="marks-input" />
-                            <input type="hidden" name="examType" id="examType-MaxMarks" />
-                            <input type="hidden" name="timetableid" value="<%=timetable._id%>" />
-                            
-                            <button id="MaxMarksBtn" onclick="">
-                                Save
-                            </button>
-                        </form>
-                    </div>
-                    <div id="text-part">
-                        <p id="NB-part">
-                            N.B. Enter the maximum marks of the quiz test you <br />
-                            have conducted
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+      
     </div>
-    <div class="popup" id="reset-all">
+    <div class="popup"></div>
+    <!-- RESET MAX MARKS POPUP -->
+    <div class="modal" id="reset-max">
         <div class="flex-container">
-            <div class="confirm-text">
-                <p>Confirm Reset?</p>
+            <div class="test-type">
+                <p id="poptitle">QUIZ 1</p>
+                <span  class="close" id="" onclick="closemodal()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="2vw" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M13.89 8.7L12 10.59 10.11 8.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 8.7 13.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l1.89 1.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l1.89-1.89c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.38-1.41 0zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                  </span>
             </div>
-            <div class="buttons">
-                <button id="cross" onclick="closeresetmodal()"><img src="/images/cross.png"></button>
-                <button type="reset" id="tick" onclick="closeresetbut()"><img src="/images/tick.png"></button>
+            <div class="popup-content">
+                <div id="maximum-marks">
+                    <p>Enter maximum marks</p>
+                </div>
+                <div id="input-part">
+                    <form action="/teacher/internal/resetmaxmarks" method="post" id="MaxMarksForm">
+                        <div>
+                        <input type="number" name="maxMarks" class="popup-input" onclick="addsub()" min="0" max="200"
+                            list="defaultNumbers" id="marks-input" />
+                        <input type="hidden" name="examType" id="examType-MaxMarks" />
+                        <input type="hidden" name="timetableid" value="<%=timetable._id%>" />
+                    </div>
+                        <button class="btn btn-full" id="MaxMarksBtn" onclick="closemodal()">
+                            Save
+                        </button>
+                    </form>
+                </div>
+                <div id="text-part">
+                    <p id="NB-part">
+                        N.B. Enter the maximum marks of the quiz test you <br />
+                        have conducted
+                    </p>
+                </div>
             </div>
         </div>
     </div>
+
+<!-- RESET ALL POPUP -->
+    <div class="popup-item modal" id="reset-all">
+        <p class="popup-hed">Confirm Deactivation ?</p>
+        <div class="action-btn">
+            <span id="cross" class="cross act-btn"  onclick="closeresetmodal()"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="4vw" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none" opacity=".87"/><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm4.3 14.3c-.39.39-1.02.39-1.41 0L12 13.41 9.11 16.3c-.39.39-1.02.39-1.41 0-.39-.39-.39-1.02 0-1.41L10.59 12 7.7 9.11c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0L12 10.59l2.89-2.89c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41L13.41 12l2.89 2.89c.38.38.38 1.02 0 1.41z"/></svg></span>
+            <span id="tick" class="check act-btn" onclick="closeresetbut()"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="4vw" fill="#9EFF00"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM9.29 16.29 5.7 12.7c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0L10 14.17l6.88-6.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-7.59 7.59c-.38.39-1.02.39-1.41 0z"/></svg></span>
+        </div>
+    </div>
+
     </div>
     </div>
 
@@ -175,19 +181,26 @@
 
 </html>
 <script>
+    const popup = document.querySelector(".popup");
+const modal = document.querySelector(".modal");
     let resetmax = document.getElementById('reset-max');
     function addsub() {
+        popup.style.display = "flex";
         resetmax.style.display = "flex";
     }
     function closemodal() {
         resetmax.style.display = "none";
+        popup.style.display = "none";
     }
     let resetall = document.getElementById('reset-all');
     function resetmodel() {
         resetall.style.display = "flex";
+        popup.style.display = "flex";
     }
     function closeresetmodal() {
         resetall.style.display = "none";
+        popup.style.display = "none";
+  modal.style.display = "none";
     }
     function closeresetbut(){
         document.getElementById('studinternal').reset();
