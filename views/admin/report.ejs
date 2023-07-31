@@ -57,7 +57,7 @@
   <div class="modal pp"  id="modal<%=i%>">
     <div class="top">
       <h3>Report</h3>
-      <button class="close" id="close">
+      <button onclick="closeReport(this.id)" class="close" id="closed<%=i%>">
         <svg
           width="30"
           height="30"
@@ -87,18 +87,18 @@
     <form action="/student/report/sendreport" method="post">
     <div class="middle">
       <div class="subject__title">
+        <span>From : </span>
+        <span class="report-id"><%=reportdata[i].studentid.username%></span>
+        <span class="report-name"><%=reportdata[i].studentid.name%></span>
+      </div>
+      <div class="subject__title">
         <span>Subject : </span>
-        <input type="text" value="<%=reportdata[i].studentid.username%>" name="subject" id="" />
+        <div class="input-cont"><%=reportdata[i].subject%></div>
       </div>
       <div class="description-text">
         <span>Description : </span>
-        <textarea class="mail__content" id="" name="description" value="" cols="30" rows="10"> </textarea>
-      </div>
-    </div>
-    <div class="bottom">
-      <div class="row2">
-
-        <button class="send__btn btn btn-full btn-medium">Send</button>
+        <div class="mail_content textarea-cont"><%=reportdata[i].description%></div>
+       
       </div>
     </div>
     </form>
@@ -107,4 +107,29 @@
 
 </div>
 
-<script src="<%= assetPath('js/mail.js') %>"></script>
+<script>
+
+
+
+let count = 0;
+
+function reportOpen(id) {
+  console.log(id);
+  document.getElementById(`pop${id}`).style.display = "flex";
+  document.getElementById(`modal${id}`).style.display = "block";
+}
+
+
+
+function closeReport(id){
+  let closeID = id.split("closed")[1];
+  document.getElementById(`pop${closeID}`).style.display = "none";
+  document.getElementById(`modal${closeID}`).style.display = "none";
+    console.log("hiee")
+
+}
+
+
+
+
+</script>

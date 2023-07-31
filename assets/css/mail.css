@@ -86,8 +86,8 @@
 .subject__title span {
   width: 6vw; }
 
-.subject__title input,
-.description-text textarea {
+.subject__title input, .input-cont,
+.description-text textarea, .textarea-cont {
   border: none;
   outline: none;
   padding: 0.5rem;
@@ -103,6 +103,17 @@
 .description-text textarea:focus {
   outline: 0.5px solid #fff;
   background: rgba(137, 137, 137, 0.049); }
+
+.textarea-cont {
+  height: auto;
+  max-height: 25vh;
+  overflow: auto;
+  resize: none; }
+
+.input-cont {
+  height: 4.5vh;
+  overflow: auto;
+  resize: none; }
 
 .row2 {
   position: relative;

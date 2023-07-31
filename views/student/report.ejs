@@ -26,7 +26,7 @@
       <div class="mail__list">
         <%if(reportdata){%>
         <%for(let i = 0; i<reportdata.length; i++){%>
-        <div class="mail">
+        <div class="mail"  id="<%=i%>" onclick="reportOpen(this.id)">
           <div>
           <div class="mail__icon">
             <svg
@@ -42,7 +42,7 @@
               />
             </svg>
           </div>
-          <p class="mail__description">
+          <p class="mail__description1">
             <span class="mail__title"></span> <span class="sub-glmp"><%=reportdata[i].subject%></span> 
           </p>
         </div>
@@ -58,6 +58,7 @@
       </div>
     </div>
   </div>
+  <!-- compose popup -->
   <div class="popup pp">
   </div>
   <div class="modal pp" id="modal">
@@ -109,6 +110,88 @@
     </div>
     </form>
   </div>
+
+  <!-- view report popup -->
+  <%for(let i=0; i<reportdata.length; i++){%>
+    <div class="popup pp" id="pop<%=i%>">
+    </div>
+    <div class="modal pp"  id="modal<%=i%>">
+      <div class="top">
+        <h3>Report</h3>
+        <button onclick="closeReport(this.id)" class="close" id="closed<%=i%>">
+          <svg
+            width="30"
+            height="30"
+            viewBox="0 0 58 58"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_1546_5783)">
+              <path
+                d="M38.4546 19.13C43.8882 24.351 44.0612 33.0201 38.8403 38.4538C33.6193 43.8874 24.9502 44.0604 19.5165 38.8395C14.0829 33.6185 13.9098 24.9494 19.1308 19.5157C24.3518 14.0821 33.0209 13.9091 38.4546 19.13ZM40.8218 16.6664C34.0184 10.1292 23.2043 10.345 16.6671 17.1485C10.13 23.9519 10.3458 34.766 17.1493 41.3031C23.9527 47.8403 34.7668 47.6245 41.3039 40.821C47.8411 34.0176 47.6253 23.2035 40.8218 16.6664ZM36.3284 33.671L31.401 28.9365L36.1355 24.0092L33.6718 21.6419L28.9373 26.5693L24.01 21.8348L21.6427 24.2985L26.5701 29.033L21.8356 33.9603L24.2992 36.3276L29.0338 31.4002L33.9611 36.1347L36.3284 33.671Z"
+                fill="white"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_1546_5783">
+                <rect
+                  width="41"
+                  height="41"
+                  fill="white"
+                  transform="translate(28.4072) rotate(43.8565)"
+                />
+              </clipPath>
+            </defs>
+          </svg>
+        </button>
+      </div>
+      <form action="/student/report/sendreport" method="post">
+      <div class="middle">
+        <div class="subject__title">
+          <span>From : </span>
+          <span class="report-id"><%=reportdata[i].studentid.username%></span>
+          <span class="report-name"><%=reportdata[i].studentid.name%></span>
+        </div>
+        <div class="subject__title">
+          <span>Subject : </span>
+          <div class="input-cont"><%=reportdata[i].subject%></div>
+        </div>
+        <div class="description-text">
+          <span>Description : </span>
+          <div class="mail_content textarea-cont"><%=reportdata[i].description%></div>
+         
+        </div>
+      </div>
+      </form>
+    </div>
+    <%}%>
 </div>
 
 <script src="<%= assetPath('js/mail.js') %>"></script>
+
+<script>
+
+
+  
+  let count = 0;
+  
+  function reportOpen(id) {
+    console.log(id);
+    document.getElementById(`pop${id}`).style.display = "flex";
+    document.getElementById(`modal${id}`).style.display = "block";
+  }
+  
+  
+  
+  function closeReport(id){
+    let closeID = id.split("closed")[1];
+    document.getElementById(`pop${closeID}`).style.display = "none";
+    document.getElementById(`modal${closeID}`).style.display = "none";
+      console.log("hiee")
+  
+  }
+  
+  
+  
+  
+  </script>
