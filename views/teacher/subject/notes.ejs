@@ -314,9 +314,9 @@
                 </button>
 
             </div>
-            <form action="/teacher/uploadnotes" method="post">
-                
+            <form action="/teacher/subject/uploadnotes" method="post" enctype="multipart/form-data">
                 <div id="main-section" >
+                    
                     <div id="upload-files" class="container">
                         <div class="drag-here">
                         <img src="/images/Vector.png" alt="" id="file-vector">
@@ -324,7 +324,7 @@
                         <h2 id="else">OR</h2>
                     </div>
                     <div id="file-display"></div>
-                        <input type="file" name="file" id="upload-button" multiple />
+                        <input type="file" name="fileexcel" id="upload-button" multiple />
                         <label class="pdf-sel-btn btn btn-outline" for="upload-button">Select Files</label>
                     </div>
                     <div id="catagories">
@@ -394,7 +394,7 @@ uploadButton.addEventListener("change", () => {
   });
 
   // Clear the file input after handling the files
-  uploadButton.value = "";
+//   uploadButton.value = "";
 });
 
 // - - - - - - - - - - - - 

@@ -6,6 +6,7 @@ const Attendance = require("../models/attendance");
 const Notification = require("../models/notification");
 const teachersProfile = require("../models/teacherprofile");
 const TG = require("../models/tg");
+const Subjectnotes = require("../models/notes");
 const prettydate = require("pretty-date");
 const fs = require("fs");
 const path = require("path");
@@ -139,9 +140,7 @@ module.exports.searchstudent = async (req, res) => {
           updateinternal: Date.now(),
           exitattendance: Date.now(),
           exitinternal: Date.now(),
-          examMarks: [
-            { Final: "" },
-          ],
+          examMarks: [{ Final: "" }],
         });
       }
     }
@@ -402,21 +401,22 @@ module.exports.profile = async (req, res) => {
 
 module.exports.uploadnote = async (req, res) => {
   try {
-    let note = Timetable.uploadfile(req, res, function (error) {
+    Subjectnotes.uploadedFiles(req, res, async function (error) {
       if (error) {
-        console.log("** Multer error:", error);
+        console.log("**** Multer error :", error);
+      } else {
+       
+        console.log(req.files);
       }
-      console.log(req.file);
-      let subjectdata = Timetable.findById();
-      const note = {};
-      const file = Timetable.uploadpath + "/" + req.file.filename;
-      const type = req.body.type;
-      const chapter = req.body.chapter;
-      note.push(file);
-      note.push(type);
-      note.push(chapter);
-      subjectdata.notes.push(note);
-      subjectdata.save();
+      async function load_file() {
+        console.log(req.files);
+        if (req.files) {
+          let files = req.files;
+          console.log("Hi:", files);
+          
+        }
+      }
+      await load_file();
       return res.redirect("back");
     });
   } catch (error) {

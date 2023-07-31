@@ -22,7 +22,7 @@ router.post("/addattendance", teacherController.addattendance);
 router.post("/change_attendance", teacherController.change_attendance);
 router.get("/notes/:id", teacherController.viewnotes);
 router.get("/search/:registration", teacherController.profile);
-router.post("/uploadnotes", teacherController.uploadnote);
+router.post("/subject/uploadnotes", teacherController.uploadnote);
 router.get("/result-analytics", teacherController.res_analysis);
 router.get("/view-result-analytics", resultanalysisController.view_res_analysis);
 router.get("/teach-allot-students", teacherController.allot_students);

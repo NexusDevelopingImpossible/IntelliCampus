@@ -437,10 +437,14 @@ const renderCalendar = () => {
     // creating li of all days of current month
     let caltitle = '';
     console.log(caldata);
-        for(let z = 0; z < caldata.length; z++){
+    let calclass = '';
+    let hideclass = ''
+    for(let z = 0; z < caldata.length; z++){
       console.log(caldata[z].date.split('-')[1]-1,(caldata[z].date.split('-')[2]) )
       if (((caldata[z].date.split('-')[1]-1) == Number(currMonth)) && ((caldata[z].date.split('-')[2]) == i)) {
         caltitle = caldata[z].holidaytitle;
+        calclass = 'holiday-active';
+        hideclass = 'hidden-div"';
       }
     }
     let isToday =
@@ -449,8 +453,10 @@ const renderCalendar = () => {
       currYear === new Date().getFullYear()
         ? "active"
         : "";
-    liTag += `<li onmouseover="hoverHoliday(this.id)" id="${i}" class="${isToday} main-div"><div>${i}</div> <div id="hid${i}" class="hidden-div">${caltitle}</div></li> 
-        </div>`;
+    liTag += `<li onmouseover="hoverHoliday(this.id)" id="${i}" class="${isToday} ${calclass} main-div">
+              <div>${i}</div> 
+              <div id="hid${i}" class="${hideclass}">${caltitle}</div>
+              </li>`;
 
   }
 
@@ -478,11 +484,7 @@ prevNextIcon.forEach((icon) => {
   });
 });
 
-// hover
 
-// const mainDiv = document.querySelectorAll('.main-div');
-// const hiddenDiv = document.querySelector('.hidden-div');
-// console.log(mainDiv);
 
 const mainDiv = document.querySelectorAll(".main-div");
 function hoverHoliday(id) {
@@ -512,9 +514,6 @@ function hoverHoliday(id) {
       hiddenDiv.style.top = -5 + "vh";
     }
 
-    //   hiddenDiv.style.left = '25px';
-    //   hiddenDiv.style.top = '25px';
-    // hiddenDiv.style.display = "block";
   });
 
   idDSome.addEventListener("mouseenter", function () {
@@ -525,43 +524,6 @@ function hoverHoliday(id) {
     hiddenDiv.style.display = "none";
   });
 }
-// mainDiv.forEach(md=>{
 
-//     md.addEventListener('mousemove', function (event) {
-//         let vw = window.innerWidth,
-//             vh = window.innerHeight;
-//         let eCXinVW = event.clientX / vw * 100; // Multiplying by 100 to get percentage
-//         let eCYinVH = event.clientY / vh * 100;
-//         console.log(eCXinVW);
-//         console.log(eCYinVH);
-//         if (eCXinVW < 81 && eCYinVH < 78) {
-//             hiddenDiv.style.left = eCXinVW-93 + 'vw';
-//             hiddenDiv.style.top = eCYinVH-61 + 'vh';
-//         }
-//         if (eCXinVW > 81 && eCYinVH < 78) {
-//             hiddenDiv.style.left = eCXinVW-107 + 'vw';
-//             hiddenDiv.style.top = eCYinVH-61 + 'vh';
-//         }
-//         if (eCXinVW < 81 && eCYinVH > 78) {
-//             hiddenDiv.style.left = eCXinVW-93 + 'vw';
-//             hiddenDiv.style.top = eCYinVH-72 + 'vh';
-//         }
-//         if (eCXinVW > 81 && eCYinVH > 78) {
-//             hiddenDiv.style.left = eCXinVW-107 + 'vw';
-//             hiddenDiv.style.top = eCYinVH-72 + 'vh';
-//         }
-
-//     //   hiddenDiv.style.left = '25px';
-//     //   hiddenDiv.style.top = '25px';
-//     });
-
-//     md.addEventListener('mouseenter', function() {
-//       hiddenDiv.style.display = 'block';
-//     });
-
-//     md.addEventListener('mouseleave', function() {
-//       hiddenDiv.style.display = 'none';
-//     });
-// })
 
 </script>

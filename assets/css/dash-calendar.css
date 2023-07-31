@@ -91,3 +91,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   color: #fff; }
+
+.holiday-active {
+  background-color: #ffffff30; }
