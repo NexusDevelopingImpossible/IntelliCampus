@@ -375,7 +375,7 @@ module.exports.viewnotes = async (req, res) => {
     const notes = allnotes.notes.filter((book) => book.type === "Notes");
     const pyqs = allnotes.notes.filter((book) => book.type === "pyqs");
     const samplepapers = allnotes.notes.filter(
-      (book) => book.type === "samplepaper"
+      (book) => book.type === "samplepapers"
     );
     const videos = allnotes.notes.filter((book) => book.type === "video");
     return res.render("teacher/subject/notes", {

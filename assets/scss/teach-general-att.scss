@@ -11,6 +11,16 @@
       .sub-name {
         display: flex;
         align-items: center;
+
+        a svg{
+          width: 1.5vw;
+          fill: #fff;
+          transition: all 0.3s;
+        }
+        a svg:hover {
+          fill: #ffffff76;
+          margin-right: 0.75vw;
+        }
         #sub_code {
           font-weight: 100;
           font-size: 3vh;
