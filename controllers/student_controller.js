@@ -296,7 +296,7 @@ module.exports.searchnotes = async (req, res) => {
     const notes = allnotes.notes.filter((book) => book.type === "Notes");
     const pyqs = allnotes.notes.filter((book) => book.type === "pyqs");
     const samplepapers = allnotes.notes.filter(
-      (book) => book.type === "samplepaper"
+      (book) => book.type === "samplepapers"
     );
     const video = allnotes.notes.filter((book) => book.type === "video");
     if (req.xhr) {

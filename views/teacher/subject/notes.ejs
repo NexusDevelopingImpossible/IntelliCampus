@@ -290,69 +290,68 @@
       </div>
     </div>
   </div>
-  <div id="pop-main">
-    <div id="upload-notes">
-      <div id="title-popup">
-        <h1 id="title-heading">Upload Notes</h1>
-        <button onclick="popupclose()">
-          <img src="/images/cross2.png" alt="" id="cross" />
-        </button>
-      </div>
-      <form
-        action="/teacher/subject/uploadnotes"
-        method="post"
-        enctype="multipart/form-data"
-      >
-        <div id="main-section">
-          <div id="upload-files" class="container">
-            <div class="drag-here">
-              <img src="/images/Vector.png" alt="" id="file-vector" />
-              <h2 id="footnote">Drag and Drop your files here</h2>
-              <h2 id="else">OR</h2>
-            </div>
-            <div id="file-display"></div>
-            <input type="file" name="fileexcel" id="upload-button" multiple />
-            <label class="pdf-sel-btn btn btn-outline" for="upload-button"
-              >Select Files</label
+  <div class="popup"></div>
+  <div id="upload-notes" class="modal">
+    <div id="title-popup">
+      <h1 id="title-heading">Upload Notes</h1>
+      <button onclick="popupclose()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="2.5vw" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M13.89 8.7L12 10.59 10.11 8.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 8.7 13.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l1.89 1.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l1.89-1.89c.39-.39.39-1.02 0-1.41-.39-.38-1.03-.38-1.41 0zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+      </button>
+    </div>
+    <form
+      action="/teacher/subject/uploadnotes"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div id="main-section">
+        <div id="upload-files" class="container">
+          <div class="drag-here">
+            <img src="/images/Vector.png" alt="" id="file-vector" />
+            <h2 id="footnote">Drag and Drop your files here</h2>
+            <h2 id="else">OR</h2>
+          </div>
+          <div id="file-display"></div>
+          <input type="file" name="fileexcel" id="upload-button" multiple />
+          <label class="pdf-sel-btn btn btn-outline" for="upload-button"
+            >Select Files</label
+          >
+        </div>
+        <div id="catagories">
+          <div id="filters">
+            <input
+              type="hidden"
+              name="subjectid"
+              value="<%=timetable.subjectcode._id%>"
+            />
+            <label
+              ><input type="radio" name="type" value="all" /><span
+                >All</span
+              ></label
+            >
+            <label
+              ><input type="radio" name="type" value="notes" /><span
+                >Notes</span
+              ></label
+            >
+            <label
+              ><input type="radio" name="type" value="pyqs" /><span
+                >PYQs</span
+              ></label
+            >
+            <label
+              ><input type="radio" name="type" value="samplepapers" /><span
+                >Sample Papers</span
+              ></label
             >
           </div>
-          <div id="catagories">
-            <div id="filters">
-              <input
-                type="hidden"
-                name="subjectid"
-                value="<%=timetable.subjectcode._id%>"
-              />
-              <label
-                ><input type="radio" name="type" value="all" /><span
-                  >All</span
-                ></label
-              >
-              <label
-                ><input type="radio" name="type" value="notes" /><span
-                  >Notes</span
-                ></label
-              >
-              <label
-                ><input type="radio" name="type" value="pyqs" /><span
-                  >PYQs</span
-                ></label
-              >
-              <label
-                ><input type="radio" name="type" value="samplepapers" /><span
-                  >Sample Papers</span
-                ></label
-              >
-            </div>
-            <div id="chapter">
-              <p id="chapter-prompt">Chapters:</p>
-              <input id="input-ch-no" name="chapter" type="number" />
-            </div>
-            <button class="btn btn-full" type="submit">Upload</button>
+          <div id="chapter">
+            <p id="chapter-prompt">Chapters:</p>
+            <input id="input-ch-no" name="chapter" type="number" />
           </div>
+          <button class="btn btn-full" type="submit">Upload</button>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
 </div>
 
@@ -361,10 +360,12 @@
 <script src="<%= assetPath('js/attendance.js') %>"></script>
 <script>
   function popupopen() {
-    document.getElementById("pop-main").style.display = "flex";
+    document.querySelector(".popup").style.display = "block";
+    document.querySelector(".modal").style.display = "block";
   }
   function popupclose() {
-    document.getElementById("pop-main").style.display = "none";
+    document.querySelector(".popup").style.display = "none";
+    document.querySelector(".modal").style.display = "none";
   }
 </script>
 

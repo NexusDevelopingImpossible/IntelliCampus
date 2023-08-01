@@ -2,45 +2,36 @@
 <div class="main-page"> 
   <div class="blur">
   <div class="page-heading">
-  <!-- <a href="/student/dashboard"><img src="/images/allotarrow.png" alt="" id="back_buttn"></a> -->
-  <a href="/student/dashboard"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
+  <a href="/admin/dashboard"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
   <h1 class="heading">Create Calendar</h1>
 </div>
-  <div class="import-button">
-      <button class="btn btn-outline btn-medium">Import</button>
-  </div>
-  <div class="rest-part">
+<div class="main-section">
+  <form action="/admin/addholiday" method="post"> 
+    <div class="creat-holiday">
+      <ul>
+        <li>Enter date : <input class="inputbox" name="date" id="holidaydate" type="date" placeholder="dd-mm-yy"></li>
+        <li>Enter Hodiday Name: <input type="text" class="inputbox holiday-name" name="holidaytitle" id="holidaytitle" placeholder="Eg: Makar Shankranti"></li>
+      
+        <button id="holiday-save" class="holiday-save btn btn-full" disabled>Save</button>
+      </ul>
+        
+    </div>  
+    </form>
+<div class="description">
+  <div class="description__titles">
     <ul>
-      <li> Sno </li>
+      <li> Sl. no </li>
       <li> Date </li>
       <li> Day </li>
       <li> Holiday</li>
+      <li></li>
     </ul>
   </div>
-  <form action="/admin/addholiday" method="post"> 
-      <div class="notupdated">
-        <ul>
-          <li>
-            1
-          </li>
-          <li>
-            <input class="inputbox" name="date" type="date" placeholder="dd-mm-yy">
-          </li>
-          <li>
-            Saturday
-          </li>
-          <li>
-            <input type="text" class="inputbox" name="holidaytitle" id="" placeholder="blah blah blah day">
-            <button class="btn-save">Save</button>
-            <button class="del-btn">
-              <img src="/images/cross2.png" alt="">
-            </button>
-          </li>
-        </ul>
-      </div>  
-      </form>
+
+  <div class="description-scroll">
+
         <%for(let i =0; i<calendardata.length; i++){%>
-      <div class="updated">
+      <div class="updated description__list">
         <ul>
           <li>
             <%=i+1%>
@@ -52,31 +43,70 @@
             Saturday
           </li>
           <li>
-            <p><%=calendardata[i].holidaytitle%></p>
-            <button class="updated-btn"><img src="/images/dustbin.png" alt="*" /></button>
+            <%=calendardata[i].holidaytitle%>
+          </li>
+          <li>
+            <span id="del-btn" onclick="deleteHoldiay()" class="del-btn"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="2vw" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v10zM18 4h-2.5l-.71-.71c-.18-.18-.44-.29-.7-.29H9.91c-.26 0-.52.11-.7.29L8.5 4H6c-.55 0-1 .45-1 1s.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg></span>
+
           </li>
         </ul>
       </div>
       <%}%>
-    <div class="add-button">
+    </div>
+  </div>
+    <!-- <div class="add-button">
       <button class="add-btn"><img src="/images/plus.png" alt="" /></button>
-    </div>
+    </div> -->
   </div>
   </div>
-</div>
-
-<!-- 
-<div class="description">
-    <div class="description__titles">
-        <ul>
-            <li>Sr No.</li>
-            <li>Date</li>
-            <li>Day</li>
-            <li>Holiday</li>
-        </ul>
+  <div class="popup">
+  </div>
+      <div class="popup-item">
+        <p class="popup-hed">Confirm Delete ?</p>
+        <div class="action-btn">
+            <span id="cross" class="cross act-btn"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="4vw" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none" opacity=".87"/><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm4.3 14.3c-.39.39-1.02.39-1.41 0L12 13.41 9.11 16.3c-.39.39-1.02.39-1.41 0-.39-.39-.39-1.02 0-1.41L10.59 12 7.7 9.11c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0L12 10.59l2.89-2.89c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41L13.41 12l2.89 2.89c.38.38.38 1.02 0 1.41z"/></svg></span>
+            <span id="check" class="check act-btn"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="4vw" fill="#9EFF00"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM9.29 16.29 5.7 12.7c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0L10 14.17l6.88-6.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-7.59 7.59c-.38.39-1.02.39-1.41 0z"/></svg></span>
+        </div>
     </div>
-    <div class="description-scroll">
+  </div>
 
-   
-    </div>
-</div> -->
+
+<script>
+      const deactkBtn = document.getElementById("del-btn");
+    const cross  = document.getElementById("cross");
+    const popup = document.querySelector(".popup");
+    const modal = document.querySelector(".popup-item");
+
+    function deleteHoldiay(){
+      popup.style.display = "flex";
+        modal.style.display = "flex";
+    }
+    // deactkBtn.addEventListener("click", function(){
+       
+    // })
+    cross.addEventListener("click", function(){
+        popup.style.display = "none";
+        modal.style.display = "none";
+    
+    })
+</script>
+
+<script>
+  const inputDate = document.getElementById("holidaydate");
+  const inputHolidayName = document.getElementById("holidaytitle");
+  const saveBtn = document.getElementById("holiday-save");
+
+  function updateButtonOpacity() {
+  if (inputDate.value.trim() !== '' && inputHolidayName.value.trim() !== '') {
+    saveBtn.style.opacity = 1;
+    saveBtn.removeAttribute('disabled');
+  } else {
+    saveBtn.style.opacity = 0.7;
+    saveBtn.setAttribute('disabled', 'disabled');
+    saveBtn.style.cursor = "not-allowed";
+  }
+}
+
+inputDate.addEventListener('input', updateButtonOpacity);
+inputHolidayName.addEventListener('input', updateButtonOpacity);
+</script>

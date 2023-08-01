@@ -8,6 +8,13 @@
   .main-page .blur #title .sub-name {
     display: flex;
     align-items: center; }
+    .main-page .blur #title .sub-name a svg {
+      width: 1.5vw;
+      fill: #fff;
+      transition: all 0.3s; }
+    .main-page .blur #title .sub-name a svg:hover {
+      fill: #ffffff76;
+      margin-right: 0.75vw; }
     .main-page .blur #title .sub-name #sub_code {
       font-weight: 100;
       font-size: 3vh;

@@ -15,16 +15,16 @@
     </div>
 
     <div class="filters">
-      <select id="department" class="filter-select" name="department" required>
+      <select id="Department" class="filter-select" name="department" required>
         <option value="">Department</option>
       </select>
-      <select id="course" class="filter-select" name="course" required>
+      <select id="Course" class="filter-select" name="course" required>
         <option value="">Course</option>
       </select>
-      <select id="semester" class="filter-select" name="semester" required>
+      <select id="Semester" class="filter-select" name="semester" required>
         <option value="">Semester</option>
       </select>
-      <select id="subject" class="filter-select" name="subname">
+      <select id="Subject" class="filter-select sub-sel" name="subname">
         <option value="">Subject</option>
       </select>
     </div>
@@ -54,7 +54,7 @@
     <div class="list__main">
       <div class="list__main__title">
         <ul>
-          <li>S.No</li>
+          <li>Sl.No</li>
           <li>File Name</li>
           <li>Date Uploaded</li>
           <li>File Size</li>
@@ -94,9 +94,9 @@
     }
     function updateOptions(selectId) {
 
-      const selectedDepartment = document.getElementById("department").value;
-      const selectedCourse = document.getElementById("course").value;
-      const selectedSemester = document.getElementById("semester").value;
+      const selectedDepartment = document.getElementById("Department").value;
+      const selectedCourse = document.getElementById("Course").value;
+      const selectedSemester = document.getElementById("Semester").value;
 
       let filteredSubjects = subjectsData;
 
@@ -122,30 +122,30 @@
 
       }
 
-      populateSelect("subject", uniqueValues(filteredSubjects, "name"));
+      populateSelect("Subject", uniqueValues(filteredSubjects, "name"));
     }
 
-       document.getElementById("department").addEventListener("change", function () {
-      populateSelect("course", uniqueValues(subjectsData, "course"));
+       document.getElementById("Department").addEventListener("change", function () {
+      populateSelect("Course", uniqueValues(subjectsData, "course"));
       updateOptions("department");
     });
 
-    document.getElementById("course").addEventListener("change", function () {
-      populateSelect("semester", uniqueValues(subjectsData, "semester"));
+    document.getElementById("Course").addEventListener("change", function () {
+      populateSelect("Semester", uniqueValues(subjectsData, "semester"));
       updateOptions("course");
     });
 
-    document.getElementById("semester").addEventListener("change", function () {
-      updateOptions("semester");
+    document.getElementById("Semester").addEventListener("change", function () {
+      updateOptions("Semester");
     });
 
-    populateSelect("department", uniqueValues(subjectsData, "department"));
+    populateSelect("Department", uniqueValues(subjectsData, "department"));
   }
   data();
   function main2(){
     $(document).ready(function() {
       // Attach an event handler to the select element
-      $('#subject').change(function() {
+      $('#Subject').change(function() {
         // Get the selected value
         // Send the AJAX GET request
 
@@ -153,10 +153,10 @@
           type: 'GET',
           url: '/student/notes/search',
           data: {
-            sub: document.getElementById('subject').value,
-            dept: document.getElementById('department').value,
-            course: document.getElementById('course').value,
-            sem: document.getElementById('semester').value,
+            sub: document.getElementById('Subject').value,
+            dept: document.getElementById('Department').value,
+            course: document.getElementById('Course').value,
+            sem: document.getElementById('Semester').value,
           }, // Replace with your server endpoint URL
           success: function(response) {
               console.log(response)
@@ -169,18 +169,14 @@
               <ul>
                 <li class="note-metadata">${i+1}</li>
                 <li class="note-data">
-                  <img
-                    src="/images/teenyicons_pdf-solid.png"
-                    alt=""
-                    class="pdf-icon"
-                  />${stud[i].name.slice(0,25)}...${n}
+                 ${stud[i].name.slice(0,25)}...${n}
                 </li>
                 <li class="note-metadata">${stud[i].uploaddate}</li>
                 <li class="note-metadata">${stud[i].filesize}</li>
                 <li class="note-metadata">${stud[i].chapter}</li>
                 <li class="btn-std">
 
-                  <a href="${stud[i].path}"><span
+                  <a href="${stud[i].path}" target="_blank"><span
                     ><svg
                       xmlns="http://www.w3.org/2000/svg"
                       enable-background="new 0 0 24 24"
@@ -205,18 +201,14 @@
               <ul>
                 <li class="note-metadata">${i+1}</li>
                 <li class="note-data">
-                  <img
-                    src="/images/teenyicons_pdf-solid.png"
-                    alt=""
-                    class="pdf-icon"
-                  />${stud[i].name.slice(0,25)}...${n}
+                ${stud[i].name.slice(0,25)}...${n}
                 </li>
                 <li class="note-metadata">${stud[i].uploaddate}</li>
                 <li class="note-metadata">${stud[i].filesize}</li>
                 <li class="note-metadata">${stud[i].chapter}</li>
                 <li class="btn-std">
 
-                  <a href="${stud[i].path}"><span
+                  <a href="${stud[i].path}" target="_blank"><span
                     ><svg
                       xmlns="http://www.w3.org/2000/svg"
                       enable-background="new 0 0 24 24"
@@ -242,18 +234,14 @@
               <ul>
                 <li class="note-metadata">${i+1}</li>
                 <li class="note-data">
-                  <img
-                    src="/images/teenyicons_pdf-solid.png"
-                    alt=""
-                    class="pdf-icon"
-                  />${stud[i].name.slice(0,25)}...${n}
+                 ${stud[i].name.slice(0,25)}...${n}
                 </li>
                 <li class="note-metadata">${stud[i].uploaddate}</li>
                 <li class="note-metadata">${stud[i].filesize}</li>
                 <li class="note-metadata">${stud[i].chapter}</li>
                 <li class="btn-std">
 
-                  <a href="${stud[i].path}"><span
+                  <a href="${stud[i].path}" target="_blank"><span
                     ><svg
                       xmlns="http://www.w3.org/2000/svg"
                       enable-background="new 0 0 24 24"
@@ -278,18 +266,14 @@
               <ul>
                 <li class="note-metadata">${i+1}</li>
                 <li class="note-data">
-                  <img
-                    src="/images/teenyicons_pdf-solid.png"
-                    alt=""
-                    class="pdf-icon"
-                  />${stud[i].name.slice(0,25)}...${n}
+                 ${stud[i].name.slice(0,25)}...${n}
                 </li>
                 <li class="note-metadata">${stud[i].uploaddate}</li>
                 <li class="note-metadata">${stud[i].filesize}</li>
                 <li class="note-metadata">${stud[i].chapter}</li>
                 <li class="btn-std">
 
-                  <a href="${stud[i].path}"><span
+                  <a href="${stud[i].path}" target="_blank"><span
                     ><svg
                       xmlns="http://www.w3.org/2000/svg"
                       enable-background="new 0 0 24 24"
@@ -314,18 +298,14 @@
               <ul>
                 <li class="note-metadata">${i+1}</li>
                 <li class="note-data">
-                  <img
-                    src="/images/teenyicons_pdf-solid.png"
-                    alt=""
-                    class="pdf-icon"
-                  />${stud[i].name.slice(0,25)}...${n}
+                ${stud[i].name.slice(0,25)}...${n}
                 </li>
                 <li class="note-metadata">${stud[i].uploaddate}</li>
                 <li class="note-metadata">${stud[i].filesize}</li>
                 <li class="note-metadata">${stud[i].chapter}</li>
                 <li class="btn-std">
 
-                  <a href="${stud[i].path}"><span
+                  <a href="${stud[i].path}" target="_blank"><span
                     ><svg
                       xmlns="http://www.w3.org/2000/svg"
                       enable-background="new 0 0 24 24"

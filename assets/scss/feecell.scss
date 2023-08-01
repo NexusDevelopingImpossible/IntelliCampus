@@ -23,31 +23,7 @@
 }
 
 /* Description */
-.description {
-  padding: 1rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  height: 69vh;
-}
-.description-scroll {
-  // height: 70vh;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-.description-scroll::-webkit-scrollbar{
-  display: none;
-}
-.description__titles ul {
-  background: rgba(0, 0, 0, 0.12);
-  list-style-type: none;
-  display: flex;
-  padding: 0.6rem 0.65rem;
-  gap: 1rem;
-  border-radius: 10px;
-}
+
 
 .description__titles ul li {
   flex: 2;
@@ -75,16 +51,6 @@
   flex: 4;
 }
 
-.description__list ul {
-  background: rgba(248, 213, 123, 0.15);
-  list-style-type: none;
-  display: flex;
-  align-items: center;
-  padding: 1.3vh 1vw;
-  gap: 1rem;
-  border-radius: 10px;
-  margin-top: 1vh;
-}
 .description__list ul li {
   flex: 2;
   color: #fff;
@@ -109,133 +75,6 @@
 
 .import-bnt{
   display: flex;
-  gap: 1.5vw;
+  gap: 1vw;
   align-items: center;
-}
-
-.template-btn{
-  font-size: 0.85vw !important;
-  border-radius: 10px !important;
-}
-
-input[type="file"] {
-  display: none;
-}
-
-.custom-file-upload {
-  border-radius: 20px 0rem 0rem 20px;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.08);
-  width: 20vw;
-  height: 6vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  // padding: 0 1.5vw;
-  cursor: pointer;
-  font-size: 1.2vw;
-  position: relative;
-  
-}
-.custom-file-upload svg{
-  position: absolute;
-  transform: translateY(-50%);
-  right: 0.5vw;
-  width: 2vw;
-  fill: #fff;
-  transition: transform 0.3s ease-in-out;
-}
-#file-name{
-  display: flex;
-  align-items: center;
-  width: 20vw;
-  padding: 0 1.5vw;
-  height: 6vh;
-  overflow: auto;
-
-}
-
-#submit-btn{
-  opacity: 0.4;
-border-radius: 0rem 20px 20px 0rem;
-}
-#select-file{
-  width: 10vw;
-}
-.submit-btn {
-  height: 6vh;
-}
-
-
-.input-file{
-    display: flex;
-    gap: 0.25vw;
-    align-items: center;
-    justify-content: center;
-}
-
-
-// - - - - - - -
-// select
-
-
-.select-menu, .select-menu1, .select-menu2{
-  position: relative;
-}
-.select-menu .select-btn, .select-menu1 .select-btn1, .select-menu2 .select-btn2 {
-  display: flex;
-  justify-content: space-between;
-  width: 10vw;
-  padding: 1.1vh 1vw;
-  align-items: center;
-  background: #00000039;
-  // border: 0.5px solid #fff;
-  font-size: 2vh;
-  font-weight: 400;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.select-btn i, .select-btn1 i, .select-btn2 i   {
-  font-size: 2vh;
-  transition: 0.3s;
-}
-
-.select-menu.active .select-btn i, .select-menu1.active .select-btn1 i , .select-menu2.active .select-btn2 i  {
-  transform: rotate(-180deg);
-}
-
-.select-menu .options, .select-menu1 .options, .select-menu2 .options {
-  position: absolute;
-  // z-index: 1;
-  border-radius: 0px 0px 10px 10px;
-  overflow: hidden;
-  background: #4d4a4a;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-  display: none;
-  width: 9vw;
-  margin: 0 0.5vw;
-}
-
-
-.select-menu.active .options, .select-menu1.active .options, .select-menu2.active .options {
-  display: block;
-}
-
-.options .option , .options .option1 , .options .option2 {
-  cursor: pointer;
-  padding: 1vh 0;
-  align-items: center;
-  padding-left: 1vw;
-}
-
-.options .option:hover, .options .option1:hover, .options .option2:hover {
-  background: #282727;
-}
-
-
-
-.option .option-text, .option2 .option-text, .option2 .option-text {
-  font-size: 2vh;
-  color: #fff;
 }
