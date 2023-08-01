@@ -1,76 +1,389 @@
+<link rel="stylesheet" href="<%= assetPath('css/notes.css') %>" />
 
-    <link rel="stylesheet" href="<%= assetPath('css/notes.css') %>">
-  
- 
-        <div class="main-page">
-            <div class="blur">
-                <div class="page-heading">
-                    <!-- <a href="/student/dashboard"><img src="/images/allotarrow.png" alt="" id="back_buttn"></a> -->
-                    <a href="/student/dashboard"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"><path d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"/></svg></a>
-                    <h1 class="heading">Attendance</h1>
-                  </div>
-           
-          
-            <div id="filters-and-options">
-                <div id="filters">
-                    <div class="filter">All</div>
-                    <div class="filter">Notes</div>
-                    <div class="filter">PVQs</div>
-                    <div class="filter">Sample Papers</div>
-                    <div class="filter">Videos</div>
-                </div>
-                
-            </div>
-            <!-- new main list -->
-            <!-- - - - - - - - - -->
-            <div class="list__main">
-                <div class="list__main__title">
-                    <ul>
-                        <li>S.No</li>
-                        <li>File Name</li>
-                        <li>Date Uploaded</li>
-                        <li>File Size</li>
-                        <li>Chapters</li>
-                        <li></li>
-                      
-                    </ul>
-                </div>
-                <div class="student-list-scroll">
-                        <div class="list__items">
-                            <ul>
-                                <li class="note-metadata">
-                                    01
-                                </li>
-                                <li class="note-data">
-                                    <img src="/images/teenyicons_pdf-solid.png" alt="" class="pdf-icon">Note1.pdf
-                                </li>
-                                <li class="note-metadata">
-                                    29-Feb-2023
-                                </li>
-                                <li class="note-metadata">
-                                    209kb
-                                </li>
-                                <li class="note-metadata">
-                                   1
-                                </li>
-                                <li class="btn-std">
-                                    <span><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"  viewBox="0 0 24 24" ><g><rect/></g><g><path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z"/></g></svg></span>
-                                </li>
-                                
-                              
-                            </ul>
-                            
-                        </div>
-                     
-                    
-                       
-                </div>
-            </div>
+<div class="main-page">
+  <div class="blur">
+    <div class="page-heading">
+      
+      <a href="/student/dashboard"
+        ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+          <path
+            d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"
+          />
+        </svg>
+      </a>
+      <h1 class="heading">Notes</h1>
+    </div>
 
-     
-            </div>
+    <div class="filters">
+      <select id="department" class="filter-select" name="department" required>
+        <option value="">Department</option>
+      </select>
+      <select id="course" class="filter-select" name="course" required>
+        <option value="">Course</option>
+      </select>
+      <select id="semester" class="filter-select" name="semester" required>
+        <option value="">Semester</option>
+      </select>
+      <select id="subject" class="filter-select" name="subname">
+        <option value="">Subject</option>
+      </select>
+    </div>
+    <div id="filters-and-options">
+      <div id="filters">
+        <div class="filter" id="filter-allnotes" onclick="showdiv(allnotes)">
+          All
         </div>
+        <div class="filter" id="filter-notes" onclick="showdiv(notes)">
+          Notes
+        </div>
+        <div class="filter" id="filter-pyqs" onclick="showdiv(pyqs)">PYQs</div>
+        <div
+          class="filter"
+          id="filter-samplepapers"
+          onclick="showdiv(samplepapers)"
+        >
+          Sample Papers
+        </div>
+        <div class="filter" id="filter-videos" onclick="showdiv(videos)">
+          Videos
+        </div>
+      </div>
+    </div>
+    <!-- new main list -->
+    <!-- - - - - - - - - -->
+    <div class="list__main">
+      <div class="list__main__title">
+        <ul>
+          <li>S.No</li>
+          <li>File Name</li>
+          <li>Date Uploaded</li>
+          <li>File Size</li>
+          <li>Chapters</li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="student-list-scroll">
+        <div id="allnotes"></div>
+        <div id="notes"></div>
+        <div id="pyqs"></div>
+        <div id="samplepapers"></div>
+        <div id="videos"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let data = function(){
+    let u = <%- JSON.stringify(locals.subject) %>;
+    let v = <%- JSON.stringify(locals.semsec) %>;
+    const subjectsData = u;
+    const semsecData = v;
+    const uniqueValues = (data, key) =>[...new Set(data.map((item) => item[key]))];
+    function populateSelect(selectId, values) {
+
+      const select = document.getElementById(selectId);
+      select.innerHTML = "<option value=''> " + selectId + "</option>"
+
+      values.forEach((value) => {
+        const option = document.createElement("option");
+        option.text = value;
+        option.value = value;
+        select.appendChild(option);
+      });
+    }
+    function updateOptions(selectId) {
+
+      const selectedDepartment = document.getElementById("department").value;
+      const selectedCourse = document.getElementById("course").value;
+      const selectedSemester = document.getElementById("semester").value;
+
+      let filteredSubjects = subjectsData;
 
 
+      if (selectedDepartment) {
+          filteredSubjects = filteredSubjects.filter(
+              (subject) => subject.department === selectedDepartment
+          );
+      }
 
-<script src="<%= assetPath('js/attendance.js') %>"></script>
+      if (selectedCourse) {
+        filteredSubjects = filteredSubjects.filter(
+          (subject) => subject.course === selectedCourse
+        );
+
+      }
+
+      if (selectedSemester) {
+        filteredSubjects = filteredSubjects.filter(
+          (subject) => subject.semester === selectedSemester
+        );
+
+
+      }
+
+      populateSelect("subject", uniqueValues(filteredSubjects, "name"));
+    }
+
+       document.getElementById("department").addEventListener("change", function () {
+      populateSelect("course", uniqueValues(subjectsData, "course"));
+      updateOptions("department");
+    });
+
+    document.getElementById("course").addEventListener("change", function () {
+      populateSelect("semester", uniqueValues(subjectsData, "semester"));
+      updateOptions("course");
+    });
+
+    document.getElementById("semester").addEventListener("change", function () {
+      updateOptions("semester");
+    });
+
+    populateSelect("department", uniqueValues(subjectsData, "department"));
+  }
+  data();
+  function main2(){
+    $(document).ready(function() {
+      // Attach an event handler to the select element
+      $('#subject').change(function() {
+        // Get the selected value
+        // Send the AJAX GET request
+
+        $.ajax({
+          type: 'GET',
+          url: '/student/notes/search',
+          data: {
+            sub: document.getElementById('subject').value,
+            dept: document.getElementById('department').value,
+            course: document.getElementById('course').value,
+            sem: document.getElementById('semester').value,
+          }, // Replace with your server endpoint URL
+          success: function(response) {
+              console.log(response)
+            // Handle the successful response from the server
+            let allnotesdomstring = '';
+            let stud = response.allnotes.notes
+            for(let i = 0; i<stud.length; i++){
+              let n = (stud[i].name).split('.')[1]
+              allnotesdomstring = allnotesdomstring + `<div class="list__items">
+              <ul>
+                <li class="note-metadata">${i+1}</li>
+                <li class="note-data">
+                  <img
+                    src="/images/teenyicons_pdf-solid.png"
+                    alt=""
+                    class="pdf-icon"
+                  />${stud[i].name.slice(0,25)}...${n}
+                </li>
+                <li class="note-metadata">${stud[i].uploaddate}</li>
+                <li class="note-metadata">${stud[i].filesize}</li>
+                <li class="note-metadata">${stud[i].chapter}</li>
+                <li class="btn-std">
+
+                  <a href="${stud[i].path}"><span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      enable-background="new 0 0 24 24"
+                      viewBox="0 0 24 24"
+                    >
+                      <g><rect /></g>
+                      <g>
+                        <path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z" />
+                      </g>
+                    </svg>
+                  </span></a>
+                </li>
+              </ul>
+            </div>`
+            }
+            $('#allnotes').html(allnotesdomstring);
+            let notesdomstring = '';
+            stud = response.notes
+            for(let i = 0; i<stud.length; i++){
+              let n = (stud[i].name).split('.')[1]
+              notesdomstring = notesdomstring + `<div class="list__items">
+              <ul>
+                <li class="note-metadata">${i+1}</li>
+                <li class="note-data">
+                  <img
+                    src="/images/teenyicons_pdf-solid.png"
+                    alt=""
+                    class="pdf-icon"
+                  />${stud[i].name.slice(0,25)}...${n}
+                </li>
+                <li class="note-metadata">${stud[i].uploaddate}</li>
+                <li class="note-metadata">${stud[i].filesize}</li>
+                <li class="note-metadata">${stud[i].chapter}</li>
+                <li class="btn-std">
+
+                  <a href="${stud[i].path}"><span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      enable-background="new 0 0 24 24"
+                      viewBox="0 0 24 24"
+                    >
+                      <g><rect /></g>
+                      <g>
+                        <path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z" />
+                      </g>
+                    </svg>
+                  </span></a>
+                </li>
+              </ul>
+            </div>`
+            }
+            $('#notes').html(notesdomstring);
+
+            let pyqsstring = '';
+            stud = response.pyqs
+            for(let i = 0; i<stud.length; i++){
+              let n = (stud[i].name).split('.')[1]
+              pyqsstring = pyqsstring + `<div class="list__items">
+              <ul>
+                <li class="note-metadata">${i+1}</li>
+                <li class="note-data">
+                  <img
+                    src="/images/teenyicons_pdf-solid.png"
+                    alt=""
+                    class="pdf-icon"
+                  />${stud[i].name.slice(0,25)}...${n}
+                </li>
+                <li class="note-metadata">${stud[i].uploaddate}</li>
+                <li class="note-metadata">${stud[i].filesize}</li>
+                <li class="note-metadata">${stud[i].chapter}</li>
+                <li class="btn-std">
+
+                  <a href="${stud[i].path}"><span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      enable-background="new 0 0 24 24"
+                      viewBox="0 0 24 24"
+                    >
+                      <g><rect /></g>
+                      <g>
+                        <path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z" />
+                      </g>
+                    </svg>
+                  </span></a>
+                </li>
+              </ul>
+            </div>`
+            }
+            $('#pyqs').html(pyqsstring);
+            let samplepapersdomstring = '';
+            stud = response.samplepapers
+            for(let i = 0; i<stud.length; i++){
+              let n = (stud[i].name).split('.')[1]
+              samplepapersdomstring = samplepapersdomstring + `<div class="list__items">
+              <ul>
+                <li class="note-metadata">${i+1}</li>
+                <li class="note-data">
+                  <img
+                    src="/images/teenyicons_pdf-solid.png"
+                    alt=""
+                    class="pdf-icon"
+                  />${stud[i].name.slice(0,25)}...${n}
+                </li>
+                <li class="note-metadata">${stud[i].uploaddate}</li>
+                <li class="note-metadata">${stud[i].filesize}</li>
+                <li class="note-metadata">${stud[i].chapter}</li>
+                <li class="btn-std">
+
+                  <a href="${stud[i].path}"><span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      enable-background="new 0 0 24 24"
+                      viewBox="0 0 24 24"
+                    >
+                      <g><rect /></g>
+                      <g>
+                        <path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z" />
+                      </g>
+                    </svg>
+                  </span></a>
+                </li>
+              </ul>
+            </div>`
+            }
+            $('#samplepapers').html(samplepapersdomstring);
+            let videosdomstring = '';
+            stud = response.notes
+            for(let i = 0; i<stud.length; i++){
+              let n = (stud[i].name).split('.')[1]
+              videosstring = videosdomstring + `<div class="list__items">
+              <ul>
+                <li class="note-metadata">${i+1}</li>
+                <li class="note-data">
+                  <img
+                    src="/images/teenyicons_pdf-solid.png"
+                    alt=""
+                    class="pdf-icon"
+                  />${stud[i].name.slice(0,25)}...${n}
+                </li>
+                <li class="note-metadata">${stud[i].uploaddate}</li>
+                <li class="note-metadata">${stud[i].filesize}</li>
+                <li class="note-metadata">${stud[i].chapter}</li>
+                <li class="btn-std">
+
+                  <a href="${stud[i].path}"><span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      enable-background="new 0 0 24 24"
+                      viewBox="0 0 24 24"
+                    >
+                      <g><rect /></g>
+                      <g>
+                        <path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z" />
+                      </g>
+                    </svg>
+                  </span></a>
+                </li>
+              </ul>
+            </div>`
+            }
+            $('#videos').html(videosdomstring);
+            document.getElementById("allnotes").style.display = "block";
+            document.getElementById("notes").style.display = "none";
+            document.getElementById("filter-notes").style.backgroundColor = "#ffffff00";
+            document.getElementById("samplepapers").style.display = "none";
+            document.getElementById("filter-samplepapers").style.backgroundColor =
+              "#ffffff00";
+            document.getElementById("pyqs").style.display = "none";
+            document.getElementById("filter-pyqs").style.backgroundColor = "#ffffff00";
+            document.getElementById("videos").style.display = "none";
+            document.getElementById("filter-videos").style.backgroundColor =
+              "#ffffff00";
+            document.getElementById('filter-allnotes').style.backgroundColor = '#FD6D08';
+          },
+          error: function(xhr, status, error) {
+            // Handle errors
+            console.error('AJAX request failed.');
+            console.log(error);
+          }
+        });
+      });
+    });
+  }
+  main2();
+</script>
+<script>
+  function showdiv(id) {
+    console.log(id.id);
+    document.getElementById("allnotes").style.display = "none";
+    document.getElementById("filter-allnotes").style.backgroundColor =
+      "#ffffff00";
+    document.getElementById("notes").style.display = "none";
+    document.getElementById("filter-notes").style.backgroundColor = "#ffffff00";
+    document.getElementById("samplepapers").style.display = "none";
+    document.getElementById("filter-samplepapers").style.backgroundColor =
+      "#ffffff00";
+    document.getElementById("pyqs").style.display = "none";
+    document.getElementById("filter-pyqs").style.backgroundColor = "#ffffff00";
+    document.getElementById("videos").style.display = "none";
+    document.getElementById("filter-videos").style.backgroundColor =
+      "#ffffff00";
+    document.getElementById(id.id).style.display = "block";
+    document.getElementById("filter-" + id.id).style.backgroundColor =
+      "#FD6D08";
+  }
+</script>

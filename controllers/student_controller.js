@@ -2,9 +2,11 @@ const checkurlfunct = require("./server-function");
 const Student = require("../models/student");
 const Attendance = require("../models/attendance");
 const Teacher = require("../models/teacher");
+const Subject = require("../models/subject");
 const Timetable = require("../models/timetable");
 const Calendar = require("../models/calendar");
 const Notification = require("../models/notification");
+const Subjectnotes = require("../models/notes");
 const prettydate = require("pretty-date");
 const { ConnectionStates } = require("mongoose");
 const User = require("../models/user");
@@ -12,6 +14,7 @@ const fs = require("fs");
 const path = require("path");
 const studentsProfile = require("../models/studentProfile");
 const studentreport = require("../models/student_report");
+const SemSection = require("../models/semsection");
 const Feedback = require("../models/feedback");
 const { setTimeout } = require("timers/promises");
 
@@ -271,9 +274,40 @@ module.exports.fetchnoti = async (req, res) => {
 
 module.exports.notes = async (req, res) => {
   try {
-    return res.render("student/std-notes", { title: "Notes" });
+    const deptSem = await SemSection.find();
+    const subject = await Subject.find();
+    const semsec = await SemSection.find();
+    return res.render("student/std-notes", { title: "Notes", subject, semsec});
   } catch (error) {
     console.log(error);
+  }
+};
+module.exports.searchnotes = async (req, res) => {
+  try {
+    checkurlfunct.checkurlstudent(req, res);
+    console.log(req.query)
+    const subject = await Subject.findOne({
+      name: String(req.query.sub),
+      department: String(req.query.dept),
+      course: String(req.query.course),
+      semester: Number(String(req.query.sem)),
+    });
+    console.log(subject);
+    const allnotes = await Subjectnotes.findOne({ subjectid: subject._id });
+    const notes = allnotes.notes.filter((book) => book.type === "Notes");
+    const pyqs = allnotes.notes.filter((book) => book.type === "pyqs");
+    const samplepapers = allnotes.notes.filter(
+      (book) => book.type === "samplepaper"
+    );
+    const video = allnotes.notes.filter((book) => book.type === "video");
+    console.log(allnotes, notes);
+    if (req.xhr) {
+      return res.status(200).json({
+        allnotes: allnotes, notes: notes, samplepapers: samplepapers, pyqs: pyqs, video: video
+      });
+    }p
+  } catch (err) {
+    console.log(err);
   }
 };
 module.exports.setting = async (req, res) => {

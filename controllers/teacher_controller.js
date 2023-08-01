@@ -371,9 +371,11 @@ module.exports.viewnotes = async (req, res) => {
     const timetables = await Timetable.findOne({ _id: req.params.id }).populate(
       "subjectcode"
     );
+    const notes = await Subjectnotes.findOne({ subjectid: timetables.subjectcode._id });
     return res.render("teacher/subject/notes", {
       title: "Notes",
       timetable: timetables,
+      notes
     });
   } catch (err) {
     console.log(err);
@@ -405,15 +407,54 @@ module.exports.uploadnote = async (req, res) => {
       if (error) {
         console.log("**** Multer error :", error);
       } else {
-       
-        console.log(req.files);
+        const timestamp = Date.now();
+        const currentDate = new Date(timestamp);
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth() + 1; 
+        const day = currentDate.getDate();
+        const tdate = day + '-' + month + '-' + year;
+        let subjectcheck = await Subjectnotes.findOne({ subjectid: req.body.subjectid });
+        console.log(subjectcheck);
+        if(subjectcheck) {
+          for (let i = 0; i < req.files.length; i++){
+            let notedata = {
+              name: req.files[i].originalname,
+              path: Subjectnotes.filePath + "/" + req.files[i].filename,
+              chapter: req.body.chapter,
+              filesize: (req.files[i].size / 1024).toFixed(0),
+              uploaddate: tdate,
+              type: req.body.type,
+            };
+            subjectcheck.notes.push(notedata);
+          }
+          subjectcheck.save();
+        } else {
+          let filearr = [];
+          for (let i = 0; i < req.files.length; i++) {
+            let notedata = {
+              name: req.files[i].originalname,
+              path: Subjectnotes.filePath + "/" + req.files[i].filename,
+              chapter: req.body.chapter,
+              filesize: (req.files[i].size / 1024).toFixed(0),
+              uploaddate: tdate,
+              type: req.body.type
+            };
+            filearr.push(notedata);
+          }
+          Subjectnotes.create({
+            subjectid: req.body.subjectid,
+            notes: filearr
+          })
+        }
+        console.log(req.files.length);
       }
       async function load_file() {
         console.log(req.files);
+        console.log(req.body);
+
         if (req.files) {
           let files = req.files;
           console.log("Hi:", files);
-          
         }
       }
       await load_file();

@@ -18,6 +18,7 @@ router.get("/pinnoti/:id", studentController.pinnoti);
 router.get("/unpinnoti/:id", studentController.unpinnoti);
 router.get("/fetchnoti", studentController.fetchnoti);
 router.get("/notes", studentController.notes);
+router.get("/notes/search", studentController.searchnotes);
 router.get("/setting", studentController.setting);
 router.post("/changepassword", studentController.changepassword);
 router.get("/profile", studentController.profile);

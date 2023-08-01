@@ -50,13 +50,13 @@
   display: flex;
   justify-content: end; }
 
-.btns span svg {
+.btns a span svg {
   width: 1.65vw;
   fill: #fff;
   cursor: pointer;
   transition: all 0.3s; }
 
-.btns span {
+.btns a span {
   padding: 0 0.5rem;
   transition: all 0.3s;
   cursor: pointer;
@@ -65,12 +65,12 @@
   justify-content: space-between;
   align-items: center; }
 
-.btns span:hover {
+.btns a span:hover {
   background-color: #ffffff26;
   border-radius: 50%;
   border-radius: 7px 0 0 7px; }
 
-.btns span:last-child:hover {
+.btns a span:last-child:hover {
   border-radius: 0 7px 7px 0; }
 
 .btns {
@@ -188,3 +188,7 @@
 
 .student-list-scroll::-webkit-scrollbar {
   display: none; }
+
+#notes, #pyqs, #videos, #samplepaper {
+  display: none;
+  background-color: #ffffff00; }

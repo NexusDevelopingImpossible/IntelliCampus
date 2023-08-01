@@ -5,6 +5,7 @@ const Timetable = require("../models/timetable");
 const Subject = require("../models/subject");
 const Admin = require("../models/admin");
 const checkurlfunct = require("./server-function");
+const Subjectnotes = require("../models/notes");
 const Calendar = require("../models/calendar");
 const Noti = require("../models/notification");
 const Department = require("../models/department");
@@ -365,6 +366,7 @@ module.exports.addsubject = async function (req, res) {
         ],
       });
     }
+
     
     req.flash("success", "Subject allot successfully");
     return res.redirect("back");

@@ -4,6 +4,7 @@ const studentsProfile = require("../models/studentProfile");
 const SemSection = require("../models/semsection");
 const Tempupload = require("../models/templateupoad");
 const Subject = require("../models/subject");
+const Subjectnotes = require("../models/notes");
 const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
@@ -85,8 +86,13 @@ module.exports.addsubject = async (req, res) => {
             credit: (worksheet[cellcredit].v),
           });
         }
+        let suball = await Subject.find();
+        await Subjectnotes.create({
+          subjectid: suball[suball.length - 1]._id,
+        });
         i++;
       }
+      
     } catch (error) {
       console.log(error);
     }

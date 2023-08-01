@@ -5,9 +5,9 @@ const UPLOAD_Path = path.join("/upload/notes/");
 
 const notesSchema = new mongoose.Schema(
   {
-    timetableid: {
+    subjectid: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Timetable",
+      ref: "Subject",
       required: true,
     },
     notes: [
@@ -16,6 +16,15 @@ const notesSchema = new mongoose.Schema(
           type: String,
         },
         path: {
+          type: String,
+        },
+        chapter: {
+          type: Number,
+        },
+        filesize: {
+          type: String,
+        },
+        uploaddate: {
           type: String,
         },
         type: {
@@ -35,7 +44,7 @@ let storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, file.fieldname + "-" + uniqueSuffix);
+    cb(null, uniqueSuffix +'-' + file.originalname);
   },
 });
 
