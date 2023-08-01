@@ -27,7 +27,11 @@ module.exports.dashboard = async (req, res) => {
     checkurlfunct.checkurladmin(req, res);
     let admindata = await Admin.findOne({ username: res.locals.user.username });
     let teacherdata = await Teacher.find({ department: admindata.department });
-    res.render("admin/dashboard", { title: "Dashboard", teacher: teacherdata, admin: admindata});
+    res.render("admin/dashboard", {
+      title: "Dashboard",
+      teacher: teacherdata,
+      admin: admindata,
+    });
   } catch (err) {
     console.log(err);
   }
@@ -84,7 +88,7 @@ module.exports.createstudent = async function (req, res) {
         });
         await studentsProfile.create({
           regnNo: req.body[key[i]],
-        })
+        });
       }
       i = i + 4;
     }
@@ -116,37 +120,35 @@ module.exports.createstudentWexcel = async function (req, res) {
     let i = 2;
     let cellToUpdate = String("A" + i);
     try {
-      while(worksheet[cellToUpdate]!=undefined){
+      while (worksheet[cellToUpdate] != undefined) {
         cellToUpdate = String("A" + i);
         cellname = String("B" + i);
         celldept = String("C" + i);
         cellcourse = String("D" + i);
         let std_registration = Number(worksheet[cellToUpdate].v);
         let userdata = await User.findOne({ username: std_registration });
-        if(!userdata){
+        if (!userdata) {
           await Student.create({
             username: std_registration,
-            name: (worksheet[cellname].v),
-            department: (worksheet[celldept].v),
-            course: (worksheet[cellcourse].v),
+            name: worksheet[cellname].v,
+            department: worksheet[celldept].v,
+            course: worksheet[cellcourse].v,
           });
           await User.create({
             username: std_registration,
-            position: 'student',
-            password: '1'
-          })
+            position: "student",
+            password: "1",
+          });
           await studentsProfile.create({
             regnNo: std_registration,
-          })
+          });
         }
         i++;
       }
     } catch (error) {
       console.log(error);
     }
-    fs.unlinkSync(
-      path.join(__dirname, "..", url)
-    );
+    fs.unlinkSync(path.join(__dirname, "..", url));
     return res.redirect("/admin/dashboard");
   } catch (error) {
     console.log(error);
@@ -174,7 +176,7 @@ module.exports.createteacher = async function (req, res) {
         });
         await teachersProfile.create({
           regnNo: req.body[key[i]],
-        })
+        });
       }
       i = i + 4;
     }
@@ -206,37 +208,35 @@ module.exports.createteacherWexcel = async function (req, res) {
     let i = 2;
     let cellToUpdate = String("A" + i);
     try {
-      while(worksheet[cellToUpdate]!=undefined){
+      while (worksheet[cellToUpdate] != undefined) {
         cellToUpdate = String("A" + i);
         cellname = String("B" + i);
         celldept = String("C" + i);
         cellposition = String("D" + i);
         let std_registration = Number(worksheet[cellToUpdate].v);
         let userdata = await User.findOne({ username: std_registration });
-        if(!userdata){
+        if (!userdata) {
           await Teacher.create({
             username: std_registration,
-            name: (worksheet[cellname].v),
-            department: (worksheet[celldept].v),
-            position: (worksheet[cellposition].v),
+            name: worksheet[cellname].v,
+            department: worksheet[celldept].v,
+            position: worksheet[cellposition].v,
           });
           await User.create({
             username: std_registration,
-            position: 'teacher',
-            password: '1'
-          })
+            position: "teacher",
+            password: "1",
+          });
           await teachersProfile.create({
             regnNo: std_registration,
-          })
+          });
         }
         i++;
       }
     } catch (error) {
       console.log(error);
     }
-    fs.unlinkSync(
-      path.join(__dirname, "..", url)
-    );
+    fs.unlinkSync(path.join(__dirname, "..", url));
     return res.redirect("/admin/dashboard");
   } catch (error) {
     console.log(error);
@@ -260,7 +260,7 @@ module.exports.searchteacherid = async function (req, res) {
     if (req.xhr) {
       return res.status(200).json({
         data: {
-          result
+          result,
         },
       });
     }
@@ -270,7 +270,7 @@ module.exports.searchteacherid = async function (req, res) {
 };
 module.exports.searchbaralotsubject = async function (req, res) {
   try {
-    console.log(typeof(req.params.id));
+    console.log(typeof req.params.id);
     let teacherdata = await Teacher.findOne({
       username: req.params.id,
     });
@@ -287,7 +287,8 @@ module.exports.searchbaralotsubject = async function (req, res) {
       title: "Allot Subject data",
       teacher: teacherdata,
       timetable: timetables,
-      subject, semsec
+      subject,
+      semsec,
     });
   } catch (err) {
     console.log(err);
@@ -333,7 +334,7 @@ module.exports.addsubject = async function (req, res) {
     let teacherdata = await Teacher.findOne({
       username: req.body.registration,
     });
-    if (subject.type == 'Theory') {
+    if (subject.type == "Theory") {
       await Timetable.create({
         department: req.body.department,
         course: req.body.course,
@@ -361,13 +362,10 @@ module.exports.addsubject = async function (req, res) {
         teacherid: teacherdata._id,
         subjectcode: subjectName,
         classes: [],
-        internalmarks: [
-          { Final: "120" }
-        ],
+        internalmarks: [{ Final: "120" }],
       });
     }
 
-    
     req.flash("success", "Subject allot successfully");
     return res.redirect("back");
     // return res.render("admin/allotsubjectform", {
@@ -603,7 +601,7 @@ module.exports.adddept = async (req, res) => {
     if (req.xhr) {
       return res.status(200).json({
         data: {
-          dept: dept[dept.length-1]
+          dept: dept[dept.length - 1],
         },
       });
     }
@@ -805,24 +803,59 @@ module.exports.create = async (req, res) => {
 };
 module.exports.adminstudentprofile = async (req, res) => {
   let student = await Student.findById(req.params.id);
-  let studentdata = await studentsProfile.findOne({regnNo: student.username});
-  console.log("TT:",studentdata);
+  let studentdata = await studentsProfile.findOne({ regnNo: student.username });
+  console.log("TT:", studentdata);
   return res.render("student/profile", {
-    title: "Profile", student,  studentdata
+    title: "Profile",
+    student,
+    studentdata,
   });
 };
 module.exports.adminteacherprofile = async (req, res) => {
   let student = await Student.findById(req.params.id);
   return res.render("teacher/profile-teach", {
-    title: "Profile", student
-  })
+    title: "Profile",
+    student,
+  });
 };
 
 module.exports.deactivateaccount = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
     const deptSem = await SemSection.find();
-    res.render("admin/deactivate-accnt", { title: "Deactivate Account", deptSem});
+    res.render("admin/deactivate-accnt", {
+      title: "Deactivate Account",
+      deptSem,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.deactivatesearch = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    dept = String(req.query.dept);
+    course = String(req.query.course);
+    sem = Number(req.query.sem);
+    const studdata = await Student.find({
+      department: dept,
+      course: course,
+      semester: sem,
+    });
+    if (studdata) {
+      if (req.xhr) {
+        return res.status(200).json({
+          studentlist: studdata,
+        });
+      }
+    }
+    else {
+      if (req.xhr) {
+        return res.status(200).json({
+          studentlist: -1,
+        });
+      }
+    }
   } catch (err) {
     console.log(err);
   }
@@ -831,7 +864,7 @@ module.exports.section = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
     const semsec = await SemSection.find();
-    res.render("admin/addsection", { title: "Section", semsec});
+    res.render("admin/addsection", { title: "Section", semsec });
   } catch (err) {
     console.log(err);
   }
@@ -841,7 +874,7 @@ module.exports.mail = async (req, res) => {
     checkurlfunct.checkurladmin(req, res);
     const semsec = await SemSection.find();
     // admin_mailer.newmail();
-    res.render("admin/mail", { title: "Mail", semsec});
+    res.render("admin/mail", { title: "Mail", semsec });
   } catch (err) {
     console.log(err);
   }
@@ -881,42 +914,46 @@ module.exports.addstudentsection = async function (req, res) {
     const worksheet = workbook.Sheets["Student"];
     let i = 2;
     let cellToUpdate = String("A" + i);
-    console.log(req.body)
+    console.log(req.body);
     try {
-      while(worksheet[cellToUpdate]!=undefined){
+      while (worksheet[cellToUpdate] != undefined) {
         cellToUpdate = String("A" + i);
         let std_registration = Number(worksheet[cellToUpdate].v);
-        let student = await Student.findOneAndUpdate({username: std_registration},{department:String(req.body.department),course: String(req.body.course),semester: req.body.semester,section: String(req.body.section)});
+        let student = await Student.findOneAndUpdate(
+          { username: std_registration },
+          {
+            department: String(req.body.department),
+            course: String(req.body.course),
+            semester: req.body.semester,
+            section: String(req.body.section),
+          }
+        );
         await student.save();
         i++;
       }
     } catch (error) {
       console.log(error);
     }
-    fs.unlinkSync(
-      path.join(__dirname, "..", url)
-    );
-    return res.redirect('back');
+    fs.unlinkSync(path.join(__dirname, "..", url));
+    return res.redirect("back");
   } catch (error) {
     console.log(error);
   }
 };
 
-
-
 module.exports.reports = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
-    
+
     let reportdata = await studentreport
       .find()
       .populate("studentid")
       .sort({ updatedAt: -1 });
     let timearr = [];
-    for (let i = 0; i < reportdata.length; i++){
+    for (let i = 0; i < reportdata.length; i++) {
       timearr[i] = prettydate.format(reportdata[i].updatedAt);
     }
-    res.render("admin/report", { title: "Report", reportdata, timearr});
+    res.render("admin/report", { title: "Report", reportdata, timearr });
   } catch (err) {
     console.log(err);
   }
@@ -924,7 +961,7 @@ module.exports.reports = async (req, res) => {
 module.exports.feedback = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
-    res.render("admin/create-feedback", { title: "Feedback"});
+    res.render("admin/create-feedback", { title: "Feedback" });
   } catch (err) {
     console.log(err);
   }
