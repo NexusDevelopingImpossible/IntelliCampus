@@ -274,7 +274,7 @@ module.exports.fetchnoti = async (req, res) => {
 
 module.exports.notes = async (req, res) => {
   try {
-    const deptSem = await SemSection.find();
+    const deptSem = await SemSection.find({});
     const subject = await Subject.find();
     const semsec = await SemSection.find();
     return res.render("student/std-notes", { title: "Notes", subject, semsec});
@@ -292,7 +292,6 @@ module.exports.searchnotes = async (req, res) => {
       course: String(req.query.course),
       semester: Number(String(req.query.sem)),
     });
-    console.log(subject);
     const allnotes = await Subjectnotes.findOne({ subjectid: subject._id });
     const notes = allnotes.notes.filter((book) => book.type === "Notes");
     const pyqs = allnotes.notes.filter((book) => book.type === "pyqs");
@@ -300,7 +299,6 @@ module.exports.searchnotes = async (req, res) => {
       (book) => book.type === "samplepaper"
     );
     const video = allnotes.notes.filter((book) => book.type === "video");
-    console.log(allnotes, notes);
     if (req.xhr) {
       return res.status(200).json({
         allnotes: allnotes, notes: notes, samplepapers: samplepapers, pyqs: pyqs, video: video

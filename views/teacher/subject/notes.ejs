@@ -1,35 +1,7 @@
 <link rel="stylesheet" href="<%= assetPath('css/teach-general-att.css') %>" />
 <link rel="stylesheet" href="<%= assetPath('css/notes.css') %>" />
 <link rel="stylesheet" href="<%= assetPath('css/teach-note-popup.css') %>" />
-<style>
-label {
-  display: block;
-  padding: 5px;
-  position: relative;
-  padding-left: 20px;
-}
-label input {
-  display: none;
-}
-label span {
-  width: 4vw;
-  height: 6vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 2.5vh;
-  background-color: rgba(255, 255, 255, 0.15);
-  border: 1px solid #fff;
-  border-radius: 15px;
-  color: #fff;
-  cursor: pointer;
-  transition-duration: 0.3s;
-}
-input:checked + span {
-  background-color: #fd6d08;
-}
-</style>
+
 <div class="main-page">
   <div class="blur">
     <div id="title">
@@ -38,7 +10,8 @@ input:checked + span {
           ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
             <path
               d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"
-            /></svg>
+            />
+          </svg>
         </a>
         <h1 class="subject" id="sub_code"><%=timetable.subjectcode.code%></h1>
         <h1 class="subject" id="sub_title"><%=timetable.subjectcode.name%></h1>
@@ -74,11 +47,23 @@ input:checked + span {
 
     <divtype id="filters-and-options">
       <div id="filters">
-        <div class="filter">All</div>
-        <div class="filter">Notes</div>
-        <div class="filter">PVQs</div>
-        <div class="filter">Sample Papers</div>
-        <div class="filter">Videos</div>
+        <div class="filter" id="filter-allnotes" onclick="showdiv(allnotes)">
+          All
+        </div>
+        <div class="filter" id="filter-notes" onclick="showdiv(notes)">
+          Notes
+        </div>
+        <div class="filter" id="filter-pyqs" onclick="showdiv(pyqs)">PYQs</div>
+        <div
+          class="filter"
+          id="filter-samplepapers"
+          onclick="showdiv(samplepapers)"
+        >
+          Sample Papers
+        </div>
+        <div class="filter" id="filter-videos" onclick="showdiv(videos)">
+          Videos
+        </div>
       </div>
       <button id="upload" class="btn btn-full" onclick="popupopen()">
         Upload<svg
@@ -108,23 +93,23 @@ input:checked + span {
           <li></li>
         </ul>
       </div>
-      
+
       <div class="student-list-scroll">
         <%if(notes){%>
-        <%for(let i = 0; i<notes.notes.length; i++){%>
-        <div class="list__items">
-          <ul>
-            <li class="note-metadata"><%=i+1%></li>
-            <li class="note-data">
-              
-              <%let name = (notes.notes[i].name).split('.')[1]%>
-              <%=notes.notes[i].name.slice(0,30)%>...<%=name%>
-            </li>
-            <li class="note-metadata"><%=notes.notes[i].uploaddate%></li>
-            <li class="note-metadata"><%=notes.notes[i].filesize%> KB</li>
-            <li class="note-metadata"><%=notes.notes[i].chapter%></li>
-            <li class="btns">
-              <a href="<%=notes.notes[i].path%>" target="_blank"><span><svg
+        <div id="allnotes">
+          <%for(let i = 0; i<allnotes.notes.length; i++){%>
+            <div class="list__items">
+              <ul>
+                <li class="note-metadata"><%=i+1%></li>
+                <li class="note-data">
+                  <%let name = (allnotes.notes[i].name).split('.')[1]%>
+                  <%=allnotes.notes[i].name.slice(0,30)%>...<%=name%>
+                </li>
+                <li class="note-metadata"><%=allnotes.notes[i].uploaddate%></li>
+                <li class="note-metadata"><%=allnotes.notes[i].filesize%> KB</li>
+                <li class="note-metadata"><%=allnotes.notes[i].chapter%></li>
+                <li class="btns">
+                   <a href="<%=allnotes.notes[i].path%>" target="_blank"><span><svg
                   xmlns="http://www.w3.org/2000/svg"
                   enable-background="new 0 0 24 24"
                   viewBox="0 0 24 24"
@@ -144,10 +129,164 @@ input:checked + span {
                     d="M261-120q-24.75 0-42.375-17.625T201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"
                   /></svg>
               </span></a>
-            </li>
-          </ul>
+                </li>
+              </ul>
+            </div>
+          <%}%>
         </div>
-        <%}}%>
+        <div id="notes">
+          <%for(let i = 0; i<notes.length; i++){%>
+            <div class="list__items">
+              <ul>
+                <li class="note-metadata"><%=i+1%></li>
+                <li class="note-data">
+                  <%let name = (notes[i].name).split('.')[1]%>
+                  <%=notes[i].name.slice(0,30)%>...<%=name%>
+                </li>
+                <li class="note-metadata"><%=notes[i].uploaddate%></li>
+                <li class="note-metadata"><%=notes[i].filesize%> KB</li>
+                <li class="note-metadata"><%=notes[i].chapter%></li>
+                <li class="btns">
+                   <a href="<%=notes[i].path%>" target="_blank"><span><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  enable-background="new 0 0 24 24"
+                  viewBox="0 0 24 24"
+                >
+                  <g>
+                    <rect />
+                  </g>
+                  <g>
+                    <path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z" />
+                  </g></svg></span
+              ></a><a href=""><span
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M261-120q-24.75 0-42.375-17.625T201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"
+                  /></svg>
+              </span></a>
+                </li>
+              </ul>
+            </div>
+          <%}%>
+        </div>
+        <div id="pyqs">
+          <%for(let i = 0; i<pyqs.length; i++){%>
+            <div class="list__items">
+              <ul>
+                <li class="note-metadata"><%=i+1%></li>
+                <li class="note-data">
+                  <%let name = (pyqs[i].name).split('.')[1]%>
+                  <%=pyqs[i].name.slice(0,30)%>...<%=name%>
+                </li>
+                <li class="note-metadata"><%=pyqs[i].uploaddate%></li>
+                <li class="note-metadata"><%=pyqs[i].filesize%> KB</li>
+                <li class="note-metadata"><%=pyqs[i].chapter%></li>
+                <li class="btns">
+                   <a href="<%=pyqs[i].path%>" target="_blank"><span><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  enable-background="new 0 0 24 24"
+                  viewBox="0 0 24 24"
+                >
+                  <g>
+                    <rect />
+                  </g>
+                  <g>
+                    <path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z" />
+                  </g></svg></span
+              ></a><a href=""><span
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M261-120q-24.75 0-42.375-17.625T201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"
+                  /></svg>
+              </span></a>
+                </li>
+              </ul>
+            </div>
+          <%}%>
+        </div>
+        <div id="samplepapers">
+          <%for(let i = 0; i<samplepapers.length; i++){%>
+            <div class="list__items">
+              <ul>
+                <li class="note-metadata"><%=i+1%></li>
+                <li class="note-data">
+                  <%let name = (samplepapers[i].name).split('.')[1]%>
+                  <%=samplepapers[i].name.slice(0,30)%>...<%=name%>
+                </li>
+                <li class="note-metadata"><%=samplepapers[i].uploaddate%></li>
+                <li class="note-metadata"><%=samplepapers[i].filesize%> KB</li>
+                <li class="note-metadata"><%=samplepapers[i].chapter%></li>
+                <li class="btns">
+                   <a href="<%=samplepapers[i].path%>" target="_blank"><span><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  enable-background="new 0 0 24 24"
+                  viewBox="0 0 24 24"
+                >
+                  <g>
+                    <rect />
+                  </g>
+                  <g>
+                    <path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z" />
+                  </g></svg></span
+              ></a><a href=""><span
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M261-120q-24.75 0-42.375-17.625T201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"
+                  /></svg>
+              </span></a>
+                </li>
+              </ul>
+            </div>
+          <%}%>
+        </div>
+        <div id="videos">
+          <%for(let i = 0; i<videos.length; i++){%>
+            <div class="list__items">
+              <ul>
+                <li class="note-metadata"><%=i+1%></li>
+                <li class="note-data">
+                  <%let name = (videos[i].name).split('.')[1]%>
+                  <%=videos[i].name.slice(0,30)%>...<%=name%>
+                </li>
+                <li class="note-metadata"><%=videos[i].uploaddate%></li>
+                <li class="note-metadata"><%=videos[i].filesize%> KB</li>
+                <li class="note-metadata"><%=videos[i].chapter%></li>
+                <li class="btns">
+                   <a href="<%=videos[i].path%>" target="_blank"><span><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  enable-background="new 0 0 24 24"
+                  viewBox="0 0 24 24"
+                >
+                  <g>
+                    <rect />
+                  </g>
+                  <g>
+                    <path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z" />
+                  </g></svg></span
+              ></a><a href=""><span
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M261-120q-24.75 0-42.375-17.625T201-180v-570h-41v-60h188v-30h264v30h188v60h-41v570q0 24-18 42t-42 18H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"
+                  /></svg>
+              </span></a>
+                </li>
+              </ul>
+            </div>
+          <%}%>
+        </div>
+        <%}%>
       </div>
     </div>
   </div>
@@ -179,11 +318,31 @@ input:checked + span {
           </div>
           <div id="catagories">
             <div id="filters">
-                <input type="hidden" name="subjectid" value="<%=timetable.subjectcode._id%>">
-                <label><input type="radio" name="type" value="all" /><span>All</span></label>
-                <label><input type="radio" name="type" value="notes" /><span>Notes</span></label>
-                <label><input type="radio" name="type" value="pyqs" /><span>PYQs</span></label>
-                <label><input type="radio" name="type" value="samplepapers" /><span>Sample Papers</span></label>
+              <input
+                type="hidden"
+                name="subjectid"
+                value="<%=timetable.subjectcode._id%>"
+              />
+              <label
+                ><input type="radio" name="type" value="all" /><span
+                  >All</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="type" value="notes" /><span
+                  >Notes</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="type" value="pyqs" /><span
+                  >PYQs</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="type" value="samplepapers" /><span
+                  >Sample Papers</span
+                ></label
+              >
             </div>
             <div id="chapter">
               <p id="chapter-prompt">Chapters:</p>
@@ -299,4 +458,25 @@ input:checked + span {
     },
     false
   );
+</script>
+<script>
+function showdiv(id) {
+    console.log(id.id);
+    document.getElementById("allnotes").style.display = "none";
+    document.getElementById("filter-allnotes").style.backgroundColor =
+      "#ffffff00";
+    document.getElementById("notes").style.display = "none";
+    document.getElementById("filter-notes").style.backgroundColor = "#ffffff00";
+    document.getElementById("samplepapers").style.display = "none";
+    document.getElementById("filter-samplepapers").style.backgroundColor =
+      "#ffffff00";
+    document.getElementById("pyqs").style.display = "none";
+    document.getElementById("filter-pyqs").style.backgroundColor = "#ffffff00";
+    document.getElementById("videos").style.display = "none";
+    document.getElementById("filter-videos").style.backgroundColor =
+      "#ffffff00";
+    document.getElementById(id.id).style.display = "block";
+    document.getElementById("filter-" + id.id).style.backgroundColor =
+      "#FD6D08";
+  }
 </script>

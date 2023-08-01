@@ -371,11 +371,17 @@ module.exports.viewnotes = async (req, res) => {
     const timetables = await Timetable.findOne({ _id: req.params.id }).populate(
       "subjectcode"
     );
-    const notes = await Subjectnotes.findOne({ subjectid: timetables.subjectcode._id });
+    const allnotes = await Subjectnotes.findOne({ subjectid: timetables.subjectcode._id });
+    const notes = allnotes.notes.filter((book) => book.type === "Notes");
+    const pyqs = allnotes.notes.filter((book) => book.type === "pyqs");
+    const samplepapers = allnotes.notes.filter(
+      (book) => book.type === "samplepaper"
+    );
+    const videos = allnotes.notes.filter((book) => book.type === "video");
     return res.render("teacher/subject/notes", {
       title: "Notes",
       timetable: timetables,
-      notes
+      allnotes, notes, pyqs, samplepapers, videos
     });
   } catch (err) {
     console.log(err);
