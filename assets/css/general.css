@@ -100,7 +100,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   /* Add padding to prevent text overlap with the arrow */
   background-size: 20px; }
 
-input[type="file"] {
+.custom-file-upload input[type="file"] {
   display: none; }
 
 .custom-file-upload {
@@ -116,7 +116,7 @@ input[type="file"] {
   font-size: 1.2vw;
   position: relative; }
 
-.custom-file-upload svg {
+.import-icon svg {
   position: absolute;
   transform: translateY(-50%);
   right: 0.5vw;
@@ -127,7 +127,8 @@ input[type="file"] {
 #file-name {
   display: flex;
   align-items: center;
-  width: 17vw;
+  justify-content: space-between;
+  width: 20vw;
   padding: 0 1vw;
   height: 6vh;
   overflow: auto; }
