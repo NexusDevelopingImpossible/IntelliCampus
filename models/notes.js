@@ -53,10 +53,6 @@ notesSchema.statics.uploadedFiles = multer({
 }).array("fileexcel", 5);
 notesSchema.statics.filePath = UPLOAD_Path;
 
-// studentsProfileSchema.statics.uploadedFiles = multer({
-//   storage: storage,
-// }).single("avatar");
-// studentsProfileSchema.statics.filePath = UPLOAD_Path;
 
 const Subjectnotes = mongoose.model(
   "Subjectnotes",

@@ -394,7 +394,6 @@ module.exports.updateProfile = async (req, res) => {
         }
         if (req.files) {
           let files = req.files;
-          console.log("Hi:", files);
           let existingStudentProfile;
           existingStudentProfile = await studentsProfile.findOne({
             regnNo: req.body.regnNo,

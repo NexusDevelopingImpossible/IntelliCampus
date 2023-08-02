@@ -7,6 +7,7 @@ const Notification = require("../models/notification");
 const teachersProfile = require("../models/teacherprofile");
 const TG = require("../models/tg");
 const Subjectnotes = require("../models/notes");
+const Assignment = require("../models/assignment");
 const prettydate = require("pretty-date");
 const fs = require("fs");
 const path = require("path");
@@ -371,7 +372,9 @@ module.exports.viewnotes = async (req, res) => {
     const timetables = await Timetable.findOne({ _id: req.params.id }).populate(
       "subjectcode"
     );
-    const allnotes = await Subjectnotes.findOne({ subjectid: timetables.subjectcode._id });
+    const allnotes = await Subjectnotes.findOne({
+      subjectid: timetables.subjectcode._id,
+    });
     const notes = allnotes.notes.filter((book) => book.type === "Notes");
     const pyqs = allnotes.notes.filter((book) => book.type === "pyqs");
     const samplepapers = allnotes.notes.filter(
@@ -381,7 +384,11 @@ module.exports.viewnotes = async (req, res) => {
     return res.render("teacher/subject/notes", {
       title: "Notes",
       timetable: timetables,
-      allnotes, notes, pyqs, samplepapers, videos
+      allnotes,
+      notes,
+      pyqs,
+      samplepapers,
+      videos,
     });
   } catch (err) {
     console.log(err);
@@ -416,13 +423,15 @@ module.exports.uploadnote = async (req, res) => {
         const timestamp = Date.now();
         const currentDate = new Date(timestamp);
         const year = currentDate.getFullYear();
-        const month = currentDate.getMonth() + 1; 
+        const month = currentDate.getMonth() + 1;
         const day = currentDate.getDate();
-        const tdate = day + '-' + month + '-' + year;
-        let subjectcheck = await Subjectnotes.findOne({ subjectid: req.body.subjectid });
+        const tdate = day + "-" + month + "-" + year;
+        let subjectcheck = await Subjectnotes.findOne({
+          subjectid: req.body.subjectid,
+        });
         console.log(subjectcheck);
-        if(subjectcheck) {
-          for (let i = 0; i < req.files.length; i++){
+        if (subjectcheck) {
+          for (let i = 0; i < req.files.length; i++) {
             let notedata = {
               name: req.files[i].originalname,
               path: Subjectnotes.filePath + "/" + req.files[i].filename,
@@ -443,14 +452,14 @@ module.exports.uploadnote = async (req, res) => {
               chapter: req.body.chapter,
               filesize: (req.files[i].size / 1024).toFixed(0),
               uploaddate: tdate,
-              type: req.body.type
+              type: req.body.type,
             };
             filearr.push(notedata);
           }
           Subjectnotes.create({
             subjectid: req.body.subjectid,
-            notes: filearr
-          })
+            notes: filearr,
+          });
         }
         console.log(req.files.length);
       }
@@ -737,5 +746,44 @@ module.exports.int_updateinternal = async (req, res) => {
     return res.redirect("back");
   } catch (error) {
     console.log(error);
+  }
+};
+module.exports.assignment = async (req, res) => {
+  let timetabledata = await Timetable.findById(req.params.id).populate(
+    "subjectcode"
+  );
+  let assignmentdata = await Assignment.find({ timetableid: timetabledata._id });
+  console.log(assignmentdata);
+  return res.render("teacher/subject/assignment", {
+    title: "Assignment",
+    timetable: timetabledata,
+    assignmentdata
+  });
+};
+module.exports.assignmentcreate = async (req, res) => {
+  try {
+    // let createdProfile;
+    Assignment.uploadedFiles(req, res, async function (error) {
+      if (error) {
+        console.log("**** Multer error :", error);
+      } else {
+      }
+      async function load_file() {
+        if (req.file) {
+          await Assignment.create({
+            timetableid: req.body.timetableid,
+            title: req.body.title,
+            description: req.body.description,
+            pdfpath: Assignment.filePath + "/" + req.file.filename,
+            duedate: req.body.duedate
+          });
+        }
+      }
+      await load_file();
+      return res.redirect("back");
+    });
+  } catch (error) {
+    console.log(`Error: ${error}`);
+    res.json({ Error: error });
   }
 };
