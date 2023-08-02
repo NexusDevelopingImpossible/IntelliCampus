@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="<%= assetPath('css/signup.css') %>">
 
 <div class="main-page">
   <div class="blur">
@@ -9,21 +9,20 @@
         </svg></a>
       <h1 class="heading">Create New Account</h1>
     </div>
-<form action="/admin/create" method="post">
+<form class="signup-cont" action="/admin/create" method="post">
 
-    <input type="number" name="username" placeholder="regn" required>
-    <div>
-    <input type="text" name="name" placeholder="name">
-    <input type="text" name="department" placeholder="department">
-  </div>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-    <select name="position">
+    <input class="input-cont" type="number" name="username" placeholder="Registration No" required>
+    <input class="input-cont" type="text" name="name" placeholder="Name">
+    <input class="input-cont" type="text" name="department" placeholder="Department">
+
+    <input class="input-cont" type="password" name="password" placeholder="Password" required>
+    <input class="input-cont" type="password" name="confirm_password" placeholder="Confirm Password" required>
+    <select class="input-cont" name="position">
         <option value="admin">Admin</option>
         <option value="examcell">Examcell</option>
         <option value="feecell">Feecell</option>
       </select>
-    <input type="Submit" value="Sign Up">
+    <input class="submit-btn" type="Submit" value="Create Account">
 </form>
 
 </div>

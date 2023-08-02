@@ -787,6 +787,7 @@ module.exports.createsem = async (req, res) => {
 };
 
 module.exports.signUp = (req, res) => {
+  checkurlfunct.checkurladmin(req, res);
   return res.render("login-signup/signup", {
     title: "Sign Up",
   });

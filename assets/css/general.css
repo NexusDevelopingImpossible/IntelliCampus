@@ -200,3 +200,26 @@ input[type="file"] {
 
 .description__list ul li {
   color: #fff; }
+
+.popup {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0vw;
+  z-index: 20;
+  background: linear-gradient(136deg, rgba(6, 3, 3, 0.203) 0%, rgba(255, 255, 255, 0) 100%);
+  backdrop-filter: blur(3px);
+  margin-left: 0rem;
+  width: 84vw;
+  height: 96vh;
+  border-radius: 2.75vw;
+  align-items: center;
+  justify-content: center; }
+
+.modal {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30; }
