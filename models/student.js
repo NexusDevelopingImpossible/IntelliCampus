@@ -11,6 +11,9 @@ const studentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    deactivatestate: {
+      type: Boolean,
+    },
     department: {
       type: String,
       required: true,
@@ -35,7 +38,7 @@ const studentSchema = new mongoose.Schema(
     ],
     avatar: {
       type: String,
-    }
+    },
   },
   {
     timestamps: true,

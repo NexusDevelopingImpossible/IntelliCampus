@@ -20,7 +20,9 @@ const XLSX = require("xlsx");
 const teachersProfile = require("../models/teacherprofile");
 const admin_mailer = require("../mailer/admin_mailer");
 const studentreport = require("../models/student_report");
+const deactivateaccount = require("../models/deactivatedaccount");
 const prettydate = require("pretty-date");
+const DeactivateAccount = require("../models/deactivatedaccount");
 //Dashboard
 module.exports.dashboard = async (req, res) => {
   try {
@@ -85,6 +87,7 @@ module.exports.createstudent = async function (req, res) {
           name: req.body[key[i + 1]],
           department: req.body[key[i + 2]],
           course: req.body[key[i + 3]],
+          deactivatestate: false,
         });
         await studentsProfile.create({
           regnNo: req.body[key[i]],
@@ -133,6 +136,7 @@ module.exports.createstudentWexcel = async function (req, res) {
             name: worksheet[cellname].v,
             department: worksheet[celldept].v,
             course: worksheet[cellcourse].v,
+            deactivatestate: false
           });
           await User.create({
             username: std_registration,
@@ -804,7 +808,6 @@ module.exports.create = async (req, res) => {
 module.exports.adminstudentprofile = async (req, res) => {
   let student = await Student.findById(req.params.id);
   let studentdata = await studentsProfile.findOne({ regnNo: student.username });
-  console.log("TT:", studentdata);
   return res.render("student/profile", {
     title: "Profile",
     student,
@@ -819,7 +822,7 @@ module.exports.adminteacherprofile = async (req, res) => {
   });
 };
 
-module.exports.deactivateaccount = async (req, res) => {
+module.exports.deactivate = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
     const deptSem = await SemSection.find();
@@ -841,6 +844,7 @@ module.exports.deactivatesearch = async (req, res) => {
       department: dept,
       course: course,
       semester: sem,
+      // deactivatestate: false //Remember to remove once data is reset
     });
     if (studdata) {
       if (req.xhr) {
@@ -856,6 +860,107 @@ module.exports.deactivatesearch = async (req, res) => {
         });
       }
     }
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.deactivateaccount = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    console.log(req.body);
+    if (req.body.check) {
+      let check = req.body.check;
+      for (let i = 0; i < check.length; i++){
+        console.log("Check: ",check[i]);
+        const usercheck = await User.findOne({ username: Number(check[i]) });
+        console.log("User: ",usercheck);  
+        if (usercheck) {
+          let studentdata = await Student.findOne({ username: usercheck.username });
+          studentdata.deactivatestate = true;
+          console.log(studentdata);
+          await studentdata.save();
+          await DeactivateAccount.create({
+            username: usercheck.username,
+            password: usercheck.password,
+            position: usercheck.position,
+            deactDate: Date.now()
+          });
+          await User.findByIdAndDelete(usercheck._id);
+        }
+      }
+    }
+    req.flash('success', 'Account Deactivated');
+    return res.redirect('back');
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.activate = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    const deptSem = await SemSection.find();
+    res.render("admin/activate-accnt", {
+      title: "Activate Account",
+      deptSem,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.activatesearch = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    
+    const studdata = await DeactivateAccount.find({
+      department: dept,
+      course: course,
+      semester: sem,
+    });
+    if (studdata) {
+      if (req.xhr) {
+        return res.status(200).json({
+          studentlist: studdata,
+        });
+      }
+    }
+    else {
+      if (req.xhr) {
+        return res.status(200).json({
+          studentlist: -1,
+        });
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.activateaccount = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    console.log(req.body);
+    if (req.body.check) {
+      let check = req.body.check;
+      for (let i = 0; i < check.length; i++){
+        console.log("Check: ",check[i]);
+        const usercheck = await User.findOne({ username: Number(check[i]) });
+        console.log("User: ",usercheck);  
+        if (usercheck) {
+          let studentdata = await Student.findOne({ username: usercheck.username });
+          studentdata.deactivatestate = true;
+          console.log(studentdata);
+          await studentdata.save();
+          await DeactivateAccount.create({
+            username: usercheck.username,
+            password: usercheck.password,
+            position: usercheck.position,
+            deactDate: Date.now()
+          });
+          await User.findByIdAndDelete(usercheck._id);
+        }
+      }
+    }
+    req.flash('success', 'Account Deactivated');
+    return res.redirect('back');
   } catch (err) {
     console.log(err);
   }

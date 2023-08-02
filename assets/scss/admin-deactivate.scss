@@ -31,13 +31,13 @@
   .description__titles ul li:nth-child(3),  .description__list ul li:nth-child(3){
       flex: 7;
   }
-  .description__titles ul li:nth-child(4),  .description__list ul li:nth-child(4) {
-    flex: 10;
-  }
-  .description__titles ul li:nth-child(5),  .description__list ul li:nth-child(5) {
-    flex: 4;
-  }
-  .description__titles ul li:nth-child(6), .description__list ul li:nth-child(6) {
+  // .description__titles ul li:nth-child(4),  .description__list ul li:nth-child(4) {
+  //   flex: 10;
+  // }
+  // .description__titles ul li:nth-child(5),  .description__list ul li:nth-child(5) {
+  //   flex: 4;
+  // }
+  .description__titles ul li:nth-child(4), .description__list ul li:nth-child(6) {
     border: none;
     display: flex;
     justify-content: end;

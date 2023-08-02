@@ -11,31 +11,11 @@
             />
           </svg>
         </a>
-        <h1 class="heading">Deactivate Account</h1>
+        <h1 class="heading">Activate Account</h1>
       </div>
       <div class="main-section" id="section2">
         <div class="section-header">
-          <div class="filters">
-            <select
-              id="departmentSelect"
-              class="filter-select"
-              onchange="updateCourseSelect()"
-            >
-              <option value="">Department</option>
-            </select>
-
-            <select
-              id="courseSelect"
-              class="filter-select"
-              onchange="updateSemesterSelect()"
-            >
-              <option value="">Course</option>
-            </select>
-
-            <select id="semesterSelect" class="filter-select">
-              <option value="">Semester</option>
-            </select>
-          </div>
+          <input type="number" style="color: black;">
           <button id="deact-btn" class="deact-btn btn btn-full">
             Deactivate
           </button>
@@ -51,7 +31,7 @@
             </ul>
           </div>
           <div class="description-scroll">
-            <form action="/admin/deactivate/account" method="post" id="formid">
+            <form action="/admin/activate/account" method="post" id="formid">
               <div class="description__list" id="stud_list"></div>
             </form>
           </div>
@@ -123,86 +103,11 @@
     }
   });
 </script>
-<script>
-  var departmentSelect = document.getElementById("departmentSelect");
-  var courseSelect = document.getElementById("courseSelect");
-  var semesterSelect = document.getElementById("semesterSelect");
-
-  departmentSelect.addEventListener("change", updateCourseSelect);
-  courseSelect.addEventListener("change", updateSemesterSelect);
-  let u = <%- JSON.stringify(locals.deptSem) %>;
-  let data = u;
-  function updateDepartmentSelect() {
-
-    var departments = [...new Set(data.map(item => item.department))];
-
-    for (var i = 0; i < departments.length; i++) {
-      var option = document.createElement("option");
-      option.text = departments[i];
-      option.value = departments[i];
-      departmentSelect.appendChild(option);
-    }
-  }
-
-  function updateCourseSelect() {
-    var selectedDepartment = departmentSelect.value;
-
-    courseSelect.innerHTML = "";
-    semesterSelect.innerHTML = "";
-
-    if (selectedDepartment) {
-      var departmentData = data.filter(item => item.department === selectedDepartment);
-      var courses = [...new Set(departmentData.map(item => item.course))];
-      var option = document.createElement("option");
-      option.text = "Course";
-      courseSelect.appendChild(option);
-      for (var i = 0; i < courses.length; i++) {
-        var option = document.createElement("option");
-        option.text = courses[i];
-        option.value = courses[i];
-        courseSelect.appendChild(option);
-      }
-    } else {
-      var option = document.createElement("option");
-      option.text = "Course";
-      courseSelect.appendChild(option);
-    }
-
-    // After updating the course select, also update the semester select
-    updateSemesterSelect();
-  }
-
-  function updateSemesterSelect() {
-    var selectedDepartment = departmentSelect.value;
-    var selectedCourse = courseSelect.value;
-
-    semesterSelect.innerHTML = "";
-
-    if (selectedDepartment && selectedCourse) {
-      var departmentCourseData = data.filter(item => item.department === selectedDepartment && item.course === selectedCourse);
-      var semesters = [...new Set(departmentCourseData.map(item => item.semester))];
-      var option = document.createElement("option");
-      option.text = "Semester";
-      semesterSelect.appendChild(option);
-      for (var i = 0; i < semesters.length; i++) {
-        var option = document.createElement("option");
-        option.text = semesters[i];
-        option.value = semesters[i];
-        semesterSelect.appendChild(option);
-      }
-    } else {
-      var option = document.createElement("option");
-      option.text = "Semester";
-      semesterSelect.appendChild(option);
-    }
-  }
-
-  // Call the update functions initially to load the selects dynamically
-  updateDepartmentSelect();
-  updateCourseSelect();
+<!-- <script>
   $(document).ready(function() {
     // Attach an event handler to the select element
-    $('#semesterSelect').change(function() {
+    $('# ').submit(function(e) {
+        e.preventDefault();
       // Get the selected value
       var selectedValue = $(this).val();
       var dept = document.getElementById('departmentSelect').value;
@@ -212,7 +117,7 @@
       // Send the AJAX GET request
       $.ajax({
         type: 'GET',
-        url: '/admin/deactivate/search',
+        url: '/admin/activate/search',
         data: {
           dept: dept,
           course: course,
@@ -243,7 +148,7 @@
       });
     });
   });
-</script>
+</script> -->
 <script>
   function submitform(){
     document.getElementById('formid').submit();

@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema(
+const deactivatedaccountSchema = new mongoose.Schema(
   {
     username: {
       type: Number,
@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema(
     },
     email: {
       type: String,
+      unique: true,
     },
     password: {
       type: String,
@@ -18,10 +19,8 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    logintime: {
-      type: Date,
-    },
-    exittime: {
+    //Deactivate Date and time
+    deactDate: {
       type: Date,
     },
   },
@@ -30,5 +29,8 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-const User = mongoose.model('User', userSchema);
-module.exports = User;
+const DeactivateAccount = mongoose.model(
+  "DeactivateAccount",
+  deactivatedaccountSchema
+);
+module.exports = DeactivateAccount;

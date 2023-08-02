@@ -21,6 +21,8 @@
           <p class="std-name"><%=student.name%></p>
           <p class="std-reg-no"><%=student.username%></p>
           <input type="hidden" name="regnNo" value="<%=student.username%>" />
+          <%console.log(student.deactivatestate)%>
+          <%if(!student.deactivatestate){%>
           <div class="std-details-1">
             <p><span>Course:</span><%=student.course%> (<%=student.department%>)</p>
             <p><span>Semester:</span> <%=student.semester%></p>
@@ -28,6 +30,11 @@
             <p><span>TG Name:</span> Diganta Baruah (449)</p>
             <p><span>TG No:</span> 7076321457</p>
           </div>
+          <%}else{%>
+            <div class="std-details-1">
+            <p><span>Account:</span>Deactivated</p>
+          </div>
+          <%}%>
           <div class="std-details-2">
             <p>
               <span>DOB:</span>
