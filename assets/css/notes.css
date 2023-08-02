@@ -182,7 +182,7 @@
 .student-list-scroll::-webkit-scrollbar {
   display: none; }
 
-#notes, #pyqs, #videos, #samplepaper {
+#notes, #pyqs, #videos, #samplepapers {
   display: none;
   background-color: #ffffff00; }
 

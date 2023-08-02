@@ -174,29 +174,6 @@
   color: black;
   padding: 0 2vw; }
 
-.popup {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0vw;
-  z-index: 20;
-  background: linear-gradient(136deg, rgba(6, 3, 3, 0.203) 0%, rgba(255, 255, 255, 0) 100%);
-  backdrop-filter: blur(3px);
-  margin-left: 0rem;
-  width: 84vw;
-  height: 96vh;
-  border-radius: 2.75vw;
-  align-items: center;
-  justify-content: center; }
-
-.modal {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 30; }
-
 .popup-item {
   border: 0.5px solid rgba(255, 255, 255, 0.7);
   background: rgba(248, 213, 123, 0.15);
