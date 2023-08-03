@@ -16,10 +16,9 @@
     .card {
       background-color: $card-background-color;
       // border: 1px solid $card-border;
-      border: 0.5px solid #ffffff79;
-      // box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.1);
+      // border: 0.5px solid #ffffff79;
+      box-shadow: 0px 0px 14px 0px rgba(63, 61, 61, 0.1);
       border-radius: 15px;
-      // backdrop-filter: blur(7px);
     }
 
     .card1 {
