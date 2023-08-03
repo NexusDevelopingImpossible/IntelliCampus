@@ -62,97 +62,139 @@ module.exports.allotsubject = async (req, res) => {
   }
 };
 
-//Searching the student in the student database to allot subject
-module.exports.searchstudent = async (req, res) => {
-  checkurlfunct.checkurlteacher(req, res);
+module.exports.subjectstudentlist = async (req, res) => {
   try {
+    checkurlfunct.checkurlteacher(req, res);
     let timetabledata = await Timetable.findOne({
       _id: req.params.id,
     }).populate("subjectcode");
-    console.log(timetabledata.subjectcode.type == "Theroy");
-    if (timetabledata.subjectcode.type == "Theory") {
-      if (timetabledata.subjectcode.theorytype == "Core") {
-        let studentdata = await Student.find({
-          department: timetabledata.department,
-          semester: timetabledata.semester,
-          section: timetabledata.section,
-        });
-        // console.log(timetabledata, studentdata);
-        for (let i = 0; i < studentdata.length; i++) {
-          await Attendance.create({
-            timetableid: timetabledata._id,
-            studentid: studentdata[i]._id,
-            present: [],
-            totalpresent: 0,
-            examMarks: [],
-            updateattendance: Date.now(),
-            updateinternal: Date.now(),
-            exitattendance: Date.now(),
-            exitinternal: Date.now(),
-            examMarks: [
-              { Quiz1: "" },
-              { Session1: "" },
-              { Quiz2: "" },
-              { Session2: "" },
-            ],
-          });
-        }
-      }
-      if (timetabledata.subjectcode.theorytype == "Elective") {
-        let studentdata = await Student.find({
-          department: timetabledata.department,
-          semester: timetabledata.semester,
-        });
-        for (let i = 0; i < studentdata.length; i++) {
-          await Attendance.create({
-            timetableid: timetabledata._id,
-            studentid: studentdata[i]._id,
-            present: [],
-            totalpresent: 0,
-            examMarks: [],
-            updateattendance: Date.now(),
-            updateinternal: Date.now(),
-            exitattendance: Date.now(),
-            exitinternal: Date.now(),
-            examMarks: [
-              { Quiz1: "" },
-              { Session1: "" },
-              { Quiz2: "" },
-              { Session2: "" },
-            ],
-          });
-        }
-      }
-    }
-    if (timetabledata.subjectcode.type == "Lab") {
+    let studentlist = [];
+    console.log(timetabledata.subjectcode.theorytype);
+    if (timetabledata.subjectcode.theorytype == "Core") {
       let studentdata = await Student.find({
         department: timetabledata.department,
         semester: timetabledata.semester,
         section: timetabledata.section,
       });
-      for (let i = 0; i < studentdata.length; i++) {
-        await Attendance.create({
-          timetableid: timetabledata._id,
-          studentid: studentdata[i]._id,
-          present: [],
-          totalpresent: 0,
-          examMarks: [],
-          updateattendance: Date.now(),
-          updateinternal: Date.now(),
-          exitattendance: Date.now(),
-          exitinternal: Date.now(),
-          examMarks: [{ Final: "" }],
-        });
+      for (let i = 0; i < studentdata.length; i++){
+        let attcheck = await Attendance.findOne({ studentid: studentdata[i]._id, timetableid: timetabledata._id});
+        if (!attcheck) {
+          studentlist.push(studentdata[i]);
+        }
       }
+      return res.render("teacher/teach-allot-students", {
+        title: "Allot Subject to Student",
+        timetable: timetabledata,
+        studentlist: studentlist,
+      });
     }
-    req.flash("success", "Subject allot to students successfully");
+    
+    if (timetabledata.subjectcode.theorytype == "Elective") {
+      let studentdata = await Student.find({
+        department: timetabledata.department,
+      });
+      for (let i = 0; i < studentdata.length; i++) {
+        let attcheck = await Attendance.findOne({
+          studentid: studentdata[i]._id,
+          timetableid: timetabledata._id
+        });
+        if (!attcheck) {
+          studentlist.push(studentdata[i]);
+        }
+      }
+      return res.render("teacher/teach-allot-students", {
+        title: "Allot Subject to Student",
+        timetable: timetabledata,
+        studentlist: studentlist,
+      });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.allotsubjectsearchadd = async (req, res) => {
+  try {
+    checkurlfunct.checkurlteacher(req, res);
+    let reg = req.body.registration;
+    let student = await Student.findOne({ username: reg });
+    console.log(student);
+    if (req.xhr) {
+      return res.status(200).json({
+        student: student,
+      });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+//Searching the student in the student database to allot subject
+module.exports.allotsubjectaddstudent = async (req, res) => {
+  checkurlfunct.checkurlteacher(req, res);
+  try {
+    console.log(req.body);
+    let studentdata = req.body.studentlist;
+    if (studentdata) {
+          let timetabledata = await Timetable.findById(
+            req.body.timetableid
+          ).populate("subjectcode");
+          if (timetabledata.subjectcode.type == "Theory") {
+            for (let i = 0; i < studentdata.length; i++) {
+              let check = await Attendance.findOne({
+                timetableid: timetabledata._id,
+                studentid: studentdata[i],
+              });
+              if (!check) {
+                await Attendance.create({
+                  timetableid: timetabledata._id,
+                  studentid: studentdata[i],
+                  present: [],
+                  totalpresent: 0,
+                  examMarks: [],
+                  updateattendance: Date.now(),
+                  updateinternal: Date.now(),
+                  exitattendance: Date.now(),
+                  exitinternal: Date.now(),
+                  examMarks: [
+                    { Quiz1: "" },
+                    { Session1: "" },
+                    { Quiz2: "" },
+                    { Session2: "" },
+                  ],
+                });
+              }
+            }
+          }
+          if (timetabledata.subjectcode.type == "Lab") {
+            for (let i = 0; i < studentdata.length; i++) {
+              let check = await Attendance.findOne({
+                timetableid: timetabledata._id,
+                studentid: studentdata[i],
+              });
+              if (!check) {
+                await Attendance.create({
+                  timetableid: timetabledata._id,
+                  studentid: studentdata[i],
+                  present: [],
+                  totalpresent: 0,
+                  examMarks: [],
+                  updateattendance: Date.now(),
+                  updateinternal: Date.now(),
+                  exitattendance: Date.now(),
+                  exitinternal: Date.now(),
+                  examMarks: [{ Final: "" }],
+                });
+              }
+            }
+          }
+          req.flash("success", "Subject allot to students successfully");
+    }
     return res.redirect("back");
   } catch (err) {
     console.log(err);
   }
 };
 
-//attendance page
+// //attendance page
 module.exports.getsubject = async (req, res) => {
   try {
     checkurlfunct.checkurlteacher(req, res);
@@ -752,12 +794,14 @@ module.exports.assignment = async (req, res) => {
   let timetabledata = await Timetable.findById(req.params.id).populate(
     "subjectcode"
   );
-  let assignmentdata = await Assignment.find({ timetableid: timetabledata._id });
+  let assignmentdata = await Assignment.find({
+    timetableid: timetabledata._id,
+  });
   console.log(assignmentdata);
   return res.render("teacher/subject/assignment", {
     title: "Assignment",
     timetable: timetabledata,
-    assignmentdata
+    assignmentdata,
   });
 };
 module.exports.assignmentcreate = async (req, res) => {
@@ -774,7 +818,7 @@ module.exports.assignmentcreate = async (req, res) => {
             title: req.body.title,
             description: req.body.description,
             pdfpath: Assignment.filePath + "/" + req.file.filename,
-            duedate: req.body.duedate
+            duedate: req.body.duedate,
           });
         }
       }
@@ -787,7 +831,6 @@ module.exports.assignmentcreate = async (req, res) => {
   }
 };
 module.exports.assignmentmark = async (req, res) => {
-
   console.log(req.params.id);
   const assignmentdata = await Assignment.findById(req.params.id);
   const timetable = await Timetable.findById(
@@ -795,6 +838,7 @@ module.exports.assignmentmark = async (req, res) => {
   ).populate("subjectcode");
   return res.render("teacher/subject/assignment_check", {
     title: "Assignment",
-    timetable, assignmentdata
+    timetable,
+    assignmentdata,
   });
 };

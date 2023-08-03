@@ -6,7 +6,7 @@
   <div class="blur">
     <div class="allot-student">
       <div class="page-heading">
-        <a href="/teacher/dashboard"
+        <a href="/teacher/allotsubject"
           ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
             <path
               d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"
@@ -15,23 +15,30 @@
         <h1 class="heading">Allot subjects to Students</h1>
       </div>
     </div>
+    <form action="/teacher/allotsubject/addstudent" method="post">
+      <input type="hidden" name="timetableid" value="<%=timetable._id%>">
     <div class="main-content">
       <ul>
         <li class="inside-main">
           <div class="anchor-content">
             <div class="row1">
-              <span class="sub-code" name="subjectcode" value="hi">
-                CS1841 &nbsp;
+              <span class="sub-code" name="subjectcode">
+                <%=timetable.subjectcode.code%> &nbsp;
               </span>
-              <span class="bold-part"> Signals And Networks </span>
+              <span class="bold-part"> <%=timetable.subjectcode.name%> </span>
             </div>
             <div class="row2">
-              <span>Year : <span class="bold-part">2021 &nbsp;</span></span>
+              <%
+              const currentTimeStamp = Date.now();
+              const currentDate = new Date(currentTimeStamp);
+              const currentYear = currentDate.getFullYear();
+              %>
+              <span>Year : <span class="bold-part"><%=Number(currentYear)-Number(timetable.year)+1%> &nbsp;</span></span>
               <span class="department"
-                >Department : <span class="bold-part"> CSE &nbsp; </span></span
+                >Department : <span class="bold-part"> <%=timetable.department%> &nbsp; </span></span
               >
               <span class="section"
-                >Section : <span class="bold-part"> B &nbsp; </span></span
+                >Section : <span class="bold-part"> <%=timetable.section%> &nbsp; </span></span
               >
             </div>
           </div>
@@ -50,83 +57,29 @@
             <li>Sno</li>
             <li>Name</li>
             <li>Registration No</li>
-            <li>  <input type="checkbox" class="butt" id="checkall" /></li>
+            <li><input type="checkbox" class="butt" id="checkall" checked/></li>
           </ul>
         </div>
         
-     <div class="list-part">
-      
-        <div class="notupdated2">
+      <div class="list-part">
+        <div class="notupdated2" id="studlist">
+          <%for(let i = 0; i<studentlist.length; i++){%>
           <ul>
-            <li>1</li>
-            <li>Norsang dhendup Bhutia</li>
-            <li>202100188</li>
+            <li><%=i+1%></li>
+            <li><%=studentlist[i].name%></li>
+            <li><%=studentlist[i].username%></li>
             <li>
-              <input type="checkbox" class="radios" id="" />
+              <input type="checkbox" class="radios" name="studentlist" value="<%=studentlist[i]._id%>" checked/>
             </li>
           </ul>
-          <ul>
-            <li>1</li>
-            <li>Norsang dhendup Bhutia</li>
-            <li>202100188</li>
-            <li>
-              <input type="checkbox" class="radios" id="" />
-            </li>
-          </ul>
-          <ul>
-            <li>1</li>
-            <li>Norsang dhendup Bhutia</li>
-            <li>202100188</li>
-            <li>
-              <input type="checkbox" class="radios" id="" />
-            </li>
-          </ul>
-          <ul>
-            <li>1</li>
-            <li>Norsang dhendup Bhutia</li>
-            <li>202100188</li>
-            <li>
-              <input type="checkbox" class="radios" id="" />
-            </li>
-          </ul>
-          <ul>
-            <li>1</li>
-            <li>Norsang dhendup Bhutia</li>
-            <li>202100188</li>
-            <li>
-              <input type="checkbox" class="radios" id="" />
-            </li>
-          </ul>
-          <ul>
-            <li>1</li>
-            <li>Norsang dhendup Bhutia</li>
-            <li>202100188</li>
-            <li>
-              <input type="checkbox" class="radios" id="" />
-            </li>
-          </ul>
-          <ul>
-            <li>1</li>
-            <li>Norsang dhendup Bhutia</li>
-            <li>202100188</li>
-            <li>
-              <input type="checkbox" class="radios" id="" />
-            </li>
-          </ul>
-          <ul>
-            <li>1</li>
-            <li>Norsang dhendup Bhutia</li>
-            <li>202100188</li>
-            <li>
-              <input type="checkbox" class="radios" id="" />
-            </li>
-          </ul>
+          <%}%>
         </div>
       </div>
-      </div>
+      </div> 
       <div onclick="openPopup()" class="add-student"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="2.5vw" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"/></svg></div>
       </div>
     </div>
+    </form>
   </div>
 
   <div class="popup"></div>
@@ -141,14 +94,14 @@
           </div>
           <div class="popup-content">
               <div id="input-part">
-                   
-                      <input type="text" name="maxMarks" class="popup-input" onclick="addsub()"
+                   <form action="/teacher/allotsubject/searchadd" method="post" id="searchstudent">
+                      <input type="text" name="registration" class="popup-input"
                           id="marks-input" placeholder="Enter Registration No" />
                  
-                      <button class="btn btn-full" id="" onclick="closemodal()">
+                      <button class="btn btn-full" id="">
                           Save
                       </button>
-                 
+                      </form>
               </div>
           </div>
       </div>
@@ -186,7 +139,56 @@ checkAllRadios.addEventListener("change", function(){
 		});
 	}
 });
-
-
-
+</script>
+<script>
+  let studentlist = <%- locals.studentlist.length %>;
+  studentlist++;
+  const searchstudentform = $('#searchstudent');
+  $(document).on('submit', '#searchstudent', function (e) {
+    e.preventDefault();
+    $.ajax({
+      type: 'post',
+      url: '/teacher/allotsubject/searchadd',
+      data: searchstudentform.serialize(),
+      success: function (data) {
+        if(data.student){
+          new Noty({
+            theme: 'relax',
+            text: 'Student added in the list at Bottom. Do save.',
+            type: 'success',
+            layout: 'topRight',
+            timeout: 1500,
+          }).show();
+        newattDom(data.student);
+        studentlist++;
+        }
+        else{
+          new Noty({
+            theme: 'relax',
+            text: 'Incorrect registration number or Student does not exist.',
+            type: 'error',
+            layout: 'topRight',
+            timeout: 1500,
+          }).show();
+        }
+        document.getElementById('marks-input').value = '';
+        closePopup();
+        
+      },
+      error: function (error) {
+        console.log(error.responseText);
+      }
+    });
+  });
+  function newattDom(data){
+    let deptdom = `<ul>
+            <li>${studentlist}</li>
+            <li>${data.name}</li>
+            <li>${data.username}</li>
+            <li>
+              <input type="checkbox" class="radios" name="studentlist" value="${data._id}" checked/>
+            </li>
+          </ul>`
+    $('#studlist').append(deptdom);
+  }
 </script>

@@ -10,13 +10,15 @@ const resultanalysisController = require('../controllers/result_analysis');
 router.get("/dashboard", teacherController.dashboard); 
 
 router.get("/allotsubject", teacherController.allotsubject);
+router.get('/allotsubject/studentlist/:id', teacherController.subjectstudentlist);
 router.get("/getsubject/:id", teacherController.getsubject);
+router.post('/allotsubject/addstudent',teacherController.allotsubjectaddstudent);
+router.post("/allotsubject/searchadd", teacherController.allotsubjectsearchadd);
 router.get("/attendance_view/:id", teacherController.attendance_view);
 router.get("/attendance_update/:id", teacherController.attendance_update);
 router.get("/viewstudentattendance/:id", teacherController.viewstudentattendance);
 router.get("/internalmarks/:id", teacherController.internalmarkspage);
 router.get("/attendaceedit/:id", teacherController.attendaceedit);
-router.get('/searchstudent/:id', teacherController.searchstudent);
 router.post("/addattendance", teacherController.addattendance);
 router.post("/change_attendance", teacherController.change_attendance);
 router.get("/notes/:id", teacherController.viewnotes);
