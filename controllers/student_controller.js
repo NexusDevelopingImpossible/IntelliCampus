@@ -17,6 +17,8 @@ const studentreport = require("../models/student_report");
 const SemSection = require("../models/semsection");
 const Feedback = require("../models/feedback");
 const { setTimeout } = require("timers/promises");
+const studentAssignment = require("../models/studentassignment");
+const Assignment = require("../models/assignment");
 
 module.exports.dashboard = async (req, res) => {
   try {
@@ -121,7 +123,6 @@ module.exports.internalmarks = async (req, res) => {
           return nameA.localeCompare(nameB);
         }
     });
-    console.log(internal);
     for (let i = 0; i < internal.length; i++) {}
     return res.render("student/internal_marks", {
       title: "Internal Marks",
@@ -456,8 +457,25 @@ module.exports.sendreport = async (req, res) => {
 };
 module.exports.assignment = async (req, res) => {
   try {
+    checkurlfunct.checkurlstudent(req, res);
+    const studentdata = await Student.findOne({
+      username: res.locals.user.username,
+    });
+    const timetabledata = await Attendance.find({
+      studentid: studentdata._id,
+    })
+      .populate({ path: "timetableid", populate: { path: "subjectcode" } })
+      .sort({ "timetableid.subjectcode.name": 1 });
+    let assignmentdata = [];
+    for (let i = 0; i < timetabledata.length; i++){
+      const assignmentone = await Assignment.findOne({
+        timetableid: timetabledata[i]._id,
+      }).populate("timetableid");
+      assignmentdata.push(assignmentone);
+    }
     return res.render("student/assignment", {
       title: "Assignment",
+      assignmentdata
     });
     
   } catch (error) {

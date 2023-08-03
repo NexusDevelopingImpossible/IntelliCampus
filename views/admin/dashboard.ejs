@@ -178,15 +178,11 @@
                     <li><a class="view-pro btn btn-outline" href="#">View</a></li>
                 </ul>
                 <%}%>
-              
-             
-             
-               
             </div>
         </div>
     </div>
     </div>
-  </section>
+</section>
   </div>
   <div id="popup-blur">
     <div class="search-input spotlight">
@@ -210,164 +206,329 @@
 <script src="<%= assetPath('js/dash-cale.js') %>"></script>
 
 <script>
-  const searchBar = document.getElementById("search-bar");
-  const popupBlur = document.getElementById("popup-blur");
-  const closeBtn = document.getElementById("close-btn");
-  const spotInput = document.getElementById("spot-input");
 
-  searchBar.addEventListener("click", function () {
-    popupBlur.style.display = "flex";
-    spotInput.focus();
-  })
-  closeBtn.addEventListener("click", function () {
-    popupBlur.style.display = "none";
-  })
-
-  window.onkeyup = function (event) {
-    console.log(event.keyCode);
-    if (event.keyCode == 27) {
-      console.log("esc")
-      document.getElementById("spot-input").value = '';
-      $('#spotlight-list').html('');
-      popupBlur.style.display = "none";
-    }
-  }
 
 </script>
 <script>
-  let urllink;
-  let searchval;
-  document.getElementById("spot-input").addEventListener("input", function () {
-    // Get the input value
-    var inputValue = document.getElementById("spot-input").value;
-
-    // Set the input value as the text content of the <a> element
-    var anchorTag = document.getElementById("search-path");
-    anchorTag.href = "spotsearch/" + inputValue;
-    urllink = anchorTag;
-  });
-  document.getElementById("spot-input").addEventListener("keyup", function (event) {
-    if (event.key === "Enter") {
-      var anchorTag = document.getElementById("search-path");
-      //   document.getElementById('search-btn').style.backgroundColor = "#0000006a";
-      anchorTag.click(); // Simulate a click on the anchor tag
+  function opensearch() {
+    const searchBar = document.getElementById("search-bar");
+    const popupBlur = document.getElementById("popup-blur");
+    const closeBtn = document.getElementById("close-btn");
+    const spotInput = document.getElementById("spot-input");
+    
+    searchBar.addEventListener("click", function () {
+      popupBlur.style.display = "flex";
+      spotInput.focus();
+    })
+    closeBtn.addEventListener("click", function () {
+      popupBlur.style.display = "none";
+    })
+  
+    window.onkeyup = function (event) {
+      if (event.keyCode == 27) {
+        document.getElementById("spot-input").value = '';
+        $('#spotlight-list').html('');
+        popupBlur.style.display = "none";
+      }
     }
-  });
-  let createform = function () {
-    const newattform = $('#search');
-    $.ajax({
-      type: 'get',
-      url: urllink,
-      success: function (data) {
-        console.log(data);
-        let g = data.data
-        let DPMstring  = '';
-        let sl = searchval.length;
-        for(let i = 0; i<g.result.length; i++){
-          DPMstring = DPMstring + `<a href="#"><p class="spot-item"><span>${searchval}</span>${(g.result[i].name).slice(sl)} ${g.result[i].username}</p></a>`
+    let urllink;
+    let searchval;
+    document.getElementById("spot-input").addEventListener("input", function () {
+      // Get the input value
+      var inputValue = document.getElementById("spot-input").value;
+
+      // Set the input value as the text content of the <a> element
+      var anchorTag = document.getElementById("search-path");
+      anchorTag.href = "spotsearch/" + inputValue;
+      urllink = anchorTag;
+    });
+    document
+      .getElementById("spot-input")
+      .addEventListener("keyup", function (event) {
+        if (event.key === "Enter") {
+          var anchorTag = document.getElementById("search-path");
+          //   document.getElementById('search-btn').style.backgroundColor = "#0000006a";
+          anchorTag.click(); // Simulate a click on the anchor tag
         }
-        for(let i = 0; i<g.result1.length; i++){
-          DPMstring = DPMstring + `<a href="/admin/studentprofile/${g.result1[i]._id}"><p class="spot-item"><span>${searchval}</span>${(g.result1[i].name).slice(sl)} ${g.result1[i].username}</p></a>`
-        }
-        $('#spotlight-list').html(DPMstring);
-      },
-      error: function (error) {
-        console.log(error.responseText);
+      });
+    let createform = function () {
+      const newattform = $("#search");
+      $.ajax({
+        type: "get",
+        url: urllink,
+        success: function (data) {
+          let g = data.data;
+          let DPMstring = "";
+          let sl = searchval.length;
+          for (let i = 0; i < g.result.length; i++) {
+            DPMstring =
+              DPMstring +
+              `<a href="#"><p class="spot-item"><span>${searchval}</span>${g.result[
+                i
+              ].name.slice(sl)} ${g.result[i].username}</p></a>`;
+          }
+          for (let i = 0; i < g.result1.length; i++) {
+            DPMstring =
+              DPMstring +
+              `<a href="/admin/studentprofile/${
+                g.result1[i]._id
+              }"><p class="spot-item"><span>${searchval}</span>${g.result1[
+                i
+              ].name.slice(sl)} ${g.result1[i].username}</p></a>`;
+          }
+          $("#spotlight-list").html(DPMstring);
+        },
+        error: function (error) {
+          console.log(error.responseText);
+        },
+      });
+    };
+
+    const search = document.getElementById("spot-input");
+    search.addEventListener("input", () => {
+      if (search.value) {
+        searchval = search.value;
+        createform();
+      }
+      if (search.value.length == 0) {
+        document.getElementById("spotlight-list").innerHTML = "";
       }
     });
   }
-  
-  const search = document.getElementById('spot-input');
-  search.addEventListener('input', () => {
-    console.log(search.value.length)
-    if(search.value){
-      searchval = search.value;
-      createform();
-    }
-    if(search.value.length == 0){
-      document.getElementById('spotlight-list').innerHTML = '';
-    }
-
-  })
-</script>
-
-<script>
+  opensearch();
+function openselect(){
   const optionMenu = document.querySelector(".select-menu"),
-       selectBtn = optionMenu.querySelector(".select-btn"),
-       options = optionMenu.querySelectorAll(".option"),
-       sBtn_text = optionMenu.querySelector(".sBtn-text");
-selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));
+    selectBtn = optionMenu.querySelector(".select-btn"),
+    options = optionMenu.querySelectorAll(".option"),
+    sBtn_text = optionMenu.querySelector(".sBtn-text");
+  selectBtn.addEventListener("click", () =>
+    optionMenu.classList.toggle("active")
+  );
 
-options.forEach(option =>{
-
-    option.addEventListener("click", ()=>{
-        let selectedOption = option.querySelector(".option-text").innerText;
-        // sBtn_text.innerText = selectedOption;
-        optionMenu.classList.remove("active");
+  options.forEach((option) => {
+    option.addEventListener("click", () => {
+      let selectedOption = option.querySelector(".option-text").innerText;
+      // sBtn_text.innerText = selectedOption;
+      optionMenu.classList.remove("active");
     });
-
-});
-document.addEventListener("click", (event) => {
-	if (!optionMenu.contains(event.target)) {
-	  optionMenu.classList.remove("active");
-	}
   });
-
+  document.addEventListener("click", (event) => {
+    if (!optionMenu.contains(event.target)) {
+      optionMenu.classList.remove("active");
+    }
+  });
 
   // select 2
 
   const optionMenu1 = document.querySelector(".select-menu1"),
-selectBtn1 = optionMenu1.querySelector(".select-btn1"),
-options1 = optionMenu1.querySelectorAll(".option1")
-//    sBtn_text1 = optionMenu.querySelector(".sBtn-text1");
-selectBtn1.addEventListener("click", () => optionMenu1.classList.toggle("active"));
-options1.forEach(option => {
-option.addEventListener("click", () => {
-    // let selectedOption = option.querySelector(".option-text").innerText;
-    // sBtn_text.innerText = selectedOption;
-    optionMenu1.classList.remove("active");
-});
-});
-document.addEventListener("click", (event) => {
-if (!optionMenu1.contains(event.target)) {
-    optionMenu1.classList.remove("active");
-}
-});
+    selectBtn1 = optionMenu1.querySelector(".select-btn1"),
+    options1 = optionMenu1.querySelectorAll(".option1");
+  selectBtn1.addEventListener("click", () =>
+    optionMenu1.classList.toggle("active")
+  );
+  options1.forEach((option) => {
+    option.addEventListener("click", () => {
+      optionMenu1.classList.remove("active");
+    });
+  });
+  document.addEventListener("click", (event) => {
+    if (!optionMenu1.contains(event.target)) {
+      optionMenu1.classList.remove("active");
+    }
+  });
 
   const optionMenu2 = document.querySelector(".select-menu2"),
-selectBtn2 = optionMenu2.querySelector(".select-btn2"),
-options2 = optionMenu2.querySelectorAll(".option2")
-//    sBtn_text1 = optionMenu.querySelector(".sBtn-text1");
-selectBtn2.addEventListener("click", () => optionMenu2.classList.toggle("active"));
-options2.forEach(option => {
-option.addEventListener("click", () => {
-    // let selectedOption = option.querySelector(".option-text").innerText;
-    // sBtn_text.innerText = selectedOption;
-    optionMenu2.classList.remove("active");
-});
-});
-document.addEventListener("click", (event) => {
-if (!optionMenu2.contains(event.target)) {
-    optionMenu2.classList.remove("active");
+    selectBtn2 = optionMenu2.querySelector(".select-btn2"),
+    options2 = optionMenu2.querySelectorAll(".option2");
+
+  selectBtn2.addEventListener("click", () =>
+    optionMenu2.classList.toggle("active")
+  );
+  options2.forEach((option) => {
+    option.addEventListener("click", () => {
+      optionMenu2.classList.remove("active");
+    });
+  });
+  document.addEventListener("click", (event) => {
+    if (!optionMenu2.contains(event.target)) {
+      optionMenu2.classList.remove("active");
+    }
+  });
+  }
+  openselect();
+</script>
+<script>
+  
+  function main() {
+    var caldata = <%-JSON.stringify(locals.calendardata) %>;
+    const daysTag = document.querySelector(".days"),
+    currentDate = document.querySelector(".current-date"),
+    currentYear = document.querySelector(".current-year"),
+    prevNextIcon = document.querySelectorAll(".icons span");
+
+  // getting new date, current year and month
+  let date = new Date(),
+    currYear = date.getFullYear(),
+    currMonth = date.getMonth();
+
+  // storing full name of all months in array
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const renderCalendar = () => {
+    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
+      lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(),
+      lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(),
+      lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
+    let liTag = "";
+
+    for (let i = firstDayofMonth; i > 0; i--) {
+      // creating li of previous month last days
+      liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+    }
+
+    for (let i = 1; i <= lastDateofMonth; i++) {
+      // creating li of all days of current month
+      let caltitle = "";
+      console.log(caldata);
+      let calclass = "";
+      let hideclass = "";
+      for (let z = 0; z < caldata.length; z++) {
+        console.log(
+          caldata[z].date.split("-")[1] - 1,
+          caldata[z].date.split("-")[2]
+        );
+        if (
+          caldata[z].date.split("-")[1] - 1 == Number(currMonth) &&
+          caldata[z].date.split("-")[2] == i
+        ) {
+          caltitle = caldata[z].holidaytitle;
+          calclass = "holiday-active";
+          hideclass = 'hidden-div"';
+        }
+      }
+      let isToday =
+        i === date.getDate() &&
+        currMonth === new Date().getMonth() &&
+        currYear === new Date().getFullYear()
+          ? "active"
+          : "";
+      liTag += `<li onmouseover="hoverHoliday(this.id)" id="${i}" class="${isToday} ${calclass} main-div">
+              <div>${i}</div> 
+              <div id="hid${i}" class="${hideclass}">${caltitle}</div>
+              </li>`;
+    }
+
+    for (let i = lastDayofMonth; i < 6; i++) {
+      liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
+    }
+    currentDate.innerText = `${months[currMonth]}`;
+    currentYear.innerText = `${currYear}`;
+    daysTag.innerHTML = liTag;
+  };
+  renderCalendar();
+
+  prevNextIcon.forEach((icon) => {
+    icon.addEventListener("click", () => {
+      currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+      if (currMonth < 0 || currMonth > 11) {
+        date = new Date(currYear, currMonth, new Date().getDate());
+        currYear = date.getFullYear();
+        currMonth = date.getMonth();
+      } else {
+        date = new Date();
+      }
+      renderCalendar();
+    });
+  });
+
+  const mainDiv = document.querySelectorAll(".main-div");
+  function hoverHoliday(id) {
+    const hiddenDiv = document.getElementById(`hid${id}`);
+    let idDSome = document.getElementById(id);
+    idDSome.addEventListener("mouseover", function (event) {
+      let vw = window.innerWidth,
+        vh = window.innerHeight;
+      let eCXinVW = (event.clientX / vw) * 100; // Multiplying by 100 to get percentage
+      let eCYinVH = (event.clientY / vh) * 100;
+
+      if (eCXinVW < 81 && eCYinVH < 78) {
+        hiddenDiv.style.left = 2 + "vw";
+        hiddenDiv.style.top = 5 + "vh";
+      }
+      if (eCXinVW >= 81 && eCYinVH <= 78) {
+        hiddenDiv.style.left = -15 + "vw";
+        hiddenDiv.style.top = 5 + "vh";
+      }
+      if (eCXinVW < 81 && eCYinVH > 78) {
+        hiddenDiv.style.left = 2 + "vw";
+        hiddenDiv.style.top = -5 + "vh";
+      }
+      if (eCXinVW >= 81 && eCYinVH >= 78) {
+        hiddenDiv.style.left = -15 + "vw";
+        hiddenDiv.style.top = -5 + "vh";
+      }
+    });
+
+    idDSome.addEventListener("mouseenter", function () {
+      hiddenDiv.style.display = "flex";
+    });
+
+    idDSome.addEventListener("mouseleave", function () {
+      hiddenDiv.style.display = "none";
+    });
+  }
 }
-});
+main();
 
-//   const optionMenu3 = document.querySelector(".select-menu1"),
-// selectBtn3 = optionMenu1.querySelector(".select-btn1"),
-// options3 = optionMenu1.querySelectorAll(".option1")
-// //    sBtn_text1 = optionMenu.querySelector(".sBtn-text1");
-// selectBtn3.addEventListener("click", () => optionMenu1.classList.toggle("active"));
-// options3.forEach(option => {
-// option.addEventListener("click", () => {
-//     // let selectedOption = option.querySelector(".option-text").innerText;
-//     // sBtn_text.innerText = selectedOption;
-//     optionMenu3.classList.remove("active");
-// });
-// });
-// document.addEventListener("click", (event) => {
-// if (!optionMenu3.contains(event.target)) {
-//     optionMenu3.classList.remove("active");
-// }
-// });
+function hoverHoliday(id) {
+  const hiddenDiv = document.getElementById(`hid${id}`);
+    let idDSome = document.getElementById(id);
+    idDSome.addEventListener("mouseover", function(event) {
 
+    let vw = window.innerWidth,
+      vh = window.innerHeight;
+    let eCXinVW = (event.clientX / vw) * 100; // Multiplying by 100 to get percentage
+    let eCYinVH = (event.clientY / vh) * 100;
+
+    if (eCXinVW < 81 && eCYinVH < 78) {
+      hiddenDiv.style.left = 2 + "vw";
+      hiddenDiv.style.top =  5 + "vh";
+    }
+    if (eCXinVW >= 81 && eCYinVH <= 78) {
+      hiddenDiv.style.left = -15 + "vw";
+      hiddenDiv.style.top = 5 + "vh";
+    }
+    if (eCXinVW < 81 && eCYinVH > 78) {
+      hiddenDiv.style.left = 2 + "vw";
+      hiddenDiv.style.top = -5 + "vh";
+    }
+    if (eCXinVW >= 81 && eCYinVH >= 78) {
+      hiddenDiv.style.left = -15 + "vw";
+      hiddenDiv.style.top = -5 + "vh";
+    }
+
+  });
+
+  idDSome.addEventListener("mouseenter", function () {
+    hiddenDiv.style.display = "flex";
+  });
+
+  idDSome.addEventListener("mouseleave", function () {
+    hiddenDiv.style.display = "none";
+  });
+}
 </script>

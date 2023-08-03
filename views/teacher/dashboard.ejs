@@ -2,21 +2,9 @@
 <link rel="stylesheet" href="<%= assetPath('css/teach-dash.css') %>" />
 <link rel="stylesheet" href="<%= assetPath('css/dash-calendar.css') %>" />
 <link rel="stylesheet" href="<%= assetPath('css/dash-card.css') %>" />
-<style>
-  #profileImage {
-  width: 4.5vw;
-  height: 4.5vw;
-  border-radius: 50%;
-  background: #fd6d08;
-  font-size: 35px;
-  color: #fff;
-  text-align: center;
-  margin-right: 0.5vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-</style>
+<link rel="stylesheet" href="<%= assetPath('css/admin-dash.css') %>" />
+
+
 
   <div class="main-page">
     <div class="blur">
@@ -42,7 +30,7 @@
 
       <div class="teacher-info">
         <div>
-          <a href="/teacher/profile"><%if(teacher.avatar){%><img class="tch-img" src="<%=teacher.avatar%>" alt="" /><%}else{%><div id="profileImage"></div><%}%></a>
+          <a href="/teacher/profile"><img class="tch-img" src="<%=teacher.avatar%>" alt="" /></a>
         </div>
         <div>
           <h1 class="tch-name">
@@ -57,12 +45,7 @@
 
    
     
-    <div class=" search-input">
-      <input type="text" placeholder="Eg: 202300423" id="reg"/>
-      <a href="/teacher/search/" class="search-btn" id="reg-path" id="search-btn">
-          Search
-      </a>
-  </div>
+    <button id="search-bar" class="search-all"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span>Search</button>
 
     <!--.........................Teacher Subjects......................-->
     <div class="subjects">
@@ -209,15 +192,288 @@
       </div>
     </div>
   </div>
+    <div id="popup-blur">
+    <div class="search-input spotlight">
+      <input id="spot-input" type="text" placeholder="Eg: 202300423" />
+      <div class="search-btn">
+        <a href="" id="search-path">Search</a>
+      </div>
+    </div>
+    <div class="spotlight-list" id="spotlight-list">
+
+    </div>
+    <svg id="close-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFFFFF">
+      <path d="M0 0h24v24H0V0z" fill="none" />
+      <path
+        d="M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z" />
+    </svg>
+  </div>
   </div>
 
-  <script src="<%= assetPath('js/dash-cale.js') %>"></script>
   <script src="<%= assetPath('js/teach-carousel.js') %>"></script>
 
 <script>
-  $(document).ready(function(){
-  var firstName = document.getElementById('name').innerText;
-  var intials = firstName.charAt(0);
-  var profileImage = $('#profileImage').text(intials);
-});
+  function opensearch() {
+    const searchBar = document.getElementById("search-bar");
+    const popupBlur = document.getElementById("popup-blur");
+    const closeBtn = document.getElementById("close-btn");
+    const spotInput = document.getElementById("spot-input");
+    
+    searchBar.addEventListener("click", function () {
+      popupBlur.style.display = "flex";
+      spotInput.focus();
+    })
+    closeBtn.addEventListener("click", function () {
+      popupBlur.style.display = "none";
+    })
+  
+    window.onkeyup = function (event) {
+      if (event.keyCode == 27) {
+        document.getElementById("spot-input").value = '';
+        $('#spotlight-list').html('');
+        popupBlur.style.display = "none";
+      }
+    }
+    let urllink;
+    let searchval;
+    document.getElementById("spot-input").addEventListener("input", function () {
+      // Get the input value
+      var inputValue = document.getElementById("spot-input").value;
+
+      // Set the input value as the text content of the <a> element
+      var anchorTag = document.getElementById("search-path");
+      anchorTag.href = "/admin/spotsearch/" + inputValue;
+      urllink = anchorTag;
+    });
+    document
+      .getElementById("spot-input")
+      .addEventListener("keyup", function (event) {
+        if (event.key === "Enter") {
+          var anchorTag = document.getElementById("search-path");
+          //   document.getElementById('search-btn').style.backgroundColor = "#0000006a";
+          anchorTag.click(); // Simulate a click on the anchor tag
+        }
+      });
+    let createform = function () {
+      const newattform = $("#search");
+      $.ajax({
+        type: "get",
+        url: urllink,
+        success: function (data) {
+          let g = data.data;
+          let DPMstring = "";
+          let sl = searchval.length;
+          for (let i = 0; i < g.result.length; i++) {
+            DPMstring =
+              DPMstring +
+              `<a href="#"><p class="spot-item"><span>${searchval}</span>${g.result[
+                i
+              ].name.slice(sl)} ${g.result[i].username}</p></a>`;
+          }
+          for (let i = 0; i < g.result1.length; i++) {
+            DPMstring =
+              DPMstring +
+              `<a href="/admin/studentprofile/${
+                g.result1[i]._id
+              }"><p class="spot-item"><span>${searchval}</span>${g.result1[
+                i
+              ].name.slice(sl)} ${g.result1[i].username}</p></a>`;
+          }
+          $("#spotlight-list").html(DPMstring);
+        },
+        error: function (error) {
+          console.log(error.responseText);
+        },
+      });
+    };
+
+    const search = document.getElementById("spot-input");
+    search.addEventListener("input", () => {
+      if (search.value) {
+        searchval = search.value;
+        createform();
+      }
+      if (search.value.length == 0) {
+        document.getElementById("spotlight-list").innerHTML = "";
+      }
+    });
+  }
+  opensearch();
+</script>
+<script>
+  
+  function main() {
+    var caldata = <%-JSON.stringify(locals.calendardata) %>;
+    const daysTag = document.querySelector(".days"),
+    currentDate = document.querySelector(".current-date"),
+    currentYear = document.querySelector(".current-year"),
+    prevNextIcon = document.querySelectorAll(".icons span");
+
+  // getting new date, current year and month
+  let date = new Date(),
+    currYear = date.getFullYear(),
+    currMonth = date.getMonth();
+
+  // storing full name of all months in array
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const renderCalendar = () => {
+    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
+      lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(),
+      lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(),
+      lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
+    let liTag = "";
+
+    for (let i = firstDayofMonth; i > 0; i--) {
+      // creating li of previous month last days
+      liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+    }
+
+    for (let i = 1; i <= lastDateofMonth; i++) {
+      // creating li of all days of current month
+      let caltitle = "";
+      console.log(caldata);
+      let calclass = "";
+      let hideclass = "";
+      for (let z = 0; z < caldata.length; z++) {
+        console.log(
+          caldata[z].date.split("-")[1] - 1,
+          caldata[z].date.split("-")[2]
+        );
+        if (
+          caldata[z].date.split("-")[1] - 1 == Number(currMonth) &&
+          caldata[z].date.split("-")[2] == i
+        ) {
+          caltitle = caldata[z].holidaytitle;
+          calclass = "holiday-active";
+          hideclass = 'hidden-div"';
+        }
+      }
+      let isToday =
+        i === date.getDate() &&
+        currMonth === new Date().getMonth() &&
+        currYear === new Date().getFullYear()
+          ? "active"
+          : "";
+      liTag += `<li onmouseover="hoverHoliday(this.id)" id="${i}" class="${isToday} ${calclass} main-div">
+              <div>${i}</div> 
+              <div id="hid${i}" class="${hideclass}">${caltitle}</div>
+              </li>`;
+    }
+
+    for (let i = lastDayofMonth; i < 6; i++) {
+      liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
+    }
+    currentDate.innerText = `${months[currMonth]}`;
+    currentYear.innerText = `${currYear}`;
+    daysTag.innerHTML = liTag;
+  };
+  renderCalendar();
+
+  prevNextIcon.forEach((icon) => {
+    icon.addEventListener("click", () => {
+      currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+      if (currMonth < 0 || currMonth > 11) {
+        date = new Date(currYear, currMonth, new Date().getDate());
+        currYear = date.getFullYear();
+        currMonth = date.getMonth();
+      } else {
+        date = new Date();
+      }
+      renderCalendar();
+    });
+  });
+
+  const mainDiv = document.querySelectorAll(".main-div");
+  function hoverHoliday(id) {
+    const hiddenDiv = document.getElementById(`hid${id}`);
+    let idDSome = document.getElementById(id);
+    idDSome.addEventListener("mouseover", function (event) {
+      let vw = window.innerWidth,
+        vh = window.innerHeight;
+      let eCXinVW = (event.clientX / vw) * 100; // Multiplying by 100 to get percentage
+      let eCYinVH = (event.clientY / vh) * 100;
+
+      if (eCXinVW < 81 && eCYinVH < 78) {
+        hiddenDiv.style.left = 2 + "vw";
+        hiddenDiv.style.top = 5 + "vh";
+      }
+      if (eCXinVW >= 81 && eCYinVH <= 78) {
+        hiddenDiv.style.left = -15 + "vw";
+        hiddenDiv.style.top = 5 + "vh";
+      }
+      if (eCXinVW < 81 && eCYinVH > 78) {
+        hiddenDiv.style.left = 2 + "vw";
+        hiddenDiv.style.top = -5 + "vh";
+      }
+      if (eCXinVW >= 81 && eCYinVH >= 78) {
+        hiddenDiv.style.left = -15 + "vw";
+        hiddenDiv.style.top = -5 + "vh";
+      }
+    });
+
+    idDSome.addEventListener("mouseenter", function () {
+      hiddenDiv.style.display = "flex";
+    });
+
+    idDSome.addEventListener("mouseleave", function () {
+      hiddenDiv.style.display = "none";
+    });
+  }
+}
+main();
+
+function hoverHoliday(id) {
+  const hiddenDiv = document.getElementById(`hid${id}`);
+    let idDSome = document.getElementById(id);
+    idDSome.addEventListener("mouseover", function(event) {
+
+    let vw = window.innerWidth,
+      vh = window.innerHeight;
+    let eCXinVW = (event.clientX / vw) * 100; // Multiplying by 100 to get percentage
+    let eCYinVH = (event.clientY / vh) * 100;
+
+    if (eCXinVW < 81 && eCYinVH < 78) {
+      hiddenDiv.style.left = 2 + "vw";
+      hiddenDiv.style.top =  5 + "vh";
+    }
+    if (eCXinVW >= 81 && eCYinVH <= 78) {
+      hiddenDiv.style.left = -15 + "vw";
+      hiddenDiv.style.top = 5 + "vh";
+    }
+    if (eCXinVW < 81 && eCYinVH > 78) {
+      hiddenDiv.style.left = 2 + "vw";
+      hiddenDiv.style.top = -5 + "vh";
+    }
+    if (eCXinVW >= 81 && eCYinVH >= 78) {
+      hiddenDiv.style.left = -15 + "vw";
+      hiddenDiv.style.top = -5 + "vh";
+    }
+
+  });
+
+  idDSome.addEventListener("mouseenter", function () {
+    hiddenDiv.style.display = "flex";
+  });
+
+  idDSome.addEventListener("mouseleave", function () {
+    hiddenDiv.style.display = "none";
+  });
+}
+
+
 </script>

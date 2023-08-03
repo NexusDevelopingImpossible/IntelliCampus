@@ -4,6 +4,7 @@ const Timetable = require("../models/timetable");
 const Student = require("../models/student");
 const Attendance = require("../models/attendance");
 const Notification = require("../models/notification");
+const Calendar = require("../models/calendar");
 const teachersProfile = require("../models/teacherprofile");
 const TG = require("../models/tg");
 const Subjectnotes = require("../models/notes");
@@ -30,13 +31,14 @@ module.exports.dashboard = async (req, res) => {
       const dd = prettydate.format(notidata[i].updatedAt);
       arr.push(dd);
     }
+    let calendardata = await Calendar.find({});
     // console.log(arr);
     return res.render("teacher/dashboard", {
       title: "Dashboard",
       teacher: teacherdata,
       timetable: timetabledata,
       notidata,
-      arr,
+      arr, calendardata
     });
   } catch (err) {
     console.log(err);
@@ -69,15 +71,17 @@ module.exports.subjectstudentlist = async (req, res) => {
       _id: req.params.id,
     }).populate("subjectcode");
     let studentlist = [];
-    console.log(timetabledata.subjectcode.theorytype);
     if (timetabledata.subjectcode.theorytype == "Core") {
       let studentdata = await Student.find({
         department: timetabledata.department,
         semester: timetabledata.semester,
         section: timetabledata.section,
       });
-      for (let i = 0; i < studentdata.length; i++){
-        let attcheck = await Attendance.findOne({ studentid: studentdata[i]._id, timetableid: timetabledata._id});
+      for (let i = 0; i < studentdata.length; i++) {
+        let attcheck = await Attendance.findOne({
+          studentid: studentdata[i]._id,
+          timetableid: timetabledata._id,
+        });
         if (!attcheck) {
           studentlist.push(studentdata[i]);
         }
@@ -88,15 +92,16 @@ module.exports.subjectstudentlist = async (req, res) => {
         studentlist: studentlist,
       });
     }
-    
+
     if (timetabledata.subjectcode.theorytype == "Elective") {
       let studentdata = await Student.find({
         department: timetabledata.department,
+        semester: timetabledata.semester,
       });
       for (let i = 0; i < studentdata.length; i++) {
         let attcheck = await Attendance.findOne({
           studentid: studentdata[i]._id,
-          timetableid: timetabledata._id
+          timetableid: timetabledata._id,
         });
         if (!attcheck) {
           studentlist.push(studentdata[i]);
@@ -117,7 +122,6 @@ module.exports.allotsubjectsearchadd = async (req, res) => {
     checkurlfunct.checkurlteacher(req, res);
     let reg = req.body.registration;
     let student = await Student.findOne({ username: reg });
-    console.log(student);
     if (req.xhr) {
       return res.status(200).json({
         student: student,
@@ -131,62 +135,117 @@ module.exports.allotsubjectsearchadd = async (req, res) => {
 module.exports.allotsubjectaddstudent = async (req, res) => {
   checkurlfunct.checkurlteacher(req, res);
   try {
-    console.log(req.body);
-    let studentdata = req.body.studentlist;
-    if (studentdata) {
-          let timetabledata = await Timetable.findById(
-            req.body.timetableid
-          ).populate("subjectcode");
-          if (timetabledata.subjectcode.type == "Theory") {
-            for (let i = 0; i < studentdata.length; i++) {
-              let check = await Attendance.findOne({
+    if (typeof req.body.studentlist == "object") {
+      let studentdata = req.body.studentlist;
+      if (studentdata) {
+        let timetabledata = await Timetable.findById(
+          req.body.timetableid
+        ).populate("subjectcode");
+        if (timetabledata.subjectcode.type == "Theory") {
+          for (let i = 0; i < studentdata.length; i++) {
+            let check = await Attendance.findOne({
+              timetableid: timetabledata._id,
+              studentid: studentdata[i],
+            });
+            if (!check) {
+              await Attendance.create({
                 timetableid: timetabledata._id,
                 studentid: studentdata[i],
+                present: [],
+                totalpresent: 0,
+                examMarks: [],
+                updateattendance: Date.now(),
+                updateinternal: Date.now(),
+                exitattendance: Date.now(),
+                exitinternal: Date.now(),
+                examMarks: [
+                  { Quiz1: "" },
+                  { Session1: "" },
+                  { Quiz2: "" },
+                  { Session2: "" },
+                ],
               });
-              if (!check) {
-                await Attendance.create({
-                  timetableid: timetabledata._id,
-                  studentid: studentdata[i],
-                  present: [],
-                  totalpresent: 0,
-                  examMarks: [],
-                  updateattendance: Date.now(),
-                  updateinternal: Date.now(),
-                  exitattendance: Date.now(),
-                  exitinternal: Date.now(),
-                  examMarks: [
-                    { Quiz1: "" },
-                    { Session1: "" },
-                    { Quiz2: "" },
-                    { Session2: "" },
-                  ],
-                });
-              }
             }
           }
-          if (timetabledata.subjectcode.type == "Lab") {
-            for (let i = 0; i < studentdata.length; i++) {
-              let check = await Attendance.findOne({
+        }
+        if (timetabledata.subjectcode.type == "Lab") {
+          for (let i = 0; i < studentdata.length; i++) {
+            let check = await Attendance.findOne({
+              timetableid: timetabledata._id,
+              studentid: studentdata[i],
+            });
+            if (!check) {
+              await Attendance.create({
                 timetableid: timetabledata._id,
                 studentid: studentdata[i],
+                present: [],
+                totalpresent: 0,
+                examMarks: [],
+                updateattendance: Date.now(),
+                updateinternal: Date.now(),
+                exitattendance: Date.now(),
+                exitinternal: Date.now(),
+                examMarks: [{ Final: "" }],
               });
-              if (!check) {
-                await Attendance.create({
-                  timetableid: timetabledata._id,
-                  studentid: studentdata[i],
-                  present: [],
-                  totalpresent: 0,
-                  examMarks: [],
-                  updateattendance: Date.now(),
-                  updateinternal: Date.now(),
-                  exitattendance: Date.now(),
-                  exitinternal: Date.now(),
-                  examMarks: [{ Final: "" }],
-                });
-              }
             }
           }
-          req.flash("success", "Subject allot to students successfully");
+        }
+        req.flash("success", "Subject allot to students successfully");
+      }
+    }
+    if (typeof req.body.studentlist == "string") {
+      let studentdata = req.body.studentlist;
+      if (studentdata) {
+        let timetabledata = await Timetable.findById(
+          req.body.timetableid
+        ).populate("subjectcode");
+        if (timetabledata.subjectcode.type == "Theory") {
+          let check = await Attendance.findOne({
+            timetableid: timetabledata._id,
+            studentid: studentdata,
+          });
+          if (!check) {
+            await Attendance.create({
+              timetableid: timetabledata._id,
+              studentid: studentdata,
+              present: [],
+              totalpresent: 0,
+              examMarks: [],
+              updateattendance: Date.now(),
+              updateinternal: Date.now(),
+              exitattendance: Date.now(),
+              exitinternal: Date.now(),
+              examMarks: [
+                { Quiz1: "" },
+                { Session1: "" },
+                { Quiz2: "" },
+                { Session2: "" },
+              ],
+            });
+          }
+        }
+        if (timetabledata.subjectcode.type == "Lab") {
+          let check = await Attendance.findOne({
+            timetableid: timetabledata._id,
+            studentid: studentdata,
+          });
+          if (!check) {
+            await Attendance.create({
+              timetableid: timetabledata._id,
+              studentid: studentdata,
+              present: [],
+              totalpresent: 0,
+              examMarks: [],
+              updateattendance: Date.now(),
+              updateinternal: Date.now(),
+              exitattendance: Date.now(),
+              exitinternal: Date.now(),
+              examMarks: [{ Final: "" }],
+            });
+          }
+        }
+        req.flash("success", "Subject allot to students successfully");
+      }
     }
     return res.redirect("back");
   } catch (err) {
