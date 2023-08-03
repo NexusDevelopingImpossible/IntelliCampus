@@ -23,6 +23,7 @@ router.get("/setting", studentController.setting);
 router.post("/changepassword", studentController.changepassword);
 router.get("/profile", studentController.profile);
 router.get("/report", studentController.report);
+router.get("/assignment", studentController.assignment);
 router.post("/updateProfile", studentController.updateProfile);
 router.post("/report/sendreport", studentController.sendreport);
 

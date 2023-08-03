@@ -505,19 +505,19 @@ module.exports.allot = async (req, res) => {
   }
 };
 
-module.exports.assignment_check = async (req, res) => {
-  try {
-    let timetabledata = await Timetable.findById(req.params.id).populate(
-      "subjectcode"
-    );
-    return res.render("teacher/subject/assignment_check", {
-      title: "Assignment Check",
-      timetable: timetabledata,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
+// module.exports.assignment_check = async (req, res) => {
+//   try {
+//     let timetabledata = await Timetable.findById(req.params.id).populate(
+//       "subjectcode"
+//     );
+//     return res.render("teacher/subject/assignment_check", {
+//       title: "Assignment Check",
+//       timetable: timetabledata,
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 module.exports.setting = async (req, res) => {
   try {
     let teacherdata = await teachersProfile.findOne(
@@ -762,7 +762,6 @@ module.exports.assignment = async (req, res) => {
 };
 module.exports.assignmentcreate = async (req, res) => {
   try {
-    // let createdProfile;
     Assignment.uploadedFiles(req, res, async function (error) {
       if (error) {
         console.log("**** Multer error :", error);
@@ -786,4 +785,16 @@ module.exports.assignmentcreate = async (req, res) => {
     console.log(`Error: ${error}`);
     res.json({ Error: error });
   }
+};
+module.exports.assignmentmark = async (req, res) => {
+
+  console.log(req.params.id);
+  const assignmentdata = await Assignment.findById(req.params.id);
+  const timetable = await Timetable.findById(
+    assignmentdata.timetableid
+  ).populate("subjectcode");
+  return res.render("teacher/subject/assignment_check", {
+    title: "Assignment",
+    timetable, assignmentdata
+  });
 };

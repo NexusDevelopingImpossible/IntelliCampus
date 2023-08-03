@@ -454,3 +454,13 @@ module.exports.sendreport = async (req, res) => {
     console.log(error);
   }
 };
+module.exports.assignment = async (req, res) => {
+  try {
+    return res.render("student/assignment", {
+      title: "Assignment",
+    });
+    
+  } catch (error) {
+    console.log(error);
+  }
+};

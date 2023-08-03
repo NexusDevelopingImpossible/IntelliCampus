@@ -28,10 +28,11 @@ router.get("/teach-allot-students", teacherController.allot_students);
 router.get("/allot", teacherController.allot);
 router.get("/subject/assignment/:id", teacherController.assignment);
 router.post("/subject/assignment/create", teacherController.assignmentcreate);
+router.get("/subject/assignment/mark/:id", teacherController.assignmentmark);
 
 router.post("/uploadfile", resultanalysisController.uploadfile);
 router.get("/viewstudentattendance", teacherController.viewstudentattendance);
-router.get("/assignmentcheck/:id", teacherController.assignment_check);
+// router.get("/assignmentcheck/:id", teacherController.assignment_check);
 router.get("/setting", teacherController.setting);
 router.post("/changepassword", teacherController.changepassword);
 router.get("/profile", teacherController.profile);
