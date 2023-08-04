@@ -9,6 +9,7 @@
         justify-content: space-between;
         .left {
           display: flex;
+          align-items: center;
           gap: 1.5vw;
 
           .date {
@@ -17,7 +18,7 @@
               color: #fff;
               background: #fd6e082d;
               border: 1px solid rgba(255, 255, 255, 0.7);
-              border-radius: 1vw;
+              border-radius: 10px;
               padding: 1.1vh 1vw;
               cursor: pointer;
               outline: none;
@@ -183,13 +184,12 @@ select option {
 }
 .select-menu1 .options {
   position: absolute;
-  // padding: 20px;
-  // margin-top: 10px;
   border-radius: 0px 0px 10px 10px;
   overflow-y: auto;
   height: auto;
   max-height: 30vh;
-  background: #0000004b;
+  background: #764242;
+  z-index: 30;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   display: none;
 }
@@ -217,4 +217,42 @@ select option {
 .option1 .option-text {
   font-size: 2vh;
   color: #fff;
+}
+
+.list__main__title{
+  position: relative;
+}
+
+.resetp{
+  position: absolute;
+  top: 0;
+  right: -3vw;
+  background: rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  border: none;
+  padding: 0.3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.resetp:hover{
+  background: rgba(0, 0, 0, 0.225);
+}
+
+.att-del-btn{
+  background: rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75vw;
+  height: 2.75vw;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.att-del-btn:hover{
+  background: rgba(0, 0, 0, 0.297);
 }
