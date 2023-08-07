@@ -24,6 +24,7 @@ router.post("/changepassword", studentController.changepassword);
 router.get("/profile", studentController.profile);
 router.get("/report", studentController.report);
 router.get("/assignment", studentController.assignment);
+router.post("/assignment/submit", studentController.assignmentsubmit);
 router.post("/updateProfile", studentController.updateProfile);
 router.post("/report/sendreport", studentController.sendreport);
 

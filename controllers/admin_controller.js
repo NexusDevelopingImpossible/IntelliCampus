@@ -24,6 +24,7 @@ const deactivateaccount = require("../models/deactivatedaccount");
 const prettydate = require("pretty-date");
 const DeactivateAccount = require("../models/deactivatedaccount");
 const AttendanceGrant = require("../models/attendancegrant");
+
 //Dashboard
 module.exports.dashboard = async (req, res) => {
   try {
@@ -953,7 +954,6 @@ module.exports.activatesearch = async (req, res) => {
 module.exports.activateaccount = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
-    console.log(req.body);
     if (req.body.check) {
       let check = req.body.check;
       for (let i = 0; i < check.length; i++) {
@@ -1092,11 +1092,38 @@ module.exports.feedback = async (req, res) => {
 module.exports.attendancegrant = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
-    
+    let assignmentgrant = await AttendanceGrant.find({}).sort({updatedAt: -1})
     res.render("admin/attendancegrant", {
-      title: "Dashboard",
+      title: "Assignment Grant", assignmentgrant
     });
   } catch (err) {
     console.log(err);
+  }
+};
+module.exports.attendancegrantadd = async (req, res) => {
+  try {
+    let admin = await Admin.findOne({ username: res.locals.user.username });
+    if (admin) {
+      AttendanceGrant.uploadedFiles(req, res, async function (error) {
+        if (error) {
+          console.log("**** Multer error :", error);
+        } else {
+        }
+        async function load_file() {
+          if (req.file) {
+            await AttendanceGrant.create({
+              enteredby: admin.name,
+              subject: req.body.subject,
+              pdfpath: AttendanceGrant.filePath + "/" + req.file.filename,
+            });
+          }
+        }
+        await load_file();
+        return res.redirect("back");
+      });   
+    }
+  } catch (error) {
+    console.log(`Error: ${error}`);
+    res.json({ Error: error });
   }
 };

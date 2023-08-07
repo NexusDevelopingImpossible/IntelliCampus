@@ -31,6 +31,10 @@ const attendanceSchema = new mongoose.Schema(
     examMarks: {
       type: Array,
     },
+    assignmentmarks: {
+      type: Number,
+      required: true,
+    },
     totalpresent: {
       type: Number,
       required: true,

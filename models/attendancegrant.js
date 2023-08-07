@@ -5,9 +5,12 @@ const UPLOAD_Path = path.join("/upload/attendancegrant/");
 
 const attendancegrantSchema = new mongoose.Schema(
   {
-    assignmentid: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Assignment",
+    enteredby: {
+      type: String,
+      required: true,
+    },
+    subject: {
+      type: String,
       required: true,
     },
     pdfpath: {

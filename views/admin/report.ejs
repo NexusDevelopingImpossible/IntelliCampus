@@ -114,7 +114,6 @@
 let count = 0;
 
 function reportOpen(id) {
-  console.log(id);
   document.getElementById(`pop${id}`).style.display = "flex";
   document.getElementById(`modal${id}`).style.display = "block";
 }
@@ -125,8 +124,6 @@ function closeReport(id){
   let closeID = id.split("closed")[1];
   document.getElementById(`pop${closeID}`).style.display = "none";
   document.getElementById(`modal${closeID}`).style.display = "none";
-    console.log("hiee")
-
 }
 
 

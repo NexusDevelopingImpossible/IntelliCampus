@@ -14,6 +14,8 @@ const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
 const User = require("../models/user");
+const AttendanceGrant = require("../models/attendancegrant");
+
 
 //Dashboard
 module.exports.dashboard = async (req, res) => {
@@ -729,7 +731,10 @@ module.exports.updateProfile = async (req, res) => {
             username: res.locals.user.username,
           });
           // console.log(teacher)
-          if (existingTeacherProfile.avatar) {
+          if (
+            existingTeacherProfile.avatar &&
+            existingTeacherProfile.avatar != "/images/account.svg"
+          ) {
             fs.unlinkSync(
               path.join(__dirname, "..", existingTeacherProfile.avatar)
             );
@@ -878,6 +883,7 @@ module.exports.assignmentcreate = async (req, res) => {
             description: req.body.description,
             pdfpath: Assignment.filePath + "/" + req.file.filename,
             duedate: req.body.duedate,
+            status: "notgraded"
           });
         }
       }
@@ -890,7 +896,6 @@ module.exports.assignmentcreate = async (req, res) => {
   }
 };
 module.exports.assignmentmark = async (req, res) => {
-  console.log(req.params.id);
   const assignmentdata = await Assignment.findById(req.params.id);
   const timetable = await Timetable.findById(
     assignmentdata.timetableid
@@ -900,4 +905,45 @@ module.exports.assignmentmark = async (req, res) => {
     timetable,
     assignmentdata,
   });
+};
+module.exports.attendancegrant = async (req, res) => {
+  try {
+    checkurlfunct.checkurlteacher(req, res);
+    let assignmentgrant = await AttendanceGrant.find({}).sort({
+      updatedAt: -1,
+    });
+    res.render("teacher/attendancegrant", {
+      title: "Assignment Grant",
+      assignmentgrant,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.attendancegrantadd = async (req, res) => {
+  try {
+    let teacher = await Teacher.findOne({ username: res.locals.user.username });
+    if (teacher) {
+      AttendanceGrant.uploadedFiles(req, res, async function (error) {
+        if (error) {
+          console.log("**** Multer error :", error);
+        } else {
+        }
+        async function load_file() {
+          if (req.file) {
+            await AttendanceGrant.create({
+              enteredby: teacher.name,
+              subject: req.body.subject,
+              pdfpath: AttendanceGrant.filePath + "/" + req.file.filename,
+            });
+          }
+        }
+        await load_file();
+        return res.redirect("back");
+      });
+    }
+  } catch (error) {
+    console.log(`Error: ${error}`);
+    res.json({ Error: error });
+  }
 };

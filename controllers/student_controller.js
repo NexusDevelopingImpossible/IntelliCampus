@@ -382,7 +382,10 @@ module.exports.updateProfile = async (req, res) => {
           let student = await Student.findOne({
             username: req.body.regnNo,
           });
-          if (existingStudentProfile.avatar) {
+          if (
+            existingStudentProfile.avatar &&
+            existingStudentProfile.avatar != "/images/account.svg"
+          ) {
             fs.unlinkSync(
               path.join(__dirname, "..", existingStudentProfile.avatar)
             );
@@ -430,7 +433,7 @@ module.exports.report = async (req, res) => {
       let it = prettydate.format(reportdata[i].updatedAt);
       timearr.push(it);
     }
-    console.log(reportdata);
+    // console.log(reportdata);
     return res.render("student/report", {
       title: "Report",
       reportdata, timearr
@@ -457,6 +460,18 @@ module.exports.sendreport = async (req, res) => {
 };
 module.exports.assignment = async (req, res) => {
   try {
+    function pushElementsToArray(mainArray, element) {
+      if (typeof element === "object" && !Array.isArray(element)) {
+        // If the element is an object, push it into the main array.
+        mainArray.push(element);
+      } else if (Array.isArray(element)) {
+        // If the element is an array, concatenate its elements into the main array.
+        mainArray.push(...element);
+      } else {
+        // If the element is neither an object nor an array, just push it into the main array.
+        mainArray.push(element);
+      }
+    }
     checkurlfunct.checkurlstudent(req, res);
     const studentdata = await Student.findOne({
       username: res.locals.user.username,
@@ -466,18 +481,62 @@ module.exports.assignment = async (req, res) => {
     })
       .populate({ path: "timetableid", populate: { path: "subjectcode" } })
       .sort({ "timetableid.subjectcode.name": 1 });
-    let assignmentdata = [];
+    let assignmentdatasub = [];
+    let assignmentdatanot = [];
+    let assignmentdatagrad = [];
     for (let i = 0; i < timetabledata.length; i++){
-      const assignmentone = await Assignment.findOne({
-        timetableid: timetabledata[i]._id,
-      }).populate("timetableid");
-      assignmentdata.push(assignmentone);
+      const assignmentone = await Assignment.find({
+        timetableid: timetabledata[i].timetableid._id
+      }).populate({ path: "timetableid", populate: { path: "subjectcode" } });
+      for (let j = 0; j < assignmentone.length; j++) {
+        if (assignmentone[j].status == "notgraded") {
+          const checkassign = await studentAssignment.findOne({ studentid: studentdata._id, assignmentid: assignmentone[j]._id });
+          if (checkassign) {
+            pushElementsToArray(assignmentdatasub, assignmentone[j]);
+          } else {
+            pushElementsToArray(assignmentdatanot, assignmentone[j]);
+          }
+        }
+        if (assignmentone[j].status == "graded") {
+          pushElementsToArray(assignmentdatagrad, assignmentone[j]);
+        }
+        
+      }
     }
     return res.render("student/assignment", {
       title: "Assignment",
-      assignmentdata
+      assignmentdatasub, assignmentdatagrad, assignmentdatanot
     });
     
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports.assignmentsubmit = async (req, res) => {
+  try {
+    console.lo
+    studentAssignment.uploadedFiles(req, res, async function (error) {
+      if (error) {
+        console.log("**** Multer error :", error);
+      } else {
+        
+      }
+      async function load_file() {
+        if (req.file) {
+          const studentdata = await Student.findOne({
+            username: res.locals.user.username,
+          });
+          await studentAssignment.create({
+            assignmentid: req.body.assignmentid,
+            studentid: studentdata._id,
+            pdfpath: studentAssignment.filePath + "/" + req.file.filename,
+            submittime: Date.now()
+          });
+        }
+      }
+      await load_file();
+    });
+    return res.redirect('back');
   } catch (error) {
     console.log(error);
   }

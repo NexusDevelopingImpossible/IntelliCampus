@@ -54,5 +54,6 @@ router.get("/section/searchstudent", adminController.searchsectionstudent);
 router.get("/reports", adminController.reports);
 router.get("/feedback", adminController.feedback);
 router.get("/attendancegrant", adminController.attendancegrant);
+router.post("/attendancegrant/add", adminController.attendancegrantadd);
 
 module.exports = router;

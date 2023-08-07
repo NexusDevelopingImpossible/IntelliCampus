@@ -15,7 +15,7 @@
                 <div class="teacher__and__btn">
                     <div class="teacher">
                         <div class="image">
-                            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+                            <img src="<%= teacher.avatar%>"
                                 alt="">
                         </div>
                         <div class="teacher__details">
@@ -43,8 +43,6 @@
                             <li>Sem</li>
                             <li>Sec</li>
                             <li></li>
-
-                            <!-- <li>Delete</li> -->
                         </ul>
                     </div>
                     <div class="description-scroll">
@@ -83,17 +81,17 @@
                     <form action="/admin/addsubject" method="post">
                         <div class="input__field">
                             <div class="row1">
-                                <select id="department" class="filter-select" name="department" required>
+                                <select id="Department" class="filter-select" name="department" required>
                                     <option value="">Department</option>
                                   </select>
-                                  <select id="course" class="filter-select" name="course" required>
+                                  <select id="Course" class="filter-select" name="course" required>
                                     <option value="">Course</option>
                                   </select>
-                                  <select id="semester" class="filter-select" name="semester" required>
+                                  <select id="Semester" class="filter-select" name="semester" required>
                                     <option value="">Semester</option>
                                   </select>
                                   
-                                  <select id="section" class="filter-select" name="section" required>
+                                  <select id="Section" class="filter-select" name="section" required>
                                     <option value="">Section</option>
                                 </select>
                             </div>
@@ -143,9 +141,9 @@
   }
 
   function updateOptions(selectId) {
-    const selectedDepartment = document.getElementById("department").value;
-    const selectedCourse = document.getElementById("course").value;
-    const selectedSemester = document.getElementById("semester").value;
+    const selectedDepartment = document.getElementById("Department").value;
+    const selectedCourse = document.getElementById("Course").value;
+    const selectedSemester = document.getElementById("Semester").value;
 
     let filteredSubjects = subjectsData;
     let filteredSection = semsecData;
@@ -179,23 +177,23 @@
 
     }
 
-    populateSelect("subject", uniqueValues(filteredSubjects, "name"));
-    populateSelect("section", uniqueValues(filteredSection, "section"));
+    populateSelect("Subject", uniqueValues(filteredSubjects, "name"));
+    populateSelect("Section", uniqueValues(filteredSection, "Section"));
   }
 
-  document.getElementById("department").addEventListener("change", function () {
-    populateSelect("course", uniqueValues(subjectsData, "course"));
-    updateOptions("department");
+  document.getElementById("Department").addEventListener("change", function () {
+    populateSelect("Course", uniqueValues(subjectsData, "Course"));
+    updateOptions("Department");
   });
 
-  document.getElementById("course").addEventListener("change", function () {
-    populateSelect("semester", uniqueValues(subjectsData, "semester"));
-    updateOptions("course");
+  document.getElementById("Course").addEventListener("change", function () {
+    populateSelect("Semester", uniqueValues(subjectsData, "Semester"));
+    updateOptions("Course");
   });
 
-  document.getElementById("semester").addEventListener("change", function () {
-    updateOptions("semester");
+  document.getElementById("Semester").addEventListener("change", function () {
+    updateOptions("Semester");
   });
 
-  populateSelect("department", uniqueValues(subjectsData, "department"));
+  populateSelect("Department", uniqueValues(subjectsData, "Department"));
     </script>

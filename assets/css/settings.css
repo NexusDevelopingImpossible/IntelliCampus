@@ -8,14 +8,14 @@
     color: #fff;
     font-size: 25px;
     font-weight: 600; }
-  .main-page .blur .main-content #pass-form .pass-sec {
+  .main-page .blur .main-content .pass-sec {
     margin-top: 1rem;
     width: 75vw;
     height: 10vh;
     display: flex;
     gap: 2rem;
     align-items: center; }
-    .main-page .blur .main-content #pass-form .pass-sec input {
+    .main-page .blur .main-content .pass-sec input {
       border-radius: 15px;
       background-color: #fff;
       width: 20vw;
@@ -27,9 +27,9 @@
       text-align: left;
       padding: 0.1rem 0.8rem;
       color: #7b6e6e; }
-      .main-page .blur .main-content #pass-form .pass-sec input::placeholder {
+      .main-page .blur .main-content .pass-sec input::placeholder {
         color: #7b6e6e; }
-  .main-page .blur .main-content #pass-form #save {
+  .main-page .blur .main-content #save {
     border-radius: 15px;
     background: #515151;
     color: #fff;

@@ -23,9 +23,12 @@ const assignmentSchema = new mongoose.Schema(
       required: true,
     },
     duedate: {
-      type: String,
+      type: Date,
       required: true,
     },
+    status: {
+      type: String
+    }
   },
   {
     timestamps: true,

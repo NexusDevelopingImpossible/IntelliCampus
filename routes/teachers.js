@@ -43,5 +43,6 @@ router.post("/setting/update", teacherController.settingupdate);
 
 router.post("/internal/resetmaxmarks", teacherController.int_resetmaxmarks);
 router.post("/internal/updateinternal", teacherController.int_updateinternal);
-
+router.get("/attendancegrant", teacherController.attendancegrant);
+router.post("/attendancegrant/add", teacherController.attendancegrantadd);
 module.exports = router;
