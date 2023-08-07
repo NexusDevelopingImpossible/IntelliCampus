@@ -18,12 +18,7 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-.nexus img{
-  width: 20rem;
-  left: 50%;
-  top: 1px;
-  position: absolute;
-}
+
 .container-main {
   height: 100vh;
   display: flex;
@@ -42,6 +37,29 @@ body {
   position: absolute;
   top: 1.5rem;
   left: 1.5rem;
+}
+
+.logo{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  top: 1.5vh;
+  left: 1.5vw;
+}
+.smit img{
+  width: 13vw;
+}
+.nexus img{
+  width: 12vw;
+  margin-bottom: 1vh;
+}
+
+.nexus img{
+  // width: 20rem;
+  // left: 50%;
+  // top: 1px;
+  // position: absolute;
 }
 
 .logo-title img {
@@ -295,9 +313,12 @@ gap: 2.5rem;
 
   cursor: pointer;
 }
+.login-form #btnOutlook:hover {
+  background: rgba(0, 0, 0, 0.523);
+}
 
 .login-form #btnOutlook img {
-  width: 100%;
+  width: 2.5vw;
   height: auto;
 }
 
@@ -327,7 +348,21 @@ gap: 2.5rem;
     height: 100svh;
     background-image: url("../images/bg_phone.png");
   }
-
+  .logo{
+    gap: 2vw;
+    top: 7vh;
+    // left: 50%;
+    // top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .smit img{
+    width: 30vw;
+  }
+  .nexus img{
+    width: 30vw;
+    margin-bottom: 1vh;
+  }
   .logo-title {
     display: flex;
     align-items: center;
@@ -654,3 +689,37 @@ gap: 2.5rem;
 .login-form-pass .resend span {
   font-weight: 500;
 }
+
+
+@media  (min-width: 1301px) and (max-width: 1500px) {
+  html{
+    font-size: 90%;
+  }
+
+}
+
+@media  (min-width: 1000px) and (max-width: 1300px) {
+  html{
+    font-size: 90%;
+  }
+}
+@media (min-height: 601px) and (max-height: 650px) {
+  html{
+    font-size: 86%;
+  }
+
+}
+@media  (min-height: 550px)  and (max-height: 600px) {
+  html{
+    font-size: 81%;
+  }
+
+}
+@media (min-height: 500px) and (max-height: 550px) {
+  html{
+    font-size: 78%;
+  }
+  
+
+}
+
