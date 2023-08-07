@@ -50,13 +50,16 @@
     <div class="main_content">
       <div class="assignment_card">
         <div class="subject_back">
-          <a href="">
-            <img src="../../assets/images/lefty_arrow.png" alt="" />
+          <a href="/teacher/subject/assignment/<%=timetable._id%>">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+            <path
+              d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"
+            /></svg>
           </a>
         </div>
         <div class="subject_assignment">
           <div class="assignment_title">
-            <%console.log(assignmentdata)%>
+            
             <div class="subject_title"><%=assignmentdata.title%></div>
             <div class="due_date">
               <img src="../../assets/images/clock.png" alt="" />
