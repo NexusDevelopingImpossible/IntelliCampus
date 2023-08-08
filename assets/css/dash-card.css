@@ -22,7 +22,8 @@
   justify-content: space-between;
   align-items: center; }
   .card1 .b1 {
-    display: flex; }
+    display: flex;
+    align-items: center; }
     .card1 .b1 .img {
       width: 4.5vw;
       height: 4.5vw;
@@ -38,20 +39,30 @@
     .card1 .b1 div .reg {
       font-weight: 100;
       font-size: 2.2vh; }
-  .card1 .b2 div h1 {
-    font-size: 1.9vh;
-    font-weight: 200;
-    line-height: 1.5; }
-  .card1 .b2 div h1 span {
-    font-weight: 500; }
-  .card1 .b3 {
-    width: 14vw; }
-    .card1 .b3 h1 {
+  .card1 .b2 div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vh; }
+    .card1 .b2 div h1 {
+      display: flex;
       font-size: 1.9vh;
-      font-weight: 200;
-      line-height: 1.5; }
+      font-weight: 400; }
+    .card1 .b2 div h1 span {
+      display: block;
+      width: 6.5vw;
+      font-weight: 200; }
+  .card1 .b3 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vh; }
+    .card1 .b3 h1 {
+      display: flex;
+      font-size: 1.9vh;
+      font-weight: 400; }
     .card1 .b3 h1 span {
-      font-weight: 100; }
+      display: block;
+      width: 6.5vw;
+      font-weight: 200; }
 
 .card2 {
   height: 25vh;
@@ -61,6 +72,18 @@
     padding-top: 1vh;
     font-size: 2.65vh;
     color: #f8d0b4; }
+  .card2 .att-card-hed {
+    padding-top: 1vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .card2 .att-card-hed p {
+      padding-top: 0 !important; }
+    .card2 .att-card-hed a svg {
+      cursor: pointer;
+      transition: all 0.2s; }
+    .card2 .att-card-hed a svg:hover {
+      fill: #ffffffab; }
   .card2 .attendence-container {
     width: 50.75vw;
     overflow-x: auto;
@@ -162,12 +185,14 @@
   width: 24vw;
   height: 42vh; }
 
-.saved, .noted svg {
+.saved,
+.noted svg {
   width: 1.5vw;
   fill: #fff;
   cursor: pointer; }
 
-.saved svg:hover, .noted svg:hover {
+.saved svg:hover,
+.noted svg:hover {
   fill: #ffffff8a; }
 
 .announcements {
@@ -187,5 +212,7 @@
   width: 1.5vw;
   fill: #fff; }
 
-.card-internal, .mobile-header, .sidebar1 {
+.card-internal,
+.mobile-header,
+.sidebar1 {
   display: none; }
