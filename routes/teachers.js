@@ -31,6 +31,7 @@ router.get("/allot", teacherController.allot);
 router.get("/subject/assignment/:id", teacherController.assignment);
 router.post("/subject/assignment/create", teacherController.assignmentcreate);
 router.get("/subject/assignment/mark/:id", teacherController.assignmentmark);
+router.post("/subject/assignment/updatemarks", teacherController.assignmentupdatemark);
 
 router.post("/uploadfile", resultanalysisController.uploadfile);
 router.get("/viewstudentattendance", teacherController.viewstudentattendance);

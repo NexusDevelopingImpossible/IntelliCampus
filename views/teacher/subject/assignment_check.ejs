@@ -8,19 +8,28 @@
     <!-- - - - - - - - - - - -->
     <div id="title">
       <div class="sub-name">
-        <a href="/teacher/dashboard"
-          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+        <a href="/teacher/dashboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
             <path
-              d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"
-            /></svg>
+              d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z" />
+          </svg>
         </a>
-        <h1 class="subject" id="sub_code"><%=timetable.subjectcode.code%></h1>
-        <h1 class="subject" id="sub_title"><%=timetable.subjectcode.name%></h1>
+        <h1 class="subject" id="sub_code">
+          <%=timetable.subjectcode.code%>
+        </h1>
+        <h1 class="subject" id="sub_title">
+          <%=timetable.subjectcode.name%>
+        </h1>
       </div>
       <div class="year__sem__sec">
-        <span>Department : <strong> <%=timetable.department%> </strong></span>
-        <span>Semester : <strong> <%=timetable.semester%> </strong></span>
-        <span>Section : <strong> <%=timetable.section%> </strong></span>
+        <span>Department : <strong>
+            <%=timetable.department%>
+          </strong></span>
+        <span>Semester : <strong>
+            <%=timetable.semester%>
+          </strong></span>
+        <span>Section : <strong>
+            <%=timetable.section%>
+          </strong></span>
       </div>
     </div>
     <section class="att-navbar">
@@ -52,15 +61,17 @@
         <div class="subject_back">
           <a href="/teacher/subject/assignment/<%=timetable._id%>">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-            <path
-              d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"
-            /></svg>
+              <path
+                d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z" />
+            </svg>
           </a>
         </div>
         <div class="subject_assignment">
           <div class="assignment_title">
-            
-            <div class="subject_title"><%=assignmentdata.title%></div>
+
+            <div class="subject_title">
+              <%=assignmentdata.title%>
+            </div>
             <div class="due_date">
               <img src="../../assets/images/clock.png" alt="" />
               Due on <%=assignmentdata.duedate%>
@@ -82,58 +93,149 @@
 
       <div class="filters_save">
         <div class="left_side_button">
-          <button class="btn_1">All</button>
-          <button class="btn_2">Submitted</button>
-          <button class="btn_2">Not Submitted</button>
+          <button class="btn_1" id="all-list" onclick="divchange(this.id)">All</button>
+          <button class="btn_2" id="sub-list" onclick="divchange(this.id)">Submitted</button>
+          <button class="btn_2" id="not-list" onclick="divchange(this.id)">Not Submitted</button>
         </div>
         <div class="right_side_button">
-          <button class="btn_3">Reset</button>
-          <button class="btn_4">Save</button>
+          <button id="resetbtn" class="btn_3">Reset</button>
+          <button id="savebtn" class="btn_4" onclick="updatemarks()">Save</button>
         </div>
       </div>
 
       <div class="description">
-        <div class="description__titles">
-          <ul>
-            <li>S.No</li>
-            <li>Name</li>
-            <li>Mobile No</li>
-            <li>Uploaded File</li>
-            <li>Date & Time Uploaded</li>
-            <li>Marks(5)</li>
-          </ul>
-        </div>
         <div class="description-scroll">
-          <div class="description__list">
-            <ul>
-              <li>01</li>
-              <li>Srijan Dev</li>
-              <li>8789334294</li>
-              <li></li>
-              <li>29-Feb-2023; 08:00 PM</li>
-              <li><span class="marks_box">5</span></li>
-            </ul>
-
-            <ul>
-              <li>01</li>
-              <li>Srijan Dev</li>
-              <li>8789334294</li>
-              <li></li>
-              <li>29-Feb-2023; 08:00 PM</li>
-              <li><span class="marks_box">5</span></li>
-            </ul>
-
-            <ul>
-              <li>01</li>
-              <li>Srijan Dev</li>
-              <li>8789334294</li>
-              <li></li>
-              <li>29-Feb-2023; 08:00 PM</li>
-              <li><span class="marks_box">5</span></li>
-            </ul>
+          <div id="page-all-list">
+            <div class="description__titles">
+              <ul>
+                <li>S.No</li>
+                <li>Name</li>
+                <li>Registration No.</li>
+                <li>Uploaded File</li>
+                <li>Date & Time Uploaded</li>
+                <li>Marks(5)</li>
+              </ul>
+            </div>
+            <div class="description__list">
+              <form action="/teacher/subject/assignment/updatemarks" method="post" id="assignmentmarksform">
+              <input type="hidden" name="timetableid" value="<%=timetable._id%>">
+              <%for(let i=0; i<arrnot.length; i++){%>
+                <ul>
+                  <li>
+                    <%=i+1%>
+                  </li>
+                  <li>
+                    <%=arrnot[i].name%>
+                  </li>
+                  <li>
+                    <%=arrnot[i].registration.username%>
+                  </li>
+                  <li>
+                    <%=arrnot[i].file.split('/')[1]%>
+                  </li>
+                  <li>
+                    <%=String(arrnot[i].dateupload).substring(0,15)%>
+                  </li>
+                  <li><input type="number"  name="marks">
+                  <li><input type="hidden" name="student" value="<%=arrnot[i].registration._id%>">
+                  <li>
+                </ul>
+              <%}%>
+              </form>
+            </div>
+          </div>
+          <div id="page-sub-list">
+            <div class="description__titles">
+              <ul>
+                <li>S.No</li>
+                <li>Name</li>
+                <li>Registration No.</li>
+                <li>Uploaded File</li>
+                <li>Date & Time Uploaded</li>
+              </ul>
+            </div>
+            <div class="description__list">
+              <%for(let i=0; i<arrnot.length; i++){%>
+                <%if(arrnot[i].submitted){%>
+                <ul>
+                  <li>
+                    <%=i+1%>
+                  </li>
+                  <li>
+                    <%=arrnot[i].name%>
+                  </li>
+                  <li>
+                    <%=arrnot[i].registration.username%>
+                  </li>
+                  <li>
+                    <%=arrnot[i].file.split('/')[1]%>
+                  </li>
+                  <li>
+                    <%=String(arrnot[i].dateupload).substring(0,15)%>
+                  </li>
+                </ul>
+                <%}%>
+                <%}%>
+            </div>
+          </div>
+          <div id="page-not-list">
+            <div class="description__titles">
+              <ul>
+                <li>S.No</li>
+                <li>Name</li>
+                <li>Registration No.</li>
+                <li>Uploaded File</li>
+                <li>Date & Time Uploaded</li>
+              </ul>
+            </div>
+            <div class="description__list">
+              <%for(let i=0; i<arrnot.length; i++){%>
+              <%if(!arrnot[i].submitted){%>
+                <ul>
+                  <li>
+                    <%=i+1%>
+                  </li>
+                  <li>
+                    <%=arrnot[i].name%>
+                  </li>
+                  <li>
+                    <%=arrnot[i].registration.username%>
+                  </li>
+                  <li>
+                    
+                  </li>
+                  <li>
+                    
+                  </li>
+                </ul>
+                <%}%>
+                <%}%>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<script>
+  function divchange(id) {
+    document.getElementById('page-all-list').style.display = "none";
+    document.getElementById('page-not-list').style.display = "none";
+    document.getElementById('page-sub-list').style.display = "none";
+    document.getElementById('resetbtn').style.visibility = "hidden";
+    document.getElementById('savebtn').style.visibility = "hidden";
+    document.getElementById('page-' + id).style.display = "contents";
+    document.getElementById('not-list').style.backgroundColor = "#ffffff00";
+    document.getElementById('all-list').style.backgroundColor = "#ffffff00";
+    document.getElementById('sub-list').style.backgroundColor = "#ffffff00";
+    document.getElementById(id).style.backgroundColor = "#fd6d08";
+    if (id == 'all-list') {
+      document.getElementById('resetbtn').style.visibility = "visible";
+      document.getElementById('savebtn').style.visibility = "visible";
+
+    }
+  }
+  function updatemarks(){
+    document.getElementById('assignmentmarksform').submit();
+  }
+</script>

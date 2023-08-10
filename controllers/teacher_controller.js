@@ -15,7 +15,7 @@ const path = require("path");
 const multer = require("multer");
 const User = require("../models/user");
 const AttendanceGrant = require("../models/attendancegrant");
-
+const studentAssignment = require("../models/studentassignment");
 
 //Dashboard
 module.exports.dashboard = async (req, res) => {
@@ -40,7 +40,8 @@ module.exports.dashboard = async (req, res) => {
       teacher: teacherdata,
       timetable: timetabledata,
       notidata,
-      arr, calendardata
+      arr,
+      calendardata,
     });
   } catch (err) {
     console.log(err);
@@ -608,19 +609,6 @@ module.exports.allot = async (req, res) => {
   }
 };
 
-// module.exports.assignment_check = async (req, res) => {
-//   try {
-//     let timetabledata = await Timetable.findById(req.params.id).populate(
-//       "subjectcode"
-//     );
-//     return res.render("teacher/subject/assignment_check", {
-//       title: "Assignment Check",
-//       timetable: timetabledata,
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 module.exports.setting = async (req, res) => {
   try {
     let teacherdata = await teachersProfile.findOne(
@@ -801,16 +789,13 @@ module.exports.int_resetmaxmarks = async (req, res) => {
 };
 module.exports.int_updateinternal = async (req, res) => {
   try {
-    console.log(req.body);
     let examType = req.body.examtype;
     let student = req.body.student;
     let timetableid;
-    // console.log(attendance);
     for (let i = 0; i < student.length; i++) {
       let stud_int = await Attendance.findById(student[i]);
       timetableid = stud_int.timetableid;
       let intarr = stud_int.examMarks;
-      console.log(intarr);
       let examObject = intarr.find((item) => examType in item);
 
       const index = intarr.indexOf(examObject);
@@ -883,7 +868,7 @@ module.exports.assignmentcreate = async (req, res) => {
             description: req.body.description,
             pdfpath: Assignment.filePath + "/" + req.file.filename,
             duedate: req.body.duedate,
-            status: "notgraded"
+            status: "notgraded",
           });
         }
       }
@@ -900,11 +885,73 @@ module.exports.assignmentmark = async (req, res) => {
   const timetable = await Timetable.findById(
     assignmentdata.timetableid
   ).populate("subjectcode");
+  const studentassignment = await studentAssignment
+    .find({ assignmentid: assignmentdata._id })
+    .populate("studentid");
+  const attendanceList = await Attendance.find({
+    timetableid: timetable._id,
+  }).populate("studentid");
+  let arrnot = [];
+  for (let i = 0; i < attendanceList.length; i++) {
+    attendanceList[i].studentid.avatar = "";
+    for (let j = 0; j < studentassignment.length; j++) {
+      if (
+        String(attendanceList[i].studentid._id) ===
+          String(studentassignment[j].studentid._id) &&
+        String(assignmentdata._id) === String(studentassignment[j].assignmentid)
+      ) {
+        let studassignment = {
+          name: attendanceList[i].studentid.name,
+          registration: attendanceList[i].studentid,
+          submitted: true,
+          file: studentassignment[j].pdfpath,
+          dateupload: studentassignment[j].updatedAt,
+        };
+        arrnot.push(studassignment);
+      } else {
+        let studassignment = {
+          name: attendanceList[i].studentid.name,
+          registration: attendanceList[i].studentid,
+          file: "",
+          dateupload: "",
+        };
+        arrnot.push(studassignment);
+      }
+    }
+    if (studentassignment.length === 0) {
+      let studassignment = {
+        name: attendanceList[i].studentid.name,
+        registration: attendanceList[i].studentid,
+        file: "",
+        dateupload: "",
+      };
+      arrnot.push(studassignment);
+    }
+  }
   return res.render("teacher/subject/assignment_check", {
     title: "Assignment",
     timetable,
     assignmentdata,
+    arrnot,
   });
+};
+module.exports.assignmentupdatemark = async (req, res) => {
+  try {
+    let timetabledata = await Timetable.findById(req.body.timetableid);
+    let studentlist = req.body.student;
+    let marks = req.body.marks;
+    for (let i = 0; i < studentlist.length; i++) {
+      let assignsingle = await Attendance.findOneAndUpdate(
+        { studentid: studentlist[i], timetableid: timetabledata._id },
+        { assignmentmarks: marks[i] },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    }
+    return res.redirect("back");
+  } catch (error) {}
 };
 module.exports.attendancegrant = async (req, res) => {
   try {

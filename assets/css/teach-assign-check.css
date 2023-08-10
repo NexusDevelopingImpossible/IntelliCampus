@@ -142,7 +142,11 @@
           .main_content .description .description-scroll .description__list ul li:nth-child(6) {
             flex: 1; }
         .main_content .description .description-scroll .description__list ul .marks_box {
-          width: 5vw;
+          color: #fff;
+          width: 1vw;
           padding: 0.4vh 1vw;
           border-radius: 5px;
           background-color: #00000017; }
+
+#page-sub-list, #page-not-list {
+  display: none; }

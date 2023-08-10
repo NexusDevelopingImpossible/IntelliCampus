@@ -376,8 +376,8 @@
     for (let i = lastDayofMonth; i < 6; i++) {
       liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
     }
-    currentDate.innerText = `${months[currMonth]}`;
-    currentYear.innerText = `${currYear}`;
+    currentDate.innerText = `${months[currMonth]} ${currYear}`;
+    // currentYear.innerText = `${currYear}`;
     daysTag.innerHTML = liTag;
   };
   renderCalendar();

@@ -121,7 +121,10 @@
                                             <%}%>
                                         </td>
                                         <td>
-                                            <!-- assignment  -->
+                                            <%if(internal[i].assignmentmarks){%>
+                                            <%=internal[i].assignmentmarks%>
+                                            <%total = total + Number(internal[i].assignmentmarks)%>
+                                            <%}%>
                                         </td>
                                         <td>
                                             <%=att%>

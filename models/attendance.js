@@ -33,7 +33,6 @@ const attendanceSchema = new mongoose.Schema(
     },
     assignmentmarks: {
       type: Number,
-      required: true,
     },
     totalpresent: {
       type: Number,

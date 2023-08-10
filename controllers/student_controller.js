@@ -204,7 +204,7 @@ module.exports.attendancesingle = async (req, res) => {
       const dateB = new Date(b.datevalue);
       return dateA.getTime() - dateB.getTime();
     });
-    let subject = attendancesingle.timetableid.subjectcode;
+    let subject = await attendancesingle.timetableid.subjectcode;
     return res.render("student/attendance_view", {
       title: "Attendance",
       attendance,
