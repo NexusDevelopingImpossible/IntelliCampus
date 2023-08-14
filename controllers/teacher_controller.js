@@ -223,6 +223,7 @@ module.exports.allotsubjectaddstudent = async (req, res) => {
                 { Session1: "" },
                 { Quiz2: "" },
                 { Session2: "" },
+                { Assignment: "" },
               ],
             });
           }
@@ -770,6 +771,9 @@ module.exports.int_resetmaxmarks = async (req, res) => {
         if (examType == "Session2") {
           examt = { Session2: req.body.maxMarks };
         }
+        if (examType == "Assignment") {
+          examt = { Assignment: req.body.maxMarks };
+        }
         if (examType == "Final") {
           examt = { Quiz1: req.body.maxMarks };
         }
@@ -819,6 +823,10 @@ module.exports.int_updateinternal = async (req, res) => {
         }
         if (examType == "Session2") {
           examt = { Session2: req.body.marks[i] };
+          stud_int.examMarks.push(examt);
+        }
+        if (examType == "Assignment") {
+          examt = { Assignment: req.body.marks[i] };
           stud_int.examMarks.push(examt);
         }
         // await stud_int.save();
@@ -941,9 +949,20 @@ module.exports.assignmentupdatemark = async (req, res) => {
     let studentlist = req.body.student;
     let marks = req.body.marks;
     for (let i = 0; i < studentlist.length; i++) {
-      let assignsingle = await Attendance.findOneAndUpdate(
+      let assignsingle = await studentAssignment.findOneAndUpdate(
+        {
+          studentid: studentlist[i],
+          assignmentid: req.body.assignmentid,
+        },
+        { marks: marks[i] },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+      let assigninternal = await Attendance.findOneAndUpdate(
         { studentid: studentlist[i], timetableid: timetabledata._id },
-        { assignmentmarks: marks[i] },
+        { assignmentmarks: marks[i] + assignmentmarks },
         {
           new: true,
           runValidators: true,

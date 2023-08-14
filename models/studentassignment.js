@@ -22,6 +22,9 @@ const studentassignmentSchema = new mongoose.Schema(
     submittime: {
       type: Date,
     },
+    marks: {
+      type: Number,
+    }
   },
   {
     timestamps: true,

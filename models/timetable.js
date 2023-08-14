@@ -3,61 +3,70 @@ const multer = require("multer");
 const path = require("path");
 const Notefile = path.join("/upload/note");
 
-const timetableSchema = new mongoose.Schema({
+const timetableSchema = new mongoose.Schema(
+  {
     department: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     course: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     year: {
-        type: Number,
-        required: true
+      type: Number,
+      required: true,
     },
     semester: {
-        type: Number,
-        required: true
+      type: Number,
+      required: true,
     },
     section: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     teacherid: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Teacher',
-        required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Teacher",
+      required: true,
     },
     subjectcode: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Subject',
-        required: true,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Subject",
+      required: true,
     },
-    classes: [{
+    classes: [
+      {
         date: {
-            type: String,
-            required: true
-        }
-    }],
+          type: String,
+          required: true,
+        },
+      },
+    ],
     internalmarks: {
-        type: Array,
+      type: Array,
     },
-    notes: [{
+    notes: [
+      {
         file: {
-            type: String
+          type: String,
         },
         type: {
-            type: String
+          type: String,
         },
         chapter: {
-            type: Number
-        }
-    }]
-
-}, {
-    timestamps: true
-});
+          type: Number,
+        },
+      },
+    ],
+    resultanalysis: {
+      type: String,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, path.join(__dirname, "..", Notefile));

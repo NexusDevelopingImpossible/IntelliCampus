@@ -119,6 +119,7 @@
             <div class="description__list">
               <form action="/teacher/subject/assignment/updatemarks" method="post" id="assignmentmarksform">
               <input type="hidden" name="timetableid" value="<%=timetable._id%>">
+              <input type="hidden" name="assignmentid" value="<%=assignmentdata._id%>">
               <%for(let i=0; i<arrnot.length; i++){%>
                 <ul>
                   <li>

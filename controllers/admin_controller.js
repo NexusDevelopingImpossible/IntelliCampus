@@ -345,10 +345,20 @@ module.exports.addsubject = async function (req, res) {
     }
     const subjectCode = req.body.subname;
     var subjectName;
+    let dept = req.body.department
     let subject = await Subject.findOne({ name: subjectCode });
     subjectName = subject._id;
     let teacherdata = await Teacher.findOne({
       username: req.body.registration,
+    });
+    const sourceFilePath = "./data/template_result_analysis.xlsx";
+    const destinationFilePath = "./upload/resultanalysis/" + req.body.department + "_" + req.body.course + "_" + req.body.semester + "_" + subject.name+".xlsx";
+    fs.copyFile(sourceFilePath, destinationFilePath, (err) => {
+      if (err) {
+        console.error("Error copying file:", err);
+      } else {
+        console.log("File copied successfully");
+      }
     });
     if (subject.type == "Theory") {
       await Timetable.create({
@@ -366,6 +376,7 @@ module.exports.addsubject = async function (req, res) {
           { Session1: "50" },
           { Session2: "50" },
         ],
+        resultanalysis: destinationFilePath,
       });
     }
     if (subject.type == "Lab") {
@@ -379,6 +390,7 @@ module.exports.addsubject = async function (req, res) {
         subjectcode: subjectName,
         classes: [],
         internalmarks: [{ Final: "120" }],
+        resultanalysis: destinationFilePath,
       });
     }
 

@@ -121,9 +121,9 @@
                                             <%}%>
                                         </td>
                                         <td>
-                                            <%if(internal[i].assignmentmarks){%>
-                                            <%=internal[i].assignmentmarks%>
-                                            <%total = total + Number(internal[i].assignmentmarks)%>
+                                           <%if(internal[i].examMarks[4]){%>
+                                            <%=internal[i].examMarks[4]['Assignment']%>
+                                            <%total = total + Number(internal[i].examMarks[4]['Assignment'])%>
                                             <%}%>
                                         </td>
                                         <td>
