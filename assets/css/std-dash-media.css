@@ -13,6 +13,8 @@
     border-radius: 0;
     overflow: auto;
     padding: 0; }
+  .heading {
+    margin-bottom: 1vh; }
   .card1,
   .card3,
   .card4,
@@ -30,11 +32,11 @@
       .card2 .attendence-container .attendence-percent {
         gap: 5vw; }
         .card2 .attendence-container .attendence-percent .container .circle-progress {
-          width: 20vw;
-          height: 20vw; }
+          width: 4rem;
+          height: 4rem; }
         .card2 .attendence-container .attendence-percent .container .circle-progress::before {
-          width: 17.5vw;
-          height: 17.5vw; }
+          width: 3.6rem;
+          height: 3.6rem; }
     .card2 .attendence-container::-webkit-scrollbar {
       display: none; }
   .mobile-nav {
@@ -42,6 +44,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
     gap: 3vw;
+    row-gap: 2vh;
     padding: 1vh 3vw; }
   .nav-li {
     width: auto;
@@ -79,30 +82,34 @@
     border: 3px solid #fd6d08;
     border-radius: 50%; }
   .sidebar1 {
+    display: none;
     position: absolute;
     top: 0;
     background: rgba(57, 3, 0, 0.688);
     backdrop-filter: blur(12px);
     width: 100vw;
     height: 100vh;
-    display: flex;
     flex-direction: column;
     align-items: center; }
-  .sidebar1 a img {
+  .sidebar-profile {
     width: 25vw;
-    margin-top: 8vh;
+    margin-top: 6vh;
     margin-bottom: 1h;
     border-radius: 50%;
     border: 2px solid #FD6D08; }
+  .close-btn {
+    position: absolute;
+    top: 1.95vh;
+    right: 3.3vw; }
   .std-name {
     font-size: 3vh;
     font-weight: 600; }
   .reg {
     font-size: 2.5vh;
     font-weight: 100; }
-  .sidebar1 div {
+  .upper-sed {
     margin-top: 2vh; }
-  .sidebar1 div h1 {
+  .upper-sed h1 {
     padding-bottom: 1.5vh;
     display: flex;
     width: 55vw;
@@ -110,6 +117,49 @@
     justify-content: space-between;
     font-size: 2.2vh;
     font-weight: 200; }
-  .sidebar1 div h1 span {
+  .upper-sed h1 span {
     font-weight: 500;
-    padding-left: 5vw; } }
+    padding-left: 5vw; }
+  .nexus-logo p {
+    font-size: 1.5vh; }
+  .nexus-logo {
+    margin-bottom: 3.5vh !important; }
+  .nexus-logo img {
+    width: 30vw !important; }
+  .sign-out-btn {
+    font-size: 2.5vh;
+    display: flex;
+    align-items: center;
+    gap: 4vw;
+    background-color: #ffffff16;
+    padding: 1.3vh 5.5vw;
+    border-radius: 5px; }
+  .lower-sed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4vh;
+    margin-top: auto; }
+  .att-view {
+    display: none; }
+  .tabs ul {
+    margin-top: 6vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh; }
+  .tabs ul li {
+    list-style: none; }
+  .tab-icon svg {
+    width: 6vw; }
+  .tabs ul li a {
+    display: flex;
+    gap: 8vw; }
+  .tabs li a {
+    padding: 1.5vh 6vw;
+    text-decoration: none;
+    transition: all 0.3s; }
+  .tab:hover {
+    padding-left: 0 !important; }
+  .dynamic-hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px; } }

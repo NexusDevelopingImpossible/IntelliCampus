@@ -60,8 +60,7 @@
 .rating label {
   display: block;
   padding: 5px;
-  position: relative;
-  padding-left: 20px; }
+  position: relative; }
 
 .rating label input {
   display: none; }
@@ -86,8 +85,8 @@ input:checked + span {
 
 .input-read {
   width: 40vw;
-  font-size: 20px;
-  padding: 0.5rem;
+  font-size: 2.5vh;
+  padding: 0.75rem;
   height: 20vh;
   margin-top: 3vh;
   margin-left: 3.7vw;
@@ -97,12 +96,13 @@ input:checked + span {
   resize: none; }
 
 .input-read:focus {
-  outline: none; }
+  outline: 0.5px solid #fff;
+  background: rgba(93, 91, 91, 0.108); }
 
 /*---Media Query-----*/
 @media screen and (min-width: 300px) and (max-width: 640px) {
   .page-heading {
-    margin: 3vh 5vw !important;
+    margin: 1vh 5vw !important;
     gap: 2vw !important; }
   .tab-icon,
   .page-heading svg {
@@ -127,8 +127,21 @@ input:checked + span {
   .main-page .blur #feedback-query-list .queries .rating .rank {
     width: 16%; }
   .main-page .blur #submit-bttn {
-    width: 30vw;
+    font-size: 2.5vh;
+    height: 5vh;
+    width: 40vw;
     margin-left: 0;
     display: flex;
     justify-content: center;
-    margin: auto; } }
+    margin: auto;
+    margin-top: 6vh; }
+  .rating label span {
+    width: 13vw; }
+  .input-read {
+    width: 100%;
+    margin-left: 0vw; } }
+
+.card-internal,
+.mobile-header,
+.sidebar1 {
+  display: none; }
