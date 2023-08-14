@@ -154,3 +154,8 @@
   #clp {
     height: 19px !important;
     width: 19px !important; } }
+
+.card-internal,
+.mobile-header,
+.sidebar1 {
+  display: none; }

@@ -94,3 +94,8 @@ a {
     width: 38vw;
     font-size: 1.8vh;
     border-radius: 15px; } }
+
+.card-internal,
+.mobile-header,
+.sidebar1 {
+  display: none; }

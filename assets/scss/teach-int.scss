@@ -251,3 +251,65 @@
 .resetp:hover{
   background: rgba(0, 0, 0, 0.225);
 }
+
+// popup for result analysis
+
+
+.modal {
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(248, 213, 123, 0.15);
+  box-shadow: -10px 10px 94px 0px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(34px);
+  width: 33vw;
+}
+
+
+.top {
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background: #ffffff47;
+}
+.top h3 {
+  font-weight: normal;
+}
+.close {
+  background: none;
+  cursor: pointer;
+  border: none;
+}
+.bottom {
+  padding: 1rem 1rem;
+
+}
+
+
+
+.row2 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2vh;
+}
+
+
+#file-name{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.custom-file-upload {
+  width: 20vw;
+  border-radius: 15px;
+}
+
+.tmp{
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
