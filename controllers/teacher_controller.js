@@ -16,6 +16,8 @@ const multer = require("multer");
 const User = require("../models/user");
 const AttendanceGrant = require("../models/attendancegrant");
 const studentAssignment = require("../models/studentassignment");
+const Feedback = require("../models/feedback");
+const { Console } = require("console");
 
 //Dashboard
 module.exports.dashboard = async (req, res) => {
@@ -981,6 +983,188 @@ module.exports.attendancegrant = async (req, res) => {
     res.render("teacher/attendancegrant", {
       title: "Assignment Grant",
       assignmentgrant,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.feedback = async (req, res) => {
+  try {
+    let timetabledata = await Timetable.findById(req.params.id).populate(
+      "subjectcode"
+    );
+    let assignmentdata = await Assignment.find({
+      timetableid: timetabledata._id,
+    });
+
+    let feedbackdata = await Feedback.find({ timetableid: timetabledata._id });
+    const feedarr = new Array(9);
+
+    for (let i = 0; i < 9; i++) {
+      feedarr[i] = new Array(5).fill(0);
+    }
+    for (let i = 0; i < feedbackdata.length; i++) {
+      console.log(feedbackdata[i].feedback[0]);
+      {
+        if (feedbackdata[i].feedback[0] == 1) {
+          feedarr[0][0] = feedarr[0][0] + 1;
+        }
+        if (feedbackdata[i].feedback[0] == 2) {
+          feedarr[0][1] = feedarr[0][1] + 1;
+        }
+        if (feedbackdata[i].feedback[0] == 3) {
+          feedarr[0][2] = feedarr[0][2] + 1;
+        }
+        if (feedbackdata[i].feedback[0] == 4) {
+          feedarr[0][3] = feedarr[0][3] + 1;
+        }
+        if (feedbackdata[i].feedback[0] == 5) {
+          feedarr[0][4] = feedarr[0][4] + 1;
+        }
+      }
+      {
+        if (feedbackdata[i].feedback[1] == 1) {
+          feedarr[1][0] = feedarr[1][0] + 1;
+        }
+        if (feedbackdata[i].feedback[1] == 2) {
+          feedarr[1][1] = feedarr[1][1] + 1;
+        }
+        if (feedbackdata[i].feedback[1] == 3) {
+          feedarr[1][2] = feedarr[1][2] + 1;
+        }
+        if (feedbackdata[i].feedback[1] == 4) {
+          feedarr[1][3] = feedarr[1][3] + 1;
+        }
+        if (feedbackdata[i].feedback[1] == 5) {
+          feedarr[1][4] = feedarr[1][4] + 1;
+        }
+      }
+      {
+        if (feedbackdata[i].feedback[2] == 1) {
+          feedarr[2][0] = feedarr[2][0] + 1;
+        }
+        if (feedbackdata[i].feedback[2] == 2) {
+          feedarr[2][1] = feedarr[2][1] + 1;
+        }
+        if (feedbackdata[i].feedback[2] == 3) {
+          feedarr[2][2] = feedarr[2][2] + 1;
+        }
+        if (feedbackdata[i].feedback[2] == 4) {
+          feedarr[2][3] = feedarr[2][3] + 1;
+        }
+        if (feedbackdata[i].feedback[2] == 5) {
+          feedarr[2][4] = feedarr[2][4] + 1;
+        }
+      }
+      {
+        if (feedbackdata[i].feedback[3] == 1) {
+          feedarr[3][0] = feedarr[3][0] + 1;
+        }
+        if (feedbackdata[i].feedback[3] == 2) {
+          feedarr[3][1] = feedarr[3][1] + 1;
+        }
+        if (feedbackdata[i].feedback[3] == 3) {
+          feedarr[3][2] = feedarr[3][2] + 1;
+        }
+        if (feedbackdata[i].feedback[3] == 4) {
+          feedarr[3][3] = feedarr[3][3] + 1;
+        }
+        if (feedbackdata[i].feedback[3] == 5) {
+          feedarr[3][4] = feedarr[3][4] + 1;
+        }
+      }
+      {
+        if (feedbackdata[i].feedback[4] == 1) {
+          feedarr[4][0] = feedarr[4][0] + 1;
+        }
+        if (feedbackdata[i].feedback[4] == 2) {
+          feedarr[4][1] = feedarr[4][1] + 1;
+        }
+        if (feedbackdata[i].feedback[4] == 3) {
+          feedarr[4][2] = feedarr[4][2] + 1;
+        }
+        if (feedbackdata[i].feedback[4] == 4) {
+          feedarr[4][3] = feedarr[4][3] + 1;
+        }
+        if (feedbackdata[i].feedback[4] == 5) {
+          feedarr[4][4] = feedarr[4][4] + 1;
+        }
+      }
+      {
+        if (feedbackdata[i].feedback[5] == 1) {
+          feedarr[5][0] = feedarr[5][0] + 1;
+        }
+        if (feedbackdata[i].feedback[5] == 2) {
+          feedarr[5][1] = feedarr[5][1] + 1;
+        }
+        if (feedbackdata[i].feedback[5] == 3) {
+          feedarr[5][2] = feedarr[5][2] + 1;
+        }
+        if (feedbackdata[i].feedback[5] == 4) {
+          feedarr[5][3] = feedarr[5][3] + 1;
+        }
+        if (feedbackdata[i].feedback[5] == 5) {
+          feedarr[5][4] = feedarr[5][4] + 1;
+        }
+      }
+      {
+        if (feedbackdata[i].feedback[6] == 1) {
+          feedarr[6][0] = feedarr[6][0] + 1;
+        }
+        if (feedbackdata[i].feedback[6] == 2) {
+          feedarr[6][1] = feedarr[6][1] + 1;
+        }
+        if (feedbackdata[i].feedback[6] == 3) {
+          feedarr[6][2] = feedarr[6][2] + 1;
+        }
+        if (feedbackdata[i].feedback[6] == 4) {
+          feedarr[6][3] = feedarr[6][3] + 1;
+        }
+        if (feedbackdata[i].feedback[6] == 5) {
+          feedarr[6][4] = feedarr[6][4] + 1;
+        }
+      }
+      {
+        if (feedbackdata[i].feedback[7] == 1) {
+          feedarr[7][0] = feedarr[7][0] + 1;
+        }
+        if (feedbackdata[i].feedback[7] == 2) {
+          feedarr[7][1] = feedarr[7][1] + 1;
+        }
+        if (feedbackdata[i].feedback[7] == 3) {
+          feedarr[7][2] = feedarr[7][2] + 1;
+        }
+        if (feedbackdata[i].feedback[7] == 4) {
+          feedarr[7][3] = feedarr[7][3] + 1;
+        }
+        if (feedbackdata[i].feedback[7] == 5) {
+          feedarr[7][4] = feedarr[7][4] + 1;
+        }
+      }
+      {
+        if (feedbackdata[i].feedback[8] == 1) {
+          feedarr[8][0] = feedarr[8][0] + 1;
+        }
+        if (feedbackdata[i].feedback[8] == 2) {
+          feedarr[8][1] = feedarr[8][1] + 1;
+        }
+        if (feedbackdata[i].feedback[8] == 3) {
+          feedarr[8][2] = feedarr[8][2] + 1;
+        }
+        if (feedbackdata[i].feedback[8] == 4) {
+          feedarr[8][3] = feedarr[8][3] + 1;
+        }
+        if (feedbackdata[i].feedback[8] == 5) {
+          feedarr[8][4] = feedarr[8][4] + 1;
+        }
+      }
+
+    }
+    return res.render("teacher/subject/feedback", {
+      title: "Feedback",
+      timetable: timetabledata,
+      feedbackdata,
+      feedarr,
     });
   } catch (err) {
     console.log(err);

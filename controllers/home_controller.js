@@ -20,7 +20,7 @@ module.exports.Login = function (req, res) {
 };
 module.exports.error = function (req, res) {
   return res.render("components/error404", {
-    title: "error",
+    title: "Error",
   });
 };
 module.exports.fp_forgotpassword = function (req, res) {

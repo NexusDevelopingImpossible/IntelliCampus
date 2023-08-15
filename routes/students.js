@@ -13,7 +13,7 @@ router.get("/feedback", studentController.feedback);
 router.get("/attendance", studentController.attendance);
 router.get("/response/:id", studentController.enter_feedback);
 router.get("/attendancesingle/:id", studentController.attendancesingle);
-router.post("/feedbackdata", studentController.feedbackdata);
+router.post("/feedback/submit", studentController.feedbackdata);
 router.get("/pinnoti/:id", studentController.pinnoti);
 router.get("/unpinnoti/:id", studentController.unpinnoti);
 router.get("/fetchnoti", studentController.fetchnoti);

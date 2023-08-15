@@ -29,6 +29,7 @@ router.get("/view-result-analytics", resultanalysisController.view_res_analysis)
 router.get("/teach-allot-students", teacherController.allot_students);
 router.get("/allot", teacherController.allot);
 router.get("/subject/assignment/:id", teacherController.assignment);
+router.get("/subject/feedback/:id", teacherController.feedback);
 router.post("/subject/assignment/create", teacherController.assignmentcreate);
 router.get("/subject/assignment/mark/:id", teacherController.assignmentmark);
 router.post("/subject/assignment/updatemarks", teacherController.assignmentupdatemark);

@@ -148,10 +148,8 @@ module.exports.feedback = async (req, res) => {
       const teacher = await Timetable.findOne({
         _id: attendance[i].timetableid,
       }).populate("teacherid subjectcode");
-      // console.log(teacher);
       teacherdata.push(teacher);
     }
-    console.log(teacherdata);
     return res.render("student/feedback", {
       title: "Feedback",
       student: studentdata,
@@ -218,11 +216,15 @@ module.exports.attendancesingle = async (req, res) => {
 
 module.exports.enter_feedback = async (req, res) => {
   try {
-    const teacherdata = await Teacher.findById(req.params.id);
-
-    return res.render("student/feedback_response", {
-      title: "Submit Feedback",
-      teacherdata,
+    const timetable = await Timetable.findById(req.params.id).populate('teacherid');
+    if (timetable) {
+      return res.render("student/feedback_response", {
+        title: "Submit Feedback",
+        timetable,
+      });
+    }
+    return res.render("components/error404", {
+      title: "Error",
     });
   } catch (Error) {
     console.log(Error);
@@ -231,9 +233,39 @@ module.exports.enter_feedback = async (req, res) => {
 
 module.exports.feedbackdata = async (req, res) => {
   try {
-    console.log(req.body);
+    checkurlfunct.checkurlstudent(req, res);
+    const studentdata = await Student.findOne({
+      username: res.locals.user.username,
+    });
+    const timetableid = req.body.xyz;
+    let feeddata = [];
+    feeddata.push(req.body.q1);
+    feeddata.push(req.body.q2);
+    feeddata.push(req.body.q3);
+    feeddata.push(req.body.q4);
+    feeddata.push(req.body.q5);
+    feeddata.push(req.body.q6);
+    feeddata.push(req.body.q7);
+    feeddata.push(req.body.q8);
+    feeddata.push(req.body.q9);
+    if (timetableid) {
+      const subjectdata = await Timetable.findById(timetableid);
+      console.log(subjectdata);
+      if (subjectdata) {
+        let checkatt = await Attendance.findOne({ timetableid: subjectdata._id, studentid: studentdata._id });
+        console.log(checkatt);
+        if (checkatt) {
+          await Feedback.create({
+            studentid: studentdata._id,
+            timetableid: subjectdata._id,
+            feedback: feeddata,
+            question10: String(req.body.q10)
+          })
+        }
+      }
+    }
     req.flash("success", "Feedback submitted.");
-    return res.redirect("feedback");
+    return res.redirect("../feedback");
   } catch (error) {
     console.log(error);
   }

@@ -63,6 +63,7 @@
                         <option value="Session1">Sessional 1</option>
                         <option value="Quiz2">Quiz 2</option>
                         <option value="Session2">Sessional 2</option>
+                        <option value="Assignment">Assignment</option>
                         <%}%>
                          <%if(timetable.subjectcode.type == "Lab"){%>
                         <option value="Final">Final</option>
@@ -347,6 +348,10 @@ const modal = document.querySelector(".modal");
             document.getElementById('defaultmarks').innerHTML = 15;
             document.getElementById('poptitle').innerHTML = "Sessional 2";
         }
+        if(g == 'Assignment'){
+            document.getElementById('defaultmarks').innerHTML = 5;
+            document.getElementById('poptitle').innerHTML = "Assignment";
+        }
         if(g == 'Final'){
             document.getElementById('defaultmarks').innerHTML = 60;
             document.getElementById('poptitle').innerHTML = "Final";
@@ -355,7 +360,6 @@ const modal = document.querySelector(".modal");
         const index = internalmarks.indexOf(quiz2Object);
         // console.log(index);
         if(quiz2Object){
-            console.log(quiz2Object)
             document.getElementById('maxMarksField').innerHTML = quiz2Object[g];
         }
         else{   
@@ -386,6 +390,7 @@ const modal = document.querySelector(".modal");
         selectupdate()
     })
 function updatemarks(id){
+    console.log()
     document.getElementById(('dis'+id)).value=((Number(document.getElementById(id).value)/Number(document.getElementById('maxMarksField').innerHTML)) * Number(document.getElementById('defaultmarks').innerHTML)).toFixed(1); 
 }
 </script>

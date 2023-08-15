@@ -1,0 +1,206 @@
+<link rel="stylesheet" href="<%= assetPath('css/teach-general-att.css') %>" />
+<link rel="stylesheet" href="<%= assetPath('css/teach-feedback.css') %>" />
+<div class="main-page">
+  <div class="blur">
+    <div id="title">
+      <div class="sub-name">
+        <a href="/teacher/dashboard"
+          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+            <path
+              d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"
+            /></svg>
+        </a>
+        <h1 class="subject" id="sub_code"><%=timetable.subjectcode.code%></h1>
+        <h1 class="subject" id="sub_title"><%=timetable.subjectcode.name%></h1>
+      </div>
+      <div class="year__sem__sec">
+        <span>Department : <strong> <%=timetable.department%> </strong></span>
+        <span>Semester : <strong> <%=timetable.semester%> </strong></span>
+        <span>Section : <strong> <%=timetable.section%> </strong></span>
+      </div>
+    </div>
+    <section class="att-navbar">
+      <div class="container">
+        <a href="/teacher/getsubject/<%=timetable._id%>">
+        <div id="tab-1" class="tab-item">
+          <p class="hed-day">Attendance</p>
+        </div>
+        </a>
+        <a href="/teacher/internalmarks/<%=timetable._id%>">
+          <div id="tab-2" class="tab-item">
+            <p class="hed-day">Internal Marks</p>
+          </div>
+        </a>
+        <a href="/teacher/notes/<%=timetable._id%>">
+          <div id="tab-4" class="tab-item">
+            <p class="hed-day">Notes</p>
+          </div>
+        </a>
+        <a href="/teacher/subject/feedback/<%=timetable._id%>">
+          <div id="tab-3" class="tab-item tab-border">
+            <p class="hed-day">Feedback</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    <div class="list_feedback">
+      <div class="list_feedback_title">
+        <div class="list_items">
+          <ul>
+            <li>Q.No</li>
+            <li>Questions</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>Avg</li>
+          </ul>
+        </div>
+      </div>
+      <div class="list_scroll">
+        <div class="list_items">
+          <ul>
+            <li>1</li>
+            <li>
+              It is a long established fact that a reader will be distracted by
+              the readable content of adable content of adable content of adable
+              content of a page when loo
+            </li>
+            <li><%=feedarr[0][0]%></li>
+            <li><%=feedarr[0][1]%></li>
+            <li><%=feedarr[0][2]%></li>
+            <li><%=feedarr[0][3]%></li>
+            <li><%=feedarr[0][4]%></li>
+            <li><%=(feedarr[0][0]*1+feedarr[0][1]*2+feedarr[0][2]*3+feedarr[0][3]*4+feedarr[0][4]*5)/feedbackdata.length%></li>
+          </ul>
+          <ul>
+            <li>2</li>
+            <li>
+              It is a long established fact that a reader will be distracted by
+              the readable content of adable content of adable content of adable
+              content of a page when loo
+            </li>
+            <li><%=feedarr[1][0]%></li>
+            <li><%=feedarr[1][1]%></li>
+            <li><%=feedarr[1][2]%></li>
+            <li><%=feedarr[1][3]%></li>
+            <li><%=feedarr[1][4]%></li>
+            <li><%=(feedarr[1][0]*1+feedarr[1][1]*2+feedarr[1][2]*3+feedarr[1][3]*4+feedarr[1][4]*5)/feedbackdata.length%></li>
+          </ul>
+          <ul>
+            <li>3</li>
+            <li>
+              It is a long established fact that a reader will be distracted by
+              the readable content of adable content of adable content of adable
+              content of a page when loo
+            </li>
+            <li><%=feedarr[2][0]%></li>
+            <li><%=feedarr[2][1]%></li>
+            <li><%=feedarr[2][2]%></li>
+            <li><%=feedarr[2][3]%></li>
+            <li><%=feedarr[2][4]%></li>
+            <li><%=(feedarr[2][0]*1+feedarr[2][1]*2+feedarr[2][2]*3+feedarr[2][3]*4+feedarr[2][4]*5)/feedbackdata.length%></li>
+          </ul>
+          <ul>
+            <li>4</li>
+            <li>
+              It is a long established fact that a reader will be distracted by
+              the readable content of adable content of adable content of adable
+              content of a page when loo
+            </li>
+            <li><%=feedarr[3][0]%></li>
+            <li><%=feedarr[3][1]%></li>
+            <li><%=feedarr[3][2]%></li>
+            <li><%=feedarr[3][3]%></li>
+            <li><%=feedarr[3][4]%></li>
+            <li><%=(feedarr[3][0]*1+feedarr[3][1]*2+feedarr[3][2]*3+feedarr[3][3]*4+feedarr[3][4]*5)/feedbackdata.length%></li>
+          </ul>
+          <ul>
+            <li>5</li>
+            <li>
+              It is a long established fact that a reader will be distracted by
+              the readable content of adable content of adable content of adable
+              content of a page when loo
+            </li>
+            <li><%=feedarr[4][0]%></li>
+            <li><%=feedarr[4][1]%></li>
+            <li><%=feedarr[4][2]%></li>
+            <li><%=feedarr[4][3]%></li>
+            <li><%=feedarr[4][4]%></li>
+            <li><%=(feedarr[4][0]*1+feedarr[4][1]*2+feedarr[4][2]*3+feedarr[4][3]*4+feedarr[4][4]*5)/feedbackdata.length%></li>
+          </ul>
+          <ul>
+            <li>6</li>
+            <li>
+              It is a long established fact that a reader will be distracted by
+              the readable content of adable content of adable content of adable
+              content of a page when loo
+            </li>
+            <li><%=feedarr[5][0]%></li>
+            <li><%=feedarr[5][1]%></li>
+            <li><%=feedarr[5][2]%></li>
+            <li><%=feedarr[5][3]%></li>
+            <li><%=feedarr[5][4]%></li>
+            <li><%=(feedarr[5][0]*1+feedarr[5][1]*2+feedarr[5][2]*3+feedarr[5][3]*4+feedarr[5][4]*5)/feedbackdata.length%></li>
+          </ul>
+          <ul>
+            <li>7</li>
+            <li>
+              It is a long established fact that a reader will be distracted by
+              the readable content of adable content of adable content of adable
+              content of a page when loo
+            </li>
+            <li><%=feedarr[6][0]%></li>
+            <li><%=feedarr[6][1]%></li>
+            <li><%=feedarr[6][2]%></li>
+            <li><%=feedarr[6][3]%></li>
+            <li><%=feedarr[6][4]%></li>
+            <li><%=(feedarr[6][0]*1+feedarr[6][1]*2+feedarr[6][2]*3+feedarr[6][3]*4+feedarr[6][4]*5)/feedbackdata.length%></li>
+          </ul>
+          <ul>
+            <li>8</li>
+            <li>
+              It is a long established fact that a reader will be distracted by
+              the readable content of adable content of adable content of adable
+              content of a page when loo
+            </li>
+            <li><%=feedarr[7][0]%></li>
+            <li><%=feedarr[7][1]%></li>
+            <li><%=feedarr[7][2]%></li>
+            <li><%=feedarr[7][3]%></li>
+            <li><%=feedarr[7][4]%></li>
+            <li><%=(feedarr[7][0]*1+feedarr[7][1]*2+feedarr[7][2]*3+feedarr[7][3]*4+feedarr[7][4]*5)/feedbackdata.length%></li>
+          </ul>
+          <ul>
+            <li>9</li>
+            <li>
+              It is a long established fact that a reader will be distracted by
+              the readable content of adable content of adable content of adable
+              content of a page when loo
+            </li>
+            <li><%=feedarr[8][0]%></li>
+            <li><%=feedarr[8][1]%></li>
+            <li><%=feedarr[8][2]%></li>
+            <li><%=feedarr[8][3]%></li>
+            <li><%=feedarr[8][4]%></li>
+            <li><%=(feedarr[8][0]*1+feedarr[8][1]*2+feedarr[8][2]*3+feedarr[8][3]*4+feedarr[8][4]*5)/feedbackdata.length%></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="list_remarks">
+      <div class="list_remarks_title">Remarks:</div>
+      <div class="list_scroll">
+        <%for(let i = 0; i<feedbackdata.length; i++){%>
+        <ul>
+          <li><%=i+1%></li>
+          <li>
+            <%=feedbackdata[i].question10%>
+          </li>
+        </ul>
+        <%}%>
+      </div>
+    </div>
+  </div>
+</div>

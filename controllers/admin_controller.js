@@ -375,6 +375,7 @@ module.exports.addsubject = async function (req, res) {
           { Quiz2: "10" },
           { Session1: "50" },
           { Session2: "50" },
+          { Assignment: "5" },
         ],
         resultanalysis: destinationFilePath,
       });
