@@ -15,6 +15,7 @@
   "author": "Nexus",
   "license": "ISC",
   "dependencies": {
+    "config": "^3.3.9",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^4.6.0",
     "cookie-parser": "^1.4.6",
@@ -29,6 +30,8 @@
     "gulp-imagemin": "^6.0.0",
     "gulp-load-plugins": "^2.0.8",
     "gulp-uglify-es": "^3.0.0",
+    "mongoback": "^3.0.6",
+    "mongodb-backup": "^1.6.9",
     "mongoose": "^6.11.2",
     "mongoose-autopopulate": "^1.0.1",
     "morgan": "^1.10.0",

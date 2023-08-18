@@ -1,63 +1,155 @@
 <link rel="stylesheet" href="<%= assetPath('css/create-feedback.css') %>" />
-        <div class="main-page">
-            <div class="blur">
-                <div class="title-header">
-                    <div class="title">
-                        <img src="../../assets/images/lefty_arrow.png " alt=""><span>Create Feedback</span>
-                    </div>
-                </div>
-                <div class="containers">
-                    <div class="options ">
-                        
-                        
-                    </div>
-                    <button class="creat-feed">
-                        Create Feedback <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" ><path d="M450-450H230q-12.75 0-21.375-8.675-8.625-8.676-8.625-21.5 0-12.825 8.625-21.325T230-510h220v-220q0-12.75 8.675-21.375 8.676-8.625 21.5-8.625 12.825 0 21.325 8.625T510-730v220h220q12.75 0 21.375 8.675 8.625 8.676 8.625 21.5 0 12.825-8.625 21.325T730-450H510v220q0 12.75-8.675 21.375-8.676 8.625-21.5 8.625-12.825 0-21.325-8.625T450-230v-220Z"/></svg>
-                    </button>
-                </div>
-                <div class="main-table">
-                    <div class="description">
-                        <div class="description__titles">
-                            <ul>
-                                <li>S.No</li>
-                                <li>Department</li>
-                                <li>Course</li>
-                                <li>Semester</li>
-                                <li>Deadline</li>
-                                <li></li>
-                            </ul>
-                        </div>
-                        <div class="description-scroll">
-                            <div class="description__list">
-                                <ul>
-                                    <li>1</li>
-                                    <li>IT</li>
-                                    <li>B.Tech</li>
-                                    <li>5th</li>
-                                    <li>12-34-2003</li>
-                                    <li><button class="btn btn-outline view-doc">View</button></li>
-                                </ul>
+<div class="main-page">
+  <div class="blur">
+    <div class="page-heading">
+      <a href="/admin/dashboard"
+        ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+          <path
+            d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"
+          />
+        </svg>
+      </a>
+      <h1 class="heading">Create Feedback</h1>
+    </div>
+    <form action="/admin/feedback/createfeedback" method="post">
+    <div class="containers">
+      <div class="options">
+        <select
+          id="departmentSelect"
+          class="filter-select"
+          name="department"
+          onchange="updateCourseSelect()"
+        >
+          <option value="">Department</option>
+        </select>
 
-                                <ul>
-                                    <li>1</li>
-                                    <li>IT</li>
-                                    <li>B.Tech</li>
-                                    <li>5th</li>
-                                    <li>12-34-2003</li>
-                                    <li><button class="btn btn-outline view-doc">View</button></li>
-                                </ul>
+        <select
+          id="courseSelect"
+          class="filter-select"
+          name="course"
+          onchange="updateSemesterSelect()"
+        >
+          <option value="">Course</option>
+        </select>
 
-                                <ul>
-                                    <li>1</li>
-                                    <li>IT</li>
-                                    <li>B.Tech</li>
-                                    <li>5th</li>
-                                    <li>12-34-2003</li>
-                                    <li><button class="btn btn-outline view-doc">View</button></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> 
+        <select id="semesterSelect" name="semester" class="filter-select">
+          <option value="">Semester</option>
+        </select>
+        <input type="datetime-local" name="deadline" id="">
+      </div>
+      <button class="creat-feed">
+        Create Feedback
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+          <path
+            d="M450-450H230q-12.75 0-21.375-8.675-8.625-8.676-8.625-21.5 0-12.825 8.625-21.325T230-510h220v-220q0-12.75 8.675-21.375 8.676-8.625 21.5-8.625 12.825 0 21.325 8.625T510-730v220h220q12.75 0 21.375 8.675 8.625 8.676 8.625 21.5 0 12.825-8.625 21.325T730-450H510v220q0 12.75-8.675 21.375-8.676 8.625-21.5 8.625-12.825 0-21.325-8.625T450-230v-220Z"
+          />
+        </svg>
+      </button>
+    </div>
+    </form>
+    <div class="main-table">
+      <div class="description">
+        <div class="description__titles">
+          <ul>
+            <li>S.No</li>
+            <li>Department</li>
+            <li>Course</li>
+            <li>Semester</li>
+            <li>Deadline</li>
+            <li></li>
+          </ul>
+        </div>
+        <div class="description-scroll">
+          <div class="description__list">
+            <%for(let i = 0; i<feedbackadmindata.length; i++){%>
+            <ul>
+              <li><%=i+1%></li>
+              <li><%=feedbackadmindata[i].department%></li>
+              <li><%=feedbackadmindata[i].course%></li>
+              <li><%=feedbackadmindata[i].semester%></li>
+              <li><%=String(feedbackadmindata[i].deadline).substring(0,10)%></li>
+              <li><a href="/admin/feedback/resultfeedback" class="btn btn-outline view-doc">View</a></li>
+            </ul>
+            <%}%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    var departmentSelect = document.getElementById("departmentSelect");
+  var courseSelect = document.getElementById("courseSelect");
+  var semesterSelect = document.getElementById("semesterSelect");
+
+  departmentSelect.addEventListener("change", updateCourseSelect);
+  courseSelect.addEventListener("change", updateSemesterSelect);
+  let u = <%- JSON.stringify(locals.deptSem) %>;
+  let data = u;
+  function updateDepartmentSelect() {
+    var departments = [...new Set(data.map(item => item.department))];
+
+    for (var i = 0; i < departments.length; i++) {
+        console.log(departments[i]);
+      var option = document.createElement("option");
+      option.text = departments[i];
+      option.value = departments[i];
+      departmentSelect.appendChild(option);
+    }
+  }
+
+  function updateCourseSelect() {
+    var selectedDepartment = departmentSelect.value;
+
+    courseSelect.innerHTML = "";
+    semesterSelect.innerHTML = "";
+
+    if (selectedDepartment) {
+      var departmentData = data.filter(item => item.department === selectedDepartment);
+      var courses = [...new Set(departmentData.map(item => item.course))];
+      var option = document.createElement("option");
+      option.text = "Course";
+      courseSelect.appendChild(option);
+      for (var i = 0; i < courses.length; i++) {
+        var option = document.createElement("option");
+        option.text = courses[i];
+        option.value = courses[i];
+        courseSelect.appendChild(option);
+      }
+    } else {
+      var option = document.createElement("option");
+      option.text = "Course";
+      courseSelect.appendChild(option);
+    }
+
+    // After updating the course select, also update the semester select
+    updateSemesterSelect();
+  }
+
+  function updateSemesterSelect() {
+    var selectedDepartment = departmentSelect.value;
+    var selectedCourse = courseSelect.value;
+
+    semesterSelect.innerHTML = "";
+
+    if (selectedDepartment && selectedCourse) {
+      var departmentCourseData = data.filter(item => item.department === selectedDepartment && item.course === selectedCourse);
+      var semesters = [...new Set(departmentCourseData.map(item => item.semester))];
+      var option = document.createElement("option");
+      option.text = "Semester";
+      semesterSelect.appendChild(option);
+      for (var i = 0; i < semesters.length; i++) {
+        var option = document.createElement("option");
+        option.text = semesters[i];
+        option.value = semesters[i];
+        semesterSelect.appendChild(option);
+      }
+    } else {
+      var option = document.createElement("option");
+      option.text = "Semester";
+      semesterSelect.appendChild(option);
+    }
+  }
+    updateDepartmentSelect();
+  updateCourseSelect(); 
+</script>

@@ -24,6 +24,8 @@ const deactivateaccount = require("../models/deactivatedaccount");
 const prettydate = require("pretty-date");
 const DeactivateAccount = require("../models/deactivatedaccount");
 const AttendanceGrant = require("../models/attendancegrant");
+const FeedbackAdmin = require("../models/feedbackadmin");
+
 
 //Dashboard
 module.exports.dashboard = async (req, res) => {
@@ -1097,7 +1099,52 @@ module.exports.reports = async (req, res) => {
 module.exports.feedback = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
-    res.render("admin/create-feedback", { title: "Feedback" });
+    const deptSem = await SemSection.find();
+    let admindata = await Admin.findOne({ username: res.locals.user.username });
+    const feedbackadmindata = await FeedbackAdmin.find({department: admindata.department});
+    return res.render("admin/create-feedback", {
+      title: "Feedback",
+      deptSem,
+      feedbackadmindata,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.createfeedback = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    let check = await FeedbackAdmin.findOne({
+      department: String(req.body.department),
+      course: String(req.body.course),
+      semester: Number(req.body.semester),
+    });
+    if (!check) {
+      await FeedbackAdmin.create({
+        department: String(req.body.department),
+        course: String(req.body.course),
+        semester: Number(req.body.semester),
+        deadline: req.body.deadline
+      })
+    }
+    return res.redirect('back');
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.resultfeedback = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    
+    // let admindata = await Admin.findOne({ username: res.locals.user.username });
+    // const feedbackadmindata = await FeedbackAdmin.find({
+    //   department: admindata.department,
+    // });
+    return res.render("admin/feedback", {
+      title: "Feedback",
+      
+      feedbackadmindata,
+    });
   } catch (err) {
     console.log(err);
   }
