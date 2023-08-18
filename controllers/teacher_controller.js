@@ -18,7 +18,7 @@ const AttendanceGrant = require("../models/attendancegrant");
 const studentAssignment = require("../models/studentassignment");
 const Feedback = require("../models/feedback");
 const { Console } = require("console");
-
+const SemSection = require("../models/semsection");
 //Dashboard
 module.exports.dashboard = async (req, res) => {
   try {
@@ -36,7 +36,6 @@ module.exports.dashboard = async (req, res) => {
       arr.push(dd);
     }
     let calendardata = await Calendar.find({});
-    // console.log(arr);
     return res.render("teacher/dashboard", {
       title: "Dashboard",
       teacher: teacherdata,
@@ -359,12 +358,34 @@ module.exports.attendance_update = async (req, res) => {
   );
   data.sort();
   const date = false;
+  if (req.xhr) {
+    return res.status(200).json({
+      timetables,
+      data,
+      date,
+    });
+  }
   return res.render("teacher/subject/attendance-update", {
     title: "Attendance",
     timetable: timetables,
-    student: data,
     date: date,
   });
+};
+module.exports.attendance_delete = async (req, res) => {
+  let s1 = req.params.id.split("date=/teacher/attendaceedit/")[1];
+  let timetableid = s1.split("&timetableid=")[1];
+  let dateid = s1.split("&timetableid=")[0];
+  const updatedDocument = await Timetable.findOneAndUpdate(
+    { _id: timetableid },
+    { $pull: { classes: { _id: dateid } } },
+    { new: true }
+  );
+  console.log(updatedDocument);
+  const data = await Attendance.find({ timetableid: timetableid }).populate(
+    "timetableid studentid"
+  );
+  // console.log(timetables);
+  return res.redirect("back");
 };
 
 module.exports.attendaceedit = async (req, res) => {
@@ -384,9 +405,9 @@ module.exports.attendaceedit = async (req, res) => {
     data[i].present.push(askeddate);
   }
   data.sort();
+
   return res.render("teacher/subject/attendance-update", {
     title: "Attendance",
-    timetable: timetables,
     student: data,
     date: date,
   });
@@ -417,6 +438,8 @@ module.exports.viewstudentattendance = async (req, res) => {
 module.exports.change_attendance = async (req, res) => {
   try {
     let check = req.body.check;
+    console.log(req.body.date.split("/teacher/attendaceedit/")[1]);
+    req.body.date = req.body.date.split("/teacher/attendaceedit/")[1];
     for (let i = 0; i < req.body.studentlist.length; i++) {
       let attvalue = false;
       let tp = 0;
@@ -430,6 +453,7 @@ module.exports.change_attendance = async (req, res) => {
       const date = pastdata.present.find(
         (number) => number.date == req.body.date
       );
+      console.log(date);
       if (!date.att && attvalue) {
         tp = 1;
       }
@@ -988,6 +1012,42 @@ module.exports.attendancegrant = async (req, res) => {
     console.log(err);
   }
 };
+module.exports.tghome = async (req, res) => {
+  try {
+    checkurlfunct.checkurlteacher(req, res);
+    const deptSem = await SemSection.find();
+    res.render("teacher/tgreport", {
+      title: "TG Report",
+      deptSem,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.tgparentresponse = async (req, res) => {
+  try {
+    checkurlfunct.checkurlteacher(req, res);
+    const deptSem = await SemSection.find();
+    res.render("teacher/tgparents", {
+      title: "TG Parents",
+      deptSem,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.tgtransfer = async (req, res) => {
+  try {
+    checkurlfunct.checkurlteacher(req, res);
+    const deptSem = await SemSection.find();
+    res.render("teacher/tgtransfer", {
+      title: "TG Transfer",
+      deptSem,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 module.exports.feedback = async (req, res) => {
   try {
     let timetabledata = await Timetable.findById(req.params.id).populate(
@@ -1158,7 +1218,6 @@ module.exports.feedback = async (req, res) => {
           feedarr[8][4] = feedarr[8][4] + 1;
         }
       }
-
     }
     return res.render("teacher/subject/feedback", {
       title: "Feedback",

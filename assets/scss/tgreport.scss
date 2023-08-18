@@ -1,0 +1,106 @@
+.main-cont {
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: space-between;
+  padding: 0 5vw;
+}
+
+.filter-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2vh;
+}
+
+.transfer{
+  display: flex;
+  align-items: center;
+  gap: 1vh;
+}
+.transfer-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+}
+/* Description */
+
+.description__titles ul li {
+  flex: 2;
+  color: #fff;
+  font-weight: 200;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+.description__titles ul li:nth-child(1) {
+  flex: 1;
+}
+.description__titles ul li:nth-child(2) {
+  flex: 2;
+}
+.description__titles ul li:nth-child(3) {
+  flex: 6;
+}
+.description__titles ul li:nth-child(4) {
+  flex: 4;
+}
+.description__titles ul li:nth-child(5) {
+  flex: 7;
+}
+.description__titles ul li:nth-child(6) {
+  border: none;
+  flex: 5;
+}
+.description__list ul li {
+  flex: 1;
+  color: #fff;
+}
+.description__list ul li:nth-child(2) {
+  flex: 2;
+}
+.description__list ul li:nth-child(3) {
+  flex: 6;
+}
+.description__list ul li:nth-child(4) {
+  flex: 4;
+}
+.description__list ul li:nth-child(5) {
+  flex: 7;
+}
+
+.description__list ul li:nth-child(6) {
+  flex: 5;
+  display: flex;
+  justify-content: end;
+  gap: 1vw;
+}
+
+.btn-st {
+  height: 4vh;
+}
+
+
+input[type="checkbox"] {
+  width: 1.3vw;
+  height: 1.3vw;
+  appearance: none;
+  -webkit-appearance: none;
+  vertical-align: middle;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  cursor: pointer;
+}
+input[type="checkbox"]:checked {
+  background-color: #fd6d08;
+}
+
+
+.last-part{
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+.description-scroll {
+  height: 57vh;
+  overflow-y: auto;
+}

@@ -7,6 +7,7 @@
 .left,
 .right {
   display: flex;
+  align-items: center;
   gap: 1.5vw; }
 
 /* List */
@@ -232,7 +233,7 @@
 .resetp:hover {
   background: rgba(0, 0, 0, 0.225); }
 
-.modal {
+.res-ana {
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.7);
   background: rgba(248, 213, 123, 0.15);
@@ -260,6 +261,25 @@
 
 .bottom {
   padding: 1rem 1rem; }
+
+.row1 a {
+  width: 10vw; }
+
+.row1 {
+  display: flex;
+  justify-content: center; }
+
+.row3 {
+  display: flex;
+  justify-content: center;
+  margin-top: 3vh;
+  align-items: center;
+  gap: 1vw; }
+
+.row3 button {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw; }
 
 .row2 {
   display: flex;
