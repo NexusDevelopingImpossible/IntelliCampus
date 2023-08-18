@@ -13,7 +13,7 @@ module.exports.dashboard = async (req, res) => {
   try {
     checkurlfunct.checkurlfeecell(req, res);
     const deptSem = await SemSection.find();
-    res.render("feecell/dashboard", { title: "Dashboard", deptSem});
+    return res.render("feecell/dashboard", { title: "Dashboard", deptSem});
   } catch (err) {
     console.log(err);
   }

@@ -16,6 +16,7 @@ router.post('/allotsubject/addstudent',teacherController.allotsubjectaddstudent)
 router.post("/allotsubject/searchadd", teacherController.allotsubjectsearchadd);
 router.get("/attendance_view/:id", teacherController.attendance_view);
 router.get("/attendance_update/:id", teacherController.attendance_update);
+router.get("/attendance_delete/:id", teacherController.attendance_delete);
 router.get("/viewstudentattendance/:id", teacherController.viewstudentattendance);
 router.get("/internalmarks/:id", teacherController.internalmarkspage);
 router.get("/attendaceedit/:id", teacherController.attendaceedit);
@@ -47,4 +48,7 @@ router.post("/internal/resetmaxmarks", teacherController.int_resetmaxmarks);
 router.post("/internal/updateinternal", teacherController.int_updateinternal);
 router.get("/attendancegrant", teacherController.attendancegrant);
 router.post("/attendancegrant/add", teacherController.attendancegrantadd);
+router.get("/tg", teacherController.tghome);
+router.get("/tg/transferward", teacherController.tgtransfer);
+router.get("/tg/parentresponse", teacherController.tgparentresponse);
 module.exports = router;

@@ -1,4 +1,11 @@
 @media print {
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        width: 270mm;
+        height: 594mm;
+    }
 
     .report_main {
         display: flex;
@@ -85,5 +92,12 @@
     .page-number:after {
         counter-increment: pages;
         content: counter(page) " of " counter(pages);
+       
+    }
+    .page-number{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+
     }
 }

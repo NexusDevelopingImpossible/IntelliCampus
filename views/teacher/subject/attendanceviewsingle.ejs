@@ -32,24 +32,27 @@
     <section class="att-navbar">
       <div class="container">
         <div id="tab-1" class="tab-item tab-border">
-          <p class="hed-day">Attendance</p>
+            <p class="hed-day">Attendance</p>
         </div>
         <a href="/teacher/internalmarks/<%=timetable._id%>">
-          <div id="tab-2" class="tab-item">
-            <p class="hed-day">Internal Marks</p>
-          </div>
+        <div id="tab-2" class="tab-item">
+                <p class="hed-day">Internal Marks</p>
+            </div>
         </a>
-        <a href="/teacher/assignmentcheck/<%=timetable._id%>">
-          <div id="tab-3" class="tab-item">
-              <p class="hed-day">Assignment</p>
-          </div>
-          </a>
+       
+       
         <a href="/teacher/notes/<%=timetable._id%>">
-          <div id="tab-4" class="tab-item">
-            <p class="hed-day">Notes</p>
-          </div>
+            <div id="tab-4" class="tab-item">
+                <p class="hed-day">Notes</p>
+            </div>
         </a>
-      </div>
+
+        <a href="/teacher/subject/feedback/<%=timetable._id%>">
+            <div id="tab-3" class="tab-item">
+                <p class="hed-day">Feedback</p>
+            </div>
+        </a>
+    </div>
     </section>
     <section class="tab-content">
       <!-- Tab Content 1 -->

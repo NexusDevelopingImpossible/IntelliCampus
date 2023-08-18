@@ -58,7 +58,7 @@
     display: block;
     margin-top: 2vh; }
   .nav-li svg {
-    width: 11vw;
+    width: 2rem;
     fill: #fff; }
   .tab-name {
     font-size: 5vw; }
@@ -143,23 +143,26 @@
   .att-view {
     display: none; }
   .tabs ul {
-    margin-top: 6vh;
-    display: flex;
-    flex-direction: column;
+    margin-top: 10vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 2vh; }
-  .tabs ul li {
-    list-style: none; }
-  .tab-icon svg {
+  .tab-icon {
     width: 6vw; }
   .tabs ul li a {
+    width: 38vw;
+    padding: 2.5vh 6vw;
     display: flex;
-    gap: 8vw; }
-  .tabs li a {
-    padding: 1.5vh 6vw;
-    text-decoration: none;
-    transition: all 0.3s; }
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+    background-color: #ffffff16;
+    border-radius: 7px; }
   .tab:hover {
-    padding-left: 0 !important; }
+    padding: 1.5vh 6vw; }
   .dynamic-hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 5px; } }
+    background-color: rgba(255, 255, 255, 0.281);
+    border-radius: 5px; }
+  .dynamic-hover:hover {
+    padding: 1.5vh 6vw !important; } }

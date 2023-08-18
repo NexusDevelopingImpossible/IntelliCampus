@@ -1160,6 +1160,16 @@ module.exports.attendancegrant = async (req, res) => {
     console.log(err);
   }
 };
+module.exports.tghome = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    res.render("admin/tghome", {
+      title: "TG Home"
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 module.exports.attendancegrantadd = async (req, res) => {
   try {
     let admin = await Admin.findOne({ username: res.locals.user.username });

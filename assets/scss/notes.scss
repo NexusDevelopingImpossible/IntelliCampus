@@ -5,6 +5,8 @@
 .filters{
     padding: 0 8rem;
     margin-bottom: 4vh;
+    display: flex;
+    gap: 0.5vw;
 }
 .filter{
     border: 1.5px solid #FD6D08;
@@ -17,8 +19,11 @@
     cursor: pointer;
 }
 
+.filter-select{
+    width: 15vw;
+}
 .sub-sel{
-    width: 30vw;
+    width: 100%;
 }
 
 .filter:hover{

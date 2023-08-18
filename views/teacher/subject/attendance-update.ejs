@@ -34,18 +34,21 @@
                     <p class="hed-day">Attendance</p>
                 </div>
                 <a href="/teacher/internalmarks/<%=timetable._id%>">
-                    <div id="tab-2" class="tab-item">
+                <div id="tab-2" class="tab-item">
                         <p class="hed-day">Internal Marks</p>
                     </div>
                 </a>
-                <a href="/teacher/assignmentcheck/<%=timetable._id%>">
-                    <div id="tab-3" class="tab-item">
-                        <p class="hed-day">Assignment</p>
-                    </div>
-                    </a>
+               
+               
                 <a href="/teacher/notes/<%=timetable._id%>">
                     <div id="tab-4" class="tab-item">
                         <p class="hed-day">Notes</p>
+                    </div>
+                </a>
+
+                <a href="/teacher/subject/feedback/<%=timetable._id%>">
+                    <div id="tab-3" class="tab-item">
+                        <p class="hed-day">Feedback</p>
                     </div>
                 </a>
             </div>
@@ -73,36 +76,25 @@
                             </ul>
                         </div>
                         <div class="select-menu1">
-                            <select class="filter-select" id="">
+                            <select class="filter-select" name="date" id="dateselect" onchange="selectchange()">
+                                <option value="">
+                                    Select Date
+                                </option>
                                 <%for(let j=0; j<timetable.classes.length; j++){%>
                                     <a href="/teacher/attendaceedit/<%=timetable.classes[j]._id%>">
-                                        <option value="">
+                                        <option value="/teacher/attendaceedit/<%=timetable.classes[j]._id%>">
                                                 <%=timetable.classes[j].date%>
-                                            </option>
+                                        </option>
                                     </a>
-                                    <%}%>
-                                
+                                <%}%>
                             </select>
-                            <div class="select-btn1">
-                                <span class="sBtn-text">
-                                    <%if(timetable.classes.length>0){%><%if(date){%>
-                                            <%=date.date%>
-                                                <%}else{%>Select date<%}%>
-                                                        <%}else{%>No date<%}%>
-                                </span>
-                                <ion-icon name="caret-down-outline"></ion-icon>
-                            </div>
-                            <ul class="options" id="att-choose">
-                                
-                            </ul>
                         </div>
-                        <div class="att-del-btn"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="2vw" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v10zM18 4h-2.5l-.71-.71c-.18-.18-.44-.29-.7-.29H9.91c-.26 0-.52.11-.7.29L8.5 4H6c-.55 0-1 .45-1 1s.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg></div>
+                        <a id="getDataLink" class="att-del-btn"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="2vw" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v10zM18 4h-2.5l-.71-.71c-.18-.18-.44-.29-.7-.29H9.91c-.26 0-.52.11-.7.29L8.5 4H6c-.55 0-1 .45-1 1s.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg></a>
                     </div>
                     <div class="right">
                         <!-- <button class="reset btn btn-outline btn-sm" type="reset">Reset</button> -->
                         <button class="save btn btn-full btn-sm" type="submit">Save</button>
-                        <input type="text" value=<%=timetable._id%> name="id" style="display: none">
-                        <input type="hidden" name="date" value="<%=date._id%>">
+                        <input type="text" value="<%=timetable._id%>" id="timetableid" name="id" style="display: none">
                     </div>
                 </div>
                 <div class="list__main">
@@ -118,43 +110,10 @@
                         </ul>
                         <button class="reset resetp" type="reset"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" width="2vw" fill="#FFFFFF"><g><path d="M0,0h24v24H0V0z" fill="none"/></g><g><g><path d="M12,5V3.21c0-0.45-0.54-0.67-0.85-0.35L8.35,5.65c-0.2,0.2-0.2,0.51,0,0.71l2.79,2.79C11.46,9.46,12,9.24,12,8.79V7 c3.31,0,6,2.69,6,6c0,2.72-1.83,5.02-4.31,5.75C13.27,18.87,13,19.27,13,19.7v0c0,0.65,0.62,1.16,1.25,0.97 C17.57,19.7,20,16.64,20,13C20,8.58,16.42,5,12,5z"/><path d="M6,13c0-1.34,0.44-2.58,1.19-3.59c0.3-0.4,0.26-0.95-0.09-1.31l0,0C6.68,7.68,5.96,7.72,5.6,8.2C4.6,9.54,4,11.2,4,13 c0,3.64,2.43,6.7,5.75,7.67C10.38,20.86,11,20.35,11,19.7v0c0-0.43-0.27-0.83-0.69-0.95C7.83,18.02,6,15.72,6,13z"/></g></g></svg></button>
                     </div>
-                    <div class="student-list-scroll">
-                        <%if(date){%>
-                            <%for(let i=0; i<student.length; i++){%>
-                                <div class="list__items">
-                                    <ul>
-                                        <li>
-                                            <%=i+1%>
-                                        </li>
-                                        <li>
-                                            <%=student[i].studentid.name%>
-                                        </li>
-                                        <li>
-                                            <%=student[i].studentid.username%>
-                                        </li>
-                                        <li>
-                                            <%=student[i].present.length%>
-                                        </li>
-                                        <li>
-                                            <%if(student[i].present[0].att){student[i].totalpresent=1%>1
-                                                <%}else{student[i].totalpresent=0%>0<%}%>
-                                        </li>
-                                        <li>
-                                            <%=parseInt(((student[i].totalpresent) /(student[i].present.length))*100)%>%
-                                        </li>
-
-                                        <li><input  class="radios" type="checkbox" name="check" id="" value="<%=i%>"
-                                                <%if(student[i].present.length>0){%><%if(student[i].present[0].att){%>
-                                                checked<%}%>
-                                                    <%}%>>
-                                        </li>
-
-                                        <input type="text" value=<%=student[i]._id%> name="studentlist"
-                                        style="display: none">
-                                    </ul>
-                                </div>
-                                <%}%>
-                                    <%}%>
+                    <div class="student-list-scroll" id="studentlist">
+                        
+                            
+                        
                     </div>
                 </div>
             </form>
@@ -164,22 +123,71 @@
 </div>
 <script src="<%= assetPath('js/teach-att.js') %>"></script>
 
+
 <script>
-    const optionMenu1 = document.querySelector(".select-menu1"),
-        selectBtn1 = optionMenu1.querySelector(".select-btn1"),
-        options1 = optionMenu1.querySelectorAll(".option1")
-    //    sBtn_text1 = optionMenu.querySelector(".sBtn-text1");
-    selectBtn1.addEventListener("click", () => optionMenu1.classList.toggle("active"));
-    options1.forEach(option => {
-        option.addEventListener("click", () => {
-            // let selectedOption = option.querySelector(".option-text").innerText;
-            // sBtn_text.innerText = selectedOption;
-            optionMenu1.classList.remove("active");
-        });
-    });
-    document.addEventListener("click", (event) => {
-        if (!optionMenu1.contains(event.target)) {
-            optionMenu1.classList.remove("active");
-        }
-    });
+    
+            function selectchange(selval){
+                urlreq = selval
+                $.ajax({
+                    type: 'get',
+                    url: urlreq,
+                    success: function (data) {
+                        let date = document.getElementById('dateselect').value;
+                        let timetableid = document.getElementById('timetableid').value;
+                        let params = {
+                            date: date, timetableid: timetableid
+                        }
+                        let url = "/teacher/attendance_delete/" + new URLSearchParams(params);
+
+                        document.getElementById('getDataLink').href = url; 
+                        newattDom(data);
+                        
+                    },
+                    error: function (error) {
+                        console.log(error.responseText);
+                    }
+                });
+            }
+        let newattDom = function (data) {  
+                let DOMstring = '';
+                for (let i = 0; i < data.data.length; i++) {
+                    let x = '';
+                    if(data.data[i].present[0].att){
+                        x = 'checked';
+                    }
+                    if(data.data[i].present[0].att){
+                        data.data[i].totalpresent =1}
+                    else{
+                        data.data[i].totalpresent = 0
+                    }
+                    DOMstring = DOMstring + `<div class="list__items"> <ul> <li>${i}</li> <li>${data.data[i].studentid.name}</li><li>${data.data[i].studentid.username}</li><li>${data.data[i].present.length}</li><li>${data.data[i].totalpresent}</li><li>${parseInt(((data.data[i].totalpresent) / (data.data[i].present.length)) * 100) }%</li><li><input  class="radios" type="checkbox" name="check" id="" value="${i}" ${x}></li><input type="text" value="${data.data[i]._id}" name="studentlist" style = "display: none" ></ul ></div >`
+                }
+                document.getElementById('studentlist').innerHTML = DOMstring;
+            // console.log(DOMstring);
+            return
+        };
+//     $('#getDataLink').click(function (event) {
+//     event.preventDefault(); 
+//     let date = document.getElementById('dateselect').value;
+//     let timetableid = document.getElementById('timetableid').value;
+//     let params = {
+//         date: date, timetableid: timetableid
+//     }
+//     let url = "/teacher/attendance_delete" + new URLSearchParams(params);
+
+//     document.getElementById('getDataLink').href = url; 
+//     document.getElementById('getDataLink').click(); 
+//     // $.ajax({
+//     //     url: url,
+//     //     type: 'GET',
+//     //     data: params,
+//     //     dataType: 'json',
+//     //     success: function (data) {
+//     //         console.log(data); // Process the JSON data
+//     //     },
+//     //     error: function (xhr, status, error) {
+//     //         console.error('AJAX error:', error);
+//     //     }
+//     // });
+// })
 </script>
