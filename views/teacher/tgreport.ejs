@@ -63,7 +63,6 @@
             <li>Sl.No</li>
             <li>Name</li>
             <li>Registration No</li>
-            <li>Academic Performances</li>
             <li></li>
           </ul>
         </div>
@@ -84,17 +83,27 @@
               <li>Srijan Dev</li>
               <li>202100413</li>
               <li>
-                <select class="filter-select">
-                  <option value="Select">Select</option>
-                  <option value="Very Good">Very Good</option>
-                  <option value="Good">Good</option>
-                  <option value="Satisfactory">Satisfactory</option>
-                  <option value="Unsatisfactory">Unsatisfactory</option>
-                </select>
-              </li>
-              <li>
-                <button class="btn btn-outline btn-sm btn-st">Profile</button>
-                <button class="btn btn-outline btn-sm btn-st">Internals</button>
+                <div class="infor-check">
+                  <div class="select-menu">
+                    <div class="select-btn task-items">
+                        <span class="sBtn-text">Profile/Internals</span>
+                    </div>
+                    <ul class="options" id="att-choose">
+                        <a href="#">
+                            <li class="option" value="view">
+                                <span class="option-text">Profile</span>
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li class="option" value="view">
+                                <span class="option-text">Internals</span>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+                </div>
+             
+              <button class="btn btn-full">Send Mail</button>
               </li>
             </ul>
           </div>
@@ -246,6 +255,30 @@
       otherRadios.forEach(function (radio) {
         radio.checked = false;
       });
+    }
+  });
+</script>
+
+
+<script>
+    const optionMenu = document.querySelector(".select-menu"),
+    selectBtn = optionMenu.querySelector(".select-btn"),
+    options = optionMenu.querySelectorAll(".option"),
+    sBtn_text = optionMenu.querySelector(".sBtn-text");
+  selectBtn.addEventListener("click", () =>
+    optionMenu.classList.toggle("active")
+  );
+
+  options.forEach((option) => {
+    option.addEventListener("click", () => {
+      let selectedOption = option.querySelector(".option-text").innerText;
+      // sBtn_text.innerText = selectedOption;
+      optionMenu.classList.remove("active");
+    });
+  });
+  document.addEventListener("click", (event) => {
+    if (!optionMenu.contains(event.target)) {
+      optionMenu.classList.remove("active");
     }
   });
 </script>

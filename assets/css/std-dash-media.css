@@ -160,9 +160,7 @@
     background-color: #ffffff16;
     border-radius: 7px; }
   .tab:hover {
-    padding: 1.5vh 6vw; }
+    padding: 2.5vh 6vw; }
   .dynamic-hover {
     background-color: rgba(255, 255, 255, 0.281);
-    border-radius: 5px; }
-  .dynamic-hover:hover {
-    padding: 1.5vh 6vw !important; } }
+    border-radius: 5px; } }

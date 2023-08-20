@@ -221,9 +221,18 @@
 }
 
 .max-marks-reset {
+  border: none;
+  background-color: #00000032;
+  padding: 0.75vh 0.5vw;
+  border-radius: 7px;
   display: flex;
   align-items: center;
   gap: 0.5vw;
+  transition: all 0.3s;
+}
+.max-marks-reset:hover{
+  background-color: #00000053;
+  cursor: pointer;
 }
 
 .list__main__title {
