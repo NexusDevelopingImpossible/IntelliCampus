@@ -64,5 +64,7 @@ router.post("/feedback/resultfeedback/:id", adminController.resultfeedback);
 router.get("/attendancegrant", adminController.attendancegrant);
 router.post("/attendancegrant/add", adminController.attendancegrantadd);
 router.get("/tghome", adminController.tghome);
+router.get("/conattendance", adminController.conattendance);
+router.post("/conattendance/report", adminController.conattendancereport);
 
 module.exports = router;

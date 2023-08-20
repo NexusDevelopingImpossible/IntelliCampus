@@ -39,6 +39,9 @@ const studentSchema = new mongoose.Schema(
     avatar: {
       type: String,
     },
+    email: {
+      type: String,
+    },
   },
   {
     timestamps: true,

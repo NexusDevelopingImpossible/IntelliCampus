@@ -25,6 +25,7 @@ const prettydate = require("pretty-date");
 const DeactivateAccount = require("../models/deactivatedaccount");
 const AttendanceGrant = require("../models/attendancegrant");
 const FeedbackAdmin = require("../models/feedbackadmin");
+const Attendance = require("../models/attendance");
 
 
 //Dashboard
@@ -1021,7 +1022,6 @@ module.exports.searchsectionstudent = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
     let studentlist = await Student.find(req.query);
-    console.log(studentlist);
     if (req.xhr) {
       return res.status(200).json({
         studentlist: studentlist,
@@ -1165,6 +1165,56 @@ module.exports.tghome = async (req, res) => {
     checkurlfunct.checkurladmin(req, res);
     res.render("admin/tghome", {
       title: "TG Home"
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.conattendance = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    const semsec = await SemSection.find();
+    res.render("admin/Consolidate_Attendance", {
+      title: "Consolidate Attendance", semsec
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.conattendancereport = async (req, res) => {
+  try {
+    console.log(req.body)
+    let subjectlist = await Timetable.find({ department: req.body.department, course: req.body.course, semester: req.body.semester, section: req.body.section }).populate('subjectcode');
+    let attarr = [];
+    let attarr2 = [];
+    let studentlist = await Student.find({
+      department: req.body.department,
+      course: req.body.course,
+      semester: req.body.semester,
+      section: req.body.section,
+    });
+    for (let i = 0; i < studentlist.length; i++){
+      let studentsingle = [];
+      for (let j = 0; j < subjectlist.length; j++){
+        let attsingle = await Attendance.findOne({
+          studentid: studentlist[i]._id,
+          timetableid: subjectlist[j]._id,
+        }).populate("studentid");
+        studentsingle.push(attsingle);
+        console.log(i,j)
+      }
+      attarr.push(studentsingle);
+      // if (attsingle.studentid._id == studentlist._id) {
+      // }
+      // else {
+      //   attarr2.push(attsingle);
+      // }
+      // console.log(attarr2);
+      
+    }
+    console.log(attarr);
+    return res.render("admin/Consolidate_Attendance_report", {
+      title: "Consolidate Attendance Report", subjectlist, attarr, attarr2, studentlist
     });
   } catch (err) {
     console.log(err);

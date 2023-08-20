@@ -19,9 +19,9 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const prettydate = require("pretty-date"); //
 const mongoSanitize = require("express-mongo-sanitize");
-// var backup = require("mongodb-backup");
-// const { mongoExport } = require("mongoback");
-// const options = { all: true };
+const cron = require("node-cron");
+const cronController = require("./controllers/cron_controller");
+
 
 
 if (env.name == "development") {
@@ -91,6 +91,15 @@ app.use(flash());
 app.use(customMware.setFlash);
 
 app.use("/", require("./routes"));
+
+// // Schedule a task to run on the 15th and 30th days of the month
+// // cron.schedule('0 0 15,30 * *', () => {
+// cron.schedule("*/100 * * * * *", () => {
+//   // This function will be executed every 5 minutes
+//   console.log("Running the task...");
+//   cronController.attendancemail();
+//   // Add your task logic here
+// });
 
 app.listen(port, function (err) {
   if (err) {

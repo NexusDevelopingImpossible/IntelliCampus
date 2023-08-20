@@ -1,0 +1,183 @@
+<link rel="stylesheet" href="<%= assetPath('css/Consolidate_Attendance.css') %>"/>
+
+<div class="main-page">
+  <div class="blur">
+    <div class="page-heading">
+      <a href="/admin/dashboard"
+        ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+          <path
+            d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z"
+          />
+        </svg>
+      </a>
+      <h1 class="heading">Consolidate Attendance</h1>
+    </div>
+    <form action="/admin/conattendance/report" method="post" target="_blank">
+      <div id="view-options">
+        <div id="attendance-filters">
+          <select id="department" class="filter-select" name="department">
+            <option value="" disabled selected>Department</option>
+          </select>
+          <select id="course" class="filter-select" name="course">
+            <option value="" disabled selected>Course</option>
+          </select>
+          <select id="semester" class="filter-select" name="semester">
+            <option value="" disabled selected>Semester</option>
+          </select>
+          <select id="section" class="filter-select" name="section">
+            <option value="" disabled selected>Section</option>
+          </select>
+        </div>
+        <button id="option"><span id="option-name">View</span></button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+    let v = <%- JSON.stringify(locals.semsec) %>;
+    const data = v;
+    const departmentSelect = document.getElementById("department");
+    const courseSelect = document.getElementById("course");
+    const semesterSelect = document.getElementById("semester");
+    const sectionSelect = document.getElementById("section");
+
+    // Function to populate select options
+    function populateOptions(selectElement, options) {
+      selectElement.innerHTML = "";
+      options.forEach((option) => {
+        const { value, text } = option;
+        const optionElement = document.createElement("option");
+        optionElement.value = value;
+        optionElement.textContent = text;
+        selectElement.appendChild(optionElement);
+      });
+    }
+
+    // Function to filter unique values from an array of objects
+    function getUniqueValues(array, key) {
+      return [...new Set(array.map((item) => item[key]))];
+    }
+
+    // Function to filter data based on selected filters
+    function filterData() {
+      const selectedDepartment = departmentSelect.value;
+      const selectedCourse = courseSelect.value;
+      const selectedSemester = semesterSelect.value;
+
+      // Filter the data based on the selected filters
+      const filteredData = data.filter((item) => {
+        return (
+          (selectedDepartment === "" || item.department === selectedDepartment) &&
+          (selectedCourse === "" || item.course === selectedCourse) &&
+          (selectedSemester === "" ||
+            item.semester.toString() === selectedSemester) // Compare as strings
+        );
+      });
+
+      // Populate semester options based on the filtered data
+      const semesters = getUniqueValues(filteredData, "semester");
+      const semesterOptions = semesters.map((semester) => ({
+        value: semester,
+        text: `${semester}`,
+      }));
+      populateOptions(semesterSelect, [
+        { value: "", text: "Semester" },
+        ...semesterOptions,
+      ]);
+
+      // When semester changes, update the section options as well
+      filterSections();
+    }
+
+    // Function to filter section options based on the selected filters
+    function filterSections() {
+      const selectedDepartment = departmentSelect.value;
+      const selectedCourse = courseSelect.value;
+      const selectedSemester = semesterSelect.value;
+
+      // Filter the data based on the selected filters
+      const filteredData = data.filter((item) => {
+        return (
+          (selectedDepartment === "" || item.department === selectedDepartment) &&
+          (selectedCourse === "" || item.course === selectedCourse) &&
+          (selectedSemester === "" ||
+            item.semester.toString() === selectedSemester) // Compare as strings
+        );
+      });
+
+      // Populate section options based on the filtered data
+      const sections = getUniqueValues(filteredData, "section");
+      const sectionOptions = sections.map((section) => ({
+        value: section,
+        text: `${section}`,
+      }));
+      populateOptions(sectionSelect, [
+        { value: "", text: "Section" },
+        ...sectionOptions,
+      ]);
+    }
+
+    // Event listeners for select elements
+    departmentSelect.addEventListener("change", filterData);
+    courseSelect.addEventListener("change", filterData);
+    semesterSelect.addEventListener("change", filterSections); // Update sections when semester changes
+
+    // Populate initial options for department and course selects
+    const departments = getUniqueValues(data, "department");
+    const departmentOptions = departments.map((department) => ({
+      value: department,
+      text: department,
+    }));
+    populateOptions(departmentSelect, [
+      { value: "", text: "Department" },
+      ...departmentOptions,
+    ]);
+
+    const courses = getUniqueValues(data, "course");
+    const courseOptions = courses.map((course) => ({
+      value: course,
+      text: course,
+    }));
+    populateOptions(courseSelect, [
+      { value: "", text: "Course" },
+      ...courseOptions,
+    ]);
+    let sectiondata = document.getElementById("section");
+    section.addEventListener("change", function () {
+      getsectiondata();
+    });
+  //   let getsectiondata = function () {
+  //     $.ajax({
+  //       type: "get",
+  //       url: "/admin/section/searchstudent",
+  //       data: {
+  //         department: departmentSelect.value,
+  //         course: courseSelect.value,
+  //         semester: semesterSelect.value,
+  //         section: section.value,
+  //       },
+  //       success: function(data){
+  //         const nAtt = newattDom(data.studentlist);
+
+  //       }
+  //     });
+  //   };
+  //   let newattDom = function (data) {
+  //     let listDOM = '';
+  //     for (let i = 0; i < data.length; i++) {
+  //       listDOM = listDOM + `<div class="list">
+  //           <span>`+(i+1)+`</span>
+  //           <span>${data[i].username}</span>
+  //           <span>${data[i].name}</span>
+  //           <div class="section">
+  //             <span>${data[i].section}</span>
+  //             <button class="delete-btn">
+  //               <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" width="1.85vw" fill="#fff"><path d="M261-120q-24.75 0-42.375-17.625T201-180v-570h-11q-12.75 0-21.375-8.675-8.625-8.676-8.625-21.5 0-12.825 8.625-21.325T190-810h158q0-13 8.625-21.5T378-840h204q12.75 0 21.375 8.625T612-810h158q12.75 0 21.375 8.675 8.625 8.676 8.625 21.5 0 12.825-8.625 21.325T770-750h-11v570q0 24.75-17.625 42.375T699-120H261Zm438-630H261v570h438v-570ZM367-266h60v-399h-60v399Zm166 0h60v-399h-60v399ZM261-750v570-570Z"/></svg>
+  //             </button>
+  //           </div>
+  //         </div>`
+  //     }
+  //     $('#student_list').html(listDOM);
+  //     return;
+  //   };
+</script>
