@@ -60,11 +60,13 @@ router.get("/section/searchstudent", adminController.searchsectionstudent);
 router.get("/reports", adminController.reports);
 router.get("/feedback", adminController.feedback);
 router.post("/feedback/createfeedback", adminController.createfeedback);
-router.post("/feedback/resultfeedback/:id", adminController.resultfeedback);
+router.get("/feedback/resultfeedback/:id", adminController.resultfeedback);
 router.get("/attendancegrant", adminController.attendancegrant);
 router.post("/attendancegrant/add", adminController.attendancegrantadd);
 router.get("/tghome", adminController.tghome);
 router.get("/conattendance", adminController.conattendance);
 router.post("/conattendance/report", adminController.conattendancereport);
+router.get("/feedback/getdata", adminController.tggetdata);
+router.get("/tgward", adminController.tgward);
 
 module.exports = router;

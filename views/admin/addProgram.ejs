@@ -29,17 +29,17 @@
                 <ion-icon name="caret-down-outline"></ion-icon>
               </div>
               <ul class="options" id="att-choose">
-            <%for(let i=0; i<dept.length; i++){%>
-              <a href="/admin/searchprogram/<%=dept[i].department%>">
-                <li class="option" value="view">
-                  <span class="option-text">
-                    <%=dept[i].department%>
-                  </span>
-                </li>
-              </a>
-              <%}%>
-          </ul>
-        </div>
+                <%for(let i=0; i<dept.length; i++){%>
+                  <a href="/admin/searchprogram/<%=dept[i].department%>">
+                    <li class="option" value="view">
+                      <span class="option-text">
+                        <%=dept[i].department%>
+                      </span>
+                    </li>
+                  </a>
+                <%}%>
+              </ul>
+          </div>
         <input type="hidden" name="department" value="<%=programlist.department%>">
       </div>
       <input class="prog-inp" type="text" placeholder="Enter Program" name="program" required />

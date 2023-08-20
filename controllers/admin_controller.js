@@ -1135,20 +1135,34 @@ module.exports.createfeedback = async (req, res) => {
 module.exports.resultfeedback = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
-    
-    // let admindata = await Admin.findOne({ username: res.locals.user.username });
-    // const feedbackadmindata = await FeedbackAdmin.find({
-    //   department: admindata.department,
-    // });
+    const feedbackdata = await FeedbackAdmin.findById(req.params.id);
+    console.log(feedbackdata)
+    const subject = await Timetable.find({
+      department: feedbackdata.department, course: feedbackdata.course, semester:feedbackdata.semester
+    }).populate('subjectcode');
+    let department = feedbackdata.department;
+    let course = feedbackdata.course;
+    let semester = feedbackdata.semester;
     return res.render("admin/feedback", {
-      title: "Feedback",
-      
-      feedbackadmindata,
+      title: "Feedback", subject, feedbackdata, department, course, semester
     });
   } catch (err) {
     console.log(err);
   }
 };
+module.exports.singlefeedback = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    // let timetable = await Timetable.find({})
+    if (req.xhr) {
+      return res.status(200).json({
+      });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 module.exports.attendancegrant = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
@@ -1163,9 +1177,24 @@ module.exports.attendancegrant = async (req, res) => {
 module.exports.tghome = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
-    res.render("admin/tghome", {
+    return res.render("admin/tghome", {
       title: "TG Home"
     });
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.tggetdata = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    console.log(req.query);
+    let feedlist = await FeedbackAdmin.find({department: req.query.department})
+    let data = "asdad";
+    if (req.xhr) {
+      return res.status(200).json({
+        data: data
+      });
+    }
   } catch (err) {
     console.log(err);
   }
@@ -1246,4 +1275,12 @@ module.exports.attendancegrantadd = async (req, res) => {
     console.log(`Error: ${error}`);
     res.json({ Error: error });
   }
+};
+
+
+module.exports.tgward = (req, res) => {
+  checkurlfunct.checkurladmin(req, res);
+  return res.render("admin/tgward", {
+    title: "TG Wards",
+  });
 };

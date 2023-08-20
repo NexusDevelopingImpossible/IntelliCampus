@@ -163,3 +163,21 @@
   display: flex;
   justify-content: center;
 }
+
+.date-input{
+  border: none;
+  background: rgba(248, 213, 123, 0.15);
+  outline: 0.5px solid #fff;
+  border-radius: 7px;
+  padding: 0 0.75vw;
+  height: 4.5vh;
+  width: 13.5vw;
+
+}
+
+.due-date-div{
+  margin-left: 2vw;
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}

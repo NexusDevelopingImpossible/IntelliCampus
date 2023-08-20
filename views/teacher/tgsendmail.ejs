@@ -4,12 +4,14 @@
     <div class="blur">
         <div class="page-heading">
             <!-- <a href="/student/dashboard"><img src="/images/allotarrow.png" alt="" id="back_buttn"></a> -->
-            <a href="/student/dashboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+            <a href="/teacher/tg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                     <path
                         d="M381-100 44-436q-9-9-13.5-20.5T26-480q0-12 4.5-23.5T44-524l337-337q21-21 51-21.5t52 21.5q21 21 21 51.5T484-758L206-480l278 278q21 21 21.5 50.5T484-100q-21 21-51.5 21T381-100Z" />
                 </svg></a>
-            <h1 class="heading">Internal Marks</h1>
+            <h1 class="heading">Send Mail</h1>
         </div>
+        <div class="main-section">
+       
         <div class="main-table">
             <div>
                 <div id="marks-display">
@@ -44,111 +46,443 @@
                             </th>
                         </tr>
                         <div class="table-scroll">
-                            <!-- - - - - - Om - - - - - -  - -->
-                            <!-- for lab remove  (refer figma) -->
-                            <!-- - - - - - Om - - - - - -  - -->
-                            <%for(let i=0; i<internal.length; i++){%>
-                                <% let att=0; const attendancePercentage=(internal[i].totalpresent /
-                                    internal[i].present.length) * 100; if (attendancePercentage>= 95) {
-                                    att = 5;
-                                    } else if (attendancePercentage >= 90) {
-                                    att = 4;
-                                    } else if (attendancePercentage >= 85) {
-                                    att = 3;
-                                    } else if (attendancePercentage >= 80) {
-                                    att = 2;
-                                    } else if (attendancePercentage >= 75) {
-                                    att = 1;
-                                    }
-                                    let per = parseInt(((internal[i].totalpresent) /(internal[i].present.length))*100);
-                                    if(isNaN(per)){
-                                    per = 0;
-                                    }
-                                    var type = "";
-                                    if(internal[i].timetableid.subjectcode.type == "Theory"){
-                                    type = "(T)";
-                                    }
-                                    if(internal[i].timetableid.subjectcode.type == "Lab"){
-                                    type = "(L)";
-                                    }
-                                    let total= 0;
-
-                                    %>
-                                    
                                     <tr id="sub-row">
                                         <td class="subject">
                                             <div class="sub-inf">
                                                 <div class="sub-code">
-                                                    <%=internal[i].timetableid.subjectcode.code%>
+                                                    IT-3434
                                                 </div>
                                                 <div class="sub-title">
-                                                    <%=internal[i].timetableid.subjectcode.name%>
-                                                        <%=type%>
+                                                   Engenieerign Mathematics (T)
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
-                                            <%=internal[i].present.length%>
+                                           23
                                         </td>
                                         <td>
-                                            <%=internal[i].totalpresent%>
+                                            23
                                         </td>
                                         <td>
-                                            <%=per%>%
+                                            100%
                                         </td>
-                                        <%if(internal[i].timetableid.subjectcode.type == "Theory"){%>
-                                        <td>
-                                            <%if(internal[i].examMarks[0]){%>
-                                            <%=internal[i].examMarks[0]['Quiz1']%>
-                                            <%total = total + Number(internal[i].examMarks[0]['Quiz1'])%>
-                                            <%}%>
-                                        </td>
-                                        <td>
-                                            <%if(internal[i].examMarks[1]){%>
-                                            <%=internal[i].examMarks[1]['Session1']%>
-                                            <%total = total + Number(internal[i].examMarks[1]['Session1'])%>
-                                            <%}%>
-                                        </td>
-                                        <td>
-                                            <%if(internal[i].examMarks[2]){%>
-                                            <%=internal[i].examMarks[2]['Quiz2']%>
-                                            <%total = total + Number(internal[i].examMarks[2]['Quiz2'])%>
-                                           <%}%>
-                                        </td>
-                                        <td>
-                                            <%if(internal[i].examMarks[3]){%>
-                                            <%=internal[i].examMarks[3]['Session2']%>
-                                            <%total = total + Number(internal[i].examMarks[3]['Session2'])%>
-                                            <%}%>
-                                        </td>
-                                        <td>
-                                           <%if(internal[i].examMarks[4]){%>
-                                            <%=internal[i].examMarks[4]['Assignment']%>
-                                            <%total = total + Number(internal[i].examMarks[4]['Assignment'])%>
-                                            <%}%>
-                                        </td>
-                                        <td>
-                                            <%=att%>
-                                        </td>
-                                        <%}else{%><td colspan="6"></td><%}%>
-                                        
-                                        
                                         
                                         <td>
-                                            <%if(internal[i].timetableid.subjectcode.type == "Theory"){%>
-                                            <%=total+att%>
-                                            <%}else{ if(internal[i].examMarks[0]){%>
-                                                <%=internal[i].examMarks[0]['Final']%>
-                                            <%}}%>
+                                            4.0
+                                        </td>
+                                        <td>
+                                            12.0
+                                        </td>
+                                        <td>
+                                            3.4
+                                        </td>
+                                        <td>
+                                            13
+                                        </td>
+                                        <td>
+                                           4
+                                        </td>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            24
                                         </td>
                                     </tr>
-                                    <%}%>
+                                    <tr id="sub-row">
+                                        <td class="subject">
+                                            <div class="sub-inf">
+                                                <div class="sub-code">
+                                                    IT-3434
+                                                </div>
+                                                <div class="sub-title">
+                                                   Engenieerign Mathematics (T)
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                           23
+                                        </td>
+                                        <td>
+                                            23
+                                        </td>
+                                        <td>
+                                            100%
+                                        </td>
+                                        
+                                        <td>
+                                            4.0
+                                        </td>
+                                        <td>
+                                            12.0
+                                        </td>
+                                        <td>
+                                            3.4
+                                        </td>
+                                        <td>
+                                            13
+                                        </td>
+                                        <td>
+                                           4
+                                        </td>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            24
+                                        </td>
+                                    </tr>
+                                    <tr id="sub-row">
+                                        <td class="subject">
+                                            <div class="sub-inf">
+                                                <div class="sub-code">
+                                                    IT-3434
+                                                </div>
+                                                <div class="sub-title">
+                                                   Engenieerign Mathematics (T)
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                           23
+                                        </td>
+                                        <td>
+                                            23
+                                        </td>
+                                        <td>
+                                            100%
+                                        </td>
+                                        
+                                        <td>
+                                            4.0
+                                        </td>
+                                        <td>
+                                            12.0
+                                        </td>
+                                        <td>
+                                            3.4
+                                        </td>
+                                        <td>
+                                            13
+                                        </td>
+                                        <td>
+                                           4
+                                        </td>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            24
+                                        </td>
+                                    </tr>
+                                    <tr id="sub-row">
+                                        <td class="subject">
+                                            <div class="sub-inf">
+                                                <div class="sub-code">
+                                                    IT-3434
+                                                </div>
+                                                <div class="sub-title">
+                                                   Engenieerign Mathematics (T)
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                           23
+                                        </td>
+                                        <td>
+                                            23
+                                        </td>
+                                        <td>
+                                            100%
+                                        </td>
+                                        
+                                        <td>
+                                            4.0
+                                        </td>
+                                        <td>
+                                            12.0
+                                        </td>
+                                        <td>
+                                            3.4
+                                        </td>
+                                        <td>
+                                            13
+                                        </td>
+                                        <td>
+                                           4
+                                        </td>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            24
+                                        </td>
+                                    </tr>
+                                    <tr id="sub-row">
+                                        <td class="subject">
+                                            <div class="sub-inf">
+                                                <div class="sub-code">
+                                                    IT-3434
+                                                </div>
+                                                <div class="sub-title">
+                                                   Engenieerign Mathematics (T)
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                           23
+                                        </td>
+                                        <td>
+                                            23
+                                        </td>
+                                        <td>
+                                            100%
+                                        </td>
+                                        
+                                        <td>
+                                            4.0
+                                        </td>
+                                        <td>
+                                            12.0
+                                        </td>
+                                        <td>
+                                            3.4
+                                        </td>
+                                        <td>
+                                            13
+                                        </td>
+                                        <td>
+                                           4
+                                        </td>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            24
+                                        </td>
+                                    </tr>
+                                    <tr id="sub-row">
+                                        <td class="subject">
+                                            <div class="sub-inf">
+                                                <div class="sub-code">
+                                                    IT-3434
+                                                </div>
+                                                <div class="sub-title">
+                                                   Engenieerign Mathematics (T)
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                           23
+                                        </td>
+                                        <td>
+                                            23
+                                        </td>
+                                        <td>
+                                            100%
+                                        </td>
+                                        
+                                        <td>
+                                            4.0
+                                        </td>
+                                        <td>
+                                            12.0
+                                        </td>
+                                        <td>
+                                            3.4
+                                        </td>
+                                        <td>
+                                            13
+                                        </td>
+                                        <td>
+                                           4
+                                        </td>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            24
+                                        </td>
+                                    </tr>
+                                    <tr id="sub-row">
+                                        <td class="subject">
+                                            <div class="sub-inf">
+                                                <div class="sub-code">
+                                                    IT-3434
+                                                </div>
+                                                <div class="sub-title">
+                                                   Engenieerign Mathematics (T)
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                           23
+                                        </td>
+                                        <td>
+                                            23
+                                        </td>
+                                        <td>
+                                            100%
+                                        </td>
+                                        
+                                        <td>
+                                            4.0
+                                        </td>
+                                        <td>
+                                            12.0
+                                        </td>
+                                        <td>
+                                            3.4
+                                        </td>
+                                        <td>
+                                            13
+                                        </td>
+                                        <td>
+                                           4
+                                        </td>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            24
+                                        </td>
+                                    </tr>
+                                    <tr id="sub-row">
+                                        <td class="subject">
+                                            <div class="sub-inf">
+                                                <div class="sub-code">
+                                                    IT-3434
+                                                </div>
+                                                <div class="sub-title">
+                                                   Engenieerign Mathematics (T)
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                           23
+                                        </td>
+                                        <td>
+                                            23
+                                        </td>
+                                        <td>
+                                            100%
+                                        </td>
+                                        
+                                        <td>
+                                            4.0
+                                        </td>
+                                        <td>
+                                            12.0
+                                        </td>
+                                        <td>
+                                            3.4
+                                        </td>
+                                        <td>
+                                            13
+                                        </td>
+                                        <td>
+                                           4
+                                        </td>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            24
+                                        </td>
+                                    </tr>
+                                    <tr id="sub-row">
+                                        <td class="subject">
+                                            <div class="sub-inf">
+                                                <div class="sub-code">
+                                                    IT-3434
+                                                </div>
+                                                <div class="sub-title">
+                                                   Engenieerign Mathematics (T)
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                           23
+                                        </td>
+                                        <td>
+                                            23
+                                        </td>
+                                        <td>
+                                            100%
+                                        </td>
+                                        
+                                        <td>
+                                            4.0
+                                        </td>
+                                        <td>
+                                            12.0
+                                        </td>
+                                        <td>
+                                            3.4
+                                        </td>
+                                        <td>
+                                            13
+                                        </td>
+                                        <td>
+                                           4
+                                        </td>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            24
+                                        </td>
+                                    </tr>
+                                    <tr id="sub-row">
+                                        <td class="subject">
+                                            <div class="sub-inf">
+                                                <div class="sub-code">
+                                                    IT-3434
+                                                </div>
+                                                <div class="sub-title">
+                                                   Engenieerign Mathematics (T)
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                           23
+                                        </td>
+                                        <td>
+                                            23
+                                        </td>
+                                        <td>
+                                            100%
+                                        </td>
+                                        
+                                        <td>
+                                            4.0
+                                        </td>
+                                        <td>
+                                            12.0
+                                        </td>
+                                        <td>
+                                            3.4
+                                        </td>
+                                        <td>
+                                            13
+                                        </td>
+                                        <td>
+                                           4
+                                        </td>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            24
+                                        </td>
+                                    </tr>
+                                
                         </div>
                     </table>
                 </div>
             </div>
         </div>
-        <div id="footnote">
+        <!-- <div id="footnote">
             <div>
                 <div class="note"><span class="note-tit">CLA :</span><span class="note-data">&nbsp;Classes
                         Conducted</span>
@@ -165,6 +499,27 @@
                         Marks</span>
                 </div>
             </div>
+        </div> -->
+
+            <section class="questions">
+                <div>Academics Performance: <select class="filter-select" name="" id="">
+                    <option value="Select">Select</option>
+                    <option value="Very Good">Very Good</option>
+                    <option value="Good">Good</option>
+                    <option value="Satisfactory">Satisfactory</option>
+                    <option value="Unsatisfactory">Unsatisfactory</option>
+                </select></div>
+                <div>Discipilinary Action: <select class="filter-select" name="" id="">
+                    <option value="Select">Select</option>
+                    <option value="Involved">Involved</option>
+                    <option value="Not Involved">Not Involved</option>
+                </select></div>
+                <div class="remarks-div">Remarks: <textarea class="remarks-textarea"></textarea></div>
+            </section>
+            <div class="footer-btns">
+                <button class="btn btn-full">Send Mail</button>
+            </div>
+                 
         </div>
     </div>
 </div>

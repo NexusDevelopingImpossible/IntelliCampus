@@ -35,15 +35,13 @@
         <select id="semesterSelect" name="semester" class="filter-select">
           <option value="">Semester</option>
         </select>
-        <input type="datetime-local" name="deadline" id="">
+        <div class="due-date-div">
+          Set Deadline : 
+          <input class="date-input" type="datetime-local" name="deadline" id="">
+        </div>
       </div>
-      <button class="creat-feed">
+      <button class="btn btn-full">
         Create Feedback
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-          <path
-            d="M450-450H230q-12.75 0-21.375-8.675-8.625-8.676-8.625-21.5 0-12.825 8.625-21.325T230-510h220v-220q0-12.75 8.675-21.375 8.676-8.625 21.5-8.625 12.825 0 21.325 8.625T510-730v220h220q12.75 0 21.375 8.675 8.625 8.676 8.625 21.5 0 12.825-8.625 21.325T730-450H510v220q0 12.75-8.675 21.375-8.676 8.625-21.5 8.625-12.825 0-21.325-8.625T450-230v-220Z"
-          />
-        </svg>
       </button>
     </div>
     </form>
@@ -68,7 +66,7 @@
               <li><%=feedbackadmindata[i].course%></li>
               <li><%=feedbackadmindata[i].semester%></li>
               <li><%=String(feedbackadmindata[i].deadline).substring(0,10)%></li>
-              <li><a href="/admin/feedback/resultfeedback" class="btn btn-outline view-doc">View</a></li>
+              <li><a href="/admin/feedback/resultfeedback/<%=feedbackadmindata[i]._id%>" class="btn btn-outline view-doc">View</a></li>
             </ul>
             <%}%>
           </div>
@@ -78,7 +76,7 @@
   </div>
 </div>
 <script>
-    var departmentSelect = document.getElementById("departmentSelect");
+  var departmentSelect = document.getElementById("departmentSelect");
   var courseSelect = document.getElementById("courseSelect");
   var semesterSelect = document.getElementById("semesterSelect");
 
@@ -150,6 +148,90 @@
       semesterSelect.appendChild(option);
     }
   }
-    updateDepartmentSelect();
+  updateDepartmentSelect();
   updateCourseSelect(); 
+  
 </script>
+    <script>
+    let u = <%- JSON.stringify(locals.subject) %>;
+    let v = <%- JSON.stringify(locals.semsec) %>;
+     const subjectsData = u;
+     const semsecData = v;
+
+  const uniqueValues = (data, key) =>
+    [...new Set(data.map((item) => item[key]))];
+
+  function populateSelect(selectId, values) {
+    const select = document.getElementById(selectId);
+    select.innerHTML = "<option value=''> " + selectId + "</option>";
+    if(selectId == "section"){
+      const option = document.createElement("option");
+      option.text = "All";
+      option.value = "All";
+      select.appendChild(option);
+    }
+
+    values.forEach((value) => {
+      const option = document.createElement("option");
+      option.text = value;
+      option.value = value;
+      select.appendChild(option);
+    });
+  }
+
+  function updateOptions(selectId) {
+    const selectedDepartment = document.getElementById("department").value;
+    const selectedCourse = document.getElementById("course").value;
+    const selectedSemester = document.getElementById("semester").value;
+
+    let filteredSubjects = subjectsData;
+    let filteredSection = semsecData;
+    
+    
+    if (selectedDepartment) {
+        filteredSubjects = filteredSubjects.filter(
+            (subject) => subject.department === selectedDepartment
+        );
+        filteredSection = filteredSection.filter(
+            (section) => section.department === selectedDepartment
+        );
+    }
+
+    if (selectedCourse) {
+      filteredSubjects = filteredSubjects.filter(
+        (subject) => subject.course === selectedCourse
+      );
+      filteredSection = filteredSection.filter(
+        (section) => section.course === selectedCourse
+      );
+    }
+
+    if (selectedSemester) {
+      filteredSubjects = filteredSubjects.filter(
+        (subject) => subject.semester === selectedSemester
+      );
+      filteredSection = filteredSection.filter(
+        (section) => section.semester == selectedSemester
+      );
+
+    }
+
+    populateSelect("subject", uniqueValues(filteredSubjects, "name"));
+  }
+
+  document.getElementById("department").addEventListener("change", function () {
+    populateSelect("course", uniqueValues(subjectsData, "course"));
+    updateOptions("department");
+  });
+
+  document.getElementById("course").addEventListener("change", function () {
+    populateSelect("semester", uniqueValues(subjectsData, "semester"));
+    updateOptions("course");
+  });
+
+  document.getElementById("semester").addEventListener("change", function () {
+    updateOptions("semester");
+  });
+
+  populateSelect("department", uniqueValues(subjectsData, "department"));
+    </script>
