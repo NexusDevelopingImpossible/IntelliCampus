@@ -58,7 +58,8 @@
     .card5 .wrapper .calendar .days li.active {
       color: #fff; }
     .card5 .wrapper .calendar .days li.active::before {
-      background: #00000043; }
+      background: #00000043;
+      border-radius: 5px; }
     .card5 .wrapper .calendar .days li::before {
       position: absolute;
       content: "";
@@ -92,5 +93,6 @@
   text-overflow: ellipsis;
   color: #fff; }
 
-.holiday-active {
-  background-color: #ffffff30; }
+.holiday-active::before {
+  background-color: #ffffff30;
+  border-radius: 5px; }

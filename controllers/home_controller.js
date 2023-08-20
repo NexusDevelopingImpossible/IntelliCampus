@@ -112,7 +112,7 @@ module.exports.createSession = async (req, res) => {
     // let userdata = await User.
     if (!user || user.password !== password) {
       // User not found or password is incorrect
-      // req.flash("Error", "User not found or password is incorrect");
+      req.flash("Error", "User not found or password is incorrect");
       return res.redirect("/");
     }
     const updatedUser = await User.findOneAndUpdate(

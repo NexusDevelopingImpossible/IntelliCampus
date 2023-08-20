@@ -44,13 +44,13 @@ function create_input_student() {
         <div class="form-set">
         <div class="form-text">Department</div>
         <select id="departments`+i+`" class="departments input-name" name="department`+i+`">
-        <option value="">Select a department</option>
+        <option value="">Department</option>
         </select>
         </div>
         <div class="form-set">
         <div class="form-text">Course</div>
         <select id="courses`+i+`" class="courses input-name" name="courses`+i+`">
-        <option value="">Select a course</option>
+        <option value="">Course</option>
         </select>
         </div>
         <div class="form-set">
