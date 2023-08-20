@@ -170,7 +170,7 @@
 
     if (selectedSemester) {
       filteredSubjects = filteredSubjects.filter(
-        (subject) => subject.semester === selectedSemester
+        (subject) => subject.semester == selectedSemester
       );
       filteredSection = filteredSection.filter(
         (section) => section.semester == selectedSemester
