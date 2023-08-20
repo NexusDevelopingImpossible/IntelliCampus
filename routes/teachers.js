@@ -51,4 +51,5 @@ router.post("/attendancegrant/add", teacherController.attendancegrantadd);
 router.get("/tg", teacherController.tghome);
 router.get("/tg/transferward", teacherController.tgtransfer);
 router.get("/tg/parentresponse", teacherController.tgparentresponse);
+router.get("/tg/tgsendmail", teacherController.tgsendmail);
 module.exports = router;

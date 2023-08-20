@@ -1256,3 +1256,13 @@ module.exports.attendancegrantadd = async (req, res) => {
     res.json({ Error: error });
   }
 };
+
+
+
+module.exports.tgsendmail = async (req, res) => {
+  try {
+    return res.render("teacher/tgsendmail", { title: "TG Send Mail" });
+  } catch (error) {
+    console.log(error);
+  }
+};
