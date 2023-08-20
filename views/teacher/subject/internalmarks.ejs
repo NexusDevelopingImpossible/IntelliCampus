@@ -132,7 +132,11 @@
 
       
     </div>
-    <div class="popup"></div>
+    <div class="popup" id="popup"></div>
+    <!-- loader -->
+    <div class="loader" id="loader">
+        <div class="lds-ripple"><div></div><div></div></div>
+        </div>
     <!-- RESET MAX MARKS POPUP -->
     <div class="modal" id="reset-max">
         <div class="flex-container">
@@ -433,15 +437,17 @@ let studintform = async function  () {
     const newstudintform = $('#studinternal');
         // $(document).on('submit', '#studinternal', function (e) {
         //     e.preventDefault();
+        console.log("hiiii");
+        document.getElementById('loader').style.display = "block";
+        document.getElementById('popup').style.display = "block";
             $.ajax({
                 type: 'post',
                 url: '/teacher/internal/updateinternal',
                 data: newstudintform.serialize(),
                 success: function (data) {
-                    console.log(data);
-                    // console.log(data.data);
+                    document.getElementById('loader').style.display = "none";
+                    document.getElementById('popup').style.display = "none";
                     internalstudent = data.student;
-                    console.log("Select call")
                     selectupdate();
                     new Noty({
                       theme: "relax",

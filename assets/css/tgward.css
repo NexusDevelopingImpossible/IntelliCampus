@@ -45,3 +45,7 @@
   display: flex;
   align-items: center;
   justify-content: center; }
+
+.export-btn {
+  height: 4vh;
+  width: 5vw; }

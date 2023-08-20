@@ -11,7 +11,7 @@
     </div>
     <div class="add-dept">
       <form action="/admin/adddepartment" method="post" id="adddept">
-        <input class="prog-inp" id="prog-inp" type="text" placeholder="Enter Department" name="department" />
+        <input class="prog-inp" id="prog-inp" type="text" placeholder="Enter Department" name="department" required/>
         <button type="submit" class="add-btn btn btn-full">Add</button>
       </form>
       <a href="/admin/program"><div class="add-pro-btn btn btn-full btn-large">Add Program</div></a>
@@ -22,45 +22,75 @@
           <p>
             <%=dept[i].department%>
           </p>
-          <a class="trash" href="/admin/deletedepartment/<%=dept[i]._id%>"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"/></svg></a>
+          <a onclick="openPopup(this.id)" id="pop<%=i%>" class="trash"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"/></svg></a>
         </div>
         <%}%>
     </div>
   </div>
+  <div class="popup">
+  </div>
+  <%for(let i=0; i<dept.length; i++){%>
+  <div class="popup-item" id="mod2<%=i%>">
+        <p class="popup-hed">Confirm Delete ?</p>
+        <div class="action-btn">
+            <span onclick="closePopup(this.id)" id="cross<%=i%>" class="cross act-btn"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="4vw" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none" opacity=".87"/><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm4.3 14.3c-.39.39-1.02.39-1.41 0L12 13.41 9.11 16.3c-.39.39-1.02.39-1.41 0-.39-.39-.39-1.02 0-1.41L10.59 12 7.7 9.11c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0L12 10.59l2.89-2.89c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41L13.41 12l2.89 2.89c.38.38.38 1.02 0 1.41z"/></svg></span>
+            <a href="/admin/deletedepartment/<%=dept[i]._id%>" id="check" class="check act-btn"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="4vw" fill="#9EFF00"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM9.29 16.29 5.7 12.7c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0L10 14.17l6.88-6.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-7.59 7.59c-.38.39-1.02.39-1.41 0z"/></svg></a>
+        </div>
+  </div>
+  <%}%>
 </div>
 <script>
-  const adddeptform = $('#adddept');
-  $(document).on('submit', '#adddept', function (e) {
-    e.preventDefault();
-    $.ajax({
-      type: 'post',
-      url: '/admin/adddepartment',
-      data: adddeptform.serialize(),
-      success: function (data) {
-        const nAtt = newattDom(data.data);
-        new Noty({
-          theme: 'relax',
-          text: 'Department added',
-          type: 'success',
-          layout: 'topRight',
-          timeout: 1500,
-        }).show();
-      },
-      error: function (error) {
-        console.log(error.responseText);
-      }
-    });
-  });
-  function newattDom(data){
-    console.log(data)
-    let deptdom = `<div class="prog-div">
-          <p>
-            ${data.dept.department}
-          </p>
-          <a class="trash" href="/admin/deletedepartment/${data.dept._id}"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"/></svg></a>
-        </div>`
-        $('#dept-list').append(deptdom);
-        document.getElementById('prog-inp').value = '';
-
+  const popup = document.querySelector(".popup");
+  const modal = document.querySelector(".popup-item");
+  function openPopup(id){
+    // const popup = document.getElementById("mod"+id.split('pop')[1]);
+    
+    const modal = document.getElementById("mod2"+id.split('pop')[1]);
+    popup.style.display = "block";
+    modal.style.display = "flex";
   }
+  
+  function closePopup(id){
+    // const popup = document.getElementById("mod"+id.split('pop')[1]);
+    const modal = document.getElementById("mod2"+id.split('cross')[1]);
+    popup.style.display = "none";
+    modal.style.display = "none";
+  }
+</script>
+
+<script>
+  // const adddeptform = $('#adddept');
+  // $(document).on('submit', '#adddept', function (e) {
+  //   e.preventDefault();
+  //   $.ajax({
+  //     type: 'post',
+  //     url: '/admin/adddepartment',
+  //     data: adddeptform.serialize(),
+  //     success: function (data) {
+  //       const nAtt = newattDom(data.data);
+  //       new Noty({
+  //         theme: 'relax',
+  //         text: 'Department added',
+  //         type: 'success',
+  //         layout: 'topRight',
+  //         timeout: 1500,
+  //       }).show();
+  //     },
+  //     error: function (error) {
+  //       console.log(error.responseText);
+  //     }
+  //   });
+  // });
+  // function newattDom(data){
+  //   console.log(data)
+  //   let deptdom = `<div class="prog-div">
+  //         <p>
+  //           ${data.dept.department}
+  //         </p>
+  //         <a class="trash" href="/admin/deletedepartment/${data.dept._id}"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"/></svg></a>
+  //       </div>`
+  //       $('#dept-list').append(deptdom);
+  //       document.getElementById('prog-inp').value = '';
+
+  // }
 </script>

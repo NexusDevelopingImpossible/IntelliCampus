@@ -96,6 +96,7 @@
 
             li.active::before{
               background: #00000043;
+              border-radius: 5px;
             }
 
             li::before{
@@ -142,6 +143,7 @@
   color: #fff;
 }
 
-.holiday-active{
+.holiday-active::before{
   background-color: #ffffff30;
+  border-radius: 5px;
 }
