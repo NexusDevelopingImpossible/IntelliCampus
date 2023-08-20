@@ -12,8 +12,13 @@
 
         <div class="allot__1" id="section1">
             <div class="reg__section">
-                    <input type="text" name="registration" id="reg" placeholder="Employ Id">
+                    <input type="text" name="registration" id="reg" placeholder="Registration No">
+  
                     <a href="" id="reg-path"><button class="btn btn-full btn-medium" >Select</button></a>
+            </div>
+            <div class="search-popup" id="reg-popup">
+              <ul id="reg-list">
+              </ul>
             </div>
 
 
@@ -43,4 +48,75 @@
           anchorTag.click(); // Simulate a click on the anchor tag
         }
       });
+  </script>
+  <script>
+    let urllink;
+    let searchval;
+    document.getElementById("reg").addEventListener("input", function() {
+        // Get the input value
+        var inputValue = document.getElementById("reg").value;
+  
+        // Set the input value as the text content of the <a> element
+        var anchorTag = document.getElementById("reg-path");
+        anchorTag.href = "/admin/tgsearch/" + inputValue;
+        searchval = inputValue;
+        urllink = "/admin/searchteacherid/" + inputValue;
+        console.log(urllink);
+      });
+      document.getElementById("reg").addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+          var anchorTag = document.getElementById("reg-path");
+        //   document.getElementById('search-btn').style.backgroundColor = "#0000006a";
+          anchorTag.click(); // Simulate a click on the anchor tag
+        }
+      });
+  </script>
+  <script>
+    let createform = function () {
+      const newattform = $('#search');
+      $.ajax({
+        type: 'get',
+        url: urllink,
+        success: function (data) {
+          console.log(data.data.result);
+          let g = data.data.result
+          let DPMstring  = '';
+          let sl = searchval.length;
+          console.log(g);
+          for(let i = 0; i<g.length; i++){
+            DPMstring = DPMstring + `<li><a href="/admin/tgsearch/${g[i].username}"><p class="spot-item"><span>${searchval}</span>${(g[i].name).slice(sl)} ${g[i].username}</p></a></li>`
+          }
+          $('#reg-list').html(DPMstring);
+        },
+        error: function (error) {
+          console.log(error.responseText);
+        }
+      });
+    }
+    const search = document.getElementById('reg');
+    console.log(search);
+    search.addEventListener('input', () => {
+      console.log(search.value.length)
+      if(search.value){
+        searchval = search.value;
+        console.log("call");
+        createform();
+      }
+  
+    })
+  </script>
+
+  <script>
+    const regInput = document.getElementById("reg");
+    const regPopup = document.getElementById("reg-popup");
+
+    regInput.addEventListener("click", function(){
+      regPopup.style.display = "flex";
+    })
+
+    document.addEventListener("click", (event) => {
+	if (!regInput.contains(event.target)) {
+    regPopup.style.display = "none";
+	}
+  });
   </script>

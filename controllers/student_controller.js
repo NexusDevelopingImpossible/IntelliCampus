@@ -148,7 +148,12 @@ module.exports.feedback = async (req, res) => {
       const teacher = await Timetable.findOne({
         _id: attendance[i].timetableid,
       }).populate("teacherid subjectcode");
-      teacherdata.push(teacher);
+      let check = await Feedback.findOne({ timetableid: teacher._id, studentid: studentdata._id });
+      if (!check) {
+        
+        teacherdata.push(teacher);
+      }
+
     }
     return res.render("student/feedback", {
       title: "Feedback",
@@ -482,6 +487,7 @@ module.exports.sendreport = async (req, res) => {
         subject: String(req.body.subject),
         description: String(req.body.description),
         studentid: student._id,
+        department: student.department
       });
     }
     req.flash("success", "Report send");

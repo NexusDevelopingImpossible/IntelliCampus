@@ -262,13 +262,6 @@
           let g = data.data;
           let DPMstring = "";
           let sl = searchval.length;
-          for (let i = 0; i < g.result.length; i++) {
-            DPMstring =
-              DPMstring +
-              `<a href="#"><p class="spot-item"><span>${searchval}</span>${g.result[
-                i
-              ].name.slice(sl)} ${g.result[i].username}</p></a>`;
-          }
           for (let i = 0; i < g.result1.length; i++) {
             DPMstring =
               DPMstring +

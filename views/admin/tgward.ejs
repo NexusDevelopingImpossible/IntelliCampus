@@ -24,14 +24,15 @@
         </div>
         <div class="description-scroll">
           <div class="description__list">
-         
+            <%for(let  i = 0; i<teacherdata.length; i++){%>
             <ul>
-              <li>1</li>
-              <li>Srijan Dev</li>
-              <li>3642</li>
-              <li>3/5</li>
-              <li><button class="export-btn btn btn-outline btn-sm">Export</button></li>
+              <li><%=i+1%></li>
+              <li><%=teacherdata[i].name%></li>
+              <li><%=teacherdata[i].username%></li>
+              <li><%=count[i]%></li>
+              <li><a target="_blank" href="/admin/tgward/export/<%=teacherdata[i]._id%>" class="export-btn btn btn-outline btn-sm">Export</a></li>
             </ul>
+            <%}%>
           </div>
         </div>
       </div>

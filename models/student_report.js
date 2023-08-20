@@ -13,6 +13,9 @@ const studentreportSchema = new mongoose.Schema(
     description: {
       type: String,
     },
+    department: {
+      type: String,
+    },
   },
   {
     timestamps: true,

@@ -5,7 +5,7 @@
 <html lang="en">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/x-icon" href="/images/ecm.png" />
-<%if(!(title == "Consolidate Attendance Report")){%>
+<%if(!((title == "Consolidate Attendance Report") || (title == "TG Ward Attendance"))){%>
   <link rel="stylesheet" href="<%= assetPath('css/general.css') %>">
 <%}%>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"
@@ -22,7 +22,7 @@
 
   <body>
     <%- style %>
-    <% if(!((title=="Login" ) || (title=="Error" )|| (title=="Forgot Password" ) || (title=="Nexus Team" ) || (title=="Consolidate Attendance Report" )) ) {%>
+    <% if(!((title=="Login" ) || (title=="Error" )|| (title=="Forgot Password" ) || (title == "TG Ward Attendance")|| (title=="Nexus Team" ) || (title=="Consolidate Attendance Report" )) ) {%>
       <%if((locals.user)){%>
       <% if(locals.user.position==="student" ){%> 
         <%- include('navbar/student'); %>

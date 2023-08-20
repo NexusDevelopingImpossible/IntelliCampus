@@ -177,6 +177,23 @@ ion-icon:hover {
   cursor: pointer;
   color: #fd6d08; }
 
+.table {
+  height: 65vh;
+  overflow: auto; }
+
+.table::-webkit-scrollbar {
+  -webkit-appearance: none;
+  border: 0px;
+  width: 7px; }
+
+.table::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  border: 0px;
+  background-color: rgba(0, 0, 0, 0.4); }
+
+.table::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.6); }
+
 .table-item {
   display: flex;
   justify-content: space-between;

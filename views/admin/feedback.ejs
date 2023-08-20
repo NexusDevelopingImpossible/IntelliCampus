@@ -18,13 +18,15 @@
                 <span>Course :<input class="input-hed" type="text" hidden value="<%=course%>"> <span class="bold-info"><%=course%></span></span>
                 <span>Semester :<input class="input-hed" type="text" hidden value="<%=semester%>"> <span class="bold-info"><%=semester%></span></span>
               </div>
-            
+              
+            <form action="/admin/feedback/resultfeedback/getdata" method="post" id="feedform">
               <select id="subject" class="filter-select sub-sel" name="subname">
                 <option value="">Subject</option>
                 <%for(let i = 0; i<subject.length; i++){%>
                   <option value="<%=subject[i]._id%>"><%=subject[i].subjectcode.name%></option>
                 <%}%>
               </select>
+            </form>
               
               
               <div class="feedback_header_deadline">
@@ -36,185 +38,9 @@
               <a onclick="openPopup()" class="not-submitted"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="2vw" fill="#FFFFFF"><g fill="none"><path d="M0 0h24v24H0V0z"/><path d="M0 0h24v24H0V0z" opacity=".87"/></g><path d="M4 13c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm0 4c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm0-8c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm4 4h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1s.45 1 1 1zm0 4h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1s.45 1 1 1zM7 8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1zm-3 5c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm0 4c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm0-8c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm4 4h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1s.45 1 1 1zm0 4h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1s.45 1 1 1zM7 8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1z"/></svg> Not Submitted</a>
             </div>
           </div>
-          <div class="list_feedback">
-            <div class="list_feedback_title">
-              <div class="list_items">
-                <ul>
-                  <li>Q.No</li>
-                  <li>Questions</li>
-                  <li>1</li>
-                  <li>2</li>
-                  <li>3</li>
-                  <li>4</li>
-                  <li>5</li>
-                  <li>Avg</li>
-                </ul>
-              </div>
-            </div>
-            <div class="list_scroll">
-              <div class="list_items">
-                <ul>
-                  <li>1</li>
-                  <li>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of adable content of
-                    adable content of adable content of a page when loo
-                  </li>
-                  <li>5</li>
-                  <li>6</li>
-                  <li>7</li>
-                  <li>8</li>
-                  <li>9</li>
-                  <li>8</li>
-                </ul>
-                <ul>
-                  <li>1</li>
-                  <li>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of adable content of
-                    adable content of adable content of a page when loo
-                  </li>
-                  <li>5</li>
-                  <li>6</li>
-                  <li>7</li>
-                  <li>8</li>
-                  <li>9</li>
-                  <li>8</li>
-                </ul>
-                <ul>
-                  <li>1</li>
-                  <li>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of adable content of
-                    adable content of adable content of a page when loo
-                  </li>
-                  <li>5</li>
-                  <li>6</li>
-                  <li>7</li>
-                  <li>8</li>
-                  <li>9</li>
-                  <li>8</li>
-                </ul>
-                <ul>
-                  <li>1</li>
-                  <li>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of adable content of
-                    adable content of adable content of a page when loo
-                  </li>
-                  <li>5</li>
-                  <li>6</li>
-                  <li>7</li>
-                  <li>8</li>
-                  <li>9</li>
-                  <li>8</li>
-                </ul>
-                <ul>
-                  <li>1</li>
-                  <li>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of adable content of
-                    adable content of adable content of a page when loo
-                  </li>
-                  <li>5</li>
-                  <li>6</li>
-                  <li>7</li>
-                  <li>8</li>
-                  <li>9</li>
-                  <li>8</li>
-                </ul>
-                <ul>
-                  <li>1</li>
-                  <li>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of adable content of
-                    adable content of adable content of a page when loo
-                  </li>
-                  <li>5</li>
-                  <li>6</li>
-                  <li>7</li>
-                  <li>8</li>
-                  <li>9</li>
-                  <li>8</li>
-                </ul>
-                <ul>
-                  <li>1</li>
-                  <li>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of adable content of
-                    adable content of adable content of a page when loo
-                  </li>
-                  <li>5</li>
-                  <li>6</li>
-                  <li>7</li>
-                  <li>8</li>
-                  <li>9</li>
-                  <li>8</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="list_remarks">
-            <div class="list_remarks_title">
-              <ul>
-                <li>Sl.No</li>
-                <li>Reg No</li>
-                <li>Message</li>
-              </ul>
-            </div>
-            <div class="list_scroll">
-              <ul>
-                <li>01</li>
-                <li>202200229</li>
-                <li>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of adable content of adable content of
-                  adable content of a page when loo
-                </li>
-              </ul>
-              <ul>
-                <li>01</li>
-                <li>202200229</li>
-
-                <li>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of adable content of adable content of
-                  adable content of a page when loo
-                </li>
-              </ul>
-              <ul>
-                <li>01</li>
-                <li>202200229</li>
-
-                <li>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of adable content of adable content of
-                  adable content of a page when loo
-                </li>
-              </ul>
-              <ul>
-                <li>01</li>
-                <li>202200229</li>
-
-                <li>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of adable content of adable content of
-                  adable content of a page when loo
-                </li>
-              </ul>
-              <ul>
-                <li>01</li>
-                <li>202200229</li>
-
-                <li>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of adable content of adable content of
-                  adable content of a page when loo
-                </li>
-              </ul>
-            </div>
-          </div>
+          <div id="feedadd">
           
+          </div>
         </div>
         <div class="popup"></div>
         <div class="main-box modal">
@@ -222,47 +48,8 @@
             <p>Not Submitted</p>
             <ion-icon onclick="closePopup()" name="close-circle-outline"></ion-icon>
           </div>
-          <div class="table">
-             <div class="table-item">
-                <p>01</p>
-                <p>202200030</p>
-             </div>
-             <div class="table-item">
-                 <p>02</p>
-                 <p>202200030</p>
-              </div>
-              <div class="table-item">
-                 <p>03</p>
-                 <p>202200030</p>
-              </div>
-              <div class="table-item">
-                 <p>04</p>
-                 <p>202200030</p>
-              </div>
-              <div class="table-item">
-                 <p>05</p>
-                 <p>202200030</p>
-              </div>
-              <div class="table-item">
-                 <p>06</p>
-                 <p>202200030</p>
-              </div>
-              <div class="table-item">
-                 <p>07</p>
-                 <p>202200030</p>
-              </div>
-              <div class="table-item">
-                 <p>08</p>
-                 <p>202200030</p>
-              </div>
-              <div class="table-item">
-                 <p>09</p>
-                 <p>202200030</p>
-              </div>
-              <div class="table-item">
-                 <p>10</p>
-                 <p>202200030</p>
-              </div>
+          <div class="table" id="notsublist">
+             
           </div>
         </div>
         
@@ -283,45 +70,206 @@
         popup.style.display = "none";
   }
   let subselect = document.getElementById('subject');
-  let createform = function () {
-    const newattform = $('#att-form');
-
-    $(document).on('submit', '#att-form', function (e) {
-        e.preventDefault();
-        $.ajax({
-            type: 'post',
-            url: '/teacher/addattendance',
-            data: newattform.serialize(),
-            success: function (data) {
-                const nAtt = newattDom(data.data);
-                new Noty({
-                  theme: "relax",
-                  text: "Attendance added",
-                  type: "success",
-                  layout: "topRight",
-                 
-                  timeout: 1500,
-                }).show();
-            },
-            error: function (error) {
-                console.log(error.responseText);
-            }
-        });
+ const newattform = $('#feedform');
+  subselect.addEventListener('change', function() {
+    $.ajax({
+        type: 'post',
+        url: '/admin/feedback/resultfeedback/getdata',
+        data: {subname: subselect.value},
+        success: function (data) {
+            const nAtt = newattDom(data);
+        },
+        error: function (error) {
+            console.log(error.responseText);
+        }
     });
-};
+
+  })
+
 
 let newattDom = function (data) {
-    date.value = null;
-    console.log(data);
-    for (let i = 0; i < data.student.length; i++) {
-        let l = "len" + i;
-        document.getElementById("len" + i).innerHTML = data.student[i].present.length;
-        document.getElementById("tp" + i).innerHTML = data.student[i].totalpresent;
-        document.getElementById("per" + i).innerHTML = parseInt(((data.student[i].totalpresent) / (data.student[i].present.length)) * 100) + "%";
-        document.getElementById("cb" + i).checked = true;
-    }
-    return
-};
+  let feedarr = data.feedarr;
+  let feedbackdata = data.feedbackdata;
+  let studentlist = data.studentlist;
+  let string2 = "";
+  for(let  i = 0; i<feedbackdata.length; i++){
+    if(feedbackdata[i].question10){
+      string2 = string2 + `<ul>
+                  <li>${i}</li>
+                  <li>${feedbackdata[i].studentid.username}</li>
+                  <li>
+                    ${feedbackdata[i].question10}
+                  </li>
+                </ul>`;
+              }
+            }
+  let string3 = '';
+  for(let i = 0; i<studentlist.length; i++){
+      string3 = string3 + `<div class="table-item">
+                <p>${i+1}</p>
+                <p>${studentlist[i].studentid.username}</p>
+             </div>`
+  }
+  let string = `<div class="list_feedback"><div class="list_feedback_title">
+              <div class="list_items">
+                <ul>
+                  <li>Q.No</li>
+                  <li>Questions</li>
+                  <li>1</li>
+                  <li>2</li>
+                  <li>3</li>
+                  <li>4</li>
+                  <li>5</li>
+                  <li>Avg</li>
+                </ul>
+              </div>
+            </div>
+            <div class="list_scroll">
+              <div class="list_items">
+                <ul>
+                  <li>1</li>
+                  <li>
+                    It is a long established fact that a reader will be distracted by
+                    the readable content of adable content of adable content of adable
+                    content of a page when loo
+                  </li>
+                  <li>${feedarr[0][0]}</li>
+                  <li>${feedarr[0][1]}</li>
+                  <li>${feedarr[0][2]}</li>
+                  <li>${feedarr[0][3]}</li>
+                  <li>${feedarr[0][4]}</li>
+                  <li>${(feedarr[0][0]*1+feedarr[0][1]*2+feedarr[0][2]*3+feedarr[0][3]*4+feedarr[0][4]*5)/feedbackdata.length}</li>
+                </ul>
+                <ul>
+                  <li>2</li>
+                  <li>
+                    It is a long established fact that a reader will be distracted by
+                    the readable content of adable content of adable content of adable
+                    content of a page when loo
+                  </li>
+                  <li>${feedarr[1][0]}</li>
+                  <li>${feedarr[1][1]}</li>
+                  <li>${feedarr[1][2]}</li>
+                  <li>${feedarr[1][3]}</li>
+                  <li>${feedarr[1][4]}</li>
+                  <li>${(feedarr[1][0]*1+feedarr[1][1]*2+feedarr[1][2]*3+feedarr[1][3]*4+feedarr[1][4]*5)/feedbackdata.length}</li>
+                </ul>
+                <ul>
+                  <li>3</li>
+                  <li>
+                    It is a long established fact that a reader will be distracted by
+                    the readable content of adable content of adable content of adable
+                    content of a page when loo
+                  </li>
+                  <li>${feedarr[2][0]}</li>
+                  <li>${feedarr[2][1]}</li>
+                  <li>${feedarr[2][2]}</li>
+                  <li>${feedarr[2][3]}</li>
+                  <li>${feedarr[2][4]}</li>
+                  <li>${(feedarr[2][0]*1+feedarr[2][1]*2+feedarr[2][2]*3+feedarr[2][3]*4+feedarr[2][4]*5)/feedbackdata.length}</li>
+                </ul>
+                <ul>
+                  <li>4</li>
+                  <li>
+                    It is a long established fact that a reader will be distracted by
+                    the readable content of adable content of adable content of adable
+                    content of a page when loo
+                  </li>
+                  <li>${feedarr[3][0]}</li>
+                  <li>${feedarr[3][1]}</li>
+                  <li>${feedarr[3][2]}</li>
+                  <li>${feedarr[3][3]}</li>
+                  <li>${feedarr[3][4]}</li>
+                  <li>${(feedarr[3][0]*1+feedarr[3][1]*2+feedarr[3][2]*3+feedarr[3][3]*4+feedarr[3][4]*5)/feedbackdata.length}</li>
+                </ul>
+                <ul>
+                  <li>5</li>
+                  <li>
+                    It is a long established fact that a reader will be distracted by
+                    the readable content of adable content of adable content of adable
+                    content of a page when loo
+                  </li>
+                  <li>${feedarr[4][0]}</li>
+                  <li>${feedarr[4][1]}</li>
+                  <li>${feedarr[4][2]}</li>
+                  <li>${feedarr[4][3]}</li>
+                  <li>${feedarr[4][4]}</li>
+                  <li>${(feedarr[4][0]*1+feedarr[4][1]*2+feedarr[4][2]*3+feedarr[4][3]*4+feedarr[4][4]*5)/feedbackdata.length}</li>
+                </ul>
+                <ul>
+                  <li>6</li>
+                  <li>
+                    It is a long established fact that a reader will be distracted by
+                    the readable content of adable content of adable content of adable
+                    content of a page when loo
+                  </li>
+                  <li>${feedarr[5][0]}</li>
+                  <li>${feedarr[5][1]}</li>
+                  <li>${feedarr[5][2]}</li>
+                  <li>${feedarr[5][3]}</li>
+                  <li>${feedarr[5][4]}</li>
+                  <li>${(feedarr[5][0]*1+feedarr[5][1]*2+feedarr[5][2]*3+feedarr[5][3]*4+feedarr[5][4]*5)/feedbackdata.length}</li>
+                </ul>
+                <ul>
+                  <li>7</li>
+                  <li>
+                    It is a long established fact that a reader will be distracted by
+                    the readable content of adable content of adable content of adable
+                    content of a page when loo
+                  </li>
+                  <li>${feedarr[6][0]}</li>
+                  <li>${feedarr[6][1]}</li>
+                  <li>${feedarr[6][2]}</li>
+                  <li>${feedarr[6][3]}</li>
+                  <li>${feedarr[6][4]}</li>
+                  <li>${(feedarr[6][0]*1+feedarr[6][1]*2+feedarr[6][2]*3+feedarr[6][3]*4+feedarr[6][4]*5)/feedbackdata.length}</li>
+                </ul>
+                <ul>
+                  <li>8</li>
+                  <li>
+                    It is a long established fact that a reader will be distracted by
+                    the readable content of adable content of adable content of adable
+                    content of a page when loo
+                  </li>
+                  <li>${feedarr[7][0]}</li>
+                  <li>${feedarr[7][1]}</li>
+                  <li>${feedarr[7][2]}</li>
+                  <li>${feedarr[7][3]}</li>
+                  <li>${feedarr[7][4]}</li>
+                  <li>${(feedarr[7][0]*1+feedarr[7][1]*2+feedarr[7][2]*3+feedarr[7][3]*4+feedarr[7][4]*5)/feedbackdata.length}</li>
+                </ul>
+                <ul>
+                  <li>9</li>
+                  <li>
+                    It is a long established fact that a reader will be distracted by
+                    the readable content of adable content of adable content of adable
+                    content of a page when loo
+                  </li>
+                  <li>${feedarr[8][0]}</li>
+                  <li>${feedarr[8][1]}</li>
+                  <li>${feedarr[8][2]}</li>
+                  <li>${feedarr[8][3]}</li>
+                  <li>${feedarr[8][4]}</li>
+                  <li>${(feedarr[8][0]*1+feedarr[8][1]*2+feedarr[8][2]*3+feedarr[8][3]*4+feedarr[8][4]*5)/feedbackdata.length}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="list_remarks">
+            <div class="list_remarks_title">
+              <ul>
+                <li>Sl.No</li>
+                <li>Reg No</li>
+                <li>Message</li>
+              </ul>
+            </div>
+            <div class="list_scroll">`+string2+`
+            </div>
+          </div>`;
+          $('#feedadd').html(string);
+          $('#notsublist').html(string3);
+          return
+        };
 
 // createform();
 

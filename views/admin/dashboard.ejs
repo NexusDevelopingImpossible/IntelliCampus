@@ -15,9 +15,6 @@
       </div>
 
       <div class="admin-info">
-        <div>
-          <img class="img" src="/images/AG.jpg" alt="" />
-        </div>
         <div class="adm">
           <h1 class="adm-name"><%=admin.name%></h1>
           <p class="adm-info">Professor and HOD <br />Department of <%=admin.department%></p>
@@ -49,6 +46,11 @@
             <a href="/admin/tghome">
                 <li class="option" value="view">
                     <span class="option-text">Sessional Report</span>
+                </li>
+            </a>
+            <a href="/admin/tgward">
+                <li class="option" value="view">
+                    <span class="option-text">Attendance Report</span>
                 </li>
             </a>
         </ul>
@@ -265,7 +267,9 @@
           for (let i = 0; i < g.result.length; i++) {
             DPMstring =
               DPMstring +
-              `<a href="#"><p class="spot-item"><span>${searchval}</span>${g.result[
+              `<a href="/admin/teacherprofile/${
+                g.result[i]._id
+              }"><p class="spot-item"><span>${searchval}</span>${g.result[
                 i
               ].name.slice(sl)} ${g.result[i].username}</p></a>`;
           }

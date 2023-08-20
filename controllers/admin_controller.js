@@ -26,7 +26,7 @@ const DeactivateAccount = require("../models/deactivatedaccount");
 const AttendanceGrant = require("../models/attendancegrant");
 const FeedbackAdmin = require("../models/feedbackadmin");
 const Attendance = require("../models/attendance");
-
+const Feedback = require("../models/feedback");
 
 //Dashboard
 module.exports.dashboard = async (req, res) => {
@@ -39,7 +39,7 @@ module.exports.dashboard = async (req, res) => {
       title: "Dashboard",
       teacher: teacherdata,
       admin: admindata,
-      calendardata
+      calendardata,
     });
   } catch (err) {
     console.log(err);
@@ -348,14 +348,23 @@ module.exports.addsubject = async function (req, res) {
     }
     const subjectCode = req.body.subname;
     var subjectName;
-    let dept = req.body.department
+    let dept = req.body.department;
     let subject = await Subject.findOne({ name: subjectCode });
     subjectName = subject._id;
     let teacherdata = await Teacher.findOne({
       username: req.body.registration,
     });
     const sourceFilePath = "./data/template_result_analysis.xlsx";
-    const destinationFilePath = "./upload/resultanalysis/" + req.body.department + "_" + req.body.course + "_" + req.body.semester + "_" + subject.name+".xlsx";
+    const destinationFilePath =
+      "./upload/resultanalysis/" +
+      req.body.department +
+      "_" +
+      req.body.course +
+      "_" +
+      req.body.semester +
+      "_" +
+      subject.name +
+      ".xlsx";
     fs.copyFile(sourceFilePath, destinationFilePath, (err) => {
       if (err) {
         console.error("Error copying file:", err);
@@ -510,7 +519,6 @@ module.exports.allottg_std = async (req, res) => {
 
 module.exports.tgsearch = async (req, res) => {
   try {
-    console.log(req.params.id);
     let teacherdata = await Teacher.findOne({
       username: req.params.id,
     });
@@ -521,7 +529,6 @@ module.exports.tgsearch = async (req, res) => {
     let tgdata = await TG.find({ teacherid: teacherdata._id }).populate(
       "studentid"
     );
-    console.log("TG: ", tgdata);
     return res.render("admin/allottg-std", {
       title: "Allot TG to Students",
       teacher: teacherdata,
@@ -531,7 +538,20 @@ module.exports.tgsearch = async (req, res) => {
     console.log(error);
   }
 };
-
+module.exports.addwarddelete = async (req, res) => {
+  try {
+    let check = await TG.findByIdAndDelete(req.params.id);
+    console.log(check);
+    if (check) {
+      req.flash("success", "Ward deleted.");
+    } else {
+      req.flash("error", "Error");
+    }
+    return res.redirect("back");
+  } catch (error) {
+    console.log(error);
+  }
+};
 module.exports.addward = async (req, res) => {
   try {
     try {
@@ -558,15 +578,10 @@ module.exports.addward = async (req, res) => {
         if (!worksheet[cellToUpdate]) {
           break;
         }
-        console.log(worksheet[cellToUpdate].v);
         let std_registration = Number(worksheet[cellToUpdate].v);
-        console.log(std_registration);
         let studentdata = await Student.findOne({ username: std_registration });
-        // console.log(studentdata);
         let tgcheck = await TG.findOne({ studentid: studentdata._id });
-        console.log("Check: ", tgcheck);
         if (!tgcheck) {
-          console.log("Created");
           await TG.create({
             teacherid: req.body.teacherid,
             studentid: studentdata._id,
@@ -687,12 +702,12 @@ module.exports.spotsearch = async (req, res) => {
     // console.log(isNaN(req.params.id));
     // let result, result1;
     // if (isNaN(req.params.id)) {
-      result = await Teacher.find({
-        name: { $regex: new RegExp("^" + req.params.id + ".*", "i") },
-      }).limit(5);
-      result1 = await Student.find({
-        name: { $regex: new RegExp("^" + req.params.id + ".*", "i") },
-      }).limit(5);
+    result = await Teacher.find({
+      name: { $regex: new RegExp("^" + req.params.id + ".*", "i") },
+    }).limit(5);
+    result1 = await Student.find({
+      name: { $regex: new RegExp("^" + req.params.id + ".*", "i") },
+    }).limit(5);
     // }
     // if (!isNaN(Number(req.params.id))) {
     //   console.log("hiii");
@@ -819,7 +834,7 @@ module.exports.createsem = async (req, res) => {
 };
 
 module.exports.signUp = (req, res) => {
-  // checkurlfunct.checkurladmin(req, res); 
+  // checkurlfunct.checkurladmin(req, res);
   return res.render("login-signup/signup", {
     title: "Sign Up",
   });
@@ -835,7 +850,7 @@ module.exports.create = async (req, res) => {
       await User.create(req.body);
     }
     // if (req.body.position == "Admin") {
-      await Admin.create(req.body);
+    await Admin.create(req.body);
     // }
     return res.redirect("/admin/dashboard");
     // return res.redirect("back");
@@ -853,10 +868,21 @@ module.exports.adminstudentprofile = async (req, res) => {
   });
 };
 module.exports.adminteacherprofile = async (req, res) => {
-  let student = await Student.findById(req.params.id);
+  let teacher = await Teacher.findById(req.params.id);
+  let teacherdata = await teachersProfile.findOne({
+    regnNo: teacher.username,
+  });
+  let timetabledata = await Timetable.find({
+    teacherid: teacher._id,
+  }).populate("subjectcode");
+  let tgdata = await TG.find({ teacherid: teacher._id }).populate("studentid");
+  console.log(teacherdata);
   return res.render("teacher/profile-teach", {
     title: "Profile",
-    student,
+    teacher,
+    timetabledata,
+    tgdata,
+    teacherdata,
   });
 };
 
@@ -1087,9 +1113,9 @@ module.exports.addstudentsection = async function (req, res) {
 module.exports.reports = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
-
+    let admindata = await Admin.findOne({ username: res.locals.user.username });
     let reportdata = await studentreport
-      .find()
+      .find({ department: admindata.department })
       .populate("studentid")
       .sort({ updatedAt: -1 });
     let timearr = [];
@@ -1106,7 +1132,9 @@ module.exports.feedback = async (req, res) => {
     checkurlfunct.checkurladmin(req, res);
     const deptSem = await SemSection.find();
     let admindata = await Admin.findOne({ username: res.locals.user.username });
-    const feedbackadmindata = await FeedbackAdmin.find({department: admindata.department});
+    const feedbackadmindata = await FeedbackAdmin.find({
+      department: admindata.department,
+    });
     return res.render("admin/create-feedback", {
       title: "Feedback",
       deptSem,
@@ -1124,15 +1152,216 @@ module.exports.createfeedback = async (req, res) => {
       course: String(req.body.course),
       semester: Number(req.body.semester),
     });
+
     if (!check) {
       await FeedbackAdmin.create({
         department: String(req.body.department),
         course: String(req.body.course),
         semester: Number(req.body.semester),
-        deadline: req.body.deadline
-      })
+        deadline: req.body.deadline,
+      });
+    } else {
+      await FeedbackAdmin.findByIdAndUpdate(
+        check._id,
+        { deadline: req.body.deadline },
+        { new: true, useFindAndModify: false }
+      );
     }
-    return res.redirect('back');
+    return res.redirect("back");
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.resultfeedackgetdata = async (req, res) => {
+  try {
+    checkurlfunct.checkurladmin(req, res);
+    console.log(req.body);
+
+    let feedbackdata = await Feedback.find({
+      timetableid: req.body.subname,
+    }).populate("studentid");
+    const feedarr = new Array(9);
+    let studentlist = await Attendance.find({
+      timetableid: req.body.subname,
+    }).populate("studentid");
+
+    for (let i = 0; i < 9; i++) {
+      feedarr[i] = new Array(5).fill(0);
+    }
+    for (let i = 0; i < feedbackdata.length; i++) {
+      const targetUser = studentlist.findIndex(
+        (studentlist) =>
+          studentlist.studentid.username == feedbackdata[i].studentid.username
+      );
+      console.log(targetUser);
+      if (targetUser !== -1) {
+        studentlist.splice(targetUser, 1);
+        console.log("User removed:", targetUser);
+      } else {
+        console.log("User not found.");
+      }
+      {
+        if (feedbackdata[i].feedback[0] == 1) {
+          feedarr[0][0] = feedarr[0][0] + 1;
+        }
+        if (feedbackdata[i].feedback[0] == 2) {
+          feedarr[0][1] = feedarr[0][1] + 1;
+        }
+        if (feedbackdata[i].feedback[0] == 3) {
+          feedarr[0][2] = feedarr[0][2] + 1;
+        }
+        if (feedbackdata[i].feedback[0] == 4) {
+          feedarr[0][3] = feedarr[0][3] + 1;
+        }
+        if (feedbackdata[i].feedback[0] == 5) {
+          feedarr[0][4] = feedarr[0][4] + 1;
+        }
+      }
+      {
+        if (feedbackdata[i].feedback[1] == 1) {
+          feedarr[1][0] = feedarr[1][0] + 1;
+        }
+        if (feedbackdata[i].feedback[1] == 2) {
+          feedarr[1][1] = feedarr[1][1] + 1;
+        }
+        if (feedbackdata[i].feedback[1] == 3) {
+          feedarr[1][2] = feedarr[1][2] + 1;
+        }
+        if (feedbackdata[i].feedback[1] == 4) {
+          feedarr[1][3] = feedarr[1][3] + 1;
+        }
+        if (feedbackdata[i].feedback[1] == 5) {
+          feedarr[1][4] = feedarr[1][4] + 1;
+        }
+      }
+      {
+        if (feedbackdata[i].feedback[2] == 1) {
+          feedarr[2][0] = feedarr[2][0] + 1;
+        }
+        if (feedbackdata[i].feedback[2] == 2) {
+          feedarr[2][1] = feedarr[2][1] + 1;
+        }
+        if (feedbackdata[i].feedback[2] == 3) {
+          feedarr[2][2] = feedarr[2][2] + 1;
+        }
+        if (feedbackdata[i].feedback[2] == 4) {
+          feedarr[2][3] = feedarr[2][3] + 1;
+        }
+        if (feedbackdata[i].feedback[2] == 5) {
+          feedarr[2][4] = feedarr[2][4] + 1;
+        }
+      }
+      {
+        if (feedbackdata[i].feedback[3] == 1) {
+          feedarr[3][0] = feedarr[3][0] + 1;
+        }
+        if (feedbackdata[i].feedback[3] == 2) {
+          feedarr[3][1] = feedarr[3][1] + 1;
+        }
+        if (feedbackdata[i].feedback[3] == 3) {
+          feedarr[3][2] = feedarr[3][2] + 1;
+        }
+        if (feedbackdata[i].feedback[3] == 4) {
+          feedarr[3][3] = feedarr[3][3] + 1;
+        }
+        if (feedbackdata[i].feedback[3] == 5) {
+          feedarr[3][4] = feedarr[3][4] + 1;
+        }
+      }
+      {
+        if (feedbackdata[i].feedback[4] == 1) {
+          feedarr[4][0] = feedarr[4][0] + 1;
+        }
+        if (feedbackdata[i].feedback[4] == 2) {
+          feedarr[4][1] = feedarr[4][1] + 1;
+        }
+        if (feedbackdata[i].feedback[4] == 3) {
+          feedarr[4][2] = feedarr[4][2] + 1;
+        }
+        if (feedbackdata[i].feedback[4] == 4) {
+          feedarr[4][3] = feedarr[4][3] + 1;
+        }
+        if (feedbackdata[i].feedback[4] == 5) {
+          feedarr[4][4] = feedarr[4][4] + 1;
+        }
+      }
+      {
+        if (feedbackdata[i].feedback[5] == 1) {
+          feedarr[5][0] = feedarr[5][0] + 1;
+        }
+        if (feedbackdata[i].feedback[5] == 2) {
+          feedarr[5][1] = feedarr[5][1] + 1;
+        }
+        if (feedbackdata[i].feedback[5] == 3) {
+          feedarr[5][2] = feedarr[5][2] + 1;
+        }
+        if (feedbackdata[i].feedback[5] == 4) {
+          feedarr[5][3] = feedarr[5][3] + 1;
+        }
+        if (feedbackdata[i].feedback[5] == 5) {
+          feedarr[5][4] = feedarr[5][4] + 1;
+        }
+      }
+      {
+        if (feedbackdata[i].feedback[6] == 1) {
+          feedarr[6][0] = feedarr[6][0] + 1;
+        }
+        if (feedbackdata[i].feedback[6] == 2) {
+          feedarr[6][1] = feedarr[6][1] + 1;
+        }
+        if (feedbackdata[i].feedback[6] == 3) {
+          feedarr[6][2] = feedarr[6][2] + 1;
+        }
+        if (feedbackdata[i].feedback[6] == 4) {
+          feedarr[6][3] = feedarr[6][3] + 1;
+        }
+        if (feedbackdata[i].feedback[6] == 5) {
+          feedarr[6][4] = feedarr[6][4] + 1;
+        }
+      }
+      {
+        if (feedbackdata[i].feedback[7] == 1) {
+          feedarr[7][0] = feedarr[7][0] + 1;
+        }
+        if (feedbackdata[i].feedback[7] == 2) {
+          feedarr[7][1] = feedarr[7][1] + 1;
+        }
+        if (feedbackdata[i].feedback[7] == 3) {
+          feedarr[7][2] = feedarr[7][2] + 1;
+        }
+        if (feedbackdata[i].feedback[7] == 4) {
+          feedarr[7][3] = feedarr[7][3] + 1;
+        }
+        if (feedbackdata[i].feedback[7] == 5) {
+          feedarr[7][4] = feedarr[7][4] + 1;
+        }
+      }
+      {
+        if (feedbackdata[i].feedback[8] == 1) {
+          feedarr[8][0] = feedarr[8][0] + 1;
+        }
+        if (feedbackdata[i].feedback[8] == 2) {
+          feedarr[8][1] = feedarr[8][1] + 1;
+        }
+        if (feedbackdata[i].feedback[8] == 3) {
+          feedarr[8][2] = feedarr[8][2] + 1;
+        }
+        if (feedbackdata[i].feedback[8] == 4) {
+          feedarr[8][3] = feedarr[8][3] + 1;
+        }
+        if (feedbackdata[i].feedback[8] == 5) {
+          feedarr[8][4] = feedarr[8][4] + 1;
+        }
+      }
+    }
+    if (req.xhr) {
+      return res.status(200).json({
+        feedbackdata: feedbackdata,
+        feedarr: feedarr,
+        studentlist: studuentlist,
+      });
+    }
+    return res.redirect("back");
   } catch (err) {
     console.log(err);
   }
@@ -1141,15 +1370,22 @@ module.exports.resultfeedback = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
     const feedbackdata = await FeedbackAdmin.findById(req.params.id);
-    console.log(feedbackdata)
+    console.log(feedbackdata);
     const subject = await Timetable.find({
-      department: feedbackdata.department, course: feedbackdata.course, semester:feedbackdata.semester
-    }).populate('subjectcode');
+      department: feedbackdata.department,
+      course: feedbackdata.course,
+      semester: feedbackdata.semester,
+    }).populate("subjectcode");
     let department = feedbackdata.department;
     let course = feedbackdata.course;
     let semester = feedbackdata.semester;
     return res.render("admin/feedback", {
-      title: "Feedback", subject, feedbackdata, department, course, semester
+      title: "Feedback",
+      subject,
+      feedbackdata,
+      department,
+      course,
+      semester,
     });
   } catch (err) {
     console.log(err);
@@ -1160,8 +1396,7 @@ module.exports.singlefeedback = async (req, res) => {
     checkurlfunct.checkurladmin(req, res);
     // let timetable = await Timetable.find({})
     if (req.xhr) {
-      return res.status(200).json({
-      });
+      return res.status(200).json({});
     }
   } catch (err) {
     console.log(err);
@@ -1171,9 +1406,12 @@ module.exports.singlefeedback = async (req, res) => {
 module.exports.attendancegrant = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
-    let assignmentgrant = await AttendanceGrant.find({}).sort({updatedAt: -1})
+    let assignmentgrant = await AttendanceGrant.find({}).sort({
+      updatedAt: -1,
+    });
     res.render("admin/attendancegrant", {
-      title: "Assignment Grant", assignmentgrant
+      title: "Assignment Grant",
+      assignmentgrant,
     });
   } catch (err) {
     console.log(err);
@@ -1183,7 +1421,7 @@ module.exports.tghome = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
     return res.render("admin/tghome", {
-      title: "TG Home"
+      title: "TG Home",
     });
   } catch (err) {
     console.log(err);
@@ -1193,11 +1431,13 @@ module.exports.tggetdata = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
     console.log(req.query);
-    let feedlist = await FeedbackAdmin.find({department: req.query.department})
+    let feedlist = await FeedbackAdmin.find({
+      department: req.query.department,
+    });
     let data = "asdad";
     if (req.xhr) {
       return res.status(200).json({
-        data: data
+        data: data,
       });
     }
   } catch (err) {
@@ -1209,7 +1449,8 @@ module.exports.conattendance = async (req, res) => {
     checkurlfunct.checkurladmin(req, res);
     const semsec = await SemSection.find();
     res.render("admin/Consolidate_Attendance", {
-      title: "Consolidate Attendance", semsec
+      title: "Consolidate Attendance",
+      semsec,
     });
   } catch (err) {
     console.log(err);
@@ -1217,8 +1458,13 @@ module.exports.conattendance = async (req, res) => {
 };
 module.exports.conattendancereport = async (req, res) => {
   try {
-    console.log(req.body)
-    let subjectlist = await Timetable.find({ department: req.body.department, course: req.body.course, semester: req.body.semester, section: req.body.section }).populate('subjectcode');
+    console.log(req.body);
+    let subjectlist = await Timetable.find({
+      department: req.body.department,
+      course: req.body.course,
+      semester: req.body.semester,
+      section: req.body.section,
+    }).populate("subjectcode");
     let attarr = [];
     let attarr2 = [];
     let studentlist = await Student.find({
@@ -1227,15 +1473,15 @@ module.exports.conattendancereport = async (req, res) => {
       semester: req.body.semester,
       section: req.body.section,
     });
-    for (let i = 0; i < studentlist.length; i++){
+    for (let i = 0; i < studentlist.length; i++) {
       let studentsingle = [];
-      for (let j = 0; j < subjectlist.length; j++){
+      for (let j = 0; j < subjectlist.length; j++) {
         let attsingle = await Attendance.findOne({
           studentid: studentlist[i]._id,
           timetableid: subjectlist[j]._id,
         }).populate("studentid");
         studentsingle.push(attsingle);
-        console.log(i,j)
+        console.log(i, j);
       }
       attarr.push(studentsingle);
       // if (attsingle.studentid._id == studentlist._id) {
@@ -1244,11 +1490,14 @@ module.exports.conattendancereport = async (req, res) => {
       //   attarr2.push(attsingle);
       // }
       // console.log(attarr2);
-      
     }
     console.log(attarr);
     return res.render("admin/Consolidate_Attendance_report", {
-      title: "Consolidate Attendance Report", subjectlist, attarr, attarr2, studentlist
+      title: "Consolidate Attendance Report",
+      subjectlist,
+      attarr,
+      attarr2,
+      studentlist,
     });
   } catch (err) {
     console.log(err);
@@ -1274,7 +1523,7 @@ module.exports.attendancegrantadd = async (req, res) => {
         }
         await load_file();
         return res.redirect("back");
-      });   
+      });
     }
   } catch (error) {
     console.log(`Error: ${error}`);
@@ -1282,10 +1531,53 @@ module.exports.attendancegrantadd = async (req, res) => {
   }
 };
 
-
-module.exports.tgward = (req, res) => {
+module.exports.tgward = async (req, res) => {
   checkurlfunct.checkurladmin(req, res);
+  let admindata = await Admin.findOne({ username: res.locals.user.username });
+  let teacherdata = await Teacher.find({ department: admindata.department });
+  let count = [];
+  for (let i = 0; i < teacherdata.length; i++) {
+    let check = await TG.find({ teacherid: teacherdata[i]._id });
+    if (check) {
+      count.push(check.length);
+    } else {
+      count.push(0);
+    }
+  }
   return res.render("admin/tgward", {
     title: "TG Wards",
+    teacherdata,
+    count,
   });
+};
+module.exports.tgwardexport = async (req, res) => {
+  checkurlfunct.checkurladmin(req, res);
+  let teacherdata = await Teacher.findById(req.params.id);
+  let studentlist = await TG.find({ teacherid: req.params.id });
+  let wardlist = [];
+  for (let i = 0; i < studentlist.length; i++) {
+    let studentsub = await Attendance.find({
+      studentid: studentlist[i].studentid,
+    }).populate({ path: "timetableid", populate: { path: "subjectcode" } }).populate('studentid');
+    let wardsub = [];
+    console.log(studentsub);
+    for (let j = 0; j < studentsub.length; j++){
+      console.log(studentsub[j].totalpresent / studentsub[j].present.length);
+      if (studentsub[j].totalpresent / studentsub[j].present.length<0.75) {
+        wardsub.push(studentsub[j]);
+      }
+    }
+    if (wardsub.length > 0) {
+      wardlist.push(wardsub);
+    }
+      
+  }
+  console.log(wardlist);
+
+ return res.render("admin/tg_wards_attendance", {
+   title: "TG Ward Attendance",
+   wardlist,
+   studentlist,
+   teacherdata,
+ });
 };

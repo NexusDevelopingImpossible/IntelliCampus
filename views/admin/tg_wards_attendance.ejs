@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="<%= assetPath('css/tg_wards_attendance.css') %>" />
+
+<body>
+    <div class="report_main">
+        <div class="report_header">
+            <div>SIKKIM MANIPAL INSTITUTE OF TECHNOLOGY</div>
+            <div>TG WARD'S ATTENDANCE REPORT</div>
+        </div>
+        <div>
+        <div class="report_sbj">
+            <div><span>TG Name: </span><%=teacherdata.name%>(<%=teacherdata.username%>)</div>
+            <div><span>Attendance Percentage: </span>Below 75%</div>
+        </div>
+        <div class="report">
+            <table>
+                <tr>
+                    <th colspan="2">Ward Name</th>
+                    <th colspan="4">Subject Details</th>
+                </tr>
+                <tr class="table_head">
+                    <td>Name</td>
+                    <td>Reg. No.</td>
+                    <td>Subject Name</td>
+                    <td>CLC</td>
+                    <td>CLA</td>
+                    <td>PER</td>
+                </tr>
+                <%for(let i = 0; i<wardlist.length; i++){%>
+                <tr>
+                    <td rowspan="<%=wardlist[i].length%>"><%=wardlist[i][0].studentid.name%></td>
+                    <td rowspan="<%=wardlist[i].length%>"><%=wardlist[i][0].studentid.username%></td>
+                    <td><%=wardlist[i][0].timetableid.subjectcode.code%> <%=wardlist[i][0].timetableid.subjectcode.name%></td>
+                    <td><%=wardlist[i][0].present.length%></td>
+                    <td><%=wardlist[i][0].totalpresent%></td>
+                    <td><%=(wardlist[i][0].totalpresent/wardlist[i][0].present.length*100).toFixed(0)%>%</td>
+                </tr>
+                <%for(let  j = 1; j<wardlist[i].length; j++){%>
+                <tr>
+                    <td><%=wardlist[i][j].timetableid.subjectcode.code%> <%=wardlist[i][j].timetableid.subjectcode.name%></td>
+                    <td><%=wardlist[i][j].present.length%></td>
+                    <td><%=wardlist[i][j].totalpresent%></td>
+                    <td><%=(wardlist[i][j].totalpresent/wardlist[i][j].present.length*100).toFixed(0)%>%</td>
+                </tr>
+                <%}}%>
+            </table>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -193,13 +193,14 @@
       <div class="list_remarks_title">Remarks:</div>
       <div class="list_scroll">
         <%for(let i = 0; i<feedbackdata.length; i++){%>
+          <%if(feedbackdata[i].question10){%>
         <ul>
           <li><%=i+1%></li>
           <li>
             <%=feedbackdata[i].question10%>
           </li>
         </ul>
-        <%}%>
+        <%}}%>
       </div>
     </div>
   </div>

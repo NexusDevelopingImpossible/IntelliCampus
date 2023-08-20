@@ -69,9 +69,6 @@
           for(let i = 0; i<g.length; i++){
             DPMstring = DPMstring + `<li><a href="/admin/searchbaralotsubject/${g[i].username}"><p class="spot-item"><span>${searchval}</span>${(g[i].name).slice(sl)} ${g[i].username}</p></a></li>`
           }
-          // for(let i = 0; i<g.result1.length; i++){
-          //   DPMstring = DPMstring + `<a href="#"><p class="spot-item"><span>${searchval}</span>${(g.result1[i].name).slice(sl)} ${g.result1[i].username}</p></a>`
-          // }
           $('#reg-list').html(DPMstring);
         },
         error: function (error) {
@@ -88,9 +85,6 @@
         console.log("call");
         createform();
       }
-      // if(search.value.length == 0){
-      //   document.getElementById('reg-list').innerHTML = '';
-      // }
   
     })
   </script>
