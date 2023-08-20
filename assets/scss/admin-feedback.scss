@@ -1,12 +1,24 @@
 /* Feedback header */
 .feedback_header {
     width: 100%;
-    padding: 2vh 5.5vw;
+    padding: 0 5.5vw;
+    padding-bottom: 2vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+.dept-details{
+    display: flex;
+    gap: 1.5vw;
+}
+.sub-sel{
+    margin-left: 2vw;
+}
 
+.bold-info{
+    font-weight: 600;
+    font-size: 2vh;
+}
 .feedback_header_info {
     display: flex;
     align-items: center;
@@ -172,9 +184,9 @@
     height: 550px;
     border: 1px solid rgba(255, 255, 255, 0.70);
     background: rgba(248, 213, 123, 0.15);
+    backdrop-filter: blur(34px);
     box-shadow: -10px 10px 94px 0px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    margin-top: 2rem;
 }
 
 .header {

@@ -319,11 +319,12 @@ module.exports.addattendance = async (req, res) => {
       data.updateattendance = Date.now();
       data.save();
     }
-    // const dataA = await Attendance.find({ timetableid: req.body.id }).populate('studentid');
+    
+    const dataB = await Attendance.find({ timetableid: req.body.id }).populate('studentid');
     if (req.xhr) {
       return res.status(200).json({
         data: {
-          student: dataA,
+          student: dataB,
         },
       });
     }

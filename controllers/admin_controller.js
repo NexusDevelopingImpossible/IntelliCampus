@@ -819,7 +819,7 @@ module.exports.createsem = async (req, res) => {
 };
 
 module.exports.signUp = (req, res) => {
-  checkurlfunct.checkurladmin(req, res);
+  // checkurlfunct.checkurladmin(req, res); 
   return res.render("login-signup/signup", {
     title: "Sign Up",
   });
@@ -831,9 +831,14 @@ module.exports.create = async (req, res) => {
       return res.redirect("back");
     }
     let user = await User.findOne({ username: req.body.username });
-    await User.create(req.body);
-    // await Admin.create(req.body);
+    if (!user) {
+      await User.create(req.body);
+    }
+    // if (req.body.position == "Admin") {
+      await Admin.create(req.body);
+    // }
     return res.redirect("/admin/dashboard");
+    // return res.redirect("back");
   } catch (err) {
     console.log(err);
   }

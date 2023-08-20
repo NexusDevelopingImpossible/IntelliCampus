@@ -3,6 +3,7 @@ let createform = function () {
 
     $(document).on('submit', '#att-form', function (e) {
         e.preventDefault();
+        
         $.ajax({
             type: 'post',
             url: '/teacher/addattendance',
@@ -14,7 +15,6 @@ let createform = function () {
                   text: "Attendance added",
                   type: "success",
                   layout: "topRight",
-                 
                   timeout: 1500,
                 }).show();
             },
