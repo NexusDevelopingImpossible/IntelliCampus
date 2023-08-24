@@ -91,7 +91,7 @@ const rateLimiterMiddleware = async (req, res, next) => {
   // req.userId should be set
   console.log(req.user);
   console.log(req.ip);
-  const key = req.user ? req.user : req.ip;
+  const key = req.user;
   const pointsToConsume = req.user ? 1 : 30;
     try {
       const rateLimiterResponse = await rateLimiterRedis.consume(
