@@ -24,6 +24,13 @@ const userSchema = new mongoose.Schema(
     exittime: {
       type: Date,
     },
+    point: {
+      type: Number,
+      default: 300
+    },
+    block: {
+      type: Date
+    }
   },
   {
     timestamps: true,
