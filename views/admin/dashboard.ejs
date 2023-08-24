@@ -366,7 +366,7 @@ function openselect(){
 <script>
   
   function main() {
-    var caldata = <%-JSON.stringify(locals.calendardata) %>;
+    let caldata = <%- JSON.stringify(locals.calendardata) %>;
     const daysTag = document.querySelector(".days"),
     currentDate = document.querySelector(".current-date"),
     currentYear = document.querySelector(".current-year"),
@@ -440,7 +440,7 @@ function openselect(){
     for (let i = lastDayofMonth; i < 6; i++) {
       liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
     }
-    currentDate.innerText = `${months[currMonth]}`;
+    currentDate.innerText = `${months[currMonth]} ${currYear}`;
     currentYear.innerText = `${currYear}`;
     daysTag.innerHTML = liTag;
   };

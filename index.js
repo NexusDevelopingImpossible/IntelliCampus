@@ -21,8 +21,10 @@ const prettydate = require("pretty-date"); //
 const mongoSanitize = require("express-mongo-sanitize");
 const cron = require("node-cron");
 const cronController = require("./controllers/cron_controller");
-
-
+const homeController = require("./controllers/home_controller");
+const Redis = require("ioredis");
+const redisClient = new Redis({ enableOfflineQueue: false });
+const { RateLimiterRedis } = require("rate-limiter-flexible");
 
 if (env.name == "development") {
   app.use(
@@ -35,6 +37,11 @@ if (env.name == "development") {
     })
   );
 }
+const rateLimiterRedis = new RateLimiterRedis({
+  storeClient: redisClient,
+  points: 300, // Number of points
+  duration: 60, // Per 60 seconds
+});
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(mongoSanitize());
@@ -80,6 +87,19 @@ app.use(
     },
   })
 );
+const rateLimiterMiddleware = (req, res, next) => {
+  // req.userId should be set
+  const key = req.userId ? req.userId : req.ip;
+  const pointsToConsume = req.userId ? 1 : 30;
+  rateLimiterRedis
+    .consume(key, pointsToConsume)
+    .then(() => {
+      next();
+    })
+    .catch((_) => {
+      return homeController.showRateLimitExceededPage(req, res);
+    });
+};
 
 
 
@@ -87,6 +107,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
+app.use(rateLimiterMiddleware);
+
 app.use(flash());
 app.use(customMware.setFlash);
 

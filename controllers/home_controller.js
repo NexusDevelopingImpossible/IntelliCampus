@@ -4,7 +4,6 @@ const OTP = require("../models/forogotpassword");
 const checkurlfunct = require("./server-function");
 const forgotpassword = require("../mailer/forgotpassword_mailer");
 function generateRandom4DigitNumber() {
-  // Generate a random number between 1000 and 9999 (inclusive of 1000 but exclusive of 10000)
   const randomNumber = Math.floor(Math.random() * 9000) + 1000;
   return randomNumber;
 }
@@ -16,6 +15,12 @@ module.exports.Login = function (req, res) {
   console.log(res.locals);
   return res.render("login-signup/Login", {
     title: "Login",
+  });
+};
+module.exports.showRateLimitExceededPage = function (req, res) {
+  // console.log(res.locals);
+  return res.render("components/error404", {
+    title: "Limit",
   });
 };
 module.exports.error = function (req, res) {
@@ -60,13 +65,9 @@ module.exports.fp_mail = async function (req, res) {
 };
 
 module.exports.verifyotp = async function (req, res) {
-  console.log("igbhj", req.body);
   let checkopt = req.body.opt1 + req.body.opt2 + req.body.opt3 + req.body.opt4;
   let verotparr = await OTP.find({ userid: String(req.body.id) });
-  console.log(verotparr); 
-  console.log(checkopt);
   let verotp = verotparr[verotparr.length - 1];
-  console.log(verotp);
   let email = req.body.email;
   if (verotp.otp == checkopt) {
     console.log('match');

@@ -31,6 +31,7 @@
     "gulp-load-plugins": "^2.0.8",
     "gulp-uglify-es": "^3.0.0",
     "html-pdf": "^3.0.1",
+    "ioredis": "^5.3.2",
     "mongoback": "^3.0.6",
     "mongodb-backup": "^1.6.9",
     "mongoose": "^6.11.2",
@@ -48,6 +49,8 @@
     "pdf-lib": "^1.17.1",
     "pm2": "^5.3.0",
     "pretty-date": "^0.2.0",
+    "rate-limiter-flexible": "^2.4.2",
+    "redis": "^4.6.8",
     "rotating-file-stream": "^3.1.0",
     "sass": "1.43.2",
     "xlsx": "^0.18.5"
