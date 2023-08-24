@@ -24,7 +24,7 @@ body {
 .center-container p span {
   font-weight: 500; }
 
-a {
+.homepage {
   text-decoration: none;
   color: #fff;
   border: 2px solid #a8b610;
@@ -33,5 +33,5 @@ a {
   padding: 0.8rem 2.4rem;
   transition: all 0.3s; }
 
-a:hover {
+.homepage:hover {
   background-color: #a8b6104f; }

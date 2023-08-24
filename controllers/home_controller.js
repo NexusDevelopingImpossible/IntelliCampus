@@ -19,7 +19,7 @@ module.exports.Login = function (req, res) {
 };
 module.exports.showRateLimitExceededPage = function (req, res) {
   // console.log(res.locals);
-  return res.render("components/error404", {
+  return res.render("components/limit", {
     title: "Limit",
   });
 };
