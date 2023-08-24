@@ -87,21 +87,25 @@ app.use(
     },
   })
 );
-const rateLimiterMiddleware = (req, res, next) => {
+const rateLimiterMiddleware = async (req, res, next) => {
   // req.userId should be set
-  const key = req.userId ? req.userId : req.ip;
-  const pointsToConsume = req.userId ? 1 : 30;
-  rateLimiterRedis
-    .consume(key, pointsToConsume)
-    .then(() => {
+  console.log(req.user);
+  console.log(req.ip);
+  const key = req.user ? req.user : req.ip;
+  const pointsToConsume = req.user ? 1 : 30;
+    try {
+      const rateLimiterResponse = await rateLimiterRedis.consume(
+        key,
+        pointsToConsume
+      );
+      const remainingPoints = rateLimiterResponse.remainingPoints;
+
+      console.log(`Remaining points for ${key}: ${remainingPoints}`);
       next();
-    })
-    .catch((_) => {
+    } catch (error) {
       return homeController.showRateLimitExceededPage(req, res);
-    });
+    }
 };
-
-
 
 app.use(passport.initialize());
 app.use(passport.session());
