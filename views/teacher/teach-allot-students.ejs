@@ -157,7 +157,7 @@ checkAllRadios.addEventListener("change", function(){
             text: 'Student added in the list at Bottom. Do save.',
             type: 'success',
             layout: 'topRight',
-            timeout: 1500,
+            timeout: 3000,
           }).show();
         newattDom(data.student);
         studentlist++;
@@ -168,7 +168,7 @@ checkAllRadios.addEventListener("change", function(){
             text: 'Incorrect registration number or Student does not exist.',
             type: 'error',
             layout: 'topRight',
-            timeout: 1500,
+            timeout: 3000,
           }).show();
         }
         document.getElementById('marks-input').value = '';

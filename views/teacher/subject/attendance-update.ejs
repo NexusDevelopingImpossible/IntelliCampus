@@ -76,7 +76,7 @@
                             </ul>
                         </div>
                         <div class="select-menu1">
-                            <select class="filter-select" name="date" id="dateselect" onchange="selectchange()">
+                            <select class="filter-select" name="date" id="dateselect" onchange="selectchange(this.value)">
                                 <option value="">
                                     Select Date
                                 </option>
@@ -93,7 +93,12 @@
                     </div>
                     <div class="right">
                         <!-- <button class="reset btn btn-outline btn-sm" type="reset">Reset</button> -->
-                        <button class="save btn btn-full btn-sm" type="submit">Save</button>
+                        <%if(!lockinternal){%>
+                            <button class="save btn btn-full btn-sm" type="submit">Save</button>
+                        <%}else{%>
+                            <span>Internal are lock</span>
+                        <%}%>
+                        
                         <input type="text" value="<%=timetable._id%>" id="timetableid" name="id" style="display: none">
                     </div>
                 </div>
@@ -148,7 +153,8 @@
                     }
                 });
             }
-        let newattDom = function (data) {  
+        let newattDom = function (data) { 
+                console.log(data) 
                 let DOMstring = '';
                 for (let i = 0; i < data.data.length; i++) {
                     let x = '';

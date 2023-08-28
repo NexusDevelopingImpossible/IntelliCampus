@@ -110,6 +110,10 @@
 .att-cont {
   height: 60vh; }
 
+.profile_photo {
+  width: 4vw;
+  height: 4vw; }
+
 .search-input {
   display: flex;
   background: rgba(255, 255, 255, 0.1);

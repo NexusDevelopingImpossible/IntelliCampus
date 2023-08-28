@@ -24,12 +24,17 @@
   color: #ffffff;
   align-items: center; }
 
+.teacher-info-img {
+  display: flex;
+  align-items: center; }
+
 .tch-img {
-  width: 4.5vw;
-  height: 4.5vw;
+  width: 4vw;
+  height: 4vw;
   border-radius: 50%;
   border: 3px solid #fd6d08;
-  margin-right: 0.5vw; }
+  margin-right: 0.5vw;
+  padding: 1vw; }
 
 .tch-name {
   font-weight: 400;

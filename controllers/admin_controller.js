@@ -104,6 +104,7 @@ module.exports.createstudent = async function (req, res) {
       }
       i = i + 4;
     }
+    req.flash("success", "Student added.");
     return res.redirect("/admin/dashboard");
   } catch (error) {
     console.log(error);
@@ -164,6 +165,7 @@ module.exports.createstudentWexcel = async function (req, res) {
       console.log(error);
     }
     fs.unlinkSync(path.join(__dirname, "..", url));
+    req.flash("success", "Student added.");
     return res.redirect("/admin/dashboard");
   } catch (error) {
     console.log(error);
@@ -197,6 +199,7 @@ module.exports.createteacher = async function (req, res) {
       }
       i = i + 4;
     }
+    req.flash('success', 'Teacher added.')
     return res.redirect("/admin/dashboard");
   } catch (error) {
     console.log(error);
@@ -256,6 +259,7 @@ module.exports.createteacherWexcel = async function (req, res) {
       console.log(error);
     }
     fs.unlinkSync(path.join(__dirname, "..", url));
+    req.flash("success", "Teacher added.");
     return res.redirect("/admin/dashboard");
   } catch (error) {
     console.log(error);
@@ -834,7 +838,7 @@ module.exports.createsem = async (req, res) => {
 };
 
 module.exports.signUp = (req, res) => {
-  // checkurlfunct.checkurladmin(req, res);
+  checkurlfunct.checkurladmin(req, res);
   return res.render("login-signup/signup", {
     title: "Sign Up",
   });
@@ -851,6 +855,7 @@ module.exports.create = async (req, res) => {
     }
     // if (req.body.position == "Admin") {
     await Admin.create(req.body);
+    req.flash('success', 'New ID created.')
     // }
     return res.redirect("/admin/dashboard");
     // return res.redirect("back");
@@ -1104,6 +1109,7 @@ module.exports.addstudentsection = async function (req, res) {
       console.log(error);
     }
     fs.unlinkSync(path.join(__dirname, "..", url));
+    req.flash("success", "Student added.");
     return res.redirect("back");
   } catch (error) {
     console.log(error);
@@ -1420,8 +1426,20 @@ module.exports.attendancegrant = async (req, res) => {
 module.exports.tghome = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
+    const deptSem = await SemSection.find();
+    let admindata = await Admin.findOne({ username: res.locals.user.username });
+    let teacherdata = await Teacher.find({ department: admindata.department });
+    let count = [];
+    for (let i = 0; i < teacherdata.length; i++) {
+      let check = await TG.find({ teacherid: teacherdata[i]._id });
+      if (check) {
+        count.push(check.length);
+      } else {
+        count.push(0);
+      }
+    }
     return res.render("admin/tghome", {
-      title: "TG Home",
+      title: "TG Home", deptSem, teacherdata, count
     });
   } catch (err) {
     console.log(err);
@@ -1430,7 +1448,6 @@ module.exports.tghome = async (req, res) => {
 module.exports.tggetdata = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
-    console.log(req.query);
     let feedlist = await FeedbackAdmin.find({
       department: req.query.department,
     });
@@ -1572,7 +1589,6 @@ module.exports.tgwardexport = async (req, res) => {
     }
       
   }
-  console.log(wardlist);
 
  return res.render("admin/tg_wards_attendance", {
    title: "TG Ward Attendance",

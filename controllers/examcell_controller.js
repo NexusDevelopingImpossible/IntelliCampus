@@ -5,6 +5,7 @@ const SemSection = require("../models/semsection");
 const Tempupload = require("../models/templateupoad");
 const Subject = require("../models/subject");
 const Subjectnotes = require("../models/notes");
+const LockInternal = require("../models/lockinternal");
 const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
@@ -13,7 +14,7 @@ const XLSX = require("xlsx");
 module.exports.dashboard = async (req, res) => {
   try {
     checkurlfunct.checkurlexamcell(req, res);
-    res.render("examcell/dashboard", { title: "Dashboard"});
+    res.render("examcell/dashboard", { title: "Dashboard" });
   } catch (err) {
     console.log(err);
   }
@@ -21,7 +22,7 @@ module.exports.dashboard = async (req, res) => {
 module.exports.cform = async (req, res) => {
   try {
     checkurlfunct.checkurlexamcell(req, res);
-    res.render("examcell/cform", { title: "C Form"});
+    res.render("examcell/cform", { title: "C Form" });
   } catch (err) {
     console.log(err);
   }
@@ -30,7 +31,7 @@ module.exports.cgpa = async (req, res) => {
   try {
     checkurlfunct.checkurlexamcell(req, res);
     const deptSem = await SemSection.find();
-    res.render("examcell/cgpabacklog", { title: "CGPA & Backlog", deptSem});
+    res.render("examcell/cgpabacklog", { title: "CGPA & Backlog", deptSem });
   } catch (err) {
     console.log(err);
   }
@@ -39,7 +40,7 @@ module.exports.createsubject = async (req, res) => {
   try {
     checkurlfunct.checkurlexamcell(req, res);
     const deptSem = await SemSection.find();
-    res.render("examcell/createsubject", { title: "Create Subject", deptSem});
+    res.render("examcell/createsubject", { title: "Create Subject", deptSem });
   } catch (err) {
     console.log(err);
   }
@@ -66,24 +67,27 @@ module.exports.addsubject = async (req, res) => {
     let i = 2;
     let cellsubcode = String("A" + i);
     try {
-      while(worksheet[cellsubcode]!=undefined){
+      while (worksheet[cellsubcode] != undefined) {
         cellsubcode = String("A" + i);
         cellsubname = String("B" + i);
         cellsubtype = String("C" + i);
         cellsubtheory = String("D" + i);
         cellcredit = String("E" + i);
         let subcode = String(worksheet[cellsubcode].v);
-        let subdata = await Subject.findOne({ code: subcode });
-        if(!subdata){
+        let subdata = await Subject.findOne({
+          code: subcode,
+          semester: req.body.semester,
+        });
+        if (!subdata) {
           await Subject.create({
             department: req.body.department,
             course: req.body.course,
             semester: req.body.semester,
             code: subcode,
-            name: (worksheet[cellsubname].v),
-            type: (worksheet[cellsubtype].v),
-            theorytype: (worksheet[cellsubtheory].v),
-            credit: (worksheet[cellcredit].v),
+            name: worksheet[cellsubname].v,
+            type: worksheet[cellsubtype].v,
+            theorytype: worksheet[cellsubtheory].v,
+            credit: worksheet[cellcredit].v,
           });
         }
         let suball = await Subject.find();
@@ -92,14 +96,15 @@ module.exports.addsubject = async (req, res) => {
         });
         i++;
       }
-      
     } catch (error) {
       console.log(error);
     }
-    fs.unlinkSync(
-      path.join(__dirname, "..", url)
+    fs.unlinkSync(path.join(__dirname, "..", url));
+    req.flash(
+      "success",
+      `Subjects added to ${req.body.department} - ${req.body.course} - ${req.body.semester}`
     );
-    return res.redirect('back');
+    return res.redirect("back");
   } catch (err) {
     console.log(err);
   }
@@ -126,22 +131,30 @@ module.exports.addcgpa = async (req, res) => {
     let i = 2;
     let cellreg = String("A" + i);
     try {
-      while(worksheet[cellreg]!=undefined){
+      while (worksheet[cellreg] != undefined) {
         cellreg = String("A" + i);
         cellcgpa = String("C" + i);
         cellnobacklog = String("D" + i);
         cellsub = String("E" + i);
-        let arraysub = (String(worksheet[cellsub].v)).split(',');
+        let arraysub = String(worksheet[cellsub].v).split(",");
         let updatearraysub = [];
-        for(let j = 0; j<arraysub.length; j++){
+        for (let j = 0; j < arraysub.length; j++) {
           console.log(arraysub[j]);
-          let subdata = await Subject.findOne({code: String(arraysub[j])});
+          let subdata = await Subject.findOne({ code: String(arraysub[j]) });
           console.log(subdata);
-          let substring = subdata.code + ' ' + subdata.name;
+          let substring = subdata.code + " " + subdata.name;
           updatearraysub.push(substring);
         }
         let studreg = String(worksheet[cellreg].v);
-        let studdata = await studentsProfile.findOneAndUpdate({regnNo:studreg},{cgpa: Number(worksheet[cellcgpa].v),backlog: Number(worksheet[cellnobacklog].v), backloglist: updatearraysub},{ new: true })
+        let studdata = await studentsProfile.findOneAndUpdate(
+          { regnNo: studreg },
+          {
+            cgpa: Number(worksheet[cellcgpa].v),
+            backlog: Number(worksheet[cellnobacklog].v),
+            backloglist: updatearraysub,
+          },
+          { new: true }
+        );
         console.log(studdata);
         // studdata.save();
         i++;
@@ -149,10 +162,8 @@ module.exports.addcgpa = async (req, res) => {
     } catch (error) {
       console.log(error);
     }
-    fs.unlinkSync(
-      path.join(__dirname, "..", url)
-    );
-    return res.redirect('back');
+    fs.unlinkSync(path.join(__dirname, "..", url));
+    return res.redirect("back");
   } catch (err) {
     console.log(err);
   }
@@ -160,8 +171,23 @@ module.exports.addcgpa = async (req, res) => {
 
 module.exports.deletesub = async (req, res) => {
   try {
-    await Subject.findByIdAndDelete(req.params.id);
-    return res.redirect('back');
+    console.log("hoii", req.query.id);
+    let check = await Subject.findByIdAndDelete(req.query.id);
+    const subdata = await Subject.find({
+      department: req.query.dept,
+      course: req.query.course,
+      semester: req.query.sem,
+    });
+    let send = false;
+    if (check) {
+      send = true;
+    }
+    if (req.xhr) {
+      return res.status(200).json({
+        send, subdata
+      });
+    }
+    return res.redirect("back");
   } catch (err) {
     console.log(err);
   }
@@ -169,7 +195,32 @@ module.exports.deletesub = async (req, res) => {
 module.exports.lockinternal = async (req, res) => {
   try {
     checkurlfunct.checkurlexamcell(req, res);
-    res.render("examcell/lockinternal", { title: "Lock internal"});
+    const deptSem = await SemSection.find();
+    res.render("examcell/lockinternal", { title: "Lock internal" , deptSem});
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.lockinternal_lock = async (req, res) => {
+  try {
+    checkurlfunct.checkurlexamcell(req, res);
+    let check = await LockInternal.findOne({ department: req.body.department, course: req.body.course, semester: req.body.semester });
+    if (check) {
+      check.lockdate = req.body.lockdate;
+      await check.save();
+    }
+    else {
+      await LockInternal.create({
+        department: req.body.department,
+        course: req.body.course,
+        semester: req.body.semester,
+        lockdate: req.body.lockdate
+      })
+    }
+    if (req.xhr) {
+      return res.status(200);
+    }
+    return res.redirect('back');
   } catch (err) {
     console.log(err);
   }
@@ -177,10 +228,14 @@ module.exports.lockinternal = async (req, res) => {
 module.exports.searchsub = async (req, res) => {
   try {
     checkurlfunct.checkurlexamcell(req, res);
-    const subdata = await Subject.find({department: req.query.dept, course: req.query.course, semester: req.query.sem});
+    const subdata = await Subject.find({
+      department: req.query.dept,
+      course: req.query.course,
+      semester: req.query.sem,
+    });
     if (req.xhr) {
       return res.status(200).json({
-        subdata
+        subdata,
       });
     }
   } catch (err) {
@@ -190,10 +245,14 @@ module.exports.searchsub = async (req, res) => {
 module.exports.searchcgpa = async (req, res) => {
   try {
     checkurlfunct.checkurlexamcell(req, res);
-    const studdata = await Student.find({department: req.query.dept, course: req.query.course, semester: req.query.sem});
+    const studdata = await Student.find({
+      department: req.query.dept,
+      course: req.query.course,
+      semester: req.query.sem,
+    });
     if (req.xhr) {
       return res.status(200).json({
-        studdata
+        studdata,
       });
     }
   } catch (err) {

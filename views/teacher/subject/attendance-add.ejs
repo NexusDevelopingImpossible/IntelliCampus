@@ -54,7 +54,9 @@
             </div>
         </section>
         <section class="tab-content">
-            <form action="/teacher/addattendance" method="post" id="att-form">
+            <%if(!lockinternal){%>
+                <form action="/teacher/addattendance" method="post" id="att-form">
+            <%}%>
                 <div class="mode__and__button">
                     <div class="left">
                         <div class="select-menu">
@@ -81,7 +83,11 @@
                     </div>
                     <div class="right">
                         <!-- <button class="reset btn-outline btn btn-sm" type="reset">Reset</button> -->
-                        <button class="save btn-full btn btn-sm" type="submit">Save</button>
+                        <%if(!lockinternal){%>
+                            <button class="save btn-full btn btn-sm" type="submit">Save</button>
+                        <%}else{%>
+                            <span>Internal are lock</span>
+                        <%}%>
                         <input type="text" value=<%=timetable._id%> name="id" style="display: none">
                     </div>
                 </div>
@@ -127,13 +133,21 @@
                                     style="display: none">
                                 </ul>
                             </div>
-                            <%}%>
+                        <%}%>
                     </div>
                 </div>
-            </form>
+            <%if(!lockinternal){%>
+                </form>
+            <%}%>
+            
         </section>
     </div>
 
+    <div class="popup" id="popup"></div>
+        <!-- loader -->
+    <div class="loader" id="loader">
+        <div class="lds-ripple"><div></div><div></div></div>
+        </div>
 </div>
 
 <script src="<%= assetPath('js/teach-att.js') %>"></script>
@@ -143,12 +157,15 @@
 
   $(document).on("submit", "#att-form", function (e) {
     e.preventDefault();
-
+    document.getElementById('loader').style.display = "block";
+    document.getElementById('popup').style.display = "block";
     $.ajax({
       type: "post",
       url: "/teacher/addattendance",
       data: newattform.serialize(),
       success: function (data) {
+        document.getElementById('loader').style.display = "none";
+        document.getElementById('popup').style.display = "none";
         const nAtt = newattDom(data.data);
         new Noty({
           theme: "relax",
@@ -170,6 +187,7 @@ let newattDom = function (data) {
   console.log(data);
   for (let i = 0; i < data.student.length; i++) {
     let l = "len" + i;
+    console.log(i)
     document.getElementById("len" + i).innerHTML =
       data.student[i].present.length;
     document.getElementById("tp" + i).innerHTML = data.student[i].totalpresent;

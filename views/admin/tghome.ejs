@@ -55,10 +55,11 @@
         </div>
         <div class="description-scroll">
           <div class="description__list">
+            <%for(let i = 0; i<teacherdata.length; i++){%>
             <ul>
-              <li>1</li>
-              <li>Om Sinkar</li>
-              <li>4545</li>
+              <li><%=i+1%></li>
+              <li><%=teacherdata[i].name%></li>
+              <li><%=teacherdata[i].username%></li>
               <li>12/12</li>
               <li>Yes</li>
               <li>
@@ -76,6 +77,7 @@
                 </svg>
               </li>
             </ul>
+            <%}%>
 
             <ul>
               <li>1</li>

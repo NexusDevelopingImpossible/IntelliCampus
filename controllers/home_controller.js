@@ -38,7 +38,6 @@ module.exports.nexus = function (req, res) {
   });
 };
 module.exports.fp_mail = async function (req, res) {
-  console.log(res.locals);
   let user = await User.findOne({ email: req.body.email });
   if (user) {
     let email = req.body.email;
@@ -105,15 +104,15 @@ module.exports.createSession = async (req, res) => {
         const logoutPromise = util.promisify(req.logout);
         await logoutPromise.call(req);
         return res.redirect("/limit");
-
+        
       }
       if (!user || user.password !== password) {
         user.point = user.point - 60;
-        console.log(user.point);
+        // console.log(user.point);
         await user.save();
       }
+      console.log(user.point)
       if (user.password !== password) {
-        // User not found or password is incorrect
         req.flash("Error", "User not found or password is incorrect");
         return res.redirect("/");
       }

@@ -69,6 +69,9 @@ body {
   font-size: 18px;
   font-weight: 500; }
 
+.input-name option {
+  background: rgba(0, 0, 0, 0.4); }
+
 .or-div {
   padding: 4.5vh 0; }
 

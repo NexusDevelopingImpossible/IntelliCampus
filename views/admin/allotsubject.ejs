@@ -12,7 +12,7 @@
         <div class="allot__1" id="section1">
             <div class="reg__section">
                 <!-- <form action="/admin/searchteacherid" method="post"> -->
-                    <input type="text" name="registration" id="reg" placeholder="Registration No">
+                    <input type="text" name="registration" id="reg" placeholder="Employee ID">
   
                     <a href="" id="reg-path"><button class="btn btn-full btn-medium" >Select</button></a>
                 <!-- </form> -->
@@ -67,7 +67,7 @@
           let sl = searchval.length;
           console.log(g);
           for(let i = 0; i<g.length; i++){
-            DPMstring = DPMstring + `<li><a href="/admin/searchbaralotsubject/${g[i].username}"><p class="spot-item"><span>${searchval}</span>${(g[i].name).slice(sl)} ${g[i].username}</p></a></li>`
+            DPMstring = DPMstring + `<a href="/admin/searchbaralotsubject/${g[i].username}"><li><p class="spot-item"><span>${searchval}</span>${(g[i].name).slice(sl)} ${g[i].username}</p></li></a>`
           }
           $('#reg-list').html(DPMstring);
         },

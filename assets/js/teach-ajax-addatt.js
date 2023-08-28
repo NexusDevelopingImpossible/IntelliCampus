@@ -29,6 +29,7 @@ let newattDom = function (data) {
   date.value = null;
   console.log(data);
   for (let i = 0; i < data.student.length; i++) {
+    console.log(data.student.length);
     let l = "len" + i;
     document.getElementById("len" + i).innerHTML =
       data.student[i].present.length;

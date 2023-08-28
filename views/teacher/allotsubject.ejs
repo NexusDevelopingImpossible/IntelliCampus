@@ -23,7 +23,12 @@
                                     </span>
                                 </div>
                                 <div class="row2">
-                                    <span>Year : <span class="bold-part">2021 &nbsp;</span></span>
+                                    <%
+                                        const currentTimeStamp = Date.now();
+                                        const currentDate = new Date(currentTimeStamp);
+                                        const currentYear = currentDate.getFullYear();
+                                    %>
+                                    <span>Year : <span class="bold-part"><%=Number(currentYear)-Number(timetable[i].year)+1%> &nbsp;</span></span>
                                     <span class="department">Department : <span class="bold-part">
                                             <%= timetable[i].department%> &nbsp;
                                         </span></span>

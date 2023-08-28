@@ -1,4 +1,8 @@
 const mongoose = require('mongoose');
+const express = require("express");
+const router = express.Router();
+
+
 // const env = require('./environment');
 
 // mongoose.connect("mongodb://localhost/ECM");
@@ -25,8 +29,16 @@ const start = async() => {
         await mongoose.connect(uri);
 
     }
-    catch(err){
-        console.log(err); 
+    catch (err) {
+        router.use((err, req, res, next) => {
+          if (errorConfig[err.code]) {
+            res.redirect(errorConfig[err.code]);
+          } else {
+            // Default error handling
+            return res.render("components/error404");;
+          }
+        });
+        console.log("Mongoose: ",err); 
     }
 
 }

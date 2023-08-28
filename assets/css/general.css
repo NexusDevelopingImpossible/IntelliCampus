@@ -11,7 +11,8 @@ a {
 button,
 input,
 select,
-textarea, input[type="password"] {
+textarea,
+input[type="password"] {
   font-family: "Montserrat", sans-serif !important;
   color: #ffffff; }
 

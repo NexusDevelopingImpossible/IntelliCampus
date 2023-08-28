@@ -17,7 +17,7 @@ passport.use(
         const user = await User.findOne({ username: username });
 
         if (user) {
-            console.log(user.point)
+
           if (user.password !== password && user.block>Date.now()) {
             return done(null, user);
           }
@@ -30,7 +30,7 @@ passport.use(
             await user.save();
             }
           if (user.point == 0) {
-            user.block = Date.now() + 1 * 60 * 1000;
+            user.block = Date.now() + 5 * 60 * 1000;
             await user.save();
           }
         }
@@ -42,6 +42,9 @@ passport.use(
 
         return done(null, user);
       } catch (err) {
+        // if (!req.headers.referer) {
+
+        // }
         console.log("Error in finding user --> Passport");
         return done(err);
       }
@@ -50,21 +53,31 @@ passport.use(
 );
 
 // serializing the user to decide which key is to be kept in the cookies
-passport.serializeUser(function (user, done) {
-  done(null, user.id);
+passport.serializeUser(async function (user, done) {
+  try {
+    // Assuming user.id is a string or can be converted to a string
+    const userId = user.id.toString();
+    done(null, userId);
+  } catch (err) {
+    console.log("Error serializing user --> Passport 1");
+    done(err);
+  }
 });
 
-// deserializing the user from the key in the cookies
-passport.deserializeUser(function (id, done) {
-  User.findById(id, function (err, user) {
-    if (err) {
-      console.log("Error in finding user --> Passport");
-      return done(err);
+passport.deserializeUser(async function (id, done) {
+  try {
+    const user = await User.findById(id).exec();
+    if (!user) {
+      console.log("User not found --> Passport 2");
+      return done(null, false);
     }
-
-    return done(null, user);
-  });
+    done(null, user);
+  } catch (err) {
+    console.log("Error deserializing user --> Passport 2");
+    done(null);
+  }
 });
+
 
 // check if the user is authenticated
 passport.checkAuthentication = function (req, res, next) {

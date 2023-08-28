@@ -19,6 +19,8 @@ const studentAssignment = require("../models/studentassignment");
 const Feedback = require("../models/feedback");
 const { Console } = require("console");
 const SemSection = require("../models/semsection");
+const LockInternal = require("../models/lockinternal");
+
 //Dashboard
 module.exports.dashboard = async (req, res) => {
   try {
@@ -75,7 +77,7 @@ module.exports.subjectstudentlist = async (req, res) => {
       _id: req.params.id,
     }).populate("subjectcode");
     let studentlist = [];
-    if (timetabledata.subjectcode.theorytype == "Core") {
+    if (!timetabledata.section == "All") {
       let studentdata = await Student.find({
         department: timetabledata.department,
         semester: timetabledata.semester,
@@ -97,7 +99,7 @@ module.exports.subjectstudentlist = async (req, res) => {
       });
     }
 
-    if (timetabledata.subjectcode.theorytype == "Elective") {
+    if (timetabledata.section == "All") {
       let studentdata = await Student.find({
         department: timetabledata.department,
         semester: timetabledata.semester,
@@ -117,6 +119,11 @@ module.exports.subjectstudentlist = async (req, res) => {
         studentlist: studentlist,
       });
     }
+    return res.render("teacher/teach-allot-students", {
+      title: "Allot Subject to Student",
+      timetable: timetabledata,
+      studentlist: 0,
+    });
   } catch (err) {
     console.log(err);
   }
@@ -271,17 +278,30 @@ module.exports.getsubject = async (req, res) => {
     data.sort((a, b) => {
       const studentIdA = a.studentid.username;
       const studentIdB = b.studentid.username;
-
       return studentIdA - studentIdB;
     });
+    let lockinternal = await LockInternal.findOne({
+      department: timetables.department,
+      course: timetables.course,
+      semester: timetables.semester,
+    });
+    if (lockinternal) {
+      let check = false;
+      if (lockinternal.lockdate < Date.now()) {
+        check = true;
+      }
+      return res.render("teacher/subject/attendance-add", {
+        title: "Attendance",
+        timetable: timetables,
+        student: data,
+        lockinternal: check,
+      });
+    }
     return res.render("teacher/subject/attendance-add", {
       title: "Attendance",
       timetable: timetables,
       student: data,
-      // timeTableCode: timeTableCode,
-      // marksData: marksData,
-      // attendanceInfo: attendanceInfo,
-      // studentInfo: studentInfo,
+      lockinternal: false,
     });
   } catch (err) {
     console.log(err);
@@ -317,14 +337,16 @@ module.exports.addattendance = async (req, res) => {
       };
       data.present.push(newpresent);
       data.updateattendance = Date.now();
-      data.save();
+      await data.save();
     }
-    
-    const dataB = await Attendance.find({ timetableid: req.body.id }).populate('studentid');
+
+    // const dataB = await Attendance.find({ timetableid: req.body.id }).populate(
+    //   "studentid"
+    // );
     if (req.xhr) {
       return res.status(200).json({
         data: {
-          student: dataB,
+          student: dataA,
         },
       });
     }
@@ -343,10 +365,30 @@ module.exports.attendance_view = async (req, res) => {
     "timetableid studentid"
   );
   data.sort();
+  let lockinternal = await LockInternal.findOne({
+    department: timetables.department,
+    course: timetables.course,
+    semester: timetables.semester,
+  });
+  if (lockinternal) {
+    let check = false;
+    if (lockinternal.lockdate < Date.now()) {
+      check = true;
+    }
+    return res.render("teacher/subject/attendance-view", {
+      title: "Attendance",
+      timetable: timetables,
+      student: data,
+      lockinternal: check,
+    });
+  } else {
+    lockinternal = false;
+  }
   return res.render("teacher/subject/attendance-view", {
     title: "Attendance",
     timetable: timetables,
     student: data,
+    lockinternal: lockinternal,
   });
 };
 
@@ -359,6 +401,25 @@ module.exports.attendance_update = async (req, res) => {
   );
   data.sort();
   const date = false;
+  let lockinternal = await LockInternal.findOne({
+    department: timetables.department,
+    course: timetables.course,
+    semester: timetables.semester,
+  });
+  if (lockinternal) {
+    let check = false;
+    if (lockinternal.lockdate < Date.now()) {
+      check = true;
+    }
+    return res.render("teacher/subject/attendance-update", {
+      title: "Attendance",
+      timetable: timetables,
+      student: data,
+      lockinternal: check,
+    });
+  } else {
+    lockinternal = false;
+  }
   if (req.xhr) {
     return res.status(200).json({
       timetables,
@@ -370,6 +431,7 @@ module.exports.attendance_update = async (req, res) => {
     title: "Attendance",
     timetable: timetables,
     date: date,
+    lockinternal: lockinternal,
   });
 };
 module.exports.attendance_delete = async (req, res) => {
@@ -406,7 +468,13 @@ module.exports.attendaceedit = async (req, res) => {
     data[i].present.push(askeddate);
   }
   data.sort();
-
+    if (req.xhr) {
+      return res.status(200).json({
+        timetables,
+        data,
+        date,
+      });
+    }
   return res.render("teacher/subject/attendance-update", {
     title: "Attendance",
     student: data,
@@ -483,17 +551,33 @@ module.exports.internalmarkspage = async (req, res) => {
   let timetabledata = await Timetable.findById(req.params.id).populate(
     "subjectcode"
   );
-  // let marksData = await MarksScheme.findOne({ timeTableId: req.params.id });
   let data = await Attendance.find({ timetableid: req.params.id }).populate(
     "studentid"
   );
-  // marksData = JSON.stringify(marksData);
-  console.log(timetabledata.internalmarks);
+  let lockinternal = await LockInternal.findOne({
+    department: timetabledata.department,
+    course: timetabledata.course,
+    semester: timetabledata.semester,
+  });
+  if (lockinternal) {
+    let check = false;
+    if (lockinternal.lockdate < Date.now()) {
+      check = true;
+    }
+    return res.render("teacher/subject/internalmarks", {
+      title: "Internal marks",
+      timetable: timetabledata,
+      student: data,
+      lockinternal: check,
+    });
+  } else {
+    lockinternal = false;
+  }
   return res.render("teacher/subject/internalmarks", {
     title: "Internal marks",
     timetable: timetabledata,
-    // marksData: marksData,
     student: data,
+    lockinternal: false,
   });
 };
 
@@ -507,7 +591,8 @@ module.exports.viewnotes = async (req, res) => {
     const allnotes = await Subjectnotes.findOne({
       subjectid: timetables.subjectcode._id,
     });
-    const notes = allnotes.notes.filter((book) => book.type === "Notes");
+    console.log(allnotes);
+    const notes = allnotes.notes.filter((book) => book.type === "notes");
     const pyqs = allnotes.notes.filter((book) => book.type === "pyqs");
     const samplepapers = allnotes.notes.filter(
       (book) => book.type === "samplepapers"
@@ -1257,8 +1342,6 @@ module.exports.attendancegrantadd = async (req, res) => {
     res.json({ Error: error });
   }
 };
-
-
 
 module.exports.tgsendmail = async (req, res) => {
   try {
