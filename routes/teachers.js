@@ -23,6 +23,7 @@ router.get("/attendaceedit/:id", teacherController.attendaceedit);
 router.post("/addattendance", teacherController.addattendance);
 router.post("/change_attendance", teacherController.change_attendance);
 router.get("/notes/:id", teacherController.viewnotes);
+router.get("/notes/delete/:id/:t", teacherController.deletenotes);
 router.get("/search/:registration", teacherController.profile);
 router.post("/subject/uploadnotes", teacherController.uploadnote);
 router.get("/result-analytics", teacherController.res_analysis);

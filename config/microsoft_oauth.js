@@ -13,15 +13,12 @@ passport.use(new MicrosoftStrategy({
 function (accessToken, refreshToken, profile, done) {
   // asynchronous verification, for effect...
   process.nextTick(function () {
-    console.log(profile);
-    console.log(profile.emails[0].value)
+    // console.log(profile);
+    // console.log(profile.emails[0].value)
     User.findOne({email: profile.emails[0].value }).exec(function(err, userdata){
       return done(null, userdata);
 
     });
-
-
-
   });
 }
 ));

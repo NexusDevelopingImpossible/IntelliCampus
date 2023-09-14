@@ -42,11 +42,11 @@ module.exports.fp_mail = async function (req, res) {
   if (user) {
     let email = req.body.email;
     let genotp = generateRandom4DigitNumber();
-    OTP.create({
+    await OTP.create({
       userid: user._id,
       otp: genotp,
     });
-    forgotpassword.sendotp(user, genotp);
+    await forgotpassword.sendotp(user, genotp);
     if (req.xhr) {
       return res.status(200).json({
         email,
@@ -151,6 +151,7 @@ module.exports.createSession = async (req, res) => {
 module.exports.micin = async function (req, res) {
   let user = await User.findById(req.user._id);
   if (!user) {
+    req.flash("Error", "Emial ID is incorrect");
     return res.redirect("/");
   }
   if (user.position === "student") {
@@ -160,6 +161,7 @@ module.exports.micin = async function (req, res) {
   } else if (user.position === "admin") {
     return res.redirect("/admin/dashboard");
   } else {
+    req.flash("Error", "Emial ID is incorrect");
     return res.redirect("login-signup/signup");
   }
 };

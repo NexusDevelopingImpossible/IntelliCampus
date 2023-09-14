@@ -19,6 +19,7 @@ const Feedback = require("../models/feedback");
 const { setTimeout } = require("timers/promises");
 const studentAssignment = require("../models/studentassignment");
 const Assignment = require("../models/assignment");
+const TG = require("../models/tg");
 
 module.exports.dashboard = async (req, res) => {
   try {
@@ -38,7 +39,9 @@ module.exports.dashboard = async (req, res) => {
       arr.push(dd);
     }
     // req.locals.int = internal;
-
+    let tg = await TG.findOne({ studentid: studentdata._id }).populate(
+      "teacherid"
+    );
     return res.render("student/dashboard", {
       title: "Dashboard",
       student: studentdata,
@@ -46,6 +49,7 @@ module.exports.dashboard = async (req, res) => {
       calendardata,
       notidata,
       arr,
+      tg
     });
   } catch (err) {
     console.log(err);

@@ -447,7 +447,26 @@ module.exports.attendance_delete = async (req, res) => {
   const data = await Attendance.find({ timetableid: timetableid }).populate(
     "timetableid studentid"
   );
-  // console.log(timetables);
+  // console.log(dateid);
+  for (let i = 0; i < data.length; i++) {
+    const indexToDelete = data[i].present.findIndex(
+      (item) => String(item.date) == dateid
+    );
+    // console.log(indexToDelete);
+    for (let j = 0; j < data[i].present.length; j++) {
+      // console.log(String(data[i].present[j].date));
+    }
+    if (data[i].present[indexToDelete].att == true) {
+      data[i].totalpresent--;
+    }
+    if (indexToDelete !== -1) {
+      data[i].present.splice(indexToDelete, 1);
+    }
+    // console.log(indexToDelete);
+    // console.log(data[i].present);
+    await data[i].save();
+  }
+  req.flash("success", "Attendance deleted.");
   return res.redirect("back");
 };
 
@@ -468,13 +487,13 @@ module.exports.attendaceedit = async (req, res) => {
     data[i].present.push(askeddate);
   }
   data.sort();
-    if (req.xhr) {
-      return res.status(200).json({
-        timetables,
-        data,
-        date,
-      });
-    }
+  if (req.xhr) {
+    return res.status(200).json({
+      timetables,
+      data,
+      date,
+    });
+  }
   return res.render("teacher/subject/attendance-update", {
     title: "Attendance",
     student: data,
@@ -607,6 +626,21 @@ module.exports.viewnotes = async (req, res) => {
       samplepapers,
       videos,
     });
+  } catch (err) {
+    console.log(err);
+  }
+};
+module.exports.deletenotes = async (req, res) => {
+  try {
+    console.log(req.params);
+    // let notes = await Subjectnotes.findOne({ subjectid: req.params.t });
+    const notes = await Subjectnotes.updateOne(
+      { subjectid: req.params.t }, // Replace with your document's _id
+      { $pull: { notes: { _id: req.params.id } } }
+    );
+
+
+    return res.redirect('back');
   } catch (err) {
     console.log(err);
   }

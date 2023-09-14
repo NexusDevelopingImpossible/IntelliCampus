@@ -95,8 +95,8 @@ app.use(customMware.setFlash);
 app.use("/", require("./routes"));
 
 // // Schedule a task to run on the 15th and 30th days of the month
-// // cron.schedule('0 0 15,30 * *', () => {
-// cron.schedule("*/100 * * * * *", () => {
+// cron.schedule('0 0 15,30 * *', () => {
+// cron.schedule("*/10 * * * * *", () => {
 //   // This function will be executed every 5 minutes
 //   console.log("Running the task...");
 //   cronController.attendancemail();

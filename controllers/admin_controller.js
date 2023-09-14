@@ -27,6 +27,7 @@ const AttendanceGrant = require("../models/attendancegrant");
 const FeedbackAdmin = require("../models/feedbackadmin");
 const Attendance = require("../models/attendance");
 const Feedback = require("../models/feedback");
+const Mail = require("../models/mail");
 
 //Dashboard
 module.exports.dashboard = async (req, res) => {
@@ -1048,8 +1049,10 @@ module.exports.mail = async (req, res) => {
   try {
     checkurlfunct.checkurladmin(req, res);
     const semsec = await SemSection.find();
+    let admindata = await Admin.findOne({ username: res.locals.user.username });
+    let maillist = await Mail.find({department: admindata.department});
     // admin_mailer.newmail();
-    res.render("admin/mail", { title: "Mail", semsec });
+    res.render("admin/mail", { title: "Mail", semsec, maillist });
   } catch (err) {
     console.log(err);
   }
@@ -1566,6 +1569,20 @@ module.exports.tgward = async (req, res) => {
     teacherdata,
     count,
   });
+};
+module.exports.mailsend = async (req, res) => {
+  checkurlfunct.checkurladmin(req, res);
+  let admindata = await Admin.findOne({ username: res.locals.user.username });
+  console.log(req.body)
+  await Mail.create({
+    department: req.body.department,
+    course: req.body.course,
+    semester: req.body.semester,
+    section: req.body.section,
+    subject: req.body.subject,
+    description: req.body.description
+  });
+  return res.redirect('back');
 };
 module.exports.tgwardexport = async (req, res) => {
   checkurlfunct.checkurladmin(req, res);

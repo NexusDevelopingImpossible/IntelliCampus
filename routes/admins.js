@@ -58,6 +58,7 @@ router.post("/activate/account", adminController.activateaccount);
 router.get("/section", adminController.section);
 router.post("/section/addstudent", adminController.addstudentsection);
 router.get("/mail", adminController.mail);
+router.post("/mail/send", adminController.mailsend);
 router.get("/section/searchstudent", adminController.searchsectionstudent);
 router.get("/reports", adminController.reports);
 router.get("/feedback", adminController.feedback);

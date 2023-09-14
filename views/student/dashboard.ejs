@@ -61,13 +61,13 @@
           </div>
           <div class="b3">
             <h1>
-              <span>TG : </span> Teacher Guardian
+              <span>TG : </span> <%if(tg){%><%=tg.teacherid.name%><%}%>
             </h1>
             <h1>
-              <span> No : </span> 8789334292
+              <span> No : </span> <%if(tg){%><%=tg.teacherid.phoneNo%><%}%>
             </h1>
             <h1>
-              <span> Chamber : </span> B - 909
+              <span> Chamber : </span> 
             </h1>
           </div>
         </div>
@@ -185,9 +185,10 @@
                   <div class="pdf">
                     <a href="<%=notidata[i].notiflie%>" target="_blank">
                       <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"  viewBox="0 0 24 24" ><g><rect/></g><g><path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z"/></g></svg>
-                    </a><a class="createStudentNotiBtn" href="/student/pinnoti/<%=notidata[i]._id%>">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V6c0-.55.45-1 1-1h8c.55 0 1 .45 1 1v12z"/></svg>
                     </a>
+                    <!-- <a class="createStudentNotiBtn" href="/student/pinnoti/<%=notidata[i]._id%>">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V6c0-.55.45-1 1-1h8c.55 0 1 .45 1 1v12z"/></svg>
+                    </a> -->
                     <input type="hidden" id="/student/pinnoti/<%=notidata[i]._id%>-title"
                       value="<%=notidata[i].title%>" />
                     <input type="hidden" id="/student/pinnoti/<%=notidata[i]._id%>-file"
@@ -215,9 +216,10 @@
                 <div class="pdf">
                   <a href="<%=notidata[i].notiflie%>" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"  viewBox="0 0 24 24" ><g><rect/></g><g><path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z"/></g></svg>
-                  </a><a class="createStudentNotiBtn" href="/student/unpinnoti/<%=notidata[i]._id%>">
-                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
                   </a>
+                  <!-- <a class="createStudentNotiBtn" href="/student/unpinnoti/<%=notidata[i]._id%>">
+                  <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+                  </a> -->
                 </div>
               </div>
               <%}}%>
