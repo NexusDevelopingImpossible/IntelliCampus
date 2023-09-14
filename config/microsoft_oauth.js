@@ -7,7 +7,7 @@ const User = require("../models/user");
 passport.use(new MicrosoftStrategy({
   clientID: MICROSOFT_GRAPH_CLIENT_ID,
   clientSecret: MICROSOFT_GRAPH_CLIENT_SECRET,
-  callbackURL: 'http://intellicampus.in/auth/microsoft/redirect',
+  callbackURL: 'https://intellicampus.in/auth/microsoft/redirect',
   scope: ['user.read']
 },
 function (accessToken, refreshToken, profile, done) {
