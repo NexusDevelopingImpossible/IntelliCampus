@@ -1,0 +1,79 @@
+.main-page .blur .main-content {
+  width: 75vw;
+  height: 8vh;
+  margin: 0 auto;
+  margin-top: 6vh;
+  align-items: center; }
+  .main-page .blur .main-content .ch-passwd-head {
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600; }
+  .main-page .blur .main-content .pass-sec {
+    margin-top: 1rem;
+    width: 75vw;
+    height: 10vh;
+    display: flex;
+    gap: 2rem;
+    align-items: center; }
+    .main-page .blur .main-content .pass-sec input {
+      border-radius: 15px;
+      background-color: #fff;
+      width: 20vw;
+      height: 4rem;
+      letter-spacing: 0.05em;
+      border-style: none;
+      font-weight: 600;
+      font-size: 1rem;
+      text-align: left;
+      padding: 0.1rem 0.8rem;
+      color: #7b6e6e; }
+      .main-page .blur .main-content .pass-sec input::placeholder {
+        color: #7b6e6e; }
+  .main-page .blur .main-content #save {
+    border-radius: 15px;
+    background: #515151;
+    color: #fff;
+    font-size: 1.1rem;
+    border-style: none;
+    width: 10vw;
+    cursor: pointer;
+    height: 4rem; }
+  .main-page .blur .main-content .toggle-div {
+    margin-top: 4vh;
+    display: flex;
+    align-items: center;
+    gap: 6vw; }
+    .main-page .blur .main-content .toggle-div .toggle-set {
+      display: flex;
+      align-items: center;
+      gap: 1vw; }
+      .main-page .blur .main-content .toggle-div .toggle-set .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px; }
+        .main-page .blur .main-content .toggle-div .toggle-set .toggle-switch input {
+          display: none; }
+        .main-page .blur .main-content .toggle-div .toggle-set .toggle-switch .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba(0, 0, 0, 0.3);
+          transition: 0.4s;
+          border-radius: 34px; }
+          .main-page .blur .main-content .toggle-div .toggle-set .toggle-switch .slider::before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: rgba(255, 255, 255, 0.4);
+            transition: 0.4s;
+            border-radius: 50%; }
+        .main-page .blur .main-content .toggle-div .toggle-set .toggle-switch input:checked + .slider::before {
+          background-color: #fd6d08;
+          transform: translateX(26px); }

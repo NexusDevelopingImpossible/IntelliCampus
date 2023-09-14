@@ -1,0 +1,98 @@
+.card5 .wrapper {
+  border-radius: 10%;
+  padding-top: 1.75vh; }
+  .card5 .wrapper header .calendar-hed {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1.5vw; }
+    .card5 .wrapper header .calendar-hed .current-DATE {
+      font-size: 2.45vh;
+      font-weight: 500;
+      margin: auto;
+      color: #fff; }
+      .card5 .wrapper header .calendar-hed .current-DATE .current-year {
+        text-align: center;
+        font-weight: 300; }
+      .card5 .wrapper header .calendar-hed .current-DATE .current-date {
+        text-align: center; }
+  .card5 .wrapper header .icons span {
+    height: 2.2vw;
+    width: 2.2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+    font-size: 2.5vh;
+    user-select: none;
+    border-radius: 50%;
+    background-color: #ffffff2e; }
+  .card5 .wrapper header .icons span:hover {
+    background-color: #0000002e; }
+  .card5 .wrapper .calendar {
+    padding: 0 0.75vw; }
+    .card5 .wrapper .calendar ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      text-align: center; }
+      .card5 .wrapper .calendar ul li {
+        color: #fff;
+        width: 14.28%;
+        font-size: 1.9vh; }
+    .card5 .wrapper .calendar .weeks {
+      padding-top: 1.75vh;
+      padding-bottom: 1.5vh; }
+      .card5 .wrapper .calendar .weeks li {
+        font-weight: 400;
+        color: #f5c8a78e;
+        font-size: 1.9vh;
+        cursor: default;
+        text-align: center; }
+    .card5 .wrapper .calendar .days li {
+      cursor: pointer;
+      padding: 1.3vh; }
+    .card5 .wrapper .calendar .days li.inactive {
+      color: #aaa; }
+    .card5 .wrapper .calendar .days li.active {
+      color: #fff; }
+    .card5 .wrapper .calendar .days li.active::before {
+      background: #00000043;
+      border-radius: 5px; }
+    .card5 .wrapper .calendar .days li::before {
+      position: absolute;
+      content: "";
+      left: 50%;
+      top: 50%;
+      height: 2.5vw;
+      width: 2.5vw;
+      z-index: -1;
+      transform: translate(-50%, -50%); }
+
+.main-div {
+  width: 100%;
+  height: 100%;
+  position: relative; }
+
+.hidden-div {
+  width: 17vw;
+  height: 6vh;
+  background-color: #FD6D08;
+  backdrop-filter: blur(62px);
+  border-radius: 10px;
+  position: absolute;
+  display: none;
+  z-index: 1;
+  font-size: 2vh;
+  font-weight: 500;
+  align-items: center;
+  padding: 0.75vh 1vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff; }
+
+.holiday-active::before {
+  background-color: #ffffff30;
+  border-radius: 5px; }

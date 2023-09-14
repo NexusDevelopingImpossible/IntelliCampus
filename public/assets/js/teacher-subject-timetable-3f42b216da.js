@@ -1,1 +1,0 @@
-function changeContent(e){card.getElementsByClassName("cont-def")[0].style.display="none",card.getElementsByClassName("cont-hover")[0].style.display="block"}function restoreContent(e){card.getElementsByClassName("cont-hover")[0].style.display="none",card.getElementsByClassName("cont-def")[0].style.display="block"}

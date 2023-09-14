@@ -1,0 +1,257 @@
+.student-info {
+  width: 65vw;
+  margin: auto;
+  padding-bottom: 4vh; }
+
+.std-info {
+  background-color: #00000025;
+  padding: 2vh 1.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px; }
+
+.back-btn a svg:hover {
+  fill: #ffffff76; }
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75vw; }
+
+.student__details .name {
+  color: #fff;
+  font-weight: 500;
+  font-size: 2.4vh; }
+
+.student__details .registration {
+  color: #fff;
+  font-size: 2vh;
+  font-weight: 100; }
+
+.image {
+  width: 3.75vw;
+  height: 3.75vw; }
+
+.image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid #fd6d08; }
+
+.attendance-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4vh; }
+
+.attendance-info div {
+  display: flex;
+  gap: 1vw; }
+
+.std-btn {
+  display: flex;
+  gap: 1vw; }
+
+.export {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.75vw !important;
+  width: 7vw !important; }
+
+.export img {
+  width: 17px;
+  height: 17px; }
+
+.attendance-info span {
+  padding-left: 0.5vw;
+  font-weight: 600; }
+
+.date-list {
+  display: flex;
+  gap: 4vw;
+  height: 55vh;
+  overflow-x: auto;
+  width: 65vw;
+  margin: auto; }
+  .date-list .att-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw; }
+    .date-list .att-list .att-day {
+      display: flex;
+      justify-content: space-around;
+      width: 15vw;
+      padding: 1vh 0;
+      align-items: center;
+      background-color: #f8d57b30;
+      border-radius: 0.75vw; }
+      .date-list .att-list .att-day .att-no {
+        font-weight: 200;
+        font-size: 2vh; }
+      .date-list .att-list .att-day .att-date {
+        font-weight: 500;
+        font-size: 2vh; }
+      .date-list .att-list .att-day #clc {
+        background: none;
+        align-items: center;
+        justify-content: center;
+        width: 1.6vw;
+        height: 1.6vw;
+        border: 2px solid #fff;
+        border-radius: 100%;
+        display: flex; }
+        .date-list .att-list .att-day #clc #clp {
+          background: #fd6d08;
+          width: 1.4vw;
+          height: 1.4vw;
+          border-radius: 100%; }
+
+.att-cont {
+  height: 60vh; }
+
+.profile_photo {
+  width: 4vw;
+  height: 4vw; }
+
+.search-input {
+  display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  font-size: 2vh;
+  color: #ffffff; }
+
+.search-btn {
+  padding: 1.75vh 1vw;
+  background: #00000037;
+  color: #fff;
+  border-radius: 19px;
+  cursor: pointer;
+  margin: auto;
+  transition: all 0.3s; }
+
+.search-btn:hover {
+  background: #0000006a; }
+
+.search-input input {
+  border-radius: 20px;
+  background: transparent;
+  border: none;
+  padding: 1.75vh 1vw;
+  font-size: 2vh;
+  color: #ffffff;
+  width: 25vw; }
+
+.search-input input:focus {
+  outline: none; }
+
+.search-input::placeholder {
+  color: #ffffff7c; }
+
+.export-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.export-btn img {
+  width: 18px;
+  height: 18px; }
+
+.export-btn {
+  text-decoration: none;
+  padding: 1.5vh 1.2vw;
+  background: #fd6d08;
+  width: 8.5vw;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s; }
+
+.export-btn:hover {
+  background: #ea6404; }
+
+.tab-header {
+  height: 6vh;
+  padding: 0 7.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+/* - - - - - - - - - - - - - - - -  */
+/*  student's attendance profile */
+/* - - - - - - - - - - - - - - - -  */
+.student-profile {
+  overflow-y: auto;
+  max-height: 65vh;
+  margin-top: 2.5vh; }
+
+.student-profile::-webkit-scrollbar {
+  display: none; }
+
+.Alphabet {
+  float: left;
+  padding-top: 2vh; }
+
+.serial_naming {
+  display: flex; }
+
+.stu_list {
+  padding: 0 7.5vw; }
+
+.postcard {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 11.75vw;
+  height: 19vh;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5vh;
+  position: relative;
+  transition: all 0.1s; }
+
+.postcard:hover {
+  background-color: rgba(255, 255, 255, 0.169); }
+
+.order {
+  font-size: 4vh;
+  font-weight: lighter;
+  display: inline-block; }
+
+.stu_name_cards {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+
+.stu_name {
+  font-weight: 500;
+  padding-top: 1.3vh; }
+
+.stu_reg_no {
+  font-weight: 100; }
+
+.mark {
+  position: absolute;
+  top: 1.3vh;
+  right: 0.7vw;
+  width: 1vw;
+  height: 1vw;
+  border-radius: 100%; }
+
+.present {
+  background-color: #24ff00; }
+
+.absent {
+  background-color: #ff0000; }
+
+.sub-name a svg {
+  width: 1.65vw;
+  fill: #fff;
+  transition: all 0.3s; }
+
+.sub-name a svg:hover {
+  width: 1.75vw;
+  fill: #ffffffc7; }

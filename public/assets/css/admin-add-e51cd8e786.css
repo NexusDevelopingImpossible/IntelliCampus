@@ -1,0 +1,189 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  color: white; }
+
+.input-page {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh; }
+
+.input-heading-1 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 3rem; }
+
+.input-heading-3 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  padding-bottom: 2rem; }
+
+.input-heading-4 {
+  font-size: 1rem;
+  display: none;
+  /* margin: 2rem 0rem; */
+  /* font-weight: 600; */
+  /* text-align: center; */ }
+
+.input-div {
+  display: flex;
+  gap: 1rem; }
+
+.form-set {
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.8rem; }
+
+.form-set1 {
+  gap: 2vw;
+  flex-direction: row; }
+
+.form-text {
+  margin-left: 0.2rem;
+  margin-bottom: 0.2rem; }
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.3rem;
+  align-items: center; }
+
+.input-submit {
+  margin: 2.5vh 0 0 0;
+  height: 2.5rem; }
+
+.input-set {
+  display: flex;
+  flex-direction: column; }
+
+.input-name {
+  width: 180px;
+  border-radius: 10px;
+  border: 0.5px solid white;
+  background-color: #f8d57b30;
+  padding: 0.7rem 1rem;
+  color: white;
+  font-size: 18px;
+  font-weight: 500; }
+
+.input-name option {
+  background: rgba(0, 0, 0, 0.4); }
+
+.or-div {
+  padding: 4.5vh 0; }
+
+.reg-input {
+  width: 230px;
+  border-radius: 15px; }
+
+.std-input {
+  width: 160px; }
+
+.input-name:focus {
+  outline: none;
+  border: 0.5px solid #fadb0e; }
+
+.input-name::placeholder {
+  color: rgba(255, 255, 255, 0.315);
+  font-size: 18px;
+  font-weight: 500; }
+
+.input-page2 {
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  margin: auto; }
+
+input[type="checkbox"] {
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.75rem;
+  appearance: none;
+  -webkit-appearance: none;
+  vertical-align: middle;
+  background-color: transparent;
+  border: 3px solid #fff;
+  border-radius: 20px;
+  cursor: pointer; }
+
+input[type="checkbox"]:checked {
+  background-color: #fd6d08; }
+
+#form-list {
+  height: 73vh;
+  overflow-y: scroll; }
+
+#form-list::-webkit-scrollbar {
+  display: none; }
+
+.btn-div {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem; }
+
+.import-bnt {
+  display: flex;
+  gap: 1.5vw;
+  align-items: center; }
+
+.template-div {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.template-btn {
+  font-size: 0.85vw !important;
+  border-radius: 10px !important;
+  width: 8vw; }
+
+input[type="file"] {
+  display: none; }
+
+.custom-file-upload {
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.08);
+  width: 20vw;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 1.2vw;
+  position: relative; }
+
+.custom-file-upload svg {
+  position: absolute;
+  transform: translateY(-50%);
+  right: 0.5vw;
+  width: 2vw;
+  fill: #fff;
+  transition: transform 0.3s ease-in-out; }
+
+#file-name {
+  display: flex;
+  align-items: center;
+  width: 20vw;
+  padding: 0 1.5vw;
+  height: 6vh;
+  overflow: auto; }
+
+#submit-btn {
+  opacity: 0.4;
+  border-radius: 15px; }
+
+#select-file {
+  width: 10vw; }
+
+.submit-btn {
+  height: 6vh; }
+
+.input-file {
+  display: flex;
+  gap: 1vw;
+  margin-top: 4.5vh;
+  align-items: center;
+  justify-content: center; }

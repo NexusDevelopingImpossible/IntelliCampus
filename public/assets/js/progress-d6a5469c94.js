@@ -1,1 +1,0 @@
-const circleProgress=document.querySelectorAll(".circle-progress");circleProgress.forEach((e=>{const r=e.querySelector(".progress-val"),c=3.6*parseInt(r.textContent);e.style.background=`conic-gradient(from 0deg, #ffbd01 0deg ${c}deg, #00000068 ${c}deg 360deg)`}));

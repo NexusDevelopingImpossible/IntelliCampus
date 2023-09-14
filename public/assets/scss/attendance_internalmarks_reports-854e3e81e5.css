@@ -1,0 +1,103 @@
+@media print {
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        width: 270mm;
+        height: 594mm;
+    }
+
+    .report_main {
+        display: flex;
+        flex-direction: column;
+        margin: 2rem;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .report_header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-weight: 700;
+    }
+
+    .report_sbj {
+        display: flex;
+        background-color: rgba(0, 0, 0, 0.051) !important;
+        print-color-adjust: exact;
+        border-radius: 5px;
+        margin: 2.5rem 0 1rem;
+        padding: 0.3rem 1rem;
+        justify-content: space-between;
+        font-weight: 600;
+    }
+
+    .report_sbj span {
+        font-weight: 300;
+    }
+
+    .report_duration {
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .report_duration span {
+        font-weight: 300;
+    }
+
+    .report {
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,
+    td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #0000000d !important;
+        print-color-adjust: exact;
+    }
+
+    th:nth-child(1) {
+        width: 4%;
+    }
+
+    th:nth-child(2) {
+        width: 22%;
+    }
+
+    th:nth-child(3) {
+        width: 11%;
+    }
+
+    th:nth-child(4),
+    th:nth-child(5),
+    th:nth-child(6),
+    th:nth-child(7),
+    th:nth-child(8),
+    th:nth-child(9),
+    th:nth-child(10) {
+        width: 7%;
+    }
+
+    .page-number:after {
+        counter-increment: pages;
+        content: counter(page) " of " counter(pages);
+       
+    }
+    .page-number{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+
+    }
+}

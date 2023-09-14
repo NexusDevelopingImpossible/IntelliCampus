@@ -1,0 +1,30 @@
+.heading {
+  padding: 2vh 4vw;
+  padding-bottom: 5vh; }
+
+.head {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 7vh; }
+
+.main-cont {
+  padding: 0rem 4vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw; }
+
+.sm-cont {
+  background: rgba(248, 213, 123, 0.26);
+  border-radius: 15px;
+  width: 21rem;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.105); }
+
+.sm-cont:hover {
+  background: rgba(248, 213, 123, 0.164); }

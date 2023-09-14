@@ -1,0 +1,218 @@
+.cards {
+  display: flex;
+  height: 80vh;
+  justify-content: space-between;
+  padding: 1vh 3vw; }
+  .cards .card-col1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+
+.card {
+  background-color: #f8d57b1e;
+  box-shadow: 0px 0px 14px 0px rgba(63, 61, 61, 0.1);
+  border-radius: 15px; }
+
+.card1 {
+  height: 12vh;
+  width: 53vw;
+  padding: 0 1vw;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .card1 .b1 {
+    display: flex;
+    align-items: center; }
+    .card1 .b1 .img {
+      width: 4.5vw;
+      height: 4.5vw;
+      border-radius: 50%;
+      border: 2px solid #fea769ac;
+      margin-right: 0.8vw; }
+    .card1 .b1 .img:hover {
+      opacity: 0.9; }
+    .card1 .b1 div .std-name {
+      font-size: 2.5vh;
+      font-weight: 600;
+      line-height: 1.5; }
+    .card1 .b1 div .reg {
+      font-weight: 100;
+      font-size: 2.2vh; }
+  .card1 .b2 div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vh; }
+    .card1 .b2 div h1 {
+      display: flex;
+      font-size: 1.9vh;
+      font-weight: 400; }
+    .card1 .b2 div h1 span {
+      display: block;
+      width: 6.5vw;
+      font-weight: 200; }
+  .card1 .b3 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vh; }
+    .card1 .b3 h1 {
+      display: flex;
+      font-size: 1.9vh;
+      font-weight: 400; }
+    .card1 .b3 h1 span {
+      display: block;
+      width: 6.5vw;
+      font-weight: 200; }
+
+.card2 {
+  height: 25vh;
+  padding: 0 1vw;
+  width: 53vw; }
+  .card2 .card-hed p {
+    padding-top: 1vh;
+    font-size: 2.65vh;
+    color: #f8d0b4; }
+  .card2 .att-card-hed {
+    padding-top: 1vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .card2 .att-card-hed p {
+      padding-top: 0 !important; }
+    .card2 .att-card-hed a svg {
+      cursor: pointer;
+      transition: all 0.2s; }
+    .card2 .att-card-hed a svg:hover {
+      fill: #ffffffab; }
+  .card2 .attendence-container {
+    width: 50.75vw;
+    overflow-x: auto;
+    white-space: nowrap;
+    -ms-overflow-style: none; }
+    .card2 .attendence-container .attendence-percent {
+      display: flex;
+      gap: 3vw;
+      padding-top: 2vh;
+      padding-bottom: 3vh; }
+      .card2 .attendence-container .attendence-percent .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; }
+        .card2 .attendence-container .attendence-percent .container .circle-progress {
+          position: relative;
+          width: 5vw;
+          height: 5vw;
+          border-radius: 50%;
+          background: conic-gradient(#ffbd01 0deg, #00000068 0deg);
+          display: flex;
+          align-items: center;
+          justify-content: center; }
+          .card2 .attendence-container .attendence-percent .container .circle-progress .progress-val {
+            position: relative;
+            font-size: 2.3vh;
+            font-weight: 600;
+            color: #fff; }
+        .card2 .attendence-container .attendence-percent .container .circle-progress::before {
+          content: "";
+          position: absolute;
+          width: 4.5vw;
+          height: 4.5vw;
+          background-color: #877b6f;
+          border-radius: 50%; }
+        .card2 .attendence-container .attendence-percent .container .sub-info {
+          text-align: center;
+          font-weight: 500;
+          color: #fff;
+          margin-top: 1.5vh; }
+          .card2 .attendence-container .attendence-percent .container .sub-info .sub-code {
+            font-size: 1.7vh;
+            font-weight: 100; }
+          .card2 .attendence-container .attendence-percent .container .sub-info .sub-name {
+            font-size: 2.3vh; }
+  .card2 .attendence-container::-webkit-scrollbar {
+    display: none; }
+
+.card3 {
+  height: 37vh;
+  width: 53vw;
+  padding: 0 1vw; }
+  .card3 .card-hed p {
+    padding-top: 1vh;
+    font-size: 2.65vh;
+    color: #f8d0b4; }
+
+.card4 {
+  height: 34vh;
+  width: 24vw;
+  padding: 0 1vw; }
+  .card4 .card-hed p {
+    padding-top: 1vh;
+    font-size: 2.65vh;
+    color: #f8d0b4;
+    padding-bottom: 1.5vh; }
+  .card4 .content {
+    height: 26vh;
+    overflow-x: auto;
+    overflow-y: auto;
+    -ms-overflow-style: none; }
+    .card4 .content .notification {
+      padding-bottom: 2vh;
+      display: flex;
+      gap: 0.5vw;
+      justify-content: space-between; }
+      .card4 .content .notification .text {
+        font-size: 2vh; }
+        .card4 .content .notification .text .old {
+          color: #ffffff74; }
+        .card4 .content .notification .text .new {
+          color: #fff;
+          font-weight: 400; }
+        .card4 .content .notification .text .time {
+          color: #ffffff63;
+          padding-top: 0.5vh;
+          font-weight: 400;
+          font-size: 1.5vh; }
+      .card4 .content .notification .pdf a {
+        color: #fff; }
+        .card4 .content .notification .pdf a .download-outline:hover,
+        .card4 .content .notification .pdf a .pin-outline:hover {
+          cursor: pointer;
+          color: #8a8787; }
+  .card4 .content::-webkit-scrollbar {
+    display: none; }
+
+.card5 {
+  width: 24vw;
+  height: 42vh; }
+
+.saved,
+.noted svg {
+  width: 1.5vw;
+  fill: #fff;
+  cursor: pointer; }
+
+.saved svg:hover,
+.noted svg:hover {
+  fill: #ffffff8a; }
+
+.announcements {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.saved-noty {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; }
+
+.noty2 {
+  display: none; }
+
+.pdf a svg {
+  width: 1.5vw;
+  fill: #fff; }
+
+.card-internal,
+.mobile-header,
+.sidebar1 {
+  display: none; }
